@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=12.22.0"
   },
-  "version": "5.0.0",
+  "version": "2023.10.11",
   "dependencies": {
     "@fleker/gents": "^1.1.0",
     "suncalc": "^1.8.0"
