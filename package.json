@@ -1,0 +1,41 @@
+{
+  "name": "pokemon-as-a-service",
+  "version": "2023.10.11",
+  "description": "A starting point for community-organized Pokémon games",
+  "author": "Nick Felker",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/fleker/pokemon-as-a-service",
+  "scripts": {
+    "build": "yarn build:hosting && yarn build:functions",
+    "build:gen": "bash gen.sh",
+    "build:hosting": "cd client && yarn build",
+    "build:functions": "cd functions/ && yarn build",
+    "copy:images": "cp -r images client/src/assets/",
+    "test": "exit 0",
+    "deploy": "yarn build && firebase deploy --only functions,hosting",
+    "script": "sh -c './node_modules/.bin/tsc --downlevelIteration --skipLibCheck --lib es2019 --target ES5 scripts/${0}.ts && node scripts/${0}.js ${*:1}'",
+    "rescript": "sh -c 'node scripts/${0}.js ${*:1}'"
+  },
+  "dependencies": {
+    "@fleker/salamander": "^1.0.2",
+    "firebase-functions": "^3.24.1",
+    "object.fromentries": "^2.0.6",
+    "promise.allsettled": "^1.0.6",
+    "spacetime": "^6.16.1",
+    "suncalc": "^1.8.0",
+    "web-animations-js": "^2.3.1"
+  },
+  "devDependencies": {
+    "@fleker/gents": "^1.1.1",
+    "@types/node": "^15.12.5",
+    "@webcomponents/webcomponentsjs": "^2.0.0",
+    "fast-csv": "^4.3.6",
+    "firebase-admin": "^10.2.0",
+    "node-fetch": "^2.6.1",
+    "typescript": "^4.3.2",
+    "wct-browser-legacy": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=8.0"
+  }
+}
