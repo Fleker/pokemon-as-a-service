@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<svg width="285.654" height="285.654" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <path d="m141.86,18.75c13.2,4.01 19.01,9.82 17.44,17.42l-1.93,220.87c-0.93,7.28 -11.91,16.94 -16.89,17.67l-116.55,-0.73c-12.92,-3.85 -20.3,-9.17 -22.15,-15.96l1.11,-221.84c3.32,-7.61 9.04,-13.58 17.16,-17.92l121.81,0.49zm-108.18,158.53l85.16,0l0,-83.43l-85.16,0l0,83.43z" fill="rgb(153, 153, 153)" id="svg_1" stroke="rgb(0, 0, 0)"/>
+  <ellipse cx="36" cy="46.85" fill="rgba(216, 216, 216, 0)" id="svg_3" rx="16.32" ry="16.32" stroke="rgb(0, 0, 0)" stroke-width="4px"/>
+  <ellipse cx="84.61" cy="38.24" fill="rgba(216, 216, 216, 0)" id="svg_4" rx="5.52" ry="5.77" stroke="rgb(0, 0, 0)" stroke-width="4px"/>
+  <ellipse cx="104.06" cy="38.42" fill="rgba(216, 216, 216, 0)" id="svg_5" rx="5.52" ry="5.77" stroke="rgb(0, 0, 0)" stroke-width="4px"/>
+  <ellipse cx="106.06" cy="187.42" fill="rgba(216, 216, 216, 0)" id="svg_6" rx="5.52" ry="5.77" stroke="rgb(0, 0, 0)" stroke-width="4px" transform="matrix(0 1 -1 0 312.486 -67.644)"/>
+  <rect fill="rgba(216, 216, 216, 0)" height="17.18" id="svg_7" stroke="rgb(0, 0, 0)" stroke-width="4px" width="20.86" x="25.58" y="217.04"/>
+  <rect fill="rgba(216, 216, 216, 0)" height="17.18" id="svg_8" stroke="rgb(0, 0, 0)" stroke-width="4px" width="18.16" x="55.77" y="217.53"/>
+  <rect fill="rgba(216, 216, 216, 0)" height="19.39" id="svg_9" stroke="rgb(0, 0, 0)" stroke-width="4px" width="33.62" x="53.81" y="245.02"/>
+  <path d="m105.46,220.97l15.22,0l0,-10.31l7.85,0l0,10.31l14.48,0l0,8.09l-14.48,0l0,13.5l-7.85,0l0,-13.5l-15.22,0l0,-8.09z" fill="rgba(216, 216, 216, 0)" id="svg_10" stroke="rgb(0, 0, 0)" stroke-width="4px"/>
+  <path d="m149.12,58.31l115.54,6.92l-0.29,154.02l-114.66,0l-0.6,-160.94z" fill="#999999" id="svg_12" stroke="rgb(0, 0, 0)" stroke-width="0"/>
+ </g>
+</svg>

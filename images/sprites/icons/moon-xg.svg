@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="480.255 -12.102 500 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <view id="view-1" viewBox="292.994 193.631 71.338 38.217">
+      <title>View 1</title>
+    </view>
+  </defs>
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 15px; stroke-linejoin: bevel; stroke-linecap: round; stroke-dashoffset: 1px;" cx="730.185" cy="237.872" rx="241.447" ry="241.447"/>
+  <path style="stroke: rgb(0, 0, 0); stroke-width: 15px; fill: rgb(255, 255, 255);" d="M 961.178 478.466 C 766.477 359.82 800.665 40.899 967.298 -0.124 C 991.298 -6.032 732.083 -5.587 719.841 224.591 C 712.461 363.35 835.276 481.51 961.178 478.466 Z" transform="matrix(-1, 0, 0, -1, 1688.390564, 476.903428)"/>
+</svg>

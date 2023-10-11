@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path d="M 250.43 9.451 L 307.337 147.998 L 455.776 128.008 L 364.244 246.564 L 455.776 365.12 L 307.337 345.13 L 250.43 483.677 L 193.523 345.13 L 45.084 365.121 L 136.616 246.564 L 45.084 128.007 L 193.523 147.998 Z" style="fill: rgba(153, 153, 153, 0); stroke: rgb(153, 153, 153); stroke-width: 20px;" bx:shape="star 250.43 246.564 237.113 237.113 0.48 6 1@d32bba85"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153); stroke-width: 0px;" cx="251.503" cy="89.346" rx="82.044" ry="82.044"/>
+  <ellipse style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153); stroke-width: 0px;" cx="249.57" cy="406.142" rx="82.474" ry="82.474" bx:origin="0.669 3.81"/>
+</svg>

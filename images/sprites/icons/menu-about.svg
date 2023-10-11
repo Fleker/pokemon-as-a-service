@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image width="470.07" height="514.839" x="15.273" y="-19.232" style="visibility: hidden;" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAXCAIAAABrvZPKAAAAAXNSR0IArs4c6QAAAMFJREFUOBG9VMENxDAI6/4vRmA8RuB5qnx1fAlNo2tVXgjsGhzULe/Fdo+ejW/LoZJfvplpdZ4ruOCfzRFHXPOBdAkzO+gx40fs7YgQ7p4u8aFgZh35dX5p4fX+RMyT2j93H23rjACg4GcmbQcoMzkFP43X0etq9+PubJA5JngLIhsfJSj86R9W4Kno8toq9u8ERyMB4HT1/BRRZeRsdRb+7A+3Hrjfbh0OT4F6/vG1ykrhH+6nlB2LFM+U/59W1/MPqOSYnY/VeqkAAAAASUVORK5CYII="/>
+  <rect x="123.712" y="230.67" width="235.825" height="53.265" rx="5" ry="5" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153);">
+    <title>hinge</title>
+  </rect>
+  <rect x="67.01" y="37.371" width="348.368" height="202.749" rx="5" ry="5" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153); stroke-width: 3px;">
+    <title>screen-top</title>
+  </rect>
+  <rect x="59.278" y="276.203" width="368.557" height="192.01" rx="5" ry="5" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153); stroke-width: 3px;">
+    <title>screen-bottom</title>
+  </rect>
+  <rect x="157.217" y="78.608" width="167.096" height="121.993" rx="5" ry="5" style="stroke: rgb(0, 0, 0);">
+    <title>screen-top</title>
+  </rect>
+  <rect x="155.928" y="301.546" width="169.674" height="122.423" rx="5" ry="5" style="stroke: rgb(0, 0, 0);">
+    <title>screen-bottom</title>
+  </rect>
+  <rect x="110.395" y="322.165" width="12.887" height="61.426" rx="5" ry="5" style="stroke: rgb(0, 0, 0); stroke-width: 0px;">
+    <title>dpad-ns</title>
+  </rect>
+  <rect x="82.045" y="345.361" width="68.729" height="9.88" rx="5" ry="5" style="stroke: rgb(0, 0, 0); stroke-width: 0px;">
+    <title>dpad-we</title>
+  </rect>
+</svg>

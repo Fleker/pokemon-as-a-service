@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(1, 0, 0, 1, -3.136763, 152.446671)">
+    <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 15px; fill: none;" cx="245.549" cy="253.195" rx="177.541" ry="177.541"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 15px;" x1="245.922" y1="57.716" x2="246.55" y2="16.311"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 15px;" x1="459.988" y1="268.507" x2="460.616" y2="227.102" transform="matrix(0, 1, -1, 0, 708.106499, -212.497505)"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 15px;" x1="245.589" y1="484.943" x2="246.217" y2="443.538"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 15px;" x1="33.563" y1="261.606" x2="34.191" y2="220.201" transform="matrix(0, 1, -1, 0, 274.780497, 207.026495)"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 15px;" x1="380.687" y1="421.133" x2="409.384" y2="390.393" transform="matrix(0, 1, -1, 0, 800.798508, 10.727493)"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 15px;" x1="77.245" y1="108.218" x2="105.942" y2="77.478" transform="matrix(0, 1, -1, 0, 184.441502, 1.254498)"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 15px;" x1="393.431" y1="86.262" x2="422.128" y2="117.002" transform="matrix(0, 1, -1, 0, 509.411495, -306.147495)"/>
+    <line style="fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); stroke-width: 15px;" x1="79.754" y1="398.055" x2="108.451" y2="428.795" transform="matrix(0, 1, -1, 0, 507.5275, 319.322506)"/>
+  </g>
+  <rect x="-3.764" y="424.718" width="505.019" height="75.91" style="stroke: rgb(0, 0, 0);"/>
+</svg>

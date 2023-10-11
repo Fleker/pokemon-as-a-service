@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <rect x="33.505" y="27.062" width="433.419" height="432.13" style="fill: rgba(216, 216, 216, 0); stroke: rgb(153, 153, 153); stroke-width: 20px;" rx="101.361" ry="101.361"/>
+  <path d="M 253.866 60.567 L 308.645 179.328 L 438.521 194.727 L 342.501 283.524 L 367.989 411.802 L 253.866 347.921 L 139.743 411.802 L 165.231 283.524 L 69.211 194.727 L 199.087 179.328 Z" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153);" bx:shape="star 253.866 254.725 194.158 194.158 0.48 5 1@e0470246"/>
+</svg>

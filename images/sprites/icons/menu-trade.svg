@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image width="393.91" height="492.388" x="46.258" y="4.02" style="visibility: hidden;" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAKCAYAAACJxx+AAAAAR0lEQVQoFXWOCwoAIAhDdwTvf9k+wpOhFcTWHM+kdiJi+c2xB92LABBvNAsMn1pNqWiejT9AGSUGrrf0xRYB89KxP5G+4/gNsjA3oiqNb/IAAAAASUVORK5CYII="/>
+  <rect x="222.938" y="5.155" width="216.065" height="167.955" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153);"/>
+  <rect x="48.969" y="320.756" width="184.278" height="170.533" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153);"/>
+  <path style="fill: rgba(216, 216, 216, 0); stroke-width: 15px; stroke: rgb(153, 153, 153);" d="M 203.608 418.814 C 292.383 440.006 367.125 412.514 427.835 336.34 C 463.097 292.096 421.001 254.295 301.546 222.938 C 265.034 253.007 218.786 272.766 162.801 282.216 C 109.781 291.165 71.121 253.794 46.821 170.103 C 34.893 129.022 61.668 95.66 127.148 70.017 L 257.302 64.003"/>
+</svg>
