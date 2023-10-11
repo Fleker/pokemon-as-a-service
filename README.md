@@ -24,12 +24,13 @@ It contains a fully-fledged set of features inspired by the Pokémon games and r
 
 ![](/images//screenshot2.png)
 
-* **Collect Pokémon:** Players can obtain Poké Balls to catch Pokémon. Pokémon may hold rare items.
+* **Collect Pokémon:** Players can obtain Poké Balls to catch Pokémon. Pokémon may hold rare items. Some may even be _shiny_!
 * **Day Care:** Players can send Pokémon into the Day Care to obtain eggs. Eggs will hatch into baby Pokémon.
 * **PokéDex:** As players collect new Pokémon, they will fill their PokéDex. As they reach certain milestones, they will receive rewards.
 * **Buy and Sell items:** Poké Balls can catch Pokémon but also serve as the primary currency. Players can purchase various items at the Mart and sell items they own. In the _Bazaar_, players can obtain rarer items using different forms of currency.
 * **Move Tutor & Move Deleter:** Pokémon can have preset _variants_ which provide them with unique moves. There are many ways to obtain these variants.
 * **Private & Public Trading:** Players can create trade rooms and trade Pokémon & items with each other. They can also use the _Global Trade System_ to post trades with all players. Certain Pokémon may evolve when traded.
+* **Friend Safari:** As players trade with each other, they will unlock new zones of an area where they can catch more Pokémon.
 * **Battles:** Players can send their Pokémon into battles in various _cups_ inspired by various Pokémon games. Battles execute in a _Cloud Function_ where your Pokémon will use specific moves autonomously until the battle ends.
 * **Raids:** Up to 24 players can compete in multiplayer raids against strong boss Pokémon. Winning these raids will allow the player to catch this Pokémon and receive rewards.
 * **Voyages:** Up to 4 players can participate in a multiplayer exploration along different themed paths to obtain Pokémon and rewards. At the end of a voyage these players will face a tough raid battle.

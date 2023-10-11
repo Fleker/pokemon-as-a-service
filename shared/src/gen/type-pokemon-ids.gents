@@ -1,0 +1,26 @@
+/**
+ * @fileoverview Generator for Pokémon constants
+ */
+const {TeamsBadge} = require('../../functions/lib/shared/src/badge2')
+const validBadges = []
+for (let i = 1; i <= 1017; i++) {
+  validBadges.push(`${i}`)
+}
+
+validBadges.forEach(i => {
+  const badge = `potw-${i.padStart(3, '0')}`
+  console.log('//', i, badge)
+  if (new TeamsBadge(badge).toLabel()) {
+    const label = new TeamsBadge(badge).toLabel()
+      .replace('♂', 'M')
+      .replace('♀', 'F')
+      .replace(/ /g, '_')
+      .replace('-', '_')
+      .replace('.', '')
+      .replace("'", '')
+      .replace(":", '')
+    console.log(`export const ${label} = ${i}`)
+  } else {
+    console.log('//', new TeamsBadge(badge).toLabel())
+  }
+})

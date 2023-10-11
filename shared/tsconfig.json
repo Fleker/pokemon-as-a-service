@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "lib": ["es2017"],
+    "module": "es6",
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "target": "es2017",
+    "types": ["node"],
+    "strictNullChecks": true
+  },
+  "compileOnSave": true,
+  "allowJs": true,
+  "include": [
+    "src/*.ts",
+    "src/pokemon"
+  ]
+}

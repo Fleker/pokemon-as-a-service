@@ -1,0 +1,42 @@
+const {ITEMS} = require('../../functions/lib/shared/src/items-list')
+
+function generateTypeForPredicate(label, fn) {
+  const filteredItems = Object.entries(ITEMS)
+    .filter(([key, value]) => fn(value))
+    .map(([key, value]) => key)
+
+  console.log(`export type ${label} =`)
+  console.log(' ', filteredItems.map(item => `'${item}'`).join(' |\n  '))
+}
+
+function generateItemKeyArray(label, cat) {
+  const filteredItems = Object.entries(ITEMS)
+    .filter(([key, value]) => value.category === cat)
+    .map(([key, value]) => key)
+
+  console.log(`export const ${label} = [`)
+  console.log('  ', filteredItems.map(item => `'${item}'`).join(',\n'))
+  console.log(']')
+}
+
+function generateItemKeyArrayFor(label, fn) {
+  const filteredItems = Object.entries(ITEMS)
+    .filter(([key, value]) => fn(value))
+    .map(([key, value]) => key)
+
+  console.log(`export const ${label} = [`)
+  console.log('  ', filteredItems.map(item => `'${item}'`).join(',\n'))
+  console.log(']')
+}
+
+// Use this to populate inventory.ts
+// TMs / TRs are loaded separately
+generateTypeForPredicate('BattleItemId', (v) => v.battle && !(v.category === 'tms' || v.category === 'trs'))
+generateTypeForPredicate('TmTrId', (v) => v.category === 'tms' || v.category === 'trs')
+// Use this to get indicies for PokeBall in badge3
+generateItemKeyArray('PokeballArr', 'balls')
+// Use this to get the Lures for function throw
+generateTypeForPredicate('LureId', (v) => v.isLure)
+generateItemKeyArrayFor('LureArr', (v) => v.isLure)
+generateTypeForPredicate('SouvenirId', (v) => v.isSouvenir)
+generateTypeForPredicate('SouvenirContainerId', (v) => v.isSouvenirContainer)

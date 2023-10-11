@@ -1,0 +1,35 @@
+{
+  "name": "paas-shared",
+  "description": "Shared files",
+  "main": "lib/index.js",
+  "engines": {
+    "node": ">=12.22.0"
+  },
+  "version": "5.0.0",
+  "dependencies": {
+    "@fleker/gents": "^1.1.0",
+    "suncalc": "^1.8.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "@ava/typescript": "^1.1.1",
+    "@types/node": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "ava": "^3.15.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "gts": "^3.1.0",
+    "spacetime": "^6.16.1",
+    "typescript": "^4.3.0"
+  },
+  "scripts": {
+    "build": "yarn build:only && yarn mkdir && yarn copy",
+    "build:only": "tsc",
+    "mkdir": "mkdir -p ../src/shared/pokemon",
+    "copy": "cp ./lib/*.js ../src/shared && cp ./lib/pokemon/*.js ../src/shared/pokemon",
+    "deploy": "",
+    "lint": "eslint ./src/*.ts ./src/**/*.ts",
+    "test": "yarn lint && tsc --project tsconfig-testing.json && ava"
+  }
+}

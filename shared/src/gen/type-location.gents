@@ -1,0 +1,16 @@
+const {Globe} = require('../../functions/lib/shared/src/locations-list')
+
+const validLocales = Object.keys(Globe)
+const sortedLocales = Object.entries(Globe)
+  .sort((a, b) => a[1].id - b[1].id)
+  .map(([key]) => key)
+
+console.log('export const locationArray = [\'Unknown\']')
+sortedLocales.forEach(l => {
+  console.log(`locationArray[${[Globe[l].id]}] = "${l}"`)
+})
+console.log("locationArray[154] = 'Hatched'")
+console.log("locationArray[155] = 'Restored'")
+
+// For some debugging/visualization purposes
+console.log('// const locationCount = ', validLocales.length)

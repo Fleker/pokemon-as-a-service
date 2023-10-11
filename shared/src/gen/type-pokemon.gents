@@ -1,0 +1,61 @@
+/**
+ * @fileoverview Generator for Pokémon constants
+ */
+const {TeamsBadge} = require('../../functions/lib/shared/src/badge2')
+const validBadges = [
+    // 'potw-201-a',
+    // 'potw-201-b',
+    // 'potw-201-c',
+    // 'potw-201-d',
+    // 'potw-201-e',
+    // 'potw-201-f',
+    // 'potw-201-g',
+    // 'potw-201-h',
+    // 'potw-201-i',
+    // 'potw-201-j',
+    // 'potw-201-k',
+    // 'potw-201-l',
+    // 'potw-201-m',
+    // 'potw-201-n',
+    // 'potw-201-o',
+    // 'potw-201-p',
+    // 'potw-201-q',
+    // 'potw-201-r',
+    // 'potw-201-s',
+    // 'potw-201-t',
+    // 'potw-201-u',
+    // 'potw-201-v',
+    // 'potw-201-w',
+    // 'potw-201-x',
+    // 'potw-201-y',
+    // 'potw-201-z',
+    // 'potw-201-?',
+    // 'potw-201-!',
+    // 'potw-327-a',
+    'potw-351-sunny',
+    'potw-351-rainy',
+    'potw-351-snowy',
+    'potw-386-attack',
+    'potw-386-defense',
+    'potw-386-speed',
+    'potw-412-plant-female', 'potw-412-trash-female', 'potw-412-sandy-female',
+    'potw-413-plant', 'potw-413-trash', 'potw-413-sandy',
+    'potw-479-fan', 'potw-479-frost', 'potw-479-heat', 'potw-479-mow', 'potw-479-wash',
+  ]
+  for (let i = 1; i <= 1017; i++) {
+    validBadges.push(`potw-${i.toString().padStart(3, '0')}`)
+  }
+
+validBadges.forEach(badge => {
+  if (new TeamsBadge(badge).toLabel()) {
+    const label = new TeamsBadge(badge).toLabel()
+      .replace('♂', 'M')
+      .replace('♀', 'F')
+      .replace(/ /g, '_')
+      .replace('-', '_')
+      .replace('.', '')
+      .replace("'", '')
+      .replace(":", '')
+    console.log(`export const ${label} = '${badge}'`)
+  }
+})
