@@ -1,0 +1,36 @@
+build/
+node_modules/
+/sheets-credentials.json
+/token.json
+service-key.json
+functions/node_modules/
+firebase-debug.log
+functions/lib
+package-lock.json
+.firebaserc
+**.cache
+.vscode/
+yarn-error.log
+# Shared
+shared/lib
+shared/**/*.js
+src/shared
+functions/**/*.js
+functions/dist  
+functions/src/shared
+daycare-club.js
+daycareclub/
+scripts/*.js
+# Other files
+yarn.lock
+scratch*
+ignore/
+**/*-credentials.json
+.DS_Store
+*.tmp
+gents.js
+client/src/assets/images
+
+# Local emulation logs
+firestore-debug.log
+ui-debug.log
