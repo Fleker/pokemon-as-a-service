@@ -52,7 +52,11 @@ This game is built as a [Progressive Web App](https://web.dev/explore/progressiv
 * Custom file handlers
 * Gyroscope
 * Modern accessibility
-* Light/Dark themes
+  * Supports `forced-colors`, `prefers-reduced-motion`
+* Advanced CSS features
+  * Light/Dark themes
+  * CSS variables
+  * Web dialog backdrops
 * `scheduler.yield`
 
 ## How to Host
