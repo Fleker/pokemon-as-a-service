@@ -1,0 +1,40 @@
+{
+  "name": "paas-functions",
+  "version": "2023.10.11",
+  "description": "API",
+  "main": "lib/functions/src/index.js",
+  "engines": {
+    "node": "14"
+  },
+  "dependencies": {
+    "@fleker/salamander": "^1.0.2",
+    "@google-cloud/storage": "^4.3.1",
+    "firebase-admin": "^10.2.0",
+    "firebase-functions": "^3.21.1",
+    "googleapis": "^47.0.0",
+    "nodemailer": "^6.7.5",
+    "object.fromentries": "^2.0.4",
+    "promise.allsettled": "1.0.2",
+    "spacetime": "^6.16.1",
+    "suncalc": "^1.8.0"
+  },
+  "private": true,
+  "devDependencies": {
+    "@fleker/gents": "^1.1.1",
+    "@types/express": "4.17.2",
+    "@types/express-serve-static-core": "4.17.1",
+    "@types/node": "^10.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.16.1",
+    "@typescript-eslint/parser": "^4.16.1",
+    "ava": "^3.15.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "typescript": "^4.7.3"
+  },
+  "scripts": {
+    "build": "tsc --project tsconfig.json",
+    "deploy": "yarn build && firebase deploy --only functions",
+    "lint": "eslint ./src/*.ts ./src/**/*.ts",
+    "test": "yarn build && ava"
+  }
+}

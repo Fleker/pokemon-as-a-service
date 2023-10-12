@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "lib": ["es2019"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "outDir": "lib",
+    "sourceMap": true,
+    "target": "es2017",
+    "types": ["node"],
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    /* https://stackoverflow.com/questions/70079698/cannot-find-name-abortsignal-during-npm-run-build */
+    "skipLibCheck": true
+  },
+  "compileOnSave": true,
+  "allowJs": true,
+  "include": [
+    "src/*.ts",
+    "src/**/*.ts"
+  ]
+}
