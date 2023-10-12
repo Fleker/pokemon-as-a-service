@@ -95,7 +95,8 @@ firebase deploy --only functions
 
 When doing this the first time, you may have to go through several steps before your code is fully deployed. This step will have to be done in the future when making any backend changes.
 
-7. Build the client and deploy it with the Firebase CLI
+7. Take the configuration data for the web app in the Firebase console and save that data to `client/src/app/service/firebase.config.ts`
+8. Build the client and deploy it with the Firebase CLI
 
 ```
 cd ../client
