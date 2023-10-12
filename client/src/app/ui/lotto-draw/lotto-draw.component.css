@@ -1,0 +1,28 @@
+.digit {
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 8px;
+  border-radius: 100%;
+  width: 20px;
+  text-align: center;
+  padding: 3px;
+}
+
+.digit.undetermined {
+  border: solid 2px var(--app-text-color);
+}
+
+.digit.final {
+  border: solid 2px var(--type-fire);
+  /* Get darker background for contrast like `typebg` */
+  background: linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(var(--type-fire), var(--type-fire)) no-repeat;
+  color: var(--app-text-color);
+}
+
+.digit.final-match {
+  border: solid 2px var(--type-grass); /* Transparent */
+  background: linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(var(--type-grass), var(--type-grass)) no-repeat;
+  color: var(--app-text-color);
+}

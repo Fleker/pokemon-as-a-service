@@ -1,0 +1,94 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.badge {
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.egg {
+  display: inline-block;
+  text-align: center;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.egg.hatching img {
+  animation: jump-egg 0.5s infinite linear;
+}
+
+@media (prefers-reduced-motion) {
+  .egg.hatching img {
+    animation: none;
+  } 
+}
+
+#hatch {
+  display: none;
+}
+
+div.center {
+  text-align: center;
+}
+
+img.hatching.animate {
+  animation: rotation 0.5s infinite linear;
+}
+
+sprite-pokemon.animate {
+  animation: jump 0.4s 2 linear;
+}
+
+@media (prefers-reduced-motion) {
+  sprite-pokemon.animate {
+    animation: none;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-30deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(30deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jump-egg {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,475 @@
+<mat-card *ngIf="yir && false" class="typebg Ice">
+  <h1>Pokémon Wrapped</h1>
+  <button mat-button (click)="launchYir()">
+    <mat-icon>calendar_month</mat-icon>
+    Tap here to get some nostalgia
+  </button>
+</mat-card>
+
+<mat-card>
+  <h1>Me</h1>
+
+  <p>
+    This is your Trainer Card. Here is where you can view and change settings.
+  </p>
+
+  <h2>Stats</h2>
+  <span *ngIf="battleBoxRecord">
+    Battle Box Record:
+    <strong>
+      {{battleBoxRecord}}
+    </strong>
+  </span>
+  <br>
+  <span *ngIf="battleStadiumRecord">
+    Battle Stadium Record:
+    <strong>
+      {{battleStadiumRecord}}
+    </strong>
+    (Rank {{battleLevel}})
+  </span>
+  <br>
+  <span *ngIf="raidRecord">
+    Raid Record:
+    <strong>
+      {{raidRecord}}
+    </strong>
+  </span>
+  <br>
+  <span *ngIf="voyageCount">
+    Voyages Traveled:
+    <strong>
+      {{voyageCount}}
+    </strong>
+  </span>
+  <br>
+  <span>
+    Trainer doc size: ~{{docSize}} KB ({{docPercent}}% of limit)
+  </span>
+</mat-card>
+
+<collapsible-card>
+  <span title>Settings</span>
+  <mat-slide-toggle [(ngModel)]="settings.union" (click)="updateSetting('union')">
+    Enable Mystery Gift
+  </mat-slide-toggle>
+  <p>
+    When this is enabled, you will earn badges each week from the mailing list in addition
+    to the game.
+  </p>
+
+  <mat-slide-toggle [(ngModel)]="settings.disableRealtime" (click)="updateSetting('disableRealtime')">
+    Disable Realtime Updates
+  </mat-slide-toggle>
+  <p>
+    This app automatically updates when you get new Pokémon or items.
+    Updates that happen too frequently can cause the game to slowdown
+    or become unstable. By turning this on, data is only retrieved when
+    the game first loads.
+  </p>
+
+  <mat-slide-toggle [(ngModel)]="settings.flagAchievementService" (click)="updateSetting('flagAchievementService')">
+    Disable Progress Popup
+  </mat-slide-toggle>
+
+  <br><br>
+  <strong>Sync badges to your profile page</strong>
+  <br>
+  <small>If you select "Nothing", you may still get Pokédex badges. Don't want that? Please file a bug.</small>
+  <mat-select [(ngModel)]="settings.teamsSync" (selectionChange)="updateSetting('teamsSync')">
+    <mat-option value="ALL">All Pokémon</mat-option>
+    <mat-option value="FAVORITE">Pokémon tagged as FAVORITE</mat-option>
+    <mat-option value="SHINY">All Shiny Pokémon</mat-option>
+    <mat-option value="LEGENDARY">Legendary Pokémon</mat-option>
+    <mat-option value="SHINY_LEGENDARY">Shiny Legendary Pokémon</mat-option>
+    <mat-option value="RARE">Pokémon owned by &lt;100 players</mat-option>
+    <mat-option value="NONE">Nothing</mat-option>
+  </mat-select>
+  <br>
+  <strong>App theme</strong>
+  <mat-select [(ngModel)]="settings.theme" (selectionChange)="updateSetting('theme')">
+    <mat-option value="default">Browser Default</mat-option>
+    <mat-option value="light">Light Theme</mat-option>
+    <mat-option value="dark">Dark Theme</mat-option>
+  </mat-select>
+
+  <br><br>
+  <strong>Notifications</strong>
+  <br>
+  <table>
+    <tr>
+      <td></td>
+      <td>In-App Notification</td>
+      <td>Push Notification</td>
+    </tr>
+    <tr *ngFor="let not of notificationTypes">
+      <td>
+        {{not}}
+      </td>
+      <td>
+        <mat-slide-toggle [(ngModel)]="settings.notification?.[not].inapp" (click)="updateSetting('notification.' + not + '.inapp')"></mat-slide-toggle>
+      </td>
+      <td>
+        <mat-slide-toggle [(ngModel)]="settings.notification?.[not].push" (click)="updateSetting('notification.' + not + '.push')"></mat-slide-toggle>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <button mat-button (click)="clearFcm()" [disabled]="exec.clearFcm">
+    <mat-icon>delete_forever</mat-icon>
+    Clear all Firebase Cloud Messaging tokens
+  </button>
+  <small>
+    If you're getting an excessive number of notifications, use this option.
+  </small>
+</collapsible-card>
+
+<collapsible-card>
+  <span title>Feature Flags</span>
+  <p>
+    Try out the latest features before they roll out to everyone.
+
+    <br><br>
+    <mat-slide-toggle [(ngModel)]="settings.flagSearch2" (click)="updateSetting('flagSearch2')">
+      Filter with Common Expression Language
+    </mat-slide-toggle>
+
+    <br><br>
+    <mat-slide-toggle [(ngModel)]="settings.flagLocation2" (click)="updateSetting('flagLocation2')">
+      Location Selection Autocomplete
+    </mat-slide-toggle>
+
+    <br><br>
+    <mat-slide-toggle [(ngModel)]="settings.flagTag" (click)="updateSetting('flagTag')">
+      Enable Tagging
+    </mat-slide-toggle>
+
+    <br><br>
+    <mat-slide-toggle [(ngModel)]="settings.flagMart3" (click)="updateSetting('flagMart3')">
+      Mart UI Redesign
+    </mat-slide-toggle>
+
+    <br><br>
+    <mat-slide-toggle [(ngModel)]="settings.flagPickerPro" (click)="updateSetting('flagPickerPro')">
+      Advanced Info in Pokémon Picker
+    </mat-slide-toggle>
+
+    <br><br>
+    <mat-slide-toggle [(ngModel)]="settings.flagSchedulerYield" (click)="updateSetting('flagSchedulerYield')">
+      Use scheduler.yield for long-running tasks
+    </mat-slide-toggle>
+  </p>
+  <button mat-button (click)="registerProtocolHandlers()">
+    <mat-icon>code</mat-icon>
+    Register Protocol Handlers
+  </button>
+  <small>
+    Will register web+raid and web+trade as protocols that can open up the corresponding webpage.
+    <a href="web+raid:vSz9HSyPoZxno0OOYJt0">(Demo)</a>
+  </small>
+  <br>
+
+  <!-- <mat-slide-toggle [(ngModel)]="localSettings.overlay" (click)="updateLocalSetting('overlay')">
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window_Controls_Overlay_API" target="_blank">
+      Window Controls Overlay
+    </a>
+    <mat-icon>science</mat-icon>
+  </mat-slide-toggle> -->
+</collapsible-card>
+
+<collapsible-card>
+  <span title>Records</span>
+  <button mat-button raised (click)="getForbes()" [disabled]="exec.getForbes">
+    <mat-icon>payments</mat-icon>
+    See wealthiest players
+  </button>
+</collapsible-card>
+
+<dialog #dforbes>
+  <h1>Wealthiest players this week</h1>
+  <li *ngFor="let forbe of forbes">{{forbe}}@</li>
+  <br><br><br>
+  <button mat-button (click)="close()">Yay</button>
+</dialog>
+
+<collapsible-card>
+  <span title><mat-icon>science</mat-icon> Request User History</span>
+  <p>
+    This is an expensive operation, requesting <em>a ton</em> of data.
+    As such, you can only run this operation once a week.
+  </p>
+  <p>
+    This data is converted into something you just download.
+  </p>
+  <p>
+    This is an experimental feature. Please file bugs if you find an issue.
+  </p>
+  <button mat-button raised (click)="requestHistory()" [disabled]="exec.requestHistory">
+    <mat-icon>save</mat-icon>
+    Request my account data
+  </button>
+</collapsible-card>
+
+<collapsible-card>
+  <span title>Dangerous Account Settings</span>
+  <p>
+    You can close your account, removing you from the game. You will not be
+    able to earn any more badges.
+  </p>
+  <button mat-button raised (click)="closeAccount()" [disabled]="exec.closeAccount">
+    <mat-icon>person_remove</mat-icon>
+    Close my account
+  </button>
+</collapsible-card>
+
+<dialog #dyir>
+  <h1>A Year of Pokémon</h1>
+
+  <mat-stepper [linear]="true" #stepper animationDuration="500">
+    <mat-step>
+      <b>Battles</b>
+      <br>
+      <sprite-item item="{{yir?.battleItem}}"></sprite-item>
+      <p *ngIf="yir?.battleWins > 0">
+        Wow you've been battling a lot this year! You have won
+        {{this.user?.battleStadiumRecord[1] - yir!.battleWins}}
+        matches.
+      </p>
+      <p *ngIf="yir?.battleItem === 'megabracelet'">
+        You have received the Mega Bracelet. You must've been mega
+        evolving your Pokémon a bunch!
+      </p>
+      <p *ngIf="yir?.battleItem === 'zpowerring'">
+        You have received the Z-Power Ring. You must've launched incredibly
+        powerful Z-Moves against your opponents.
+      </p>
+      <p *ngIf="yir?.battleItem === 'protectivepads'">
+        You even won Protective Pads after one match. Do you remember how
+        close that battle was?
+      </p>
+      <p *ngIf="yir?.battleItem === 'safetygoggles'">
+        You even won Safety Goggles after one match. Do you remember how
+        close that battle was?
+      </p>
+      <p *ngIf="yir?.battleItem === 'assaultvest'">
+        You even won an Assault Vest after one match. Do you remember how
+        close that battle was?
+      </p>
+      <sprite-pokemon *ngIf="yir?.rb" badge="{{yir?.rb?.sprite}}"></sprite-pokemon>
+      <br>
+      <p *ngIf="yir?.raidWins > 0">
+        You really seem to love raids.
+        In {{this.user?.raidRecord[1] - yir!.raidWins}}
+        this year, you have been victorious!
+      </p>
+      <p *ngIf="yir?.rb">
+        Remember when you battled against that {{yir?.rb?.label}}?
+        You and a bunch of friends had to work together. That was awesome.
+      </p>
+      <p>
+        Fun fact: There have been over 1000 different raid bosses this year.
+        Did you manage to catch them all?
+      </p>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <b>Eggs</b>
+      <br>
+      <img src="{{yir?.egg}}">
+      <p *ngIf="yir?.eggsLaid">
+        You have gone to the Day Care a lot this year. {{this.user?.eggsLaid - yir?.eggsLaid}} eggs
+        were laid in 2022.
+      </p>
+      <sprite-item item="ovalcharm" *ngIf="yir?.ovalcharm"></sprite-item>
+      <p *ngIf="yir?.ovalcharm">
+        It probably helps that you have the Oval Charm.
+      </p>
+      <p>
+        Fun Fact: Rotom was the first Pokémon this year to be voted in the
+        Breeding Club. Since then, the club has updated 19 times. This includes
+        Porygon twice!
+      </p>
+      <p>
+        Wow, all of you really like Porygon.
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <b>Berries</b>
+      <br>
+      <sprite-item item="{{yir?.favoriteBerry?.key}}"></sprite-item>
+      <p *ngIf="yir?.berryGrown">
+        You have grown a lot of berries this year. In total, you have
+        harvested from {{this.user?.berryGrown - yir?.berryGrown}} plots.
+        That's quite an accomplishment!
+      </p>
+      <p>
+        In particular, your eye must be on the {{yir?.favoriteBerry?.label}}.
+        There are {{yir?.favoriteBerry?.count}} in your bag. Take care they
+        don't get squished!
+      </p>
+      <p *ngIf="!this.user?.itemsCrafted">
+        You can do more than eat the berries plain. You can add Crafting as
+        a resolution for next year.
+      </p>
+      <p *ngIf="this.user?.itemsCrafted">
+        You aren't just growing them either. You seem to have an eye for
+        crafting. {{this.user?.itemsCrafted}} items have been crafted.
+      </p>
+      <p *ngIf="!yir?.pokeblock">
+        Once you start crafting, try making PokéBlocks. Pikachu seem to enjoy
+        the taste.
+      </p>
+      <p *ngIf="yir?.pokeblock">
+        <sprite-pokemon badge="p#Y024"></sprite-pokemon>
+        <br>
+        Pikachus certainly enjoy the taste of PokéBlocks, but I guess I don't
+        need to tell that to you!
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <b>Research Tasks</b>
+      <br>
+      <img src="{{yir?.oak}}" />
+      <p>
+        You've been very helpful this year. You have completed
+        {{this.user?.researchCompleted - yir?.researchCompleted}}
+        research tasks.
+      </p>
+      <p *ngIf="yir?.zcrystals">
+        <sprite-item item="{{yir?.zcrystals}}"></sprite-item>
+        <br>
+        You've even managed to obtain a Z-Crystal.
+      </p>
+      <p *ngIf="this.user?.moveTutors">
+        You have also been carefully studying the Move Tutor. Over the last
+        year you have tutored your Pokémon {{this.user?.moveTutors}} times.
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <b>Catching Pokémon</b>
+      <br>
+      <sprite-pokemon badge="{{yir?.pkmnTop?.sprite}}"></sprite-pokemon>
+      <sprite-item item="{{yir?.pkmnTop?.ball}}"></sprite-item>
+      <br>
+      <p>
+        Incredible job this year, you've caught
+        {{yir?.pkmnCaught - yir?.currentBadgesLength}} Pokémon,
+        not including those stored in Bank. That includes catching
+        {{yir?.pkmnTop?.label}} in {{yir?.pkmnTop?.location}}.
+      </p>
+      <p *ngIf="this.user?.formChangeCount">
+        They didn't just sit in a box somewhere. You have been active.
+        Your Pokémon have changed forms {{this.user?.formChangeCount}} times.
+      </p>
+      <p *ngIf="this.user?.evolutionCount">
+        While you may admire your Pokémon, they have grown a lot. You have
+        evolved your Pokémon {{this.user?.evolutionCount}} times.
+      </p>
+      <p *ngIf="this.user?.restorationCount">
+        Your Pokémon have come from all kinds of places.
+        {{this.user?.restorationCount}} have been restored from an item.
+      </p>
+      <p *ngIf="yir">
+        You have used the GTS {{this.user?.gtsTraded - yir?.gtsTraded}} times
+        this year. You have also traded personally with {{this.user?.trainersTraded}}.
+        <span *ngIf="this.user?.friendSafari">
+          That must be why you have unlocked {{this.user?.friendSafari.length}}
+          zones in the Friend Safari.
+        </span>
+      </p>
+      <p>
+        <span *ngIf="yir?.newDex">
+          You finally finished the {{yir?.newDex}} PokéDex this year. Way to go!
+        </span>
+        <span *ngIf="this.user?.pokedex.kalos === 72">
+          You not only unlocked Kalos this year, but caught all of the Pokémon!
+        </span>
+        <span *ngIf="this.user?.pokedex.kalos < 72">
+          You not only unlocked Kalos this year, but caught {{this.user?.pokedex.kalos}}
+          of the Pokémon there! You're so close!
+        </span>
+        <span *ngIf="this.user?.pokedex.alola">
+          Pokémon from the Alola region are just being discovered, but you've
+          already managed to catch {{this.user?.pokedex.alola}} of them.
+        </span>
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <b>New Features</b>
+      <br>
+      <sprite-pokemon badge="aa#Yf_4"></sprite-pokemon>
+      <sprite-pokemon badge="ad#Yf_4"></sprite-pokemon>
+      <sprite-pokemon badge="ag#Yf_4"></sprite-pokemon>
+      <p>
+        There have been many new features launched throughout the year. The
+        biggest was a complete website redesign in Angular. It took some time
+        for it to work well, but things are going much smoother now.
+      </p>
+      <p>
+        Pokémon from Kalos have began appearing. This has brought
+        new features like Mega Evolutions.
+      </p>
+      <p>
+        New game features have made catching Pokémon more depth than before
+        including the Friend Safari, fossil restoration, and souvenirs.
+      </p>
+      <p>
+        New game modes provide new ways to play the game includin crafting and
+        voyages.
+        <span *ngIf="this.user?.itemsCrafted">
+          And you've already crafted {{this.user?.itemsCrafted}} items.
+        </span>
+        <span *ngIf="this.user?.voyagesCompleted">
+          You have already gone on {{this.user?.voyagesCompleted}}
+          voyages in such a short period of time.
+        </span>
+      </p>
+      <p>
+        We are now embarking on a journey to Alola.
+        I'm excited for the future.
+        I hope you are too.
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </mat-step>
+    <mat-step>
+      <b>That's a wrap!</b>
+      <br>
+      <sprite-pokemon badge="2n#Yf_4"></sprite-pokemon>
+      <p>
+        Wow it's been a busy year for all of us.
+        I realize that being able to play a Pokémon game at work, with your
+        coworkers, is something really special. I appreciate all your
+        feedback and help to keep this going on. -Nick
+      </p>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+        <br>
+        <button mat-button raised (click)="close()">
+          That's enough nostalgia for today
+        </button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</dialog>

@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.badge {
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#trainer-classes > img.selected {
+  border: solid 1px black;
+}
+
+#items-found img, #key-items-found img {
+  width: 40px;
+  height:40px;
+  margin-right:24px;
+  margin-top: 4px;
+  image-rendering: pixelated;
+}
+
+paper-item-body > div[secondary] {
+  font-size: small;
+  color: #777;
+  padding-bottom: 6px;
+}
+
+paper-dropdown-menu {
+  width: 220px;
+}
+
+/* _select-theme.scss is overriding our ability to change text color here, so it's always white bg. */
+mat-select {
+  background-color: white;
+  padding: 4px;
+  max-width: 200px;
+  display: block;
+}
+
+.mat-select-value, .mat-mdc-select-value-text, .mat-select-min-line {
+  color: var(--app-text-color) !important;
+}
+
+dialog {
+  max-width: 40em;
+}

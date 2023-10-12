@@ -1,0 +1,104 @@
+<collapsible-card *ngIf="!roomId">
+  <p>
+    Like with the GTS, you can trade items and Pokémon. Pokémon may even
+    evolve!
+  </p>
+  <ul>
+    <li *ngFor="let room of activeTradeRooms">
+      <a *ngIf="room[1].player" href="/multiplayer/trade?{{room[0]}}">Open trade with {{room[1].player.ldap}}@</a>
+      <a *ngIf="!room[1].player" href="/multiplayer/trade?{{room[0]}}">Open trade</a>
+    </li>
+  </ul>
+  <button mat-button raised (click)="create()" [disabled]="exec.create">
+    <mat-icon>add_circle</mat-icon> Create Room
+  </button>
+</collapsible-card>
+
+<collapsible-card *ngIf="roomId">
+  <p>
+    Share this URL with someone else to open up a private room for trading.
+    You can only add one player to this room. When your trading is complete
+    you can close this room.
+  </p>
+  <a href="/multiplayer/trade?{{roomId}}">Share</a>
+  <p>
+    Like with the GTS, you can trade items and Pokémon. Pokémon may even
+    evolve!
+  </p>
+  <p>
+    Trades completed in this room: <strong>{{tradesCompleted}}</strong>
+  </p>
+  <button mat-button raised (click)="close()" [disabled]="exec.close">
+    <mat-icon>cancel</mat-icon>
+    Close Room
+  </button>
+</collapsible-card>
+
+<mat-card *ngIf="roomId">
+  <h2>
+    My Offer
+    <span class="fsc" title="Friend Safari character">[{{yourOffer?.id}}]</span>
+  </h2>
+  <pokemon-dialog #pokemon></pokemon-dialog>
+  <dialog-items #items></dialog-items>
+  <div>
+    <button mat-button (click)="openItems()">
+      <mat-icon>business_center</mat-icon>
+      Include item
+    </button>
+  </div>
+  <div *ngIf="yourOffer">
+    <sprite-pokemon badge="{{yourOffer?.species}}" *ngIf="yourOffer.species"></sprite-pokemon>
+    <br>
+    <small>{{yourOffer?.speciesLabel}}</small>
+  </div>
+  <div *ngIf="yourOffer?.item">
+    <sprite-item item="{{yourOffer?.item}}"></sprite-item>
+    <br>
+    <small>{{yourOffer?.itemLabel}}</small>
+  </div>
+  <span *ngIf="yourOffer?.confirmed">
+    ✓ Confirmed
+  </span>
+
+  <br>
+  <div>
+    <button mat-button raised (click)="confirm()" [disabled]="exec.confirm">
+      <mat-icon>cable</mat-icon>
+      Confirm
+    </button>
+  </div>
+</mat-card>
+
+<mat-card *ngIf="roomId">
+  <h2 *ngIf="!otherOffer?.ldap">Player Offer</h2>
+  <h2 *ngIf="otherOffer?.ldap">
+    {{otherOffer?.ldap}}@ Offer
+    <span class="fsc" title="Friend Safari character">[{{otherOffer?.id}}]</span>
+  </h2>
+  <div *ngIf="otherOffer">
+    <sprite-pokemon badge="{{otherOffer?.species}}" [dialog]="true" *ngIf="otherOffer.species"></sprite-pokemon>
+    <br>
+    <small>{{otherOffer?.speciesLabel}}</small>
+  </div>
+  <div *ngIf="otherOffer?.item">
+    <sprite-item item="{{otherOffer?.item}}"></sprite-item>
+    <br>
+    <small>{{otherOffer?.itemLabel}}</small>
+  </div>
+  <span *ngIf="otherOffer?.confirmed">
+    ✓ Confirmed
+  </span>
+  <br><br><br>
+  <small>{{otherOffer?.ldap}}@ Badges</small>
+  <div class="hiddenitems">
+    <a *ngFor="let h of validHiddenItems" href="/dowsing?{{h.id}}" target="_blank">
+      <img src="/images/sprites/quests/{{h.badge}}.png" class="{{h.have}}" />
+    </a>
+  </div>
+</mat-card>
+
+<dialog #gtsdialog>
+  <sprite-gts-trade #gtstrade></sprite-gts-trade>
+  <button mat-button raised (click)="dialogClose()">Close</button>
+</dialog>

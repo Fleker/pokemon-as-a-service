@@ -1,0 +1,115 @@
+<collapsible-card *ngIf="isHome">
+  <span title>Recent News</span>
+  <ul>
+    <li>The Pokémon of the Week is <strong>{{weeklyLabel}}</strong>.</li>
+    <li>Is an old version of the site loading? Open DevTools.
+        <a href="https://umaar.com/dev-tips/197-clear-site-data/">
+          Go to Application > Storage > Clear site data. That will remove the cached version.
+        </a>
+    </li>
+    <li>You may find some Pokémon originally from the Alola region!</li>
+    <li>Souvenirs are now available. Collect key items that will unlock new items and Pokémon.</li>
+    <li *ngIf="locationBroken">
+      You do not have a location! <strong>
+        Please file a bug!
+      </strong>
+    </li>
+  </ul>
+</collapsible-card>
+
+<collapsible-card>
+  <span title>My Pokémon <mat-icon (click)="tutorialOpen($event)">help</mat-icon></span>
+  <p>Your Pokémon are resting peacefully in the PC.</p>
+  <mat-slide-toggle *ngIf="enableTag" [(ngModel)]="selectMultiple">Select Multiple</mat-slide-toggle>
+  <span *ngIf="selectMultiple">&emsp;Selected {{selection.length}}</span>
+  <span *ngIf="selectMultiple" (click)="reset()">&emsp;×</span>
+  <button mat-button *ngIf="selectMultiple && selection.length" (click)="tag()">
+    Assign Tag
+  </button>
+  <br><br>
+  <pokemon-picker #picker id="pokemon" [multiple]="selectMultiple" [pageSize]="900">
+  </pokemon-picker>
+  <br>
+</collapsible-card>
+
+<dialog-tag #tagger>
+</dialog-tag>
+
+<collapsible-card *ngIf="enableTag">
+  <span title>Manage Tags <mat-icon>science</mat-icon></span>
+  <p>
+    By default there are 6 custom tags you can assign to a Pokémon:
+    <strong>BREED</strong>, <strong>TRADE</strong>, <strong>RELEASE</strong>,
+    <strong>BATTLE</strong>, <strong>BUDDY</strong>, <strong>FAVORITE</strong>
+  </p>
+  <p>
+    You can create and manage custom tags here.
+  </p>
+  <ul>
+    <li class="tag" *ngFor="let tag of customTags; index as i">
+      <mat-chip>
+        <mat-icon>label</mat-icon>
+        {{tag}}
+        <button matChipRemove (click)="tagRemove(tag)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <button matChipRemove (click)="tagRename(i)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-chip>
+    </li>
+    <br>
+    <li class="tag">
+      <mat-chip (click)="tagAdd()" role="button">
+        <mat-icon>new_label</mat-icon>
+        Add New
+      </mat-chip>
+    </li>
+  </ul>
+</collapsible-card>
+
+<collapsible-card *ngIf="abnormalBadges.length">
+  <span title>My Pokémon with abnormal badge IDs</span>
+  <p>
+    This is usually the result of a bug at some point. These Pokémon may have
+    problems in some operations. While they are generally fine to keep, it
+    should be feasible to correct these on a case-by-case basis.
+  </p>
+  <table>
+    <tr>
+      <td colspan="2"><b>Affected Pokémon</b></td> 
+      <td><b>Original ID -> Canonical ID</b></td> 
+    </tr>
+    <tr *ngFor="let badge of abnormalBadges">
+      <td>
+        <sprite-pokemon badge="{{badge.toString()}}"></sprite-pokemon>
+      </td>
+      <td>
+        {{badge.toLabel()}}
+      </td>
+      <td>
+        {{badge.toOriginalString()}} -> {{badge.toString()}}
+      </td>
+    </tr>
+  </table>
+</collapsible-card>
+
+<dialog #tutorial>
+  <h1>Welcome to the world of Pokémon!</h1>
+  <p>
+    Welcome there new trainer. We're happy to see you start your journey.
+    This page displays all the Pokémon you've caught.
+  </p>
+  <p>
+    Here are some resources to help you get started:
+  </p>
+  <ul>
+    <li>
+      <a href="{{links.contact?.chatmisc}}">Misc Chat</a>
+    </li>
+    <li>
+      <a href="{{links.contact?.chatraid}}">Raid Chat</a>
+    </li>
+  </ul>
+  <button mat-button (click)="tutorialClose()">Close</button>
+</dialog>

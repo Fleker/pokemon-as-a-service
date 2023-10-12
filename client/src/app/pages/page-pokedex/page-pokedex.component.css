@@ -1,0 +1,61 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+sprite-pokemon {
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#dex-view-label, #dex-view {
+  /* Hidden behind flag */
+  display: none;
+}
+
+img {
+  height: 40px;
+  width: 40px;
+}
+
+img:hover {
+  background-color: rgba(0, 0, 0, 0.1)
+}
+
+img:active {
+  background-color: rgba(0, 0, 0, 0.25)
+}
+
+#dex-unown, #dex-view-unown {
+  display: none;
+}
+
+#dex-variants, #dex-view-variants {
+  display: none;
+}
+
+#move-dex li, #berry-dex li, #cooking-dex li {
+  display: block;
+}
+
+#berry-dex sprite-item, #cooking-dex sprite-item {
+  vertical-align: middle;
+}
+
+span.berry[disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+div.recipe[disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  display: inline-block;
+}
+
+dialog sprite-item {
+  margin-left: 150px;
+}

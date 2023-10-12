@@ -1,0 +1,145 @@
+:host {
+  display: block;
+
+  padding: 10px;
+}
+
+.item {
+  font-size: 10pt;
+}
+
+.item-icon {
+  padding-right: 0px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+#items-balls {
+    padding-bottom: 24px;
+}
+
+#btn-throw.hidden {
+    display: none;
+}
+
+#encounter-response {
+  padding-top: 24px;
+}
+
+#encounter-response > em {
+  font-size: 9pt;
+}
+
+img:hover {
+  background-color: rgba(0, 0, 0, 0.1) !important
+}
+
+img:active {
+  background-color: rgba(0, 0, 0, 0.25) !important
+}
+
+div.pokeball {
+  display: inline-block;
+}
+
+.disabled {
+  filter: contrast(0);
+}
+
+button sprite-item {
+  vertical-align: middle;
+}
+
+dialog {
+  max-width: 40em;
+}
+
+div.safaribox {
+  width: 160px;
+  height: 108px;
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding-top: 4px;
+  border: solid 1px white;
+}
+
+.center {
+  display: block;
+  text-align: center;
+}
+
+sprite-item {
+  cursor: pointer;
+}
+
+sprite-item.vam {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+@font-face {
+  font-family: 'Unown';
+  src: url('/unown.ttf');
+}
+
+p.unown {
+  font-family: 'Unown', cursive;
+  font-size: 22pt;
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: normal;
+}
+
+sprite-item.animate {
+  animation: rotation 0.5s infinite linear;
+}
+
+@media (prefers-reduced-motion) {
+  sprite-item.animate {
+    animation: none;
+  }
+}
+
+sprite-pokemon.animate {
+  animation: jump 0.4s 2 linear;
+}
+
+@media (prefers-reduced-motion) {
+  sprite-pokemon.animate {
+    animation: none;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-30deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(30deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

@@ -1,0 +1,53 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+paper-button {
+  background-color: red;
+  color: white;
+  font-size: 10pt;
+}
+
+paper-button[disabled] {
+  background-color: #999;
+}
+
+.badge {
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+dialog {
+  max-width: 40em;
+}
+
+dialog sprite-item {
+  vertical-align: middle;
+}
+
+sprite-item.animate {
+  animation: rotation 0.5s infinite linear;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-30deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(0deg);
+  }
+  80% {
+    transform: rotate(30deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+}

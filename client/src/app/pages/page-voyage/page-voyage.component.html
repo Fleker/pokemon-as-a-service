@@ -1,0 +1,452 @@
+<collapsible-card *ngIf="!inVoyage">
+  <span title>What is a Voyage?</span>
+  <strong>Voyages</strong> are journeys your Pokémon can embark upon with friends.
+  They will come back with items, Pokémon, and even a raid battle!
+  The rewards you encounter will depend on the partner you send.
+</collapsible-card>
+
+<mat-card *ngIf="!inVoyage">
+  <h2 *ngIf="voyagesActive && availableVoyages.length">My Active Voyages</h2>
+  <p>
+    <span *ngIf="voyageCount">
+      You have been on <strong>{{voyageCount}} voyages</strong> in total.
+    </span>
+    <span>
+      You can join three voyages at a time.
+    </span>
+  </p>
+  <ul>
+    <p *ngFor="let voyage of allVoyages">
+      <a *ngIf="voyagesActive[voyage.key]" [routerLink]="['/multiplayer', 'voyages']" [queryParams]="routerQuery(voyagesActive[voyage.key])">
+        <sprite-item item="{{voyage.rareitems[0][0]}}"></sprite-item>
+        {{voyage.label}}
+      </a>
+    </p>
+  </ul>
+
+  <h2>Start a new voyage</h2>
+  <strong>Eligible Voyages</strong>
+  <br>
+  <mat-spinner *ngIf="!processedVoyages"></mat-spinner>
+  <ul>
+    <button mat-button *ngFor="let voyage of availableVoyages" (click)="openVoyageDialog(voyage)">
+      <sprite-item item="{{voyage.rareitems[0][0]}}"></sprite-item>
+      {{voyage.label}}
+    </button>
+  </ul>
+
+  <strong>Ineligible Voyages</strong>
+  <br>
+  <mat-spinner *ngIf="!processedVoyages"></mat-spinner>
+  <ul>
+    <button mat-button *ngFor="let voyage of unavailableVoyages" (click)="reportError(voyage)">
+      <sprite-item item="{{voyage.rareitems[0][0]}}"></sprite-item>
+      {{voyage.label}}
+    </button>
+  </ul>
+</mat-card>
+
+<collapsible-card *ngIf="!inVoyage">
+  <span title>Public Voyages</span>
+  <p>
+    Players are reaching out to the public, including <em>you</em>, to join
+    their voyage.
+  </p>
+  <mat-spinner *ngIf="!processedPublicVoyages"></mat-spinner>
+  <ul>
+    <p *ngFor="let voyage of publicVoyages">
+      <a *ngIf="voyage.key"[routerLink]="['/multiplayer', 'voyages']" [queryParams]="routerQuery(voyage.key)">
+        <sprite-item item="{{voyage.item}}"></sprite-item>
+        {{voyage.label}}
+      </a>
+    </p>
+  </ul>
+</collapsible-card>
+
+<mat-card *ngIf="inVoyage && voyageBadId">
+  There is no voyage at this ID.
+</mat-card>
+
+<voyage-header *ngIf="inVoyage && !voyageBadId" [voyage]="voyage" [vid]="voyageDoc?.vid">
+</voyage-header>
+
+<!-- Creation phase -->
+<collapsible-card *ngIf="inVoyage && voyageDoc?.state === 0">
+  <span title>Itinerary</span>
+
+  <span>The forecast is currently calling for <strong>{{voyageDoc?.weather}}</strong>.</span>
+  <br>
+  <a [routerLink]="['/multiplayer', 'voyages']">Return to list</a>
+  <br><br>
+
+  <!-- TODO: Share with teammates -->
+  <b id="share" (click)="shareVoyage()">Share this</b> with your teammates:<br>
+  <small><a href="/multiplayer/voyages?{{voyageId}}">
+    pokemon-of-the-week.firebaseapp.com/multiplayer/voyages?{{voyageId}}
+  </a></small>
+  <br><br><br>
+
+  <button *ngIf="!playerInVoyage" mat-button (click)="joinVoyage()" [disabled]="exec.joinVoyage">
+    Join this voyage
+  </button>
+
+  <button *ngIf="playerInVoyage" mat-button (click)="leaveVoyage()" [disabled]="exec.leaveVoyage">
+    Don't go on this voyage
+  </button>
+
+  <button *ngIf="isHost && !voyageDoc?.isPublic" mat-button (click)="publishVoyage()" [disabled]="exec.publishVoyage">
+    Make voyage public
+  </button>
+
+  <p *ngIf="playerInVoyage">
+    You have selected:
+    <span *ngFor="let item of playerArray">
+      <span *ngIf="item.key === this.firebase.getUid()">
+        <sprite-pokemon class="small" badge="{{item.species}}"></sprite-pokemon>
+      </span>
+    </span>
+  </p>
+
+  <voyages-meter [score]="score" [vid]="voyageDoc?.vid"></voyages-meter>
+
+  <br>
+  <span *ngIf="!isHost">Hosted by {{voyageDoc?.players[voyageDoc?.host]?.ldap}}@</span>
+  <span *ngIf="isHost">You are the host!</span>
+
+  <br>
+  <table>
+    <tr *ngFor="let item of playerArray">
+      <td>
+        <span *ngIf="item.ready">✔️</span>
+      </td>
+      <td>
+        <small class="uppercase">{{item.ldap}}@</small>
+      </td>
+      <td>
+        <sprite-pokemon badge="{{item.species}}" [dialog]="true"></sprite-pokemon>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <div *ngIf="playerInVoyage">
+    <span>Species Clause is <b>ON</b></span>
+    <pokemon-dialog #pokemon [max]="1"></pokemon-dialog>
+    <li *ngFor="let info of battleInfo">
+      {{info}}
+    </li>
+    <mat-slide-toggle id="ready" [(ngModel)]="playerIsReady">
+      Ready
+    </mat-slide-toggle>
+    <br><br>
+    <button mat-button raised id="voyage-select" (click)="select()" [disabled]="exec.select">
+      <mat-icon>publish</mat-icon>Select
+    </button>
+    <br>
+  </div>
+
+  <div style="display:none">
+    Score: {{score}}
+    <br>
+    Bucket: {{bucket}}
+  </div>
+
+  <!-- Host can control legs -->
+  <div>
+    <span *ngIf="!isHost">
+      The host is able to control the path everyone travels on.
+    </span>
+    <span *ngIf="isHost">
+      <strong>You</strong> are able to control the path everyone travels on.
+    </span>
+    <table class="legs">
+      <tr>
+        <td *ngIf="voyageDoc.legs[0] === 1">
+          <strong>Find Items</strong>
+          <mat-icon *ngIf="voyageDoc.legs[1] === 1">east</mat-icon>
+          <mat-icon *ngIf="voyageDoc.legs[1] === 4">south_east</mat-icon>
+        </td>
+        <td *ngIf="voyageDoc.legs[0] !== 1">
+          <button mat-icon-button (click)="updatePath(0, 1)" [disabled]="!isHost">
+            Find Items
+          </button>
+        </td>
+
+        <td *ngIf="voyageDoc.legs[1] === 1">
+          <strong>Find Items</strong>
+          <mat-icon *ngIf="voyageDoc.legs[2] === 1">east</mat-icon>
+          <mat-icon *ngIf="voyageDoc.legs[2] === 4">south_east</mat-icon>
+        </td>
+        <td *ngIf="voyageDoc.legs[1] !== 1">
+          <button mat-icon-button (click)="updatePath(1, 1)" [disabled]="!isHost">
+            Find Items
+          </button>
+        </td>
+
+        <td *ngIf="voyageDoc.legs[2] === 1">
+          <strong>Find Items</strong>
+          <mat-icon>south_east</mat-icon>
+        </td>
+        <td *ngIf="voyageDoc.legs[2] !== 1">
+          <button mat-icon-button (click)="updatePath(2, 1)" [disabled]="!isHost">
+            Find Items
+          </button>
+        </td>
+
+        <td></td>
+      </tr>
+      <tr>
+        <td *ngIf="voyageDoc.legs[0] === 4">
+          <strong>Catch Pokémon</strong>
+          <mat-icon *ngIf="voyageDoc.legs[1] === 4">east</mat-icon>
+          <mat-icon *ngIf="voyageDoc.legs[1] === 1">north_east</mat-icon>
+        </td>
+        <td *ngIf="voyageDoc.legs[0] !== 4">
+          <button mat-icon-button (click)="updatePath(0, 4)" [disabled]="!isHost">
+            Catch Pokémon
+          </button>
+        </td>
+
+        <td *ngIf="voyageDoc.legs[1] === 4">
+          <strong>Catch Pokémon</strong>
+          <mat-icon *ngIf="voyageDoc.legs[2] === 4">east</mat-icon>
+          <mat-icon *ngIf="voyageDoc.legs[2] === 1">north_east</mat-icon>
+        </td>
+        <td *ngIf="voyageDoc.legs[1] !== 4">
+          <button mat-icon-button (click)="updatePath(1, 4)" [disabled]="!isHost">
+            Catch Pokémon
+          </button>
+        </td>
+
+        <td *ngIf="voyageDoc.legs[2] === 4">
+          <strong>Catch Pokémon</strong>
+          <mat-icon>east</mat-icon>
+        </td>
+        <td *ngIf="voyageDoc.legs[2] !== 4">
+          <button mat-icon-button (click)="updatePath(2, 4)" [disabled]="!isHost">
+            Catch Pokémon
+          </button>
+        </td>
+
+        <td>
+          <strong>Raid Battle</strong>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="voyageDoc.legs[0] === 2">
+          <strong>Discover Rare Items</strong>
+          <mat-icon>north_east</mat-icon>
+        </td>
+        <td *ngIf="voyageDoc.legs[0] !== 2">
+          <button mat-icon-button (click)="updatePath(0, 2)" [disabled]="!isHost">
+            Discover Rare Items
+          </button>
+        </td>
+
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+  <button mat-button *ngIf="isHost" (click)="startVoyage()" [disabled]="exec.startVoyage">
+    Let's go!
+  </button>
+</collapsible-card>
+
+<!-- Started -->
+<collapsible-card *ngIf="inVoyage && voyageDoc?.state === 1">
+  <span title>Itinerary</span>
+
+  <span>The current forecast is <strong>{{voyageDoc?.weather}}</strong>.</span>
+  <br>
+  <span>
+    Your Pokémon will return within the day.
+    Expected time of return is roughly {{voyageReturn}}.
+  </span>
+  <br>
+  <br>
+  <a [routerLink]="['/multiplayer', 'voyages']">Return to list</a>
+  <br><br>
+
+  <p *ngIf="playerInVoyage">
+    You have selected:
+    <span *ngFor="let item of playerArray">
+      <span *ngIf="item.key === this.firebase.getUid()">
+        <sprite-pokemon class="small" badge="{{item.species}}"></sprite-pokemon>
+      </span>
+    </span>
+  </p>
+
+  <voyages-meter [score]="score" [vid]="voyageDoc?.vid"></voyages-meter>
+
+  <br>
+  <table>
+    <tr *ngFor="let item of playerArray">
+      <td>
+        <span *ngIf="item.ready">✔️</span>
+      </td>
+      <td>
+        <small class="uppercase">{{item.ldap}}@</small>
+      </td>
+      <td>
+        <sprite-pokemon badge="{{item.species}}" [dialog]="true"></sprite-pokemon>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table class="legs">
+    <tr>
+      <td *ngIf="voyageDoc.legs[0] === 1">
+        <strong>Find Items</strong>
+        <mat-icon *ngIf="voyageDoc.legs[1] === 1">east</mat-icon>
+        <mat-icon *ngIf="voyageDoc.legs[1] === 4">south_east</mat-icon>
+      </td>
+      <td *ngIf="voyageDoc.legs[0] !== 1">
+        <button mat-icon-button disabled="true">
+          Find Items
+        </button>
+      </td>
+
+      <td *ngIf="voyageDoc.legs[1] === 1">
+        <strong>Find Items</strong>
+        <mat-icon *ngIf="voyageDoc.legs[2] === 1">east</mat-icon>
+        <mat-icon *ngIf="voyageDoc.legs[2] === 4">south_east</mat-icon>
+      </td>
+      <td *ngIf="voyageDoc.legs[1] !== 1">
+        <button mat-icon-button disabled="true">
+          Find Items
+        </button>
+      </td>
+
+      <td *ngIf="voyageDoc.legs[2] === 1">
+        <strong>Find Items</strong>
+        <mat-icon>south_east</mat-icon>
+      </td>
+      <td *ngIf="voyageDoc.legs[2] !== 1">
+        <button mat-icon-button disabled="true">
+          Find Items
+        </button>
+      </td>
+
+      <td></td>
+    </tr>
+    <tr>
+      <td *ngIf="voyageDoc.legs[0] === 4">
+        <strong>Catch Pokémon</strong>
+        <mat-icon *ngIf="voyageDoc.legs[1] === 4">east</mat-icon>
+        <mat-icon *ngIf="voyageDoc.legs[1] === 1">north_east</mat-icon>
+      </td>
+      <td *ngIf="voyageDoc.legs[0] !== 4">
+        <button mat-icon-button disabled="true">
+          Catch Pokémon
+        </button>
+      </td>
+
+      <td *ngIf="voyageDoc.legs[1] === 4">
+        <strong>Catch Pokémon</strong>
+        <mat-icon *ngIf="voyageDoc.legs[2] === 4">east</mat-icon>
+        <mat-icon *ngIf="voyageDoc.legs[2] === 1">north_east</mat-icon>
+      </td>
+      <td *ngIf="voyageDoc.legs[1] !== 4">
+        <button mat-icon-button disabled="true">
+          Catch Pokémon
+        </button>
+      </td>
+
+      <td *ngIf="voyageDoc.legs[2] === 4">
+        <strong>Catch Pokémon</strong>
+        <mat-icon>east</mat-icon>
+      </td>
+      <td *ngIf="voyageDoc.legs[2] !== 4">
+        <button mat-icon-button disabled="true">
+          Catch Pokémon
+        </button>
+      </td>
+
+      <td>
+        <strong>Raid Battle</strong>
+      </td>
+    </tr>
+    <tr>
+      <td *ngIf="voyageDoc.legs[0] === 2">
+        <strong>Discover Rare Items</strong>
+        <mat-icon>north_east</mat-icon>
+      </td>
+      <td *ngIf="voyageDoc.legs[0] !== 2">
+        <button mat-icon-button disabled="true">
+          Discover Rare Items
+        </button>
+      </td>
+
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+</collapsible-card> 
+
+<!-- Voyage completed -->
+<mat-card *ngIf="voyageDoc?.state === 3">
+  <!-- TODO: Animations -->
+  <button mat-button *ngIf="toClaim" (click)="claim()" [disabled]="exec.claim">
+    Claim Rewards
+  </button>
+  <button mat-button *ngIf="!toClaim" [disabled]="true">
+    Rewards have already been claimed
+  </button>
+
+  <div *ngIf="!toClaim">
+    <b>Your Journey:</b>
+    <div class="reward typebg {{voyage?.typePrimary}} {{voyageDoc?.vid}} {{voyage?.typeSecondary[1].toLowerCase()}}">
+      <span *ngFor="let item of playerArray">
+        <span *ngIf="item.key === this.firebase.getUid()">
+          <sprite-pokemon class="reward-player" badge="{{item.species}}"></sprite-pokemon>
+        </span>
+      </span>
+
+      <div *ngFor="let leg of voyageDoc?.prizes; index as i" class="reward-step n{{i}}">
+        <div class="reward-step-ctr">
+          <mat-icon>north</mat-icon>
+          <sprite-item *ngFor="let item of leg.items" item="{{item}}">
+          </sprite-item>
+          <sprite-pokemon *ngFor="let pkmn of leg.caught" badge="{{pkmn}}" [dialog]="true">
+          </sprite-pokemon>
+        </div>
+      </div>
+      <div class="center typebg {{voyage?.typeSecondary[0]}}">
+        <div class="reward-step n4 ceil">
+          <sprite-item class="" *ngIf="!voyageDoc?.raidBoss" item="pokeball" class="invalid"></sprite-item>
+          <sprite-pokemon class="" *ngIf="voyageDoc?.raidBoss" badge="{{voyageDoc?.raidBoss}}" class="classified"></sprite-pokemon>
+          <br>
+          <button mat-button>
+            <a class="raid" [routerLink]="['/multiplayer', 'raids']" [queryParams]="routerQuery(voyageDoc.raidId)">
+              A raid battle has been discovered!
+            </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br><br><br>
+  <a [routerLink]="['/multiplayer', 'voyages']">Return</a>
+</mat-card>
+
+<dialog #create>
+  <h1 class="centered">Create a voyage</h1>
+  <strong>{{selectedVoyage?.label}}</strong>
+  <br>
+  <small>{{selectedVoyage?.description}}</small>
+  <br><br><br>
+  <button mat-button [disabled]="exec.confirmCreation" (click)="confirmCreation()">Let's Go!</button>
+  <button mat-button secondary (click)="close()">Nevermind</button>
+</dialog>
+
+<dialog #error>
+  {{errorMsg}}
+  <br><br>
+  <button mat-button (click)="close()">Close</button>
+</dialog>

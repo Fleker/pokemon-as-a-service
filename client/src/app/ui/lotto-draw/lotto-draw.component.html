@@ -1,0 +1,7 @@
+<div *ngIf="winner">
+  <span *ngFor="let n of ticket; index as i" class="n{{i}}">
+    <span class="digit undetermined" *ngIf="!display[i]">{{rng[i]}}</span>
+    <span class="digit final-match" *ngIf="display[i] && n === winner[i]">{{n}}</span>
+    <span class="digit final" *ngIf="display[i] && n !== winner[i]">{{n}}</span>
+  </span>
+</div>

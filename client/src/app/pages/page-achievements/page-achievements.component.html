@@ -1,0 +1,30 @@
+<mat-card>
+  <h2>My Achievements</h2>
+  <p>These achievements don't get you anything, but go ahead and complete them all.</p>
+
+  <h3>Pokédex Achievements</h3>
+  <div>
+    <quest-medal *ngFor="let medal of pokedexAchievements" [medal]="medal">
+    </quest-medal>
+  </div>
+
+  <h3>Gameplay Achievements</h3>
+  <div>
+    <quest-medal *ngFor="let medal of onepAchievements" [medal]="medal">
+    </quest-medal>
+  </div>
+
+  <h3>Catch Achievements</h3>
+  <div>
+    <quest-medal *ngFor="let medal of catchTypeAchievements" [medal]="medal">
+    </quest-medal>
+  </div>
+
+  <h3>Community Achievements</h3>
+  <p>Many community-created achievements can be found here.</p><br>
+  
+  <div>
+    <quest-medal *ngFor="let medal of communityAchievements" [medal]="medal">
+    </quest-medal>
+  </div>
+</mat-card>

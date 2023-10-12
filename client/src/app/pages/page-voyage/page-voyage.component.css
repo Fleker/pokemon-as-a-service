@@ -1,0 +1,235 @@
+button sprite-item, p sprite-item {
+  vertical-align: middle;
+}
+
+table.legs td {
+  text-align: center;
+}
+
+table.legs mat-icon {
+  vertical-align: bottom;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+button[mat-icon-button] {
+  color: var(--app-text-color);
+}
+
+.center {
+  text-align: center;
+  display: block;
+}
+
+@media (min-width: 800px) {
+  table.legs {
+    width: 100%;
+  }
+
+  table.legs td {
+    width: 25%;
+  }
+
+  table.legs mat-icon {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+}
+
+table.reward {
+  width: 100%;
+}
+
+.reward-step {
+  opacity: 0;
+  animation: appear 1s 1 linear;
+  animation-fill-mode: forwards;
+  height: 60px;
+  /** Override in bottom case **/
+  background-image: var(--background-wall);
+  background-size: contain;
+  background-repeat-x: repeat;
+}
+
+.reward-step sprite-item, .reward-step sprite-pokemon {
+  opacity: 0;
+  animation: appear_contrast 1s 1 linear;
+  animation-fill-mode: forwards;
+}
+
+.reward-step.n0 {
+  animation-delay: 1s;
+  background-image: var(--background-floor);
+}
+
+.reward-step.n0 sprite-item, .reward-step.n0 sprite-pokemon {
+  animation-delay: 1.5s;
+}
+
+.reward-step.n1 {
+  animation-delay: 3s;
+}
+
+.reward-step.n1 sprite-item, .reward-step.n1 sprite-pokemon {
+  animation-delay: 3.5s;
+}
+
+.reward-step.n2 {
+  animation-delay: 5s;
+}
+
+.reward-step.n2 sprite-item, .reward-step.n2 sprite-pokemon {
+  animation-delay: 5.5s;
+}
+
+.reward-step.n3 {
+  animation-delay: 7s;
+}
+
+.reward-step.n3 sprite-item, .reward-step.n3 sprite-pokemon {
+  animation-delay: 7.5s;
+}
+
+.reward-step.n4 {
+  animation-delay: 8s;
+  background-image: var(--background-ceil);
+  background-repeat: no-repeat;
+}
+
+.reward-step.n4 sprite-item, .reward-step.n4 sprite-pokemon {
+  animation-delay: 8.5s;
+  text-align: center;
+}
+
+.reward-step mat-icon {
+  vertical-align: super;
+}
+
+.reward div.ceil {
+  height: 200px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+sprite-pokemon.reward-player {
+  animation: travel 8s 1 linear;
+  animation-fill-mode: forwards;
+  position: absolute;
+  left: calc(50% - 160px);
+  border: solid 1px var(--type-fire);
+  z-index: 2;
+  margin-top: 0px;
+}
+
+sprite-item.invalid {
+  filter: contrast(0);
+}
+
+.reward {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-evenly;
+  /* Border */
+  border: solid 2px var(--app-text-color);
+  border-radius: 8px;
+  padding-bottom: 8px;
+}
+
+.reward-step-ctr {
+
+}
+
+a.raid {
+  opacity: 0;
+  animation: appear 1s 1 linear;
+  animation-delay: 8s;
+  animation-fill-mode: forwards;
+  /* Reset */
+  color: var(--app-text-color);
+  text-decoration: none;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear_contrast {
+  0% {
+    opacity: 0;
+    filter: contrast(0);
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    filter: contrast(1);
+  }
+}
+
+/* Over 8s */
+@keyframes travel {
+  0% {
+    margin-top: 0px;
+  }
+
+  /* After 1s */
+  12% {
+    margin-top: -60px;
+  }
+
+  25% {
+    margin-top: -60px;
+  }
+
+  /* After 3s */
+  37% {
+    margin-top: -120px;
+  }
+
+  50% {
+    margin-top: -120px;
+  }
+
+  /* After 5s */
+  62% {
+    margin-top: -180px;
+  }
+
+  75% {
+    margin-top: -180px;
+    left: calc(50% - 160px);
+  }
+
+  87% {
+    margin-top: -200px;
+    left: calc(50% - 140px);
+  }
+
+  90% {
+    margin-top: -180px;
+    left: calc(50% - 120px);
+  }
+
+  93% {
+    margin-top: -180px;
+    left: calc(50% - 120px);
+  }
+
+  /* To end */
+  100% {
+    margin-top: -240px;
+    left: calc(50% - 40px);
+  }
+}

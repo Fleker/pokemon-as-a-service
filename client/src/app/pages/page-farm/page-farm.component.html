@@ -1,0 +1,118 @@
+<collapsible-card [collapsed]="true">
+  <span title>Berry Farm</span>
+  <p>
+      You can manage a set of plots with which to grow berries.
+      After some time you can harvest them. Sometimes Pokémon will
+      be attracted to the fruit.
+  </p>
+  <p>
+      You have harvested
+      <strong>{{berryGrown}} berries</strong>.
+  </p>
+  <mart-section label="Fertilizer"
+    items="{{fertilizerString}}" mode="buy">
+  </mart-section>
+</collapsible-card>
+
+<mat-card *ngIf="!plotNum">
+  <p>
+      You currently do not have any plots. You will need to
+      purchase a plot of land first. It will cost <b>50 Poké Balls</b>.
+  </p>
+  <button mat-button raised (click)="expand()" [disabled]="exec.expand">Purchase Plot of Land</button>
+</mat-card>
+
+<collapsible-card *ngIf="plotNum" [collapsed]="true">
+  <span title>Expand Farm</span>
+  <p>
+    Want to grow more berries? You can add six additional plots to your
+    farm. It will cost <b>{{nextPlotCost}} Poké Balls</b>.
+  </p>
+  <button mat-button raised (click)="expand()" [disabled]="exec.expand">
+    <mat-icon>expand</mat-icon>
+    Expand Land
+  </button>
+</collapsible-card>
+
+<button mat-button *ngIf="plotsReady.length > 1" (click)="harvestAll()">
+  <mat-icon>agriculture</mat-icon>
+  Harvest All Ready
+</button>
+<button mat-button *ngIf="showMassPlant" (click)="plantAll()">
+  <mat-icon>park</mat-icon>
+  Plant {{plotsToPlant.length}} plots
+</button>
+<button mat-button *ngIf="showMassFertilize" (click)="fertilizeAll()">
+  <mat-icon>compost</mat-icon>
+  Fertilize {{plotsToFertilize.length}} plots
+</button>
+<div class="my-farm">
+  <div class="plot" *ngFor="let plot of plots; index as i;">
+    <button mat-button (click)="plant(i)" *ngIf="plot.empty" [disabled]="plot.exec">
+      Plant Here
+    </button>
+    <button mat-button (click)="harvest(i)" *ngIf="plot.ready" [disabled]="plot.exec">
+      <img src="{{getBerrySprite(plot)}}" alt="{{getBerryInfo(plot)}}" title="{{getBerryInfo(plot)}}" />
+    </button>
+    <div *ngIf="!plot.ready && !plot.empty">
+      <img src="{{getBerrySprite(plot)}}" alt="{{getBerryInfo(plot)}}" title="{{getBerryInfo(plot)}}" />
+      <br>
+      <button mat-button (click)="fertilize(i)" *ngIf="plot.canFertilize" [disabled]="plot.exec">
+        Add Fertilizer
+      </button>
+      <button mat-icon-button *ngIf="!plot.canFertilize" (click)="openFertilizerDialog(plot.fertilizer)">
+        <sprite-item item="{{plot.fertilizer}}"></sprite-item>
+      </button>
+    </div>
+  </div>
+</div>
+
+<dialog #dialog>
+  <h1 *ngIf="harvestRes?.harvest.length === 1" class="centered">
+    <sprite-item [item]="harvestRes?.harvest[0].item"></sprite-item>{{harvestRes?.harvest[0].label}} Harvest
+  </h1>
+  <h1 *ngIf="harvestRes?.harvest.length > 1" class="centered">
+    You plucked some berries
+  </h1>
+  <p *ngIf="harvestRes?.harvest.length === 1">
+    You received {{harvestRes.harvest[0].yield}} {{harvestRes?.harvest[0].label}} berries from the plot.
+  </p>
+  <p *ngIf="harvestRes?.harvest.length > 1">
+    You received:
+  </p>
+  <ul *ngIf="harvestRes?.harvest.length > 1">
+    <li *ngFor="let h of harvestRes?.harvest">
+      <sprite-item [item]="h.item"></sprite-item>{{h.label}} ×{{h.yield}}
+    </li>
+  </ul>
+  <div *ngFor="let weed of harvestRes?.weeds; index as i">
+    <p *ngIf="i === 0">
+      You see some weeds sticking out of the ground. You pull them out and obtain a
+      <sprite-item item="{{weed.item}}"></sprite-item>
+      <strong>{{weed.label}}</strong>.
+    </p>
+    <p *ngIf="weed && i > 0">
+      You also find a
+      <sprite-item item="{{weed.item}}"></sprite-item>
+      <strong>{{weed.label}}</strong>.
+    </p>
+  </div>
+  <div *ngFor="let pkmn of harvestRes?.pokemon">
+    <p *ngIf="pkmn">
+      <sprite-pokemon badge="{{pkmn.pkmn}}"></sprite-pokemon>
+      <br>
+      A wild {{pkmn.species}} was attracted to the berries. After seeing
+      seeing you, it appears to be filled with excitement. It decides to stay
+      with you.
+    </p>
+  </div>
+
+  <button mat-button (click)="close()">OK</button>
+</dialog>
+
+<dialog-items #items></dialog-items>
+<dialog #dfertilizer>
+  <widget-binoculars #binoculars [available]="binocularsList" class=""></widget-binoculars>
+  <br>
+  <button mat-button (click)="close()">OK</button>
+</dialog>

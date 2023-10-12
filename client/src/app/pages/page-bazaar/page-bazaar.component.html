@@ -1,0 +1,22 @@
+<mat-card>
+  <h1>Bazaar</h1>
+  <div>
+    <button mat-icon-button (click)="refresh()" aria-label="Refresh merchants in the bazaar">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </div>
+  <p>The open bazaar features traveling merchants from all over.</p>
+</mat-card>
+
+<collapsible-card *ngFor="let m of merchants" [collapsed]="true">
+  <span title>
+    <mat-icon *ngIf="m.icon">{{m.icon}}</mat-icon>
+    <sprite-item *ngIf="!m.icon" item="{{m.items[0]}}"></sprite-item>
+    {{m.name}}
+  </span>
+  <mart-section label=""
+    items="{{m.items}}"
+    mode="buy"
+    bazaar="{{m.key}}">
+  </mart-section>
+</collapsible-card>

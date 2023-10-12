@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.badge {
+  margin: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+img.icon {
+  width: 14px;
+  height: 14px;
+}
+
+.selected {
+    border: solid 1px #555;
+}
+
+#leaderboard td {
+  min-width: 150px;
+}
+
+#leaderboard thead td {
+  font-weight: bold;
+}
+
+.opposing-side {
+  padding-left: 300px;
+}
+
+#hp-species, #hp-opponent {
+  background-color: green;
+  height: 6px;
+}
+
+#match-spoiler {
+  font-weight: bold;
+}
+
+#match-log {
+  margin-top: 48px;
+  font-size: 10pt;
+  font-family: monospace;
+  background: var(--plane-bg);
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-bottom: 16px;
+  width: 400px;
+}
+
+mat-radio-button {
+  margin-right: 16px;
+}
+
+td.right {
+  padding-left: 200px;
+}
+
+dialog {
+  max-width: 40em;
+}

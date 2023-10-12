@@ -1,0 +1,167 @@
+<mat-tab-group (selectedTabChange)="lazyLoad($event)">
+  <mat-tab label="Registered">
+    <mat-spinner *ngIf="registered.length === 0"></mat-spinner>
+    <mat-card *ngFor="let r of registered">
+      <span>
+        <b>{{r.label}} Pokédex:</b>
+        {{r.count}}/{{r.total}}
+        {{r.emoji}}
+      </span>
+      <br>
+      <div>
+        <span *ngFor="let sprite of r.sprites">
+          <sprite-pokemon *ngIf="sprite.registered" badge="{{sprite.badge}}" [dialog]="true">
+          </sprite-pokemon>
+          <sprite-pokemon *ngIf="!sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [uncaught]="true" class="uncaught">
+          </sprite-pokemon>
+        </span>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Living">
+    <mat-spinner *ngIf="living.length === 0"></mat-spinner>
+    <mat-card *ngFor="let r of living">
+      <span>
+        <b>{{r.label}} Pokédex:</b>
+        {{r.count}}/{{r.total}}
+        {{r.emoji}}
+      </span>
+      <br>
+      <mat-spinner *ngIf="r.sprites.length === 0"></mat-spinner>
+      <div>
+        <span *ngFor="let sprite of r.sprites">
+          <sprite-pokemon *ngIf="sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [held]="sprite.hold">
+          </sprite-pokemon>
+          <sprite-pokemon *ngIf="!sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [uncaught]="true" class="uncaught">
+          </sprite-pokemon>
+        </span>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Shiny">
+    <mat-spinner *ngIf="shiny.length === 0"></mat-spinner>
+    <mat-card *ngFor="let r of shiny">
+      <span>
+        <b>{{r.label}} Pokédex:</b>
+        {{r.count}}/{{r.total}}
+        {{r.emoji}}
+      </span>
+      <br>
+      <mat-spinner *ngIf="r.sprites.length === 0"></mat-spinner>
+      <div>
+        <span *ngFor="let sprite of r.sprites">
+          <sprite-pokemon *ngIf="sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [held]="sprite.hold">
+          </sprite-pokemon>
+          <sprite-pokemon *ngIf="!sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [uncaught]="true" class="uncaught">
+          </sprite-pokemon>
+        </span>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Unown" *ngIf="unown.count">
+    <mat-card>
+      <mat-spinner *ngIf="unown.sprites.length === 0"></mat-spinner>
+      <span>
+        <b>{{unown.label}} Pokédex</b>
+        {{unown.count}}/{{unown.total}}
+      </span>
+      <br>
+      <div>
+        <span *ngFor="let sprite of unown.sprites">
+          <sprite-pokemon *ngIf="sprite.registered" badge="{{sprite.badge}}" [dialog]="true">
+          </sprite-pokemon>
+          <sprite-pokemon *ngIf="!sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [uncaught]="true" class="uncaught">
+          </sprite-pokemon>
+        </span>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Variants" *ngIf="variants.count">
+    <mat-card>
+      <mat-spinner *ngIf="variants.sprites.length === 0"></mat-spinner>
+      <span>
+        <b>{{variants.label}} Pokédex</b>
+        {{variants.count}}/{{variants.total}}
+      </span>
+      <br>
+      <small>
+        <a href="{{variantsFr}}" target="_blank">
+          Request new variant
+        </a>
+      </small>
+      <br>
+      <div>
+        <span *ngFor="let sprite of variants.sprites">
+          <sprite-pokemon *ngIf="sprite.registered" badge="{{sprite.badge}}" [dialog]="true">
+          </sprite-pokemon>
+          <sprite-pokemon *ngIf="!sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [uncaught]="true" class="uncaught">
+          </sprite-pokemon>
+        </span>
+      </div>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Move Dex" *ngIf="gate.movedex">
+    <mat-card id="move-dex">
+      {{registeredMoves}}/{{moves.length}}
+      <li *ngFor="let move of moves">
+        <move-span move="{{move.name}}" [attr.disabled]="!move.registered"></move-span>
+      </li>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Berry Dex" *ngIf="gate.berrydex">
+    <mat-card id="berry-dex">
+      {{registeredBerries}}/{{berries.length}}
+      <li *ngFor="let berry of berries">
+        <sprite-item item="{{berry.name}}" [attr.disabled]="!berry.registered"></sprite-item>
+        <span class="berry" [attr.disabled]="!berry.registered">
+          {{berry.label}}
+        </span>
+      </li>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab label="Cooking Dex" *ngIf="gate.currydex">
+    <mat-card id="cooking-dex">
+      {{registeredCooking}}/{{cooking.length}}
+      <li *ngFor="let recipe of cooking">
+        <sprite-item item="{{recipe.name}}" [attr.disabled]="!recipe.registered"></sprite-item>
+        <div class="recipe" [attr.disabled]="!recipe.registered">
+          {{recipe.label}}
+          <br>
+          <small [attr.disabled]="!recipe.registered">
+            {{recipe.description}}
+          </small>
+        </div>
+      </li>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+
+<dialog #charmdialog>
+  <h1 class="centered">You have obtained the {{dialog.title}}!</h1>
+  <br>
+  <sprite-item item="{{dialog.sprite}}"></sprite-item>
+  <br>
+  <ul>
+    <li>
+      You will start to find new Pokémon in the wild
+    </li>
+    <li *ngFor="let mode of dialog.modes">
+      You have unlocked the {{mode}}
+    </li>
+    <li>
+      You have unlocked {{dialog.nextQuests.length}} new quests
+    </li>
+  </ul>
+  <small>
+    Congratulations! And thanks for playing!
+  </small>
+  <br><br>
+  <button mat-button (click)="close()">Close</button>
+</dialog>

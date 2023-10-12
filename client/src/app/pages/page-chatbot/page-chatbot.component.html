@@ -1,0 +1,39 @@
+<mat-card *ngIf="chatEnabled">
+  <mat-tab-group (selectedTabChange)="updatePrompt($event)">
+    <mat-tab label="Oak">
+      <h1 class="centered">
+        <img src="/images/sprites/quests/oak.png" />
+        Professor Oak
+      </h1>
+      <em>An expert on Kanto</em>
+    </mat-tab>
+    <mat-tab label="Magnolia" *ngIf="engagement.isNextUi">
+      <h1 class="centered">
+        <img src="/images/sprites/quests/magnolia8.png" />
+        Professor Magnolia
+      </h1>
+      <em>An expert on quests</em>
+    </mat-tab>
+  </mat-tab-group>
+  <small>
+    This is an experimental chatbot using PaLM. Responses may not be canonical or trustworthy. Chats get cleared when this page refreshes.
+  </small>
+  <div *ngFor="let chat of chats" class="chats">
+    <p *ngIf="chat.state === 'done'" [class]="chat.who">
+      {{chat.msg}}
+    </p>
+    <p *ngIf="chat.state === 'pending'" [class]="chat.who">
+      <mat-icon>cloud_upload</mat-icon>
+    </p>
+    <p *ngIf="chat.state === 'texting'" [class]="chat.who">
+      <mat-icon>pending</mat-icon>
+    </p>
+  </div>
+
+  <div>
+    <input class="prompt" [(ngModel)]="prompt" />
+    <button mat-icon-button (click)="sendPrompt()" [disabled]="chatInTransit">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+</mat-card>

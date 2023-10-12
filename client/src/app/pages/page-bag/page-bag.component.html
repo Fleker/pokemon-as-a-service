@@ -1,0 +1,102 @@
+<collapsible-card>
+  <span title>Bag <mat-icon (click)="tutorialOpen($event)">help</mat-icon></span>
+  <p>Your items are here, split into several pockets.</p>
+</collapsible-card>
+
+<div *ngFor="let key of categories">
+  <collapsible-card *ngIf="categoryAttributes[key].active != false">
+    <span title>
+      <mat-icon>{{categoryAttributes[key].icon}}</mat-icon>
+      {{categoryAttributes[key].label}}
+    </span>
+    <em *ngIf="categoryAttributes[key].categoryDescription">
+      {{categoryAttributes[key].categoryDescription}}
+      <a *ngIf="categoryAttributes[key].categoryRoute" routerLink="{{categoryAttributes[key].categoryRoute}}">
+        <mat-icon>link</mat-icon>
+      </a>
+    </em>
+    <table>
+      <tr *ngFor="let item of bag[key]">
+        <td class="icon">
+          <button mat-icon-button class="{{item.functional}}" (click)="useItem(item.key)">
+            <sprite-item item="{{item.key}}" class="{{item.functional}}">
+            </sprite-item>
+          </button>
+        </td>
+        <td class="count">
+          ×{{item.count}}
+        </td>
+        <td>
+          <small><strong>{{item.label}}</strong></small>
+        </td>
+        <td>
+          <!-- - -->
+        </td>
+        <td>
+          <small>
+            {{item.description}}
+          </small>
+        </td>
+      </tr>
+    </table>
+  </collapsible-card>
+</div>
+
+<pokemon-dialog #pokemon show="false"></pokemon-dialog>
+
+<dialog #dialog>
+  <span *ngIf="!itemUse?.species">
+    Something is happening to your Pokémon...
+  </span>
+  <span *ngIf="action !== 'restored' && itemUse?.species">
+    Congratulations! Your {{itemUse?.name1}} has {{action}} into {{itemUse?.name2}}!
+  </span>
+  <span *ngIf="action === 'restored' && itemUse?.species">
+    Well, what do you know? You have restored a {{itemUse?.name1}}.
+  </span>
+  <br>
+  <sprite-evolution [from]="itemUse?.target" [to]="itemUse?.species"></sprite-evolution>
+  <br><br>
+  <button mat-button (click)="close()" [disabled]="!itemUse?.species">Cool Beans</button>
+</dialog>
+
+<dialog #spin>
+  <h1 class="centered">Spin Around</h1>
+  <strong>Select a spin</strong>
+  <br>
+  <button mat-button (click)="confirmMilcerySpin('QUICK_CLOCKWISE')">
+    <mat-icon>autorenew</mat-icon>
+    Clockwise Quickly
+  </button>
+  <br>
+  <button mat-button (click)="confirmMilcerySpin('QUICK_ANTICLOCKWISE')">
+    <mat-icon>sync</mat-icon>
+    Counterclockwise Quickly
+  </button>
+  <br>
+  <button mat-button (click)="confirmMilcerySpin('SLOW_CLOCKWISE')">
+    <mat-icon>rotate_right</mat-icon>
+    Clockwise Slowly
+  </button>
+  <br>
+  <button mat-button (click)="confirmMilcerySpin('SLOW_ANTICLOCKWISE')">
+    <mat-icon>rotate_left</mat-icon>
+    Counterclockwise Slowly
+  </button>
+  <br>
+  <br><br>
+  <button mat-button secondary (click)="close()">Cancel</button>
+</dialog>
+
+<dialog #tutorial>
+  <p>
+    Welcome there! Throughout your adventure you'll find a variety of items.
+    To make things easier, these items are placed into separate pockets below.
+  </p>
+  <p>
+    Some items will have an effect! When you click on an evolution stone, a
+    new dialog will show compatible Pokémon in your collection. Other items can
+    be tapped and be used without a Pokémon.
+  </p>
+  <button mat-button (click)="tutorialClose()">Close</button>
+</dialog>

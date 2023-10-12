@@ -1,0 +1,111 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+#listings > .card {
+  display: inline-block;
+  text-align: center;
+}
+
+paper-button {
+  background-color: red;
+  color: white;
+  font-size: 10pt;
+}
+
+paper-button[disabled] {
+  background-color: #999;
+}
+
+.newPkmn {
+  background-color: orange;
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+  font-size: 10pt;
+  display: none;
+}
+
+.badge {
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.selected {
+  border: solid 1px #555;
+}
+
+#pokemon-listing {
+  font-size: 10pt;
+}
+
+mat-card.animation div {
+  text-align: center;
+}
+
+mat-card.animation.send sprite-pokemon {
+  animation: send 1s 1 linear;
+  animation-delay: 0.25s;
+  animation-fill-mode: forwards;
+}
+
+mat-card.animation.return sprite-pokemon, mat-card.animation.return img {
+  animation: send 2s 1 linear;
+  animation-fill-mode: backwards;
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion) {
+  mat-card.animation.send sprite-pokemon {
+    animation: sendLimited 1s 1 linear;
+  }
+  
+  mat-card.animation.return sprite-pokemon, mat-card.animation.return img {
+    animation: sendLimited 2s 1 linear;
+  }
+}
+
+@keyframes send {
+  0% {
+    margin-left: -16px;
+    transform: rotate(0deg);
+    height: 40px;
+    width: 40px;
+  }
+
+  33% {
+    transform: rotate(-10deg);
+  }
+
+  67% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    margin-left: 16px;
+    opacity: 0;
+    transform: rotate(0deg);
+    height: 4px;
+    width: 4px;
+  }
+}
+
+@keyframes sendLimited {
+  0% {
+    margin-left: -16px;
+    transform: rotate(0deg);
+    height: 40px;
+    width: 40px;
+  }
+
+  100% {
+    margin-left: 16px;
+    opacity: 0;
+    height: 4px;
+    width: 4px;
+  }
+}

@@ -1,0 +1,49 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+paper-button {
+    background-color: red;
+    color: white;
+    font-size: 10pt;
+}
+
+paper-button[disabled] {
+  background-color: #999;
+}
+
+.p0, .p1, .p2, .p3, .p4, .p5 {
+  opacity: 0;
+  animation: fadein 0.3s 1 linear;
+  animation-fill-mode: forwards;
+}
+
+.p1 {
+  animation-delay: 1s;
+}
+
+.p2 {
+  animation-delay: 2s;
+}
+
+.p3 {
+  animation-delay: 2s;
+}
+
+.p4 {
+  animation-delay: 4.5s;
+}
+
+.p5 {
+  animation-delay: 4.5s;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

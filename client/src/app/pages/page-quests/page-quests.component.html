@@ -1,0 +1,119 @@
+<mat-card>
+  <h1>My Quests <mat-icon (click)="tutorialOpen()">help</mat-icon></h1>
+  <p>
+    All your completed and incompleted quests will show up here.
+  </p>
+</mat-card>
+
+<mat-card>
+  <h2>Dowsing Machine</h2>
+  <p>
+    Use the dowsing machine to find things. Many items change weekly.
+  </p>
+
+  <b>Items Found:</b>
+  <div *ngIf="dowsingQuests">
+    <a *ngFor="let item of dowsingQuests" href="/dowsing?{{item.id}}">
+      <img src="{{item.src}}" />
+    </a>
+  </div>
+  <span *ngIf="missingDowsing === 0">
+    Wow, you've found all of the hidden items this week.
+  </span>
+  <span *ngIf="missingDowsing > 0">
+    You haven't found <strong>{{missingDowsing}} item(s).</strong>
+  </span>
+
+  <h3>Ditto Collector</h3>
+  <div>
+    <quest-medal *ngFor="let quest of dittoQuests" [quest]="quest"></quest-medal>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Key Item Quests</h2>
+  <div>
+    <quest-medal *ngFor="let quest of keyItemQuests" [quest]="quest">
+    </quest-medal>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Pokédex Quests</h2>
+  <small>
+    Different Pokémon may appear in various locations based on weather.
+  </small>
+  <br>
+  <div>
+    <button mat-icon-button (click)="fetchNovelLocation()" aria-label="Obtain interesting weather">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <span>
+      The weather is <strong>{{novelLocation?.forecast}}</strong>
+      in <strong>{{novelLocation?.label}}</strong>.
+    </span>
+  </div>
+  <br><br>
+  <div>
+    <quest-medal *ngFor="let quest of pokedexQuests" [quest]="quest"></quest-medal>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Legendary Quests</h2>
+
+  <div>
+    <quest-medal *ngFor="let quest of legendaryQuests" [quest]="quest">
+    </quest-medal>
+  </div>
+</mat-card>
+
+<mat-card>
+  <h2>Global Quests</h2>
+  <p>A single quest that requires group cooperation.</p>
+
+  <div>
+    <quest-medal *ngFor="let quest of globalQuests" [quest]="quest">
+    </quest-medal>
+  </div>
+
+  <global-quest-donation></global-quest-donation>
+
+  <br><br>
+  <span>
+    Currently there are {{globalQuestDonations}} donations.
+  </span>
+</mat-card>
+
+<dialog #tutorial>
+  <p>
+    Over the course of playing the game, you will unlock a variety of quests
+    and work towards completing achievements.
+  </p>
+  <p>
+    Dowsing Machine badges have unique identifiers which can be found by
+    interacting with other players.
+  </p>
+  <p>
+    Key Item quests are simple multi-task missions that will grant you an
+    important item.
+  </p>
+  <p>
+    Research Tasks are quests that ask you to catch certain Pokémon. When you
+    do, you can receive a reward.
+  </p>
+  <p>
+    Pokédex quests ask you to expand your registered Pokédex. As you do,
+    you will receive catching charms. 
+  </p>
+  <p>
+    Legendary quests allow you to catch Legendary Pokémon or related key items.
+    These quests contain a number of difficult tasks that must all be completed
+    at the same time to count.
+  </p>
+  <p>
+    Global quests take advantage of the group dynamics by allowing everyone to
+    contribute to a single goal that can be unlocked.
+  </p>
+  <button mat-button (click)="tutorialClose()">Close</button>
+</dialog>

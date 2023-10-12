@@ -41,6 +41,37 @@ import { PickerPokemonComponent } from './forms/picker-pokemon/picker-pokemon.co
 
 import { CollapsibleCardComponent } from './layout/collapsible-card/collapsible-card.component';
 
+import { PageAboutComponent } from './pages/page-about/page-about.component';
+import { PageAchievementsComponent } from './pages/page-achievements/page-achievements.component';
+import { PageAdminComponent } from './pages/page-admin/page-admin.component';
+import { PageBazaarComponent } from './pages/page-bazaar/page-bazaar.component';
+import { PageBagComponent } from './pages/page-bag/page-bag.component';
+import { PageBankComponent } from './pages/page-bank/page-bank.component';
+import { PageBattleComponent } from './pages/page-battle/page-battle.component';
+import { PageBattlesimComponent } from './pages/page-battlesim/page-battlesim.component';
+import { PageChatbotComponent } from './pages/page-chatbot/page-chatbot.component';
+import { PageCraftComponent } from './pages/page-craft/page-craft.component';
+import { PageDaycareComponent } from './pages/page-daycare/page-daycare.component';
+import { PageDowseComponent } from './pages/page-dowse/page-dowse.component';
+import { PageEggsComponent } from './pages/page-eggs/page-eggs.component';
+import { PageEncounterComponent } from './pages/page-encounter/page-encounter.component';
+import { PageFarmComponent } from './pages/page-farm/page-farm.component';
+import { PageGamesComponent } from './pages/page-games/page-games.component';
+import { PageGtsComponent } from './pages/page-gts/page-gts.component';
+import { PageMartComponent } from './pages/page-mart/page-mart.component';
+import { PageMovedeleterComponent } from './pages/page-movedeleter/page-movedeleter.component';
+import { PageMovetutorComponent } from './pages/page-movetutor/page-movetutor.component';
+import { PagePokedexComponent } from './pages/page-pokedex/page-pokedex.component';
+import { PagePokemonComponent } from './pages/page-pokemon/page-pokemon.component';
+import { PageQuestsComponent } from './pages/page-quests/page-quests.component';
+import { PageRaidComponent } from './pages/page-raid/page-raid.component';
+import { PageReleaseComponent } from './pages/page-release/page-release.component';
+import { PageResearchComponent } from './pages/page-research/page-research.component';
+import { PageSandboxComponent } from './pages/page-sandbox/page-sandbox.component';
+import { PageTradeComponent } from './pages/page-trade/page-trade.component';
+import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
+import { PageVoyageComponent } from './pages/page-voyage/page-voyage.component';
+
 import { ScaffoldingComponent } from './scaffolding/scaffolding.component';
 import { SplashscreenComponent } from './splashscreen/splashscreen.component';
 
@@ -60,6 +91,7 @@ import { GtsTradeComponent } from './ui/gts-trade/gts-trade.component';
 import { HpBarComponent } from './ui/hp-bar/hp-bar.component';
 import { InfoCardComponent } from './ui/info-card/info-card.component';
 import { ItemsDatalistComponent } from './ui/items-datalist/items-datalist.component';
+import { LottoDrawComponent } from './ui/lotto-draw/lotto-draw.component';
 import { MartButtonComponent } from './ui/mart-button/mart-button.component';
 import { MartSectionComponent } from './ui/mart-section/mart-section.component';
 import { MatchLogComponent } from './ui/match-log/match-log.component';
@@ -128,6 +160,37 @@ import { VoyagesMeterComponent } from './ui/voyages-meter/voyages-meter.componen
     PickerPokemonComponent,
     ScaffoldingComponent,
     SplashscreenComponent,
+    PageAboutComponent,
+    PageAchievementsComponent,
+    PageAdminComponent,
+    PageBazaarComponent,
+    PageBagComponent,
+    PageBankComponent,
+    PageBattleComponent,
+    PageBattlesimComponent,
+    PageChatbotComponent,
+    PageCraftComponent,
+    PageDaycareComponent,
+    PageDowseComponent,
+    PageEggsComponent,
+    PageEncounterComponent,
+    PageFarmComponent,
+    PageGamesComponent,
+    PageGtsComponent,
+    PageMartComponent,
+    PageMovedeleterComponent,
+    PageMovetutorComponent,
+    PagePokedexComponent,
+    PagePokemonComponent,
+    PageQuestsComponent,
+    PageRaidComponent,
+    PageReleaseComponent,
+    PageResearchComponent,
+    PageSandboxComponent,
+    PageTradeComponent,
+    PageTrainerComponent,
+    PageVoyageComponent,
+    LottoDrawComponent,
   ],
   imports: [
     BrowserModule,

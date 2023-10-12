@@ -1,0 +1,566 @@
+<mat-card *ngIf="raidFull">
+    This raid is at max capacity. You cannot join.
+</mat-card>
+
+<mat-card *ngIf="raid?.state === 3">
+  This raid has expired. You cannot join.
+</mat-card>
+
+<mat-card *ngIf="raid?.state === 2">
+  This raid is already in-progress. You cannot join.
+</mat-card>
+
+<mat-card *ngIf="raidBadId">
+  This is awkward. No raid was found here.
+</mat-card>
+
+<collapsible-card *ngIf="!raid">
+  <span title>Raid Battles</span>
+  <p>
+      Raids are challenging battles where multiple trainers must cooperate
+      to defeat a powerful Pokémon, whose powers have been pushed to the
+      limit.
+  </p>
+  <p>
+      A host is able to create a raid and share it with others. All trainers
+      can then select a Pokémon to use against the boss. When everyone is
+      ready, the host is able to start the raid.
+  </p>
+  <p>
+      A host can use a Wishing Piece to create a raid, and anyone can participate
+      as long as they have raid passes.
+      Victors can receive a number of rewards and may
+      be able to catch the Pokémon. This Pokémon can often be rarer than
+      would be encountered in the wild.
+  </p>
+  <p>
+      Every player will receive Raid Passes and Wishing Pieces per day
+      for free, up to a certain maximum.
+  </p>
+  <p>
+    <button mat-button raised (click)="openBosses()">View Bosses</button>
+    <button mat-button raised (click)="openPrizes()">View Prizes</button>
+  </p>
+
+  <small *ngIf="lastRaidDate">
+    You have {{wishingPieces}} wishing pieces you can use
+    at any time.
+  </small>
+
+  <p>
+    <strong>Create a Raid</strong>
+    <br>
+    <small>
+      This month raids are inspired by {{MONTH_THEME.label}}.
+    </small>
+  </p>
+
+  <br><small>Good for 2-4 players</small><br>
+  <button mat-button raised (click)="createRaid(1)" [disabled]="exec.createRaid">
+    Create a 1-Star Raid
+  </button>
+  <br><small>Good for 4-8 players</small><br>
+  <button mat-button raised (click)="createRaid(2)" [disabled]="exec.createRaid">
+    Create a 2-Star Raid
+  </button>
+  <br><small>Good for 8-12 players</small><br>
+  <button mat-button raised (click)="createRaid(3)" [disabled]="exec.createRaid">
+    Create a 3-Star Raid
+  </button>
+  <br><small>Good for 12-16 players</small><br>
+  <button mat-button raised (click)="createRaid(4)" [disabled]="exec.createRaid">
+    Create a 4-Star Raid
+  </button>
+  <br><small>Good for 16-20 players</small><br>
+  <button mat-button raised (click)="createRaid(5)" [disabled]="exec.createRaid">
+    Create a 5-Star Raid
+  </button>
+  <br><small>Good for up to 24 players</small><br>
+  <button mat-button raised (click)="createRaid(6)" [disabled]="exec.createRaid">
+    Create a 6-Star Raid
+  </button>
+  <br>
+  <small>A tiny raid for up to 4 players</small>
+  <br>
+  <small><em>Requires 50+ raid victories.</em></small>
+  <br>
+  <button mat-button raised (click)="createRaid(7)" [disabled]="exec.createRaid">
+    Create a Tiny Raid
+  </button>
+  <br>
+  <small>An epic raid for up to 4 players</small>
+  <br>
+  <small><em>Requires the Shiny Charm.</em></small>
+  <br>
+  <button mat-button raised (click)="createRaid(8)" [disabled]="exec.createRaid">
+    Create an Expert Raid
+  </button>
+  <br>
+  <small>A fun prehistoric raid for up to 4 players</small>
+  <br>
+  <small><em>Requires the Explorer Kit.</em></small>
+  <br>
+  <button mat-button raised (click)="createRaid(9)" [disabled]="exec.createRaid">
+    Create a Grand Underground Raid
+  </button>
+  <br>
+  <small>A challenging raid for up to 4 players</small>
+  <br>
+  <small><em>Requires the Enigma Stone.</em></small>
+  <br>
+  <button mat-button raised (click)="createRaid(10)" [disabled]="exec.createRaid">
+    Create a Legendary Raid
+  </button>
+  </collapsible-card>
+
+<collapsible-card *ngIf="!raid">
+  <span title>Raid Success Stats</span>
+  <small>Calculated over the past week</small>
+  <table class="raid-stats">
+    <thead>
+      <tr>
+        <td>1-Star</td>
+        <td>2-Star</td>
+        <td>3-Star</td>
+        <td>4-Star</td>
+        <td>5-Star</td>
+        <td>6-Star</td>
+        <td>Tiny Raid</td>
+        <td>Expert Raid</td>
+        <td>Grand Underground Raid</td>
+        <td>Legendary Raid</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{avgRatio(1)}}%</td>
+        <td>{{avgRatio(2)}}%</td>
+        <td>{{avgRatio(3)}}%</td>
+        <td>{{avgRatio(4)}}%</td>
+        <td>{{avgRatio(5)}}%</td>
+        <td>{{avgRatio(6)}}%</td>
+        <td>{{avgRatio(7)}}%</td>
+        <td>{{avgRatio(8)}}%</td>
+        <td>{{avgRatio(9)}}%</td>
+        <td>{{avgRatio(10)}}%</td>
+      </tr>
+    </tbody>
+  </table>
+</collapsible-card>
+
+<collapsible-card id="raid-list-card" *ngIf="!raid">
+  <span title>Active Raids</span>
+  <div id="my-raids" *ngIf="myRaids">
+    <h3>Current raids you are hosting</h3>
+    <br><br>
+    <raid-card *ngFor="let item of myRaids" [id]="item.id" [boss]="item.boss" [rating]="item.rating" [players]="item.players + '/' + item.playerMax"
+      (cancel)="clear($event)">
+    </raid-card>
+  </div>
+
+  <div id="joined-raids" *ngIf="joinedRaids">
+    <h3>Joined raids</h3>
+    <button mat-button (click)="clearAll()" id="raid-clear" [disabled]="exec.clear">Clear all raids</button>
+    <br><br>
+    <raid-card *ngFor="let item of joinedRaids" [id]="item.id" [boss]="item.boss" [rating]="item.rating" [reason]="item.reason" [exec]="exec.clear" [cancel]="true"
+      (cancel)="clear($event)">
+    </raid-card>
+  </div>
+
+  <div id="public-raids" *ngIf="publicRaids">
+    <h3>Public raids</h3>
+    <small>There are {{publicRaids.length}} public raids.</small>
+    <br>
+    <button mat-button (click)="joinAny()">Join Any Raid</button>
+    <br>
+    <input [(ngModel)]="publicRaidFilter" placeholder="Search Badge ID, Label, or Stars" />
+    <br><br><br>
+    <raid-card *ngFor="let item of filteredPublicRaids" [id]="item.id" [boss]="item.boss" [rating]="item.rating" [special]="item.isSpecial" [players]="item.players + '/' + item.playerMax"
+      (cancel)="clear($event)">
+    </raid-card>
+  </div>
+</collapsible-card>
+
+<collapsible-card *ngIf="hosting && raidIsWishable">
+  <mart-section label="Raid Materials"
+    items="wishingpiece" mode="buy">
+  </mart-section>
+</collapsible-card>
+
+<collapsible-card *ngIf="notInRaid">
+  <mart-section label="Raid Materials"
+    items="wishingpiece,raidpass,amuletcoin" mode="buy">
+  </mart-section>
+</collapsible-card>
+
+<mat-card *ngIf="raid && raid?.state === 0">
+  <table class="raid-header typebg {{types[0]}}">
+    <tr>
+      <td>
+        <sprite-pokemon class="classified" [badge]="boss"></sprite-pokemon>
+      </td>
+      <td>
+        <span class="type {{types[0]}}">{{types[0]}}</span>
+        <span *ngIf="types[1]">/</span>
+        <span *ngIf="types[1]" class="type {{types[1]}}">{{types[1]}}</span>
+        <br>
+        <span title="{{rating}}">{{stars}}</span>
+        <br><br>
+        <span>
+          <mat-icon title="{{weather}}">{{iconMap[weather]}}</mat-icon>
+          <span class="location">{{location}}</span>
+        </span>
+      </td>
+      <td>
+        <img class="icon" *ngIf="!types[1]" src="{{typeIcon(types[0])}}" />
+        <img class="icon icon2" *ngIf="types[1]" src="{{typeIcon(types[0])}}" />
+        <img class="icon" *ngIf="types[1]" src="{{typeIcon(types[1])}}" />
+        <small>Hosted by {{host}}@</small><br>
+        <!-- <small>
+          You are in <b>{{location}}</b>. The weather is <b>{{weather}}</b>.
+        </small> -->
+        <br>
+        <small>Expires at
+          <!-- <time class="underline" datetime="{{expireDateIso}}"> -->
+          <time class="underline">
+            {{expireDate}}
+          </time>
+        </small>
+        <br>
+        <small>
+          <mat-icon id="share" (click)="shareRaid()">share</mat-icon> Others can join at:
+        </small>
+        <small><a href="/raids?{{raidId}}">
+          pokemon-of-the-week.firebaseapp.com/raids?{{raidId}}
+        </a></small>
+        <br>
+        <small>
+          Join the
+          <a href="Config.RaidChat" target="_blank">
+            Raids Chat</a> to discuss strategies.
+        </small>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <br>
+  A rare Pokémon has been found! Get ready for a raid battle!<br>
+  <br>
+  <p *ngIf="!notInRaid">
+    You have selected:
+    <span *ngFor="let item of playerArray">
+      <span *ngIf="item.key === this.firebase.getUid()">
+        <sprite-pokemon class="small" badge="{{item.species}}"></sprite-pokemon>
+        <sprite-item item="{{item.item}}" *ngIf="item.item"></sprite-item>
+      </span>
+    </span>
+  </p>
+  <div *ngIf="notInRaid">
+    <button mat-button id="raid-join" raised (click)="raidJoin()" [disabled]="exec.raidJoin">
+      <sprite-item item="raidpass"></sprite-item>Join Raid
+    </button><br>
+    <small>
+      This will cost {{passPrice}} passes. You have {{passCountStr}} passes.
+    </small>
+    <br>
+  </div>
+  <p *ngIf="raidFull">
+    This raid will have the full number of players.
+  </p>
+  <p *ngIf="!raidFull">
+    {{raidPlayers}} / {{raidMax}} players have joined.
+  </p>
+  <br>
+  <table class="raid-players">
+    <tr *ngFor="let item of playerArray">
+      <td class="col-tank">
+        <span *ngIf="item.ready">✔️</span>
+        <button class="tank" *ngIf="item.tank" (click)="tank(item.key, false)" [disabled]="exec.tank" title="Player has high position">
+          🥇
+        </button>
+        <button class="tank grayed" *ngIf="!item.tank" (click)="tank(item.key, true)" [disabled]="exec.tank" title="Player has normal position">
+          🥇
+        </button>
+      </td>
+      <td class="col-ldap">
+        <small class="uppercase">{{item.ldap}}@</small>
+      </td>
+      <td class="col-species">
+        <sprite-pokemon badge="{{item.species}}" [dialog]="true"></sprite-pokemon>
+      </td>
+      <td class="col-item">
+        <sprite-item *ngIf="item.item" item="{{item.item}}"></sprite-item>
+      </td>
+    </tr>
+  </table>
+  <br>
+  <div *ngIf="hosting">
+    <button mat-button id="raid-publish" raised (click)="raidPublish()" *ngIf="!raid?.isPublic">
+      Make raid public
+    </button><br>
+    <button mat-button id="raid-start" raised (click)="raidStart()">
+      Start Raid with Players
+    </button><br>
+    <button mat-button id="raid-wish" raised (click)="raidWish()" *ngIf="raidIsWishable">
+      Use Wishing Piece &nbsp;&nbsp;
+      <sprite-item item="wishingpiece"></sprite-item>
+    </button>
+    <small *ngIf="raidIsWishable">
+      Use a Wishing Piece to change the encounter. You have {{wishingPieces}} pieces.
+    </small>
+    <br><br>
+  </div>
+
+  <div *ngIf="!notInRaid">
+    <span>Species Clause is <b>ON</b></span>
+    <br>
+    <small>
+      Need help picking? Visit the
+        <a href="{{Config.RaidSpreadsheet}}" target="_blank">
+          community-managed spreadsheet</a>. Or read
+        <a href="{{Config.RaidDoc}}">
+          this community-managed doc</a>.
+    </small>
+    <br>
+    <div>
+      <pokemon-dialog #pokemon [max]="1"></pokemon-dialog>
+      <button mat-button raised (click)="openItems()"><mat-icon>business_center</mat-icon>Select Item</button>
+    </div>
+    <dialog-items #items [multiuse]="false" [max]="1"></dialog-items>
+    <li *ngFor="let info of battleInfo">
+      {{info}}
+    </li>
+    <mat-slide-toggle id="ready" [(ngModel)]="playerIsReady">
+      Ready
+    </mat-slide-toggle>
+    <br><br>
+    <button mat-button raised id="raid-select" (click)="select()" [disabled]="exec.select">
+      <mat-icon>publish</mat-icon>Select
+    </button>
+    <br>
+  </div>
+  <br><span id="picker-msg"></span>
+  <br><br>
+  <div>
+    <button mat-button *ngIf="!notInRaid" id="raid-leave" raised (click)="leave()" [disabled]="exec.leave">
+      Leave Raid
+    </button>
+    <br>
+  </div>
+  <br>
+  <button mat-button raised (click)="reset()">
+    <mat-icon>keyboard_return</mat-icon>
+    Return to raid list
+  </button>
+</mat-card>
+
+<mat-card *ngIf="raid?.state === 1">
+  <h1>Match Results</h1>
+  <battle-raid #battleui></battle-raid>
+  <br>
+  <button mat-button *ngIf="needClaim" (click)="claimPrizes()" [disabled]="exec.claimPrizes">
+    Claim Prizes
+  </button>
+  <div *ngIf="!raid.log">
+    <sprite-pokemon class="classified" [badge]="boss"></sprite-pokemon>
+    <br>
+    <sprite-pokemon *ngFor="let item of playerArray" class="small" badge="{{item.species}}"></sprite-pokemon>
+    <br><br><br>
+    The battle is in progress...
+  </div>
+  <match-log [log]="raid.log" *ngIf="raid.log">
+  </match-log>
+  <br><br>
+  <button mat-button raised (click)="reset()">
+    <mat-icon>keyboard_return</mat-icon>
+    Return to raid list
+  </button>
+</mat-card>
+
+<dialog #bosses id="boss-dialog">
+  <p>Here are the primary bosses in each category. You may also encounter
+    their pre-evolutions.</p>
+    <strong>Standard (Changes first week of each month)</strong><br>
+    <em>Based on {{MONTH_THEME.label}}</em><br>
+    <strong>☆</strong><br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[1])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[1])}} -->
+    <br><br>
+    <strong>☆☆</strong>
+    <br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[2])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[2])}} -->
+    <br><br>
+    <strong>☆☆☆</strong><br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[3])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[3])}} -->
+    <br><br>
+    <strong>☆☆☆☆</strong><br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[4])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[4])}} -->
+    <br><br>
+    <strong>☆☆☆☆☆</strong><br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[5])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[5])}} -->
+    <br><br>
+    <strong>Tiny Raid</strong><br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[7])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[7])}} -->
+    <br>
+    <br><strong>Expert Raid</strong><br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[8])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[8])}} -->
+    <br><br>
+    <strong>Grand Underground Raid</strong><br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[9])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[9])}} -->
+    <br><br>
+    <strong>Legendary Raid (Most have special conditions)</strong><br>
+    <sprite-pokemon *ngFor="let b of bossList(RB.standardBosses[10])" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(RB.standardBosses[10])}} -->
+    <br><br>
+    <strong>Time of Day (1-2☆) (Changes first week of each month)</strong>
+    <br>
+    <sprite-pokemon *ngFor="let b of locBossList.time" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(raidList.time)}}<br> -->
+    <br><br>
+    <strong>Terrain (2-4☆) (Changes second week of each month)</strong><br>
+    <sprite-pokemon *ngFor="let b of locBossList.terrain" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(raidList.terrain)}} -->
+    <br><br>
+    <strong>Region (1-3☆) (Changes third week of each month)</strong><br>
+    <sprite-pokemon *ngFor="let b of locBossList.region" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(raidList.region)}} -->
+    <br><br>
+    <strong>Weather (3-4☆) (Changes fourth week of each month)</strong><br>
+    <sprite-pokemon *ngFor="let b of locBossList.forecast" [badge]="b"></sprite-pokemon>
+    <!-- {{bossList(raidList.forecast)}} -->
+    <br>
+    <!-- <span>
+      * This implies a specific condition to get this boss. Not every condition is possible.
+    </span> -->
+    <br>
+    <br>
+    <strong>Vote for what bosses you want to see next</strong>
+    <br>
+  <pokemon-datalist filter="evolved" #voter></pokemon-datalist>
+  <button mat-button raised (click)="raidVote()" [disabled]="exec.raidVote">Cast Vote</button>
+  <button mat-button secondary raised (click)="closeBosses()">
+    Close
+  </button>
+</dialog>
+
+<dialog #dprizes>
+  <p>
+    Below are the list of prizes in each tier. Your rewards will be selected from this pool.
+  </p>
+  <br>
+  <strong>1-Star</strong><br>
+  <div *ngFor="let pool of raidPrizes[1]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>2-Star</strong><br>
+  <div *ngFor="let pool of raidPrizes[2]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>3-Star</strong><br>
+  <div *ngFor="let pool of raidPrizes[3]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>4-Star</strong><br>
+  <div *ngFor="let pool of raidPrizes[4]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>5-Star</strong><br>
+  <div *ngFor="let pool of raidPrizes[5]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>Tiny Raid</strong><br>
+  <div *ngFor="let pool of raidPrizes[7]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>Expert Raid</strong><br>
+  <div *ngFor="let pool of raidPrizes[8]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>Grand Underground Raid</strong><br>
+  <div *ngFor="let pool of raidPrizes[9]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>Legendary Raid</strong><br>
+  <div *ngFor="let pool of raidPrizes[10]">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </div>
+  <br><br>
+  <strong>Prizes dependent on type</strong><br>
+  <span *ngFor="let pool of allTypePrizes">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </span>
+  <br><br>
+  <strong>Prizes dependent on boss</strong><br>
+  <span *ngFor="let pool of bossPrizes">
+    <sprite-item *ngFor="let item of pool" item="{{item}}"></sprite-item>
+  </span>
+  <br><br>
+  <button mat-button raised (click)="closePrizes()">
+    Close
+  </button>
+</dialog>
+
+<dialog #publish>
+  <p>
+    Make this raid public? Once this is done, any player will be able to
+    find this raid ID. You cannot take it back.
+  </p>
+  <button mat-button (click)="raidPublishConfirm()" [disabled]="exec.raidPublishConfirm">Make Public</button>
+  <button mat-button secondary (click)="raidPublishCancel()">Close</button>
+</dialog>
+
+<dialog #wish>
+  <p>Do you want to change the encounter with a wishing piece?</p>
+  <sprite-item item="wishingpiece"></sprite-item>
+  <br><br>
+  <p>
+    This wil mark all players as unready and they may not be aware of this
+    change.
+  </p>
+  <button mat-button (click)="raidWishConfirm()" [disabled]="exec.raidWishConfirm">Cast Wishing Piece</button>
+  <button mat-button secondary (click)="raidWishCancel()">Close</button>
+</dialog>
+
+<dialog #wishselect>
+  <p>
+    You have been wishing a lot. Your wish should come true.
+  </p>
+   <mat-select [(value)]="wishId">
+      <mat-option *ngFor="let r of validRaids" [value]="r.id">
+        {{r.label}}
+     </mat-option>
+  </mat-select>
+  <br>
+  <!-- <input [value]="wishId" placeholder="Stick a valid boss ID here" />
+  <br>
+  <small *ngFor="let r of validRaids">    
+    {{r.id}},
+  </small> -->
+  <br>
+  <button mat-button (click)="raidWishConfirm()" [disabled]="exec.raidWishConfirm">Cast Wishing Piece</button>
+  <button mat-button secondary (click)="raidWishCancel()">Close</button>
+</dialog>
+
+<dialog #start>
+  <h1 class="centered">Begin Raid?</h1>
+  <p>
+    {{raidPlayers}} / {{raidMax}} players have joined.
+  </p>
+  <button mat-button (click)="raidStartConfirm()">Start</button>
+  <button mat-button secondary (click)="raidStartCancel()">Cancel</button>
+</dialog>

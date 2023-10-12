@@ -1,0 +1,64 @@
+<mat-card>
+  <h1>About Pokémon of the Week</h1>
+  <p>
+    The <a href="{{mailing.url}}">Pokémon of the Week club</a> 
+    is a group dedicated to the exploration and collection of creatures called Pokémon.
+  </p>
+  <p>
+    Each week, players will receive Poké Balls that they can use to find wild Pokémon to 
+    add to their collection.
+  </p>
+  <p>
+    Players may also search through the Teams pages of colleagues to find additional items
+    and new Pokémon.
+  </p>
+  <p>
+    Visit <a href="{{guide.url}}">the game guide</a>
+    to learn more.
+  </p>
+  <p>
+    Questions? Comments? Email 
+    <a href="mailto:{{contact.email}}">{{contact.label}}</a>.
+  </p>
+  <p>
+    Join the community in the <a href="{{contact.chatmisc}}">Chat</a>.
+    Or join the <a href="{{contact.chatraid}}">Raids Chat</a>.
+  </p>
+  <p>
+    You can also file bugs to the 
+    <a href="{{bugs.url}}">
+      {{bugs.label}}
+    </a>.
+    Major bugs, where sharing it publicly or not disclosing it would break the game
+    in some way (quickly gaining/losing infinite resources,
+      blocking other players from fair play,
+      or another significant vulnerability
+    ),
+    can be responsibly disclosed via
+    (1) email or chat with the game creator, or
+    (2) through a bug.
+    Rather than exploiting the bug, those that responsibly disclose it will receive
+    a <b>shiny Pokémon of your choice</b>. It will be a <i>var0</i>, and can have
+    a custom legal movepool of your choice if it has not been defined already.
+  </p>
+  <p>
+    <strong>File a Bug</strong>
+    <br>
+    If you have encountered a bug in the web app, you may still have errors in
+    the developer console.
+    <br>
+    <button mat-button (click)="showErrors()">Pull Client Errors</button>
+  </p>
+</mat-card>
+
+<dialog #errors>
+  <h1 class="centered">Errors</h1>
+  <br>
+  <code>
+    {{report}}
+  </code>
+  <button mat-icon-button (click)="copy()">
+    <mat-icon>content_copy</mat-icon>
+  </button>
+  <button mat-button (click)="close()">Close</button>
+</dialog>

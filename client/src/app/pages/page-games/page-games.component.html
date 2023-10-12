@@ -1,0 +1,58 @@
+<mat-card>
+  <h1>Lottery</h1>
+  <p>
+    This is the Pokémon Lottery Corner. All visitors get to draw a Pokémon Lotto ticket. If the
+    Lotto ticket's number matches today's lucky pattern, you will receive a fabulous gift. Would you
+    like to draw a Pokémon Lotto ticket?
+  </p>
+  <p>
+      Numbers match right-to-left. So not only do you need to have matching numbers, but you also will
+      need to match the position.
+  </p>
+  <p>
+      The more trainers you trade with, the better chance you have to win!
+  </p>
+  <button mat-button raised (click)="drawTicket()" [disabled]="exec.drawTicket">
+    <mat-icon>casino</mat-icon> Draw Daily Ticket
+  </button>
+
+  <div *ngIf="lottery">
+    <p class="p0">Today's lucky numbers are <strong>{{lottery?.ticket}}</strong>.</p>
+    <p class="p1">{{iterations}}</p>
+    <p class="p1">Let's see if you have a match...</p>
+    <p class="p0">
+      <lotto-draw [ticket]="lottery?.bestTicketArray" [winner]="lottery?.ticketArray"></lotto-draw>
+    </p>
+    <p class="p4" *ngIf="lottery?.item">
+      <sprite-item item="{{lottery?.item}}"></sprite-item>
+    </p>
+    <p class="p5" *ngIf="lottery?.matchCountMax === 0">
+      Hmm. None of your numbers match. Try again tomorrow.
+    </p>
+    <p class="p5" *ngIf="lottery?.matchCountMax === 1">
+      Only one of your numbers match. I'm sorry.
+    </p>
+    <p class="p5" *ngIf="lottery?.matchCountMax === 2">
+      Congratulations! Two digits matched, so you've won a
+      <strong>{{lottery?.prizeLabel}}</strong>.
+    </p>
+    <p class="p5" *ngIf="lottery?.matchCountMax === 3">
+      Wow! Three digits matched, so you've won a
+      <strong>{{lottery?.prizeLabel}}</strong>.
+    </p>
+    <p class="p5" *ngIf="lottery?.matchCountMax === 4">
+      Incredible! Four digits matched, so you've won a
+      <strong>{{lottery?.prizeLabel}}</strong>.
+    </p>
+    <p class="p5" *ngIf="lottery?.matchCountMax === 5">
+      Spectacular! Five digits matched, so you've won a
+      <strong>{{lottery?.prizeLabel}}</strong>!
+    </p>
+    <p class="p5" *ngIf="lottery?.matchCountMax === 6">
+      Oh my goodness, all six digits matched!
+      You've won the jackpot prize!
+      You've won the
+      <strong>{{lottery?.prizeLabel}}</strong>!
+    </p>
+  </div>
+</mat-card>

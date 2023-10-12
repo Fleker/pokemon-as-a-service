@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+mat-slide-toggle {
+  margin-right: 16px;
+}
+
+li.tag {
+  display: block;
+}

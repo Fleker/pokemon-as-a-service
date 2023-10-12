@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.item {
+  font-size: 10pt;
+}
+
+.item-icon {
+  padding-right: 8px;
+}
+
+#items-items .item-icon, #items-berry .item-icon {
+  cursor: pointer;
+}
+
+.card i {
+  font-size: small;
+}
+
+.my-farm {
+  background-color: #5D4037;
+  border: 4px #3E2723;
+  border-radius: 12px;
+  border-style: double;
+}
+
+div.plot {
+  width: 96px;
+  height: 96px;
+  display: inline-block;
+  color: #efefef;
+  margin-bottom: 24px;
+  padding-left: 4px;
+  padding-top: 4px;
+  border: double 1px #A1887F;
+  border-radius: 6px;
+  background-color: #4E342E;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+dialog ul {
+  list-style: none;
+}
+
+dialog ul sprite-item {
+  vertical-align: middle;
+}

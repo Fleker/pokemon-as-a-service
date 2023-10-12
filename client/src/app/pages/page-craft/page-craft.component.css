@@ -1,0 +1,37 @@
+dialog li {
+  display: block; 
+}
+
+dialog li sprite-item {
+  vertical-align: bottom; 
+}
+
+button:has(sprite-item.unavailable) {
+  text-decoration: line-through;
+}
+
+sprite-item.unavailable {
+  filter: contrast(0);
+  opacity: 0.5;
+}
+
+.rightside {
+  text-align: right;
+}
+
+table.full {
+  width: 100%;
+}
+
+.topside {
+  vertical-align: top;
+}
+
+span.material {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+span.material sprite-item {
+  vertical-align: middle;
+}

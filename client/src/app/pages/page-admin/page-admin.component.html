@@ -1,0 +1,9 @@
+<mat-card *ngIf="isAdmin">
+  <h1>Cron Job Updates</h1>
+  <table>
+    <tr *ngFor="let t of timingArray">
+      <td>{{ t[0] }}</td>
+      <td>{{ t[1] }}</td>
+    </tr>
+  </table>
+</mat-card>

@@ -1,0 +1,32 @@
+<mat-card>
+  <h2>Research Tasks</h2>
+  <p>
+    Complete a rotating set of tasks for Professor Birch.
+    You have completed <strong>{{researchCompleted}}</strong> tasks so far.
+  </p>
+  <p>
+    <strong>Research Level {{researchLevel}}</strong>
+    <mat-progress-spinner color="primary" [diameter]="20" mode="determinate" [value]="researchProgress" title="You are getting closer to the next level">
+    </mat-progress-spinner>
+  </p>
+  <button mat-button *ngIf="research.length === 0" (click)="researchGet()" [disabled]="exec.researchGet">
+    Get Research
+  </button>
+  <div>
+    <research-task *ngFor="let task of research"
+      id="{{task[0]}}" [count]="task[1]"></research-task>
+  </div>
+</mat-card>
+
+<dialog #dlevel>
+  <h1>You leveled up to {{researchLevel}}</h1>
+  <p *ngIf="researchLevel <= LEVEL_MAX">
+    Congratulations! You now have access to a greater pool of tasks.
+    You may also receive more tasks at once.
+  </p>
+  <p *ngIf="researchLevel > LEVEL_MAX">
+    Congratulations! You have been going above and beyond. You have
+    exceeded our expectations!
+  </p>
+  <button mat-button (click)="close()">Wow cool</button>
+</dialog>

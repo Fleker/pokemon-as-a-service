@@ -1,0 +1,181 @@
+<collapsible-card>
+  <span title>Welcome to the Global Trade System</span>
+
+  <p>
+    The <b>Global Trade System</b> allows you to trade your Pokémon with
+    trainers all around the world. Each trainer can list several of their
+    Pokémon in the GTS at a time. They can then specify which Pokémon that
+    they would like in return. If two trainers find a match, your Pokémon are
+    traded!
+  </p>
+</collapsible-card>
+
+<collapsible-card *ngIf="gtsLeaderboard.simplePokemonTrades.length">
+  <span title>GTS Leaderboard</span>
+  <small>Top trades made in the last week</small>
+  <table>
+    <tr *ngFor="let item of gtsLeaderboard.simplePokemonTrades">
+      <td>
+        <sprite-pokemon class="small" badge="{{item[1]}}"></sprite-pokemon>
+      </td>
+      <td>
+        {{item[0]}}
+      </td>
+      <td>
+        ×{{item[2]}}
+      </td>
+    </tr>
+  </table>
+</collapsible-card>
+
+<collapsible-card *ngIf="myListings.length > 0">
+  <span title>My Open Trades</span>
+  <div *ngFor="let listing of myListings">
+    <trade-card [listing]="listing" [flagPickerPro]="flagPickerPro" [cancel]="true"
+      (inquireListing)="inquireListing($event)" (cancel)="cancel($event)"
+      (makeAlert)="alert($event)" (displayBagCount)="displayBagCount($event)">
+    </trade-card>
+    <hr>
+  </div>
+</collapsible-card>
+
+<collapsible-card *ngIf="myListings.length < MAX_USER_TRADES">
+  <span title>Create Trade</span>
+  <button mat-button (click)="openPokemon()">
+    <mat-icon>launch</mat-icon>
+    Select Pokémon
+  </button>
+  <button mat-button (click)="openItems()">
+    <mat-icon>business_center</mat-icon>
+    Include item
+  </button>
+  <br>
+  Optionally include an item in your trade.
+  Some items cause Pokémon to evolve!
+  <br>
+  <dialog-items #items></dialog-items>
+
+  <br>
+  Select the Pokémon you want in return.<br>
+
+  <pokemon-datalist filter="simple" [(ngModel)]="search.id" name="_" ngDefaultControl></pokemon-datalist>
+  <input placeholder="Optional form" type="search" list="formlist"
+    name="_" ngDefaultControl
+    [(ngModel)]="search.form" />
+  <input placeholder="Optional variant" type="search" list="varlist"
+    name="_" ngDefaultControl
+    [(ngModel)]="search.variant" />
+  <input placeholder="Optional gender" type="search" list="genderlist"
+    name="_" ngDefaultControl
+    [(ngModel)]="search.gender" />
+  <mat-slide-toggle class="shiny" [(ngModel)]="search.shiny" name="_" ngDefaultControl>
+    Shiny
+  </mat-slide-toggle>
+
+  <datalist id="formlist">
+    <option *ngFor="let item of availablePokemonFormList" value="{{item}}">
+      {{item}}
+    </option>
+  </datalist>
+
+  <datalist id="varlist">
+    <option value="">Any</option>
+    <option value="0">var0</option>
+    <option value="1">var1</option>
+    <option value="2">var2</option>
+    <option value="3">var3</option>
+    <option value="4">var4</option>
+  </datalist>
+
+  <datalist id="genderlist">
+    <option value="">Any</option>
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+  </datalist>
+  <br>
+
+  Optionally request an item in return
+  <items-datalist [(ngModel)]="search.item" name="_" ngDefaultControl></items-datalist>
+
+  <br>
+
+  <trade-card *ngIf="customListing" [listing]="customListing" [flagPickerPro]="flagPickerPro"
+      [active]="false" (displayBagCount)="displayBagCount($event)">
+  </trade-card>
+  <br>
+
+  <button mat-button raised *ngIf="search.id !== undefined" (click)="postListing()" [disabled]="exec.postListing">
+    Post Listing
+  </button>
+</collapsible-card>
+
+<mat-card *ngIf="publicListings.length === 0">
+  <button mat-button raised (click)="loadListings()" [disabled]="exec.loadListings">
+    <mat-icon>cloud_download</mat-icon> Load GTS
+  </button>
+</mat-card>
+
+<collapsible-card>
+  <span title>Filter GTS Listings</span>
+  <div *ngIf="publicListings.length === 0">
+    <em>
+      No search results will appear until you load the GTS.
+    </em>
+    <br>
+  </div>
+  <input type="search" placeholder="Trades offering..."
+    [(ngModel)]="filter.offers" (input)="refilter()" />
+  <input type="search" placeholder="Trades seeking..."
+    [(ngModel)]="filter.seeking" (input)="refilter()" />
+  <input type="search" placeholder="Trade strings Regex"
+    [(ngModel)]="filter.regex" (input)="refilter()" />
+  <br>
+  <mat-slide-toggle [(ngModel)]="filter.seekingYouHave" (change)="refilter()">
+    Seeking Pkmn you have
+  </mat-slide-toggle>
+  <br>
+  <mat-slide-toggle [(ngModel)]="filter.seekingDuplicates" (change)="refilter()">
+    Seeking Pkmn you have many of
+  </mat-slide-toggle>
+  <br>
+  <mat-slide-toggle [(ngModel)]="filter.offeringNoHave" (change)="refilter()">
+    Offering Pkmn you don't have
+  </mat-slide-toggle>
+  <br>
+  <mat-slide-toggle [(ngModel)]="filter.holdingItem" (change)="refilter()">
+    Holding an item
+  </mat-slide-toggle>
+  <br>
+  <mat-slide-toggle [(ngModel)]="filter.tradeEvo" (change)="refilter()">
+    Evolves via trade
+  </mat-slide-toggle>
+  <br>
+  <mat-slide-toggle [(ngModel)]="filter.itemYouHave" (change)="refilter()">
+    Seeking item you have
+  </mat-slide-toggle>
+  <br>
+  <span>
+    <strong>{{count}}</strong> results found
+  </span>
+  <br>
+  <button mat-button (click)="loadListings()" [disabled]="exec.loadListings" aria-label="Refresh GTS listings">
+    <mat-icon>refresh</mat-icon>
+  </button>
+</collapsible-card>
+
+<mat-grid-list cols="{{cols}}">
+  <mat-grid-tile *ngFor="let listing of filterListings">
+    <trade-card [listing]="listing" [flagPickerPro]="flagPickerPro" [active]="true"
+      (inquireListing)="inquireListing($event)" (cancel)="cancel($event)"
+      (makeAlert)="alert($event)" (displayBagCount)="displayBagCount($event)">
+    </trade-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<dialog #gtsdialog>
+  <sprite-gts-trade #gtstrade></sprite-gts-trade>
+  <button mat-button raised (click)="close()">Close</button>
+</dialog>
+
+<!-- See bug 222659881 for why I'm sticking it here. -->
+<pokemon-dialog #pokemon show="false"></pokemon-dialog>

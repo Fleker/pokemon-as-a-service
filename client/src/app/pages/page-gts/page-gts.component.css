@@ -1,0 +1,112 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.listings {
+ min-height: 480px;
+}
+
+paper-button {
+  background-color: red;
+  color: white;
+  font-size: 10pt;
+}
+
+paper-button[disabled] {
+  background-color: #999;
+}
+
+.error {
+  color: red;
+  font-size: 10pt;
+}
+
+.badge {
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Need fixed height and width to help with height calculations */
+.pokemon-badge {
+    height: 40px;
+    width: 40px;
+} 
+
+.selected {
+  border: solid 1px #555;
+}
+
+#pokemon-listing {
+  font-size: 10pt;
+}
+
+input {
+  background: var(--input-bg);
+}
+
+input[type="search"] {
+  background-color: white; /* Consistent with other inputs */
+}
+
+input#filter-seeking, input#filter-offering {
+  margin-left: 44px;
+}
+
+paper-toggle-button {
+  display: inline-block;
+  margin-left: 16px;
+  margin-right: 4px;
+  --paper-toggle-button-label-color: var(--paper-toggle-color);
+}
+
+span.loading {
+  display: block;
+  text-align: center;
+  font-size: 14pt;
+}
+
+#cel-filter input {
+  width: 95%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  color: #333;
+}
+
+span.collapse {
+  font-size: 10pt;
+  font-family: monospace;
+  margin-left: 24px;
+  cursor: pointer;
+  float: right;
+}
+
+#gts-history {
+  display: none;
+}
+
+mat-card sprite-pokemon {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+mat-card.trade-card {
+  padding-top: 12px;
+}
+
+.noteworthy img {
+  width: 24px;
+  height: 24px;
+}
+
+.lookingforitem {
+  border-bottom: dotted 1px #999;
+  cursor: pointer;
+}
+
+.shiny {
+  margin-left: 16px;  
+}

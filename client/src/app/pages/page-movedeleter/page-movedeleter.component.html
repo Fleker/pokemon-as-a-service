@@ -1,0 +1,44 @@
+<mat-card>
+  <h1>Move Deleter</h1>
+  <p>
+    The <strong>Move Deleter</strong> can remove moves from your Pokémon,
+    pro bono.
+  </p>
+  <pokemon-dialog #pokemon></pokemon-dialog>
+</mat-card>
+
+<dialog #dialog>
+  <sprite-pokemon badge="{{selection}}" *ngIf="!exec.confirm"></sprite-pokemon>
+  <sprite-evolution #evo [from]="selection" *ngIf="exec.confirm"></sprite-evolution>
+  <br>
+  Remove moves from {{selectionLabel}}?
+
+  <br><br>
+  <table>
+    <thead>
+      <tr>
+        <td>Current Moves</td>
+        <td>After Change</td>
+      </tr>
+    </thead>
+    <tbody>
+      <td>
+        <ul>
+          <move-span *ngFor="let move of currentMoves" move="{{move}}"></move-span>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <move-span *ngFor="let move of newMoves" move="{{move}}"></move-span>
+        </ul>
+      </td>
+    </tbody>
+  </table>
+
+  <button mat-button (click)="close()">
+    Cancel
+  </button>
+  <button mat-button (click)="confirm()" [disabled]="exec.confirm">
+    Confirm
+  </button>
+</dialog>

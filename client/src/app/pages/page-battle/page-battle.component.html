@@ -1,0 +1,193 @@
+<collapsible-card id="preliminary" *ngIf="!battleResult">
+  <span title>Battle Stadium</span>
+  <p>
+    The Battle Stadium is a challenging battle location where you compete with opponents
+    in a high-stakes competition for great prizes!
+  </p>
+  <p>
+      When your Pokémon is sent to the box, it will start performing moves as fast as it can to
+      deplete the opponent's hit points. If you let your Pokémon hold an item, it can aid their
+      chances in winning.
+  </p>
+  <p>
+      You can make a challenge in one of many competition tiers. Depending on each tier, the
+      eligible Pokémon may change. At some point we should make this list available.
+  </p>
+  <div>
+    <strong>Battle Updates!</strong>
+    <p>
+      When you battle in the GigantaCup or the Crown Cup, you can DYNAMAX or
+      GIGANTAMAX your Pokémon when it is holding the Dynamax Candy or Max
+      Mushroom respectively. Note that you also need the Dynamax Band.
+    </p>
+  </div>
+  <p>
+    You are currently in <b>{{locationsLabel}}</b>.
+    The weather is <b>{{locationsForecast}}</b>.<br>
+  </p>
+
+  <mat-radio-group [(ngModel)]="selectedTier">
+    <mat-radio-button *ngFor="let tier of tierKeys"
+      (click)="populateLeaderboard(tier)"
+      [value]="tier">
+      <img *ngIf="tiers[tier].icon" src="/images/sprites/icons/{{tiers[tier].icon}}" class="icon" />
+      {{tier}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <br><br>
+  <p>
+    For {{selectedTier}}, select {{tiers[selectedTier].rules.partySize}} Pokémon.
+    <br>
+    Only certain Pokémon are eligible.
+    <span *ngIf="tiers[selectedTier].rules.mega">
+      <br>Mega evolutions are allowed. Pair the appropriate mega stone to your Mega Bracelet.
+    </span>
+    <span *ngIf="tiers[selectedTier].rules.zmoves">
+      <br>Z-Moves are allowed. Pair a Z-Crystal to your Z-Power Ring to add the move to your moveset.
+    </span>
+    <span *ngIf="tiers[selectedTier].rules.dynamax">
+      <br>Dynamaxing is allowed. Let your partner hold a Dynamax Candy and it will Dynamax once in battle.
+    </span>
+    <span *ngIf="tiers[selectedTier].rules.maxWins">
+      <br>Only for those with up to {{tiers[selectedTier].rules.maxWins}} total wins.
+    </span>
+    <span *ngIf="tiers[selectedTier].rules.partySize > tiers[selectedTier].rules.fieldSize">
+      <br>While you will select {{tiers[selectedTier].rules.partySize}} Pokémon,
+      only {{tiers[selectedTier].rules.fieldSize}} will be on the field at a time.
+      When one of your Pokémon faints, the next one sequentially will be sent out.
+    </span>
+    <br>
+    <button mat-button (click)="openEligible()">View Eligible Pokémon</button>
+    <!-- <button mat-button (click)="openPrizes()">View Prizes</button> -->
+  </p>
+  <br>
+  <button mat-button (click)="selectPkmn()"><mat-icon>launch</mat-icon>Select Pokémon</button>
+  <button mat-button raised (click)="openItems()"><mat-icon>business_center</mat-icon>Select Item</button>
+  <dialog-items #items [max]="maxItems"></dialog-items>
+  <li *ngFor="let info of battleInfo">
+    {{info}}
+  </li>
+  <mat-slide-toggle [(ngModel)]="isPractice">
+    Practice (No time limit)
+  </mat-slide-toggle>
+  <br>
+  <button mat-button raised (click)="startBattle()" [disabled]="exec.startBattle"><mat-icon>sports_mma</mat-icon>Start Battle</button>
+</collapsible-card>
+
+<collapsible-card id="leaderboard">
+  <span title *ngIf="!isLastLeaderboard">{{leaderboardCurr?.label}} Leaderboard</span>
+  <span title *ngIf="isLastLeaderboard">Hall of Fame</span>
+  <span *ngIf="!leaderboardData">
+    Reading data from server...
+  </span>
+  <table *ngIf="leaderboardCurr">
+    <thead *ngIf="!isLastLeaderboard">
+      <tr>
+        <td>Top Pokémon</td>
+        <td>Most Wins Weekly</td>
+      </tr>
+    </thead>
+    <thead *ngIf="isLastLeaderboard">
+      <tr>
+        <td>Most Wins Total</td>
+        <td>Best Ratio</td>
+      </tr>
+    </thead>
+    <tbody *ngIf="!isLastLeaderboard">
+      <tr *ngFor="let _ of leaderboardCurr?.topPokemon; index as i">
+        <td>{{leaderboardCurr?.topPokemon[i]}}</td>
+        <td>
+          {{leaderboardCurr?.topWinsWeekly[i].ldap}}@
+          ({{leaderboardCurr?.topWinsWeekly[i].wins}})
+        </td>
+      </tr>
+    </tbody>
+    <tbody *ngIf="isLastLeaderboard">
+      <tr *ngFor="let _ of leaderboardCurr?.topPokemon; index as i">
+        <td>
+          {{leaderboardCurr?.topWins[i]?.ldap}}@
+          ({{leaderboardCurr?.topWins[i]?.wins}})
+        </td>
+        <td>
+          {{leaderboardCurr?.topRatio[i].ldap}}@
+          ({{leaderboardCurr?.topRatio[i].roundPct}}%)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <small>
+    Leaderboard data is updated every week. Top Pokémon based on last week of usage only.
+  </small>
+  <br>
+  <mat-paginator #leaderboardpage [length]="tierLength + 1"
+    [pageSize]="1"
+    hidePageSize="true"
+    aria-label="Select Tier">
+  </mat-paginator>
+</collapsible-card>
+
+<mat-card *ngIf="battleResult">
+  <h1>Match Results</h1>
+  <div id="match-spoiler">
+    <span *ngIf="battleResult?.match?.result === 1">
+      You were victorious!
+    </span>
+    <span *ngIf="battleResult?.match?.result === 2">
+      You whited out!
+    </span>
+    <span *ngIf="battleResult?.match?.result > 2">
+      You and the other trainer ran out of time!
+    </span>
+    <span *ngIf="isPractice">
+      This was a practice match, so it does not count towards your record.
+    </span>
+  </div>
+  <div id="match-prize"></div>
+    <div *ngIf="battleResult?.prizeLabel">
+      <sprite-item item="{{battleResult?.prize}}"></sprite-item>
+      <br>
+      You received a <strong>{{battleResult?.prizeLabel}}</strong> as a prize.
+    </div>
+  <battle-players #battleui>
+  </battle-players>
+
+  <match-log [log]="battleResult?.match?.msg?.join('\n')">
+  </match-log>
+
+  <br>
+  <div>
+    <button mat-button raised (click)="reset()">
+      <mat-icon>keyboard_return</mat-icon>
+      Return
+    </button>
+  </div>
+</mat-card>
+
+<collapsible-card id="card-record">
+  <span title>My Record</span>
+  {{battleStadiumRecord}}
+</collapsible-card>
+
+<pokemon-dialog #pokemon show="false"></pokemon-dialog>
+
+<dialog #tierprizes>
+  <h1>Your Record: {{battleStadiumRecord}}</h1>
+  You are at rank {{this.selectedTierLevel}} in {{this.tiers[this.selectedTier].label}}.
+  <br><br>
+  You may win one of these prizes:
+  <br>
+  <sprite-item *ngFor="let item of this.selectedTierPrizes" item="{{item}}">
+  </sprite-item>
+  <br>
+  <button mat-button (click)="close()">Close</button>
+</dialog>
+
+<dialog #tiereligible>
+  The following Pokémon can be used:
+  <br><br>
+  <sprite-pokemon *ngFor="let item of this.selectedTierEligible" badge="{{item}}" class="small">
+  </sprite-pokemon>
+  <br><br>
+  <button mat-button (click)="close()">Close</button>
+</dialog>

@@ -1,0 +1,95 @@
+:host {
+  display: block;
+
+  padding: 10px;
+}
+
+.item {
+  font-size: 10pt;
+}
+
+.item-icon {
+  /* padding-right: 8px; */
+}
+
+paper-button {
+    background-color: red;
+    color: white;
+    font-size: 10pt;
+    margin-bottom: 24px;
+}
+
+paper-button[disabled] {
+    background-color: #999;
+}
+
+#items-balls {
+    padding-bottom: 24px;
+}
+
+.mart-buy-item, .mart-sell-item, .mart-bazaar-item {
+  cursor: pointer;
+  width: 32px;
+  object-fit: none;
+}
+
+.mart-buy-item:hover, .mart-sell-item:hover {
+  background-color: rgba(0, 0, 0, 0.1)
+}
+
+.mart-buy-item:active, .mart-sell-item:active {
+  background-color: rgba(0, 0, 0, 0.25)
+}
+
+div#bag > span {
+  display: inline-block;
+}
+
+sprite-item {
+  cursor: pointer;
+}
+
+.section {
+  margin-bottom: 36px;
+}
+
+.cart {
+  position: fixed;
+  bottom: 20px;
+  height: 116px;
+  width: 60%;
+  min-width: 200px;
+  left: 20%;
+  right: 20%;
+  z-index: 100;
+  box-shadow: var(--app-text-color) 0px 0px 13px -7px;
+}
+
+.cart li {
+  display: inline-block;
+}
+
+.cart sprite-item {
+  vertical-align: middle;
+}
+
+.cart button {
+  margin-left: 24px;
+}
+
+dialog {
+  max-width: 40em;
+}
+
+button.aprilFools {
+  background-color: black;
+}
+
+button.aprilFools[disabled] {
+  background-color: #999;
+}
+
+button.aprilFools img {
+  height: 18px;
+  vertical-align: middle;
+}

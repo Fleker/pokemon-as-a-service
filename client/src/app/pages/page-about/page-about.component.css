@@ -1,0 +1,8 @@
+code {
+  max-height: 450px;
+  max-width: 40em;
+  display: block;
+  white-space: break-spaces;
+  margin-bottom: 16px;
+  overflow-y: auto;
+}

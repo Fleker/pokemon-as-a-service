@@ -1,0 +1,49 @@
+<collapsible-card>
+  <span title>My Eggs</span>
+  <p *ngIf="eggs.length === 0">
+    Use the <a href="/multiplayer/daycare">Day Care</a> to collect eggs.
+  </p>
+  <p *ngIf="eggs.length > 0">Your eggs are sitting quietly.</p>
+  <div>
+    <button mat-button *ngIf="toHatch >= 2" (click)="hatchAll()">
+      <mat-icon>egg</mat-icon>
+      Hatch {{toHatch}} eggs
+    </button>
+    <div *ngFor="let entry of eggMap">
+      <strong>{{entry[0]}}</strong>
+      <br>
+      <span *ngFor="let item of entry[1]">
+        <button mat-button raised *ngIf="item.isHatching" class="egg hatching" (click)="hatch(item.species)">
+          <img src="{{item.sprite}}" title="{{item.status}}" />
+          <br>
+          It's about to hatch!
+        </button>
+        <span *ngIf="!item.isHatching" class="egg">
+          <img src="{{item.sprite}}" title="{{item.status}}" />
+        </span>
+      </span>
+    </div>
+  </div>
+</collapsible-card>
+
+<dialog #dialog>
+  <div *ngIf="hatchStatus === 'before'" class="center">
+    <img class="hatching animate" src="{{defaultSprite}}" />
+    <br>
+    The egg is hatching...
+  </div>
+  <div *ngIf="hatchStatus === 'after'" class="center">
+    <sprite-pokemon *ngFor="let pkmn of hatchSpecies" class="animate" badge="{{pkmn}}" [dialog]="true">
+    </sprite-pokemon>
+    <div *ngIf="hatchSpecies.length === 1">
+      Your egg hatched into {{hatchLabel}}!
+      <br><br>
+    </div>
+    <div *ngIf="hatchSpecies.length > 1">
+      Your eggs hatched into {{hatchLabel}}!
+      <br><br>
+    </div>
+    <br><br><br>
+    <button mat-button (click)="close()">Yay</button>
+  </div>
+</dialog>

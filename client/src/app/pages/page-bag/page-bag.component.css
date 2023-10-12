@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.item {
+  font-size: 10pt;
+}
+
+.item-icon {
+  padding-right: 8px;
+  width: 32px;
+  object-fit: none;
+}
+
+collapsible-card em {
+  font-size: small;
+}
+
+.technical-btn {
+  cursor: pointer;
+}
+
+.functional {
+  cursor: pointer;
+}
+
+sprite-evolution {
+  text-align: center;
+  display: block;
+}
+
+dialog {
+  max-width: 40em;
+}
+
+span[title] mat-icon {
+  vertical-align: middle;
+}
+
+td.icon {
+  width: 40px;
+}
+
+td.count {
+  text-align: right;
+}

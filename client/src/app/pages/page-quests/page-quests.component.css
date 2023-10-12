@@ -1,0 +1,56 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+.badge {
+  padding: 8px;
+  cursor: pointer;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+}
+
+paper-button {
+  background-color: red;
+  color: white;
+  font-size: 10pt;
+}
+
+paper-button[disabled] {
+  background-color: #999;
+}
+
+#items-found img, #key-items-found img {
+  width: 40px;
+  height:40px;
+  margin-right:24px;
+  margin-top: 4px;
+  image-rendering: pixelated;
+}
+
+img.unfound {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+paper-input {
+  width: 3em;
+}
+
+td {
+  text-align: center;
+}
+
+td > paper-button {
+  display: inline-block;
+}
+
+button[mat-icon-button] {
+  color: var(--app-text-color);
+}
+
+dialog {
+  max-width: 40em;
+}

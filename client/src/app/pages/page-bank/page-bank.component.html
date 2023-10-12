@@ -1,0 +1,104 @@
+<collapsible-card>
+  <span title>Badge Formats</span>
+  <br>
+  <input #badge placeholder="Badge" />
+  <br><br>
+  <button mat-button raised (click)="badgeNewOld()">Convert to Badge v2</button>
+  <button mat-button raised (click)="badgeOldNew()">Convert to Badge v3</button>
+  <button mat-button raised (click)="badgeParse()">Parse Badge v3</button>
+  <br>
+  <span id="bank-badge-out">
+    {{converterText}}
+  </span>
+</collapsible-card>
+
+<collapsible-card>
+  <span title>Deposit via Picker</span>
+  <p>
+    A UI-friendly option
+  </p>
+  <button mat-button (click)="selectPkmn()"><mat-icon>launch</mat-icon>Select Pokémon</button>
+  <br><br>
+  <input [(ngModel)]="boxNumber" placeholder="Optional bank number" type="number" min="0" />
+  <br><br>
+  <button mat-button raised (click)="depositPicker()" [disabled]="exec.deposit || !pokemonPicker?._selection?.length">
+    <mat-icon>cloud_upload</mat-icon>
+    Deposit {{pokemonPicker?._selection?.length}} Pokémon
+  </button>
+</collapsible-card>
+
+<collapsible-card id="bank">
+  <span title>Bank</span>
+  <p>
+    Here you can place Pokémon in a bank. They can be stored there
+    without any worries. However they won't be available for activities.
+  </p>
+  <p>
+    You can optionally set a <strong>Box Number</strong> to better organize the Pokémon you are storing.
+    By default, there is no box number.
+  </p>
+  <br>
+  <input [(ngModel)]="boxNumber" placeholder="Optional bank number" type="number" min="0" />
+  <br><br>
+  <button mat-button raised id="bank-list" (click)="list()" [disabled]="exec.list">
+    <mat-icon>list</mat-icon>
+    List Pokémon in bank
+  </button>
+</collapsible-card>
+
+<collapsible-card [collapsed]="true">
+  <span title>Manual Withdraw and Deposit</span>
+  <p>
+    You can now use pickers to deposit and withdraw Pokémon directly. Doing so
+    manually will remain possible, but is discouraged.
+  </p>
+  <p style="display:none">
+    Please wait ~30s after each operation just to ensure data consistency.
+    This problem is undergoing investigation.
+  </p>
+  <p>
+    Enter bank operations below in an array of arrays format:<br>
+    <code>
+      [<br>
+        ["1#Yf_4", 3],<br>
+        ["1#Yf_6", 1],<br>
+        [badgeId, count]<br>
+      ]<br>
+    </code>
+  </p>
+  <textarea #operations>[["1#Yf_4", 3]]</textarea>
+  <br>
+  <br>
+  <button mat-button raised id="bank-withdraw" (click)="withdraw()" [disabled]="exec.withdraw">
+    <mat-icon>cloud_download</mat-icon>
+    Execute Withdraw
+  </button>
+  <button mat-button raised id="bank-deposit" (click)="deposit()" [disabled]="exec.deposit">
+    <mat-icon>cloud_upload</mat-icon>
+    Execute Deposit
+  </button>
+  <br>
+  <span id="bank-op-msg"></span>
+</collapsible-card>
+
+<pokemon-dialog #dpokemon show="false"></pokemon-dialog>
+
+<dialog #dialog>
+  <strong *ngIf="notices.length">Notices</strong>
+  <br>
+  <li *ngFor="let n of notices">{{n}}</li>
+  <mat-progress-spinner mode="indeterminate" diameter="16" *ngIf="pokemon.length === 0"></mat-progress-spinner>
+  <table>
+    <tr *ngFor="let entry of pokemon">
+      <td>
+        <sprite-pokemon badge="{{entry[0]}}" [dialog]="true">
+        </sprite-pokemon>
+      </td>
+      <td>
+        <small>{{entry[0]}}</small>
+      </td>
+      <td>×{{entry[1]}}</td>
+    </tr>
+  </table>
+  <button mat-button (click)="close()">OK</button>
+</dialog>

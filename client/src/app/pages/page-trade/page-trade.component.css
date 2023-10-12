@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  padding: 10px;
+}
+
+paper-button {
+  background-color: red;
+  color: white;
+  font-size: 10pt;
+}
+
+paper-button[disabled] {
+  background-color: #999;
+}
+
+.hiddenitems {
+  margin-top: 16px;
+}
+
+.hiddenitems img {
+  width: 24px;
+  padding: 4px;
+  cursor: pointer;
+}
+
+.hiddenitems img.shake {
+  animation: shake 1s infinite linear;
+}
+
+span.fsc {
+  cursor: help;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(-15deg);
+  }
+  25% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(0deg);
+  }
+}

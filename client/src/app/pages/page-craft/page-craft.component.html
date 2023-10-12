@@ -1,0 +1,130 @@
+<collapsible-card>
+  <span title><mat-icon>handyman</mat-icon> My Crafting Items</span>
+  With multiple items, you can turn them into one item. It's item-ception!
+  <div>
+    <span *ngFor="let item of craftItems" class="material">
+      <sprite-item item="{{item[0]}}"></sprite-item>×{{item[1]}}
+    </span>
+  </div>
+  <br>
+  <span>
+    You have crafted <strong>{{craftTotal}} items</strong>.
+  </span>
+</collapsible-card>
+
+<collapsible-card>
+  <span title><mat-icon>category</mat-icon> Crafting Bench</span>
+  <small>Here is everything you can craft.</small>
+  <mat-spinner *ngIf="!processedRecipes"></mat-spinner>
+  <ul>
+    <button mat-button *ngFor="let recipe of availableRecipes.crafting" (click)="openCraftingDialog(recipe.output)">
+      <sprite-item item="{{recipe.output}}" [class.unavailable]="!recipe.hasItems"></sprite-item>
+      {{recipe.label}}
+    </button>
+  </ul>
+  <small>By playing the game, you'll unlock more recipes.</small>
+  <ul>
+    <button mat-button *ngFor="let recipe of unavailableRecipes.crafting"
+        (click)="reportError(recipe.output)"
+        matTooltip="{{recipe.reason}}" matTooltipHideDelay="100">
+      <sprite-item item="{{recipe.output}}" class="unavailable"></sprite-item>
+      {{recipe.label}}
+    </button>
+  </ul>
+</collapsible-card>
+
+<collapsible-card>
+  <span title><mat-icon>album</mat-icon> TM Machine</span>
+  <br>
+  <mat-spinner *ngIf="!processedRecipes"></mat-spinner>
+  <strong>Available TMs</strong>
+  <ul>
+    <button mat-button *ngFor="let recipe of availableRecipes.tmmachine" (click)="openCraftingDialog(recipe.output)">
+      <sprite-item item="{{recipe.output}}" [class.unavailable]="!recipe.hasItems"></sprite-item>
+      {{recipe.label}}
+    </button>
+  </ul>
+  <strong>Unavailable TMs</strong>
+  <ul>
+    <button mat-button *ngFor="let recipe of unavailableRecipes.tmmachine"
+        (click)="reportError(recipe.output)"
+        matTooltip="{{recipe.reason}}" matTooltipHideDelay="100">
+      <sprite-item item="{{recipe.output}}" class="unavailable"></sprite-item>
+      {{recipe.label}}
+    </button>
+  </ul>
+</collapsible-card>
+
+<collapsible-card *ngIf="canCook">
+  <span title><mat-icon>science</mat-icon> Bait</span>
+  <small>Cooking is still in development and may change.</small>
+  <br>
+  <mat-spinner *ngIf="!processedRecipes"></mat-spinner>
+  <strong>Available Recipes (But Literally)</strong>
+  <ul>
+    <button mat-button *ngFor="let recipe of availableRecipes.bait" (click)="openCraftingDialog(recipe.output)">
+      <sprite-item item="{{recipe.output}}" [class.unavailable]="!recipe.hasItems"></sprite-item>
+      {{recipe.label}}
+    </button>
+  </ul>
+  <strong>Unavailable Recipes</strong>
+  <ul>
+    <button mat-button *ngFor="let recipe of unavailableRecipes.bait"
+        (click)="reportError(recipe.output)"
+        matTooltip="{{recipe.reason}}" matTooltipHideDelay="100">
+      <sprite-item item="{{recipe.output}}" class="unavailable"></sprite-item>
+      {{recipe.label}}
+    </button>
+  </ul>
+</collapsible-card>
+
+<dialog #crafting>
+  <h1 class="centered">Crafting {{label(selected?.output)}}</h1>
+  <small>
+    {{selected?.description}}
+  </small>
+  <br><br>
+  <span>You will need:</span>
+  <table class="full">
+    <tr *ngFor="let inp of selected?.input | keyvalue">
+      <td>
+        <sprite-item item="{{inp.key}}"></sprite-item>
+      </td>
+      <td>
+        <small>{{label(inp.key)}} ×{{inp.value * craftCount}}</small>
+      </td>
+      <td class="rightside">
+        <small><mat-icon>business_center</mat-icon> ×{{getInventoryCount(inp.key)}}</small>
+      </td>
+    </tr>
+  </table>
+  <strong>Craft how many?</strong>
+  <input type="number" min="1" [(ngModel)]="craftCount" />
+  <br><br>
+  <table class="full">
+    <tr>
+      <td>
+        <button mat-button (click)="craft()" [disabled]="exec.craft || ineligible()">
+          Craft
+        </button>
+      </td>
+      <td class="rightside topside">
+        <mat-icon>business_center</mat-icon>  ×{{getInventoryCount(selected?.output)}}
+      </td>
+    </tr>
+  </table>
+  <br><br>
+  <button mat-button secondary (click)="close()">Close</button>
+</dialog>
+
+<dialog #animation>
+  <sprite-crafting #animationcraft></sprite-crafting>
+  <br>
+  <mat-spinner [diameter]="24"></mat-spinner>
+</dialog>
+
+<dialog #error>
+  {{errorMsg}}
+  <br><br>
+  <button mat-button (click)="close()">Close</button>
+</dialog>

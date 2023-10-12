@@ -1,0 +1,124 @@
+<collapsible-card *ngIf="!flagMart3">
+  <span title>My Bag <mat-icon (click)="tutorialOpen($event)">help</mat-icon></span>
+</collapsible-card>
+
+<collapsible-card id="card-buy" *ngIf="!flagMart3">
+  <span title>Buy</span>
+
+  <div *ngFor="let c of buyCategories" class="section">
+    <mart-section label="{{categories[c]}}"
+      items="{{buy[c]}}"
+      mode="buy">
+    </mart-section>
+  </div>
+</collapsible-card>
+
+<collapsible-card id="card-sell" *ngIf="!flagMart3">
+  <span title>Sell</span>
+
+  <div *ngFor="let c of sellCategories" class="section">
+    <mart-section label="{{categories[c]}}"
+      items="{{sell[c]}}"
+      mode="sell">
+    </mart-section>
+  </div>
+</collapsible-card>
+
+<mat-card *ngIf="flagMart3">
+  <mat-tab-group (selectedTabChange)="switchMartMode($event)">
+    <mat-tab label="Buy">
+      <h2>Here are things you can buy</h2>
+      <div *ngFor="let c of buyCategories" class="section">
+        <strong>{{categories[c]}}</strong>
+        <br>
+        <sprite-item *ngFor="let item of buy[c]" item="{{item}}" (mouseover)="openMetadata(item)" (click)="openQuantity(item)"></sprite-item>
+      </div>
+    </mat-tab>
+    <mat-tab label="Sell">
+      <h2>Here are things you can sell</h2>
+      <div *ngFor="let c of sellCategories" class="section">
+        <strong>{{categories[c]}}</strong>
+        <br>
+        <sprite-item *ngFor="let item of sell[c]" item="{{item}}" (mouseover)="openMetadata(item)" (click)="openQuantity(item)"></sprite-item>
+      </div>
+    </mat-tab>
+    <mat-tab label="Toss">
+      <h2>Here are things that you cannot sell but can remove</h2>
+      <p>Please be careful with tossing items here.</p>
+      <div *ngFor="let c of tossCategories" class="section">
+        <strong>{{categories[c]}}</strong>
+        <br>
+        <sprite-item *ngFor="let item of toss[c]" item="{{item}}" (mouseover)="openMetadata(item)" (click)="openQuantity(item)"></sprite-item>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  <!-- Spacer for the cart bar -->
+  <div style="height: 100px"></div>
+</mat-card>
+
+<mat-card class="cart" *ngIf="batch.length || inQuantityMode || inHoverMode">
+  <div *ngIf="!inQuantityMode && !inHoverMode">
+    <mat-chip *ngFor="let b of batch; index as i" (removed)="cartRemove(i)">
+      <sprite-item item="{{b.type}}"></sprite-item> ×{{b.count}}
+      <button matChipRemove><mat-icon>cancel</mat-icon></button>
+    </mat-chip>
+  </div>
+  <div *ngIf="!inQuantityMode && !inHoverMode && martMode === 'buy' && buyPrice">
+    <strong>Buy for {{buyPrice}}</strong><sprite-item item="pokeball"></sprite-item>
+    <button mat-button [disabled]="!buyEnabled || exec.confirm" (click)="confirm('buy')">Confirm Purchase</button>
+    <button mat-button [disabled]="!buyEnabled || exec.gpay" *ngIf="aprilFools" class="aprilFools" (click)="aprilFoolToast()">
+      <img src="https://www.gstatic.com/instantbuy/svg/refreshedgraphicaldesign/dark_gpay.svg" />
+      | Pay Using Card ****
+    </button>
+  </div>
+  <div *ngIf="!inQuantityMode && !inHoverMode && martMode === 'sell' && sellPrice">
+    <strong>Sell for {{sellPrice}}</strong><sprite-item item="pokeball"></sprite-item>
+    <button mat-button [disabled]="!sellEnabled || exec.confirm" (click)="confirm('sell')">Confirm Sale</button>
+  </div>
+  <div *ngIf="!inQuantityMode && !inHoverMode && martMode === 'toss'">
+    <button mat-button [disabled]="exec.confirm" (click)="confirm('toss')">Confirm Toss All</button>
+  </div>
+  <div *ngIf="inHoverMode">
+    <sprite-item item="{{selectedItem}}"></sprite-item>
+    {{selectedItemDb.label}}
+    <span *ngIf="martMode === 'buy'">
+      {{selectedItemDb.buy}}
+    </span>
+    <span *ngIf="martMode === 'sell'">
+      {{selectedItemDb.sell}}
+    </span>
+    <br>
+    <small>{{selectedItemDb.description}}</small>
+    <br>
+    <mat-icon>business_center</mat-icon> {{this.user.items[selectedItem] || 0}}
+    <sprite-item item="pokeball"></sprite-item> {{this.user.items.pokeball}}
+  </div>
+  <div *ngIf="inQuantityMode">
+    <sprite-item item="{{selectedItem}}"></sprite-item>
+    How many {{selectedItemDb.label}}?
+    <input type="number" min="1" max="999" [(ngModel)]="cartQuantity" />
+    <span *ngIf="martMode === 'buy'">
+      {{selectedItemDb.buy * cartQuantity}}
+    </span>
+    <span *ngIf="martMode === 'sell'">
+      {{selectedItemDb.sell * cartQuantity}}
+    </span>
+    <button mat-button (click)="addToCart()">Add to Cart</button>
+    <button mat-button (click)="cancelAddToCart()">Cancel</button>
+    <br>
+    <small>{{selectedItemDb.description}}</small>
+    <br>
+    <mat-icon>business_center</mat-icon> {{this.user.items[selectedItem] || 0}}
+    <sprite-item item="pokeball"></sprite-item> {{this.user.items.pokeball}}
+  </div>
+  <br><br>
+</mat-card>
+
+<dialog #tutorial>
+  <p>
+    Welcome to the mart new trainer! Here you can find a number of general
+    items that are available for purchase. You can also sell items you've
+    accumulated through your adventure.
+  </p>
+  <button mat-button (click)="tutorialClose()">Close</button>
+</dialog>

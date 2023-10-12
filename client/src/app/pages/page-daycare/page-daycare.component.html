@@ -1,0 +1,69 @@
+<collapsible-card>
+  <p>
+    The <b>Day Care</b> allows you to send one of your Pokémon for some special training.
+    They may come back stronger than before, even evolve. You may also
+    find eggs from time to time.
+  </p>
+  <p *ngIf="parents">
+    The <b>Day Care breeding club</b> currently is accepting:
+      <li *ngFor="let p of parents">{{p}}</li>
+  </p>
+  <button mat-button raised (click)="openBreedingClub()">Select Club</button>
+</collapsible-card>
+
+<mat-card id="my-collection">
+  <p *ngIf="!isPrivate"><b>Select one of your Pokémon below</b></p>
+  <p *ngIf="isPrivate"><b>Send two of your Pokémon</b></p>
+  <mat-slide-toggle [(ngModel)]="isPrivate">Private</mat-slide-toggle>
+  <br>
+  <div>
+    <button mat-button (click)="openPkmn()">
+      <mat-icon>launch</mat-icon>Select Pokémon
+    </button>
+    <pokemon-dialog #pokemon [max]="maxItems" show="false"></pokemon-dialog>
+    <button mat-button raised (click)="openItems()"><mat-icon>business_center</mat-icon>Select Item</button>
+  </div>
+  <br>
+  If your Pokémon holds an item, there may be a specific reactions!<br>
+  <dialog-items #items [max]="maxItems"></dialog-items>
+  <br>
+  <small *ngIf="isPrivate">
+    When using the Private Day Care, you can choose the (1) the mother and (2)
+    the father. Shiny odds are reduced, but you can use this mode for greater
+    flexibility.
+  </small>
+  <br>
+  <button mat-button raised *ngIf="selection && heldItem" (click)="send()" [disabled]="exec.send">
+    <mat-icon>egg</mat-icon>
+    Send {{selection}} with {{heldItem}} to Day Care
+  </button>
+  <button mat-button raised *ngIf="selection && !heldItem" (click)="send()" [disabled]="exec.send">
+    <mat-icon>egg</mat-icon>
+    Send {{selection}} to Day Care
+  </button>
+</mat-card>
+
+<mat-card *ngIf="exec.send" class="animation send">
+  <!-- Animation Going to DayCare -->
+  <div style="height: 40px">
+    <sprite-pokemon *ngFor="let s of _selection" badge="{{s}}"></sprite-pokemon>
+  </div>
+
+  <p>
+    Have fun in the Day Care!
+    See you soon!
+  </p>
+</mat-card>
+
+<mat-card *ngIf="!exec.send && res" class="animation return">
+  <!-- Animation Returning From DayCare -->
+  <div style="height: 40px">
+    <sprite-pokemon *ngFor="let s of res?.parents" badge="{{s}}"></sprite-pokemon>
+    <img src="/images/sprites/potw-egg-g2.png" *ngIf="res?.egg" />
+  </div>  
+  <br>
+
+  <p>
+    {{res?.html}}
+  </p>
+</mat-card>

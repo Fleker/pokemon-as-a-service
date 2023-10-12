@@ -1,0 +1,77 @@
+<mat-card>
+  <h1>My Pokémon <mat-icon (click)="tutorialOpen()">help</mat-icon></h1>
+  <p>Your Pokémon are waiting patiently with bated breath.</p>
+  <pokemon-picker #picker [multiple]="true" filterdefault="RELEASE" filtercel='"RELEASE" in tags'></pokemon-picker>
+  <br>
+  <button mat-button raised [disabled]="!releaseSpecies" (click)="openDialog()">
+    Release
+  </button>
+  <p>
+    <span *ngIf="!releaseSpecies">
+      Select one or more Pokémon using the picker above.
+    </span>
+    <span *ngIf="releaseSpecies">
+      Release <b>{{releaseSpecies}} Pokémon</b>.
+    </span>
+    <br>
+    <span *ngIf="releaseShiny">
+      And <b>{{releaseShiny}} shiny Pokémon</b>.
+    </span>
+    <br>
+    <span *ngIf="releaseShinyVar">
+      And <b>{{releaseShinyVar}} shiny variant Pokémon</b>.
+    </span>
+  </p>
+</mat-card>
+
+<dialog #dialog>
+  <div *ngIf="dialogState === 'before'">
+    <h1 class="centered">{{releaseTitle}}</h1>
+    <p>
+      {{releaseText}}
+    </p>
+    <ul>
+      <li *ngIf="releaseShiny">Including {{releaseShiny}} shinies</li>
+      <li *ngIf="releaseShinyVar">Including {{releaseShinyVar}} shiny variants</li>
+      <li *ngIf="releaseEvent">including {{releaseEvent}} event Pokémon</li>
+    </ul>
+    <br>
+    <mat-slide-toggle [(ngModel)]="confirmSwitch" *ngIf="releaseShiny || releaseShinyVar || releaseEvent">
+      I understand
+    </mat-slide-toggle>
+    <br>
+    <button mat-button secondary (click)="close()">Cancel</button>
+    <button mat-button [disabled]="!confirmSwitch" (click)="release()">Confirm Release</button>
+  </div>
+  <div *ngIf="dialogState === 'intermediate'">
+    <sprite-item item="pokeball" class="animate"></sprite-item>
+  </div>
+  <div *ngIf="dialogState === 'after'">
+    You said farewell to your Pokémon.
+    <br>
+    As you did, you found some treasure and placed it in your bag.
+    <br><br>
+    <div *ngIf="res.pokeball">
+      <sprite-item item="pokeball"></sprite-item> ×{{res.pokeball}}
+    </div>
+    <div *ngIf="res.greatball">
+      <sprite-item item="greatball"></sprite-item> ×{{res.greatball}}<br>
+    </div>
+    <div *ngIf="res.ultraball">
+      <sprite-item item="ultraball"></sprite-item> ×{{res.ultraball}}
+    </div>
+    <button mat-button (click)="close()">
+      Cheers
+    </button>
+  </div>
+</dialog>
+
+<dialog #tutorial>
+  <h1 class="centered">Releasing Pokémon!</h1>
+  <p>
+    Welcome there new trainer. After you catch a bunch of Pokémon you might
+    want to let some go. You can select a bunch here and send them away.
+    You will receive some PokéBalls, Great Balls, and Ultra Balls back.
+  </p>
+  <button mat-button (click)="tutorialClose()">Close</button>
+</dialog>

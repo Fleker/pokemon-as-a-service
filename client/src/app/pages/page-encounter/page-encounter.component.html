@@ -1,0 +1,527 @@
+<mat-card>
+  <mat-icon (click)="tutorialOpen()">help</mat-icon>
+  <mat-tab-group (selectedTabChange)="selectLure($event)">
+    <mat-tab label="Tall Grass">
+      <p>
+        You can use a ball to capture a Pokémon you've never seen before.
+        Select the one you want to use.
+      </p>
+      <div *ngIf="charms.shiny">
+        <sprite-item item="shinycharm"></sprite-item>
+        <p id="shinycharm-info">
+          The Shiny Charm makes it more likely to find <b>Shiny Pokémon</b> in
+          the wild.
+        </p>
+      </div>
+
+      <sprite-item item="catchingcharm-rby" *ngIf="charms.rby"
+        (click)="openDialog('charm')" role="button">
+      </sprite-item>
+      <sprite-item item="catchingcharm-gsc" *ngIf="charms.gsc"
+        (click)="openDialog('charm')" role="button">
+      </sprite-item>
+      <sprite-item item="catchingcharm-rse" *ngIf="charms.rse"
+        (click)="openDialog('charm')" role="button">
+      </sprite-item>
+      <sprite-item item="catchingcharm-dppt" *ngIf="charms.dppt"
+        (click)="openDialog('charm')" role="button">
+      </sprite-item>
+      <sprite-item item="catchingcharm-bw" *ngIf="charms.bw"
+        (click)="openDialog('charm')" role="button">
+      </sprite-item>
+      <sprite-item item="catchingcharm-xy" *ngIf="charms.xy"
+        (click)="openDialog('charm')" role="button">
+      </sprite-item>
+      <sprite-item item="catchingcharm-sm" *ngIf="charms.sm"
+        (click)="openDialog('charm')" role="button">
+      </sprite-item>
+      <sprite-item item="catchingcharm-swsh" *ngIf="charms.swsh"
+        (click)="openDialog('charm')" role="button">
+      </sprite-item>
+      <sprite-item item="rotoencounter" *ngIf="charms.swarm"
+        (click)="openDialog('swarm')" role="button">
+      </sprite-item>
+      <sprite-item item="unownreport" *ngIf="charms.unownreport"
+        (click)="openDialog('unown')" role="button">
+      </sprite-item>
+      <sprite-item item="sootsack" *ngIf="charms.sootsack" class="{{souvenirClass}}"
+        (click)="openDialog('soot')" role="button">
+      </sprite-item>
+      <sprite-item item="oddkeystone" *ngIf="charms.oddkeystone" class="{{souvenirClass}}"
+        (click)="openDialog('keystone')" role="button">
+      </sprite-item>
+      <sprite-item item="zygardecube" *ngIf="charms.zygardecube" class="{{souvenirClass}}"
+        (click)="openDialog('zygarde')" role="button">
+      </sprite-item>
+      <sprite-item item="foragebag" *ngIf="charms.foragebag" class="{{souvenirClass}}"
+        (click)="openDialog('foragebag')" role="button">
+      </sprite-item>
+      <sprite-item item="itemfinder" *ngIf="charms.itemfinder" class="{{souvenirClass}}"
+        (click)="openDialog('itemfinder')" role="button">
+      </sprite-item>
+      <sprite-item item="meltanbox" *ngIf="charms.meltanbox" class="{{souvenirClass}}"
+        (click)="openDialog('meltanbox')" role="button">
+      </sprite-item>
+
+      <div>
+        You are currently in <strong>{{location.label}}</strong>.
+        The weather is <strong>{{forecast}}</strong>.
+        <br>
+        <p>It is currently <i>{{season}}</i>.</p>
+        <p *ngIf="charms.swarm">
+          There is a mass outbreak of {{currentSwarming}} around.
+        </p>
+      </div>
+
+      <div>
+        <sprite-item *ngFor="let item of balls" item="{{item}}" (click)="select(item)"></sprite-item>
+      </div>
+
+      <div *ngIf="charms.campinggear && selected">
+        <small><mat-icon>science</mat-icon>Optionally select a bait</small>
+        <button mat-icon-button (click)="selectBait(undefined)">
+          <mat-icon>cancel</mat-icon>
+        </button>
+        <sprite-item class="vam" *ngFor="let item of bait" item="{{item}}" (click)="selectBait(item)"></sprite-item>
+        <div *ngIf="selectedBait">
+          <button mat-button *ngIf="hasGoggles" (click)="checkBinoculars(selected, selectedBait)">
+            <sprite-item item="gogoggles"></sprite-item>
+            Check Binoculars
+          </button>
+        </div>
+      </div>
+
+      <mat-slide-toggle [(ngModel)]="duplicates">
+        Catch Pokémon you already have
+      </mat-slide-toggle>
+      <br>
+      <small><em>
+        Note: If you haven't caught both male/female of a species, you will
+        continue to catch them even with this option turned off.
+      </em></small>
+      <br>
+
+      <mat-slide-toggle [(ngModel)]="shouldRefreshUser">
+        Resync user data after throwing
+      </mat-slide-toggle>
+      <br>
+      <small>It's recommended to keep this on.</small>
+      <br><br><br>
+
+      <button mat-button raised *ngIf="selected" (click)="throw()" [disabled]="exec.throw">
+        Throw
+        <sprite-item item="{{selected}}"></sprite-item>
+        <sprite-item *ngIf="selectedBait" item="{{selectedBait}}"></sprite-item>
+      </button>
+      <br>
+      <small *ngIf="selected">You have {{selectionCount}}.</small>
+    </mat-tab>
+    <mat-tab label="Backlot's Trophy Garden" *ngIf="charms.backlot">
+      <p>
+        Mr. Backlot has a fantastic garden which has been curated professionally.
+      </p>
+
+      <sprite-item item="greatball" (click)="select('greatball')"></sprite-item>
+      <br><br>
+
+      <mat-slide-toggle [(ngModel)]="duplicates">
+        Catch Pokémon you already have
+      </mat-slide-toggle>
+      <br>
+      <small><em>
+        Note: If you haven't caught both male/female of a species, you will
+        continue to catch them even with this option turned off.
+      </em></small>
+      <br>
+
+      <button mat-button raised *ngIf="selected" (click)="throw()" [disabled]="exec.throw">
+        Throw
+        <sprite-item item="{{selected}}"></sprite-item>
+      </button>
+      <br>
+      <small *ngIf="selected">You have {{selectionCount}}.</small>
+
+    </mat-tab>
+    <mat-tab label="Hidden Grotto" *ngIf="charms.grotto">
+      <p>
+        The <strong>Colress MCHN</strong> lets you find hidden hideaways where Pokémon may appear.
+      </p>
+
+      <sprite-item item="ultraball" (click)="select('ultraball')"></sprite-item>
+      <br><br>
+
+      <mat-slide-toggle [(ngModel)]="duplicates">
+        Catch Pokémon you already have
+      </mat-slide-toggle>
+      <br>
+      <small><em>
+        Note: If you haven't caught both male/female of a species, you will
+        continue to catch them even with this option turned off.
+      </em></small>
+      <br>
+
+      <button mat-button raised *ngIf="selected" (click)="throw()" [disabled]="exec.throw">
+        Throw
+        <sprite-item item="{{selected}}"></sprite-item>
+      </button>
+      <br>
+      <small *ngIf="selected">You have {{selectionCount}}.</small>
+
+    </mat-tab>
+    <mat-tab label="SOS Encounters" *ngIf="charms.sos">
+      <p>
+        The <strong>Adrenaline Orb</strong> lets you find rarer Pokémon who are lured by a companion.
+      </p>
+
+      <sprite-item item="quickball" (click)="select('quickball')"></sprite-item>
+      <br><br>
+
+      <mat-slide-toggle [(ngModel)]="duplicates">
+        Catch Pokémon you already have
+      </mat-slide-toggle>
+      <br>
+      <small><em>
+        Note: If you haven't caught both male/female of a species, you will
+        continue to catch them even with this option turned off.
+      </em></small>
+      <br>
+
+      <button mat-button raised *ngIf="selected" (click)="throw()" [disabled]="exec.throw">
+        Throw
+        <sprite-item item="{{selected}}"></sprite-item>
+      </button>
+      <br>
+      <small *ngIf="selected">You have {{selectionCount}}.</small>
+
+    </mat-tab>
+    <mat-tab label="Wild Area" *ngIf="charms.wildarea">
+      <p>
+        The <strong>Rotom Bike</strong> makes it easy to traverse the Wild Area of Galar and catch strong Pokémon.
+      </p>
+
+      <sprite-item item="duskball" (click)="select('duskball')"></sprite-item>
+      <br><br>
+
+      <mat-slide-toggle [(ngModel)]="duplicates">
+        Catch Pokémon you already have
+      </mat-slide-toggle>
+      <br>
+      <small><em>
+        Note: If you haven't caught both male/female of a species, you will
+        continue to catch them even with this option turned off.
+      </em></small>
+      <br>
+
+      <button mat-button raised *ngIf="selected" (click)="throw()" [disabled]="exec.throw">
+        Throw
+        <sprite-item item="{{selected}}"></sprite-item>
+      </button>
+      <br>
+      <small *ngIf="selected">You have {{selectionCount}}.</small>
+
+    </mat-tab>
+    <mat-tab label="Friend Safari" *ngIf="!charms.friendsafari">
+      <strong>The Friend Safari is under construction</strong>
+      <br>
+      <strong>Unlocked Areas:</strong>
+      <br>
+      {{user?.friendSafari}}
+    </mat-tab>
+    <mat-tab label="Friend Safari" *ngIf="charms.friendsafari">
+      <strong>The Friend Safari is open for special guests!</strong>
+      <br>
+      <strong>Unlocked Areas:</strong>
+      <br>
+      {{user?.friendSafari}}
+      <span *ngIf="!user?.friendSafari">
+        You currently have no safari zones unlocked. Trade privately with
+        friends to add their zones.
+      </span>
+      <span *ngIf="user?.friendSafari === ''">
+        You currently have no safari zones unlocked. Trade privately with
+        friends to add their zones.
+      </span>
+      <br><br>
+
+      <sprite-item item="safariball" (click)="select('safariball')"></sprite-item>
+      <br><br>
+
+      <p>You can select the safari zones you wish to visit.</p>
+      <friendsafari-selector #fs safari="{{user?.friendSafari}}"></friendsafari-selector>
+      <br><br>
+
+      <mat-slide-toggle [(ngModel)]="duplicates">
+        Catch Pokémon you already have
+      </mat-slide-toggle>
+      <br>
+      <small><em>
+        Note: If you haven't caught both male/female of a species, you will
+        continue to catch them even with this option turned off.
+      </em></small>
+      <br>
+
+      <button mat-button raised *ngIf="selected && !!user.friendSafari && user.friendSafari !== ''" (click)="throw()" [disabled]="exec.throw">
+        Throw
+        <sprite-item item="{{selected}}"></sprite-item>
+      </button>
+      <br>
+      <small *ngIf="selected">You have {{selectionCount}}.</small>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>
+
+<mat-card *ngIf="exec.throw">
+  <p>
+    Threw a {{selectionLabel}} into the grass...
+  </p>
+  <div>
+    <sprite-item class="animate" item="{{selected}}"></sprite-item>
+  </div>
+</mat-card>
+
+<mat-card *ngIf="catch && !exec.throw">
+  <p *ngIf="catch.baitEaten">
+    Something is eating the {{catch.baitEaten}}.
+  </p>
+  <p>
+    Threw a {{selectionLabel}} into the grass...
+  </p>
+  <p>
+    <sprite-pokemon *ngIf="!catch.ditto && !catch.zorua && !catch.zoroark" badge="{{catch.speciesId}}" class="animate"></sprite-pokemon>
+    <sprite-evolution *ngIf="catch.ditto" [from]="catch.ditto" [to]="catch.speciesId"></sprite-evolution>
+    <sprite-evolution *ngIf="catch.zorua" [from]="catch.zorua" [to]="catch.speciesId"></sprite-evolution>
+    <sprite-evolution *ngIf="catch.zoroark" [from]="catch.zoroark" [to]="catch.speciesId"></sprite-evolution>
+    <br>
+    You caught a wild <strong>{{catch.species}}</strong>!
+    <br>
+  </p>
+  <div *ngIf="catch.size === 'xxs'">
+    Wow it's very small!
+  </div>
+  <div *ngIf="catch.size === 'xxl'">
+    Wow it's very large!
+  </div>
+  <div *ngIf="catch.holdItem">
+    <sprite-item item="{{catch.holdItem}}"></sprite-item>
+    <br>
+    It was holding a <strong>{{catch.hold}}</strong>!
+    You placed it in your bag.
+  </div>
+  <p>
+    <strong>{{catch.species}}</strong> was sent to the PC!
+  </p>
+  <div *ngIf="!catch.duplicates">
+    <strong>{{catch.species}}</strong>'s information was added to the Pokédex:<br>
+    <em>{{catch.entry}}</em>
+  </div>
+</mat-card>
+
+<collapsible-card>
+  <span title>Mass Outbreak Votes</span>
+  <p>
+    Wild Pokémon may appear in large outbreaks all at once depending on
+    which region you are in. What Pokémon do you want to see?
+    You can vote once below in each cycle.
+  </p>
+  <pokemon-datalist id="swarm-pick" filter="common" #voter></pokemon-datalist>
+  <button mat-button raised (click)="swarmVote()" [disabled]="exec.swarmVote">
+    Cast Vote
+  </button>
+  <small *ngIf="!charms.swarm">
+    <br><br>
+    To participate in swarms you must first
+    <a href="/quests">unlock them</a>.
+  </small>
+</collapsible-card>
+
+<collapsible-card>
+  <mart-section label="Items"
+    items="{{ballString}}" mode="buy">
+  </mart-section>
+</collapsible-card>
+
+<dialog #dcatching>
+  <h1>Catching Charm</h1>
+
+  <p>
+    A <strong>Catching Charm</strong> is a gift from researchers once you have
+    caught a certain number of Pokémon from a region. It can be used as a medal
+    showing your skill. More Pokémon may be found once you have obtained one.
+  </p>
+
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dswarm>
+  <h1>Outbreak Radar</h1>
+  <p>
+    When Mass Outbreaks happen, you will be able to find them using this
+    device. You will also be able to suggest what outbreaks may happen next.
+  </p>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dunown>
+  <h1>Unown Report</h1>
+  <p>
+    Today's Unown Report provides the following hint as to their location:
+  </p>
+  <p class="unown" title="{{unownHint}}" (click)="toastUnown()">
+    {{unownHint}}
+  </p>
+  <br><br>
+  <small>
+    (You can hover over the hint to get a readable version.)
+  </small>
+  <br>
+  <small>
+    Don't like this hint? We'd appreciate your feedback.
+  </small>
+  <br>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dsoot>
+  <h1>Soot Sack</h1>
+  <p>
+    As you travel around you may pick up pieces of soot. As you collect more,
+    they can be valuable for glassblowers to craft items. Right now you have
+    found <strong>{{user?.items.soot}}</strong> pieces of soot.
+  </p>
+  <p *ngIf="souvenirClass === 'disabled'">
+    All of the soot has been collected from this area. Try traveling to someplace new.
+  </p>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dkeystone>
+  <h1>Odd Keystone</h1>
+  <p>
+    As you travel around you may find odd wisps of an old spirit. They can be
+    contained in an odd keystone to use later. Right now you have
+    found <strong>{{user?.items.wisp}}</strong> odd wisps.
+  </p>
+  <p *ngIf="souvenirClass === 'disabled'">
+    All of the wisps has been collected from this area. Try traveling to someplace new.
+  </p>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dzygarde>
+  <h1>Zygarde Cube</h1>
+  <p>
+    As you travel around you may find tiny green lifeforms, which could hardly
+    be considered Pokémon. You can slurp them into your Zygarde Cube and they
+    can merge together.
+    Right now you have found <strong>{{user?.items.zygardecell}}</strong> cells.
+  </p>
+  <p *ngIf="souvenirClass === 'disabled'">
+    All of the cells has been collected from this area. Try traveling to someplace new.
+  </p>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dforage>
+  <h1>Forage Bag</h1>
+  <p>
+    In some locations, particularly in flowery areas, you may collect colorful
+    nectar. These nectars can have an interesting effect on a particular
+    Pokémon.
+  </p>
+  <ul>
+    <li>
+      <sprite-item item="rednectar"></sprite-item> ×{{user?.items.rednectar}}
+    </li>
+    <li>
+      <sprite-item item="yellownectar"></sprite-item> ×{{user?.items.yellownectar}}
+    </li>
+    <li>
+      <sprite-item item="pinknectar"></sprite-item> ×{{user?.items.pinknectar}}
+    </li>
+    <li>
+      <sprite-item item="purplenectar"></sprite-item> ×{{user?.items.purplenectar}}
+    </li>
+  </ul>
+  <p *ngIf="souvenirClass === 'disabled'">
+    All of the nectar has been collected from this area. Try traveling to someplace new.
+  </p>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #ditemfinder>
+  <h1>Item Finder</h1>
+  <p>
+    Once you hold the item finder, you may see it activate near some Pokémon.
+    All kinds of odd metal treasure can be found just below the ground.
+  </p>
+  <p>
+    Sometimes it activates near a small Pokémon holding a coin. It always flees
+    before you have a chance to catch it.
+  </p>
+  <ul>
+    <li>
+      <sprite-item item="bottlecaphp"></sprite-item> ×{{user?.items.bottlecaphp}}
+    </li>
+    <li>
+      <sprite-item item="bottlecapatk"></sprite-item> ×{{user?.items.bottlecapatk}}
+    </li>
+    <li>
+      <sprite-item item="bottlecapdef"></sprite-item> ×{{user?.items.bottlecapdef}}
+    </li>
+    <li>
+      <sprite-item item="bottlecapspa"></sprite-item> ×{{user?.items.bottlecapspa}}
+    </li>
+    <li>
+      <sprite-item item="bottlecapspd"></sprite-item> ×{{user?.items.bottlecapspd}}
+    </li>
+    <li>
+      <sprite-item item="bottlecapspe"></sprite-item> ×{{user?.items.bottlecapspe}}
+    </li>
+    <li>
+      <sprite-item item="strangesouvenir"></sprite-item> ×{{user?.items.strangesouvenir}}
+    </li>
+    <li>
+      <sprite-item item="gimmighoulcoin"></sprite-item> ×{{user?.items.gimmighoulcoin}}
+    </li>
+  </ul>
+  <p *ngIf="souvenirClass === 'disabled'">
+    The item finder has stopped beeping. Everything has been collected from this area. Try traveling to someplace new.
+  </p>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dmeltanbox>
+  <h1>Meltan Box</h1>
+  <p>
+    As you travel around you may find small Pokémon attracted to your Meltan Box.
+    Right now you have found <strong>{{user?.items.meltancandy}}</strong> Meltan Candy.
+  </p>
+  <p *ngIf="souvenirClass === 'disabled'">
+    All of the Meltan has been collected from this area. Try traveling to someplace new.
+  </p>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dbait>
+  <widget-binoculars #binoculars [available]="binocularsList" class=""></widget-binoculars>
+  <br>
+  <button mat-button (click)="closeHelp()">OK</button>
+</dialog>
+
+<dialog #tutorial>
+  <p>
+    Welcome there new trainer! This page allows you to go out into the wild
+    and catch wild Pokémon. You can catch a new Pokémon or any.
+  </p>
+  <p>
+    Select the PokéBall you want to use and click. The Pokémon you encounter
+    will depend on your location, the current weather, and the season.
+    Some Pokémon are rarer and have their own encounter criteria.
+  </p>
+  <p>
+    When you start out, you'll only be able to find Pokémon originally
+    discovered in the Kanto region. Once you obtain Catching Charms, you may
+    find even more Pokémon even in the same location.
+  </p>
+  <button mat-button (click)="tutorialClose()">Close</button>
+</dialog>

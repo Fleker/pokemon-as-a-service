@@ -1,0 +1,191 @@
+<mat-card>
+  <p>
+    This is an experimental version of the battle system which runs entirely in the client.
+  </p>
+  <p>
+    At the moment it does the bare minimum. Please let me know what you want to
+    see prioritized. Feel free to send patches as well.
+  </p>
+</mat-card>
+
+<mat-card *ngIf="state === 1">
+  <h2>Start a battle</h2>
+  <p>
+    To start, define the player and opponents.
+  </p>
+  Players:
+  <div *ngFor="let p of players; index as i" class="battler">
+    <sprite-pokemon [badge]="p"></sprite-pokemon>
+    <br>
+    <sprite-item [item]="playerItems[i]"></sprite-item>
+    <br>
+    <button mat-button (click)="deleteBattler('player', i)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button mat-button (click)="openBuilder('player')">
+      <mat-icon>
+        add_circle
+      </mat-icon>
+      Add New
+    </button>
+  </div>
+
+  <hr>
+
+  Opponents:
+  <div *ngFor="let p of opponents; index as i" class="battler">
+    <sprite-pokemon [badge]="p"></sprite-pokemon>
+    <br>
+    <sprite-item [item]="opponentItems[i]"></sprite-item>
+    <br>
+    <button mat-button (click)="deleteBattler('opponent', i)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div>
+    <button mat-button (click)="openBuilder('opponent')">
+      <mat-icon>
+        add_circle
+      </mat-icon>
+      Add New
+    </button>
+  </div>
+
+  <hr>
+  Field Initial Conditions:
+  <input type="text" placeholder="Weather" disabled />
+  <input type="text" placeholder="Optional Terrain" disabled />
+  <br><br>
+  <button mat-button (click)="enterBattle()">
+    <mat-icon>
+      sports_mma
+    </mat-icon>
+    Enter Battle
+  </button>
+</mat-card>
+
+<mat-card *ngIf="state >= 2">
+  <h2>Running a battle</h2>
+  <p>
+    You can execute each side of the battle as you see fit.
+  </p>
+  <strong>Turn {{turnNo}}</strong>
+  <battle-players #battleui></battle-players>
+  <br>
+
+  <div *ngIf="state === 2">
+    <div *ngIf="actionNo < (playerPokemon.length + opponentPokemon.length)">
+      <strong>Pick actions for each Pokémon (Action {{actionNo}} / {{playerPokemon.length + opponentPokemon.length}})</strong>
+      <br>
+      <strong>{{getActionTitle(actionNo)}}</strong>
+      <br>
+      <button mat-button *ngFor="let m of getActions(actionNo)" (click)="selectAction(actionNo, m)" [class.preferred]="preferredAction(actionNo, m)">
+        {{m}}
+      </button>
+      <br>
+      <input type="text" [(ngModel)]="customMove" />
+      <button mat-button (click)="selectAction(actionNo, customMove)">Use Custom Move</button>
+      <br>
+      <strong>{{getActionSubject(actionNo).species}}</strong>:
+      <span>
+        {{getActionSubject(actionNo).currentHp}}
+        /
+        {{getActionSubject(actionNo).totalHp}}
+      </span>
+      <span>
+        {{getActionSubject(actionNo).status?.name}}
+      </span>
+      <span *ngFor="let c of getActionSubject(actionNo).conditions">
+        {{c.name}}
+      </span>
+    </div>
+    <br>
+    <button mat-button (click)="executeTurn()" [disabled]="actionNo < (playerPokemon.length + opponentPokemon.length)">
+      Execute Turn
+    </button>
+  </div>
+
+  <div *ngIf="state === 3">
+    <p>The match has ended.</p>
+
+    <button mat-button (click)="reset()">
+      Start a new battle
+    </button>
+  </div>
+
+  <strong>Battle Log</strong>
+  <match-log [log]="log?.msg?.join('\n')">
+  </match-log>
+</mat-card>
+
+<dialog #pokemonbuilder>
+  <sprite-pokemon [badge]="builderSprite"></sprite-pokemon>
+  <br>
+  <pokemon-datalist filter="simple" [(ngModel)]="builder.id" name="_" ngDefaultControl></pokemon-datalist>
+  <input placeholder="Optional form" type="search" list="formlist"
+    name="_" ngDefaultControl
+    [(ngModel)]="builder.form" />
+  <input placeholder="Optional variant" type="search" list="varlist"
+    name="_" ngDefaultControl
+    [(ngModel)]="builder.variant" />
+  <input placeholder="Optional gender" type="search" list="genderlist"
+    name="_" ngDefaultControl
+    [(ngModel)]="builder.gender" />
+  <input placeholder="Nature" type="search" list="naturelist"
+    name="_" ngDefaultControl
+    [(ngModel)]="builder.nature" />
+  <mat-slide-toggle class="shiny" [(ngModel)]="builder.shiny" name="_" ngDefaultControl>
+    Shiny
+  </mat-slide-toggle>
+  <br><br>
+  Include an item:
+  <items-datalist [(ngModel)]="builder.item" name="_" ngDefaultControl></items-datalist>
+  <br><br>
+
+  <input placeholder="Starting conditions, comma-separated"
+    name="_" ngDefaultControl
+    [(ngModel)]="builder.conditions" />
+
+  <datalist id="formlist">
+    <option *ngFor="let item of availablePokemonFormList" value="{{item}}">
+      {{item}}
+    </option>
+  </datalist>
+
+  <datalist id="varlist">
+    <option value="">Any</option>
+    <option value="0">var0</option>
+    <option value="1">var1</option>
+    <option value="2">var2</option>
+    <option value="3">var3</option>
+    <option value="4">var4</option>
+  </datalist>
+
+  <datalist id="genderlist">
+    <option value="">Any</option>
+    <option value="female">Female</option>
+    <option value="male">Male</option>
+  </datalist>
+
+  <datalist id="naturelist">
+    <option value="Hardy">  Hardy</option>
+    <option value="Adamant">Adamant</option>
+    <option value="Bold">   Bold</option>
+    <option value="Timid">  Timid</option>
+    <option value="Modest"> Modest</option>
+    <option value="Calm">   Calm</option>
+    <option value="Naughty">Naughty</option>
+    <option value="Jolly">  Jolly</option>
+  </datalist>
+
+  <br><br><br>
+  <button mat-button secondary (click)="closeDialog()">
+    Cancel
+  </button>
+
+  <button mat-button (click)="saveBuilder()">
+    Save
+  </button>
+</dialog>

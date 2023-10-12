@@ -1,0 +1,27 @@
+sprite-item {
+  cursor: pointer;
+}
+
+move-span {
+  cursor: text;
+}
+
+li {
+  display: block;
+}
+
+sprite-item {
+  vertical-align: middle;
+}
+
+strong.label {
+  padding-left: 8px;
+}
+
+td.item {
+  width: 32px;
+}
+
+td.count {
+  width: 80px;
+}
