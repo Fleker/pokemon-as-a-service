@@ -34,6 +34,7 @@ export namespace Users {
     'items.pokeball': FieldValue,
     'items.greatball': FieldValue,
     'items.ultraball': FieldValue,
+    'items.raidpass': FieldValue,
     /**
      * Array of active hidden items the user has fonud.
      */
