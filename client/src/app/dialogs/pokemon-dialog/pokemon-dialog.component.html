@@ -1,0 +1,30 @@
+<button mat-button *ngIf="show === 'true'" (click)="open()">
+  <mat-icon>launch</mat-icon>Select Pokémon
+</button>
+
+<dialog #dialog>
+  <h3>My Boxes</h3>
+  <table>
+    <tr>
+      <td id="grid">
+        <pokemon-picker #picker [pageSize]="35" [multiple]="true"
+            (peek)="peek($event)" (toggledup)="toggleDup($event)"
+            [xlong]="true"></pokemon-picker>
+      </td>
+      <td id="details">
+        <info-card #info [hover]="hoverSelect" [flagPickerPro]="flagPickerPro" [duplicate]="duplicate"></info-card>
+      </td>
+    </tr>
+  </table>
+  <mat-chip *ngFor="let s of _selection; index as i" (removed)="clearSelection(i)">
+    {{selectedLabel[i]}}
+    <button matChipRemove>
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <br><br>
+  <small *ngIf="max != 1000">&nbsp;Only {{max}} Pokémon can be chosen.</small>
+  <br>
+  <button mat-button raised (click)="close()" *ngIf="!_selection.length">Cancel</button>
+  <button mat-button raised (click)="close()" *ngIf="_selection.length">Confirm</button>
+</dialog>

@@ -1,0 +1,28 @@
+/* eslint-disable no-undef */
+const { getAllPreEvolutions, getAllEvolutions } = require('../../functions/lib/shared/src/pokemon');
+const { datastore } = require('../../functions/lib/shared/src/pokemon');
+
+function obtainFamily(seed, prev, checked) {
+  const set = new Set()
+  set.add(seed)
+  prev.forEach(p => set.add(p))
+  getAllPreEvolutions(seed).forEach(p => set.add(p))
+  getAllEvolutions(seed).forEach(p => set.add(p))
+  set.forEach(s => {
+    if (checked.has(s)) return
+    const depth = obtainFamily(s, [...set], set)
+    depth.forEach(d => set.add(d))
+  })
+  return set
+}
+
+const familyMap = {}
+
+for (const p of Object.keys(datastore)) {
+  const family = [...obtainFamily(p, [], new Set())]
+          .map(x => x.replace(/[?]/, 'Question').replace(/[!]/, 'Exclamation')) // Unown fixs
+  familyMap[p] = family
+}
+
+console.log(`export default `)
+console.log(familyMap)

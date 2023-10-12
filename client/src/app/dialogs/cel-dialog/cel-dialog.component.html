@@ -1,0 +1,124 @@
+<dialog #dialog>
+  <h1>Common Expression Language</h1>
+  <p>
+    The CEL provides a standard way to create expressions that can
+    be evaluated in a safe way. This is used here for creating rich filter
+    systems.
+  </p>
+  <p>
+    When CEL is enabled in the Trainer Card, you will see a <strong>Run</strong>
+    button to manually execute your expression. These expressions are saved to
+    browser local storage, keyed to the current URL path.
+  </p>
+  <b>Quick Reference</b>
+    <table>
+      <thead>
+        <tr>
+          <td>Field Name</td>
+          <td>Field Type</td>
+          <td>Example</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>species</td>
+          <td>string</td>
+          <td>species == "Bulbasaur"</td>
+        </tr>
+        <tr>
+          <td>id</td>
+          <td>int64</td>
+          <td>id &lt;= 151</td>
+        </tr>
+        <tr>
+          <td>shiny</td>
+          <td>boolean</td>
+          <td>shiny</td>
+        </tr>
+        <tr>
+          <td>form</td>
+          <td>string</td>
+          <td>form == "a"</td>
+        </tr>
+        <tr>
+          <td>gender</td>
+          <td>string</td>
+          <td>gender == "female"</td>
+        </tr>
+        <tr>
+          <td>count</td>
+          <td>int64</td>
+          <td>count > 2</td>
+        </tr>
+        <tr>
+          <td>weight (kg)</td>
+          <td>int64</td>
+          <td>weight &lt;= 151</td>
+        </tr>
+        <tr>
+          <td>types</td>
+          <td>string[]</td>
+          <td>"Grass" in types</td>
+        </tr>
+        <tr>
+          <td>moves</td>
+          <td>string[]</td>
+          <td>"Razor Leaf" in moves</td>
+        </tr>
+        <tr>
+          <td>tms</td>
+          <td>string[]</td>
+          <td>"Thunderbolt" in tms</td>
+        </tr>
+        <tr>
+          <td>egg</td>
+          <td>string[]</td>
+          <td>"Monster" in egg</td>
+        </tr>
+        <tr>
+          <td>family</td>
+          <td>string[]</td>
+          <td>"potw-133" in family</td>
+        </tr>
+        <tr>
+          <td>ball</td>
+          <td>string</td>
+          <td>ball == "cherishball"</td>
+        </tr>
+        <tr>
+          <td>location</td>
+          <td>string</td>
+          <td>location == "US-BLD"</td>
+        </tr>
+        <tr>
+          <td>tags</td>
+          <td>string[]</td>
+          <td>
+            "FAVORITE" in tags
+            <br>
+            "Custom" in tags
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <b>Additional expression grammars</b>
+    <ul>
+      <li>Equivalent - <code>`value` == `value`</code></li>
+      <li>Not Equivalent - <code>`value` != `value`</code></li>
+      <li>Boolean AND - <code>`boolean` && `boolean`</code></li>
+      <li>Boolean OR - <code>`boolean` || `boolean`</code></li>
+      <li>Comparison - <code>`value` &gt;= `value`</code></li>
+      <li>List includes - <code>`value` in `list`</code></li>
+    </ul>
+    <small>
+      See
+      <a href="https://github.com/google/cel-spec" target="_blank">
+        the open source spec
+      </a>.
+      <a href="https://github.com/Fleker/cel-js/blob/master/tests/comparisons.spec.ts" target="_blank">
+        Ported to JS for this project.
+      </a>
+    </small>
+    <br>
+  <button mat-button raised (click)="close()">Done</button>
+</dialog>

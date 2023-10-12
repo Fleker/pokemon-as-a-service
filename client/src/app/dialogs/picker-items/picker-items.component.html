@@ -1,0 +1,40 @@
+<dialog #dialog>
+  <h1>My Bag</h1>
+  <input type="search" placeholder="Filter"
+    [(ngModel)]="search" (input)="filter(search)" />
+  <br><br>
+  <button mat-button *ngFor="let c of categoryKeys" (click)="filter(c)"
+      class="filter" title="{{categoryAttributes[c].label}}">
+     <mat-icon>{{categoryAttributes[c].icon}}</mat-icon>
+  </button>
+  <br>
+  <sprite-item *ngFor="let item of filterBag; index as i" item="{{item}}"
+    (mouseover)="hover(item)" (click)="click(item, i)">
+  </sprite-item>
+  <br><br>
+  <div *ngIf="hoverTxt">
+    <sprite-item item="{{hoverTxt?.item}}"></sprite-item>
+    <strong>{{hoverTxt?.label}}</strong>
+    ×{{hoverTxt?.count}}
+    <br>
+    <small>{{hoverTxt?.description}}</small> 
+  </div>
+  <br><br>
+  <mat-chip *ngFor="let item of _selection; index as i" (removed)="reset(i)">
+    {{selectedLabel[i]}}
+    <button matChipRemove>
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </mat-chip>
+  <br><br>
+  <small *ngIf="multiuse">You can select the same item many times.</small>
+  <small *ngIf="!multiuse">You can only select the same item once.</small>
+  <small *ngIf="max != 1000">&nbsp;Only {{max}} item(s) can be chosen.</small>
+  <br>
+  <button mat-button (click)="close()" *ngIf="!_selection.length">
+    Cancel
+  </button>
+  <button mat-button (click)="close()" *ngIf="_selection.length">
+    Confirm
+  </button>
+</dialog>

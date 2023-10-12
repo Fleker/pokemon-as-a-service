@@ -1,0 +1,47 @@
+<input type="search" *ngIf="!useCel" placeholder="Filter" [(ngModel)]="filter" (input)="refilter()" />
+<input type="search" *ngIf="useCel" class="long" [class.xlong]="xlong" placeholder="Filter" [(ngModel)]="filter" />
+<div *ngIf="useCel && celPct && xlong">
+  <mat-progress-bar mode="determinate" [value]="celPct" class="xlong"></mat-progress-bar>
+</div>
+<button *ngIf="useCel && !exec.runCel" (click)="runCel()">
+  Run
+</button>
+<button *ngIf="useCel && exec.runCel" (click)="cancelCel()">
+  <mat-spinner diameter="13"></mat-spinner>
+</button>
+<button *ngIf="useCel && celError" (click)="clearCelError()" [title]="celError">
+  ERR
+</button>
+<button id="cel-help" *ngIf="useCel" (click)="celDemo()">
+  Help
+</button>
+{{countLabel}}
+<div *ngIf="useCel && celPct && !xlong">
+  <mat-progress-bar mode="determinate" [value]="celPct" class="long"></mat-progress-bar>
+</div>
+<mat-slide-toggle [(ngModel)]="duplicate" (click)="resetDuplicate()">Duplicates</mat-slide-toggle>
+<br><br>
+<table>
+  <tr>
+    <td id="grid">
+      <div id="grid-inner">
+        <span *ngFor="let entry of filterPageBadges">
+          <sprite-pokemon *ngFor="let i of array(entry[1]); index as n"
+            (click)="handle(entry[0], n)"
+            badge="{{entry[0]}}" class="{{spriteClass(entry[0], n)}}"
+            (mouseover)="hover(entry[0])">
+          </sprite-pokemon>
+        </span>
+      </div>
+      <mat-paginator #paginator [length]="count"
+        [pageSize]="pageSize"
+        [showFirstLastButtons]="true"
+        (page)="slice($event)"
+        hidePageSize="true"
+        aria-label="Select page">
+      </mat-paginator>
+    </td>
+  </tr>
+</table>
+
+<cel-dialog #cel></cel-dialog>

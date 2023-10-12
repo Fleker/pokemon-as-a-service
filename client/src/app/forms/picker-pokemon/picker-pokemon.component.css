@@ -1,0 +1,26 @@
+.selected {
+  outline: solid 1px #555;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+.long {
+  width: calc(100% - 150px);
+}
+
+.xlong {
+  width: calc(100%);
+}
+
+small#moveset {
+  white-space: pre-line;
+}
+
+input {
+  background: var(--input-bg);
+  color: var(--app-text-color);
+}
+
+#grid-inner {
+  /* Useful but problem on main page */
+  /* height: 240px; */
+}

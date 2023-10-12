@@ -1,0 +1,91 @@
+:host {
+  display: inline-block;
+  padding: 10px;
+}
+
+:host(.cel) #filter {
+  min-width: 320px;
+  margin-bottom: 12px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 6px;
+}
+
+iron-list div {
+  display: block;
+}
+
+.selected {
+  outline: solid 1px #555;
+  background-color: rgba(0, 0, 0, 0.5)
+}
+
+pokemon-picker {
+  display: block;
+}
+
+pokemon-picker, info-card {
+  height: 400px;
+}
+
+tr {
+  vertical-align: top;
+}
+
+td#grid {
+  width: 300px;
+}
+
+div#grid-inner {
+  height: 280px;
+}
+
+td#details {
+  width: 140px;
+  word-break: break-word;
+}
+
+img.icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+#hexagon {
+  margin-left: 38px;
+  width: 60px;
+}
+
+small#moveset {
+  white-space: pre-line;
+}
+
+input {
+  background: var(--input-bg);
+  color: var(--app-text-color);
+}
+
+dialog {
+  min-height: 513px;
+  padding-right: 0px;
+}
+
+.hovername {
+  height: 2.1em;
+}
+
+#moveset {
+  display: block;
+  height: 5em;
+  padding-left: 2px;
+}
+
+mat-icon {
+  overflow: visible;
+}
+
+@media (min-width: 800px) {
+  td#details {
+    width: 200px;
+  }
+}

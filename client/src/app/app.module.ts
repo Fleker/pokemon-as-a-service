@@ -30,9 +30,14 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { environment } from '../environments/environment';
 
+import { CelDialogComponent } from './dialogs/cel-dialog/cel-dialog.component'
 import { MovedexComponent } from './dialogs/movedex/movedex.component';
+import { DialogItemsComponent } from './dialogs/picker-items/picker-items.component';
 import { PokedexDialog } from './dialogs/pokedex/pokedex.component';
+import { PokemonDialogComponent } from './dialogs/pokemon-dialog/pokemon-dialog.component';
 import { TagComponent } from './dialogs/tag/tag.component';
+
+import { PickerPokemonComponent } from './forms/picker-pokemon/picker-pokemon.component';
 
 import { CollapsibleCardComponent } from './layout/collapsible-card/collapsible-card.component';
 
@@ -114,6 +119,10 @@ import { VoyagesMeterComponent } from './ui/voyages-meter/voyages-meter.componen
     CollapsibleCardComponent,
     MovedexComponent,
     TagComponent,
+    CelDialogComponent,
+    PokemonDialogComponent,
+    DialogItemsComponent,
+    PickerPokemonComponent,
   ],
   imports: [
     BrowserModule,
