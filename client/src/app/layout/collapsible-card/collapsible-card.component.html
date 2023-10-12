@@ -1,0 +1,22 @@
+<mat-card>
+  <button id="cardToggle" #cardToggle *ngIf="collapsed"
+      aria-controls="content"
+      aria-label="Show card"
+      aria-expanded="false"
+      (click)="toggle()">
+  </button>
+  <button id="cardToggle" #cardToggle *ngIf="!collapsed"
+      aria-controls="content"
+      aria-label="Hide card"
+      aria-expanded="true"
+      (click)="toggle()">
+  </button>
+
+
+  <h1 id="title" #title (click)="toggle()">
+    <ng-content select="[title]"></ng-content>
+  </h1>
+  <div id="body">
+    <ng-content></ng-content>
+  </div>
+</mat-card>

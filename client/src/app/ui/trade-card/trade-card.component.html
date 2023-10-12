@@ -1,0 +1,39 @@
+<mat-card class="trade-card">
+  <sprite-pokemon badge="{{listing.speciesId}}"></sprite-pokemon>
+  <br>
+  <span>
+    Offering <strong>{{listing.species}}</strong>
+    <span *ngIf="flagPickerPro">
+      ({{listing.speciesId}})
+    </span>
+    <span *ngIf="listing.heldItem">
+      holding a
+      <strong class="lookingforitem" (click)="sendDisplayBagCount(listing.heldItem)">
+        {{listing.heldItemLabel}}
+      </strong>
+    </span>
+    <span class="noteworthy" *ngIf="listing.noteworthy">
+      <button mat-icon-button (click)="sendAlert(listing.noteworthy)">
+        <mat-icon>cable</mat-icon>
+      </button>
+    </span>
+  </span>
+  <br>
+  <span>
+    Seeking <strong>{{listing.lookingFor}}</strong>
+    <span *ngIf="listing.lookingForItem">
+      holding a
+      <strong class="lookingforitem" (click)="sendDisplayBagCount(listing.lookingForItem)">
+        {{listing.lookingForItemLabel}}
+      </strong>
+      from you.
+    </span>
+  </span>
+  <br>
+  <button *ngIf="activeTrade" mat-button raised (click)="sendInquireListing(listing)">
+    Trade
+  </button>
+  <button *ngIf="cancellable" mat-button raised (click)="sendCancel(listing.id)" [disabled]="exec_cancel">
+    Cancel
+  </button>
+</mat-card>

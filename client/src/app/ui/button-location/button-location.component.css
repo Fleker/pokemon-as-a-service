@@ -1,0 +1,406 @@
+button {
+  color: var(--toolbar-text-color);
+}
+
+div[secondary] {
+  font-size: x-small;
+}
+
+dialog {
+  font-size: 11pt;
+}
+
+dialog.pokearth {
+  height: calc(100vh - 156px);
+  width: calc(100vw - 156px);
+  max-width: initial;
+}
+
+dialog.pokearth table {
+  display: inline-block;
+}
+
+widget-pokearth, widget-binoculars {
+  /* float: right; */
+  /* padding-top: 8px; */
+}
+
+mat-tab-group {
+  display: inline-block;
+  width: calc(100% - 300px);
+  margin-top: -83px;
+  float: right;
+}
+
+@media (display-mode: window-controls-overlay) {
+  button {
+    height: 26px;
+  }
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+img.vivillon {
+  width: 26px;
+  height: 26px;
+}
+
+img.uncaught {
+  filter: grayscale(2);
+  opacity: 0.6;
+}
+
+i {
+  white-space: normal;
+}
+
+/* PROJECT BINOCULAR */
+dialog {
+  max-width: 40em;
+}
+
+.binoculars.tabs, .binoculars.grid {
+  white-space: normal;
+}
+
+.binoculars.sky mat-icon {
+  position: absolute;
+  left: 24px;
+  top: 96px;
+}
+
+.binoculars.Bay {
+  --binoculars-sky: var(--type-ice);
+  --binoculars-land: var(--type-grass);
+}
+
+.binoculars.Beach {
+  --binoculars-sky: var(--type-ice);
+  --binoculars-land: var(--type-electric);
+}
+
+.binoculars.Mountain {
+  --binoculars-sky: var(--type-steel);
+  --binoculars-land: var(--type-rock);
+}
+
+.binoculars.Tropical {
+  --binoculars-sky: var(--type-dragon);
+  --binoculars-land: var(--type-grass);
+}
+
+.binoculars.Rural {
+  --binoculars-sky: var(--type-dragon);
+  --binoculars-land: var(--type-fighting);
+}
+
+.binoculars.Desert {
+  --binoculars-sky: var(--type-electric);
+  --binoculars-land: var(--type-ground);
+}
+
+.binoculars.Grasslands {
+  --binoculars-sky: var(--type-dragon);
+  --binoculars-land: var(--type-grass);
+}
+
+.binoculars.Gardens {
+  --binoculars-sky: var(--type-ice);
+  --binoculars-land: var(--type-fairy);
+}
+
+.binoculars.Forest {
+  --binoculars-sky: var(--type-grass);
+  --binoculars-land: var(--type-bug);
+}
+
+.binoculars.Urban {
+  --binoculars-sky: var(--type-steel);
+  --binoculars-land: var(--type-fighting);
+}
+
+.binoculars.Rainforest {
+  --binoculars-sky: var(--type-rock);
+  --binoculars-land: var(--type-grass);
+}
+
+.binoculars.Oceanic {
+  --binoculars-sky: var(--type-ice);
+  --binoculars-land: var(--type-water);
+}
+
+.binoculars.sky {
+  background-color: var(--binoculars-sky);
+  height: 80px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: 40em;
+}
+
+.binoculars.horizon {
+  border-radius: 100% 100% 0% 0%;
+  height: 20px;
+  background-color: var(--binoculars-land);
+  margin-top: -20px;
+  width: 40em;
+}
+
+.binoculars.land {
+  background-color: var(--binoculars-land);
+  min-height: 240px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: calc(40em - 16px);
+}
+
+/** Give some random-ish distance b/w sprites */
+.binoculars.land sprite-pokemon {
+  margin-right: 16px;
+  margin-bottom: 4px;
+}
+
+.binoculars.land sprite-pokemon.hop2,
+.binoculars.land sprite-pokemon.wiggle2 {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.binoculars.land sprite-pokemon.hop3,
+.binoculars.land sprite-pokemon.wiggle3 {
+  margin-right: 12px;
+  margin-bottom: 0px;
+}
+
+@media (prefers-reduced-motion) {
+  sprite-item.animate {
+    animation: none;
+  }
+}
+
+sprite-pokemon.animate {
+  animation: jump 0.4s 2 linear;
+}
+
+sprite-pokemon.animate.hop1 {
+  animation: jumpPause 2s infinite linear;
+}
+
+sprite-pokemon.animate.hop2 {
+  animation: jumpPause 2s infinite linear;
+  animation-delay: 1.2s;
+}
+
+sprite-pokemon.animate.hop3 {
+  animation: jumpPause 2s infinite linear;
+  animation-delay: 0.8s;
+}
+
+sprite-pokemon.animate.wiggle1 {
+  animation: rotationPause 1.5s infinite linear;
+}
+
+sprite-pokemon.animate.wiggle2 {
+  animation: rotationPause 1.5s infinite linear;
+  animation-delay: 0.3s;
+}
+
+sprite-pokemon.animate.wiggle3 {
+  animation: rotationPause 1.5s infinite linear;
+  animation-delay: 1s;
+}
+
+sprite-pokemon.animate.none {
+  animation: none;
+}
+
+@keyframes rotationPause {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-15deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes jumpPause {
+  0% {
+    transform: translateY(0px);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+img.icon.smol {
+  height: 10px;
+  width: 10px;
+}
+
+/** CSS for location-banner */
+#locationtitle {
+  background: none;
+  box-shadow: none;
+  border: none;
+}
+
+#locationtitle h1 {
+  border-bottom: solid 5px var(--type-normal);
+  text-align: center;
+  padding-bottom: 16px;
+  min-width: 360px;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+#locationtitle > h1 > span {
+  opacity: 0;
+  display: inline-block;
+  margin-right: 24px;
+}
+
+/** Every region gets its own ROYGBIV color **/
+#locationtitle > h1.NorthAmerica {
+  border-bottom-color: var(--type-fire);
+}
+
+#locationtitle > h1.SouthAmerica {
+  border-bottom-color: var(--type-electric);
+}
+
+#locationtitle > h1.NorthEurope {
+  border-bottom-color: var(--type-bug);
+}
+
+#locationtitle > h1.Mediterranean {
+  border-bottom-color: var(--type-grass);
+}
+
+#locationtitle > h1.AfricaMiddleEast {
+  border-bottom-color: var(--type-ice);
+}
+
+#locationtitle > h1.Asia {
+  border-bottom-color: var(--type-water);
+}
+
+#locationtitle > h1.PacificIslands {
+  border-bottom-color: var(--type-psychic);
+}
+
+#locationtitle > h1.AustraliaNewZealand {
+  border-bottom-color: var(--type-ghost);
+}
+
+#locationtitle > h2 {
+  text-align: center;
+  margin-top: -40px;
+}
+
+#locationtitle.animate > h1 > span {
+  animation: location-fade-in 500ms 1 linear;
+  animation-delay: 200ms;
+  animation-fill-mode: forwards;
+}
+
+#locationtitle.animate > h2 {
+  opacity: 0;
+  animation: location-fade-in-bottom 500ms 1 linear;
+  animation-fill-mode: forwards;
+  animation-delay: 700ms;
+}
+
+#locationtitle.animateout > h1 > span {
+  /* opacity: 1; */
+  animation-name: location-fade-out;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+}
+
+#locationtitle.animateout > h2 {
+  /* opacity: 1; */
+  animation-name: location-fade-out-bottom;
+  animation-duration: 600ms;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion) {
+  #locationtitle > h1, #locationtitle > h2 {
+    animation: none;
+  }
+}
+
+@keyframes location-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes location-fade-in-bottom {
+  0% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes location-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@keyframes location-fade-out-bottom {
+  0% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+}

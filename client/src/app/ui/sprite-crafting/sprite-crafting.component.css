@@ -1,0 +1,57 @@
+.lhs, .rhs {
+  display: inline-block;
+}
+
+.rhs {
+  margin-left: 200px;
+}
+
+.lhs sprite-item, .rhs sprite-item {
+  display: block;
+  transform: scale(1) translateX(0) rotate(0deg);
+}
+
+.lhs sprite-item {
+  animation: 1.5s linear 500ms 1 normal forwards running potleft;
+}
+
+.rhs sprite-item {
+  animation: 1.5s linear 500ms 1 normal forwards running potright;
+}
+
+.output {
+  width: 250px;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion) {
+  sprite-item {
+    animation: none;
+  }
+}
+
+@keyframes potleft {
+  0% {
+    transform: scale(1) translateX(0px) rotate(0deg);
+  }
+  /* 'toss' upwards */
+  50% {
+    transform: scale(1.15) rotate(10deg) translateX(50px);
+  }
+  100% {
+    transform: scale(1) translateX(120px) rotate(0deg);
+  }
+}
+
+@keyframes potright {
+  0% {
+    transform: scale(1) translateX(0px) rotate(0deg);
+  }
+  /* 'toss' upwards */
+  50% {
+    transform: scale(1.15) rotate(-10deg) translateX(-50px);
+  }
+  100% {
+    transform: scale(1) translateX(-120px) rotate(0deg);
+  }
+}

@@ -1,0 +1,21 @@
+<button mat-button class="complete" *ngIf="isComplete" (click)="claim()" [disabled]="exec.claim">
+  <img src="{{research.icon}}" alt="Arbitrary research icon" />
+  <br>
+  <img src="/images/sprites/{{research.origin}}.png" class="origin" alt="Research origin mark" />
+  <small>{{research.title}}</small>
+</button>
+
+<div *ngIf="!isComplete">
+  <button mat-button disabled>
+    <mat-progress-spinner *ngIf="researchCount > 0" diameter="15" value="{{100 * researchCount / research.steps}}">
+    </mat-progress-spinner>
+    {{researchCount}} / {{research.steps}}
+    <br>
+    <img src="/images/sprites/{{research.origin}}.png" class="origin" alt="Research origin mark" />
+    <small>{{research.title}}</small>
+  </button>
+  <br>
+  <button mat-button class="trash" (click)="remove()" [disabled]="exec.remove">
+    🗑️
+  </button>
+</div>

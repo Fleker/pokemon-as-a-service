@@ -1,0 +1,86 @@
+<button mat-icon-button aria-label="Timer" (click)="show()"
+    matBadge="{{counter}}" [matBadgeHidden]="counter === 0"
+    matBadgeOverlap="true" matBadgePosition="below after"
+    matTooltip="{{tooltip}}" matTooltipHideDelay="100">
+  <mat-icon>timer</mat-icon>
+</button>
+
+<dialog #dialog>
+  <h1 class="centered">Time Until</h1>
+  <table>
+    <tbody>
+      <tr>
+        <td>
+          <img src="/images/sprites/icons/menu-battle.svg" />
+        </td>
+        <td>
+          Battle
+        </td>
+        <td>
+          {{timeUntil.battle}} minutes
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/sprites/icons/menu-daycare.svg" />
+        </td>
+        <td>
+          Daycare
+        </td>
+        <td>
+          {{timeUntil.daycare}} minutes
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/sprites/icons/menu-research.svg" />
+        </td>
+        <td>
+          Claim Research
+        </td>
+        <td>
+          {{timeUntil.research}} minutes
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/sprites/icons/menu-release.svg" />
+        </td>
+        <td>
+          Release
+        </td>
+        <td>
+          {{timeUntil.release}} minutes
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/sprites/icons/menu-raids.svg" />
+        </td>
+        <td>
+          Create Raid
+        </td>
+        <td>
+          {{timeUntil.raid}} minutes
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src="/images/sprites/icons/menu-games.svg" />
+        </td>
+        <td>
+          Draw Lottery Ticket
+        </td>
+        <td>
+          {{timeUntil.gamecorner}} minutes
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <mat-slide-toggle [(ngModel)]="notify" (click)="updateNotify()">
+    Notify this browser (Keep tab open)
+  </mat-slide-toggle>
+  <br><br><br>
+  <button mat-button (click)="close()">Close</button>
+</dialog>

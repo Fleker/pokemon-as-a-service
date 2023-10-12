@@ -1,0 +1,48 @@
+<typed-dialog-header [type]="metadata?.type">
+  {{metadata?.name}}
+</typed-dialog-header>
+<div mat-dialog-content>
+  <type-box [type]="metadata?.type"></type-box>
+  <mat-icon title="{{attackKey}}">{{moveIcon}}</mat-icon>&emsp;{{attackKey}}<br>
+  <table>
+    <tr>
+      <td>Power</td>
+      <td>{{power}}</td>
+    </tr>
+    <tr>
+      <td>Accuracy</td>
+      <td>{{accuracy}}</td>
+    </tr>
+  </table>
+  <br>
+  {{metadata?.flavor}}
+
+  <div *ngIf="showZMove">
+    <strong>Z-Move Details</strong>
+    <br>
+    <span class="type {{metadata?.type}}">{{zmoveName}}</span>
+    - Power {{zpower}}
+    <br>
+    <small>
+      {{zmoveFlavor}}
+    </small>
+  </div>
+
+  <div *ngIf="showDynamax">
+    <strong>Dynamax Details</strong>
+    <br>
+    <span class="type {{metadata?.type}}">{{dynamaxName}}</span>
+    - Power {{dynamaxPower}}
+    <br>
+    <small>
+      {{dynamaxFlavor}}
+    </small>
+  </div>
+
+  <div *ngIf="users" class="users">
+    <sprite-pokemon *ngFor="let u of users" [badge]="u.badge" [uncaught]="u.uncaught" [class.uncaught]="u.uncaught"></sprite-pokemon>
+  </div>
+</div>
+<ul mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="close()">Close</button>
+</ul>

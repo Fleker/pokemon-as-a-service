@@ -1,0 +1,74 @@
+div {
+  text-align: center;
+}
+
+sprite-item.offer {
+  animation: pop 1s 1 linear;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+sprite-pokemon.offer {
+  filter: brightness(0);
+  animation: flash 1s 1 linear;
+  animation-fill-mode: forwards;
+}
+
+sprite-item.receive {
+  animation: pop 1s 1 linear;
+  animation-fill-mode: backwards;
+  animation-direction: reverse;
+  opacity: 0;
+}
+
+sprite-pokemon.receive {
+  opacity: 1;
+  animation: flash 1s 1 linear;
+  animation-delay: 1s;
+  animation-fill-mode: backwards;
+  animation-direction: reverse;
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    width: 24px;
+    margin-top: 0px;
+  }
+
+  20% {
+    opacity: 1;
+    display: block;
+    transform: translateY(0px);
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  0% {
+    filter: brightness(1);
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    filter: brightness(1);
+    opacity: 1
+  }
+
+  100% {
+    filter: brightness(100);
+    opacity: 0;
+  }
+}

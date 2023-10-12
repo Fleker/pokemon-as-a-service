@@ -1,0 +1,31 @@
+<button mat-button (click)="open()">
+  <sprite-item item="pokeball"></sprite-item>
+  Make a Donation...
+</button>
+
+<dialog #dialog>
+  <h1 class="centered">Global Quest Donations</h1>
+  <button mat-button *ngIf="!donationList" (click)="getCurrentDonations()">
+    Show current donations
+  </button>
+
+  <ul *ngIf="donationList">
+    <li *ngFor="let donate of donationList">{{donate}}</li>
+  </ul>
+
+  <br><br><br>
+  <sprite-item item="pokeball"></sprite-item>
+  <input [(ngModel)]="donations" type="number" min="1" max="999999" />
+
+  <br><br>
+
+  <button mat-button (click)="donate()">
+    Make Open Donation
+  </button>
+  <button mat-button (click)="donateAnon()">
+    Make Anonymous Donation
+  </button>
+  <button mat-button secondary (click)="close()">Close</button>
+</dialog>
+
+<span id="donate-current"></span>

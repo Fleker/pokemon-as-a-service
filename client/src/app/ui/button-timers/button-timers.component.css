@@ -1,0 +1,21 @@
+button {
+  color: var(--toolbar-text-color);
+}
+
+div[secondary] {
+  font-size: x-small;
+}
+
+dialog {
+  font-size: 11pt;
+}
+
+img {
+  width: 18px;
+}
+
+@media (display-mode: window-controls-overlay) {
+  button {
+    height: 26px;
+  }
+}

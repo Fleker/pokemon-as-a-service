@@ -1,0 +1,185 @@
+import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+
+const STAR_SMALL = 3
+const STAR_LARGE = 6
+
+@Component({
+  selector: 'app-constellation',
+  templateUrl: './constellation.component.html',
+  styleUrls: ['./constellation.component.css']
+})
+export class ConstellationComponent implements AfterViewInit, OnDestroy {
+  @ViewChild('canvas') canvas: ElementRef<HTMLCanvasElement>
+  flicker?: any
+
+  ngAfterViewInit() {
+    let frame = 0
+    this.flicker = setInterval(() => {
+      this.drawConstellationPumpkaboo(++frame)
+    }, 150)
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.flicker)
+  }
+
+  getRadius(offset: number, frame: number) {
+    const modulus = (STAR_LARGE - STAR_SMALL)
+    const mod2 = modulus * 2
+    const starFrame = (offset + frame) % mod2
+    if (starFrame > modulus) {
+      return STAR_LARGE - ((offset + frame) % modulus)
+    } else {
+      return STAR_SMALL + starFrame
+    }
+  }
+
+  star(ctx: CanvasRenderingContext2D, x: number, y: number, offset: number, frame: number) {
+    const rad = this.getRadius(offset, frame)
+    ctx.beginPath()
+    ctx.ellipse(x, y, rad, rad, 0, 0, 360)
+    ctx.closePath()
+    ctx.fill()
+  }
+
+  drawConstellationPumpkaboo(frame: number) {
+    if (!this.canvas) return
+    const ctx = this.canvas!.nativeElement.getContext('2d')
+    if (ctx === null) return    
+
+    ctx.clearRect(0, 0, 480, 480)
+    ctx.strokeStyle = '#ffffff'
+    ctx.fillStyle = '#ffffff'
+    ctx.beginPath()
+    ctx.moveTo(190, 51)
+    ctx.lineTo(217, 72)
+    ctx.lineTo(239, 39)
+    ctx.lineTo(209, 13)
+    ctx.lineTo(153, 50)
+    ctx.lineTo(184, 130)
+    ctx.lineTo(142, 94)
+    ctx.moveTo(184, 130)
+    ctx.lineTo(258, 102)
+    ctx.moveTo(142, 94)
+    ctx.lineTo(114, 175)
+    ctx.lineTo(24, 170)
+    ctx.lineTo(68, 270)
+    ctx.lineTo(63, 324)
+    ctx.lineTo(136, 391)
+    ctx.lineTo(168, 376)
+    ctx.lineTo(213, 393)
+    ctx.lineTo(302, 344)
+    ctx.lineTo(317, 282)
+    ctx.lineTo(375, 172)
+    ctx.lineTo(261, 168)
+    ctx.lineTo(258, 102)
+    // Mouth
+    ctx.moveTo(141, 209)
+    ctx.lineTo(159, 195)
+    ctx.lineTo(182, 211)
+    ctx.stroke()
+    ctx.closePath()
+
+    this.star(ctx, 190, 51, 1, frame)
+    this.star(ctx, 217, 72, 3, frame)
+    this.star(ctx, 239, 39, 5, frame)
+    this.star(ctx, 209, 13, 7, frame)
+    this.star(ctx, 153, 50, 9, frame)
+    this.star(ctx, 184, 130, 2, frame)
+    this.star(ctx, 142, 94, 4, frame)
+    this.star(ctx, 258, 102, 6, frame)
+    this.star(ctx, 114, 175, 8, frame)
+    this.star(ctx, 24, 170, 1, frame)
+    this.star(ctx, 68, 270, 3, frame)
+    this.star(ctx, 63, 324, 5, frame)
+    this.star(ctx, 136, 391, 7, frame)
+    this.star(ctx, 168, 376, 9, frame)
+    this.star(ctx, 213, 393, 2, frame)
+    this.star(ctx, 302, 344, 4, frame)
+    this.star(ctx, 317, 282, 6, frame)
+    this.star(ctx, 375, 172, 8, frame)
+    this.star(ctx, 261, 168, 1, frame)
+    this.star(ctx, 258, 102, 3, frame)
+    // And eyes/body
+    this.star(ctx, 146, 174, 5, frame)
+    this.star(ctx, 201, 181, 7, frame)
+    this.star(ctx, 99, 309, 9, frame)
+    this.star(ctx, 225, 315, 2, frame)
+    // And mouth
+    this.star(ctx, 141, 209, 4, frame)
+    this.star(ctx, 159, 195, 6, frame)
+    this.star(ctx, 182, 211, 8, frame)
+  }
+
+  drawConstellationArceus(frame: number) {
+    if (!this.canvas) return
+    const ctx = this.canvas!.nativeElement.getContext('2d')
+    if (ctx === null) return
+
+    ctx.clearRect(0, 0, 480, 480)
+    ctx.strokeStyle = '#ffffff'
+    ctx.fillStyle = '#ffffff'
+    ctx.beginPath()
+
+    ctx.moveTo(298, 21)
+    ctx.lineTo(235, 45)
+    ctx.lineTo(174, 120)
+    ctx.lineTo(173, 79)
+    ctx.moveTo(174, 120)
+    ctx.lineTo(149, 76)
+    ctx.moveTo(174, 120)
+    ctx.lineTo(133, 130)
+    ctx.moveTo(174, 120)
+    ctx.lineTo(185, 148)
+    ctx.lineTo(156, 211)
+    ctx.lineTo(118, 263)
+    ctx.lineTo(71, 316)
+    ctx.lineTo(169, 400)
+    ctx.moveTo(118, 263)
+    ctx.lineTo(89, 381)
+    ctx.moveTo(118, 263)
+    ctx.lineTo(197, 260)
+    ctx.lineTo(223, 275)
+    ctx.lineTo(241, 212)
+    ctx.moveTo(223, 275)
+    ctx.lineTo(300, 227)
+    ctx.moveTo(223, 275)
+    ctx.lineTo(191, 344)
+    ctx.moveTo(223, 275)
+    ctx.lineTo(258, 368)
+    ctx.moveTo(223, 275)
+    ctx.lineTo(272, 289)
+    ctx.lineTo(222, 455)
+    ctx.moveTo(265, 469)
+    ctx.lineTo(336, 344)
+    ctx.lineTo(272, 289)
+    ctx.lineTo(405, 238)
+    ctx.stroke()
+    ctx.closePath()
+
+    this.star(ctx, 298, 21, 1, frame)
+    this.star(ctx, 235, 45, 3, frame)
+    this.star(ctx, 174, 120, 5, frame)
+    this.star(ctx, 173, 79, 7, frame)
+    this.star(ctx, 146, 76, 9, frame)
+    this.star(ctx, 133, 130, 2, frame)
+    this.star(ctx, 185, 148, 4, frame)
+    this.star(ctx, 156, 211, 6, frame)
+    this.star(ctx, 118, 263, 8, frame)
+    this.star(ctx, 71, 316, 1, frame)
+    this.star(ctx, 169, 400, 3, frame)
+    this.star(ctx, 89, 381, 5, frame)
+    this.star(ctx, 197, 260, 7, frame)
+    this.star(ctx, 223, 275, 9, frame)
+    this.star(ctx, 241, 212, 1, frame)
+    this.star(ctx, 300, 227, 3, frame)
+    this.star(ctx, 191, 344, 5, frame)
+    this.star(ctx, 258, 368, 7, frame)
+    this.star(ctx, 272, 289, 9, frame)
+    this.star(ctx, 222, 455, 2, frame)
+    this.star(ctx, 336, 344, 4, frame)
+    this.star(ctx, 272, 289, 6, frame)
+    this.star(ctx, 405, 238, 8, frame)
+    this.star(ctx, 265, 469, 1, frame)
+  }
+}

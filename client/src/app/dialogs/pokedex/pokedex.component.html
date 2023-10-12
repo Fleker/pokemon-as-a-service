@@ -1,0 +1,436 @@
+<typed-dialog-header *ngIf="pokemon" [type]="pokemon.type1">
+  {{pokemon.species}}
+</typed-dialog-header>
+<h2 *ngIf="badgeForm">
+  {{badgeForm}} form
+</h2>
+<div mat-dialog-content *ngIf="pokemon && uncaught !== true">
+  <type-box [type]="pokemon.type1"></type-box>
+  <type-box [type]="pokemon.type2"></type-box>
+
+  <small>
+    #{{natDexNo}}
+    <span *ngIf="true" title="Pokémon's distinct internal ID">
+      ({{badge.toString()}})
+    </span>
+    <span *ngIf="badge.personality.gender">
+      {{badge.personality.gender}}
+    </span>
+  </small>
+  <br>
+
+  <img class="main-sprite" src="{{sprite}}" />
+
+  <mat-tab-group>
+    <mat-tab label="Summary">
+      <sprite-item class="caught" item="{{badge.personality.pokeball}}"></sprite-item>
+      {{caughtLocation}}
+      <div *ngIf="canTag">
+        <mat-chip *ngFor="let tag of tags" class="tag" (removed)="removeTag(tag)">
+          <mat-icon>label</mat-icon>
+          {{tag}}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip>
+        <mat-chip class="tag button" role="button" (click)="openTagModal()">
+          <mat-icon>new_label</mat-icon>
+          Add Tag
+        </mat-chip>
+      </div>
+      <br>
+      <!-- Maybe this should be a bit fancier -->
+      <div *ngIf="novelSize" class="novelSize">{{novelSize}}</div>
+
+      <!-- Should weight also be affected by size? That has battle implications. -->
+      <span class="weight" title="{{weight * 2.20462 | number:'1.1-1'}} lbs">
+        {{weight}} kg
+      </span>
+      <br>
+      <span class="dex-entry">
+        {{pokemon.pokedex}}
+      </span>
+      
+      <br><br>
+
+      <table>
+        <tr>
+          <td>
+            <strong>Moves</strong><br>
+            <move-span *ngFor="let item of movesNative" move="{{item}}">
+            </move-span>      
+          </td>
+          <td class="padding-left">
+            <stats-hexagon
+                  [hp]="pokemon.hp" [attack]="pokemon.attack"
+                  [defense]="pokemon.defense" [spattack]="pokemon.spAttack"
+                  [spdefense]="pokemon.spDefense" [speed]="pokemon.speed"
+                  [nature]="badge?.personality?.nature">
+            </stats-hexagon>
+          </td>
+          <td>
+            <table class='stats'>
+              <tr>
+                <td>HP</td><td>ATK</td><td>DEF</td>
+                <td>SpA</td><td>SpD</td><td>SPE</td>
+              </tr>
+              <tr>
+                <td>{{pokemon.hp}}</td><td>{{pokemon.attack}}</td>
+                <td>{{pokemon.defense}}</td><td>{{pokemon.spAttack}}</td>
+                <td>{{pokemon.spDefense}}</td><td>{{pokemon.speed}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+      <br><br>
+
+      <span *ngIf="badge?.personality" class="nature" title="{{natureDescription}}">
+        Has a <strong>{{badge?.personality?.nature}}</strong> Nature. <mat-icon>help</mat-icon>
+      </span>
+      <br><br>
+
+      <div *ngIf="unlocked.tiers">
+        <strong>Battle Stadium Cups</strong>
+        <br>
+        <div *ngFor="let item of pokemon.tiers">
+          <img *ngIf="battleTiers[item].icon" src="/images/sprites/icons/{{battleTiers[item].icon}}" class="icon" />
+          {{item}}
+        </div>
+      </div>
+
+      <br><br>
+
+      <!-- Hide in some circumstances -->
+      <!-- <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Pokémon Actions">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>dialpad</mat-icon>
+          <span>Redial</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>voicemail</mat-icon>
+          <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>notifications_off</mat-icon>
+          <span>Disable alerts</span>
+        </button>
+      </mat-menu> -->
+      <button mat-icon-button *ngIf="canTag" (click)="actionMenu.open = !actionMenu.open" aria-label="Pokémon Actions">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <div *ngIf="actionMenu.open">
+        <button mat-button *ngIf="actionMenu.open && canTag" (click)="openTagModal()" [disabled]="actionMenu.exec">
+          Tag
+        </button>
+        <button mat-button *ngIf="actionMenu.open && badge?.personality?.variant > 0" (click)="actionDelete()" [disabled]="actionMenu.exec">
+          Move Deleter
+        </button>
+        <button mat-button *ngIf="actionMenu.open && badge?.personality?.variant === undefined" (click)="actionTutor()" [disabled]="actionMenu.exec">
+          Move Tutor
+        </button>
+        <button mat-button *ngFor="let item of actionMenu.useItem" (click)="actionUseItem(item.item)" [disabled]="actionMenu.exec">
+          <sprite-item item="{{item.item}}"></sprite-item> Use {{item.label}}
+        </button>
+      </div>
+
+      <br><br>
+
+      <table class='nav'>
+        <td class='l'>
+          <sprite-pokemon class="small" *ngIf="pokemonOneMinus"
+            badge="{{pokemonOneMinus}}" (click)="openDex(pokemonOneMinus)">
+          </sprite-pokemon>
+          <br>
+          ←
+        </td>
+        <td class='l min' *ngIf="pokemonEvoPrev?.length">
+          <span>
+            <div *ngFor="let p of pokemonEvoPrev">
+              <sprite-pokemon class="small" badge="{{p}}" (click)="openDex(p)">
+              </sprite-pokemon>
+              <br>
+            </div>
+            ⮞
+          </span>
+        </td>
+        <td class='c min'>
+          <img class="small" src="{{sprite}}" />
+        </td>
+        <td class='r min' *ngIf="pokemonEvoNext?.length">
+          <span>
+            ⮞
+            <div *ngFor="let p of pokemonEvoNext">
+              <sprite-pokemon class="small" badge="{{p}}" (click)="openDex(p)">
+              </sprite-pokemon>
+              <br>
+            </div>
+          </span>
+        </td>
+        <td class='r'>
+          <sprite-pokemon class="small" *ngIf="pokemonOnePlus"
+            badge="{{pokemonOnePlus}}" (click)="openDex(pokemonOnePlus)">
+          </sprite-pokemon>
+          <br>
+          →
+        </td>
+      </table>
+
+      <!-- TODO Quick Links to #-1, #+1, Evolutions 
+      <sprite-pokemon badge="{{pokemonOneMinus}}" on-tap="switch"></sprite-pokemon>
+      &emsp;&emsp;
+      <template is="dom-repeat" items="{{pokemonEvoPrev}}">
+        <sprite-pokemon badge="{{item}}" on-tap="switch"></sprite-pokemon>
+      </template>
+      ->
+      <sprite-pokemon badge="{{pokemon.key}}"></sprite-pokemon>
+      ->
+      <template is="dom-repeat" items="{{pokemonEvoNext}}">
+        <sprite-pokemon badge="{{item}}" on-tap="switch"></sprite-pokemon>
+      </template>
+      &emsp;&emsp;
+      <sprite-pokemon badge="{{pokemonOnePlus}}" on-tap="switch"></sprite-pokemon>
+    -->
+    </mat-tab>
+
+    <mat-tab label="Moveset" *ngIf="unlocked.moves">
+      <h3>Variant Moves</h3>
+      <move-span *ngFor="let item of movesVariant" move="{{item}}"></move-span>
+
+      <h3>Can Learn</h3>
+      <move-span *ngFor="let item of movesTmTr" move="{{item}}"></move-span>
+    </mat-tab>
+
+    <mat-tab label="Areas" *ngIf="unlocked.areas">
+      <h3>Catch Criteria</h3>
+      <div *ngFor="let item of criteria">
+        <sprite-item item="{{item.item}}" class="method"></sprite-item> ({{item.rarity}})
+        <br>
+        <div *ngFor="let method of item.method">
+          - {{method}}<br>
+        </div>
+        <hr>
+      </div>
+      <p *ngIf="!criteria">
+        Cannot be encountered through standard means.
+      </p>
+
+      <div *ngIf="unlocked.items && held">
+        <h3>May be Holding</h3>
+        <sprite-item *ngFor="let item of held" item="{{item}}">
+        </sprite-item>
+      </div>
+
+      <div *ngIf="unlocked.release">
+        <h3>Release</h3>
+        <sprite-item item="{{pokemon.release}}"></sprite-item>
+      </div>
+
+    </mat-tab>
+
+    <mat-tab *ngIf="unlocked.forms" label="Forms">
+      <h3>
+        Caught forms
+      </h3>
+      <!-- TODO Handle switching -->
+      <sprite-pokemon *ngFor="let item of caughtForms"
+        badge="{{item}}">
+      </sprite-pokemon>
+    </mat-tab>
+
+    <mat-tab *ngIf="unlocked.daycare" label="Day Care">
+      <strong>Egg Cycles:</strong>
+      <span>
+        {{pokemon.eggCycles}} cycles (7 Days)
+      </span>
+      <br><br>
+
+      <strong>Egg Groups:</strong>
+      <br>
+      <span *ngFor="let item of eggGroup">
+        {{item}}
+      </span>
+      <br><br>
+
+      <strong>Egg Species</strong>
+      <br>
+      <span *ngFor="let item of eggBase">
+        <sprite-pokemon badge="{{item}}">
+        </sprite-pokemon>
+      </span>
+    </mat-tab>
+
+    <mat-tab *ngIf="unlocked.mega && hasMega" label="Mega Evolution">
+      <div *ngIf="pokemon.mega">
+        <!-- Actual item does not matter -->
+        <sprite-pokemon badge="{{badge.toString()}}" held="venusaurite" class="mega"></sprite-pokemon>
+        <br>
+        <strong>Mega {{pokemon.species}}</strong>
+        <br>
+        <type-box [type]="pokemon.type1"></type-box>
+        <type-box [type]="pokemon.mega.type2" *ngIf="pokemon.mega.type2"></type-box>      
+        <type-box [type]="pokemon.type2" *ngIf="pokemon.mega.type2 === undefined && pokemon.type2"></type-box>
+        <br>
+        <span class="dex-entry">
+          {{pokemon.mega.pokedex}}
+        </span>
+        <br><br>
+
+        <move-span *ngFor="let item of movesMega" move="{{item}}">
+        </move-span>
+
+        <stats-hexagon
+              [hp]="pokemon.hp" [attack]="pokemon.mega.attack"
+              [defense]="pokemon.mega.defense" [spattack]="pokemon.mega.spAttack"
+              [spdefense]="pokemon.mega.spDefense" [speed]="pokemon.mega.speed"
+              [nature]="badge?.personality?.nature">
+        </stats-hexagon>
+
+        <br><br>
+
+        <table class='stats'>
+          <tr>
+            <td>HP</td><td>ATK</td><td>DEF</td>
+            <td>SpA</td><td>SpD</td><td>SPE</td>
+          </tr>
+          <tr>
+            <td>{{pokemon.hp}}</td><td>{{pokemon.mega.attack}}</td>
+            <td>{{pokemon.mega.defense}}</td><td>{{pokemon.mega.spAttack}}</td>
+            <td>{{pokemon.mega.spDefense}}</td><td>{{pokemon.mega.speed}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div *ngIf="pokemon.megax">
+          <!-- Actual item does not matter -->
+        <sprite-pokemon badge="{{badge.toString()}}" held="charizarditex"></sprite-pokemon>
+        <br>
+        <strong>Mega {{pokemon.species}} X</strong>
+        <br>
+        <type-box [type]="pokemon.type1"></type-box>
+        <type-box [type]="pokemon.megax.type2" *ngIf="pokemon.megax.type2"></type-box>      
+        <type-box [type]="pokemon.type2" *ngIf="pokemon.megax.type2 === undefined && pokemon.type2"></type-box>
+        <br>
+        <span class="dex-entry">
+          {{pokemon.megax.pokedex}}
+        </span>
+        <br><br>
+
+        <move-span *ngFor="let item of movesMegaX" move="{{item}}">
+        </move-span>
+
+        <stats-hexagon
+              [hp]="pokemon.hp" [attack]="pokemon.megax.attack"
+              [defense]="pokemon.megax.defense" [spattack]="pokemon.megax.spAttack"
+              [spdefense]="pokemon.megax.spDefense" [speed]="pokemon.megax.speed"
+              [nature]="badge?.personality?.nature">
+        </stats-hexagon>
+
+        <br><br>
+
+        <table class='stats'>
+          <tr>
+            <td>HP</td><td>ATK</td><td>DEF</td>
+            <td>SpA</td><td>SpD</td><td>SPE</td>
+          </tr>
+          <tr>
+            <td>{{pokemon.hp}}</td><td>{{pokemon.megax.attack}}</td>
+            <td>{{pokemon.megax.defense}}</td><td>{{pokemon.megax.spAttack}}</td>
+            <td>{{pokemon.megax.spDefense}}</td><td>{{pokemon.megax.speed}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div *ngIf="pokemon.megay">
+        <!-- Actual item does not matter -->
+        <sprite-pokemon badge="{{badge.toString()}}" held="charizarditey"></sprite-pokemon>
+        <br>
+        <strong>Mega {{pokemon.species}} Y</strong>
+        <br>
+        <type-box [type]="pokemon.type1"></type-box>
+        <type-box [type]="pokemon.megay.type2" *ngIf="pokemon.megay.type2"></type-box>      
+        <type-box [type]="pokemon.type2" *ngIf="pokemon.megay.type2 === undefined && pokemon.type2"></type-box>
+        <br>
+        <span class="dex-entry">
+          {{pokemon.megay.pokedex}}
+        </span>
+        <br><br>
+
+        <move-span *ngFor="let item of movesMegaY" move="{{item}}">
+        </move-span>
+
+        <stats-hexagon
+              [hp]="pokemon.hp" [attack]="pokemon.megay.attack"
+              [defense]="pokemon.megay.defense" [spattack]="pokemon.megay.spAttack"
+              [spdefense]="pokemon.megay.spDefense" [speed]="pokemon.megay.speed"
+              [nature]="badge?.personality?.nature">
+        </stats-hexagon>
+
+        <br><br>
+
+        <table class='stats'>
+          <tr>
+            <td>HP</td><td>ATK</td><td>DEF</td>
+            <td>SpA</td><td>SpD</td><td>SPE</td>
+          </tr>
+          <tr>
+            <td>{{pokemon.hp}}</td><td>{{pokemon.megay.attack}}</td>
+            <td>{{pokemon.megay.defense}}</td><td>{{pokemon.megay.spAttack}}</td>
+            <td>{{pokemon.megay.spDefense}}</td><td>{{pokemon.megay.speed}}</td>
+          </tr>
+        </table>
+      </div>
+    </mat-tab>
+
+    <mat-tab *ngIf="unlocked.gmax && hasGmax" label="Gigantamax">
+      <!-- Actual item does not matter -->
+      <sprite-pokemon badge="{{badge.toString()}}" held="maxmushroom" class="gmax"></sprite-pokemon>
+      <br>
+      <strong>Gigantamax {{pokemon.species}}</strong>
+      <br>
+      <span class="dex-entry">
+        {{pokemon.gmax.pokedex}}
+      </span>
+      <br><br>
+
+      <move-span *ngFor="let item of movesGmax" move="{{item}}">
+      </move-span>
+    </mat-tab>
+  </mat-tab-group>
+</div>
+
+<div mat-dialog-content class="uncaught" *ngIf="uncaught === true">
+  <type-box [type]="pokemon.type1"></type-box>
+  <type-box [type]="pokemon.type2"></type-box>
+
+  <small>
+    #{{natDexNo}}
+  </small>
+  <br>
+
+  <img class="main-sprite uncaught" src="{{sprite}}" />
+
+  <div *ngIf="unlocked.areas">
+    <h3>Areas</h3>
+    <div *ngFor="let item of criteria">
+      <sprite-item item="{{item.item}}" class="method"></sprite-item> ({{item.rarity}})
+      <br>
+      <div *ngFor="let method of item.method">
+        - {{method}}<br>
+      </div>
+      <hr>
+    </div>
+    <p *ngIf="!criteria">
+      Cannot be encountered through standard means.
+    </p>
+  </div>
+</div>
+
+<ul mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="close()">Close</button>
+</ul>
+
+<dialog-tag #tagger></dialog-tag>

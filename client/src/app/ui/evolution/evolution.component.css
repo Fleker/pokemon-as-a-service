@@ -1,0 +1,28 @@
+sprite-pokemon.from {
+  transition: 1s all;
+  transition-delay: 0.5s;
+}
+
+sprite-pokemon.from.animate {
+  filter: brightness(100);
+}
+
+sprite-pokemon.from.done {
+  opacity: 0;
+  display: none;
+}
+
+sprite-pokemon.to {
+  opacity: 0;
+  transition: 1s all;
+  filter: brightness(100);
+}
+
+sprite-pokemon.to.animate {
+  opacity: 1;
+}
+
+sprite-pokemon.to.done {
+  opacity: 1;
+  filter: brightness(1);
+}

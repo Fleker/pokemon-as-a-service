@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <td class="left">
+      <div *ngFor="let specie of players; index as i">
+        <hp-bar [hp]="playerHps[i]"></hp-bar>
+        <br>
+        <sprite-pokemon class="player" [animate]="true" badge="{{specie}}" held="{{playerItems[i] || 'oran'}}"></sprite-pokemon>
+      </div>
+      <div *ngFor="let ball of playerPokeballs">
+        <sprite-item item="{{ball}}"></sprite-item>
+      </div>
+    </td>
+    <td class="central">
+      <img src="/images/sprites/icons/menu-pokeball.svg" />
+      <hr [style.width]="barwidth" [style.marginLeft]="marginleft">
+    </td>
+    <td class="right">
+      <div *ngFor="let specie of opponents; index as i">
+        <hp-bar [hp]="opponentHps[i]"></hp-bar>
+        <br>
+        <sprite-pokemon class="opponent" [animate]="true" badge="{{specie}}" held="{{opponentItems[i] || 'oran'}}"></sprite-pokemon>
+      </div>
+      <div *ngFor="let ball of opponentPokeballs">
+        <sprite-item item="{{ball}}"></sprite-item>
+      </div>
+    </td>
+  </tr>
+</table>

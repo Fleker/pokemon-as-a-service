@@ -1,0 +1,14 @@
+<mat-slide-toggle [(ngModel)]="paged" (click)="updatePaged()">
+  Pages
+</mat-slide-toggle>
+
+<div *ngIf="!paged">
+  {{log}}
+</div>
+
+<div *ngIf="paged && logs">
+  {{logs[pageIndex]}}
+  <mat-paginator #paginator [length]="logs.length" [pageSize]="1"
+      hidePageSize="true">
+  </mat-paginator>
+</div>

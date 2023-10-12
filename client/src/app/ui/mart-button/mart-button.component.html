@@ -1,0 +1,35 @@
+<button mat-button (click)="open()">
+  <span *ngIf="mode === 'buy'">Buy...</span>
+  <span *ngIf="mode === 'sell'">Sell...</span>
+  <sprite-item item="{{item}}" role="presentation" aria-hidden="true">
+  </sprite-item>
+  {{label}}
+</button>
+
+<dialog #dialog>
+  <h1 *ngIf="mode === 'buy'" class="centered">Buy {{label}}</h1>
+  <h1 *ngIf="mode === 'sell'" class="centered">Sell {{label}}</h1>
+  <div>
+    <sprite-item item="{{item}}"></sprite-item>
+    <small>{{description}}</small>
+  </div>
+
+  <span *ngIf="mode === 'buy'">How many do you want to buy?</span>
+  <span *ngIf="mode === 'sell'">How many do you want to sell?</span>
+  <br>
+  <input type="number" value="1" min="1" max="99" #txncount (input)="update()" />
+  &emsp;&emsp;
+  <sprite-item item="{{currency}}"></sprite-item> ×{{currencyPrice}}
+  <br>
+  <br>
+  <sprite-item item="{{item}}"></sprite-item>
+  <mat-icon>business_center</mat-icon>
+  ×{{itemsInBag}}
+  <sprite-item item="{{currency}}"></sprite-item>
+  <mat-icon>business_center</mat-icon>
+  ×{{currencyUnits}}
+
+  <br>
+  <button mat-button (click)="close()">Close</button>
+  <button mat-button (click)="transaction()" [disabled]="exec">Go!</button>
+</dialog>

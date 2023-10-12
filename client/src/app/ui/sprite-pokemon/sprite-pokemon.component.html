@@ -1,0 +1,11 @@
+<img #img src="{{src}}"
+    class="{{classes}}"
+    alt="{{alt}}"
+    title="{{alt}}"
+    fetchpriority="low"
+    decoding="async"
+    (click)="openDialog()"
+    *ngIf="badge !== undefined">
+<span class="sparkle l {{sparkles}}">✨</span>
+<span class="sparkle c {{sparkles}}">✨</span>
+<span class="sparkle r {{sparkles}}">✨</span>

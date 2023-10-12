@@ -1,0 +1,304 @@
+.mine {
+  background-color: #999;
+  border: solid 1px red;
+}
+
+.completed-boss {
+  opacity: 1;
+  cursor: initial;
+  width: 120px;
+  margin-top: 12px;
+  margin-left: 8px;
+  image-rendering: pixelated;
+}
+
+#match {
+  width: calc(100% - 270px);
+  display: inline-block;
+}
+
+#match-prize {
+  vertical-align: top;
+  margin-left: 32px;
+  border: solid 1px var(--app-text-color);
+  border-radius: 8px;
+  padding: 8px;
+  padding-top: 4px;
+  width: 210px;
+}
+
+#match-prize li {
+  display: block;
+}
+
+#match-prize sprite-item {
+  vertical-align: middle;
+}
+
+#results-table {
+  margin-top: 48px;
+  text-align: center;
+}
+
+.secret.small {
+  width: 14pt;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+.raidPlayer {
+  width: 40px;
+  display: inline-grid;
+  padding: 4px;
+}
+
+#match-prize, #match-boss {
+  display: inline-block;
+}
+
+div.resultmsg {
+  opacity: 0;
+  animation: fadein 0.5s 1 linear;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
+}
+
+div#match-prize {
+  opacity: 0;
+  animation: fadein 0.5s 1 linear;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+}
+
+.prize {
+  opacity: 0;
+  animation: fadein 0.5s 1 linear;
+  animation-fill-mode: forwards;
+  animation-delay: 7s;
+}
+
+.prize.n0 {
+  animation-delay: 5s;
+}
+
+.prize.n1 {
+  animation-delay: 5.2s;
+}
+
+.prize.n2 {
+  animation-delay: 5.4s;
+}
+
+.prize.n3 {
+  animation-delay: 5.6s;
+}
+
+.prize.n4 {
+  animation-delay: 5.8s;
+}
+
+.prize.n5 {
+  animation-delay: 6s;
+}
+
+.prize.n6 {
+  animation-delay: 6.2s;
+}
+
+.prize.n7 {
+  animation-delay: 6.4s;
+}
+
+.prize.n8 {
+  animation-delay: 6.6s;
+}
+
+.prize.n9 {
+  animation-delay: 6.8s;
+}
+
+.prize.n10 {
+  animation-delay: 7s;
+}
+
+sprite-pokemon.battler {
+  filter: contrast(0);
+  transform: translateY(16px);
+  animation: recontrastplayer 0.5s 1 linear;
+  animation-fill-mode: forwards;
+}
+
+sprite-pokemon.battler.n0 {
+  animation-delay: 0.9s;
+}
+
+sprite-pokemon.battler.n1 {
+  animation-delay: 0.95s;
+}
+
+sprite-pokemon.battler.n2 {
+  animation-delay: 1s;
+}
+
+sprite-pokemon.battler.n3 {
+  animation-delay: 1.05s;
+}
+
+sprite-pokemon.battler.n4 {
+  animation-delay: 1.10s;
+}
+
+sprite-pokemon.battler.n5 {
+  animation-delay: 1.15s;
+}
+
+sprite-pokemon.battler.n6 {
+  animation-delay: 1.2s;
+}
+
+sprite-pokemon.battler.n7 {
+  animation-delay: 1.25s;
+}
+
+sprite-pokemon.battler.n8 {
+  animation-delay: 1.3s;
+}
+
+sprite-pokemon.battler.n9 {
+  animation-delay: 1.35s;
+}
+
+sprite-pokemon.battler.n10 {
+  animation-delay: 1.4s;
+}
+
+sprite-pokemon.battler.n11 {
+  animation-delay: 1.45s;
+}
+
+sprite-pokemon.battler.n12 {
+  animation-delay: 1.5s;
+}
+
+sprite-pokemon.battler.n13 {
+  animation-delay: 1.55s;
+}
+
+sprite-pokemon.battler.n14 {
+  animation-delay: 1.6s;
+}
+
+sprite-pokemon.battler.n15 {
+  animation-delay: 1.65s;
+}
+
+sprite-pokemon.battler.n16 {
+  animation-delay: 1.7s;
+}
+
+sprite-pokemon.battler.n17 {
+  animation-delay: 1.75s;
+}
+
+sprite-pokemon.battler.n18 {
+  animation-delay: 1.8s;
+}
+
+sprite-pokemon.battler.n19 {
+  animation-delay: 1.85s;
+}
+
+sprite-pokemon.battler.n20 {
+  animation-delay: 1.9s;
+}
+
+sprite-pokemon.battler.n21 {
+  animation-delay: 1.93s;
+}
+
+sprite-pokemon.battler.n22 {
+  animation-delay: 1.96s;
+}
+
+sprite-pokemon.battler.n23 {
+  animation-delay: 1.99s;
+}
+
+sprite-pokemon.completed-boss {
+  filter: contrast(0);
+  transform: translateY(-60px) scale(0.85);
+  animation: recontrastboss 1.25s 1 linear;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+
+@media (max-width: 600px) {
+  #match {
+    width: 100%;
+    display: block;
+  }
+
+  #match-prize {
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+@media (min-width: 800px) {
+  .completed-boss {
+    margin-left: calc(50vw - 248px);
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes recontrastplayer {
+  0% {
+    filter: contrast(0);
+    transform: translateY(16px);
+  }
+  100% {
+    filter: contrast(1);
+    transform: translateY(0px);
+  }
+}
+
+@keyframes recontrastboss {
+  0% {
+    filter: contrast(0);
+    transform: translateY(-60px) rotate(0deg) scale(0.85);
+  }
+  70% {
+    filter: contrast(1);
+    transform: rotate(0deg) scale(1);
+  }
+  75% {
+    transform: rotate(3deg) translateY(-20px);
+  }
+  85% {
+    transform: rotate(-3deg) translateY(30px);
+  }
+  87% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  89% {
+    transform: rotate(0deg) translateY(-30px);
+  }
+  91% {
+    transform: rotate(0deg) translateY(0px);
+  }
+  93% {
+    transform: rotate(0deg) translateY(-30px);
+  }
+  100% {
+    filter: contrast(1);
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+}

@@ -1,0 +1,36 @@
+h1 {
+  padding-left: 8px;
+  border-radius: 12px 20px 20px 12px;
+  font-weight: 500;
+}
+
+.icons-container {
+  width: 100%;
+  /* margin-top: 174px; */
+  margin-top: -30px;
+  overflow: hidden;
+}
+
+.icons {
+  animation: slide 3s linear infinite;
+  height: 30px;
+  opacity: 0.25;
+}
+
+@media (prefers-reduced-motion) {
+  .icons {
+    animation: none;
+    opacity: 0.1;
+  }
+}
+
+/* https://blog.logrocket.com/creating-infinite-css-background-image-loop/ */
+@keyframes slide {
+  0% {
+    transform: translateX(30px) translateY(30px);
+  }
+
+  100% {
+    transform: translateX(-30px) translateY(-30px); /* Image width */
+  }
+}

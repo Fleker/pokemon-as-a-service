@@ -1,0 +1,117 @@
+const {ENCOUNTERS, HOLD_ITEMS_5, HOLD_ITEMS_15, HOLD_ITEMS_50} = require('../../functions/lib/functions/src/encounter')
+const { Globe } = require('../../functions/lib/shared/src/locations-list')
+const { ITEMS } = require('../../functions/lib/shared/src/items-list')
+const { fertilizerPokemon } = require('../../functions/lib/shared/src/farming')
+
+const pokemonMap = {}
+const conditionMap = {}
+
+const user = {
+  items: {
+    darkstone: 0,
+    lightstone: 0,
+  },
+  currentBadges: [],
+  hiddenItemsFound: [],
+  battleStadiumRecord: [0, 5, 0, 0],
+  raidRecord: [0, 5, 0, 0],
+  berryGrown: 1,
+}
+const date = new Date()
+const location = Globe['AE-DXB']
+
+for (const [item, tableFn] of Object.entries(ENCOUNTERS)) {
+  const {list} = tableFn(user, date, location, 'Pokedex',
+    {friendSafari: '01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'})
+  list.forEach(l => {
+    if (l.pokemon === undefined) return
+    const encounter = {
+      ...l,
+      item,
+    }
+    if (l.pokemon in pokemonMap) {
+      pokemonMap[l.pokemon].push(encounter)
+    } else {
+      pokemonMap[l.pokemon] = [encounter]
+    }
+  })
+}
+
+for (const [fertilizer, parr] of Object.entries(fertilizerPokemon)) {
+  for (const pokemon of parr) {
+    const encounter = {
+      pokemon,
+      rarity: 1,
+      method: [`Farming with ${ITEMS[fertilizer].label}`],
+      item: fertilizer
+    }
+    if (pokemon in pokemonMap) {
+      pokemonMap[pokemon].push(encounter)
+    } else {
+      pokemonMap[pokemon] = [encounter]
+    }
+  }
+}
+
+for (const [item, tableFn] of Object.entries(ENCOUNTERS)) {
+  const {list} = tableFn(user, date, location, 'Client',
+    {friendSafari: '01234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'})
+  if (item === 'premierball') {
+    // console.log(`// ${JSON.stringify(list)}`)
+  }
+  list.forEach(l => {
+    if (item === 'pokeball' || item === 'premierball') {
+      // console.log(`// ${item} ${JSON.stringify(l)}`)
+    }
+    if (l.pokemon === undefined) return
+    const encounter = {
+      ...l,
+      item,
+    }
+    if (item === 'premierball') {
+      // console.log(`// ${JSON.stringify(encounter)}`)
+    }
+    if (l.pokemon in conditionMap) {
+      conditionMap[l.pokemon].push(encounter)
+    } else {
+      conditionMap[l.pokemon] = [encounter]
+    }
+  })
+}
+
+const itemMap = {}
+for (const [key, value] of Object.entries(HOLD_ITEMS_5)) {
+  const items = Array.isArray(value) ? value : [value]
+  if (key in itemMap) {
+    itemMap[key].push(...items)
+  } else {
+    itemMap[key] = [...items]
+  }
+}
+
+for (const [key, value] of Object.entries(HOLD_ITEMS_15)) {
+  const items = Array.isArray(value) ? value : [value]
+  if (key in itemMap) {
+    itemMap[key].push(...items)
+  } else {
+    itemMap[key] = [...items]
+  }
+}
+
+for (const [key, value] of Object.entries(HOLD_ITEMS_50)) {
+  const items = Array.isArray(value) ? value : [value]
+  if (key in itemMap) {
+    itemMap[key].push(...items)
+  } else {
+    itemMap[key] = [...items]
+  }
+}
+
+console.log('export const ENCOUNTER_MAP = ')
+console.log(JSON.stringify(pokemonMap).replace(/}],"/g, '}],\n"'))
+
+console.log('export const ENCOUNTER_CONDITION = ')
+console.log(JSON.stringify(conditionMap).replace(/}],"/g, '}],\n"'))
+
+console.log('export const HOLD_ITEMS = ')
+console.log(JSON.stringify(itemMap).replace(/],"/g, '],\n"'))

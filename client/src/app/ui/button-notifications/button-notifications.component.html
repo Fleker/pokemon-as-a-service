@@ -1,0 +1,63 @@
+<button mat-icon-button aria-label="Notifications" (click)="showNotifications()"
+    matBadge="{{notifications.length}}" [matBadgeHidden]="notifications.length === 0"
+    matBadgeOverlap="true" matBadgePosition="below after"
+    matTooltip="{{tooltip}}" matTooltipHideDelay="100">
+  <mat-icon *ngIf="notifications.length === 0">
+    notifications_none
+  </mat-icon>
+  <mat-icon *ngIf="notifications.length > 0 && newNotifications > 0">
+    notifications_active
+  </mat-icon>
+  <mat-icon *ngIf="notifications.length > 0 && newNotifications === 0">
+    notifications
+  </mat-icon>
+</button>
+
+<dialog #dialog>
+  <h1 class="centered">My Notifications</h1>
+  <small *ngIf="notifications.length === 0">
+    You have no notifications.
+  </small>
+  <table>
+    <tr *ngFor="let item of invNotifications; index as i">
+      <td class="notification-icon" (click)="navigate(item.link)">
+        <img *ngIf="!item.icon" src="{{notificationIcon[item.cat]}}" />
+        <img *ngIf="item.icon" src="{{item.icon}}" />
+      </td>
+      <td class="notification-msg" (click)="navigate(item.link)">
+        <a href="{{item.link}}">
+          {{item.msg}}
+        </a>
+        <p *ngIf="item.body">
+          {{item.body}}
+        </p>
+        <p class="timestamp">
+          {{timeAgo(item.timestamp)}}
+          &mdash;
+          {{item.cat}}
+        </p>
+      </td>
+      <td class="notification-close">
+        <button mat-icon-button (click)="launch(item)" [disabled]="exec">
+          <mat-icon *ngIf="!exec">launch</mat-icon>
+          <mat-spinner *ngIf="exec" [diameter]="12">
+          </mat-spinner>
+        </button>
+      </td>
+      <td class="notification-close">
+        <button mat-icon-button (click)="clear(item)" [disabled]="exec">
+          <mat-icon *ngIf="!exec">close</mat-icon>
+          <mat-spinner *ngIf="exec" [diameter]="12">
+          </mat-spinner>
+        </button>
+      </td>
+    </tr>
+  </table>
+
+  <button mat-button (click)="clear()" *ngIf="notifications.length" [disabled]="exec">
+    Clear All
+  </button>
+  <button mat-button secondary (click)="close()">
+    Close
+  </button>
+</dialog>

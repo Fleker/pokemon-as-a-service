@@ -1,0 +1,51 @@
+div.safaribox {
+  width: 160px;
+  height: 108px;
+  display: inline-block;
+  margin-left: 1px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding-top: 4px;
+  border: dashed 1px white;
+  cursor: pointer;
+}
+
+div.safaribox sprite-pokemon {
+  filter: grayscale(75%) brightness(0.8);
+}
+
+div.safaribox.selected {
+  border-width: 2px;
+  border-style: solid;
+  padding-top: 3px;
+  height: 106px;
+  margin-left: 0px;
+  margin-right: 7px;
+}
+
+div.safaribox.selected sprite-pokemon {
+  filter: grayscale(0%);
+}
+
+.center {
+  display: block;
+  text-align: center;
+}
+
+img.icon {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin-left: 32px;
+  opacity: 0.25;
+  transition: all 250ms;
+}
+
+div.safaribox:hover img.icon {
+  opacity: 0.37;
+}
+
+div.safaribox.selected img.icon {
+  opacity: 0.55;
+}
+

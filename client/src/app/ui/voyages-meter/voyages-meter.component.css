@@ -1,0 +1,103 @@
+div.border {
+  border: solid 1px var(--app-text-color);
+  border-collapse: collapse;
+  border-radius: 100px;
+  height: 16px;
+  width: 160px;
+}
+
+div.border.check {
+  border-color: var(--type-fire);
+}
+
+span {
+  border-right: solid 1px var(--app-text-color);
+  border-collapse: collapse;
+  display: inline-block;
+  height: 16px;
+  width: 40px;
+}
+
+span.check {
+  border-color: var(--type-fire);
+}
+
+div.infill {
+  height: 14px;
+  border-radius: 16px;
+  margin-top: -16px;
+  margin-left: 2px;
+  transition: all 0.25s;
+}
+
+div.Bug {
+  background-color: var(--type-bug);
+}
+
+div.Dark {
+  background-color: var(--type-dark)
+}
+
+div.Dragon {
+  background-color: var(--type-dragon);
+}
+
+div.Electric {
+  background-color: var(--type-electric);
+}
+
+div.Fairy {
+  background-color: var(--type-fairy);
+}
+
+div.Fighting {
+  background-color: var(--type-fighting);
+}
+
+div.Fire {
+  background-color: var(--type-fire);
+}
+
+div.Flying {
+  background-color: var(--type-flying);
+}
+
+div.Ghost {
+  background-color: var(--type-ghost);
+}
+
+div.Grass {
+  background-color: var(--type-grass);
+}
+
+div.Ground {
+  background-color: var(--type-ground);
+}
+
+div.Ice {
+  background-color: var(--type-ice);
+}
+
+div.Normal {
+  background-color: var(--type-normal);
+}
+
+div.Poison {
+  background-color: var(--type-poison);
+}
+
+div.Psychic {
+  background-color: var(--type-psychic);
+}
+
+div.Rock {
+  background-color: var(--type-rock);
+}
+
+div.Steel {
+  background-color: var(--type-steel);
+}
+
+div.Water {
+  background-color: var(--type-water);
+}

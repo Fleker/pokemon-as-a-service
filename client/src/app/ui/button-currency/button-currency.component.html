@@ -1,0 +1,26 @@
+<button mat-icon-button aria-label="Currency" (click)="show()"
+  matTooltip="{{totalWealth.toLocaleString()}}" matTooltipHideDelay="100">
+  <mat-icon>account_balance</mat-icon>
+</button>
+
+<dialog #dialog>
+  <h1 class="centered">My Wealth</h1>
+
+  <table>
+    <tr *ngFor="let currency of currencyData">
+      <td>
+        <sprite-item item="{{currency[0]}}"></sprite-item>
+      </td>
+      <td>
+        ×{{currency[1].toLocaleString()}}
+      </td>
+      <td>
+        {{labelFor(currency[0])}}
+      </td>
+    </tr>
+  </table>
+
+  <strong>Total Wealth:</strong> {{totalWealth.toLocaleString()}}
+  <br><br>
+  <button mat-button (click)="close()">Close</button>
+</dialog>

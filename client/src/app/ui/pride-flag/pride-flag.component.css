@@ -1,0 +1,42 @@
+.flag-segment {
+  display: inline-block;
+  width: 30px; /* Should coordinate this with the column count */
+  height: 100px;
+  animation: oscillate 500ms infinite;
+
+  /** Back and forth */
+  animation-direction: alternate;
+
+  /** Non-linear timing */
+  animation-timing-function: ease-in-out;
+
+  animation-fill-mode: backwards;
+
+
+  /* Rainbow colors */
+  background: linear-gradient(to bottom,
+    var(--type-fire) 0% 14%,
+    var(--type-fairy) 14% 29%,
+    var(--type-electric) 29% 43%,
+    var(--type-grass) 43% 57%,
+    var(--type-water) 56% 71%,
+    var(--type-dragon) 71% 86%,
+    var(--type-psychic) 86% 100%
+  );
+}
+
+@media (prefers-reduced-motion) {
+  .flag-segment {
+    animation: none;
+  }
+}
+
+@keyframes oscillate {
+  from {
+    transform: translateY(8px);
+  }
+
+  to {
+    transform: translateY(-8px);
+  }
+}

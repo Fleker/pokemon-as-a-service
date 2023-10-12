@@ -1,0 +1,48 @@
+<button mat-icon-button aria-label="Events" (click)="show()"
+    matBadge="{{activeEventsSize}}" [matBadgeHidden]="hideBadge"
+    matBadgeOverlap="true" matBadgePosition="below after"
+    matTooltip="{{tooltip}}" matTooltipHideDelay="100">
+  <mat-icon>today</mat-icon>
+</button>
+
+<dialog #list id="list">
+  <h1 class="centered">Current Events</h1>
+  <span *ngIf="activeEventsSize === 0">
+    Nothing of note is happening now.
+  </span>
+  <ul *ngIf="activeEventsSize > 0">
+    <li *ngFor="let e of activeEvents" class="pnt" (click)="showDetails(e.key)">
+      {{e.title}}
+    </li>
+  </ul>
+  <br><br>
+  <small *ngIf="fr">
+    <a href="{{fr}}" target="_blank">
+      Suggest a new event
+    </a>
+  </small>
+  <br><br><br>
+  <button mat-button (click)="closeList()">Close</button>
+</dialog>
+
+<dialog #details>
+  <h1 class="centered">{{selected?.title}}</h1>
+  <span>{{selected?.description}}</span>
+  <br><br>
+  <li *ngIf="selected?.frequentSpecies.length">
+    Boosted rate of {{eventSpawns}} in the wild.
+  </li>
+  <li *ngIf="selected?.encounterHoldItems.length">
+    Pokémon may be holding {{itemSpawns}} in the wild.
+  </li>
+  <li *ngFor="let o of selected?.other">{{o}}</li>
+  <li *ngIf="selected?.shinyRate > 1">
+    Luck is in the air! There's a higher chance of shiny Pokémon in
+    standard encounters.
+  </li>
+  <li *ngIf="selected?.shinyRate < 1">
+    Today feels particularly unlucky!
+  </li>
+  <br><br>
+  <button mat-button (click)="closeDetails()">Close</button>
+</dialog>

@@ -1,0 +1,9 @@
+<input type="search" list="_item_list"
+  [(ngModel)]="_value" (input)="update()" />
+
+<datalist id="_item_list">
+  <option *ngFor="let item of availableItemsList" value="{{item.id}}">
+    <!-- <sprite-item item="{{item.id}}"></sprite-item> -->
+    {{item.label}}
+  </option>
+</datalist>

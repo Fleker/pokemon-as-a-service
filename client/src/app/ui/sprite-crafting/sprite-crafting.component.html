@@ -1,0 +1,15 @@
+<div *ngIf="mode === 'input'">
+  <div class="lhs">
+    <sprite-item *ngFor="let item of lhs" [item]="item">
+    </sprite-item>
+  </div>
+
+  <div class="rhs">
+    <sprite-item *ngFor="let item of rhs" [item]="item">
+    </sprite-item>
+  </div>
+</div>
+
+<div *ngIf="mode === 'output'" class="output">
+  <sprite-item [item]="output"></sprite-item>
+</div>

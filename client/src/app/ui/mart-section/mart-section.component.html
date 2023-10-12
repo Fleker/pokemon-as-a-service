@@ -1,0 +1,11 @@
+<h2>{{label}}</h2>
+<span *ngFor="let i of keys">
+  <sprite-item item="{{i}}"
+    (mouseover)="hover(i)" (click)="click(i)">
+  </sprite-item>
+</span>
+<br>
+
+<mart-button #btn mode="{{mode}}" bazaar="{{bazaarId}}" item="{{selectedItem}}">
+</mart-button>
+<span class="hover">{{hoverTxt}}</span>

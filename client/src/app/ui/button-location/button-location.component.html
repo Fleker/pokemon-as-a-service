@@ -1,0 +1,190 @@
+<button mat-icon-button aria-label="Weather" (click)="show()"
+  matTooltip="{{tooltip}}" matTooltipHideDelay="100">
+  <mat-icon>{{forecastIcon}}</mat-icon>
+</button>
+
+<dialog #dialog [class.pokearth]="hasTownMap || hasGoggles">
+  <h1>
+    {{current?.flag}} {{current?.label}}
+  </h1>
+  <div id="details">
+    <small>{{user?.location}} &mdash; {{current?.timezone}}</small>
+  </div>
+
+  <mat-tab-group *ngIf="hasTownMap || hasGoggles">
+    <mat-tab label="PokéEarth" *ngIf="hasTownMap">
+      <widget-pokearth #earth *ngIf="hasTownMap"></widget-pokearth>
+    </mat-tab>
+    <mat-tab label="Go-Goggles" *ngIf="hasGoggles">
+      <widget-binoculars #bincoulars *ngIf="hasGoggles" [forecast]="forecast" [forecastIcon]="forecastIcon"></widget-binoculars>
+    </mat-tab>
+  </mat-tab-group>
+
+  <table>
+    <tr>
+      <td>
+        <strong>Current Forecast:&nbsp;&nbsp;</strong>
+      </td>
+      <td>
+        <mat-icon>{{forecastIcon}}</mat-icon>
+        {{forecast}}      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Region:</strong>
+      </td>
+      <td>
+        {{current?.region}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Terrain:</strong>
+      </td>
+      <td>
+        {{current?.terrain}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Geolocation:</strong>
+      </td>
+      <td>
+       {{current?.hemiLat}} / {{current?.hemiLong}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <strong>Local Time:</strong>
+      </td>
+      <td>
+        {{localTimeString}} ({{localTimeDay}})
+      </td>
+    </tr>
+    <tr *ngIf="hasXyCharm">
+      <td>
+        <strong>Vivillon:</strong>
+      </td>
+      <td>
+        <img src="{{vivillon?.sprite}}" title="{{current?.vivillon}} Vivillon" class="vivillon {{vivillon?.caught}}" />
+      </td>
+    </tr>
+  </table>
+  <!-- Season -->
+  <br>
+  <span>
+    It is currently <strong>{{season}}</strong>.
+  </span>
+  <br><br>
+
+  <!-- Even More -->
+  <img class="icon" src="{{todSprite}}" title="{{localTimeDay}}" alt="{{localTimeDay}}" />
+  <img class="icon right" src="{{moonSprite}}" title="{{moonPhase}}" alt="{{moonPhase}}" />
+  <img class="icon right" src="{{tideSprite}}" title="{{tides}}" alt="{{tides}}" />
+  <br><br>
+
+  <!-- Swarms -->
+  <span>
+    There is a mass outbreak of <strong>{{swarm}}</strong>.
+  </span>
+  <br>
+
+  <!-- Special Location Info -->
+  <i *ngIf="current?.magneticField">
+    This area seems to have an unusually strong magnetic field.
+  </i>
+  <br>
+  <i *ngIf="current?.mossyRock">
+    The rocks nearby are covered in a thick moss.
+  </i>
+  <i *ngIf="current?.icyRock">
+    This rocks nearby are covered in a thick layer of ice.
+  </i>
+  <i *ngIf="current?.flower">
+    You see {{current.flower}} flowers blooming.
+  </i>
+  <i *ngIf="currentMeteor">
+    You see {{currentMeteor}} shards.
+  </i>
+  <br>
+
+  <select *ngIf="!pickFlag" [(ngModel)]="nextLocation" (change)="travel()">
+    <option *ngFor="let item of allLocations" [value]="item.id">
+      {{item.id}} - {{item.label}}
+    </option>
+  </select>
+  <input *ngIf="pickFlag" [(ngModel)]="nextLocation" list="_loc_list"/>
+  <br>
+  <button *ngIf="pickFlag" mat-button (click)="travel()" [disabled]="exec.travel">Let's Go!</button>
+  <datalist id="_loc_list">
+    <option *ngFor="let item of locationLabels" value="{{item}}">
+      {{item}}
+    </option>
+  </datalist>
+  <mat-spinner *ngIf="exec.travel" [diameter]="16"></mat-spinner>
+  <br>
+
+  <a href="{{locationFr}}" target="_blank">
+    Add new location
+  </a>
+
+  <br><br>
+  <button mat-button (click)="close()">
+    Close
+  </button>
+</dialog>
+
+<dialog #pokearth id="pokearth">
+  <h1>PokéEarth</h1>
+  <small *ngIf="!exec.travel">Your current location: {{current?.flag}} {{current?.label}}</small>
+  <small *ngIf="exec.travel">Traveling...</small>
+  <img class="icon right smol" src="{{moonSprite}}" title="{{moonPhase}}" alt="{{moonPhase}}" />
+</dialog>
+
+<dialog #emap>
+  <h1>{{location.flag}} {{location.label}}</h1>
+  <!--
+    TODO: Environment UI
+    - Add tides?
+    - Add sun/dusk/moon?
+    - Add weather effect (clouds??)
+    - Add other flourishes like flowers?
+    Icon: Go goggles?
+  -->
+  <div class="binoculars sky {{location.terrain}}">
+    <mat-icon>{{forecastIcon}}</mat-icon>
+  </div>
+  <div class="binoculars horizon {{location.terrain}}"></div>
+  <div class="binoculars land {{location.terrain}}">
+    <div *ngIf="selected" class="binoculars grid">
+      <sprite-item item="{{selected}}"></sprite-item>
+      <br>
+      <sprite-pokemon *ngFor="let badge of availablePokemon[selected]" badge="{{badge.id}}" class="small animate {{badge.animation}}"></sprite-pokemon>
+    </div>
+  </div>
+  <div class="binoculars tabs">
+    <sprite-item *ngFor="let item of balls" item="{{item}}" (click)="select(item)"></sprite-item>
+  </div>
+  <small>
+    You can find some Pokémon through the binoculars.
+    There may be others here that we don't know about!
+  </small>
+  <br><br>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #locationtitle id="locationtitle">
+  <h1 *ngIf="current" class="{{locationRegion}}">
+    <span id="flag">{{current.flag}}</span>
+    <span id="label">{{current.label}}</span>
+  </h1>
+  <h2>
+    <mat-icon>
+      {{forecastIcon}}
+    </mat-icon>
+    <span>
+      {{locationTime}}
+    </span>
+  </h2>
+</dialog>

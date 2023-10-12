@@ -1,0 +1,66 @@
+<collapsible-card>
+  <div class="typebg {{voyage?.typePrimary}}">
+    <h1 title>
+      <sprite-item item="{{voyage?.rareitems[0][0]}}"></sprite-item>
+      {{voyage?.label}}
+    </h1>
+    <span>{{voyage?.description}}</span>
+    <img class="icon" src="{{typeIcon(voyage?.typePrimary)}}" />
+    <img class="icon icon2" src="{{typeIcon(voyage?.typeSecondary[0])}}" />
+    <img class="icon icon3" src="{{typeIcon(voyage?.typeSecondary[1])}}" />
+    <br><br><br>
+  
+    <strong>Preferred Types</strong>
+    <br>
+    <type-box [type]="voyage?.typePrimary"></type-box>
+    <br>
+    <type-box [type]="voyage?.typeSecondary[0]"></type-box>
+    <type-box [type]="voyage?.typeSecondary[1]"></type-box>
+    <br><br>
+  
+    <strong>Key Stat:&nbsp;</strong>
+    <span>{{voyage?.scoreStat.toUpperCase()}}</span>
+    <br>
+    <!-- <div>
+      <button mat-button (click)="expectDialog()">
+        What can I expect?
+      </button>
+    </div> -->
+  </div>
+</collapsible-card>
+
+<collapsible-card [collapsed]="true">
+  <h1 title>
+    <sprite-item item="gogoggles"></sprite-item>
+    What to expect
+  </h1>
+
+  <small>
+    You'll encounter many of the Pokémon at the bottom as your voyage
+    commences. Some may only appear during specific weather conditions.
+  </small>
+  <br>
+  <small>
+    The specific Pokémon and items found will depend on your party.
+  </small>
+
+  <div class="container {{vid}} typebg {{voyage?.typePrimary}} {{voyage?.typeSecondary[1].toLowerCase()}}">
+    <div class="binoculars ceil typebg {{voyage?.typeSecondary[0]}}">
+      <sprite-pokemon *ngFor="let p of pkmnBoss" badge="{{p}}" class="invalid"></sprite-pokemon>
+    </div>
+    
+    <div class="binoculars wall">
+      <br>
+      <sprite-item *ngFor="let i of itemsRare" item="{{i}}"></sprite-item>
+      <br>
+    </div>
+
+    <div class="binoculars floor">
+      <br>
+      <sprite-item *ngFor="let i of itemsCommon" item="{{i}}"></sprite-item>
+      <br>
+      <sprite-pokemon *ngFor="let p of pkmnRegular" badge="{{p[0]}}" class="animate {{p[1]}}"></sprite-pokemon>
+      <sprite-pokemon *ngFor="let p of pkmnWeather" badge="{{p[0]}}" class="animate {{p[1]}} invalid"></sprite-pokemon>
+    </div>
+  </div>
+</collapsible-card>

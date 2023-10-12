@@ -1,0 +1,159 @@
+:host {
+  width: 100vw;
+  height: 100vh;
+}
+
+div[secondary] {
+  font-size: x-small;
+}
+
+.main-sprite {
+  float:right;
+  margin-top: -96px;
+  margin-right: 30px;
+  width: 60px;
+}
+
+img.main-sprite.uncaught {
+  filter: contrast(0);
+}
+
+.moveset-tab {
+  height: 30vh; /* Makes sense only for desktop, not mobile */
+  overflow-y: auto;
+}
+
+.hide {
+  display: none;
+}
+
+.dex-entry {
+  width: 340px;
+  display: inline-block;
+  margin-left: 8px;
+  border-left: solid 1px #999;
+  padding-left: 8px;
+  padding-right: 4px;
+  opacity: 90%;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.novelSize {
+  width: 5em;
+  display: block;
+  margin-left: 8px;
+  border-left: solid 1px #999;
+  padding-left: 8px;
+  padding-right: 4px;
+  opacity: 90%;
+  background-color: rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+}
+
+.weight {
+  width: 5em;
+  display: inline-block;
+  margin-left: 8px;
+  border-left: solid 1px #999;
+  padding-left: 8px;
+  padding-right: 4px;
+  opacity: 90%;
+  background-color: rgba(0, 0, 0, 0.15);
+  cursor: help;
+  border-bottom: dotted 1px #999;
+}
+
+span.nature {
+  cursor: help;
+}
+
+table.nav {
+  width: calc(100% - 40px);
+}
+
+table.nav .l {
+  text-align: left;
+}
+
+table.nav .r {
+  text-align: right;
+}
+
+td.min {
+  width: 40px;
+}
+
+td.min div {
+  display: inline-block;
+}
+
+td.padding-left {
+  padding-left: 32px;
+}
+
+.small {
+  width:  24px;
+  height: 24px;
+}
+
+sprite-item.method, sprite-item.caught {
+  vertical-align: middle;
+}
+
+.tag {
+  float: right;
+}
+
+.tag.button {
+  cursor: pointer;
+}
+
+div.uncaught img {
+  margin-top: -26px;
+}
+
+h2 {
+  font-size: 11pt;
+  margin-top: -34px;
+  margin-left: 4px;
+  padding-top: 18px;
+  opacity: 0.85;
+}
+
+sprite-pokemon.mega {
+  width: 60px;
+  height: 60px;
+}
+
+img.main-sprite:hover {
+  animation: wiggle 1s infinite linear;
+  animation-fill-mode: forwards;
+}
+
+@media (prefers-reduced-motion) {
+  img.main-sprite:hover {
+    animation: none;
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(0deg) translateY(0px);
+  }
+
+  25% {
+    transform: rotate(-10deg) translateY(-10px);
+  }
+
+  50% {
+    transform: rotate(0deg) translateY(0px);
+  }
+
+  75% {
+    transform: rotate(10deg) translateY(-10px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+}

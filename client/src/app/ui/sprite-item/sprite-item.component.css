@@ -1,0 +1,22 @@
+:host {
+  display: inline-block;
+}
+
+:host([disabled="true"]) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: none;
+}
+
+:host(.tiny) img {
+  width: 15px;
+  height: 15px;
+  object-fit: initial;
+}

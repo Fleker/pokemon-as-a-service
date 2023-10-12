@@ -1,0 +1,25 @@
+button {
+  color: var(--toolbar-text-color);
+}
+
+div[secondary] {
+  font-size: x-small;
+}
+
+dialog {
+  font-size: 11pt;
+}
+
+li {
+  display: block;
+}
+
+sprite-item {
+  vertical-align: middle;
+}
+
+@media (display-mode: window-controls-overlay) {
+  button {
+    height: 26px;
+  }
+}

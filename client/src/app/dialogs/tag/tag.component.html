@@ -1,0 +1,41 @@
+<dialog #tagger>
+  <h2>Tag {{this.species?.length}} Pokémon</h2>
+  <small>
+    You can use the following tags:
+    <br>
+    FAVORITE, BUDDY, BATTLE, RELEASE, TRADE, BREED.
+    <br>
+    {{customTagListStr}}
+  </small>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Set Default Tags</mat-label>
+    <mat-chip-grid #tagList aria-label="Tag selection">
+      <mat-chip
+        *ngFor="let tag of tags"
+        (removed)="remove(tag)">
+        {{tag}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input
+        placeholder="New tag..."
+        #tagInput
+        [formControl]="tagCtrl"
+        [matAutocomplete]="auto"
+        [matChipInputFor]="tagList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        (matChipInputTokenEnd)="add($event)">
+    </mat-chip-grid>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+        {{tag}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <br><br>
+  <button mat-button (click)="applyTags(true)" [disabled]="exec.applyTags">Set {{tags.length}} Tags</button>
+  <button mat-button (click)="clearTags()" [disabled]="exec.applyTags">Clear Tags</button>
+  <button mat-button secondary (click)="close()">Nevermind</button>
+</dialog>

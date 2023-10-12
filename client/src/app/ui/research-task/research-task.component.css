@@ -1,0 +1,25 @@
+div {
+  display: inline-block;
+}
+
+img.origin {
+  width: 20px;
+  vertical-align: middle;
+  position: absolute;
+  margin-left: -4px;
+  margin-top: -22px;
+}
+
+button.trash {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+button.complete {
+  vertical-align: top;
+}
+
+mat-progress-spinner {
+  display: inherit;
+}

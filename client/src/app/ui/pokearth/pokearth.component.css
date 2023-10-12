@@ -1,0 +1,17 @@
+/* Project PokeEarth */
+dialog#pokearth {
+  max-width: initial;
+}
+
+#map {
+  display: inline-block;
+  height: calc(100vh - 230px);
+  width: calc(100vw - 480px);
+  border-radius: 20px;
+  margin-top: 12px;
+}
+
+img.icon.smol {
+  height: 10px;
+  width: 10px;
+}

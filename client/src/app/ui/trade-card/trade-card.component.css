@@ -1,0 +1,30 @@
+:host {
+  width: 260px;
+  border: solid 1px var(--app-text-color);
+  border-radius: 4px;
+  display: inline-block;
+}
+
+mat-card sprite-pokemon {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+mat-card.trade-card {
+  padding-top: 12px;
+}
+
+.noteworthy img {
+  width: 16px;
+  height: 16px;
+}
+
+.lookingforitem {
+  border-bottom: dotted 1px #999;
+  cursor: pointer;
+}
+
+.shiny {
+  margin-left: 16px;  
+}

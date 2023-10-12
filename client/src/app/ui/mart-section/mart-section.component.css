@@ -1,0 +1,7 @@
+span.hover {
+  margin-left: 8px;
+}
+
+:host {
+  margin-bottom: 16px;
+}

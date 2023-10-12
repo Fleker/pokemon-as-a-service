@@ -1,0 +1,72 @@
+<mat-spinner *ngIf="!loaded" diameter="40"></mat-spinner>
+
+<span matBadge="!" [matBadgeHidden]="!questComplete" matBadgeOverlap="true" matBadgePosition="after">
+  <img src="{{src}}" (click)="open()" class="{{classList}}" *ngIf="!gated && loaded"
+      alt="Quest medal {{quest?.title}} {{medal?.title}} {{medalStage}}"
+      title="Quest medal {{quest?.title}} {{medal?.title}} {{medalStage}}"
+    />
+</span>
+
+<dialog #dialog>
+  <div *ngIf="medal">
+    <h1 class="centered">
+      <img src="{{src}}" (click)="open()" class="{{classList}}" *ngIf="!gated && loaded"
+        alt="Quest medal {{quest?.title}} {{medal?.title}} {{medalStage}}"
+        title="Quest medal {{quest?.title}} {{medal?.title}} {{medalStage}}"
+      />
+      {{medal.title}} {{medalStage}}
+    </h1>
+    <p>
+      {{stage?.description}}
+      <br>
+      <span>
+        {{counter}} / {{stage?.count}}
+      </span>
+    </p>
+    <div *ngIf="nextStage">
+      Next: {{nextStage.count}}
+      <mat-progress-bar mode="determinate" value="{{counter / nextStage?.count * 100}}"></mat-progress-bar>
+    </div>
+  </div>
+  <div *ngIf="quest">
+    <h1 class="centered">
+      <img src="{{src}}" (click)="open()" *ngIf="!gated && loaded"
+        alt="Quest medal {{quest?.title}} {{medal?.title}} {{medalStage}}"
+        title="Quest medal {{quest?.title}} {{medal?.title}} {{medalStage}}"
+      />
+      {{quest.title}}
+    </h1>
+    <p>
+      {{quest.hint[0]}}
+    </p>
+    <div *ngIf="!classList" class="verified">
+        <mat-icon>verified</mat-icon> Quest Complete
+      <br><br>
+    </div>
+
+    <div *ngIf="subquest">
+      <p *ngFor="let hint of subquest.completedHints">
+        <small>✓ {{hint}}</small>
+        <br>
+      </p>
+      <p *ngIf="subquest.uncompletedHint">
+        <small>☐ {{subquest.uncompletedHint}}</small>
+        <br>
+      </p>
+      <p *ngFor="let hint of subquest.remainingHints">
+        <small class="unknown">☐ ?</small>
+        <br>
+      </p>
+      <mat-progress-spinner color="primary" [diameter]="20" mode="determinate" [value]="subquest.pct" title="You are getting closer to the next level">
+      </mat-progress-spinner>
+      <a *ngIf="classList.includes('unfound') && subquest.completed" [routerLink]="['/dowsing']" [queryParams]="routerQuery">
+        <button mat-button>
+          <mat-icon>redeem</mat-icon>
+          You have completed every task!
+        </button>
+      </a>
+    </div>
+  </div>
+  <br><br>
+  <button mat-button (click)="close()">Close</button>
+</dialog>

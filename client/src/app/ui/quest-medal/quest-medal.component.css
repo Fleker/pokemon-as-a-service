@@ -1,0 +1,39 @@
+:host {
+  margin-right: 24px;
+  margin-top: 4px;
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+mat-spinner {
+  opacity: 0.5;
+}
+
+img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  image-rendering: pixelated;
+}
+
+img.unfound {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+img.gated {
+  display: none;
+}
+
+div.verified {
+  text-align: center;
+}
+
+small.unknown {
+  opacity: 0.7;
+}
+
+h1 img {
+  vertical-align: middle;
+}

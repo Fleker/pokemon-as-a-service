@@ -1,0 +1,22 @@
+div {
+  display: inline-block;
+  border-radius: 4px;
+  padding-left: 4px;
+  padding-right: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: solid 1px white;
+  margin-right: 4px;
+}
+
+img.icon {
+  width: 16px;
+  height: 16px;
+  vertical-align: top;
+  opacity: 0.8;
+  transition: all 150ms;
+}
+
+div:hover img.icon {
+  opacity: 1;
+}

@@ -1,0 +1,28 @@
+:host > div {
+  border-radius: 12px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  padding-left: 4px;
+}
+
+stats-hexagon {
+  margin-left: 19px;
+}
+
+img.sprite {
+  margin-left: 38px;
+  margin-top: 4px;
+  image-rendering: pixelated;
+}
+
+img.icon {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+
+#moveset {
+  display: block;
+  padding-top: 8px;
+  height: 5em;
+}

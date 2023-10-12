@@ -1,0 +1,33 @@
+  <!--
+    TODO: Environment UI
+    - Add tides?
+    - Add sun/dusk/moon?
+    - Add weather effect (clouds??)
+    - Add other flourishes like flowers?
+    Icon: Go goggles?
+  -->
+<div class="binoculars sky {{location.terrain}}">
+  <mat-icon>{{forecastIcon}}</mat-icon>
+</div>
+<div class="binoculars horizon {{location.terrain}}"></div>
+<div class="binoculars land {{location.terrain}}">
+  <div *ngIf="selected" class="binoculars grid">
+    <sprite-item item="{{selected}}"></sprite-item>
+    <img *ngIf="landmark" class="landmark icon" src="{{landmark}}" />
+    <img *ngIf="meteor" class="landmark color icon {{location.meteor}}" src="{{meteor}}" />
+    <img *ngIf="flower" class="landmark color icon {{location.flower}}" src="{{flower}}" />
+    <br>
+    <sprite-pokemon *ngFor="let badge of availablePokemon[selected]" badge="{{badge.id}}" class="animate {{badge.animation}}"></sprite-pokemon>
+  </div>
+</div>
+<div class="binoculars tabs" *ngIf="available === undefined">
+  <sprite-item *ngFor="let item of balls" item="{{item}}" (click)="select(item)"></sprite-item>
+</div>
+<small *ngIf="available === undefined">
+  You can find some Pokémon through the binoculars.
+  There may be others here that we don't know about!
+</small>
+<small *ngIf="available !== undefined">
+  You can find some Pokémon through the binoculars.
+</small>
+  

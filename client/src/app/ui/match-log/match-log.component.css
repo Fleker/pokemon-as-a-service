@@ -1,0 +1,18 @@
+:host {
+  white-space: pre-line;
+  font-family: monospace;
+}
+
+div {
+  background-color: var(--app-background-color);
+  border: solid 1px var(--menu-text-color);
+  padding: 8px;
+  width: 40em;
+}
+
+@media (max-width: 600px) {
+  div {
+    width: calc(100% - 16px);
+    line-height: 1.4em;
+  }
+}

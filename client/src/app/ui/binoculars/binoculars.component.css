@@ -1,0 +1,281 @@
+:host {
+  display: inline-block;
+  height: calc(100vh - 220px);
+  width: calc(100vw - 500px);
+  border-radius: 20px;
+  margin-top: 12px;
+}
+
+.binoculars.tabs, .binoculars.grid {
+  white-space: normal;
+}
+
+.binoculars.sky mat-icon {
+  position: absolute;
+  left: 24px;
+  top: 26px;
+  height: initial;
+  width: initial;
+  font-size: 36pt;
+  color: var(--app-text-color);
+}
+
+img.landmark {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 60px;
+  left: 140px;
+}
+
+img.landmark ~ img.landmark {
+  margin-left: 80px;
+  top: 40px;
+}
+
+img.landmark.color {
+  background-color: white;
+  border: solid 1px var(--app-text-color);
+  border-radius: 60px;
+}
+
+img.landmark.color.red, img.landmark.color.red_meteor {
+  border-color: var(--type-fire);
+  background: 
+  linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(var(--type-fire), var(--type-fire)) no-repeat;
+}
+img.landmark.color.yellow, img.landmark.color.yellow_meteor {
+  border-color: var(--type-electric);
+  background: 
+  linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(var(--type-electric), var(--type-electric)) no-repeat;
+}
+img.landmark.color.orange, img.landmark.color.orange_meteor {
+  border-color: orange;
+  background: 
+  linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(orange, orange) no-repeat;
+}
+img.landmark.color.blue, img.landmark.color.blue_meteor {
+  border-color: var(--type-water);
+  background: 
+  linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(var(--type-water), var(--type-water)) no-repeat;
+}
+img.landmark.color.white {
+  border-color: white;
+  background: 
+  linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(#999, #999) no-repeat;
+}
+img.landmark.color.green_meteor {
+  border-color: var(--type-grass);
+  background: 
+  linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(var(--type-grass), var(--type-grass)) no-repeat;
+}
+img.landmark.color.indigo_meteor {
+  border-color: var(--type-ghost);
+  background: 
+  linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(var(--type-ghost), var(--type-ghost)) no-repeat;
+}
+img.landmark.color.violet_meteor {
+  border-color: var(--type-poison);
+  background: 
+  linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+    linear-gradient(var(--type-poison), var(--type-poison)) no-repeat;
+}
+
+.binoculars.Bay {
+  --binoculars-sky: var(--type-ice);
+  --binoculars-land: var(--type-grass);
+}
+
+.binoculars.Beach {
+  --binoculars-sky: var(--type-ice);
+  --binoculars-land: var(--type-electric);
+}
+
+.binoculars.Mountain {
+  --binoculars-sky: var(--type-steel);
+  --binoculars-land: var(--type-rock);
+}
+
+.binoculars.Tropical {
+  --binoculars-sky: var(--type-dragon);
+  --binoculars-land: var(--type-grass);
+}
+
+.binoculars.Rural {
+  --binoculars-sky: var(--type-dragon);
+  --binoculars-land: var(--type-fighting);
+}
+
+.binoculars.Desert {
+  --binoculars-sky: var(--type-electric);
+  --binoculars-land: var(--type-ground);
+}
+
+.binoculars.Grasslands {
+  --binoculars-sky: var(--type-dragon);
+  --binoculars-land: var(--type-grass);
+}
+
+.binoculars.Gardens {
+  --binoculars-sky: var(--type-ice);
+  --binoculars-land: var(--type-fairy);
+}
+
+.binoculars.Forest {
+  --binoculars-sky: var(--type-grass);
+  --binoculars-land: var(--type-bug);
+}
+
+.binoculars.Urban {
+  --binoculars-sky: var(--type-steel);
+  --binoculars-land: var(--type-fighting);
+}
+
+.binoculars.Rainforest {
+  --binoculars-sky: var(--type-rock);
+  --binoculars-land: var(--type-grass);
+}
+
+.binoculars.Oceanic {
+  --binoculars-sky: var(--type-ice);
+  --binoculars-land: var(--type-water);
+}
+
+.binoculars.sky {
+  background-color: var(--binoculars-sky);
+  height: 120px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  width: calc(100vw - 480px);
+}
+
+.binoculars.horizon {
+  border-radius: 100% 100% 0% 0%;
+  height: 40px;
+  background-color: var(--binoculars-land);
+  margin-top: -20px;
+  width: calc(100vw - 480px);
+}
+
+.binoculars.land {
+  background-color: var(--binoculars-land);
+  min-height: 240px;
+  height: calc(100vh - 230px - 200px - 60px);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  width: calc(100vw - 496px);
+}
+
+/** Give some random-ish distance b/w sprites */
+.binoculars.land sprite-pokemon {
+  margin-right: 16px;
+  margin-bottom: 4px;
+}
+
+.binoculars.land sprite-pokemon.hop2,
+.binoculars.land sprite-pokemon.wiggle2 {
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.binoculars.land sprite-pokemon.hop3,
+.binoculars.land sprite-pokemon.wiggle3 {
+  margin-right: 12px;
+  margin-bottom: 0px;
+}
+
+@media (prefers-reduced-motion) {
+  sprite-item.animate {
+    animation: none;
+  }
+}
+
+sprite-pokemon.animate {
+  animation: jump 0.4s 2 linear;
+}
+
+sprite-pokemon.animate.hop1 {
+  animation: jumpPause 2s infinite linear;
+}
+
+sprite-pokemon.animate.hop2 {
+  animation: jumpPause 2s infinite linear;
+  animation-delay: 1.2s;
+}
+
+sprite-pokemon.animate.hop3 {
+  animation: jumpPause 2s infinite linear;
+  animation-delay: 0.8s;
+}
+
+sprite-pokemon.animate.wiggle1 {
+  animation: rotationPause 1.5s infinite linear;
+}
+
+sprite-pokemon.animate.wiggle2 {
+  animation: rotationPause 1.5s infinite linear;
+  animation-delay: 0.3s;
+}
+
+sprite-pokemon.animate.wiggle3 {
+  animation: rotationPause 1.5s infinite linear;
+  animation-delay: 1s;
+}
+
+sprite-pokemon.animate.none {
+  animation: none;
+}
+
+@keyframes rotationPause {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(-15deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  90% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes jumpPause {
+  0% {
+    transform: translateY(0px);
+  }
+  20% {
+    transform: translateY(-5px);
+  }
+  40% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

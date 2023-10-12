@@ -1,0 +1,69 @@
+table {
+  border: solid 2px var(--h1-color);
+  background-color: var(--type-ground);
+  padding: 4px;
+  padding-left: 16px;
+  padding-right: 16px
+}
+
+td.left sprite-pokemon {
+  transform: scaleX(-1);
+}
+
+td.central {
+  padding-left: 150px;
+}
+
+td.central img {
+  margin-left: 13px;
+  margin-top: -20px;
+  width: 55px;
+}
+
+td.central hr {
+  background: var(--h1-color);
+  transform: rotate(-90deg);
+  width: 80px;
+  margin-top: -32px;
+}
+
+td.right {
+  padding-left: 150px;
+}
+
+sprite-pokemon.player {
+  filter: contrast(0);
+  animation: shiftleft 0.5s 1 linear;
+  animation-fill-mode: forwards;
+}
+
+sprite-pokemon.opponent {
+  filter: contrast(0);
+  animation: shiftright 0.5s 1 linear;
+  animation-fill-mode: forwards;
+
+  animation-delay: 0.5s;
+  margin-left: 32px;
+}
+
+@keyframes shiftleft {
+  0% {
+    filter: contrast(0);
+    margin-left: -32px;
+  }
+  100% {
+    filter: contrast(1);
+    margin-left: 0px;
+  }
+}
+
+@keyframes shiftright {
+  0% {
+    filter: contrast(0);
+    margin-left: 32px;
+  }
+  100% {
+    filter: contrast(1);
+    margin-left: 0px;
+  }
+}

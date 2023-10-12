@@ -1,0 +1,53 @@
+#cardToggle {
+  font-size: 10pt;
+  font-family: monospace;
+  margin-left: 24px;
+  float: right;
+  background: none;
+  border: none;
+  color: var(--app-text-color);
+  text-align: right;
+  margin-top: -10px;
+  margin-bottom: -10px;
+}
+
+#cardToggle, h1 {
+  cursor: pointer;
+}
+
+.card {
+  min-height: 14px;
+}
+
+h1 {
+  transition-duration: 0.5s;
+}
+
+button[aria-expanded="false"] ~ h1 {
+  margin-top: -4px;
+  margin-bottom: -4px;
+}
+
+button[aria-expanded="true"] ~ h1 {
+  display: block;
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+button[aria-expanded="false"] ~ #body {
+  display: none;
+}
+
+button[aria-expanded="true"] ~ #body {
+  display: block;
+}
+
+button[aria-expanded="true"]::before {
+  content: "▲";
+  color: var(--app-text-color);
+}
+
+button[aria-expanded="false"]::before {
+  content: "▼";
+  color: var(--app-text-color);
+}

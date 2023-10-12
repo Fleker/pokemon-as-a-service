@@ -1,0 +1,15 @@
+<div class="container {{classes}}">
+  <sprite-pokemon badge="{{boss}}" class="classified"></sprite-pokemon>
+  <br>
+  <span class="rating">{{stars}}</span>
+  <div *ngIf="reason">
+    <em>{{reason}}</em>
+  </div>
+  <div *ngIf="players">
+    <strong>{{players}}</strong>
+  </div>
+  <button mat-button *ngIf="cancellable" (click)="sendClear()" [disabled]="exec">Remove</button>
+  <a [routerLink]="['/raids']" [queryParams]="routerQuery">
+    <button mat-button>Join</button>
+  </a>
+</div>

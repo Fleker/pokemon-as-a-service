@@ -1,0 +1,71 @@
+dialog, table {
+  max-width: 40em;
+}
+
+ul {
+  font-size: 11pt;
+}
+
+button {
+  color: var(--toolbar-text-color);
+}
+
+tr {
+  display: block;
+  border-bottom: solid 1px var(--primary-text-color);
+  margin-left: -24px;
+  margin-bottom: 8px;
+  background-color: var(--card-background-color);
+  border-radius: 8px;
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+td.notification-icon {
+  padding-left: 16px;
+  padding-right: 16px;
+  vertical-align: middle;
+  width: 40px;
+}
+
+td.notification-msg, td.notification-msg a {
+  width: calc(40em - 40px - 56px);
+  overflow-x: hidden; /* Brevity is the wit of the soul */
+}
+
+@media (max-width: 600px) {
+  td.notification-msg, td.notification-msg a {
+    width: calc(100vw - 40px - 72px);
+    white-space: normal;
+  }
+}
+
+td.notification-msg a {
+  color: var(--app-text-color);
+}
+
+td.notification-msg p.timestamp {
+  opacity: 0.75;
+}
+
+td.notification-close button, td.notification-close mat-icon {
+  color: var(--app-text-color);
+}
+
+small {
+  text-align: center;
+  display: block;
+  font-size: 10pt;
+  margin-top: 16px;
+}
+
+.notification-msg p {
+  font-size: small;
+  white-space: initial;
+}
+
+@media (display-mode: window-controls-overlay) {
+  button {
+    height: 26px;
+  }
+}

@@ -1,0 +1,43 @@
+<ng-container *ngIf="hover">
+  <div id="details" class="typebg {{hover.t1}}">
+    <img src="{{hover.img}}" width="64" class="sprite" />
+    <br>
+    <div class="hovername">
+      <sprite-item item="{{hover.ball}}" class="tiny"></sprite-item>
+      {{hover.name}}
+    </div>
+    <br>
+    <small>
+      <span *ngFor="let m of hover.type; last as isLast">
+        <img src="/images/sprites/icons/type-{{m}}.svg" class="icon" />
+        {{m}}
+        <span *ngIf="!isLast">/</span>
+      </span>
+    </small>
+    <br>
+    <small>
+      <strong>{{hover.nature}}</strong> Nature</small>
+    <br><br>
+    <stats-hexagon id="hexagon" [hp]="hover.hp" [attack]="hover.attack"
+        [defense]="hover.defense" [spattack]="hover.spAttack"
+        [spdefense]="hover.spDefense" [speed]="hover.speed"
+        [nature]="hover.nature">
+    </stats-hexagon>
+    <br>
+    <small id="moveset">
+      <div *ngFor="let m of hover.moves">
+        <img src="/images/sprites/icons/type-{{m.type}}.svg" class="icon" />
+        {{m.name}}
+      </div>
+    </small>
+    <br>
+    <small *ngIf="flagPickerPro">
+      {{hover.key}}
+      <br>
+      {{hover.location}}
+    </small>
+    <small *ngIf="!duplicate">
+      You have {{hover.dupCount}} of this Pokémon.
+    </small>
+  </div>
+</ng-container>

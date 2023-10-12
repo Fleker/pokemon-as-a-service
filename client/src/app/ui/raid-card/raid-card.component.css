@@ -1,0 +1,27 @@
+:host {
+  display: inline-block;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+div.container {
+  width: 132px;
+  display: grid;
+  border: solid 1px var(--app-text-color);
+  padding-top: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  text-align: center;
+  border-radius: 4px;
+  /* box-shadow: 0px 3px 1px -2px var(--app-text-color); */
+  /* display: inline-block; */
+}
+
+.special {
+  border-color: var(--type-fire) !important;
+  background-color: var(--app-background-color);
+}
+
+sprite-pokemon {
+  padding-left: 6px;
+}

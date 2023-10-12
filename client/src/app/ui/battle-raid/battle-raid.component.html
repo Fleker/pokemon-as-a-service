@@ -1,0 +1,47 @@
+<div *ngIf="raid?.result === 1 && !notInRaid" class="resultmsg {{resultClass}}">
+  The Pokémon was subdued! You captured it!
+</div>
+<div *ngIf="raid?.result === 1 && notInRaid" class="resultmsg {{resultClass}}">
+  The Pokémon was subdued!
+</div>
+<div *ngIf="raid?.result === 2" class="resultmsg {{resultClass}}">
+  The Pokémon was too powerful and you were forced to flee!
+</div>
+<div *ngIf="raid?.result === 3" class="resultmsg {{resultClass}}">
+  The wild Pokémon grew bored and fled!
+</div>
+
+<div id="match">
+  <div id="match-boss" *ngIf="boss">
+    <hp-bar *ngIf="bossHp" [hp]="bossHp" [width]="120" class="{{resultClass}}"></hp-bar><br>
+    <sprite-pokemon class="completed-boss {{resultClass}}" [animate]="true" badge="{{boss}}" held="{{bossItem || 'oran'}}"></sprite-pokemon>
+  </div>
+  
+  <div id="results-table">
+    <div *ngFor="let item of playerArray; index as i" class="raidPlayer">
+      <div class="mine" *ngIf="item.mine">
+        <hp-bar [hp]="item.hp" class="{{resultClass}}"></hp-bar><br>
+        <sprite-pokemon class="n{{i}} battler" [animate]="true" badge="{{item.species}}" held="{{item.item || 'oran'}}" [dialog]="true">
+        </sprite-pokemon>
+        <sprite-item *ngIf="item.item" [item]="item.item"></sprite-item>
+      </div>
+      <div *ngIf="!item.mine">
+        <hp-bar [hp]="item.hp" class="{{resultClass}}"></hp-bar><br>
+        <sprite-pokemon class="n{{i}} battler" [animate]="true" badge="{{item.species}}" held="{{item.item || 'oran'}}" [dialog]="true">
+        </sprite-pokemon>
+        <sprite-item *ngIf="item.item" [item]="item.item"></sprite-item>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="match-prize" *ngIf="prizes" class="typebg {{bossType}}">
+  <strong>You Won</strong>
+  <br>
+  <div *ngIf="!needClaim">
+    <li *ngFor="let prize of prizes; index as i" class="prize n{{i}}">
+      <sprite-item item="{{prize}}"></sprite-item>
+      {{ITEMS[prize].label}}
+    </li>
+  </div>
+</div>

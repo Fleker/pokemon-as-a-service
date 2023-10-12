@@ -1,0 +1,26 @@
+div > div {
+  margin-top: 24px;
+}
+
+table {
+  display: inline;
+}
+
+mat-icon {
+  vertical-align: middle;
+}
+
+h1 {
+  padding-left: 8px;
+  border-radius: 12px 20px 20px 12px;
+}
+
+div.users {
+  width: 40em;
+}
+
+@media (max-width: 600px) {
+  div.users {
+    width: calc(100vw - 16px);
+  }
+}
