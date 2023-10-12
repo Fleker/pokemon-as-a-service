@@ -1,0 +1,646 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #111;
+  /* Light Theme */
+  --primary-text-color: #000000;
+  --hexagon-text-color: #000000;
+  --hexagon-bg-color: #E3F2FD;
+  --app-primary-color: white;
+  --card-background-color: white;
+  --app-background-color: #eee;
+  --button-bg: red;
+  --button-bg-secondary: #3E2723;
+  --toolbar-color: #4285f4;
+  --app-text-color: #636363;
+  --menu-text-color: black;
+  --toolbar-text-color: white;
+  --menu-text-color: black;
+  --h1-color: black;
+  --button-text-color: white;
+  --link-color: blue;
+  /* https://stackoverflow.com/questions/40010597/how-do-i-apply-opacity-to-a-css-color-variable */
+  --white-high-opacity: rgba(255, 255, 255, .7);
+
+  /* Types Colors */
+  --type-bug: #7CB342;
+  --type-grass: #4CAF50;
+  --type-fire: #f44336;
+  --type-flying: #607B8B;
+  --type-ghost: #673AB7;
+  --type-ice: #00BCD4;
+  --type-water: #2196f3;
+  --type-fighting: #795548;
+  --type-rock: #3E2723;
+  --type-electric: #FF9800;
+  --type-fairy: #E91E63;
+  --type-psychic: #9C27B0;
+  --type-dark: #424242;
+  --type-dragon: #3F51B5;
+  --type-ground: #5D4037;
+  --type-normal: #546e7a;
+  --type-poison: #7B1FA2;
+  --type-steel: #616161;
+
+  /* MDC Overrides */
+  --mdc-circular-progress-active-indicator-color: var(--type-fairy);
+}
+
+body.dark {
+  color: #efefef;
+  --app-background-color: #424242;
+  --card-background-color: #212121;
+  --h1-color: #ccc;
+  --hexagon-text-color: #ccc;
+  --hexagon-bg-color: rgb(13, 71, 161);
+  --app-text-color: #bbb;
+  --menu-text-color: #ccc;
+  --toolbar-color: #212121;
+  --link-color: #09f;
+  --white-high-opacity: rgba(0, 0, 0, .7);
+  --button-bg-secondary: #212121;
+
+  /* Type Colors */
+  --type-fighting: #a1887f;
+  --type-poison: #EA80FC;
+  --type-rock: #A1887F;
+  --type-normal: #FAFAFA;
+  --type-dark: #BDBDBD;
+  --type-psychic: #E040FB;
+  --type-ghost: #9575CD;
+  --type-dragon: #7986CB;
+  --type-ground: #8D6E63;
+  --type-steel: #9e9e9e;
+}
+
+body.dark a.activebutton {
+  text-decoration: underline !important;
+}
+
+body.dark .mat-tab-label, body.dark .mat-tab-link {
+  color: rgba(255, 255, 255, 0.87);
+}
+
+body.dark img.icon {
+  filter: brightness(2);
+}
+
+body.dark mat-slide-toggle, body.dark .mat-mdc-slide-toggle, body.dark .mdc-form-field {
+  color: var(--app-text-color) !important;
+}
+
+body.dark .mdc-tab__text-label {
+  color: var(--app-text-color) !important;
+}
+
+body.dark .mat-mdc-paginator-icon {
+  fill: var(--app-text-color) !important;
+}
+
+body.dark button[mat-icon-button]:hover .mat-mdc-paginator-icon {
+  background-color: var(--white-high-opacity);
+}
+
+body.dark button[mat-icon-button][disabled] .mat-mdc-paginator-icon {
+  /* fill: blue !important; */
+  opacity: 0.5;
+}
+
+mat-paginator {
+  background-color: var(--card-background-color) !important;
+  color: var(--app-text-color) !important;
+}
+
+h1 {
+  color: var(--h1-color);
+}
+
+dialog {
+  min-width: 300px;
+}
+
+dialog h1.centered {
+  font-size: 18pt;
+  font-weight: normal;
+  text-align: center;
+  margin-top: -2px;
+  text-decoration: underline;
+}
+
+a {
+  color: var(--link-color);
+}
+
+mat-card {
+  margin: 24px;
+  padding: 16px;
+  background-color: var(--card-background-color) !important;
+  color: var(--app-text-color) !important;
+}
+
+mat-card h1, collapsible-card h1 {
+  color: var(--h1-color) !important;
+  font-size: 22px !important;
+}
+
+mat-drawer {
+  background-color: var(--card-background-color) !important;
+}
+
+mat-drawer-content {
+  background-color: var(--app-background-color) !important;
+}
+
+mat-icon {
+  vertical-align: middle; /* Unless overridden */
+}
+
+button sprite-item {
+  vertical-align: middle;
+}
+
+button mat-icon {
+  margin-right: 4px;
+}
+
+mat-select {
+  color: var(--app-text-color);
+}
+
+button[mat-icon-button] {
+  border: none;
+  background: transparent;
+  transition: all 0.3s;
+  height: 36px;
+  cursor: pointer;
+}
+
+button[mat-icon-button]:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+button[mat-icon-button]:focus {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+body.dark button[mat-icon-button]:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark button[mat-icon-button]:focus {
+  background-color: rgba(255, 255, 255, 0.4); 
+}
+
+button[mat-button] {
+  background-color: var(--button-bg);
+  color: var(--button-text-color);
+  font-size: 9pt;
+  margin-bottom: 24px;
+  border: none;
+  box-shadow: #333 0px 1px 3px 0px;
+  cursor: pointer;
+  margin-bottom: 24px;
+  margin-left: 0.29em;
+  margin-right: 0.29em;
+  min-width: 5.14em;
+  padding: 0.7em 0.57em;
+  border-radius: 3px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  user-select: none;
+}
+
+
+button[secondary] {
+  background-color: var(--button-bg-secondary);
+  border: solid 1px var(--button-text-color);
+}
+
+button[mat-button]:hover {
+  border-radius: 7px;
+  box-shadow: #333 0px 3px 9px 0px;
+}
+
+body.dark button[mat-button]:hover {
+  border-radius: 7px;
+  box-shadow: #333 0px 1px 9px 2px;
+}
+
+button[mat-button]:focus {
+  border-radius: 5px;
+  box-shadow: #333 0px 1px 6px 1px;
+}
+
+button[mat-button][disabled] {
+  cursor: initial;
+  box-shadow: none;
+  background-color: #999;
+}
+
+button[mat-icon-button] {
+  color: var(--app-text-color);
+}
+
+.bug {
+  border-color: var(--type-bug) !important;
+}
+
+.grass {
+  border-color: var(--type-grass) !important;
+}
+
+.fire {
+  border-color: var(--type-fire) !important;
+}
+
+.flying {
+  border-color: var(--type-flying) !important;
+}
+
+.ghost {
+  border-color: var(--type-ghost) !important;
+}
+
+.ice {
+  border-color: var(--type-ice) !important;
+}
+
+.water {
+  border-color: var(--type-water) !important;
+}
+
+.rock {
+  border-color: var(--type-rock) !important
+}
+
+.electric {
+  border-color: var(--type-electric) !important
+}
+
+.fairy {
+  border-color: var(--type-fairy) !important
+}
+
+.psychic {
+  border-color: var(--type-psychic) !important
+}
+
+.dark {
+  border-color: var(--type-dark) !important
+}
+
+.dragon {
+  border-color: var(--type-dragon) !important
+}
+
+.fighting {
+  border-color: var(--type-fighting) !important
+}
+
+.ground {
+  border-color: var(--type-ground) !important
+}
+
+.normal {
+  border-color: var(--type-normal) !important
+}
+
+.poison {
+  border-color: var(--type-poison) !important
+}
+
+span.type.Bug {
+    color: var(--type-bug);
+}
+
+span.type.Dark {
+    color: var(--type-dark)
+}
+
+span.type.Dragon {
+    color: var(--type-dragon);
+}
+
+span.type.Electric {
+    color: var(--type-electric);
+}
+
+span.type.Fairy {
+    color: var(--type-fairy);
+}
+
+span.type.Fighting {
+    color: var(--type-fighting);
+}
+
+span.type.Fire {
+    color: var(--type-fire);
+}
+
+span.type.Flying {
+    color: var(--type-flying);
+}
+
+span.type.Ghost {
+    color: var(--type-ghost);
+}
+
+span.type.Grass {
+    color: var(--type-grass);
+}
+
+span.type.Ground {
+    color: var(--type-ground);
+}
+
+span.type.Ice {
+    color: var(--type-ice);
+}
+
+span.type.Normal {
+    color: var(--type-normal);
+}
+
+span.type.Poison {
+    color: var(--type-poison);
+}
+
+span.type.Psychic {
+    color: var(--type-psychic);
+}
+
+span.type.Rock {
+    color: var(--type-rock);
+}
+
+span.type.Steel {
+    color: var(--type-steel);
+}
+
+span.type.Water {
+    color: var(--type-water);
+}
+
+.typebg.Bug {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-bug), var(--type-bug)) no-repeat;
+}
+
+.typebg.Dark {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-dark), var(--type-dark)) no-repeat;
+}
+
+.typebg.Dragon {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-dragon), var(--type-dragon)) no-repeat;
+}
+
+.typebg.Electric {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-electric), var(--type-electric)) no-repeat;
+}
+
+.typebg.Fairy {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-fairy), var(--type-fairy)) no-repeat;
+}
+
+.typebg.Fighting {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-fighting), var(--type-fighting)) no-repeat;
+}
+
+.typebg.Fire {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-fire), var(--type-fire)) no-repeat;
+}
+
+.typebg.Flying {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-flying), var(--type-flying)) no-repeat;
+}
+
+.typebg.Ghost {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-ghost), var(--type-ghost)) no-repeat;
+}
+
+.typebg.Grass {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-grass), var(--type-grass)) no-repeat;
+}
+
+.typebg.Ground {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-ground), var(--type-ground)) no-repeat;
+}
+
+.typebg.Ice {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-ice), var(--type-ice)) no-repeat;
+}
+
+.typebg.Normal {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-normal), var(--type-normal)) no-repeat;
+}
+
+.typebg.Poison {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-poison), var(--type-poison)) no-repeat;
+}
+
+.typebg.Psychic {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-psychic), var(--type-psychic)) no-repeat;
+}
+
+.typebg.Rock {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-rock), var(--type-rock)) no-repeat;
+}
+
+.typebg.Steel {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-steel), var(--type-steel)) no-repeat;
+}
+
+.typebg.Water {
+  background: 
+linear-gradient(var(--white-high-opacity), var(--white-high-opacity)) no-repeat,
+  linear-gradient(var(--type-water), var(--type-water)) no-repeat;
+}
+
+.VAST_OCEAN {
+  --background-floor: url('/images/sprites/icons/voyage-vastocean-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-vastocean-floor.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-vastocean-wall.svg');
+}
+
+.DYNAMIC_VOLCANO {
+  --background-floor: url('/images/sprites/icons/voyage-dynamicvolcano-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-dynamicvolcano-floor.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-dynamicvolcano-ceil.svg');
+}
+
+.GRAND_UNDERGROUND {
+  --background-floor: url('/images/sprites/icons/voyage-grandunderground-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-grandunderground-wall.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-grandunderground-ceil.svg');
+}
+
+.ULTRA_WORMHOLE {
+  --background-floor: url('/images/sprites/icons/voyage-ultrawormhole.floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-ultrawormhole.floor.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-ultrawormhole-ceil.svg');
+}
+
+.BUTTERFLY_GARDENS {
+  --background-floor: url('/images/sprites/icons/voyage-butterflygardens-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-butterflygardens-floor.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-butterflygardens-ceil.svg');
+}
+
+.CARBON_OBSERVATORY {
+  --background-floor: url('/images/sprites/icons/voyage-carbonobservatory-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-carbonobservatory-wall.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-carbonobservatory-ceil.svg');
+}
+
+.ABANDONED_TUNNEL {
+  --background-floor: url('/images/sprites/icons/voyage-abandonedtunnel-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-abandonedtunnel-floor.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-abandonedtunnel-ceil.svg');
+}
+
+.LUSH_ISLAND {
+  --background-floor: url('/images/sprites/icons/voyage-lushisland-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-lushisland-floor.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-lushisland-ceil.svg');
+}
+
+.GALARIANCROSSINGS {
+  --background-floor: url('/images/sprites/icons/voyage-galariancrossings-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-galariancrossings-floor.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-galariancrossings-ceil.svg');
+}
+
+.MISTYWOODS {
+  --background-floor: url('/images/sprites/icons/voyage-mistywoods-floor.svg');
+  --background-wall: url('/images/sprites/icons/voyage-mistywoods-wall.svg');
+  --background-ceil: url('/images/sprites/icons/voyage-mistywoods-ceil.svg');
+}
+
+dialog {
+  background: var(--app-background-color);
+  color: var(--app-text-color);
+  border: solid 3px #555;
+  box-shadow: #333 0px 14px 44px 0px;
+  border-radius: 12px;
+}
+
+body.dark dialog {
+  border: none;
+  box-shadow: black 0px 0px 47px 8px;
+}
+
+img.icon {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0); /* Make it black */
+}
+
+img.icon.leaflet-marker-icon {
+  filter: initial;
+}
+
+/** Only for SVG icons **/
+.leaflet-marker-icon.icon {
+  background-color: var(--hexagon-bg-color);
+  border: solid 1px var(--hexagon-text-color);
+  border-radius: 30px;
+  padding: 7px !important;
+}
+
+img.right {
+  margin-left: 8px;
+}
+
+dialog[open]::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  /** Does not work today */
+  transition: backdrop-filter .5s ease;
+}
+
+.mat-stepper-horizontal {
+  background: none !important;
+}
+
+.mat-step-header .mat-step-label.mat-step-label-active {
+  color: var(--app-text-color);
+}
+
+mat-slide-toggle {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  mat-card {
+    margin:2px;
+    margin-bottom: 16px;
+  }
+}
+
+.mat-mdc-paginator-range-label {
+  margin: 0px !important;
+  font-size: 8pt;
+}
+
+dialog .mat-mdc-paginator-range-label {
+  width: 86px;
+}
+
+/** In forced-colors mode, there are no shadows. */
+@media (forced-colors: active) {
+  button[mat-button] {
+    border: solid 2px var(--button-text-color);
+  }
+  button[mat-button]:hover {
+    border-color: var(--type-fire);
+    text-decoration: underline;
+  }
+  button[mat-button]:focus {
+    border-color: var(--type-electric);
+    text-decoration: underline;
+  }
+  
+  mat-icon:hover, mat-icon:focus {
+    color: var(--type-fire);
+    text-decoration: underline;
+  }
+}
+
+/* Copy & Paste mat-chip styles. They do not seem to load in localhost. */
+.mat-chip{position:relative;box-sizing:border-box;-webkit-tap-highlight-color:transparent;transform:translateZ(0);border:none;-webkit-appearance:none;-moz-appearance:none}.mat-standard-chip{transition:box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);display:inline-flex;padding:7px 12px;border-radius:16px;align-items:center;cursor:default;min-height:32px;height:1px}._mat-animation-noopable.mat-standard-chip{transition:none;animation:none}.mat-standard-chip .mat-chip-remove{border:none;-webkit-appearance:none;-moz-appearance:none;padding:0;background:none}.mat-standard-chip .mat-chip-remove.mat-icon,.mat-standard-chip .mat-chip-remove .mat-icon{width:18px;height:18px;font-size:18px}.mat-standard-chip::after{top:0;left:0;right:0;bottom:0;position:absolute;border-radius:inherit;opacity:0;content:"";pointer-events:none;transition:opacity 200ms cubic-bezier(0.35, 0, 0.25, 1)}.mat-standard-chip:hover::after{opacity:.12}.mat-standard-chip:focus{outline:none}.mat-standard-chip:focus::after{opacity:.16}.cdk-high-contrast-active .mat-standard-chip{outline:solid 1px}.cdk-high-contrast-active .mat-standard-chip:focus{outline:dotted 2px}.cdk-high-contrast-active .mat-standard-chip.mat-chip-selected{outline-width:3px}.mat-standard-chip.mat-chip-disabled::after{opacity:0}.mat-standard-chip.mat-chip-disabled .mat-chip-remove,.mat-standard-chip.mat-chip-disabled .mat-chip-trailing-icon{cursor:default}.mat-standard-chip.mat-chip-with-trailing-icon.mat-chip-with-avatar,.mat-standard-chip.mat-chip-with-avatar{padding-top:0;padding-bottom:0}.mat-standard-chip.mat-chip-with-trailing-icon.mat-chip-with-avatar{padding-right:8px;padding-left:0}[dir=rtl] .mat-standard-chip.mat-chip-with-trailing-icon.mat-chip-with-avatar{padding-left:8px;padding-right:0}.mat-standard-chip.mat-chip-with-trailing-icon{padding-top:7px;padding-bottom:7px;padding-right:8px;padding-left:12px}[dir=rtl] .mat-standard-chip.mat-chip-with-trailing-icon{padding-left:8px;padding-right:12px}.mat-standard-chip.mat-chip-with-avatar{padding-left:0;padding-right:12px}[dir=rtl] .mat-standard-chip.mat-chip-with-avatar{padding-right:0;padding-left:12px}.mat-standard-chip .mat-chip-avatar{width:24px;height:24px;margin-right:8px;margin-left:4px}[dir=rtl] .mat-standard-chip .mat-chip-avatar{margin-left:8px;margin-right:4px}.mat-standard-chip .mat-chip-remove,.mat-standard-chip .mat-chip-trailing-icon{width:18px;height:18px;cursor:pointer}.mat-standard-chip .mat-chip-remove,.mat-standard-chip .mat-chip-trailing-icon{margin-left:8px;margin-right:0}[dir=rtl] .mat-standard-chip .mat-chip-remove,[dir=rtl] .mat-standard-chip .mat-chip-trailing-icon{margin-right:8px;margin-left:0}.mat-chip-ripple{top:0;left:0;right:0;bottom:0;position:absolute;pointer-events:none;border-radius:inherit;overflow:hidden}.mat-chip-list-wrapper{display:flex;flex-direction:row;flex-wrap:wrap;align-items:center;margin:-4px}.mat-chip-list-wrapper input.mat-input-element,.mat-chip-list-wrapper .mat-standard-chip{margin:4px}.mat-chip-list-stacked .mat-chip-list-wrapper{flex-direction:column;align-items:flex-start}.mat-chip-list-stacked .mat-chip-list-wrapper .mat-standard-chip{width:100%}.mat-chip-avatar{border-radius:50%;justify-content:center;align-items:center;display:flex;overflow:hidden;object-fit:cover}input.mat-chip-input{width:150px;margin:4px;flex:1 0 150px}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Pokémon of the Week</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex"/>
+  <link rel="icon" href="images/null.png">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
+  <title>Pokémon of the Week</title>
+  <meta name="description" content="A game of collecting and collaborating">
+  <base href="/">
+
+  <!-- See https://goo.gl/OOhYW5 -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- See https://goo.gl/qRE0vM -->
+  <meta name="theme-color" content="#3f51b5">
+
+  <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Pokémon of the Week">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Pokémon of the Week">
+
+  <!-- Homescreen icons -->
+  <link rel="apple-touch-icon" href="images/manifest/icon-48x48.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="images/manifest/icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="96x96" href="images/manifest/icon-96x96.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="images/manifest/icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/manifest/icon-192x192.png">
+
+  <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+  <meta name="msapplication-TileImage" content="images/manifest/icon-144x144.png">
+  <meta name="msapplication-TileColor" content="#3f51b5">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- scheduler.yield -->
+  <!-- https://developer.chrome.com/en/blog/introducing-scheduler-yield-origin-trial/ -->
+  <meta http-equiv="origin-trial" content="A09pBSOkbb3QRcXELEm+CKc3mduOuMongCMO3ZX8ea/odyWxNZGUIfGK7skOQHw1HJwL84pbfO78VU5IhxPETgUAAAB/eyJvcmlnaW4iOiJodHRwczovL3Bva2Vtb24tb2YtdGhlLXdlZWsuZmlyZWJhc2VhcHAuY29tOjQ0MyIsImZlYXR1cmUiOiJTY2hlZHVsZXJZaWVsZCIsImV4cGlyeSI6MTcwNDQxMjc5OSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+
+  <script>
+    // https://github.com/cdiggins/myna-parser/issues/15
+  var exports = {}
+  </script>
+  <script src="https://unpkg.com/myna-parser@2.5.1/myna.js">
+  </script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+  crossorigin=""/>
+</head>
+<body class="mat-typography">
+  <app-root></app-root>
+  <script>
+    // Global function
+    function setDarkMode(isDark) {
+      if (isDark) {
+        document.getElementsByTagName('body')[0].classList.add('dark')
+      } else {
+        document.getElementsByTagName('body')[0].classList.remove('dark')
+      }
+    }
+    if (localStorage['darktheme'] === 'true' || localStorage['darktheme'] === true) {
+      setDarkMode(true)
+    }
+    if (!('darktheme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      setDarkMode(true)
+    }
+  </script>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+  crossorigin=""></script>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+</body>
+</html>

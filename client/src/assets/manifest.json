@@ -1,0 +1,61 @@
+{
+  "id": "pokemon-of-the-week",
+  "start_url": "/",
+  "name": "Pokémon of the Week",
+  "short_name": "PotW",
+  "description": "Collect and discover Pokémon",
+  "icons": [
+    {
+      "src": "images/null144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone",
+  "display_override": ["window-controls-overlay"],
+  "theme_color": "#3f51b5",
+  "background_color": "#3f51b5",
+  "protocol_handlers": [{
+    "protocol": "web+raid",
+    "url": "/raids?%s"
+  }, {
+    "protocol": "web+trade",
+    "url": "/trade?%s"
+  }, {
+    "protocol": "web+voyage",
+    "url": "/multiplayer/voyages?%s"
+  }],
+  "screenshots": [{
+    "src": "/images/screenshot1.png",
+    "type": "image/png",
+    "sizes": "339x731"
+  }, {
+    "src": "/images/screenshot2.png",
+    "type": "image/png",
+    "sizes": "337x729"
+  }],
+  "shortcuts": [{
+    "name": "Raids",
+    "short_name": "Raids",
+    "description": "Create, view, and join raids",
+    "url": "/raids",
+    "icons": [{
+      "src": "/images/potw-item-wishingpiece96.png",
+      "sizes": "96x96"
+    }]
+  }],
+  "file_handlers": [{
+    "action": "/dowsing",
+    "accept": {
+      "text/plain": [".pkmnegg", ".pkmn", ".potw"],
+      "text/*": [".pkmnegg", ".pkmn", ".potw"],
+      "application/vnd.pokemon-of-the-week+text": [".pkmnegg", ".pkmn", ".potw"]
+    },
+    "icons": [{
+      "src": "images/null144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }],
+    "launch_type": "single-client"
+  }]
+}
