@@ -41,6 +41,9 @@ import { PickerPokemonComponent } from './forms/picker-pokemon/picker-pokemon.co
 
 import { CollapsibleCardComponent } from './layout/collapsible-card/collapsible-card.component';
 
+import { ScaffoldingComponent } from './scaffolding/scaffolding.component';
+import { SplashscreenComponent } from './splashscreen/splashscreen.component';
+
 import { BattlePlayersComponent } from './ui/battle-players/battle-players.component';
 import { BattleRaidComponent } from './ui/battle-raid/battle-raid.component';
 import { BinocularsComponent } from './ui/binoculars/binoculars.component';
@@ -123,6 +126,8 @@ import { VoyagesMeterComponent } from './ui/voyages-meter/voyages-meter.componen
     PokemonDialogComponent,
     DialogItemsComponent,
     PickerPokemonComponent,
+    ScaffoldingComponent,
+    SplashscreenComponent,
   ],
   imports: [
     BrowserModule,

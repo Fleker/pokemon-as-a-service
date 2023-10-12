@@ -1,0 +1,42 @@
+<div #splash class="container">
+  <div id="bar"></div>
+  <div class="sky">
+    <h1>Pokémon of the Week</h1>
+    <button mat-button id='btn-login' raised (click)="login()" *ngIf="needLogin">
+      Login to Start
+    </button>
+    <app-constellation></app-constellation>
+    <br>
+    <!-- <img class="animate-soar" src='/images/sprites/pokemon/potw-898.png' /> -->
+    <img class="animate rock legend1" src='/images/sprites/pokemon/potw-745-midday.png' />
+    <img class="animate rock legend2" src='/images/sprites/pokemon/potw-745-midnight.png' />
+  </div>
+  <div class="ground">
+    <img class="ambient steel" src='/images/sprites/pokemon/potw-900.png'>
+    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-571-hisuian.png'>
+    <img class="ambient steel d2" src='/images/sprites/pokemon/potw-901.png'>
+    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-628-hisuian.png'>
+    <img class="ambient steel" src='/images/sprites/pokemon/potw-899.png'>
+    <br>
+    <img class="animate-shake" src="/images/sprites/pokemon/potw-877.png" />
+    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-077-galarian.png" />
+    <img class="animate-shake d2" src="/images/sprites/pokemon/potw-845.png" />
+    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-077-galarian.png" />
+    <img class="animate-shake" src="/images/sprites/pokemon/potw-877.png" />
+    <br>
+    <img class='small' src='/images/sprites/items/potw-item-teacupunremarkable.png'>
+    <img class='small' src='/images/sprites/items/potw-item-punchingglove.png'>
+    <img class='small' src='/images/sprites/items/potw-item-teacupmasterpiece.png'>
+  </div>
+  <br>
+
+  <br>
+  <div #droppings class="droppings"></div>
+  <h3 class="version">{{appVersion}}</h3>
+  <h3 class="tip">
+    <em>Did you know?</em>
+    <br>
+    <span id="tip">{{selectedTip}}</span>
+  </h3>
+  <mat-spinner [diameter]="64"></mat-spinner>
+</div>

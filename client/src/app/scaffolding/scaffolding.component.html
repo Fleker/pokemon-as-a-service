@@ -1,0 +1,207 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav {{drawerCollapsed}}" [mode]="drawerMode" opened="{{drawerOpen}}">
+    <nav [class.next]="engagement.isNextUi">
+      <mat-icon (click)="drawerCollapsed = !drawerCollapsed" class="drawer-x">
+        close
+      </mat-icon>
+      <strong>
+        Pokémon
+      </strong>
+      <a routerLink="/pokemon/collection" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-pokeball.svg" />
+        <span class="label">Pokémon</span>
+      </a>
+      <a routerLink="/pokemon/eggs" *ngIf="gate.eggs" routerLinkActive="activebutton">
+        <span [matBadge]="engagement.eggsToHatch" [matBadgeHidden]="engagement.eggsToHatch === 0" matBadgeOverlap="true" matBadgePosition="after">
+          <img class="icon" src="/images/sprites/icons/menu-egg.svg" />
+          <span class="label">Eggs</span>
+        </span>
+      </a>
+      <a routerLink="/pokemon/bank" *ngIf="gate.bank" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-bank.svg" />
+        <span class="label">Bank</span>
+      </a>
+      <a routerLink="/pokemon/release" routerLinkActive="activebutton">
+        <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.release > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
+          <img class="icon" src="/images/sprites/icons/menu-release.svg" />
+          <span class="label">Release</span>
+        </span>
+      </a>
+      <a routerLink="/pokemon/pokedex" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-pokedex.svg" />
+        <span class="label">Pokédex</span>
+      </a>
+      <a routerLink="/pokemon/catch" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-encounters.svg" />
+        <span class="label">Encounters</span>
+      </a>
+      <a routerLink="/pokemon/deleter" routerLinkActive="activebutton" *ngIf="gate.hoenn">
+        <img class="icon" src="/images/sprites/icons/menu-deleter.svg" />
+        <span class="label">Move Deleter</span>
+      </a>
+      <a routerLink="/pokemon/tutor" routerLinkActive="activebutton" *ngIf="gate.hoenn">
+        <img class="icon" src="/images/sprites/icons/menu-tutor.svg" />
+        <span class="label">Move Tutor</span>
+      </a>
+      <strong>Items</strong>
+      <a routerLink="/items/bag" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-bag.svg" />
+        <span class="label">Bag</span>
+      </a>
+      <a routerLink="/items/mart" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-mart.svg" />
+        <span class="label">Mart</span>
+      </a>
+      <a routerLink="/items/bazaar" routerLinkActive="activebutton" *ngIf="gate.johto">
+        <img class="icon" src="/images/sprites/icons/menu-bazaar.svg" />
+        <span class="label">Bazaar</span>
+      </a>
+      <a routerLink="/items/craft" routerLinkActive="activebutton" *ngIf="gate.craft">
+        <img class="icon" src="/images/sprites/icons/menu-crafting.svg" />
+        <span class="label">Crafting</span>
+      </a>
+      <strong>Multiplayer</strong>
+      <a routerLink="/multiplayer/nursery" routerLinkActive="activebutton" *ngIf="gate.eggs">
+        <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.daycare > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
+          <img class="icon" src="/images/sprites/icons/menu-daycare.svg" />
+          <span class="label">Day Care</span>
+        </span>
+      </a>
+      <a routerLink="/multiplayer/gts" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-gts.svg" />
+        <span class="label">Global Trade System</span>
+      </a>
+      <a routerLink="/multiplayer/wonder" routerLinkActive="activebutton" *ngIf="engagement.isNextUi">
+        <img class="icon" src="/images/sprites/icons/menu-wonder.svg" />
+        <span class="label">Wonder Trade</span>
+      </a>
+      <a routerLink="/multiplayer/trade" routerLinkActive="activebutton" *ngIf="gate.kanto">
+        <img class="icon" src="/images/sprites/icons/menu-trade.svg" />
+        <span class="label">Private Trade</span>
+      </a>
+      <a routerLink="/multiplayer/battle" routerLinkActive="activebutton">
+        <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.battle > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
+          <img class="icon" src="/images/sprites/icons/menu-battle.svg" />
+          <span class="label">Battle Stadium</span>
+        </span>
+      </a>
+      <a routerLink="/multiplayer/raids" routerLinkActive="activebutton" *ngIf="gate.raids">
+        <span matBadge="{{completedUnclaimedRaids}}" [matBadgeHidden]="completedUnclaimedRaids === 0" matBadgeOverlap="true" matBadgePosition="after">
+          <img class="icon" src="/images/sprites/icons/menu-raids.svg" />
+          <span class="label">Raids</span>
+          </span>
+      </a>
+      <a routerLink="/multiplayer/voyages" routerLinkActive="activebutton" *ngIf="gate.voyages">
+        <span matBadge="{{completedUnclaimedVoyages}}" [matBadgeHidden]="completedUnclaimedVoyages === 0" matBadgeOverlap="true" matBadgePosition="after">
+          <img class="icon" src="/images/sprites/icons/menu-voyages.svg" />
+          <span class="label">Voyages</span>
+        </span>
+      </a>
+      <!-- <a routerLink="/multiplayer/underground">Underground</a> -->
+      <strong>Secret Base</strong>
+      <a routerLink="/base/gamecorner" routerLinkActive="activebutton">
+        <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.gamecorner > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
+          <img class="icon" src="/images/sprites/icons/menu-games.svg" />
+          <span class="label">Game Corner</span>
+        </span>
+      </a>
+      <a routerLink="/base/farm" routerLinkActive="activebutton" *ngIf="gate.farm">
+        <span [matBadge]="engagement.berriesToPlot" [matBadgeHidden]="engagement.berriesToPlot === 0" matBadgeOverlap="true" matBadgePosition="after">
+          <img class="icon" src="/images/sprites/icons/menu-farm.svg" />
+          <span class="label">Berry Farm</span>
+        </span>
+      </a>
+      <a routerLink="/base/quests" routerLinkActive="activebutton">
+        <span matBadge="{{completedUnclaimedQuests}}" [matBadgeHidden]="completedUnclaimedQuests === 0" matBadgeOverlap="true" matBadgePosition="after">
+          <img class="icon" src="/images/sprites/icons/menu-quests.svg" />
+          <span class="label">Quests</span>
+        </span>
+    </a>
+      <a routerLink="/base/achievements" routerLinkActive="activebutton">
+          <img class="icon" src="/images/sprites/icons/menu-achievements.svg" />
+          <span class="label">{{questLabel}}</span>
+      </a>
+      <a routerLink="/base/research" routerLinkActive="activebutton">
+        <span *ngIf="!completedUnclaimedResearch" matBadge="·" [matBadgeHidden]="engagement.timeUntil.research > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
+          <img class="icon" src="/images/sprites/icons/menu-research.svg" />
+          <span class="label">Research</span>
+        </span>
+        <span *ngIf="completedUnclaimedResearch" matBadge="{{completedUnclaimedResearch}}" matBadgeOverlap="true" matBadgePosition="after">
+          <img class="icon" src="/images/sprites/icons/menu-research.svg" />
+          <span class="label">Research</span>
+        </span>
+      </a>
+      <strong>Account</strong>
+      <a routerLink="/profile/trainer" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-trainer.svg" />
+        <span class="label">Trainer Card</span>
+      </a>
+      <a routerLink="/help/" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-about.svg" />
+        <span class="label">About</span>
+      </a>
+      <a routerLink="/admin/" routerLinkActive="activebutton" *ngIf="engagement.isAdmin">
+        <span matBadge="{{cronsViolatingSlo}}" [matBadgeHidden]="!cronsViolatingSlo">
+          <img class="icon" src="/images/sprites/icons/menu-admin.svg" />
+          <span class="label">Admin</span>
+        </span>
+      </a>
+      <a routerLink="/chat/" routerLinkActive="activebutton">
+        <img class="icon" src="/images/sprites/icons/menu-pokegear.svg" />
+        <span class="label">PokéGear</span>
+      </a>
+      <a routerLink="/multiplayer/battlesim/" routerLinkActive="activebutton" *ngIf="engagement.isNextUi">
+        <!-- <img class="icon" src="/images/sprites/icons/menu-battle.svg" /> -->
+        <span class="label"><mat-icon>science</mat-icon>Battle Simulator</span>
+      </a>
+    </nav>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar class="{{pwaClass}}">
+      <button mat-icon-button aria-label="Menu icon" (click)="drawerCollapsed = !drawerCollapsed">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="app-name">Pokémon of the Week</span>
+      <span class="example-spacer"></span>
+      <sprite-pokemon *ngIf="buddy" badge="{{buddy}}" class="small" [dialog]="true" [tag]="true" matBadge="{{buddyEmotion}}" matBadgeSize="small" matBadgePosition="below">
+      </sprite-pokemon>
+      <button-currency></button-currency>
+      <button-timers></button-timers>
+      <button-events></button-events>
+      <button-location></button-location>
+      <button-notifications></button-notifications>
+      <button mat-icon-button aria-label="Refresh" *ngIf="firestoreManual" (click)="refreshUser()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <button mat-icon-button aria-label="Logout" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+    <br>
+  </div>
+  <div class="achievement-toast" #atoast></div>
+  <div class="achievement-event">
+    <ul>
+      <li *ngFor="let event of achievementEvents">
+        <sprite-item *ngIf="event.item" item="{{event.item}}"></sprite-item>
+        <sprite-pokemon class="small" *ngIf="event.pokemon" badge="{{event.pokemon}}"></sprite-pokemon>
+        <span class="count" *ngIf="event.count">×{{event.count}}</span> 
+        <span class="label">{{event.label}}</span>
+        <small *ngIf="event.new">{{event.description}}</small>
+      </li>
+    </ul>
+  </div>
+  <!-- Here is our page content -->
+  <router-outlet></router-outlet>
+  <!-- Here are our dialogs -->
+  <dialog #dialog>
+    <dialog-pokedex #ddex></dialog-pokedex>
+  </dialog>
+  <dialog #movedialog class="movedex">
+    <dialog-movedex #dmove></dialog-movedex>
+  </dialog>
+  <dialog #itemdialog>
+    <dialog-items #ditem></dialog-items>
+  </dialog>
+</mat-drawer-container>

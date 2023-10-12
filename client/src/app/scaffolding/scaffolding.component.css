@@ -1,0 +1,265 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-sidenav-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.example-sidenav {
+  padding: 20px;
+  padding-right: 0px;
+}
+
+mat-drawer {
+  width: 256px;
+  transition: all 0.3s;
+}
+
+mat-drawer-container, mat-drawer {
+  height: 100vh;
+}
+
+mat-drawer.false {
+  width: 72px !important;
+  overflow-x: hidden;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+mat-drawer.false strong, mat-drawer.false span.label {
+  display: none;
+}
+
+mat-drawer img {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+nav img.icon {
+  display: initial;
+}
+
+nav a {
+  /* Make these transparent so that hover fx do not push item */
+  border-top: solid 1px #2196f300;
+  border-left: solid 1px #2196f300;
+  border-bottom: solid 1px #2196f300;
+  transition: all 0.1s;
+}
+
+nav a.activebutton {
+  background-color: var(--hexagon-bg-color);
+  border-top: solid 1px #2196f3;
+  border-left: solid 1px #2196f3;
+  border-bottom: solid 1px #2196f3;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  text-decoration: none !important;
+}
+
+nav a:hover {
+  /* background-color: var(--hexagon-bg-color); */
+  border-top: solid 1px #2196f3;
+  border-left: solid 1px #2196f3;
+  border-bottom: solid 1px #2196f3;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  text-decoration: none !important;
+}
+
+mat-toolbar {
+  background-color: var(--toolbar-color);
+  color: var(--toolbar-text-color);
+}
+
+/* See https://web.dev/window-controls-overlay/ */
+@media (display-mode: window-controls-overlay) {
+  /* React on display mode changes. */ 
+  mat-toolbar {
+    position: fixed;
+    left: env(titlebar-area-x, 0);
+    top: env(titlebar-area-y, 0);
+    width: env(titlebar-area-width, 100%);
+    /* height: env(titlebar-area-height, 64px); */
+    -webkit-app-region: drag;
+    app-region: drag;
+    height: 28px;
+    background: linear-gradient(90deg, var(--card-background-color) 0%, var(--card-background-color) 80%, rgba(63,81,181,1) 100%);
+  }
+
+  mat-toolbar button, mat-toolbar sprite-pokemon {
+    /* margin-left: 240px; */
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
+  }
+
+  mat-toolbar button, button-currency, button-timers, button-events, button-location, button-notifications {
+    height: 24px;
+    -webkit-app-region: no-drag;
+    app-region: no-drag;
+  }
+
+  mat-toolbar span {
+    font-size: 13pt;
+  }
+
+  mat-drawer.mat-drawer-opened {
+    margin-top: 28px;
+  }
+}
+
+mat-toolbar button[mat-icon-button] {
+  color: var(--toolbar-text-color);
+}
+
+mat-drawer a {
+  line-height: 34px;
+  color: var(--menu-text-color);
+  text-decoration: none;
+  padding: 0 16px;
+}
+
+button-currency, button-timers, button-events, button-location, button-notifications, mat-toolbar button {
+  border: solid 1px rgba(0, 0, 0, 0);
+  border-radius: 4px;
+}
+
+button-currency:hover, button-timers:hover, button-events:hover, button-location:hover, button-notifications:hover, mat-toolbar button:hover {
+  border: solid 1px #2196f3;
+  background-color: var(--hexagon-bg-color);
+}
+
+nav > a {
+  display: block;
+}
+
+.achievement-toast {
+  position: fixed;
+  top: -50px;
+  left: 16px;
+  background: var(--card-background-color);
+  border: solid 1px var(--menu-text-color);
+  color: var(--app-text-color);
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  z-index: 3;
+}
+
+@media (min-width: 800px) {
+  .achievement-toast {
+    left: 270px;
+  }
+}
+
+.achievement-toast.show {
+  top: 10px;
+}
+
+.achievement-event {
+  position: fixed;
+  top: 60px;
+  right: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-radius: 4px;
+  transition: all 0.3s;
+  z-index: 3;
+}
+
+.achievement-event li {
+  min-width: 220px;
+  display: block;
+  background: var(--card-background-color);
+  border: solid 1px var(--menu-text-color);
+  color: var(--app-text-color);
+  margin-bottom: 16px;
+  padding-left: 8px;
+  padding-bottom: 4px;
+  opacity: 0;
+  animation: fadeout 7s 1 linear;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+.achievement-event span.count, .achievement-event span.label {
+  display: inline-block;
+  margin-right: 16px;
+}
+
+.achievement-event small {
+  display: block;
+}
+
+.achievement-event sprite-item {
+  vertical-align: middle;
+}
+
+.achievement-event sprite-item {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+.drawer-x {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .app-name {
+    display: none;
+  }
+
+  .mat-drawer.true {
+    width: 100px;
+    position: initial;
+    visibility: initial !important;
+    display: initial !important;
+  }
+
+  .drawer-x {
+    display: block;
+  }
+}
+
+@media (min-width: 800px) {
+  dialog.movedex {
+    min-width: 40em;
+  }
+}
+
+hr {
+  opacity: 0.3;
+}
+
+@keyframes fadeout {
+  0% {
+    opacity: 0;
+    transform: translateX(220px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  90% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(220px);
+  }
+}
+
