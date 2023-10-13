@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-const { getAllPreEvolutions, getAllEvolutions } = require('../../functions/lib/shared/src/pokemon');
-const { datastore } = require('../../functions/lib/shared/src/pokemon');
+const { getAllPreEvolutions, getAllEvolutions } = require('../../../functions/lib/shared/src/pokemon');
+const { datastore } = require('../../../functions/lib/shared/src/pokemon');
 
 function obtainFamily(seed, prev, checked) {
   const set = new Set()

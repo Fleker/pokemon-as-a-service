@@ -1,7 +1,7 @@
 /**
  * @fileoverview Generator for Pokémon constants
  */
-const {TeamsBadge} = require('../../functions/lib/shared/src/badge2')
+const {TeamsBadge} = require('../../../functions/lib/shared/src/badge2')
 const validBadges = [
     // 'potw-201-a',
     // 'potw-201-b',

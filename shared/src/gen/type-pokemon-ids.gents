@@ -1,7 +1,7 @@
 /**
  * @fileoverview Generator for Pokémon constants
  */
-const {TeamsBadge} = require('../../functions/lib/shared/src/badge2')
+const {TeamsBadge} = require('../../../functions/lib/shared/src/badge2')
 const validBadges = []
 for (let i = 1; i <= 1017; i++) {
   validBadges.push(`${i}`)

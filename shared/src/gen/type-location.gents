@@ -1,4 +1,4 @@
-const {Globe} = require('../../functions/lib/shared/src/locations-list')
+const {Globe} = require('../../../functions/lib/shared/src/locations-list')
 
 const validLocales = Object.keys(Globe)
 const sortedLocales = Object.entries(Globe)

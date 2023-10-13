@@ -1,4 +1,4 @@
-const {ITEMS} = require('../../functions/lib/shared/src/items-list')
+const {ITEMS} = require('../../../functions/lib/shared/src/items-list')
 
 function generateTypeForPredicate(label, fn) {
   const filteredItems = Object.entries(ITEMS)

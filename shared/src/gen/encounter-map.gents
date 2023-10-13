@@ -1,7 +1,7 @@
-const {ENCOUNTERS, HOLD_ITEMS_5, HOLD_ITEMS_15, HOLD_ITEMS_50} = require('../../functions/lib/functions/src/encounter')
-const { Globe } = require('../../functions/lib/shared/src/locations-list')
-const { ITEMS } = require('../../functions/lib/shared/src/items-list')
-const { fertilizerPokemon } = require('../../functions/lib/shared/src/farming')
+const {ENCOUNTERS, HOLD_ITEMS_5, HOLD_ITEMS_15, HOLD_ITEMS_50} = require('../../../functions/lib/functions/src/encounter')
+const { Globe } = require('../../../functions/lib/shared/src/locations-list')
+const { ITEMS } = require('../../../functions/lib/shared/src/items-list')
+const { fertilizerPokemon } = require('../../../functions/lib/shared/src/farming')
 
 const pokemonMap = {}
 const conditionMap = {}

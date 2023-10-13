@@ -7,9 +7,6 @@ const settings = {timestampsInSnapshots: true};
 db.settings(settings);
 
 import * as admins from './admin'
-const stats = require('./stats')
-// Read-only
-export const admin_stats_cron = stats.admin_stats_cron
 // Modifies `items` via txn
 export const admin_dispense_cron = admins.admin_dispense_cron
 // Modifies `hiddenItemsFound` via txn

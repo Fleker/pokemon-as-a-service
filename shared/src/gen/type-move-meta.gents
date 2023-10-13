@@ -2,8 +2,8 @@
  * @fileoverview Description of this file.
  */
 
-const {Movepool} = require('../../functions/lib/shared/src/battle/movepool')
-const {datastore} = require('../../functions/lib/shared/src/pokemon')
+const {Movepool} = require('../../../functions/lib/shared/src/battle/movepool')
+const {datastore} = require('../../../functions/lib/shared/src/pokemon')
 
 const moves = Object.entries(Movepool)
 
