@@ -1,0 +1,74 @@
+{
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log"
+      ]
+    }
+  ],
+  "hosting": {
+    "public": "client/dist/client",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      { "source":"/service-worker.js", "headers": [{"key": "Cache-Control", "value": "no-cache"}] },
+      {
+        "source": "**/*.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+          }
+        ]
+      },
+      {
+        "source": "**/*.css",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+          }, {
+            "key": "Content-Type",
+            "value": "text/css"
+          }
+        ]
+      },
+      {
+        "source": "**/*.png",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=18144000"
+          }, {
+            "key": "Content-Type",
+            "value": "image/png"
+          }
+        ]
+      },
+      { "source":"**", "headers": [{"key": "Cache-Control", "value": "max-age=432000"}] }
+    ]
+  }
+}
