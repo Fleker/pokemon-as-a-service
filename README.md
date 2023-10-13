@@ -10,6 +10,8 @@ _TODO: Actually upload the game logic_
 
 **Note:** This demo mode contains a limit to how many Pokémon you can catch. This limit can be disabled in a hosted version.
 
+**Note:** This is a fan game. It's not an official game.
+
 ## Introduction
 
 This is a web-based game using the latest web platform APIs and capabilities. It runs on Firebase: using SaaS tools like _Firestore_, _Firebase Auth_, _Firebase Storage_, _Firebase Hosting_, and _Cloud Functions_ to run in a serverless environment. It is able to scale to as many players as you need. This means it can work for a group of friends in a Discord server or a large business.
@@ -22,7 +24,9 @@ It contains a fully-fledged set of features inspired by the Pokémon games and r
 
 ### Game Features
 
-![](/images//screenshot2.png)
+![](/images/raid.png)
+
+![](/images/charmander.png)
 
 * **Collect Pokémon:** Players can obtain Poké Balls to catch Pokémon. Pokémon may hold rare items. Some may even be _shiny_!
 * **Day Care:** Players can send Pokémon into the Day Care to obtain eggs. Eggs will hatch into baby Pokémon.
@@ -64,6 +68,10 @@ This game is built as a [Progressive Web App](https://web.dev/explore/progressiv
 First you'll need to create a new [Firebase project](https://console.firebase.google.com/) and configure a web app connection. You'll also want to setup Firestore, Cloud Functions, and Authentication.
 
 1. Setup Firebase project
+  1. Setup Firestore
+  1. Setup Authentication and enable at least one provider. We recommend Google Sign-In.
+  1. Setup Cloud Functions
+  1. Setup Hosting
 2. Clone this project: `git clone git@github.com:Fleker/pokemon-as-a-service.git`
 3. Install dependencies in each subdirectory:
 
@@ -95,7 +103,9 @@ firebase deploy --only functions
 
 When doing this the first time, you may have to go through several steps before your code is fully deployed. This step will have to be done in the future when making any backend changes.
 
-7. Take the configuration data for the web app in the Firebase console and save that data to `client/src/app/service/firebase.config.ts`
+7. Setup Firebase on the client
+  1. Go to project settings > Add Web App
+  1. Copy configuration data and save to `client/src/app/service/firebase.config.ts`
 8. Build the client and deploy it with the Firebase CLI
 
 ```
@@ -125,6 +135,66 @@ cd shared && npm run test
 ```
 
 It is highly recommended that tests are run prior to deployment.
+
+### Firestore Rules
+
+These are the rules for Firestore which are used to keep user data secure:
+
+```
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{userid} {
+      allow read: if request.auth.uid == userid;
+      allow write: if false;
+    }
+    match /users/{userid}/adventureLog/released {
+      allow read: if request.auth.uid == userid;
+      allow write: if false;
+    }
+    match /users/{userid}/adventureLog/itemHistory {
+    	allow read: if request.auth.uid == userid;
+      allow write: if false;
+    }
+    match /users/{userid}/chats/{document=**} {
+      allow read: if request.auth.uid == userid;
+      allow write: if request.auth.uid == userid;
+    }
+    match /gts/leaderboard {
+    	allow read: if request.auth.uid != null;
+    }
+  	match /gts/{doc} {
+    	allow read: if false;
+    }
+    match /hiddenItems/{doc} {
+    	allow read: if false;
+    }
+    match /test/{doc} {
+      allow read: if request.auth.uid != null;
+      allow list: if false;
+    }
+    match /locations/{doc} {
+    	allow read: if false;
+    }
+    match /raids/{doc} {
+      allow get: if request.auth.uid != null;
+      // Only list your own active raids
+      allow list: if request.auth.uid == resource.data.host && resource.data.state == 0;
+    }
+    match /voyages/{doc} {
+      allow get: if request.auth.uid != null;
+      // Only list your own active raids
+      allow list: if request.auth.uid == resource.data.host && resource.data.state == 0;
+    }
+    match /trades/{doc} {
+    	allow get: if request.auth.uid != null;
+      allow list: if request.auth.uid == resource.data.host.id;
+    }
+    match /admin/cron {
+    	allow get: if true;
+    }
+  }
+}
+```
 
 ## Making Changes
 
