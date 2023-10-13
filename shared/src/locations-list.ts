@@ -440,7 +440,7 @@ export const Globe = {
   }),
   'CA-WAT': assert<Location>({
     label:"Waterloo", region:"North America", terrain:"Grasslands", flag: '🇨🇦', id: 18,
-    hemiLat: 'North', hemiLong: 'West', timezone: 'America/Los_Angeles', vivillon: 'icysnow',
+    hemiLat: 'North', hemiLong: 'West', timezone: 'America/New_York', vivillon: 'icysnow',
     latitude: 43.46, longitude: -80.52,
     fact: "This city hosts a big Oktoberfest and maple syrup festival. Don't get the two confused!",
     weatherSpring:{Snow:0.025,Fog:0.075,Cloudy:0.2,Rain:0.1, Windy: 0.025},
