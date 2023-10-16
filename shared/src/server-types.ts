@@ -205,11 +205,11 @@ export namespace Users {
     /**
      * Record of current research tasks and their progress.
      */
-    researchCurrent?: Record<string, number>
+    researchCurrent: Record<string, number>
     /**
      * Count of research tasks completed.
      */
-    researchCompleted?: number
+    researchCompleted: number
     /**
      * Timestamp of the last time research was claimed.
      */

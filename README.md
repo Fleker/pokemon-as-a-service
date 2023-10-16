@@ -6,8 +6,6 @@ This repository allows you to build and administer your own Pokémon game for yo
 
 **https://pokemon-as-a-service.web.app**
 
-_TODO: Actually upload the game logic_
-
 **Note:** This demo mode contains a limit to how many Pokémon you can catch. This limit can be disabled in a hosted version.
 
 **Note:** This is a fan game. It's not an official game.
@@ -69,6 +67,7 @@ First you'll need to create a new [Firebase project](https://console.firebase.go
 
 1. Setup Firebase project
   1. Setup Firestore
+    1. Create a collection called `admin` with a document called `cron`. You don't need to add any fields.
   1. Setup Authentication and enable at least one provider. We recommend Google Sign-In.
   1. Setup Cloud Functions
   1. Setup Hosting
@@ -103,10 +102,17 @@ firebase deploy --only functions
 
 When doing this the first time, you may have to go through several steps before your code is fully deployed. This step will have to be done in the future when making any backend changes.
 
-7. Setup Firebase on the client
+7. Go to [the Cloud Functions dashboard](https://console.cloud.google.com/functions/list?referrer=search&project=pokemon-as-a-service) in Google Cloud Platform
+  1. Select all functions
+  1. Open the Permissions settings
+  1. Allow `allUsers` access to be `Cloud Functions Invoker`
+8. Go to the [Cloud Scheduler dashboard](https://console.cloud.google.com/cloudscheduler?referrer=search&project=pokemon-as-a-service)
+  1. Run `location_cron`
+
+9. Setup Firebase on the client
   1. Go to project settings > Add Web App
   1. Copy configuration data and save to `client/src/app/service/firebase.config.ts`
-8. Build the client and deploy it with the Firebase CLI
+10. Build the client and deploy it with the Firebase CLI
 
 ```
 cd ../client

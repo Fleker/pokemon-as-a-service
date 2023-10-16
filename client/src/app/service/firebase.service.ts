@@ -83,6 +83,13 @@ const defaultUser: Users.Doc = {
     '4#Yf_4': 1,
     '7#Yf_4': 1,
   },
+  pokedex: {
+    kanto: 0, johto: 0, hoenn: 0, sinnoh: 0,
+    unova: 0, kalos: 0, alola: 0, galar: 0,
+    hisui: 0, paldea: 0, lost: 0,
+  },
+  researchCurrent: {},
+  researchCompleted: 0,
 }
 
 @Injectable({

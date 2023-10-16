@@ -327,16 +327,21 @@ export function requireMove(move: MoveId, total = 1) {
 }
 
 export function countType(type: Type) {
-  return (req: Requirements) => Object.entries(req.pokemon)
+  return (req: Requirements) => {
+    const typeArr = Object.entries(req.pokemon)
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  .filter(([key, _]) => {
-    const dbkey = new Badge(key).toLegacyString()
-    const db = get(dbkey)!
-    return db.type1 === type || db.type2 === type
-  })
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  .map(([_, value]) => value)
-  .reduce((prev, curr) => prev + curr)
+    .filter(([key, _]) => {
+      const dbkey = new Badge(key).toLegacyString()
+      const db = get(dbkey)!
+      return db.type1 === type || db.type2 === type
+    })
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .map(([_, value]) => value)
+    if (typeArr.length) {
+      return typeArr.reduce((prev, curr) => prev + curr)
+    }
+    return 0
+  }
 }
 
 export function requireType(type: Type, total: number) {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseService } from 'src/app/service/firebase.service';
-import { ITEMS, ItemId } from '../../../../../shared/src/items-list';
+import { ITEMS } from '../../../../../shared/src/items-list';
 import { F } from '../../../../../shared/src/server-types';
 
 type LotteryOut = F.DrawLotto.Res & {
@@ -50,9 +50,9 @@ export class PageGamesComponent implements OnInit {
       this.exec.drawTicket = true
       const res = await this.firebase.exec<F.DrawLotto.Req, F.DrawLotto.Res>('draw_lotto')
       this.lottery = res.data
+      this.lottery!.ticketArray = this.lottery.ticket.split(' ').map(x => Number(x))
       if (this.lottery!.item) {
         this.lottery!.prizeLabel = ITEMS[this.lottery!.item].label
-        this.lottery!.ticketArray = this.lottery.ticket.split(' ').map(x => Number(x))
       }
       setTimeout(() => {
         this.firebase.refreshUser()
