@@ -34,6 +34,7 @@ import {toRequirements} from './users'
 import { addPokemon, hasItem } from './users.utils'
 import { Potw } from '../../shared/src/badge2'
 import { F } from '../../shared/src/server-types'
+import isDemo from '../../shared/src/platform/isDemo'
 
 const db = salamander(admin.firestore())
 
@@ -211,6 +212,15 @@ const foundPokemon = async (userId: string, data: DowsePokemonDoc, hiddenItem: s
   const transactionResult = await db.runTransaction(async (t) => {
     const userDoc = await t.get<Users.Doc>(userRef)
     const user = userDoc.data()
+
+    if (isDemo) {
+      const countUserCaughtPkmn = Object.values(user.pokemon).reduce((p, c) => p + c)
+      if (countUserCaughtPkmn > 250) {
+        throw new functions.https.HttpsError('out-of-range',
+          'You cannot catch any more Pokemon in demo mode')
+      }
+    }
+
     const {hiddenItemsFound, items, location} = user
 
     if (hiddenItemsFound.includes(hiddenItem)) {

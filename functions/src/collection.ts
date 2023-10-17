@@ -51,6 +51,15 @@ export const hatch = functions.https.onCall(async (data: F.Hatch.Req, context): 
       throw new functions.https.HttpsError('invalid-argument', 'User does not exist.');
     }
     const user = userDoc.data()
+
+    if (isDemo) {
+      const countUserCaughtPkmn = Object.values(user.pokemon).reduce((p, c) => p + c)
+      if (countUserCaughtPkmn > 250) {
+        throw new functions.https.HttpsError('out-of-range',
+          'You cannot catch any more Pokemon in demo mode')
+      }
+    }
+
     const {eggs} = user
 
     for (let i = 0; i < eggs.length; i++) {
