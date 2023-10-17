@@ -1,0 +1,23 @@
+<mat-card>
+  <p>
+    The <strong>Wonder Trade</strong> system lets you send a Pokémon out into
+    the ether. After a few hours, you will receive a new Pokémon from another
+    trainer selected at random.
+  </p>
+  <p>
+    This feature is <mat-icon>science</mat-icon> experimental. Please file bugs
+    if you see them.
+  </p>
+</mat-card>
+
+<mat-card>
+  <h1>Select a Pokémon</h1>
+  <pokemon-dialog #pokemon></pokemon-dialog>
+  <p *ngIf="label">
+    {{label}}
+  </p>
+  <button mat-button raised (click)="confirm()" [disabled]="selection.length === 0 || exec.confirm">
+    <mat-icon>cable</mat-icon>
+    Confirm
+  </button>
+</mat-card>

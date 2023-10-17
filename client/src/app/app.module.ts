@@ -71,6 +71,7 @@ import { PageSandboxComponent } from './pages/page-sandbox/page-sandbox.componen
 import { PageTradeComponent } from './pages/page-trade/page-trade.component';
 import { PageTrainerComponent } from './pages/page-trainer/page-trainer.component';
 import { PageVoyageComponent } from './pages/page-voyage/page-voyage.component';
+import { PageWondertradeComponent } from './pages/page-wondertrade/page-wondertrade.component';
 
 import { ScaffoldingComponent } from './scaffolding/scaffolding.component';
 import { SplashscreenComponent } from './splashscreen/splashscreen.component';
@@ -191,6 +192,7 @@ import { VoyagesMeterComponent } from './ui/voyages-meter/voyages-meter.componen
     PageTrainerComponent,
     PageVoyageComponent,
     LottoDrawComponent,
+    PageWondertradeComponent,
   ],
   imports: [
     BrowserModule,

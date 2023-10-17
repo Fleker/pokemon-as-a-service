@@ -320,7 +320,6 @@ export const trainerVerify = (user: Users.Doc, species: PokemonId, item?: ItemId
  * @param otherBadge Pokemon being traded with this one, used for Shelmet/Karrablast.
  * @returns An object including an ItemEntry
  */
-export const swap = (origin: Users.Doc, destination: Users.Doc, destinationId: string, badge: PokemonId, item: ItemId | null, otherBadge: PokemonId | null) => {
   if (!hasPokemon(origin, badge)) {
     throw new Error(`Origin does not have Pokémon ${badge}: -1`)
   }
@@ -335,16 +334,19 @@ export const swap = (origin: Users.Doc, destination: Users.Doc, destinationId: s
  * @param badge The Pokemon being sent
  * @param item Optional item being sent along with Pokemon
  * @param otherBadge Pokemon being traded with this one, used for Shelmet/Karrablast.
+ * @param performRemove If true, which is the default, will remove Pokemon/item from bag. Otherwise, we should assume the Pokemon have already been removed (such as in Wonder Trade).
  * @returns An object including an ItemEntry
  */
-export const swapNoCheck = (origin: Users.Doc, destination: Users.Doc, destinationId: string, badge: PokemonId, item: ItemId | null, otherBadge: PokemonId | null) => {
+export const swapNoCheck = (origin: Users.Doc, destination: Users.Doc, destinationId: string, badge: PokemonId, item: ItemId | null, otherBadge: PokemonId | null, performRemove = true) => {
   let html = ''
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let itemEntry: any = undefined
 
   const swapBadge = new Badge(badge)
   const otherSwapBadge = new Badge(otherBadge!)
-  removePokemon(origin, swapBadge)
+  if (performRemove) {
+    removePokemon(origin, swapBadge)
+  }
   const tradeEffects = tradeEvolution(
     swapBadge.toLegacyString(),
     item ? item : undefined,
@@ -377,7 +379,9 @@ export const swapNoCheck = (origin: Users.Doc, destination: Users.Doc, destinati
       // html += `You receive one ${item} as an extra gift. `
       // Grant item to `destination`
       awardItem(destination, item)
-      origin.items[item]!--
+      if (performRemove) {
+        origin.items[item]!--
+      }
     }
   }
 

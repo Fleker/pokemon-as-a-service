@@ -30,6 +30,7 @@ import { PageTrainerComponent } from './pages/page-trainer/page-trainer.componen
 import { PageVoyageComponent } from './pages/page-voyage/page-voyage.component';
 import { PageChatbotComponent } from './pages/page-chatbot/page-chatbot.component';
 import { PageBattlesimComponent } from './pages/page-battlesim/page-battlesim.component';
+import { PageWondertradeComponent } from './pages/page-wondertrade/page-wondertrade.component';
 
 const routes: Routes = [
   {path: '', component: PagePokemonComponent},
@@ -59,6 +60,7 @@ const routes: Routes = [
     {path: 'trade', component: PageTradeComponent},
     {path: 'raids', component: PageRaidComponent},
     {path: 'voyages', component: PageVoyageComponent},
+    {path: 'wonder', component: PageWondertradeComponent},
   ]},
   {path: 'base', children: [
     {path: 'gamecorner', component: PageGamesComponent},

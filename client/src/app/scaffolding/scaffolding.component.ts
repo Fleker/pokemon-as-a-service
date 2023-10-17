@@ -11,7 +11,7 @@ import { datastore, get } from '../../../../shared/src/pokemon';
 import { babyProduced } from '../../../../shared/src/platform/breeding-club';
 import { PokemonEntries } from '../../../../shared/src/pokemon-entries';
 import { PokemonId } from '../../../../shared/src/pokemon/types';
-import { CATCH_CHARM_DPPT, CATCH_CHARM_GSC, CATCH_CHARM_RBY, CATCH_CHARM_RSE, COMMUNITY_ACHIEVEMENTS, LEGENDARY_ITEM_QUESTS, ONEP_ACHIEVEMENTS, POKEDOLL } from '../../../../shared/src/quests';
+import { CATCH_CHARM_DPPT, CATCH_CHARM_GSC, CATCH_CHARM_RBY, CATCH_CHARM_RSE, CATCH_CHARM_XY, COMMUNITY_ACHIEVEMENTS, LEGENDARY_ITEM_QUESTS, ONEP_ACHIEVEMENTS, POKEDOLL } from '../../../../shared/src/quests';
 import { ACTIVE_RESEARCH } from '../../../../shared/src/research';
 import { Users } from '../../../../shared/src/server-types';
 import { Swarms } from '../../../../shared/src/platform/swarms';
@@ -49,6 +49,7 @@ interface Gate {
   johto: boolean
   hoenn: boolean
   sinnoh: boolean
+  kalos: boolean
   farm: boolean
   bank: boolean
   eggs: boolean
@@ -82,6 +83,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
     johto: false,
     hoenn: false,
     sinnoh: false,
+    kalos: false,
     farm: false,
     bank: false,
     eggs: false,
@@ -178,6 +180,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
         this.gate.johto = user.hiddenItemsFound.includes(CATCH_CHARM_GSC)
         this.gate.hoenn = user.hiddenItemsFound.includes(CATCH_CHARM_RSE)
         this.gate.sinnoh = user.hiddenItemsFound.includes(CATCH_CHARM_DPPT)
+        this.gate.kalos = user.hiddenItemsFound.includes(CATCH_CHARM_XY)
         this.gate.farm = user.items['berrypouch'] > 0 || this.gate.sinnoh
         this.gate.bank = user.items['pokemonboxlink'] > 0
         this.gate.eggs = user.hiddenItemsFound.includes(CATCH_CHARM_GSC) || user.eggs.length > 0

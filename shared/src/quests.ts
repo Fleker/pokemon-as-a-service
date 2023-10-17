@@ -1295,7 +1295,7 @@ const CATCH_QUESTS: PokedexQuest[] = [{
   count: 29, region: 'kalos', shorthand: 'xy',
   hint: ['Professor Sycamore will award you this charm when you catch 29 or more Pokémon from Kalos.'],
   sprite: 'catchingcharm-xy',
-  modes: ['Vivillon icon in Location Picker'],
+  modes: ['Vivillon icon in Location Picker', 'Wonder Trade'],
 }, {
   docId: CATCH_CHARM_SM,
   badge: 'potw-item-catchingcharm-sm',
