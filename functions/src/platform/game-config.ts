@@ -5,17 +5,15 @@ import { weeklyId } from '../../../shared/src/platform/weekly';
 export const GROUP_BADGE_ID = weeklyId
 
 export const MAIL_BADGES = {
-  'potw-265': 'Wurmple',
-  'potw-266': 'Silcoon',
-  'potw-267': 'Beautifly',
   'potw-268': 'Cascoon',
   'potw-269': 'Dustox',
   'potw-270': 'Lotad',
+  'potw-271': 'Lombre',
 }
 
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Razor Shell',
-  tr: 'tr-Safeguard',
+  tm: 'tm-Flame Wheel',
+  tr: 'tr-Belly Drum',
 }
 
 export const adminIds = [
