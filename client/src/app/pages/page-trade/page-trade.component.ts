@@ -46,6 +46,15 @@ export class PageTradeComponent implements OnInit, AfterViewInit {
     confirm: false,
   }
 
+  get coreRoomId() {
+    if (!window.location.search) return undefined
+    return window.location.search
+      .replace('web%2Btrade:', '')
+      .replace('//', '')
+      .replace('?', '')
+      .replace('=', '')
+  }
+
   constructor(
     private firebase: FirebaseService,
     private snackbar: MatSnackBar,
@@ -53,27 +62,27 @@ export class PageTradeComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    this.router.events.subscribe((event: Event) => {
-      if (event instanceof NavigationEnd) {
-        if (this.roomId) {
-          this.hostOrJoin(this.roomId)
-        }
-
-        this.firebase.subscribeUser(user => {
-          if (user) {
-            this.firebase.dbSearch('trades', {
-              ops: [
-                ['host.id', '==', this.firebase.getUid()],
-                ['active', '==', true]
-              ]
-            }, (snapshot) => {
-              const docs = snapshot.docs
-              this.activeTradeRooms = docs.map(doc => [doc.id, doc.data()])
-              console.log(`Found ${docs.length} open trade rooms`, this.activeTradeRooms)
-            })
-          }
-        })
+    this.router.events.subscribe(() => {
+      if (this.coreRoomId) {
+        this.roomId = this.coreRoomId
+        console.debug(`Found room ID ${this.roomId}`)
+        this.hostOrJoin(this.roomId)
       }
+
+      this.firebase.subscribeUser(user => {
+        if (user) {
+          this.firebase.dbSearch('trades', {
+            ops: [
+              ['host.id', '==', this.firebase.getUid()],
+              ['active', '==', true]
+            ]
+          }, (snapshot) => {
+            const docs = snapshot.docs
+            this.activeTradeRooms = docs.map(doc => [doc.id, doc.data()])
+            console.log(`Found ${docs.length} open trade rooms`, this.activeTradeRooms)
+          })
+        }
+      })
     })
   }
 
@@ -112,7 +121,7 @@ export class PageTradeComponent implements OnInit, AfterViewInit {
         this.roomId = roomId
         this.router.navigate(['/multiplayer/trade'], {
           queryParams: {
-            [roomId]: roomId,
+            [roomId]: '',
           }
         })
         console.log(res.data)

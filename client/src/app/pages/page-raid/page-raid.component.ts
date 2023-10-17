@@ -567,7 +567,7 @@ export class PageRaidComponent implements OnDestroy, OnInit {
         const {raidId} = res.data
         this.router.navigate(['/raids'], {
           queryParams: {
-            [raidId]: raidId,
+            [raidId]: '',
           }
         })
       } catch (e: any) {
