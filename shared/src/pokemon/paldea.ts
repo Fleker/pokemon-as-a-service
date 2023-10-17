@@ -1222,7 +1222,7 @@ export const paldeaBuilder = {
     moveTMs: [],
   }),
   'potw-1011': ensurePkmnBuilder({
-    species: 'Dripplin', type1: 'Grass', type2: 'Dragon',
+    species: 'Dipplin', type1: 'Grass', type2: 'Dragon',
     shiny: 'SYNCABLE', weight: 4.4, eggCycles: 20, eggBase: 'potw-840', eggGroup: ['Grass', 'Dragon'],
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `Dipplin is two creatures in one Pokémon. Its evolution was triggered by a special apple grown only in one place.`,
@@ -1260,7 +1260,7 @@ export const paldeaBuilder = {
     moveTMs: [],
   }),
   'potw-1015': ensurePkmnBuilder({
-    species: 'Monkidori', type1: 'Poison', type2: 'Psychic',
+    species: 'Munkidori', type1: 'Poison', type2: 'Psychic',
     shiny: 'FALSE', weight: 12.2, eggCycles: 40,
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `The chain is made from toxins that enhance capabilities. It stimulated Munkidori's brain and caused the Pokémon's psychic powers to bloom.`,
