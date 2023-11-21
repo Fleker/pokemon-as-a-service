@@ -3,7 +3,7 @@ import { ensurePkmnBuilder } from './types'
 export const kalosBuilder = {
   'potw-650': ensurePkmnBuilder({
     species: 'Chespin', type1: 'Grass', 
-    tiers: ['Tiny Cup'], shiny: 'WILD', weight: 9,
+    tiers: ['Tiny Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 9,
     eggBase: 'potw-650', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 16, levelTo: 'potw-651',
     pokedex: `The quills on its head are usually soft. When it flexes them, the points become so hard and sharp that they can pierce rock.`,
@@ -29,7 +29,7 @@ export const kalosBuilder = {
   }),
   'potw-651': ensurePkmnBuilder({
     species: 'Quilladin', type1: 'Grass', 
-    tiers: [], shiny: 'WILD', release: 'greatball', weight: 29,
+    tiers: [/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 29,
     eggBase: 'potw-650', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 36, levelTo: 'potw-652',
     pokedex: `It relies on its sturdy shell to deflect predators' attacks. It counterattacks with its sharp quills.`,
@@ -55,7 +55,7 @@ export const kalosBuilder = {
   }),
   'potw-652': ensurePkmnBuilder({
     species: 'Chesnaught', type1: 'Grass', type2: 'Fighting', 
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'WILD', release: 'ultraball', weight: 90,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 90,
     eggBase: 'potw-650', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Its Tackle is forceful enough to flip a 50-ton tank. It shields its allies from danger with its own body.`,
     hp: 88, attack: 107, defense: 122, spAttack: 74, spDefense: 75, speed: 64,
@@ -81,7 +81,7 @@ export const kalosBuilder = {
   }),
   'potw-653': ensurePkmnBuilder({
     species: 'Fennekin', type1: 'Fire', 
-    tiers: ['Tiny Cup'], shiny: 'WILD', release: 'greatball', weight: 9.4,
+    tiers: ['Tiny Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 9.4,
     eggBase: 'potw-653', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 16, levelTo: 'potw-654',
     pokedex: `Eating a twig fills it with energy,  and its roomy ears give vent to air  hotter than 390 degrees Fahrenheit.`,
@@ -104,7 +104,7 @@ export const kalosBuilder = {
   }),
   'potw-654': ensurePkmnBuilder({
     species: 'Braixen', type1: 'Fire', 
-    tiers: [], shiny: 'WILD', release: 'ultraball', weight: 14.5,
+    tiers: [/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 14.5,
     eggBase: 'potw-653', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 36, levelTo: 'potw-655',
     pokedex: `It has a twig stuck in its tail. With  friction from its tail fur, it sets the  twig on fire and launches into battle.`,
@@ -128,7 +128,7 @@ export const kalosBuilder = {
   }),
   'potw-655': ensurePkmnBuilder({
     species: 'Delphox', type1: 'Fire', type2: 'Psychic', 
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'WILD', release: 'ultraball', weight: 39,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 39,
     eggBase: 'potw-653', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `It gazes into the flame at the tip of its branch to achieve a focused state, which allows it to see into the future.`,
     hp: 75, attack: 69, defense: 72, spAttack: 114, spDefense: 100, speed: 104,
@@ -153,7 +153,7 @@ export const kalosBuilder = {
   }),
   'potw-656': ensurePkmnBuilder({
     species: 'Froakie', type1: 'Water', 
-    tiers: ['Tiny Cup'], shiny: 'WILD', weight: 7,
+    tiers: ['Tiny Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 7,
     eggBase: 'potw-656', eggGroup: ['Water 1'], eggCycles: 20,
     levelAt: 16, levelTo: 'potw-657',
     pokedex: `It secretes flexible bubbles from its chest and back. The bubbles reduce the damage it would otherwise take when attacked.`,
@@ -176,7 +176,7 @@ export const kalosBuilder = {
   }),
   'potw-657': ensurePkmnBuilder({
     species: 'Frogadier', type1: 'Water', 
-    tiers: [], shiny: 'WILD', release: 'greatball', weight: 10.9,
+    tiers: [/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 10.9,
     eggBase: 'potw-656', eggGroup: ['Water 1'], eggCycles: 20,
     levelAt: 36, levelTo: 'potw-658',
     pokedex: `It can throw bubble-covered pebbles with precise control, hitting empty cans up to a hundred feet away.`,
@@ -199,7 +199,7 @@ export const kalosBuilder = {
   }),
   'potw-658': ensurePkmnBuilder({
     species: 'Greninja', type1: 'Water', type2: 'Dark', 
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'WILD', release: 'ultraball', weight: 40,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 40,
     syncableForms: ['ash'], needForm: false,
     eggBase: 'potw-656', eggGroup: ['Water 1'], eggCycles: 20,
     pokedex: `It creates throwing stars out of compressed water. When it spins them and throws them at high speed, these stars can split metal in two.`,
@@ -295,7 +295,7 @@ export const kalosBuilder = {
   }),
   'potw-661': ensurePkmnBuilder({
     species: 'Fletchling', type1: 'Normal', type2: 'Flying', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', weight: 1.7,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 1.7,
     eggBase: 'potw-661', eggGroup: ['Flying'], eggCycles: 15,
     levelAt: 17, levelTo: 'potw-662',
     pokedex: `These friendly Pokémon send signals to one another with beautiful chirps and tail-feather movements.`,
@@ -317,7 +317,7 @@ export const kalosBuilder = {
   }),
   'potw-662': ensurePkmnBuilder({
     species: 'Fletchinder', type1: 'Fire', type2: 'Flying', 
-    tiers: ['Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 16,
+    tiers: ['Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 16,
     eggBase: 'potw-661', eggGroup: ['Flying'], eggCycles: 15,
     levelAt: 35, levelTo: 'potw-663',
     pokedex: `From its beak, it expels embers that set  the tall grass on fire. Then it pounces on  the bewildered prey that pop out of the grass.`,
@@ -340,7 +340,7 @@ export const kalosBuilder = {
   }),
   'potw-663': ensurePkmnBuilder({
     species: 'Talonflame', type1: 'Fire', type2: 'Flying', 
-    tiers: ['Traditional', 'Kalos Cup', 'Sky Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 24.5,
+    tiers: ['Traditional', 'Kalos Cup', 'Sky Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 24.5,
     eggBase: 'potw-661', eggGroup: ['Flying'], eggCycles: 15,
     pokedex: `In the fever of an exciting battle, it showers embers from the gaps between its feathers and takes to the air.`,
     hp: 78, attack: 81, defense: 71, spAttack: 74, spDefense: 69, speed: 126,
@@ -363,7 +363,7 @@ export const kalosBuilder = {
   }),
   'potw-664': ensurePkmnBuilder({
     species: 'Scatterbug', type1: 'Bug', 
-    tiers: ['Tiny Cup'], shiny: 'WILD', weight: 2.5,
+    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 2.5,
     eggBase: 'potw-664', eggGroup: ['Bug'], eggCycles: 15,
     levelAt: 9, levelTo: 'potw-665',
     pokedex: `When under attack from bird Pokémon, it spews a poisonous black powder that causes paralysis on contact.`,
@@ -379,7 +379,7 @@ export const kalosBuilder = {
   }),
   'potw-665': ensurePkmnBuilder({
     species: 'Spewpa', type1: 'Bug', 
-    tiers: [], shiny: 'WILD', weight: 8.4,
+    tiers: [/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 8.4,
     eggBase: 'potw-664', eggGroup: ['Bug'], eggCycles: 15,
     levelAt: 12, levelTo: 'potw-666',
     pokedex: `It lives hidden within thicket shadows. When predators attack, it quickly bristles the fur  covering its body in an effort to threaten them.`,
@@ -396,7 +396,7 @@ export const kalosBuilder = {
   }),
   'potw-666': ensurePkmnBuilder({
     species: 'Vivillon', type1: 'Bug', type2: 'Flying', 
-    tiers: ['Traditional', 'Kalos Cup', 'Sky Cup'], shiny: 'WILD', release: 'ultraball', weight: 17,
+    tiers: ['Traditional', 'Kalos Cup', 'Sky Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 17,
     syncableForms: [
       'archipelago', 'continental', 'elegant', 'garden', 'highplains', 'icysnow',
       'jungle', 'marine', 'meadow', 'modern', 'monsoon', 'ocean', 'polar', 'river',
@@ -422,7 +422,7 @@ export const kalosBuilder = {
   }),
   'potw-667': ensurePkmnBuilder({
     species: 'Litleo', type1: 'Fire', type2: 'Normal', 
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', gender: ['male', 'female'], weight: 13.5,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', gender: ['male', 'female'], weight: 13.5,
     eggBase: 'potw-667', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 35, levelTo: 'potw-668',
     pokedex: `The stronger the opponent it faces, the more heat surges from its mane and the more power flows through its body.`,
@@ -445,7 +445,7 @@ export const kalosBuilder = {
   }),
   'potw-668': ensurePkmnBuilder({
     species: 'Pyroar', type1: 'Fire', type2: 'Normal', 
-    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup'], shiny: 'WILD', gender: ['male', 'female'], release: 'greatball', weight: 81.5,
+    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', gender: ['male', 'female'], release: 'greatball', weight: 81.5,
     eggBase: 'potw-667', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `The male with the largest mane of fire is the leader of the pride.`,
     hp: 86, attack: 68, defense: 72, spAttack: 109, spDefense: 66, speed: 106,
@@ -467,7 +467,7 @@ export const kalosBuilder = {
   }),
   'potw-669': ensurePkmnBuilder({
     species: 'Flabébé', type1: 'Fairy',
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 0.1,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.1,
     syncableForms: ['yellow', 'red', 'orange', 'blue', 'white'], needForm: true,
     eggBase: 'potw-669', eggGroup: ['Fairy'], eggCycles: 20,
     levelAt: 19, levelTo: 'potw-670',
@@ -489,7 +489,7 @@ export const kalosBuilder = {
   }),
   'potw-670': ensurePkmnBuilder({
     species: 'Floette', type1: 'Fairy', 
-    tiers: ['Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 0.9,
+    tiers: ['Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 0.9,
     syncableForms: ['yellow', 'red', 'orange', 'blue', 'white', 'eternal'], needForm: 'yellow',
     eggBase: 'potw-669', eggGroup: ['Fairy'], eggCycles: 20,
     levelTo: 'potw-671',
@@ -532,7 +532,7 @@ export const kalosBuilder = {
   }),
   'potw-671': ensurePkmnBuilder({
     species: 'Florges', type1: 'Fairy', 
-    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 10,
+    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 10,
     syncableForms: ['yellow', 'red', 'orange', 'blue', 'white'], needForm: true,
     eggBase: 'potw-669', eggGroup: ['Fairy'], eggCycles: 20,
     pokedex: `It claims exquisite flower gardens as its territory, and it obtains power from basking in the energy emitted by flowering plants.`,
@@ -554,7 +554,7 @@ export const kalosBuilder = {
   }),
   'potw-672': ensurePkmnBuilder({
     species: 'Skiddo', type1: 'Grass', 
-    tiers: ['Tiny Cup'], shiny: 'WILD', weight: 31,
+    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 31,
     eggBase: 'potw-672', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 32, levelTo: 'potw-673',
     pokedex: `Thought to be one of the first Pokémon to live in harmony with humans, it has a placid disposition.`,
@@ -577,7 +577,7 @@ export const kalosBuilder = {
   }),
   'potw-673': ensurePkmnBuilder({
     species: 'Gogoat', type1: 'Grass', 
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'WILD', release: 'greatball', weight: 91,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 91,
     eggBase: 'potw-672', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `It can tell how its Trainer is feeling by subtle shifts in the grip on its horns. This empathic sense lets them run as if one being.`,
     hp: 123, attack: 100, defense: 62, spAttack: 97, spDefense: 81, speed: 68,
@@ -1029,7 +1029,7 @@ export const kalosBuilder = {
   }),
   'potw-690': ensurePkmnBuilder({
     species: 'Skrelp', type1: 'Poison', type2: 'Water',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'pokeball', weight: 7.3,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'pokeball', weight: 7.3,
     eggBase: 'potw-690', eggGroup: ['Water 1'], eggCycles: 20,
     levelAt: 48, levelTo: 'potw-691',
     pokedex: `Camouflaged as rotten kelp, they spray liquid poison on prey that approaches unawares and then finish it off.`,
@@ -1052,7 +1052,7 @@ export const kalosBuilder = {
   }),
   'potw-691': ensurePkmnBuilder({
     species: 'Dragalge', type1: 'Poison', type2: 'Dragon',
-    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 81.5,
+    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 81.5,
     eggBase: 'potw-690', eggGroup: ['Water 1'], eggCycles: 20,
     pokedex: `Their poison is strong enough to eat through the hull of a tanker, and they spit it indiscriminately at anything that enters their territory.`,
     hp: 65, attack: 75, defense: 90, spAttack: 97, spDefense: 123, speed: 44,
@@ -1074,7 +1074,7 @@ export const kalosBuilder = {
   }),
   'potw-692': ensurePkmnBuilder({
     species: 'Clauncher', type1: 'Water', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'pokeball', weight: 8.3,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'pokeball', weight: 8.3,
     eggBase: 'potw-692', eggGroup: ['Water 1'], eggCycles: 15,
     levelAt: 37, levelTo: 'potw-693',
     pokedex: `They knock down flying prey by firing  compressed water from their massive  claws like shooting a pistol.`,
@@ -1096,7 +1096,7 @@ export const kalosBuilder = {
   }),
   'potw-693': ensurePkmnBuilder({
     species: 'Clawitzer', type1: 'Water', 
-    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 35.3,
+    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 35.3,
     eggBase: 'potw-692', eggGroup: ['Water 1'], eggCycles: 15,
     pokedex: `Their enormous claws launch cannonballs of water powerful enough to pierce tanker hulls.`,
     hp: 71, attack: 73, defense: 88, spAttack: 120, spDefense: 89, speed: 59,
@@ -1266,7 +1266,7 @@ export const kalosBuilder = {
   }),
   'potw-700': ensurePkmnBuilder({
     species: 'Sylveon', type1: 'Fairy', 
-    tiers: ['Traditional', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'pokeball', weight: 23.5,
+    tiers: ['Traditional', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'pokeball', weight: 23.5,
     eggBase: 'potw-133', eggGroup: ['Field'], eggCycles: 35,
     pokedex: `It sends a soothing aura from its ribbonlike feelers to calm fights.`,
     hp: 95, attack: 65, defense: 65, spAttack: 110, spDefense: 130, speed: 60,
@@ -1290,7 +1290,7 @@ export const kalosBuilder = {
   }),
   'potw-701': ensurePkmnBuilder({
     species: 'Hawlucha', type1: 'Fighting', type2: 'Flying', 
-    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 21.5,
+    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 21.5,
     eggBase: 'potw-701', eggGroup: ['Human-Like'], eggCycles: 20,
     pokedex: `Although its body is small, its proficient fighting skills enable it to keep up with big bruisers like Machamp and Hariyama.`,
     hp: 78, attack: 92, defense: 75, spAttack: 74, spDefense: 63, speed: 118,
@@ -1315,7 +1315,7 @@ export const kalosBuilder = {
   }),
   'potw-702': ensurePkmnBuilder({
     species: 'Dedenne', type1: 'Electric', type2: 'Fairy',
-    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 2.2,
+    tiers: ['Traditional', 'Kalos Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 2.2,
     eggBase: 'potw-702', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Its whiskers serve as antennas. By sending and  receiving electrical waves, it can communicate  with others over vast distances.`,
     hp: 67, attack: 58, defense: 57, spAttack: 81, spDefense: 67, speed: 101,
@@ -1359,7 +1359,7 @@ export const kalosBuilder = {
   }),
   'potw-704': ensurePkmnBuilder({
     species: 'Goomy', type1: 'Dragon',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'pokeball', weight: 2.8,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'pokeball', weight: 2.8,
     eggBase: 'potw-704', eggGroup: ['Dragon'], eggCycles: 40,
     levelAt: 40, levelTo: 'potw-705',
     pokedex: `The weakest Dragon-Type Pokémon, it lives in damp, shady places, so its body doesn't dry out.`,
@@ -1381,7 +1381,7 @@ export const kalosBuilder = {
   }),
   'potw-705': ensurePkmnBuilder({
     species: 'Sliggoo', type1: 'Dragon', 
-    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 17.5,
+    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 17.5,
     eggBase: 'potw-704', eggGroup: ['Dragon'], eggCycles: 40,
     syncableForms: ['hisuian'], needForm: false,
     levelAt: 50, levelTo: 'potw-706',
@@ -1404,7 +1404,7 @@ export const kalosBuilder = {
   }),
   'potw-706': ensurePkmnBuilder({
     species: 'Goodra', type1: 'Dragon', 
-    tiers: ['Traditional', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'ultraball', weight: 150.5,
+    tiers: ['Traditional', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 150.5,
     eggBase: 'potw-704', eggGroup: ['Dragon'], eggCycles: 40,
     syncableForms: ['hisuian'], needForm: false,
     pokedex: `This very friendly Dragon-type Pokémon will hug its beloved Trainer, leaving that Trainer covered in sticky slime.`,
@@ -1429,7 +1429,7 @@ export const kalosBuilder = {
   }),
   'potw-707': ensurePkmnBuilder({
     species: 'Klefki', type1: 'Steel', type2: 'Fairy',
-    tiers: ['Traditional', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 3,
+    tiers: ['Traditional', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 3,
     eggBase: 'potw-707', eggGroup: ['Mineral'], eggCycles: 20,
     pokedex: `These key collectors threaten any attackers by fiercely jingling their keys at them.`,
     hp: 57, attack: 80, defense: 91, spAttack: 80, spDefense: 87, speed: 75,
@@ -1452,7 +1452,7 @@ export const kalosBuilder = {
   }),
   'potw-708': ensurePkmnBuilder({
     species: 'Phantump', type1: 'Ghost', type2: 'Grass',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'pokeball', weight: 7,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'pokeball', weight: 7,
     eggBase: 'potw-708', eggGroup: ['Grass'], eggCycles: 20,
     levelTo: 'potw-709',
     pokedex: `These Pokémon are created when spirits possess rotten tree stumps. They prefer to live in abandoned forests.`,
@@ -1476,7 +1476,7 @@ export const kalosBuilder = {
   }),
   'potw-709': ensurePkmnBuilder({
     species: 'Trevenant', type1: 'Ghost', type2: 'Grass',
-    tiers: ['Traditional', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 71,
+    tiers: ['Traditional', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 71,
     eggBase: 'potw-708', eggGroup: ['Grass'], eggCycles: 20,
     pokedex: `It can control trees at will. It will trap people who harm the forest, so they can never leave.`,
     hp: 85, attack: 110, defense: 76, spAttack: 65, spDefense: 82, speed: 56,
@@ -1727,7 +1727,7 @@ export const kalosBuilder = {
   }),
   'potw-712': ensurePkmnBuilder({
     species: 'Bergmite', type1: 'Ice',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'pokeball', weight: 99.5,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'pokeball', weight: 99.5,
     eggBase: 'potw-712', eggGroup: ['Monster'], eggCycles: 20,
     levelAt: 37, levelTo: 'potw-713',
     pokedex: `It blocks opponents' attacks with the ice that shields its body. It uses cold air to repair any cracks with new ice.`,
@@ -1750,7 +1750,7 @@ export const kalosBuilder = {
   }),
   'potw-713': ensurePkmnBuilder({
     species: 'Avalugg', type1: 'Ice',
-    tiers: ['Traditional', 'Kalos Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 505,
+    tiers: ['Traditional', 'Kalos Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 505,
     eggBase: 'potw-712', eggGroup: ['Monster'], eggCycles: 20,
     syncableForms: ['hisuian', 'noble'], needForm: false,
     pokedex: `Its ice-covered body is as hard as steel. Its cumbersome frame crushes anything that stands in its way.`,
@@ -1774,7 +1774,7 @@ export const kalosBuilder = {
   }),
   'potw-714': ensurePkmnBuilder({
     species: 'Noibat', type1: 'Flying', type2: 'Dragon',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 8,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 8,
     eggBase: 'potw-714', eggGroup: ['Flying'], eggCycles: 20,
     levelAt: 48, levelTo: 'potw-715',
     pokedex: `They live in pitch-black caves. Their enormous ears can emit ultrasonic waves of 200,000 hertz.`,
@@ -1798,7 +1798,7 @@ export const kalosBuilder = {
   }),
   'potw-715': ensurePkmnBuilder({
     species: 'Noivern', type1: 'Flying', type2: 'Dragon',
-    tiers: ['Traditional', 'Kalos Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'ultraball', weight: 85,
+    tiers: ['Traditional', 'Kalos Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 85,
     eggBase: 'potw-714', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `They fly around on moonless nights and attack careless prey. Nothing can beat them in a battle in the dark.`,
     hp: 85, attack: 70, defense: 80, spAttack: 97, spDefense: 80, speed: 123,
@@ -1949,7 +1949,7 @@ export const kalosBuilder = {
   }),
   'potw-719': ensurePkmnBuilder({
     species: 'Diancie', type1: 'Rock', type2: 'Fairy',
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 8.8, eggCycles: -1,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 8.8, eggCycles: -1,
     pokedex: `A sudden transformation of Carbink, its pink, glimmering body is said to be the loveliest sight in the whole world.`,
     hp: 50, attack: 100, defense: 150, spAttack: 100, spDefense: 150, speed: 50,
     move: ['Diamond Storm', 'Moonblast'],
@@ -1974,7 +1974,7 @@ export const kalosBuilder = {
   }),
   'potw-720': ensurePkmnBuilder({
     species: 'Hoopa', type1: 'Psychic', type2: 'Ghost',
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 9, eggCycles: -1,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 9, eggCycles: -1,
     syncableForms: ['confined', 'unbound'], needForm: 'confined',
     pokedex: `It gathers things it likes and pushes them through its loop to teleport them to a secret place.`,
     hp: 80, attack: 110, defense: 60, spAttack: 150, spDefense: 130, speed: 70,
@@ -1996,7 +1996,7 @@ export const kalosBuilder = {
   }),
   'potw-720-confined': ensurePkmnBuilder({
     species: 'Hoopa', type1: 'Psychic', type2: 'Ghost',
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 9, eggCycles: -1,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 9, eggCycles: -1,
     pokedex: `It gathers things it likes and pushes them through its loop to teleport them to a secret place.`,
     hp: 80, attack: 110, defense: 60, spAttack: 150, spDefense: 130, speed: 70,
     move: ['Hyperspace Hole', 'Shadow Ball'],
@@ -2017,7 +2017,7 @@ export const kalosBuilder = {
   }),
   'potw-720-unbound': ensurePkmnBuilder({
     species: 'Hoopa', type1: 'Psychic', type2: 'Dark',
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 490, eggCycles: -1,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 490, eggCycles: -1,
     pokedex: `It gathers things it likes and pushes them through its loop to teleport them to a secret place.`,
     hp: 80, attack: 160, defense: 60, spAttack: 170, spDefense: 130, speed: 80,
     move: ['Hyperspace Hole', 'Hyperspace Fury'],
@@ -2038,7 +2038,7 @@ export const kalosBuilder = {
   }),
   'potw-721': ensurePkmnBuilder({
     species: 'Volcanion', type1: 'Fire', type2: 'Water',
-    tiers: ['Traditional', 'Kalos Cup'], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 195, eggCycles: -1,
+    tiers: ['Traditional', 'Kalos Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', release: 'ultraball', rarity: 'MYTHICAL', weight: 195, eggCycles: -1,
     pokedex: `It expels its internal steam from the arms on its back. It has enough power to blow away a mountain.`,
     hp: 80, attack: 110, defense: 120, spAttack: 130, spDefense: 90, speed: 70,
     move: ['Overheat', 'Steam Eruption'],

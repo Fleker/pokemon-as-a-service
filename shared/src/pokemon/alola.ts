@@ -76,7 +76,7 @@ export const alolaBuilder = {
   }),
   'potw-026-alolan': ensurePkmnBuilder({
     species: 'Raichu', type1: 'Electric', type2: 'Psychic',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 21,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 21,
     eggBase: 'potw-172', eggGroup: ['Field', 'Fairy'], eggCycles: 10,
     pokedex: `It only evolves to this form in the Alola region. According to researchers, its diet is one of the causes of this change.`,
     hp: 60, attack: 85, defense: 50, spAttack: 95, spDefense: 85, speed: 110,
@@ -104,7 +104,7 @@ export const alolaBuilder = {
   }),
   'potw-027-alolan': ensurePkmnBuilder({
     species: 'Sandshrew', type1: 'Ice', type2: 'Steel',
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 40,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 40,
     eggBase: 'potw-027-alolan', eggGroup: ['Field'], eggCycles: 20,
     levelTo: 'potw-028-alolan',
     pokedex: `It lives on snowy mountains. Its steel shell is very hard—so much so, it can’t roll its body up into a ball.`,
@@ -130,7 +130,7 @@ export const alolaBuilder = {
   }),
   'potw-028-alolan': ensurePkmnBuilder({
     species: 'Sandslash', type1: 'Ice', type2: 'Steel',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 55,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 55,
     eggBase: 'potw-027-alolan', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Fleeing a volcanic eruption, it settled on a snowy mountain. As it races through the snowfields, it sends up a spray of snow.`,
     hp: 75, attack: 100, defense: 120, spAttack: 25, spDefense: 65, speed: 65,
@@ -156,7 +156,7 @@ export const alolaBuilder = {
   }),
   'potw-037-alolan': ensurePkmnBuilder({
     species: 'Vulpix', type1: 'Ice',
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 9.9,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 9.9,
     eggBase: 'potw-037-alolan', eggGroup: ['Field'], eggCycles: 20,
     levelTo: 'potw-038-alolan',
     pokedex: `It exhales air colder than -58 degrees Fahrenheit. Elderly people in Alola call this Pokémon by an older name—Keokeo.`,
@@ -181,7 +181,7 @@ export const alolaBuilder = {
   }),
   'potw-038-alolan': ensurePkmnBuilder({
     species: 'Ninetales', type1: 'Ice', type2: 'Fairy',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', weight: 19.9,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 19.9,
     eggBase: 'potw-037-alolan', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `It creates drops of ice in its coat and showers them over its enemies. Anyone who angers it will be frozen stiff in an instant.`,
     hp: 73, attack: 67, defense: 75, spAttack: 81, spDefense: 100, speed: 109,
@@ -208,7 +208,7 @@ export const alolaBuilder = {
   }),
   'potw-050-alolan': ensurePkmnBuilder({
     species: 'Diglett', type1: 'Ground', type2: 'Steel',
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 1,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 1,
     levelAt: 26, levelTo: 'potw-051-alolan',
     eggBase: 'potw-050-alolan', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Its head sports an altered form of whiskers made of metal. When in communication with its comrades, its whiskers wobble to and fro.`,
@@ -231,7 +231,7 @@ export const alolaBuilder = {
   }),
   'potw-051-alolan': ensurePkmnBuilder({
     species: 'Dugtrio', type1: 'Ground', type2: 'Steel',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 66.6,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 66.6,
     eggBase: 'potw-050-alolan', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Its head sports an altered form of whiskers made of metal. When in communication with its comrades, its whiskers wobble to and fro.`,
     hp: 35, attack: 100, defense: 60, spAttack: 50, spDefense: 70, speed: 110,
@@ -254,7 +254,7 @@ export const alolaBuilder = {
   }),
   'potw-052-alolan': ensurePkmnBuilder({
     species: 'Meowth', type1: 'Dark',
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 4.2,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 4.2,
     eggBase: 'potw-052-alolan', eggGroup: ['Field'], eggCycles: 20,
     evolveTo: ['potw-053-alolan'],
     pokedex: `This Pokémon was not originally found in Alola. Human actions caused a surge in their numbers, and they went feral. They’re prideful and crafty.`,
@@ -279,7 +279,7 @@ export const alolaBuilder = {
   }),
   'potw-053-alolan': ensurePkmnBuilder({
     species: 'Persian', type1: 'Dark',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 33,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 33,
     eggBase: 'potw-052-alolan', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Its round face and smooth coat—softer than the most high-class velvet—have made this a very popular Pokémon in Alola.`,
     hp: 65, attack: 60, defense: 60, spAttack: 75, spDefense: 65, speed: 115,
@@ -304,7 +304,7 @@ export const alolaBuilder = {
   }),
   'potw-074-alolan': ensurePkmnBuilder({
     species: 'Geodude', type1: 'Rock', type2: 'Electric',
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 20.3,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 20.3,
     eggBase: 'potw-074-alolan', eggGroup: ['Mineral'], eggCycles: 15,
     levelAt: 25, levelTo: 'potw-075-alolan',
     pokedex: `Its body is a magnetic stone. Iron sand attaches firmly to the portions of its body that are particularly magnetic.`,
@@ -330,7 +330,7 @@ export const alolaBuilder = {
   }),
   'potw-075-alolan': ensurePkmnBuilder({
     species: 'Graveler', type1: 'Rock', type2: 'Electric',
-    tiers: ['Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 110,
+    tiers: ['Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 110,
     eggBase: 'potw-074-alolan', eggGroup: ['Mineral'], eggCycles: 15,
     evolveTo: ['potw-076-alolan'],
     pokedex: `Its preferred food is dravite. After it has eaten this mineral, crystals form inside the Pokémon, rising to the surface of part of its body.`,
@@ -358,7 +358,7 @@ export const alolaBuilder = {
   }),
   'potw-076-alolan': ensurePkmnBuilder({
     species: 'Golem', type1: 'Rock', type2: 'Electric',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 316,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 316,
     eggBase: 'potw-074-alolan', eggGroup: ['Mineral'], eggCycles: 15,
     pokedex: `It fires rocks charged with electricity. Even if the rock isn’t fired that accurately, just grazing an opponent will cause numbness and fainting.`,
     hp: 80, attack: 120, defense: 130, spAttack: 55, spDefense: 65, speed: 45,
@@ -384,7 +384,7 @@ export const alolaBuilder = {
   }),
   'potw-088-alolan': ensurePkmnBuilder({
     species: 'Grimer', type1: 'Poison', type2: 'Dark',
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 42,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 42,
     eggBase: 'potw-088-alolan', eggGroup: ['Amorphous'], eggCycles: 20,
     levelAt: 38, levelTo: 'potw-089-alolan',
     pokedex: `A Grimer, which had been brought in to solve a problem with garbage, developed over time into this form.`,
@@ -409,7 +409,7 @@ export const alolaBuilder = {
   }),
   'potw-089-alolan': ensurePkmnBuilder({
     species: 'Muk', type1: 'Poison', type2: 'Dark',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 52,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 52,
     eggBase: 'potw-088-alolan', eggGroup: ['Amorphous'], eggCycles: 20,
     pokedex: `The garbage it eats causes continuous chemical changes in its body, which produce its exceedingly vivid coloration.`,
     hp: 105, attack: 105, defense: 75, spAttack: 65, spDefense: 100, speed: 50,
@@ -514,7 +514,7 @@ export const alolaBuilder = {
   }),
   'potw-722': ensurePkmnBuilder({
     species: 'Rowlet', type1: 'Grass', type2: 'Flying', 
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 1.5,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 1.5,
     eggBase: 'potw-722', eggGroup: ['Flying'], eggCycles: 15,
     levelAt: 17, levelTo: 'potw-723',
     pokedex: `This wary Pokémon uses photosynthesis to store up energy during the day, while becoming active at night.`,
@@ -536,7 +536,7 @@ export const alolaBuilder = {
   }),
   'potw-723': ensurePkmnBuilder({
     species: 'Dartrix', type1: 'Grass', type2: 'Flying', 
-    tiers: ['Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 16,
+    tiers: ['Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 16,
     eggBase: 'potw-722', eggGroup: ['Flying'], eggCycles: 15,
     levelAt: 34, levelTo: 'potw-724',
     pokedex: `A bit of a dandy, it spends its free time preening its wings. Its preoccupation with any dirt on its plumage can leave it unable to battle.`,
@@ -558,7 +558,7 @@ export const alolaBuilder = {
   }),
   'potw-724': ensurePkmnBuilder({
     species: 'Decidueye', type1: 'Grass', type2: 'Ghost', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 36.6,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 36.6,
     syncableForms: ['hisuian'], needForm: false,
     eggBase: 'potw-722', eggGroup: ['Flying'], eggCycles: 15,
     pokedex: `It fires arrow quills from its wings with such precision, they can pierce a pebble at distances over a hundred yards.`,
@@ -781,7 +781,7 @@ export const alolaBuilder = {
   }),
   'potw-734': ensurePkmnBuilder({
     species: 'Yungoos', type1: 'Normal', 
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 6,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 6,
     eggBase: 'potw-734', eggGroup: ['Field'], eggCycles: 15,
     levelAt: 20, levelTo: 'potw-735',
     pokedex: `With its sharp fangs, it will bite anything. It did not originally live in Alola but was imported from another region.`,
@@ -803,7 +803,7 @@ export const alolaBuilder = {
   }),
   'potw-735': ensurePkmnBuilder({
     species: 'Gumshoos', type1: 'Normal', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 14.2,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 14.2,
     syncableForms: ['totem'], needForm: false,
     eggBase: 'potw-734', eggGroup: ['Field'], eggCycles: 15,
     pokedex: `When it finds a trace of its prey, it patiently stakes out the location...but it's always snoozing by nightfall.`,
@@ -826,7 +826,7 @@ export const alolaBuilder = {
   }),
   'potw-736': ensurePkmnBuilder({
     species: 'Grubbin', type1: 'Bug', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 4.4,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 4.4,
     eggBase: 'potw-736', eggGroup: ['Bug'], eggCycles: 15,
     levelAt: 20, levelTo: 'potw-737',
     pokedex: `Its strong jaw enables it to scrape trees and slurp out the sap. It normally lives underground.`,
@@ -848,7 +848,7 @@ export const alolaBuilder = {
   }),
   'potw-737': ensurePkmnBuilder({
     species: 'Charjabug', type1: 'Bug', type2: 'Electric', 
-    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 10.5,
+    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 10.5,
     eggBase: 'potw-736', eggGroup: ['Bug'], eggCycles: 15,
     levelAt: 0, levelTo: 'potw-738',
     pokedex: `Its body is capable of storing electricity. On camping trips, people are grateful to have one around.`,
@@ -870,7 +870,7 @@ export const alolaBuilder = {
   }),
   'potw-738': ensurePkmnBuilder({
     species: 'Vikavolt', type1: 'Bug', type2: 'Electric', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 45,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 45,
     syncableForms: ['totem'], needForm: false,
     eggBase: 'potw-736', eggGroup: ['Bug'], eggCycles: 15,
     pokedex: `It zips around, on sharp lookout for an opening. It concentrates electrical energy within its large jaws and uses it to zap its enemies.`,
@@ -894,7 +894,7 @@ export const alolaBuilder = {
   }),
   'potw-739': ensurePkmnBuilder({
     species: 'Crabrawler', type1: 'Fighting', 
-    tiers: ['Tiny Cup', 'Ultra Cup'], shiny: 'WILD', weight: 7,
+    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 7,
     eggBase: 'potw-739', eggGroup: ['Water 3'], eggCycles: 20,
     levelAt: 1, levelTo: 'potw-740',
     pokedex: `While guarding its weak points with its pincers, it looks for an opening and unleashes punches. When it loses, it foams at the mouth and faints.`,
@@ -918,7 +918,7 @@ export const alolaBuilder = {
   }),
   'potw-740': ensurePkmnBuilder({
     species: 'Crabominable', type1: 'Fighting', type2: 'Ice', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', release: 'greatball', weight: 180,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 180,
     eggBase: 'potw-739', eggGroup: ['Water 3'], eggCycles: 20,
     pokedex: `It aimed for the top but got lost and ended up on a snowy mountain. Being forced to endure the cold, this Pokémon evolved and grew fur.`,
     hp: 97, attack: 132, defense: 77, spAttack: 62, spDefense: 67, speed: 43,
@@ -942,7 +942,7 @@ export const alolaBuilder = {
   }),
   'potw-741': ensurePkmnBuilder({
     species: 'Oricorio', type1: 'Fire', type2: 'Flying',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', weight: 3.4,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 3.4,
     syncableForms: ['baile', 'pom_pom', 'pau', 'sensu'], needForm: true,
     eggBase: 'potw-741', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `It beats its wings together to create fire. As it moves in the steps of its beautiful dance, it bathes opponents in intense flames.`,
@@ -963,7 +963,7 @@ export const alolaBuilder = {
   }),
   'potw-741-baile': ensurePkmnBuilder({
     species: 'Oricorio', type1: 'Fire', type2: 'Flying',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', weight: 3.4,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 3.4,
     eggBase: 'potw-741', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `It beats its wings together to create fire. As it moves in the steps of its beautiful dance, it bathes opponents in intense flames.`,
     hp: 75, attack: 70, defense: 70, spAttack: 98, spDefense: 70, speed: 93,
@@ -983,7 +983,7 @@ export const alolaBuilder = {
   }),
   'potw-741-pom_pom': ensurePkmnBuilder({
     species: 'Oricorio', type1: 'Electric', type2: 'Flying',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', weight: 3.4,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 3.4,
     eggBase: 'potw-741', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `It creates an electric charge by rubbing its feathers together. It dances over to its enemies and delivers shocking electrical punches.`,
     hp: 75, attack: 70, defense: 70, spAttack: 98, spDefense: 70, speed: 93,
@@ -1003,7 +1003,7 @@ export const alolaBuilder = {
   }),
   'potw-741-pau': ensurePkmnBuilder({
     species: 'Oricorio', type1: 'Psychic', type2: 'Flying',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', weight: 3.4,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 3.4,
     eggBase: 'potw-741', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `This Oricorio has sipped pink nectar. Its enemies’ hearts melt at the sight of its gently swaying hips.`,
     hp: 75, attack: 70, defense: 70, spAttack: 98, spDefense: 70, speed: 93,
@@ -1023,7 +1023,7 @@ export const alolaBuilder = {
   }),
   'potw-741-sensu': ensurePkmnBuilder({
     species: 'Oricorio', type1: 'Ghost', type2: 'Flying',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', weight: 3.4,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 3.4,
     eggBase: 'potw-741', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `It summons the dead with its dreamy dancing. From their malice, it draws power with which to curse its enemies.`,
     hp: 75, attack: 70, defense: 70, spAttack: 98, spDefense: 70, speed: 93,
@@ -1043,7 +1043,7 @@ export const alolaBuilder = {
   }),
   'potw-742': ensurePkmnBuilder({
     species: 'Cutiefly', type1: 'Bug', type2: 'Fairy', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 0.2,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 0.2,
     eggBase: 'potw-742', eggGroup: ['Bug'], eggCycles: 20,
     levelAt: 25, levelTo: 'potw-743',
     pokedex: `It feeds on the nectar and pollen of flowers. Because it's able to sense auras, it can identify which flowers are about to bloom.`,
@@ -1066,7 +1066,7 @@ export const alolaBuilder = {
   }),
   'potw-743': ensurePkmnBuilder({
     species: 'Ribombee', type1: 'Bug', type2: 'Fairy', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 0.5,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 0.5,
     syncableForms: ['totem'], needForm: false,
     eggBase: 'potw-742', eggGroup: ['Bug'], eggCycles: 20,
     pokedex: `It rolls up pollen into puffs. It makes many different varieties, some used as food and others used in battle.`,
@@ -1089,7 +1089,7 @@ export const alolaBuilder = {
   }),
   'potw-744': ensurePkmnBuilder({
     species: 'Rockruff', type1: 'Rock', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', weight: 9.2,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 9.2,
     eggBase: 'potw-744', eggGroup: ['Field'], eggCycles: 15,
     levelAt: 25, levelTo: 'potw-745', // TODO: Form changes
     pokedex: `It's considered to be a good Pokémon for beginners because of its friendliness, but its disposition grows rougher as it grows up.`,
@@ -1110,7 +1110,7 @@ export const alolaBuilder = {
   }),
   'potw-745': ensurePkmnBuilder({
     species: 'Lycanroc', type1: 'Rock', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 25,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 25,
     syncableForms: ['midday', 'midnight', 'dusk'], needForm: true,
     eggBase: 'potw-744', eggGroup: ['Field'], eggCycles: 15,
     pokedex: `Its quick movements confuse its enemies. Well equipped with claws and fangs, it also uses the sharp rocks in its mane as weapons.`,
@@ -1133,7 +1133,7 @@ export const alolaBuilder = {
   }),
   'potw-745-midday': ensurePkmnBuilder({
     species: 'Lycanroc', type1: 'Rock', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 25,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 25,
     eggBase: 'potw-744', eggGroup: ['Field'], eggCycles: 15,
     pokedex: `Its quick movements confuse its enemies. Well equipped with claws and fangs, it also uses the sharp rocks in its mane as weapons.`,
     hp: 75, attack: 115, defense: 65, spAttack: 55, spDefense: 65, speed: 112,
@@ -1155,7 +1155,7 @@ export const alolaBuilder = {
   }),
   'potw-745-midnight': ensurePkmnBuilder({
     species: 'Lycanroc', type1: 'Rock', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 25,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 25,
     eggBase: 'potw-744', eggGroup: ['Field'], eggCycles: 15,
     pokedex: `The more intimidating the opponent it faces, the more this Pokémon’s blood boils. It will attack with no regard for its own safety.`,
     hp: 75, attack: 115, defense: 75, spAttack: 55, spDefense: 75, speed: 82,
@@ -1177,7 +1177,7 @@ export const alolaBuilder = {
   }),
   'potw-745-dusk': ensurePkmnBuilder({
     species: 'Lycanroc', type1: 'Rock', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 25,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 25,
     eggBase: 'potw-744', eggGroup: ['Field'], eggCycles: 15,
     pokedex: `Bathed in the setting sun of evening, Lycanroc has undergone a special kind of evolution. An intense fighting spirit underlies its calmness.`,
     hp: 75, attack: 117, defense: 65, spAttack: 55, spDefense: 65, speed: 110,
@@ -1242,7 +1242,7 @@ export const alolaBuilder = {
   }),
   'potw-747': ensurePkmnBuilder({
     species: 'Mareanie', type1: 'Poison', type2: 'Water', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 8,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 8,
     eggBase: 'potw-747', eggGroup: ['Water 1'], eggCycles: 20,
     levelAt: 38, levelTo: 'potw-748',
     pokedex: `It plunges the poison spike on its head into its prey. When the prey has weakened, Mareanie deals the finishing blow with its 10 tentacles.`,
@@ -1264,7 +1264,7 @@ export const alolaBuilder = {
   }),
   'potw-748': ensurePkmnBuilder({
     species: 'Toxapex', type1: 'Poison', type2: 'Water', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 14.5,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 14.5,
     eggBase: 'potw-747', eggGroup: ['Water 1'], eggCycles: 20,
     pokedex: `Toxapex crawls along the ocean floor on its 12 legs. It leaves a trail of Corsola bits scattered in its wake.`,
     hp: 50, attack: 63, defense: 152, spAttack: 53, spDefense: 142, speed: 35,
@@ -1286,7 +1286,7 @@ export const alolaBuilder = {
   }),
   'potw-749': ensurePkmnBuilder({
     species: 'Mudbray', type1: 'Ground', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 110,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 110,
     eggBase: 'potw-749', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 30, levelTo: 'potw-750',
     pokedex: `The mud stuck to Mudbray's hooves enhances its grip and its powerful running gait.`,
@@ -1308,7 +1308,7 @@ export const alolaBuilder = {
   }),
   'potw-750': ensurePkmnBuilder({
     species: 'Mudsdale', type1: 'Ground', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 920,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 920,
     eggBase: 'potw-749', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `It spits a mud that provides resistance to both wind and rain, so the walls of old houses were often coated with it.`,
     hp: 100, attack: 125, defense: 100, spAttack: 55, spDefense: 85, speed: 35,
@@ -1374,7 +1374,7 @@ export const alolaBuilder = {
   }),
   'potw-753': ensurePkmnBuilder({
     species: 'Fomantis', type1: 'Grass', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', weight: 1.5,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 1.5,
     eggBase: 'potw-753', eggGroup: ['Grass'], eggCycles: 20,
     levelAt: 34, levelTo: 'potw-754',
     pokedex: `During the day, it sleeps and soaks up light. When night falls, it walks around looking for a safer place to sleep.`,
@@ -1396,7 +1396,7 @@ export const alolaBuilder = {
   }),
   'potw-754': ensurePkmnBuilder({
     species: 'Lurantis', type1: 'Grass', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 18.5,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 18.5,
     syncableForms: ['totem'], needForm: false,
     eggBase: 'potw-753', eggGroup: ['Grass'], eggCycles: 20,
     pokedex: `It requires a lot of effort to maintain Lurantis's vivid coloring, but some collectors enjoy this work and treat it as their hobby.`,
@@ -1465,7 +1465,7 @@ export const alolaBuilder = {
   'potw-757': ensurePkmnBuilder({
     species: 'Salandit', type1: 'Poison', type2: 'Fire',
     gender: ['male', 'male', 'male', 'male', 'male', 'female'],
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 4.8,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 4.8,
     eggBase: 'potw-757', eggGroup: ['Monster'], eggCycles: 20,
     pokedex: `It burns its bodily fluids to create a poisonous gas. When its enemies become disoriented from inhaling the gas, it attacks them.`,
     hp: 48, attack: 44, defense: 40, spAttack: 71, spDefense: 40, speed: 77,
@@ -1486,7 +1486,7 @@ export const alolaBuilder = {
   }),
   'potw-757-female': ensurePkmnBuilder({
     species: 'Salandit', type1: 'Poison', type2: 'Fire',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 4.8,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 4.8,
     eggBase: 'potw-757', eggGroup: ['Monster'], eggCycles: 20,
     levelAt: 33, levelTo: 'potw-758',
     pokedex: `It burns its bodily fluids to create a poisonous gas. When its enemies become disoriented from inhaling the gas, it attacks them.`,
@@ -1508,7 +1508,7 @@ export const alolaBuilder = {
   }),
   'potw-758': ensurePkmnBuilder({
     species: 'Salazzle', type1: 'Poison', type2: 'Fire', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 22.2,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 22.2,
     syncableForms: ['totem'], needForm: false,
     eggBase: 'potw-757', eggGroup: ['Monster'], eggCycles: 20,
     pokedex: `For some reason, only females have been found. It creates a reverse harem of male Salandit that it lives with.`,
@@ -1576,7 +1576,7 @@ export const alolaBuilder = {
   }),
   'potw-761': ensurePkmnBuilder({
     species: 'Bounsweet', type1: 'Grass', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 3.2,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 3.2,
     eggBase: 'potw-761', eggGroup: ['Grass'], eggCycles: 20,
     levelAt: 18, levelTo: 'potw-762',
     pokedex: `A delectable aroma pours from its body. They are often swallowed whole by Toucannon lured by that wafting deliciousness.`,
@@ -1598,7 +1598,7 @@ export const alolaBuilder = {
   }),
   'potw-762': ensurePkmnBuilder({
     species: 'Steenee', type1: 'Grass', 
-    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 8.2,
+    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 8.2,
     eggBase: 'potw-761', eggGroup: ['Grass'], eggCycles: 20,
     evolveTo: ['potw-763'],
     pokedex: `The sepals on its head developed to protect its body. These are quite hard, so even if pecked by bird Pokémon, this Pokémon is totally fine.`,
@@ -1621,7 +1621,7 @@ export const alolaBuilder = {
   }),
   'potw-763': ensurePkmnBuilder({
     species: 'Tsareena', type1: 'Grass',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 21.4,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 21.4,
     eggBase: 'potw-761', eggGroup: ['Grass'], eggCycles: 20,
     pokedex: `Its long, striking legs aren't just for show but to be used to kick with skill. In victory, it shows off by kicking the defeated, laughing boisterously.`,
     hp: 72, attack: 120, defense: 98, spAttack: 50, spDefense: 98, speed: 72,
@@ -1665,7 +1665,7 @@ export const alolaBuilder = {
   }),
   'potw-765': ensurePkmnBuilder({
     species: 'Oranguru', type1: 'Normal', type2: 'Psychic', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 76,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 76,
     eggBase: 'potw-765', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Known for its extreme intelligence, this Pokémon will look down on inexperienced Trainers, so it's best suited to veteran Trainers.`,
     hp: 90, attack: 60, defense: 80, spAttack: 90, spDefense: 110, speed: 60,
@@ -1689,7 +1689,7 @@ export const alolaBuilder = {
   }),
   'potw-766': ensurePkmnBuilder({
     species: 'Passimian', type1: 'Fighting', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 82.8,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 82.8,
     eggBase: 'potw-766', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `They form groups of roughly 20 individuals. Their mutual bond is remarkable—they will never let down a comrade.`,
     hp: 100, attack: 120, defense: 90, spAttack: 40, spDefense: 60, speed: 80,
@@ -1751,11 +1751,12 @@ export const alolaBuilder = {
       ['Liquidation', 'Metal Claw', 'Swords Dance'],
       ['Drill Run', 'Bulk Up'],
       ['Throat Chop', 'Spikes'],
+      ['Rock Slide', 'Pain Split'],
     ],
   }),
   'potw-769': ensurePkmnBuilder({
     species: 'Sandygast', type1: 'Ghost', type2: 'Ground', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', weight: 70,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 70,
     eggBase: 'potw-769', eggGroup: ['Amorphous'], eggCycles: 15,
     levelAt: 42, levelTo: 'potw-770',
     pokedex: `Born from a sand mound playfully built by a child, this Pokémon embodies the grudges of the departed.`,
@@ -1777,7 +1778,7 @@ export const alolaBuilder = {
   }),
   'potw-770': ensurePkmnBuilder({
     species: 'Palossand', type1: 'Ghost', type2: 'Ground', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 250,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 250,
     eggBase: 'potw-769', eggGroup: ['Amorphous'], eggCycles: 15,
     pokedex: `Possessed people controlled by this Pokémon transformed its sand mound into a castle. As it evolved, its power to curse grew ever stronger.`,
     hp: 85, attack: 75, defense: 110, spAttack: 100, spDefense: 75, speed: 35,
@@ -1881,7 +1882,7 @@ export const alolaBuilder = {
   }),
   'potw-775': ensurePkmnBuilder({
     species: 'Komala', type1: 'Normal', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', weight: 19.9,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 19.9,
     eggBase: 'potw-775', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `It is born asleep, and it dies asleep. All its movements are apparently no more than the results of it tossing and turning in its dreams.`,
     hp: 65, attack: 115, defense: 65, spAttack: 75, spDefense: 95, speed: 65,
@@ -1921,6 +1922,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Overheat', 'Body Slam', 'Shell Trap'],
       ['Heat Crash', 'Dragon Tail', 'Lash Out', 'Shell Smash'],
+      ['Iron Head', 'Wide Guard'],
     ]
   }),
   'potw-777': ensurePkmnBuilder({
@@ -1948,7 +1950,7 @@ export const alolaBuilder = {
   }),
   'potw-778': ensurePkmnBuilder({
     species: 'Mimikyu', type1: 'Ghost', type2: 'Fairy', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 0.7,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.7,
     eggBase: 'potw-778', eggGroup: ['Amorphous'], eggCycles: 20,
     syncableForms: ['totem'], needForm: false,
     pokedex: `Its actual appearance is unknown. A scholar who saw what was under its rag was overwhelmed by terror and died from the shock.`,
@@ -1972,7 +1974,7 @@ export const alolaBuilder = {
   }),
   'potw-779': ensurePkmnBuilder({
     species: 'Bruxish', type1: 'Water', type2: 'Psychic', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'WILD', weight: 19,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 19,
     eggBase: 'potw-779', eggGroup: ['Water 2'], eggCycles: 15,
     pokedex: `When it unleashes its psychic power from the protuberance on its head, the grating sound of grinding teeth echoes through the area.`,
     hp: 68, attack: 105, defense: 70, spAttack: 70, spDefense: 70, speed: 92,
@@ -2044,7 +2046,7 @@ export const alolaBuilder = {
   }),
   'potw-782': ensurePkmnBuilder({
     species: 'Jangmo-o', type1: 'Dragon', 
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', weight: 29.7,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', weight: 29.7,
     eggBase: 'potw-782', eggGroup: ['Dragon'], eggCycles: 40,
     levelAt: 35, levelTo: 'potw-783',
     pokedex: `It expresses its feelings by smacking its scales. Metallic sounds echo through the tall mountains where Jangmo-o lives.`,
@@ -2068,7 +2070,7 @@ export const alolaBuilder = {
   }),
   'potw-783': ensurePkmnBuilder({
     species: 'Hakamo-o', type1: 'Dragon', type2: 'Fighting', 
-    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'greatball', weight: 47,
+    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball', weight: 47,
     eggBase: 'potw-782', eggGroup: ['Dragon'], eggCycles: 40,
     levelAt: 45, levelTo: 'potw-784',
     pokedex: `It leaps at its prey with a courageous shout. Its scaly punches tear its opponents to shreds.`,
@@ -2092,7 +2094,7 @@ export const alolaBuilder = {
   }),
   'potw-784': ensurePkmnBuilder({
     species: 'Kommo-o', type1: 'Dragon', type2: 'Fighting', 
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'], shiny: 'WILD', release: 'ultraball', weight: 78.2,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 78.2,
     syncableForms: ['totem'], needForm: false,
     eggBase: 'potw-782', eggGroup: ['Dragon'], eggCycles: 20,
     pokedex: `When it spots enemies, it threatens them by jingling the scales on its tail. Weak opponents will crack and flee in panic.`,
@@ -2499,7 +2501,7 @@ export const alolaBuilder = {
   'potw-801': ensurePkmnBuilder({
     species: 'Magearna', type1: 'Steel', type2: 'Fairy', 
     syncableForms: ['original'], needForm: false,
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'], shiny: 'SYNCABLE', release: 'ultraball', rarity: 'MYTHICAL', weight: 80.5, eggCycles: -1,
+    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', release: 'ultraball', rarity: 'MYTHICAL', weight: 80.5, eggCycles: -1,
     pokedex: `This artificial Pokémon, constructed more than 500 years ago, can understand human speech but cannot itself speak.`,
     hp: 80, attack: 95, defense: 115, spAttack: 130, spDefense: 115, speed: 65,
     move: ['Flash Cannon', 'Fleur Cannon'],

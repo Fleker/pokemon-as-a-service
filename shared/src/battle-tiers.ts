@@ -43,6 +43,10 @@ export interface Rules {
    */
   dynamax?: boolean
   /**
+   * Whether terastallization can be used in this format. Requires Tera Orb.
+   */
+  tera?: boolean
+  /**
    * Max number of allowed wins, or 0 for no limit.
    */
   maxWins: number
@@ -453,6 +457,76 @@ const ArceusCupPrizeList: PrizeList = [{
     ...Prizes.TYPE_RSE_BERRY, ...Prizes.CRAFTING_MATERIALS,
     ...Prizes.EVO_STONES, ...Prizes.DPP_EVOS,
     ...Prizes.PLATES, ...Prizes.TMS_PLA],
+}]
+
+const TeraCupPrizeList: PrizeList = [{
+  wins: -1,
+  items: ['pokeball', ...Prizes.SV_INGREDIENTS],
+}, {
+  wins: 6,
+  items: ['greatball', ...Prizes.SV_INGREDIENTS],
+}, {
+  wins: 24,
+  items: ['ultraball', ...Prizes.SV_INGREDIENTS],
+}, {
+  wins: Prizes.winTier(1),
+  items: ['ultraball', ...Prizes.TREASURE, ...Prizes.SV_INGREDIENTS],
+}, {
+  wins: Prizes.winTier(2),
+  items: [...Prizes.TREASURE, ...Prizes.SV_INGREDIENTS, ...Prizes.TMS_SV],
+}, {
+  wins: Prizes.winTier(3),
+  items: [...Prizes.TREASURE, ...Prizes.SV_INGREDIENTS,
+    ...Prizes.TMS_SV],
+}, {
+  wins: Prizes.winTier(4),
+  items: [...Prizes.TREASURE, ...Prizes.TREASURE_RARE, ...Prizes.SV_INGREDIENTS,
+    ...Prizes.TMS_SV, 'teragrass', 'terafire', 'terawater',
+  ],
+}, {
+  wins: Prizes.winTier(5),
+  items: [...Prizes.TREASURE, ...Prizes.TREASURE_RARE, ...Prizes.SV_INGREDIENTS,
+    ...Prizes.TMS_SV, ...Prizes.SV_ITEMS, ...Prizes.TERA_SHARDS],
+}, {
+  wins: Prizes.winTier(5),
+  items: [...Prizes.TREASURE, ...Prizes.TREASURE_RARE, ...Prizes.SV_INGREDIENTS,
+    ...Prizes.TMS_SV, ...Prizes.SV_ITEMS, ...Prizes.TERA_SHARDS,
+    ...Prizes.SV_HMS],
+}]
+
+const TeraDlcCupPrizeList: PrizeList = [{
+  wins: -1,
+  items: ['pokeball', ...Prizes.SV_INGREDIENTS],
+}, {
+  wins: 6,
+  items: ['greatball', ...Prizes.SV_INGREDIENTS],
+}, {
+  wins: 24,
+  items: ['ultraball', ...Prizes.SV_INGREDIENTS],
+}, {
+  wins: Prizes.winTier(1),
+  items: ['ultraball', ...Prizes.TREASURE, ...Prizes.SV_INGREDIENTS],
+}, {
+  wins: Prizes.winTier(2),
+  items: [...Prizes.TREASURE, ...Prizes.SV_INGREDIENTS, ...Prizes.TMS_SV],
+}, {
+  wins: Prizes.winTier(3),
+  items: [...Prizes.TREASURE, ...Prizes.SV_INGREDIENTS,
+    ...Prizes.TMS_SV],
+}, {
+  wins: Prizes.winTier(4),
+  items: [...Prizes.TREASURE, ...Prizes.TREASURE_RARE, ...Prizes.SV_INGREDIENTS,
+    ...Prizes.TMS_SV, 'teragrass', 'terafire', 'terawater',
+  ],
+}, {
+  wins: Prizes.winTier(5),
+  items: [...Prizes.TREASURE, ...Prizes.TREASURE_RARE, ...Prizes.SV_INGREDIENTS,
+    ...Prizes.TMS_SV, ...Prizes.SV_ITEMS, ...Prizes.TERA_SHARDS],
+}, {
+  wins: Prizes.winTier(5),
+  items: [...Prizes.TREASURE, ...Prizes.TREASURE_RARE, ...Prizes.SV_INGREDIENTS,
+    ...Prizes.TMS_SV, ...Prizes.SV_ITEMS, ...Prizes.TERA_SHARDS,
+    ...Prizes.SV_HMS, ...Prizes.SV_DLC_ITEMS],
 }]
 
 const TinyCupPrizeList: PrizeList = [{

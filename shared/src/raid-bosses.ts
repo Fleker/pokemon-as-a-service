@@ -47,138 +47,138 @@ export interface RaidBoss {
 export const regionBoss: {[key in RegionType]: {[rating: number]: RaidBoss[]}} = {
   'North America': {
     1: [{
-      species: Potw(P.Blipbug, {var: 1})
+      species: Potw(P.Stunfisk, {var: 2, form: 'galarian'})
     }, {
-      species: Potw(P.Throh, {var: 1})
+      species: Potw(P.Tyrogue, {var: 2})
     }],
     2: [{
-      species: Potw(P.Dottler, {var: 1})
+      species: Potw(P.Stunfisk, {var: 2, form: 'galarian'})
     }, {
-      species: Potw(P.Throh, {var: 1})
+      species: Potw(P.Hitmonlee, {var: 2})
     }],
     3: [{
-      species: Potw(P.Orbeetle, {var: 1})
+      species: Potw(P.Stunfisk, {var: 2, form: 'galarian'})
     }, {
-      species: Potw(P.Throh, {var: 1})
+      species: Potw(P.Hitmonlee, {var: 2})
     }]
   },
   'South America': {
     1: [{
-      species: Potw(P.Arrokuda, {var: 1})
+      species: Potw(P.Wimpod, {var: 4})
     }, {
-      species: Potw(P.Sawk, {var: 1})
+      species: Potw(P.Tyrogue, {var: 2})
     }],
     2: [{
-      species: Potw(P.Arrokuda, {var: 1})
+      species: Potw(P.Wimpod, {var: 4})
     }, {
-      species: Potw(P.Sawk, {var: 1})
+      species: Potw(P.Hitmonchan, {var: 2})
     }],
     3: [{
-      species: Potw(P.Barraskewda, {var: 1})
+      species: Potw(P.Golisopod, {var: 4})
     }, {
-      species: Potw(P.Sawk, {var: 1})
+      species: Potw(P.Hitmonchan, {var: 2})
     }]
   },
   'North Europe': {
     1: [{
-      species: Potw(P.Impidimp, {var: 1})
+      species: Potw(P.Bergmite, {var: 1})
     }, {
-      species: Potw(P.Surskit, {var: 3})
+      species: Potw(P.Ledyba, {var: 4})
     }],
     2: [{
-      species: Potw(P.Morgrem, {var: 1})
+      species: Potw(P.Bergmite, {var: 1})
     }, {
-      species: Potw(P.Surskit, {var: 3})
+      species: Potw(P.Ledyba, {var: 4})
     }],
     3: [{
-      species: Potw(P.Grimmsnarl, {var: 1})
+      species: Potw(P.Avalugg, {var: 1, form: 'hisuian'})
     }, {
-      species: Potw(P.Masquerain, {var: 3})
+      species: Potw(P.Ledian, {var: 4})
     }]
   },
   'Mediterranean': {
     1: [{
-      species: Potw(P.Falinks, {var: 1})
+      species: Potw(P.Eiscue, {var: 1, form: 'ice_face'})
     }, {
-      species: Potw(P.Luvdisc, {var:3})
+      species: Potw(P.Ferroseed, {var:2})
     }],
     2: [{
-      species: Potw(P.Falinks, {var: 1})
+      species: Potw(P.Eiscue, {var: 1, form: 'ice_face'})
     }, {
-      species: Potw(P.Luvdisc, {var:3})
+      species: Potw(P.Ferroseed, {var:2})
     }],
     3: [{
-      species: Potw(P.Falinks, {var: 1})
+      species: Potw(P.Eiscue, {var: 1, form: 'ice_face'})
     }, {
-      species: Potw(P.Luvdisc, {var:3})
+      species: Potw(P.Ferrothorn, {var:2})
     }]
   },
   'Africa / Middle East': {
     1: [{
-      species: Potw(P.Zigzagoon, {var: 1, form: 'galarian'})
+      species: Potw(P.Voltorb, {var: 1, form: 'hisuian'})
     }, {
-      species: Potw(P.Skitty, {var: 1})
+      species: Potw(P.Gulpin, {var: 2})
     }],
     2: [{
-      species: Potw(P.Linoone, {var: 1, form: 'galarian'})
+      species: Potw(P.Voltorb, {var: 1, form: 'hisuian'})
     }, {
-      species: Potw(P.Skitty, {var: 1})
+      species: Potw(P.Gulpin, {var: 2})
     }],
     3: [{
-      species: Potw(P.Obstagoon, {var: 1})
+      species: Potw(P.Electrode, {var: 1, form: 'hisuian'})
     }, {
-      species: Potw(P.Delcatty, {var: 1})
+      species: Potw(P.Swalot, {var: 2})
     }]
   },
   'Asia': {
     1: [{
-      species: Potw(P.Hatenna, {var: 1})
+      species: Potw(P.Ponyta, {var: 3, form: 'galarian'})
     }, {
-      species: Potw(P.Wynaut, {var: 2})
+      species: Potw(P.Elgyem, {var: 2})
     }],
     2: [{
-      species: Potw(P.Hattrem, {var: 1})
+      species: Potw(P.Ponyta, {var: 3, form: 'galarian'})
     }, {
-      species: Potw(P.Wobbuffet, {var: 2})
+      species: Potw(P.Elgyem, {var: 2})
     }],
     3: [{
-      species: Potw(P.Hatterene, {var: 1})
+      species: Potw(P.Rapidash, {var: 3, form: 'galarian'})
     }, {
-      species: Potw(P.Wobbuffet, {var: 2})
+      species: Potw(P.Beheeyem, {var: 2})
     }]
   },
   'Pacific Islands': {
     1: [{
-      species: Potw(P.Heatmor, {var: 3})
+      species: Potw(P.Turtonator, {var: 3})
     }, {
-      species: Potw(P.Slowpoke, {var:1, form: 'galarian'})
+      species: Potw(P.Cottonee, {var:4})
     }],
     2: [{
-      species: Potw(P.Heatmor, {var: 3})
+      species: Potw(P.Turtonator, {var: 3})
     }, {
-      species: Potw(P.Slowpoke, {var:1, form: 'galarian'})
+      species: Potw(P.Cottonee, {var:4})
     }],
     3: [{
-      species: Potw(P.Heatmor, {var: 3})
+      species: Potw(P.Turtonator, {var: 3})
     }, {
-      species: Potw(P.Slowpoke, {var:1, form: 'galarian'})
+      species: Potw(P.Whimsicott, {var:4})
     }]
   },
   'Australia / New Zealand': {
     1: [{
-      species: Potw(P.Stunfisk, {var: 1, form: 'galarian'})
+      species: Potw(P.Petilil, {var: 1})
     }, {
-      species: Potw(P.Skiddo, {var: 1})
+      species: Potw(P.Tyrogue, {var: 4})
     }],
     2: [{
-      species: Potw(P.Stunfisk, {var: 1, form: 'galarian'})
+      species: Potw(P.Petilil, {var: 1})
     }, {
-      species: Potw(P.Skiddo, {var: 1})
+      species: Potw(P.Hitmontop, {var: 4})
     }],
     3: [{
-      species: Potw(P.Stunfisk, {var: 1, form: 'galarian'})
+      species: Potw(P.Lilligant, {var: 1, form: 'hisuian'})
     }, {
-      species: Potw(P.Gogoat, {var: 1})
+      species: Potw(P.Hitmontop, {var: 4})
     }]
   },
 }

@@ -168,6 +168,11 @@ export const TMS_PLA: ItemId[] = [
   'tm-Barb Barrage', 'tm-Psyshield Bash',
 ]
 
+export const TMS_SV: ItemId[] = [
+  'tm-Pounce', 'tm-Trailblaze', 'tm-Volt Switch', 'tm-Chilling Water',
+  'tm-Hyper Drill', 'tm-Rage Fist', 'tm-Twin Beam', 'tm-Ice Spinner',
+]
+
 export const TRS_RB: ItemId[] = [
   'tr-String Shot', 'tr-Swords Dance', 'tr-Mimic', 'tr-Self-Destruct',
   'tr-Thunder Wave', 'tr-Metronome', 'tr-Agility', 'tr-Mimic',
@@ -365,6 +370,47 @@ export const TYPE_SWSH_ITEMS: ItemId[] = [
   ...SWEETS, 'blunderpolicy', 'chippedpot', 'crackedpot', 'dynamaxcandy',
   'ejectpack', 'heavydutyboots', 'roomservice', 'sweetapple', 'tartapple',
   'throatspray', 'utilityumbrella', 'galaricatwig',
+]
+
+export const SV_ITEMS: ItemId[] = [
+  'clearamulet', 'mirrorherb', 'punchingglove', 'covertcloak', 'loadeddice',
+  'fairyfeather',
+]
+
+export const SV_DLC_ITEMS: ItemId[] = [
+  'mochimuscle', 'mochiresist', 'mochigenius', 'mochiclever', 'mochiswift',
+  'mochihealth', 'mochifreshstart', 'fairyfeather', 'syrupyapple',
+  'teacupunremarkable', 'teacupmasterpiece',
+]
+
+export const SV_INGREDIENTS: ItemId[] = [
+  'svibaguette', 'svcmayonnaise', 'svcketchup', 'svcmustard', 'svcbutter',
+  'svcpeanutbutter', 'svcchilisauce', 'svcsalt', 'svcpepper', 'svcyogurt',
+  'svcwhippedcream', 'svccreamcheese', 'svcjam', 'svcmarmalade',
+  'svcoliveoil', 'svcvinegar', 'svilettuce', 'svitomato',
+  'svicherrytomato', 'svicucumber', 'svipickle', 'svionion',
+  'svionionred', 'svibellpeppergreen', 'svibellpepperred',
+  'svibellpepperyellow', 'sviavocado', 'svibacon', 'sviham',
+  'sviprosciutto', 'svichorizo', 'svisausage', 'svihamburger',
+  'sviklawfstick', 'svismokedfillet', 'svifriedfillet',
+  'sviegg', 'svitortilla', 'svitofu', 'svirice', 'svinoodles',
+  'svipotatosalad', 'svicheese', 'svibanana', 'sviapple',
+  'svikiwi', 'svipineapple', 'svistrawberry', 'svijalapeno',
+  'svchorseradish', 'svccurrypowder', 'svcwasabi', 'sviwatercress',
+  'svibasil',
+]
+
+export const SV_HMS: ItemId[] = [
+  'svhmsweet', 'svhmsalty', 'svhmsour', 'svhmbitter',
+  'svhmspicy',
+]
+
+export const TERA_SHARDS: ItemId[] = [
+  'teranormal', 'terafire', 'terawater', 'teraelectric',
+  'teragrass', 'teraice', 'terafighting', 'terapoison',
+  'teraground', 'teraflying', 'terapsychic', 'terabug',
+  'terarock', 'teraghost', 'teradragon', 'teradark',
+  'terasteel', 'terafairy',
 ]
 
 /**

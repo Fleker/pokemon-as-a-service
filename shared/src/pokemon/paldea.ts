@@ -3,7 +3,7 @@ import { ensurePkmnBuilder } from './types'
 export const paldeaBuilder = {
   'potw-128-combat_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting',
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 115, eggBase: 'potw-128-combat_breed', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `This Pokémon has a muscular body and excels at close-quarters combat. It uses its short horns to strike the opponent’s weak spots.`,
     hp: 75, attack: 110, defense: 105, spAttack: 30, spDefense: 70, speed: 100,
@@ -12,7 +12,7 @@ export const paldeaBuilder = {
   }),
   'potw-128-blaze_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting', type2: 'Fire',
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 85, eggBase: 'potw-128-blaze_breed', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `When heated by fire energy, its horns can get hotter than 1,800 degrees Fahrenheit. Those gored by them will suffer both wounds and burns.`,
     hp: 75, attack: 110, defense: 105, spAttack: 30, spDefense: 70, speed: 100,
@@ -21,7 +21,7 @@ export const paldeaBuilder = {
   }),
   'potw-128-aqua_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting', type2: 'Water',
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 110, eggBase: 'potw-128-aqua_breed', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `This Pokémon blasts water from holes on the tips of its horns—the high-pressure jets pierce right through Tauros’s enemies.`,
     hp: 75, attack: 110, defense: 105, spAttack: 30, spDefense: 70, speed: 100,
@@ -30,7 +30,7 @@ export const paldeaBuilder = {
   }),
   'potw-194-paldean': ensurePkmnBuilder({
     species: 'Wooper', type1: 'Poison', type2: 'Ground', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Tiny Cup', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 11,
     eggBase: 'potw-194-paldean', eggGroup: ['Water 1', 'Field'], eggCycles: 20,
     levelAt: 20, levelTo: 'potw-980', // FIXME
@@ -66,7 +66,7 @@ export const paldeaBuilder = {
   }),
   'potw-906': ensurePkmnBuilder({
     species: 'Sprigatito', type1: 'Grass', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Tiny Cup', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 4.1,
     eggBase: 'potw-906', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 16, levelTo: 'potw-906', // FIXME
@@ -77,7 +77,7 @@ export const paldeaBuilder = {
   }),
   'potw-907': ensurePkmnBuilder({
     species: 'Floragato', type1: 'Grass', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 12.2,
     eggBase: 'potw-906', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 36, levelTo: 'potw-908',
@@ -88,7 +88,7 @@ export const paldeaBuilder = {
   }),
   'potw-908': ensurePkmnBuilder({
     species: 'Meowscarada', type1: 'Grass', type2: 'Dark', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 31.2,
     eggBase: 'potw-906', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `This Pokémon uses the reflective fur lining its cape to camouflage the stem of its flower, creating the illusion that the flower is floating.`,
@@ -98,7 +98,7 @@ export const paldeaBuilder = {
   }),
   'potw-909': ensurePkmnBuilder({
     species: 'Fuecoco', type1: 'Fire', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Tiny Cup', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 9.8,
     eggBase: 'potw-909', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 16, levelTo: 'potw-910',
@@ -109,7 +109,7 @@ export const paldeaBuilder = {
   }),
   'potw-910': ensurePkmnBuilder({
     species: 'Crocalor', type1: 'Fire', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 30.7,
     eggBase: 'potw-909', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 36, levelTo: 'potw-911',
@@ -120,7 +120,7 @@ export const paldeaBuilder = {
   }),
   'potw-911': ensurePkmnBuilder({
     species: 'Skeledirge', type1: 'Fire', type2: 'Ghost', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 326.5,
     eggBase: 'potw-909', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `The fiery bird changes shape when Skeledirge sings. Rumor has it that the bird was born when the fireball on Skeledirge's head gained a soul.`,
@@ -130,7 +130,7 @@ export const paldeaBuilder = {
   }),
   'potw-912': ensurePkmnBuilder({
     species: 'Quaxly', type1: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Tiny Cup', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 6.1,
     eggBase: 'potw-912', eggGroup: ['Flying', 'Water 1'], eggCycles: 10,
     levelAt: 16, levelTo: 'potw-913',
@@ -141,7 +141,7 @@ export const paldeaBuilder = {
   }),
   'potw-913': ensurePkmnBuilder({
     species: 'Quaxwell', type1: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 21.5,
     eggBase: 'potw-912', eggGroup: ['Flying', 'Water 1'], eggCycles: 10,
     levelAt: 36, levelTo: 'potw-914',
@@ -152,7 +152,7 @@ export const paldeaBuilder = {
   }),
   'potw-914': ensurePkmnBuilder({
     species: 'Quaquaval', type1: 'Water', type2: 'Fighting', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', /* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 61.9,
     eggBase: 'potw-912', eggGroup: ['Flying', 'Water 1'], eggCycles: 10,
     pokedex: `A single kick from a Quaquaval can send a truck rolling. This Pokémon uses its powerful legs to perform striking dances from far-off lands.`,
@@ -160,9 +160,9 @@ export const paldeaBuilder = {
     move: ['Aqua Step', 'Close Combat'],
     moveTMs: []
   }),
-  'potw-915': ensurePkmnBuilder({ // TODO: Genders
+  'potw-915': ensurePkmnBuilder({
     species: 'Lechonk', type1: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 10.2, gender: ['male', 'female'],
     eggBase: 'potw-915', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 18, levelTo: 'potw-916',
@@ -175,7 +175,7 @@ export const paldeaBuilder = {
   // https://serebii.net/pokedex-sv/oinkologne/
   'potw-916': ensurePkmnBuilder({
     species: 'Oinkologne', type1: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 120, gender: ['male', 'female'],
     eggBase: 'potw-915', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `Oinkologne is proud of its fine, glossy skin. It emits a concentrated scent from the tip of its tail.`,
@@ -185,7 +185,7 @@ export const paldeaBuilder = {
   }),
   'potw-916-female': ensurePkmnBuilder({
     species: 'Oinkologne', type1: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 120,
     eggBase: 'potw-915', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `This Pokémon sends a flowerlike scent wafting about. Well-developed muscles in its legs allow it to leap more than 16 feet with no trouble at all.`,
@@ -195,7 +195,7 @@ export const paldeaBuilder = {
   }),
   'potw-917': ensurePkmnBuilder({
     species: 'Tarountula', type1: 'Bug', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 4,
     eggBase: 'potw-917', eggGroup: ['Bug'], eggCycles: 10,
     levelAt: 15, levelTo: 'potw-918',
@@ -206,7 +206,7 @@ export const paldeaBuilder = {
   }),
   'potw-918': ensurePkmnBuilder({
     species: 'Spidops', type1: 'Bug', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 16.5,
     eggBase: 'potw-917', eggGroup: ['Bug'], eggCycles: 10,
     pokedex: `It clings to branches and ceilings using its threads and moves without a sound. It takes out its prey before the prey even notices it.`,
@@ -216,7 +216,7 @@ export const paldeaBuilder = {
   }),
   'potw-919': ensurePkmnBuilder({
     species: 'Nymble', type1: 'Bug', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 1,
     eggBase: 'potw-919', eggGroup: ['Bug'], eggCycles: 10,
     levelAt: 24, levelTo: 'potw-920',
@@ -227,7 +227,7 @@ export const paldeaBuilder = {
   }),
   'potw-920': ensurePkmnBuilder({
     species: 'Lokix', type1: 'Bug', type2: 'Dark', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 17.5,
     eggBase: 'potw-919', eggGroup: ['Bug'], eggCycles: 10,
     pokedex: `When it decides to fight all out, it stands on its previously folded legs to enter Showdown Mode. It neutralizes its enemies in short order.`,
@@ -240,7 +240,7 @@ export const paldeaBuilder = {
   }),
   'potw-921': ensurePkmnBuilder({
     species: 'Pawmi', type1: 'Electric', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 2.5,
     eggBase: 'potw-921', eggGroup: ['Field'], eggCycles: 15,
     levelAt: 18, levelTo: 'potw-922',
@@ -251,7 +251,7 @@ export const paldeaBuilder = {
   }),
   'potw-922': ensurePkmnBuilder({
     species: 'Pawmo', type1: 'Electric', type2: 'Fighting', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 6.5,
     eggBase: 'potw-921', eggGroup: ['Field'], eggCycles: 15,
     evolveTo: ['potw-923'],
@@ -262,7 +262,7 @@ export const paldeaBuilder = {
   }),
   'potw-923': ensurePkmnBuilder({
     species: 'Pawmot', type1: 'Electric', type2: 'Fighting', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 41,
     eggBase: 'potw-921', eggGroup: ['Field'], eggCycles: 15,
     pokedex: `This Pokémon normally is slow to react, but once it enters battle, it will strike down its enemies with lightning-fast movements.`,
@@ -275,7 +275,7 @@ export const paldeaBuilder = {
   }),
   'potw-924': ensurePkmnBuilder({
     species: 'Tandemaus', type1: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 1.8,
     eggBase: 'potw-924', eggGroup: ['Field'], eggCycles: 5,
     levelAt: 25, levelTo: 'potw-925',
@@ -286,7 +286,7 @@ export const paldeaBuilder = {
   }),
   'potw-925': ensurePkmnBuilder({
     species: 'Maushold', type1: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 2.8, syncableForms: [...Array(99).fill('family_of_four'), 'family_of_three'], needForm: true,
     eggBase: 'potw-924', eggGroup: ['Field'], eggCycles: 5,
     pokedex: `The two little ones just appeared one day. The group might be a family of related Pokémon, but nobody knows for sure.`,
@@ -296,7 +296,7 @@ export const paldeaBuilder = {
   }),
   'potw-926': ensurePkmnBuilder({
     species: 'Fidough', type1: 'Fairy', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 10.9,
     eggBase: 'potw-926', eggGroup: ['Field', 'Mineral'], eggCycles: 10,
     levelAt: 26, levelTo: 'potw-927',
@@ -307,7 +307,7 @@ export const paldeaBuilder = {
   }),
   'potw-927': ensurePkmnBuilder({
     species: 'Dachsbun', type1: 'Fairy', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 14.9,
     eggBase: 'potw-926', eggGroup: ['Field', 'Mineral'], eggCycles: 10,
     pokedex: `The pleasant aroma that emanates from this Pokémon's body helps wheat grow, so Dachsbun has been treasured by farming villages.`,
@@ -317,7 +317,7 @@ export const paldeaBuilder = {
   }),
   'potw-928': ensurePkmnBuilder({
     species: 'Smoliv', type1: 'Grass', type2: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 6.5,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     levelAt: 25, levelTo: 'potw-929',
@@ -328,7 +328,7 @@ export const paldeaBuilder = {
   }),
   'potw-929': ensurePkmnBuilder({
     species: 'Dolliv', type1: 'Grass', type2: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 11.9,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     levelAt: 35, levelTo: 'potw-930',
@@ -339,7 +339,7 @@ export const paldeaBuilder = {
   }),
   'potw-930': ensurePkmnBuilder({
     species: 'Arboliva', type1: 'Grass', type2: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 48.2,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     pokedex: `This calm Pokémon is very compassionate. It will share its delicious, nutrient-rich oil with weakened Pokémon.`,
@@ -349,7 +349,7 @@ export const paldeaBuilder = {
   }),
   'potw-931': ensurePkmnBuilder({
     species: 'Squawkabilly', type1: 'Normal', type2: 'Flying', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     syncableForms: ['green_plumage', 'white_plumage', 'blue_plumage', 'yellow_plumage'], needForm: true,
     weight: 2.4,
     eggBase: 'potw-931', eggGroup: ['Flying'], eggCycles: 15,
@@ -360,7 +360,7 @@ export const paldeaBuilder = {
   }),
   'potw-932': ensurePkmnBuilder({
     species: 'Nacli', type1: 'Rock', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 16,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     levelAt: 24, levelTo: 'potw-933',
@@ -371,7 +371,7 @@ export const paldeaBuilder = {
   }),
   'potw-933': ensurePkmnBuilder({
     species: 'Naclstack', type1: 'Rock', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 105,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     levelAt: 38, levelTo: 'potw-934',
@@ -382,7 +382,7 @@ export const paldeaBuilder = {
   }),
   'potw-934': ensurePkmnBuilder({
     species: 'Garganacl', type1: 'Rock', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 240,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     pokedex: `Garganacl will rub its fingertips together and sprinkle injured Pokémon with salt. Even severe wounds will promptly heal afterward.`,
@@ -392,7 +392,7 @@ export const paldeaBuilder = {
   }),
   'potw-935': ensurePkmnBuilder({
     species: 'Charcadet', type1: 'Fire', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 10.5,
     eggBase: 'potw-935', eggGroup: ['Human-Like'], eggCycles: 15,
     evolveTo: ['potw-936', 'potw-937'],
@@ -403,7 +403,7 @@ export const paldeaBuilder = {
   }),
   'potw-936': ensurePkmnBuilder({
     species: 'Armarouge', type1: 'Fire', type2: 'Psychic', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 85,
     eggBase: 'potw-935', eggGroup: ['Human-Like'], eggCycles: 15,
     pokedex: `Armarouge evolved through the use of a set of armor that belonged to a distinguished warrior. This Pokémon is incredibly loyal.`,
@@ -413,7 +413,7 @@ export const paldeaBuilder = {
   }),
   'potw-937': ensurePkmnBuilder({
     species: 'Ceruledge', type1: 'Fire', type2: 'Ghost', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 62,
     eggBase: 'potw-935', eggGroup: ['Human-Like'], eggCycles: 15,
     pokedex: `The fiery blades on its arms burn fiercely with the lingering resentment of a sword wielder who fell before accomplishing their goal.`,
@@ -423,7 +423,7 @@ export const paldeaBuilder = {
   }),
   'potw-938': ensurePkmnBuilder({
     species: 'Tadbulb', type1: 'Electric', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 0.4,
     eggBase: 'potw-938', eggGroup: ['Water 1'], eggCycles: 10,
     evolveTo: ['potw-939'],
@@ -434,7 +434,7 @@ export const paldeaBuilder = {
   }),
   'potw-939': ensurePkmnBuilder({
     species: 'Bellibolt', type1: 'Electric', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 113,
     eggBase: 'potw-938', eggGroup: ['Water 1'], eggCycles: 10,
     pokedex: `When this Pokémon expands and contracts its wobbly body, the belly-button dynamo in its stomach produces a huge amount of electricity.`,
@@ -444,7 +444,7 @@ export const paldeaBuilder = {
   }),
   'potw-940': ensurePkmnBuilder({
     species: 'Wattrel', type1: 'Electric', type2: 'Flying', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 3.6,
     eggBase: 'potw-940', eggGroup: ['Water 1'], eggCycles: 10,
     levelAt: 25, levelTo: 'potw-941',
@@ -455,7 +455,7 @@ export const paldeaBuilder = {
   }),
   'potw-941': ensurePkmnBuilder({
     species: 'Kilowattrel', type1: 'Electric', type2: 'Flying', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 38.6,
     eggBase: 'potw-940', eggGroup: ['Water 1'], eggCycles: 10,
     pokedex: `Kilowattrel inflates its throat sac to amplify its electricity. By riding the wind, this Pokémon can fly over 430 miles in a day.`,
@@ -465,7 +465,7 @@ export const paldeaBuilder = {
   }),
   'potw-942': ensurePkmnBuilder({
     species: 'Maschiff', type1: 'Dark', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 16,
     eggBase: 'potw-942', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 30, levelTo: 'potw-943',
@@ -476,7 +476,7 @@ export const paldeaBuilder = {
   }),
   'potw-943': ensurePkmnBuilder({
     species: 'Mabosstiff', type1: 'Dark', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 61,
     eggBase: 'potw-942', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `This Pokémon can store energy in its large dewlap. Mabosstiff unleashes this energy all at once to blow away enemies.`,
@@ -486,7 +486,7 @@ export const paldeaBuilder = {
   }),
   'potw-944': ensurePkmnBuilder({
     species: 'Shroodle', type1: 'Poison', type2: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 0.7,
     eggBase: 'potw-944', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 28, levelTo: 'potw-945',
@@ -497,7 +497,7 @@ export const paldeaBuilder = {
   }),
   'potw-945': ensurePkmnBuilder({
     species: 'Grafaiai', type1: 'Poison', type2: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 27.2,
     eggBase: 'potw-944', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `The color of the poisonous saliva depends on what the Pokémon eats. Grafaiai covers its fingers in its saliva and draws patterns on trees in forests.`,
@@ -507,7 +507,7 @@ export const paldeaBuilder = {
   }),
   'potw-946': ensurePkmnBuilder({
     species: 'Bramblin', type1: 'Grass', type2: 'Ghost', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 0.6,
     eggBase: 'potw-946', eggGroup: ['Grass'], eggCycles: 10,
     evolveTo: ['potw-947'],
@@ -518,7 +518,7 @@ export const paldeaBuilder = {
   }),
   'potw-947': ensurePkmnBuilder({
     species: 'Brambleghast', type1: 'Grass', type2: 'Ghost', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 6,
     eggBase: 'potw-946', eggGroup: ['Grass'], eggCycles: 10,
     pokedex: `It will open the branches of its head to envelop its prey. Once it absorbs all the life energy it needs, it expels the prey and discards it.`,
@@ -528,7 +528,7 @@ export const paldeaBuilder = {
   }),
   'potw-948': ensurePkmnBuilder({
     species: 'Toedscool', type1: 'Ground', type2: 'Grass', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 33,
     eggBase: 'potw-948', eggGroup: ['Grass'], eggCycles: 10,
     levelAt: 30, levelTo: 'potw-949',
@@ -539,7 +539,7 @@ export const paldeaBuilder = {
   }),
   'potw-949': ensurePkmnBuilder({
     species: 'Toedscruel', type1: 'Ground', type2: 'Grass', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 58,
     eggBase: 'potw-948', eggGroup: ['Grass'], eggCycles: 10,
     pokedex: `These Pokémon gather into groups and form colonies deep within forests. They absolutely hate it when strangers approach.`,
@@ -549,7 +549,7 @@ export const paldeaBuilder = {
   }),
   'potw-950': ensurePkmnBuilder({
     species: 'Klawf', type1: 'Rock', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 79,
     eggBase: 'potw-950', eggGroup: ['Water 3'], eggCycles: 35,
     pokedex: `Klawf hangs upside-down from cliffs, waiting for prey. But Klawf can't remain in this position for long because its blood rushes to its head.`,
@@ -559,7 +559,7 @@ export const paldeaBuilder = {
   }),
   'potw-951': ensurePkmnBuilder({
     species: 'Capsakid', type1: 'Grass', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 3,
     eggBase: 'potw-951', eggGroup: ['Grass'], eggCycles: 10,
     evolveTo: ['potw-952'],
@@ -570,7 +570,7 @@ export const paldeaBuilder = {
   }),
   'potw-952': ensurePkmnBuilder({
     species: 'Scovillain', type1: 'Grass', type2: 'Fire', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 15,
     eggBase: 'potw-951', eggGroup: ['Grass'], eggCycles: 10,
     pokedex: `The red head converts spicy chemicals into fire energy and blasts the surrounding area with a super spicy stream of flame.`,
@@ -583,7 +583,7 @@ export const paldeaBuilder = {
   }),
   'potw-953': ensurePkmnBuilder({
     species: 'Rellor', type1: 'Bug', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 1,
     eggBase: 'potw-953', eggGroup: ['Bug'], eggCycles: 10,
     evolveTo: ['potw-954'],
@@ -594,7 +594,7 @@ export const paldeaBuilder = {
   }),
   'potw-954': ensurePkmnBuilder({
     species: 'Rabsca', type1: 'Bug', type2: 'Psychic', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 3.5,
     eggBase: 'potw-953', eggGroup: ['Bug'], eggCycles: 10,
     pokedex: `The body that supports the ball barely moves. Therefore, it is thought that the true body of this Pokémon is actually inside the ball.`,
@@ -607,7 +607,7 @@ export const paldeaBuilder = {
   }),
   'potw-955': ensurePkmnBuilder({
     species: 'Flittle', type1: 'Psychic', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 1.5,
     eggBase: 'potw-955', eggGroup: ['Flying'], eggCycles: 10,
     levelAt: 35, levelTo: 'potw-956',
@@ -618,7 +618,7 @@ export const paldeaBuilder = {
   }),
   'potw-956': ensurePkmnBuilder({
     species: 'Espathra', type1: 'Psychic', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 90,
     eggBase: 'potw-955', eggGroup: ['Flying'], eggCycles: 10,
     pokedex: `It immobilizes opponents by bathing them in psychic power from its large eyes. Despite its appearance, it has a vicious temperament.`,
@@ -628,7 +628,7 @@ export const paldeaBuilder = {
   }),
   'potw-957': ensurePkmnBuilder({
     species: 'Tinkatink', type1: 'Fairy', type2: 'Steel', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 8.9,
     eggBase: 'potw-957', eggGroup: ['Fairy'], eggCycles: 10,
     levelAt: 24, levelTo: 'potw-958',
@@ -639,7 +639,7 @@ export const paldeaBuilder = {
   }),
   'potw-958': ensurePkmnBuilder({
     species: 'Tinkatuff', type1: 'Fairy', type2: 'Steel', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 59.1,
     eggBase: 'potw-957', eggGroup: ['Fairy'], eggCycles: 10,
     levelAt: 38, levelTo: 'potw-959',
@@ -650,7 +650,7 @@ export const paldeaBuilder = {
   }),
   'potw-959': ensurePkmnBuilder({
     species: 'Tinkaton', type1: 'Fairy', type2: 'Steel', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 112.8,
     eggBase: 'potw-957', eggGroup: ['Fairy'], eggCycles: 10,
     pokedex: `This intelligent Pokémon has a very daring disposition. It knocks rocks into the sky with its hammer, aiming for flying Corviknight.`,
@@ -660,7 +660,7 @@ export const paldeaBuilder = {
   }),
   'potw-960': ensurePkmnBuilder({
     species: 'Wiglett', type1: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 1.8,
     eggBase: 'potw-960', eggGroup: ['Water 3'], eggCycles: 10,
     levelAt: 26, levelTo: 'potw-961',
@@ -671,7 +671,7 @@ export const paldeaBuilder = {
   }),
   'potw-961': ensurePkmnBuilder({
     species: 'Wugtrio', type1: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 5.4,
     eggBase: 'potw-960', eggGroup: ['Water 3'], eggCycles: 10,
     pokedex: `It has a vicious temperament, contrary to what its appearance may suggest. It wraps its long bodies around prey, then drags the prey into its den.`,
@@ -681,7 +681,7 @@ export const paldeaBuilder = {
   }),
   'potw-962': ensurePkmnBuilder({
     species: 'Bombirdier', type1: 'Flying', type2: 'Dark', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 42.9,
     eggBase: 'potw-962', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `It gathers things up in an apron made from shed feathers added to the Pokémon's chest feathers, then drops those things from high places for fun.`,
@@ -691,7 +691,7 @@ export const paldeaBuilder = {
   }),
   'potw-963': ensurePkmnBuilder({
     species: 'Finizen', type1: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 60.2,
     eggBase: 'potw-963', eggGroup: ['Field', 'Water 2'], eggCycles: 20,
     evolveTo: ['potw-964'],
@@ -702,7 +702,7 @@ export const paldeaBuilder = {
   }),
   'potw-964': ensurePkmnBuilder({
     species: 'Palafin', type1: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 97.4, syncableForms: ['zero', 'hero'], needForm: 'zero',
     eggBase: 'potw-963', eggGroup: ['Field', 'Water 2'], eggCycles: 20,
     pokedex: `This Pokémon changes its appearance if it hears its allies calling for help. Palafin will never show anybody its moment of transformation.`,
@@ -712,7 +712,7 @@ export const paldeaBuilder = {
   }),
   'potw-964-hero': ensurePkmnBuilder({
     species: 'Palafin', type1: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 97.4, syncableForms: ['zero', 'hero'], needForm: 'zero',
     eggBase: 'potw-963', eggGroup: ['Field', 'Water 2'], eggCycles: 20,
     pokedex: `This Pokémon’s ancient genes have awakened. It is now so extraordinarily strong that it can easily lift a cruise ship with one fin.`,
@@ -722,7 +722,7 @@ export const paldeaBuilder = {
   }),
   'potw-965': ensurePkmnBuilder({
     species: 'Varoom', type1: 'Steel', type2: 'Poison', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 35,
     eggBase: 'potw-965', eggGroup: ['Mineral'], eggCycles: 10,
     levelAt: 40, levelTo: 'potw-966',
@@ -733,7 +733,7 @@ export const paldeaBuilder = {
   }),
   'potw-966': ensurePkmnBuilder({
     species: 'Revavroom', type1: 'Steel', type2: 'Poison', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 120,
     eggBase: 'potw-965', eggGroup: ['Mineral'], eggCycles: 10,
     pokedex: `It creates a gas out of poison and minerals from rocks. It then detonates the gas in its cylinders&#8212; now numbering eight&#8212;to generate energy.`,
@@ -746,7 +746,7 @@ export const paldeaBuilder = {
   }),
   'potw-967': ensurePkmnBuilder({
     species: 'Cyclizar', type1: 'Dragon', type2: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 63,
     eggBase: 'potw-967', eggGroup: ['Field'], eggCycles: 15,
     pokedex: `Apparently Cyclizar has been allowing people to ride on its back since ancient times. Depictions of this have been found in 10,000-year-old murals.`,
@@ -759,7 +759,7 @@ export const paldeaBuilder = {
   }),
   'potw-968': ensurePkmnBuilder({
     species: 'Orthworm', type1: 'Steel', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 310,
     eggBase: 'potw-968', eggGroup: ['Field'], eggCycles: 35,
     pokedex: `When attacked, this Pokémon will wield the tendrils on its body like fists and pelt the opponent with a storm of punches.`,
@@ -772,7 +772,7 @@ export const paldeaBuilder = {
   }),
   'potw-969': ensurePkmnBuilder({
     species: 'Glimmet', type1: 'Rock', type2: 'Poison', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 8,
     eggBase: 'potw-969', eggGroup: ['Mineral'], eggCycles: 15,
     levelAt: 35, levelTo: 'potw-970',
@@ -783,7 +783,7 @@ export const paldeaBuilder = {
   }),
   'potw-970': ensurePkmnBuilder({
     species: 'Glimmora', type1: 'Rock', type2: 'Poison', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 45,
     eggBase: 'potw-969', eggGroup: ['Mineral'], eggCycles: 15,
     pokedex: `When this Pokémon detects danger, it will open up its crystalline petals and fire beams from its conical body.`,
@@ -793,7 +793,7 @@ export const paldeaBuilder = {
   }),
   'potw-971': ensurePkmnBuilder({
     species: 'Greavard', type1: 'Ghost', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 35,
     eggBase: 'potw-971', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 30, levelTo: 'potw-972', // TODO: Only at night
@@ -804,7 +804,7 @@ export const paldeaBuilder = {
   }),
   'potw-972': ensurePkmnBuilder({
     species: 'Houndstone', type1: 'Ghost', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 15,
     eggBase: 'potw-971', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `Houndstone spends most of its time sleeping in graveyards. Among all the dog Pokémon, this one is most loyal to its master.`,
@@ -814,7 +814,7 @@ export const paldeaBuilder = {
   }),
   'potw-973': ensurePkmnBuilder({
     species: 'Flamigo', type1: 'Flying', type2: 'Fighting', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 37,
     eggBase: 'potw-973', eggGroup: ['Flying'], eggCycles: 10,
     pokedex: `This Pokémon apparently ties the base of its neck into a knot so that energy stored in its belly does not escape from its beak.`,
@@ -824,7 +824,7 @@ export const paldeaBuilder = {
   }),
   'potw-974': ensurePkmnBuilder({
     species: 'Cetoddle', type1: 'Ice', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 45,
     eggBase: 'potw-974', eggGroup: ['Field'], eggCycles: 25, evolveTo: ['potw-975'],
     pokedex: `This species left the ocean and began living on land a very long time ago. It seems to be closely related to Wailmer.`,
@@ -834,7 +834,7 @@ export const paldeaBuilder = {
   }),
   'potw-975': ensurePkmnBuilder({
     species: 'Cetitan', type1: 'Ice', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 700,
     eggBase: 'potw-974', eggGroup: ['Field'], eggCycles: 25,
     pokedex: `This Pokémon wanders around snowy, icy areas. It protects its body with powerful muscles and a thick layer of fat under its skin.`,
@@ -844,7 +844,7 @@ export const paldeaBuilder = {
   }),
   'potw-976': ensurePkmnBuilder({
     species: 'Veluza', type1: 'Water', type2: 'Psychic', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 90,
     eggBase: 'potw-976', eggGroup: ['Water 2'], eggCycles: 10,
     pokedex: `When Veluza discards unnecessary flesh, its mind becomes honed and its psychic power increases. The spare flesh has a mild but delicious flavor.`,
@@ -857,7 +857,7 @@ export const paldeaBuilder = {
   }),
   'potw-977': ensurePkmnBuilder({
     species: 'Dondozo', type1: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 220,
     eggBase: 'potw-977', eggGroup: ['Water 2'], eggCycles: 20,
     pokedex: `This Pokémon is a glutton, but it's bad at getting food. It teams up with a Tatsugiri to catch prey.`,
@@ -867,7 +867,7 @@ export const paldeaBuilder = {
   }),
   'potw-978': ensurePkmnBuilder({
     species: 'Tatsugiri', type1: 'Dragon', type2: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 8, syncableForms: ['droopy', 'curly', 'stretchy'], needForm: true,
     eggBase: 'potw-978', eggGroup: ['Water 2'], eggCycles: 35,
     pokedex: `This is a small dragon Pokémon. It lives inside the mouth of Dondozo to protect itself from enemies on the outside.`,
@@ -877,7 +877,7 @@ export const paldeaBuilder = {
   }),
   'potw-979': ensurePkmnBuilder({
     species: 'Annihilape', type1: 'Fighting', type2: 'Ghost', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 56,
     eggBase: 'potw-056', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `When its anger rose beyond a critical point, this Pokémon gained power that is unfettered by the limits of its physical body.`,
@@ -890,7 +890,7 @@ export const paldeaBuilder = {
   }),
   'potw-980': ensurePkmnBuilder({
     species: 'Clodsire', type1: 'Poison', type2: 'Ground', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 223,
     eggBase: 'potw-194-paldean', eggGroup: ['Water 1', 'Field'], eggCycles: 20,
     pokedex: `When attacked, this Pokémon will retaliate by sticking thick spines out from its body. It's a risky move that puts everything on the line.`,
@@ -903,7 +903,7 @@ export const paldeaBuilder = {
   }),
   'potw-981': ensurePkmnBuilder({
     species: 'Farigiraf', type1: 'Normal', type2: 'Psychic', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 160,
     eggBase: 'potw-203', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Now that the brain waves from the head and tail are synced up, the psychic power of this Pokémon is 10 times stronger than Girafarig's.`,
@@ -913,7 +913,7 @@ export const paldeaBuilder = {
   }),
   'potw-982': ensurePkmnBuilder({
     species: 'Dudunsparce', type1: 'Normal', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     syncableForms: [...Array(99).fill('two_segment'), 'three_segment'], needForm: true,
     weight: 47.4,
     eggBase: 'potw-206', eggGroup: ['Field'], eggCycles: 20,
@@ -930,7 +930,7 @@ export const paldeaBuilder = {
   }),
   'potw-983': ensurePkmnBuilder({
     species: 'Kingambit', type1: 'Dark', type2: 'Steel', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 120,
     eggBase: 'potw-624', eggGroup: ['Human-Like'], eggCycles: 10,
     pokedex: `Only a Bisharp that stands above all others in its vast army can evolve into Kingambit.`,
@@ -940,7 +940,7 @@ export const paldeaBuilder = {
   }),
   'potw-984': ensurePkmnBuilder({
     species: 'Great Tusk', type1: 'Ground', type2: 'Fighting', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 320,
     eggGroup: [], eggCycles: 25,
     pokedex: `Sightings of this Pokémon have occurred in recent years. The name Great Tusk was taken from a creature listed in a certain book.`,
@@ -950,7 +950,7 @@ export const paldeaBuilder = {
   }),
   'potw-985': ensurePkmnBuilder({
     species: 'Scream Tail', type1: 'Fairy', type2: 'Psychic', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 8,
     eggGroup: [], eggCycles: 25,
     pokedex: `There has been only one reported sighting of this Pokémon. It resembles a mysterious creature depicted in an old expedition journal.`,
@@ -960,7 +960,7 @@ export const paldeaBuilder = {
   }),
   'potw-986': ensurePkmnBuilder({
     species: 'Brute Bonnet', type1: 'Grass', type2: 'Dark', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 21,
     eggGroup: [], eggCycles: 25,
     pokedex: `It is possible that the creature listed as Brute Bonnet in a certain book could actually be this Pokémon.`,
@@ -970,7 +970,7 @@ export const paldeaBuilder = {
   }),
   'potw-987': ensurePkmnBuilder({
     species: 'Flutter Mane', type1: 'Ghost', type2: 'Fairy', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 4,
     eggGroup: [], eggCycles: 25,
     pokedex: `This Pokémon has characteristics similar to those of Flutter Mane, a creature mentioned in a certain book.`,
@@ -980,7 +980,7 @@ export const paldeaBuilder = {
   }),
   'potw-988': ensurePkmnBuilder({
     species: 'Slither Wing', type1: 'Bug', type2: 'Fighting', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 92,
     eggGroup: [], eggCycles: 25,
     pokedex: `This mysterious Pokémon has some similarities to a creature that an old book introduced as Slither Wing.`,
@@ -990,7 +990,7 @@ export const paldeaBuilder = {
   }),
   'potw-989': ensurePkmnBuilder({
     species: 'Sandy Shocks', type1: 'Electric', type2: 'Ground', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 60,
     eggGroup: [], eggCycles: 25,
     pokedex: `No records exist of this Pokémon being caught. Data is lacking, but the Pokémon's traits match up with a creature shown in an expedition journal.`,
@@ -1000,7 +1000,7 @@ export const paldeaBuilder = {
   }),
   'potw-990': ensurePkmnBuilder({
     species: 'Iron Treads', type1: 'Ground', type2: 'Steel', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 240,
     eggGroup: [], eggCycles: 25,
     pokedex: `This Pokémon closely resembles a scientific weapon that a paranormal magazine claimed was sent to this planet by aliens.`,
@@ -1010,7 +1010,7 @@ export const paldeaBuilder = {
   }),
   'potw-991': ensurePkmnBuilder({
     species: 'Iron Bundle', type1: 'Ice', type2: 'Water', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 11,
     eggGroup: [], eggCycles: 25,
     pokedex: `Its shape is similar to a robot featured in a paranormal magazine article. The robot was said to have been created by an ancient civilization.`,
@@ -1020,7 +1020,7 @@ export const paldeaBuilder = {
   }),
   'potw-992': ensurePkmnBuilder({
     species: 'Iron Hands', type1: 'Fighting', type2: 'Electric', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 380.7,
     eggGroup: [], eggCycles: 25,
     pokedex: `It is very similar to a cyborg covered exclusively by a paranormal magazine. The cyborg was said to be the modified form of a certain athlete.`,
@@ -1033,7 +1033,7 @@ export const paldeaBuilder = {
   }),
   'potw-993': ensurePkmnBuilder({
     species: 'Iron Jugulis', type1: 'Dark', type2: 'Flying', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 111,
     eggGroup: [], eggCycles: 25,
     pokedex: `It resembles a certain Pokémon introduced in a paranormal magazine, described as the offspring of a Hydreigon that fell in love with a robot.`,
@@ -1043,7 +1043,7 @@ export const paldeaBuilder = {
   }),
   'potw-994': ensurePkmnBuilder({
     species: 'Iron Moth', type1: 'Fire', type2: 'Poison', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 36,
     eggGroup: [], eggCycles: 25,
     pokedex: `This Pokémon resembles an unknown object described in a paranormal magazine as a UFO sent to observe humanity.`,
@@ -1053,7 +1053,7 @@ export const paldeaBuilder = {
   }),
   'potw-995': ensurePkmnBuilder({
     species: 'Iron Thorns', type1: 'Rock', type2: 'Electric', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 303,
     eggGroup: [], eggCycles: 25,
     pokedex: `It has some similarities to a Pokémon introduced in a dubious magazine as a Tyranitar from one billion years into the future.`,
@@ -1063,7 +1063,7 @@ export const paldeaBuilder = {
   }),
   'potw-996': ensurePkmnBuilder({
     species: 'Frigibax', type1: 'Dragon', type2: 'Ice', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 17,
     eggBase: 'potw-996', eggGroup: ['Dragon'], eggCycles: 20,
     levelAt: 35, levelTo: 'potw-997',
@@ -1074,7 +1074,7 @@ export const paldeaBuilder = {
   }),
   'potw-997': ensurePkmnBuilder({
     species: 'Arctibax', type1: 'Dragon', type2: 'Ice', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 30,
     eggBase: 'potw-996', eggGroup: ['Dragon'], eggCycles: 20,
     levelAt: 54, levelTo: 'potw-998',
@@ -1085,7 +1085,7 @@ export const paldeaBuilder = {
   }),
   'potw-998': ensurePkmnBuilder({
     species: 'Baxcalibur', type1: 'Dragon', type2: 'Ice', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 210,
     eggBase: 'potw-996', eggGroup: ['Dragon'], eggCycles: 20,
     pokedex: `This Pokémon blasts cryogenic air out from its mouth. This air can instantly freeze even liquid-hot lava.`,
@@ -1096,7 +1096,7 @@ export const paldeaBuilder = {
   'potw-999': ensurePkmnBuilder({
     species: 'Gimmighoul', type1: 'Ghost',
     shiny: 'FALSE', weight: 3.8, syncableForms: ['chest', 'roaming'], needForm: 'chest',
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */],
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */],
     evolveTo: ['potw-1000'], eggCycles: -1,
     pokedex: `This Pokémon was born inside a treasure chest about 1,500 years ago. It sucks the life-force out of scoundrels who try to steal the treasure.`,
     hp: 45, attack: 30, defense: 70, spAttack: 75, spDefense: 70, speed: 10,
@@ -1106,7 +1106,7 @@ export const paldeaBuilder = {
   'potw-999-chest': ensurePkmnBuilder({
     species: 'Gimmighoul', type1: 'Ghost',
     shiny: 'FALSE', weight: 3.8,
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */],
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */],
     evolveTo: ['potw-1000'], eggCycles: -1,
     pokedex: `This Pokémon was born inside a treasure chest about 1,500 years ago. It sucks the life-force out of scoundrels who try to steal the treasure.`,
     hp: 45, attack: 30, defense: 70, spAttack: 75, spDefense: 70, speed: 10,
@@ -1116,7 +1116,7 @@ export const paldeaBuilder = {
   'potw-999-roaming': ensurePkmnBuilder({
     species: 'Gimmighoul', type1: 'Ghost',
     shiny: 'FALSE', weight: 3.8,
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */],
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */],
     evolveTo: ['potw-1000'], eggCycles: -1,
     pokedex: `This Pokémon was born from passion that seeped into a coin. It wanders, apparently seeking to return to the treasure chest it once inhabited.`,
     hp: 45, attack: 30, defense: 25, spAttack: 75, spDefense: 45, speed: 80,
@@ -1125,7 +1125,7 @@ export const paldeaBuilder = {
   }),
   'potw-1000': ensurePkmnBuilder({
     species: 'Gholdengo', type1: 'Steel', type2: 'Ghost', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 30, eggCycles: -1,
     pokedex: `Its body seems to be made up of 1,000 coins. This Pokémon gets along well with others and is quick to make friends with anybody.`,
     hp: 87, attack: 60, defense: 95, spAttack: 133, spDefense: 91, speed: 84,
@@ -1134,7 +1134,7 @@ export const paldeaBuilder = {
   }),
   'potw-1001': ensurePkmnBuilder({
     species: 'Wo-Chien', type1: 'Dark', type2: 'Grass', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 74.2,
     eggGroup: [], eggCycles: 25,
     pokedex: `The grudge of a person punished for writing the king's evil deeds upon wooden tablets has clad itself in dead leaves to become a Pokémon.`,
@@ -1144,7 +1144,7 @@ export const paldeaBuilder = {
   }),
   'potw-1002': ensurePkmnBuilder({
     species: 'Chien-Pao', type1: 'Dark', type2: 'Ice', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 152.2,
     eggGroup: [], eggCycles: 25,
     pokedex: `This Pokémon can control 100 tons of fallen snow. It plays around innocently by leaping in and out of avalanches it has caused.`,
@@ -1154,7 +1154,7 @@ export const paldeaBuilder = {
   }),
   'potw-1003': ensurePkmnBuilder({
     species: 'Ting-Lu', type1: 'Dark', type2: 'Ground', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 699.7,
     eggGroup: [], eggCycles: 25,
     pokedex: `The fear poured into an ancient ritual vessel has clad itself in rocks and dirt to become a Pokémon.`,
@@ -1164,7 +1164,7 @@ export const paldeaBuilder = {
   }),
   'potw-1004': ensurePkmnBuilder({
     species: 'Chi-Yu', type1: 'Dark', type2: 'Fire', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 4.9,
     eggGroup: [], eggCycles: 25,
     pokedex: `It controls flames burning at over 5,400 degrees Fahrenheit. It casually swims through the sea of lava it creates by melting rock and sand.`,
@@ -1174,7 +1174,7 @@ export const paldeaBuilder = {
   }),
   'potw-1005': ensurePkmnBuilder({
     species: 'Roaring Moon', type1: 'Dragon', type2: 'Dark', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 380,
     eggGroup: [], eggCycles: 25,
     pokedex: `It is possible that this is the creature listed as Roaring Moon in an expedition journal that still holds many mysteries.`,
@@ -1184,7 +1184,7 @@ export const paldeaBuilder = {
   }),
   'potw-1006': ensurePkmnBuilder({
     species: 'Iron Valiant', type1: 'Fairy', type2: 'Fighting', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 35,
     eggGroup: [], eggCycles: 25,
     pokedex: `It has some similarities to a mad scientist's invention covered in a paranormal magazine.`,
@@ -1194,7 +1194,7 @@ export const paldeaBuilder = {
   }),
   'potw-1007': ensurePkmnBuilder({
     species: 'Koraidon', type1: 'Fighting', type2: 'Dragon', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 303,
     eggGroup: [], eggCycles: 25,
     pokedex: `This seems to be the Winged King mentioned in an old expedition journal. It was said to have split the land with its bare fists.`,
@@ -1204,7 +1204,7 @@ export const paldeaBuilder = {
   }),
   'potw-1008': ensurePkmnBuilder({
     species: 'Miraidon', type1: 'Electric', type2: 'Dragon', 
-    tiers: [/* 'SV Cup', 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 240,
     eggGroup: [], eggCycles: 25,
     pokedex: `Much remains unknown about this creature. It resembles Cyclizar, but it is far more ruthless and powerful.`,
