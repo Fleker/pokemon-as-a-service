@@ -456,6 +456,20 @@ export namespace F {
     }
   }
 
+  export namespace Chatbot {
+    export type Contact = 'oak' | 'magnolia' | string
+
+    export interface Req {
+      contact: Contact
+      message: string
+    }
+
+    export interface Res {
+      contact: Contact
+      response: string
+    }
+  }
+
   export namespace CraftItem {
     export interface Req {
       craft: {

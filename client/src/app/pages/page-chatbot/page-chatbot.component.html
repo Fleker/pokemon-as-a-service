@@ -1,27 +1,33 @@
 <mat-card *ngIf="chatEnabled">
   <mat-tab-group (selectedTabChange)="updatePrompt($event)">
-    <mat-tab label="Oak">
+    <mat-tab label="Oak (PaLM)">
       <h1 class="centered">
         <img src="/images/sprites/quests/oak.png" />
         Professor Oak
       </h1>
-      <em>An expert on Kanto</em>
+      <em>An expert on Kanto. Powered directly through PaLM.</em>
     </mat-tab>
-    <mat-tab label="Magnolia" *ngIf="engagement.isNextUi">
+    <mat-tab label="Oak (RAG)">
+      <h1 class="centered">
+        <img src="/images/sprites/quests/oak.png" />
+        Professor Oak
+      </h1>
+      <em>An expert on Kanto. Powered through Retrieval Augmented Generation.</em>
+    </mat-tab>
+    <mat-tab label="Magnolia (RAG)">
       <h1 class="centered">
         <img src="/images/sprites/quests/magnolia8.png" />
         Professor Magnolia
       </h1>
-      <em>An expert on quests</em>
+      <em>An expert on Galar. Powered through Retrieval Augmented Generation.</em>
     </mat-tab>
   </mat-tab-group>
   <small>
     This is an experimental chatbot using PaLM. Responses may not be canonical or trustworthy. Chats get cleared when this page refreshes.
   </small>
   <div *ngFor="let chat of chats" class="chats">
-    <p *ngIf="chat.state === 'done'" [class]="chat.who">
-      {{chat.msg}}
-    </p>
+    <markdown ngPreserveWhitespaces [data]="chat.msg" *ngIf="chat.state === 'done'" [class]="chat.who">
+    </markdown>
     <p *ngIf="chat.state === 'pending'" [class]="chat.who">
       <mat-icon>cloud_upload</mat-icon>
     </p>

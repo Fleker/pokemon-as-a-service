@@ -4,8 +4,8 @@ import { addDoc, onSnapshot } from 'firebase/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { kanto } from '../../../../../shared/src/pokemon';
 import { MatTabChangeEvent } from '@angular/material/tabs';
-import { KEY_ITEM_QUESTS, LEGENDARY_ITEM_QUESTS } from '../../../../../shared/src/quests';
 import { EngagementService } from '../../engagement.service';
+import { F } from '../../../../../shared/src/server-types'
 
 interface Chat {
   who: 'me' | 'chat'
@@ -121,62 +121,20 @@ const OAK: Persona = {
   ]
 }
 
+// In our RAG system, we do not need to provide any data but we'll do it here
+// to work with the UI.
+const OAKRAG: Persona = {
+  context: 'RAGoak',
+  examples: [],
+}
+
 const MAGNOLIA: Persona = {
-  context: `Pretend that you are Professor Magnolia, an expert on Pokemon. You live in Wedgehurst in the Galar region.
-    You are a sarcastic old woman. You are 70 years old. You are in reasonable shape but use a cane. You have a granddaughter named Sonia.
-    You discovered and exploited the dynamax phenomenon. You enjoy drinknig tea. You should respond each time as if
-    you are Professor Magnolia. Quest data is available in the table below. Use this JSON data ONLY to answer queries.
-    ${jsonTable(LEGENDARY_ITEM_QUESTS.slice(0, 10), ['title', 'hint', 'quest'])} \n
-    ${jsonTable(KEY_ITEM_QUESTS.slice(0, 0), ['title', 'hint', 'quest'])}`,
-  examples: [
-    {
-      "prompt": "Hi",
-      "response": "Hi! My name is Professor Magnolia. I am an expert on quests."
-    },
-    {
-      "prompt": "Tell me about yourself",
-      "response": "I am a Pokémon professor. I live in Wedgehurst, in the Galar region. It is a serene and quiet town which gives me the time I need to do my research on Pokémon."
-    },
-    {
-      "prompt": "Give me a poem",
-      "response": "Here's a poem about the Pokémon Magikarp:\n\nBoisterous Magikarp Splashes around energetically"
-    },
-    {
-      "prompt": "who is your grandson?",
-      "response": "My grandson is Blue. He is a talented Pokémon trainer and a strong competitor. He is also a kind and caring person, and I am very proud of him."
-    },
-    {
-      "prompt": "what did you do this morning",
-      "response": `This morning, I woke up early, brewed a cup of tea, and sat on my patio. I saw many different Pokémon, including Rookidee, Skwovet, and Chewtle`},
-    {
-      "prompt": "where is the hidden temple where the sands blow past",
-      "response": "The location of Regirock's temple changes daily. You will need to find a location with an active sandstorm. Only one location will have the temple."
-    },
-    {
-      "prompt": "how do I take a break and visit the park",
-      "response": "Johto has a National Park where some Pokémon can be caught in Sport Balls."
-    },
-    {
-      "prompt": "What is a forest-y aesthetic?",
-      "response": "Consider mushrooms. Big mushrooms may work well."
-    },
-    {
-      "prompt": "What are the mythical stories of musketeers and folk tunes?",
-      "response": "In the Unova region, there are two Pokémon whose form will change with technical machines. I believe the moves are Secret Sword and Relic Song."
-    },
-    {
-      "prompt": "What is the Pokémon with red hands?",
-      "response": "There is a Pokémon originally from the Unova region named Throh which has large red hands. Is that whom you're speaking of?"
-    },
-    {
-      "prompt": "tell me about Buzzwole",
-      "response": "Buzzwole is one of the intimidating Pokémon classified as an Ultra Beast. I believe if you can find an Alolan Sandshrew, you should be able to encounter it."
-    }
-  ]
+  context: `RAGmagnolia`,
+  examples: [],
 }
 
 // In tab order
-const PERSONAS = [OAK, MAGNOLIA]
+const PERSONAS = [OAK, OAKRAG, MAGNOLIA]
 
 @Component({
   selector: 'app-page-chatbot',
@@ -217,6 +175,16 @@ export class PageChatbotComponent implements OnInit {
   }
 
   sendPrompt() {
+    if (this.selectedPersona.context.startsWith('RAG')) {
+      // Palm
+      this.sendPromptRag()
+    } else {
+      // Rag
+      this.sendPromptPalm()
+    }
+  }
+
+  sendPromptPalm() {
     const chatRef = this.firebase.getMyChatRef(this.chatId)
     console.debug('You:', this.prompt, chatRef)
     this.chatInTransit = true
@@ -271,6 +239,47 @@ export class PageChatbotComponent implements OnInit {
       } catch (e) {
         this.snackbar.open(e, '', { duration: 5000 })
         console.error(e)
+      }
+    })
+  }
+
+  sendPromptRag() {
+    console.debug('You:', this.prompt)
+    this.chatInTransit = true
+    this.chats.push({
+      msg: this.prompt,
+      state: 'pending',
+      who: 'me',
+    })
+
+    window.requestAnimationFrame(async () => {
+      this.chats[this.last].state = 'done'
+      this.chats.push({
+        msg: '',
+        state: 'pending',
+        who: 'chat',
+      })
+
+      const contact = this.selectedPersona.context.substring(3)
+
+      try {
+        const res = await this.firebase.exec<F.Chatbot.Req, F.Chatbot.Res>('chatbot2', { contact, message: this.prompt })
+        this.chats[this.last] = {
+          state: 'done',
+          msg: res.data.response,
+          who: 'chat',
+        }
+        this.chatInTransit = false
+      } catch (e) {
+        this.chats[this.last] = {
+          state: 'done',
+          msg: 'Sorry, I cannot give a response',
+          who: 'chat',
+        }
+        this.snackbar.open(e, '', { duration: 5000 })
+        this.chatInTransit = false
+      } finally {
+        this.prompt = ''
       }
     })
   }
