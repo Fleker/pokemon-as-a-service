@@ -176,6 +176,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Aurora Beam', 'Extrasensory', 'Confuse Ray'],
       ['Aqua Tail', 'Tail Whip'],
+      ['Weather Ball', 'Rain Dance'],
     ],
   }),
   'potw-038-alolan': ensurePkmnBuilder({
@@ -201,7 +202,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Extrasensory', 'Nasty Plot'],
       ['Aqua Tail', 'Howl'],
-      // ['Sheer Cold'],
+      ['Sheer Cold', 'Weather Ball', 'Rain Dance'],
       // ['Blizzard', 'Hail'],
     ],
   }),
@@ -403,6 +404,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Power-Up Punch', 'Minimize'],
       ['Shadow Punch', 'Poison Gas'],
+      ['Gunk Shot', 'Ice Punch', 'Mean Look'],
     ],
   }),
   'potw-089-alolan': ensurePkmnBuilder({
@@ -427,6 +429,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Power-Up Punch', 'Venom Drench'],
       ['Shadow Punch', 'Poison Gas'],
+      ['Gunk Shot', 'Ice Punch', 'Toxic'],
     ],
   }),
   'potw-103-alolan': ensurePkmnBuilder({
@@ -1478,6 +1481,7 @@ export const alolaBuilder = {
       ['Dragon Rage', 'Poison Gas'],
       ['Flame Burst', 'Swift', 'Endeavor'],
       ['Gunk Shot', 'Smokescreen'],
+      ['Heat Wave', 'Beat Up', 'Sweet Scent'],
     ],
   }),
   'potw-757-female': ensurePkmnBuilder({
@@ -1499,6 +1503,7 @@ export const alolaBuilder = {
       ['Dragon Rage', 'Poison Gas'],
       ['Flame Burst', 'Swift', 'Endeavor'],
       ['Gunk Shot', 'Smokescreen'],
+      ['Heat Wave', 'Beat Up', 'Sweet Scent'],
     ],
   }),
   'potw-758': ensurePkmnBuilder({
@@ -1520,6 +1525,7 @@ export const alolaBuilder = {
       ['Dragon Pulse', 'Captivate'],
       ['Swift', 'Toxic'],
       ['Heat Wave', 'Sweet Scent'],
+      ['Sludge Wave', 'Beat Up', 'Sweet Scent'],
     ]
   }),
   'potw-759': ensurePkmnBuilder({

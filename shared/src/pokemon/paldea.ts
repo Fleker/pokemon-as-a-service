@@ -920,7 +920,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon uses its hard tail to make its nest by boring holes into bedrock deep underground. The nest can reach lengths of over six miles.`,
     hp: 125, attack: 100, defense: 80, spAttack: 85, spDefense: 75, speed: 55,
     move: ['Hyper Drill'],
-    moveTMs: []
+    moveTMs: [],
+    novelMoves: [[],
+      ['Hurricane', 'Rollout', 'Scary Face'],
+      ['Drill Run', 'Glare'],
+      ['Zen Headbutt', 'Coil'],
+      ['Boomburst', 'Earthquake', 'Roost'],
+    ],
   }),
   'potw-983': ensurePkmnBuilder({
     species: 'Kingambit', type1: 'Dark', type2: 'Steel', 

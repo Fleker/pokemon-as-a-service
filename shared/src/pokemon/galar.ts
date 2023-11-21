@@ -449,6 +449,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Slam', 'Crafty Shield'],
+      ['Rock Tomb', 'Curse'],
     ],
   }),
   'potw-618-galarian': ensurePkmnBuilder({
@@ -907,6 +908,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Round', 'Sing'],
+      ['Grass Knot', 'Weather Ball', 'Sunny Day'],
     ],
   }),
   'potw-830': ensurePkmnBuilder({
@@ -926,6 +928,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Hyper Voice', 'Cotton Spore'],
+      ['Solar Beam', 'Weather Ball', 'Sunny Day'],
     ],
   }),
   'potw-831': ensurePkmnBuilder({
@@ -945,6 +948,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Double Kick', 'Cotton Guard'],
+      ['Headbutt', 'Wild Charge', 'Thunder Wave'],
     ],
   }),
   'potw-832': ensurePkmnBuilder({
@@ -963,6 +967,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Reversal', 'Cotton Guard'],
+      ['Mega Kick', 'Wild Charge', 'Thunder Wave'],
     ],
   }),
   'potw-833': ensurePkmnBuilder({
@@ -1330,6 +1335,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Slam', 'Smokescreen'],
+      ['Wrap', 'Coil'],
     ]
   }),
   'potw-851': ensurePkmnBuilder({
@@ -1348,6 +1354,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Crunch', 'Smokescreen'],
+      ['Power Whip', 'Coil'],
     ],
     gmax: {
       gmaxMove: 'G-Max Centiferno',
@@ -1693,6 +1700,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Slam', 'Crafty Shield'],
+      ['Stone Edge', 'Curse'],
     ],
   }),
   'potw-868': ensurePkmnBuilder({

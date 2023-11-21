@@ -126,7 +126,8 @@ export const hisuiBuilder = {
       'Endure', 'Confide', 'Taunt', 'Double Team', 
     ],
     novelMoves: [[],
-      ['Aqua Tail', 'Spikes']
+      ['Aqua Tail', 'Spikes'],
+      ['Ice Ball', 'Minimize'],
     ],
   }),
   'potw-215-hisuian': ensurePkmnBuilder({
@@ -180,7 +181,7 @@ export const hisuiBuilder = {
   'potw-549-hisuian': ensurePkmnBuilder({
     species: 'Lilligant', type1: 'Grass', type2: 'Fighting', 
     tiers: ['Traditional', 'Arceus Cup'], shiny: 'WILD',
-    weight: 19.2,
+    weight: 19.2, release: 'greatball',
     eggBase: 'potw-548', eggGroup: ['Grass'], eggCycles: 20,
     pokedex: `I suspect that its well-developed legs are the result of a life spent on mountains covered in deep snow. The scent it exudes from its flower crown heartens those in proximity.`,
     hp: 70, attack: 105, defense: 75, spAttack: 50, spDefense: 75, speed: 105,
@@ -587,6 +588,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Aqua Tail', 'Toxic Spikes'],
+      ['Ice Ball', 'Spikes'],
     ],
   }),
   'potw-905': ensurePkmnBuilder({
