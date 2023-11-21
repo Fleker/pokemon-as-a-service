@@ -2220,6 +2220,16 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: () => true,
     consumes: () => true,
   },
+  'leaderscrest': {
+    filter: [P.Bisharp],
+    pokemon: {
+      [P.Bisharp]: {
+        badge: P.Kingambit,
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
   expcandyxs: {
     // 4/(x * .75) <= 1/2, x ~ 12
     filter: getPokemonLevel(12),
@@ -2625,6 +2635,34 @@ export function useItem(params: ItemUsageParams): UseItemOutput {
     }
     badge.id = PI.Obstagoon
     badge.personality.form = undefined // Reset form
+    return {
+      consumedItem: true,
+      output: badge.toString(),
+      changeType: 'EVO',
+    }
+  }
+
+  if (badge.id === PI.Dunsparce) {
+    badge.id = PI.Dudunsparce
+    if (Math.random() <= 0.01) {
+      badge.personality.form = 'three_segment'
+    } else {
+      badge.personality.form = 'two_segment'
+    }
+    return {
+      consumedItem: true,
+      output: badge.toString(),
+      changeType: 'EVO',
+    }
+  }
+
+  if (badge.id === PI.Tandemaus) {
+    badge.id = PI.Maushold
+    if (Math.random() <= 0.01) {
+      badge.personality.form = 'family_of_three'
+    } else {
+      badge.personality.form = 'family_of_four'
+    }
     return {
       consumedItem: true,
       output: badge.toString(),

@@ -287,7 +287,7 @@ export const paldeaBuilder = {
   'potw-925': ensurePkmnBuilder({
     species: 'Maushold', type1: 'Normal', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 2.8, syncableForms: [...Array(99).fill('family_of_four'), 'family_of_three'], needForm: true,
+    weight: 2.8, syncableForms: ['family_of_four', 'family_of_three'], needForm: true,
     eggBase: 'potw-924', eggGroup: ['Field'], eggCycles: 5,
     pokedex: `The two little ones just appeared one day. The group might be a family of related Pokémon, but nobody knows for sure.`,
     hp: 74, attack: 75, defense: 70, spAttack: 65, spDefense: 75, speed: 111,
@@ -914,7 +914,7 @@ export const paldeaBuilder = {
   'potw-982': ensurePkmnBuilder({
     species: 'Dudunsparce', type1: 'Normal', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    syncableForms: [...Array(99).fill('two_segment'), 'three_segment'], needForm: true,
+    syncableForms: ['two_segment', 'three_segment'], needForm: true,
     weight: 47.4,
     eggBase: 'potw-206', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `This Pokémon uses its hard tail to make its nest by boring holes into bedrock deep underground. The nest can reach lengths of over six miles.`,
