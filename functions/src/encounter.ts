@@ -750,7 +750,7 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Jolteon, {event: 'EEVEE', weather: 'Thunderstorm'}, p))
   list.push(...addIf(P.Flareon, {event: 'EEVEE', weather: 'Heat Wave'}, p))
   list.push(...addIf(P.Espeon, {event: 'EEVEE', time: 'Day'}, p))
-  list.push(...addIf(P.Espeon, {event: 'EEVEE', time: 'Night'}, p))
+  list.push(...addIf(P.Umbreon, {event: 'EEVEE', time: 'Night'}, p))
   list.push(...addIf(P.Leafeon, {event: 'EEVEE', weather: 'Sunny'}, p))
   list.push(...addIf(P.Glaceon, {event: 'EEVEE', weather: 'Snow'}, p))
   list.push(...addIf(P.Sylveon, {event: 'EEVEE', terrain: 'Gardens'}, p))
