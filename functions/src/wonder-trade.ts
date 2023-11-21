@@ -154,10 +154,12 @@ export const wonder_trade_cron = functions.pubsub.schedule('30 */8 * * *').onRun
       // Assume transaction succeeded, discard these trades
       console.log('    Mark trades as completed')
       await tradesToComplete[i].ref.update({
-        status: WonderTradeStatus.COMPLETED,
+        state: WonderTradeStatus.COMPLETED,
+        traded: tradesToComplete[i+1].id,
       })
       await tradesToComplete[i + 1].ref.update({
-        status: WonderTradeStatus.COMPLETED,
+        state: WonderTradeStatus.COMPLETED,
+        traded: tradesToComplete[i].id,
       })
     }
   }
