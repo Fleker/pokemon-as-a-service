@@ -1061,6 +1061,10 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
     badge.personality.shiny = true
     raid.boss = badge.toLegacyString()
     mandateClaim = true // Always mandate claim for shiny
+    // Save right away
+    await db.collection('raids').doc(raidId).update<DbRaid>({
+      boss: raid.boss
+    })
   }
 
   const prizesMap = {}
@@ -1138,7 +1142,7 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
 
   // Post log for everyone
   try {
-    await db.collection('raids').doc(raidId).update({
+    await db.collection('raids').doc(raidId).update<DbRaid>({
       boss: raid.boss,
       log: result.msg.join('\n'),
       matchState: {
