@@ -243,6 +243,7 @@ interface StatusField {
   selectedMove?: Move
   moves?: MoveId[]
   movepool?: Move[]
+  stabTera?: boolean
 }
 
 /**
@@ -264,7 +265,7 @@ export interface Status {
   /**
    * Logic to run when the status effect is applied.
    */
-  onActivation?: (battler: Pokemon) => Log
+  onActivation?: (battler: Pokemon, status: Status) => Log
   /**
    * Logic to run when the status effect is removed.
    */

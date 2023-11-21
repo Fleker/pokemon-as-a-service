@@ -1959,3 +1959,62 @@ test('Dark Void should not penetrate Detect', t => {
   t.log(log)
   t.pass('Did not crash')
 })
+
+test('Loaded Dice guarantees four hits', t => {
+  const aRaichu1 = {...A_RAICHU_V1}
+  const tyranitar = {...TYRANITAR}
+  const field = {...FIELD_BAY}
+  field.weather = {...Weathers.Sunny}
+  const populationBomb = {...Movepool['Population Bomb']}
+  populationBomb.accuracy = Infinity // Guarantee hit
+
+  const minput1: MoveInput = {
+    caster: aRaichu1, casters: [aRaichu1],
+    target: tyranitar, targets: [tyranitar],
+    field,
+    move: populationBomb,
+    prefix: 'Opposing',
+    targetPrefix: 'Opposing',
+    damage: 0,
+  }
+
+  const log = populationBomb.onBeforeMove!(minput1)
+  t.log(log)
+  t.true(populationBomb.power >= 0.4)
+  t.true(populationBomb.power <= 2.2)
+
+  // Equip dice
+  aRaichu1.heldItemKey = 'loadeddice'
+  log.push(populationBomb.onBeforeMove!(minput1))
+  t.log(log)
+  t.true(populationBomb.power >= 1)
+  t.true(populationBomb.power <= 2.2)
+})
+
+test('Terastallization - Stab', t => {
+  const aRaichu1 = {...A_RAICHU_V1}
+  const teraPsychic = Inventory.terapsychic
+  const log = teraPsychic.onBattleStart!(aRaichu1, aRaichu1, false)
+  t.log(log)
+  const conditionTera = getCondition(aRaichu1, 'terastallized')!
+  const conditionsStab = aRaichu1.conditions.filter(c => c.name === 'Stab')
+  t.is(1, conditionsStab.length)
+  t.truthy(conditionTera)
+  t.truthy(conditionsStab)
+  t.is('Psychic', conditionTera.p!.type)
+  t.truthy(conditionTera.p!.stabTera)
+})
+
+test('Terastallization - Third Type', t => {
+  const aRaichu1 = {...A_RAICHU_V1}
+  const teraWater = Inventory.terawater
+  const log = teraWater.onBattleStart!(aRaichu1, aRaichu1, false)
+  t.log(log)
+  const conditionTera = getCondition(aRaichu1, 'terastallized')!
+  const conditionsStab = aRaichu1.conditions.filter(c => c.name === 'Stab')
+  t.is(1, conditionsStab.length)
+  t.truthy(conditionTera)
+  t.truthy(conditionsStab)
+  t.is('Water', conditionTera.p!.type)
+  t.falsy(conditionTera.p!.stabTera)
+})

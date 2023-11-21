@@ -294,6 +294,18 @@ export function complexZCrystal(zLookup: MoveId): Item {
   }
 }
 
+export function terastallize(teraType: Type): Item {
+  return {
+    onBattleStart: (caster) => {
+      const tera = {...ConditionMap.Terastallized}
+      tera.p = { type: teraType }
+      caster.heldItemConsumed = true
+      caster.heldItemTotallyConsumed = true
+      return APPLY_TEMP_STATUS(caster, tera, '')
+    }
+  }
+}
+
 export const Inventory: Inventory = {
   /* TYPE-BOOSTING ITEMS */
   blackbelt: {
@@ -2133,29 +2145,29 @@ export const Inventory: Inventory = {
   shedshell: {}, // See TrappedInBattle
   smokeball: {}, // See TrappedInBattle
   pokedoll: {}, // See TrappedInBattle
-  teranormal: {},
-  terafire: {},
-  teraelectric: {},
-  terawater: {},
-  teragrass: {},
-  terabug: {},
-  teraflying: {},
-  terafighting: {},
-  terapoison: {},
-  teraground: {},
-  terarock: {},
-  teradragon: {},
-  teraghost: {},
-  terapsychic: {},
-  teradark: {},
-  terasteel: {},
-  terafairy: {},
-  teraice: {},
+  teranormal: terastallize('Normal'),
+  terafire: terastallize('Fire'),
+  teraelectric: terastallize('Electric'),
+  terawater: terastallize('Water'),
+  teragrass: terastallize('Grass'),
+  terabug: terastallize('Bug'),
+  teraflying: terastallize('Flying'),
+  terafighting: terastallize('Fighting'),
+  terapoison: terastallize('Poison'),
+  teraground: terastallize('Ground'),
+  terarock: terastallize('Rock'),
+  teradragon: terastallize('Dragon'),
+  teraghost: terastallize('Ghost'),
+  terapsychic: terastallize('Psychic'),
+  teradark: terastallize('Dark'),
+  terasteel: terastallize('Steel'),
+  terafairy: terastallize('Fairy'),
+  teraice: terastallize('Ice'),
   boosterenergy: {},
   abilityshield: {},
   clearamulet: {},
   mirrorherb: {},
-  loadeddice: {},
+  loadeddice: {}, // See Hit Many logic
   punchingglove: {},
   covertcloak: {},
   mochimuscle: {},

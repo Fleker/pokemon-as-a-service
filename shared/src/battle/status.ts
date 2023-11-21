@@ -1391,6 +1391,56 @@ const Syruped = assert<Status>({
   },
 })
 
+const Terastallized = assert<Status>({
+  name: 'Terastallized',
+  turnsActive: 0,
+  onActivation: (battler, status) => {
+    const stab1 = {...ConditionMap.Stab}
+    stab1.p = { type: battler.type1 }
+    if (status.p!.type === battler.type1) {
+      status.p!.stabTera = true
+    } else {
+      battler.conditions.push(stab1)
+    }
+    battler.type1 = status.p!.type ?? 'Status'
+
+    if (battler.type2) {
+      const stab2 = {...ConditionMap.Stab}
+      stab2.p = { type: battler.type2 }
+      if (status.p!.type === battler.type2) {
+        status.p!.stabTera = true
+      } else {
+        battler.conditions.push(stab2)
+      }
+      battler.type1 = status.p!.type ?? 'Status'
+      battler.type2 = undefined
+    }
+    return new Log().add(`${battler.species} terastallized into a ${status.p!.type}-type!`)
+  },
+  onTargetMove: (input) => {
+    const {caster, move} = input
+    const tera = getCondition(caster, 'Terastallized')
+    const stab = getCondition(caster, 'Stab')
+    if (!tera) return new Log()
+    if (!stab) return new Log()
+    const teraType = tera.p!.type!
+    const isTeraStab = tera.p!.stabTera!
+    const normalStab = stab.p!.type!
+    if (teraType === move.type) {
+      input.move.power *= isTeraStab ? 2 : 1.5
+      return new Log().add(`The move was powered up by terastallization.`)
+    } else if (normalStab === move.type) {
+      input.move.power *= 1.5
+    }
+    return new Log()
+  }
+})
+
+const Stab = assert<Status>({
+  name: 'Stab',
+  turnsActive: 0,
+})
+
 const RaidTotem = assert<Status>({
   name: 'RaidTotem',
   turnsActive: 0,
@@ -1841,6 +1891,8 @@ export const ConditionMap = {
   DestinyBonded,
   Begrudged,
   Syruped,
+  Terastallized,
+  Stab,
   RaidTotem,
   RaidAlpha,
   RaidNoble,

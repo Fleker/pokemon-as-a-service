@@ -167,9 +167,13 @@ const RECHARGE = (input: MoveInput): Log => {
   return APPLY_TEMP_STATUS(caster, {...ConditionMap.Recharge}, `${caster.species} needs to cool down.`)
 }
 
-const HIT_MANY = (move: Move, mult: number, min: number, max: number): Log => {
-  const times = Math.floor(Math.random() * (max - min)) + min
-  move.power = mult * times
+const HIT_MANY = (move: Move, mult: number, min: number, max: number, caster: Pokemon): Log => {
+  let times = Math.floor(Math.random() * (max - min)) + min
+  if (caster.heldItemKey === 'loadeddice') {
+    // Guarantees at least 4 hits (or max hits)
+    times = Math.min(Math.max(times, 4), max)
+  }
+  move.power = mult * times + 0.2
   return new Log().add(`Hit ${times} times!`)
 }
 
@@ -440,7 +444,7 @@ export const APPLY_STATUS = (target: Pokemon, status: StatusId, msg?: string) =>
   if (!target.status) {
     target.status = {...StatusMap[status]}
     const log = new Log()
-    const activationLog = target.status.onActivation?.(target) || new Log()
+    const activationLog = target.status.onActivation?.(target, target.status) || new Log()
     if (activationLog) {
       log.push(activationLog)
     }
@@ -464,7 +468,7 @@ export const APPLY_TEMP_STATUS = (target: Pokemon, status: Status, msg?: string)
   status.turnsActive = 0
   target.conditions.push({...status})
   const log = new Log()
-  const activationLog = status.onActivation?.(target) || new Log()
+  const activationLog = status.onActivation?.(target, status) || new Log()
   if (activationLog) {
     log.push(activationLog)
   }
@@ -793,7 +797,7 @@ export const Movepool: Movepool = {
     attackKey: 'attack', defenseKey: 'defense', aoe: 'Single Opponent', contact: true,
     power: 0.75, accuracy: 1, criticalHit: 1,
     flavor: 'The user attacks with its arms multiple times in a row.',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.15, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.15, 2, 5, caster),
   },
   'Armor Cannon': {
     name: 'Armor Cannon',
@@ -1043,7 +1047,7 @@ export const Movepool: Movepool = {
     attackKey: 'attack', defenseKey: 'defense', aoe: 'Single Opponent',
     power: 0.95, accuracy: 0.85, criticalHit: 1,
     flavor: 'The target is assaulted by egg-like objects several times in a row.',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.15, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.15, 2, 5, caster),
   },
   'Barrier': {
     name: 'Barrier',
@@ -1186,10 +1190,12 @@ export const Movepool: Movepool = {
       const log = new Log()
       if (caster.heldItem && !target.heldItem) {
         const hiLabel = ITEMS[caster.heldItemKey!].label
-        log.add(`${caster.species} gave its ${hiLabel} with ${target.species}`)
+        log.add(`${caster.species} gave its ${hiLabel} to ${target.species}`)
         caster.heldItem = undefined
+        caster.heldItemKey = undefined
         caster.heldItemConsumed = false
         target.heldItem = caster.heldItem
+        target.heldItemKey = caster.heldItemKey
         target.heldItemConsumed = caster.heldItemConsumed
         APPLY_TEMP_STATUS(caster, ConditionMap.Switcherooed)
         APPLY_TEMP_STATUS(target, ConditionMap.Switcherooed)
@@ -1424,7 +1430,7 @@ export const Movepool: Movepool = {
     accuracy: 0.9, criticalHit: 1, power: 1.2,
     flavor: 'The user throws its bone at the target, which hits coming and going.',
     aoe: 'Single Opponent',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.5, 2, 2)
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.5, 2, 2, caster)
   },
   'Bone Rush': {
     name: 'Bone Rush', type: 'Ground',
@@ -1432,7 +1438,7 @@ export const Movepool: Movepool = {
     accuracy: 0.9, criticalHit: 1, power: 1,
     flavor: 'The user rushes and swacks the target with a bone multiple times.',
     aoe: 'Single Opponent',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.45, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.45, 2, 5, caster),
   },
   Boomburst: {
     name: 'Boomburst', type: 'Normal',
@@ -1649,7 +1655,7 @@ export const Movepool: Movepool = {
     type: 'Grass',
     flavor: 'The user spits out a number of seeds at the opponent. Where do the seeds come from?',
     aoe: 'Single Opponent',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.3, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.3, 2, 5, caster),
   },
   'Burning Jealousy': {
     name: 'Burning Jealousy', type: 'Fire',
@@ -2025,7 +2031,7 @@ export const Movepool: Movepool = {
     criticalHit: 1, accuracy: 1, power: 0.8,
     flavor: 'The user throws its fist multiple times in rapid succession.',
     aoe: 'Single Opponent', contact: true,
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.18, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.18, 2, 5, caster),
   },
   'Comeuppance': {
     name: 'Comeuppance',
@@ -2810,7 +2816,7 @@ export const Movepool: Movepool = {
     defenseKey: 'defense',
     criticalHit: 1,
     power: 1.4,
-    type: 'Normal',
+    type: 'Steel',
     flavor: 'The user hits the target twice with what are effectively iron clubs.',
     aoe: 'Single Opponent', contact: true,
     onAfterMove: (inp) => {
@@ -4234,7 +4240,7 @@ export const Movepool: Movepool = {
     type: 'Normal',
     flavor: 'The user strikes repeatedly with a beak or horn.',
     aoe: 'Single Opponent', contact: true,
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.3, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.3, 2, 5, caster),
   },
   'Fury Cutter': {
     name: 'Fury Cutter',
@@ -4254,7 +4260,7 @@ export const Movepool: Movepool = {
     criticalHit: 1, accuracy: 1, power: 0.8,
     flavor: 'The user angrily strikes the opponent several times in a row with claws.',
     aoe: 'Single Opponent', contact: true,
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.18, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.18, 2, 5, caster),
   },
   'Fusion Bolt': {
     name: 'Fusion Bolt', type: 'Electric',
@@ -5268,7 +5274,7 @@ export const Movepool: Movepool = {
     type: 'Ice',
     flavor: 'The user attacks with multiple ice balls in succession.',
     aoe: 'Single Opponent',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.3, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.3, 2, 5, caster),
   },
   'Ice Beam': {
     name: 'Ice Beam',
@@ -5373,7 +5379,7 @@ export const Movepool: Movepool = {
     power: 1,
     flavor: 'The user attacks with multiple icicles in succession.',
     aoe: 'Single Opponent',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.45, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.45, 2, 5, caster),
   },
   'Icy Wind': {
     name: 'Icy Wind',
@@ -7541,7 +7547,7 @@ export const Movepool: Movepool = {
     type: 'Bug',
     flavor: 'The user shoots out multiple pins at the target.',
     aoe: 'Single Opponent',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.3, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.3, 2, 5, caster),
   },
   'Plasma Fists': {
     name: 'Plasma Fists', type: 'Electric', aoe: 'Single Opponent',
@@ -7722,7 +7728,7 @@ export const Movepool: Movepool = {
     type: 'Normal',
     flavor: 'The user gathers its friends to launch a combo attack.',
     aoe: 'Single Opponent', contact: true,
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.4, 1, 10),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.2, 1, 10, caster),
   },
   'Pounce': {
     name: 'Pounce',
@@ -8658,7 +8664,7 @@ export const Movepool: Movepool = {
     type: 'Rock',
     flavor: 'The user attacks with multiple rocks in succession.',
     aoe: 'Single Opponent',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.3, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.3, 2, 5, caster),
   },
   'Rock Climb': {
     name: 'Rock Climb', type: 'Normal',
@@ -8960,7 +8966,7 @@ export const Movepool: Movepool = {
     attackKey: 'attack', defenseKey: 'defense',
     power: 0.95, accuracy: 0.9, criticalHit: 1, aoe: 'Single Opponent',
     flavor: 'The user fires tiny scales from its body several times. This boosts their speed afterwards but leaves them vulnerable.',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.25, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.25, 2, 5, caster),
     onAfterMove: (inp) => {
       return new Log()
         .push(BUFF_STAT(inp.caster, inp, 'defense', -1))
@@ -9915,7 +9921,7 @@ export const Movepool: Movepool = {
     type: 'Normal',
     flavor: 'The user quickly fires darts from the spikes on its body.',
     aoe: 'Single Opponent',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.3, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.3, 2, 5, caster),
   },
   Spikes: {
     name: 'Spikes', type: 'Ground',
@@ -10657,15 +10663,19 @@ export const Movepool: Movepool = {
     onBeforeMove: noop,
     onAfterMove: ({caster, target}) => {
       const casterHeldItem = caster.heldItem
+      const casterHeldItemKey = caster.heldItemKey
       const casterHeldItemConsumed = caster.heldItemConsumed
       caster.heldItem = target.heldItem
+      caster.heldItemKey = target.heldItemKey
       caster.heldItemConsumed = target.heldItemConsumed
       target.heldItem = casterHeldItem
+      target.heldItemKey = casterHeldItemKey
       target.heldItemConsumed = casterHeldItemConsumed
       APPLY_TEMP_STATUS(caster, ConditionMap.Switcherooed)
       APPLY_TEMP_STATUS(target, ConditionMap.Switcherooed)
       const log = new Log()
       log.add(`${caster.species} swapped items with ${target.species}`)
+      log.add(`${caster.species} received one ${caster.heldItem}`)
       return log
     }
   },
@@ -10742,7 +10752,7 @@ export const Movepool: Movepool = {
     accuracy: 0.85, criticalHit: 1, power: 1,
     flavor: 'The user smacks the target with their tail a few times in succession.',
     aoe: 'Single Opponent', contact: true,
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.3, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.3, 2, 5, caster),
   },
   'Tail Whip': {
     name: 'Tail Whip',
@@ -11377,15 +11387,19 @@ export const Movepool: Movepool = {
     onBeforeMove: noop,
     onAfterMove: ({caster, target}) => {
       const casterHeldItem = caster.heldItem
+      const casterHeldItemKey = caster.heldItemKey
       const casterHeldItemConsumed = caster.heldItemConsumed
       caster.heldItem = target.heldItem
+      caster.heldItemKey = target.heldItemKey
       caster.heldItemConsumed = target.heldItemConsumed
       target.heldItem = casterHeldItem
+      target.heldItemKey = casterHeldItemKey
       target.heldItemConsumed = casterHeldItemConsumed
       APPLY_TEMP_STATUS(caster, ConditionMap.Switcherooed)
       APPLY_TEMP_STATUS(target, ConditionMap.Switcherooed)
       const log = new Log()
       log.add(`${caster.species} swapped items with ${target.species}`)
+      log.add(`${caster.species} received one ${caster.heldItem}`)
       return log
     }
   },
@@ -11467,7 +11481,7 @@ export const Movepool: Movepool = {
     type: 'Water',
     flavor: 'The user rises from the water in a stunning pose, striking the target thrice.',
     aoe: 'Single Opponent', contact: true,
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.5, 3, 3),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.5, 3, 3, caster),
   },
   'Triple Kick': {
     name: 'Triple Kick',
@@ -11499,14 +11513,14 @@ export const Movepool: Movepool = {
     aoe: 'Single Opponent',
     power: 1, accuracy: 1, criticalHit: 1,
     flavor: "The user issues a beam from its head. Then it issues a beam from its other head.",
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.4, 2, 2),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.4, 2, 2, caster),
   },
   'Twineedle': {
     name: 'Twineedle', type: 'Bug',
     attackKey: 'attack', defenseKey: 'defense', aoe: 'Single Opponent', contact: true,
     power: 0.7, accuracy: 1, criticalHit: 1,
     flavor: 'The user stabs twice with spikes. The target may be poisoned.',
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.45, 2, 2),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.45, 2, 2, caster),
     onAfterMove: (inp) => Poison(inp, 0.2),
   },
   'Twister': {
@@ -11802,7 +11816,7 @@ export const Movepool: Movepool = {
     flavor: 'The user attacks with multiple watery blades in succession.',
     aoe: 'Single Opponent',
     priority: 1,
-    onBeforeMove: ({move}) => HIT_MANY(move, 0.15, 2, 5),
+    onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.15, 2, 5, caster),
   },
   'Water Sport': {
     name: 'Water Sport',
@@ -13214,7 +13228,7 @@ Movepool['Hyper Voice_Pixelate'].type = 'Fairy'
 Movepool['Body Slam_Refrigerate'] = {...Movepool['Body Slam']}
 Movepool['Body Slam_Refrigerate'].type = 'Ice'
 Movepool['Water Shuriken_BattleBond'] = {...Movepool['Water Shuriken']}
-Movepool['Water Shuriken_BattleBond'].onBeforeMove = ({move}) => HIT_MANY(move, 0.2, 3, 3),
+Movepool['Water Shuriken_BattleBond'].onBeforeMove = ({caster, move}) => HIT_MANY(move, 0.2, 3, 3, caster),
 Movepool['Thunder Wave_Normalize'] = {...Movepool['Thunder Wave']}
 Movepool['Thunder Wave_Normalize'].type = 'Normal'
 Movepool['Hyper Voice_LiquidVoice'] = {...Movepool['Hyper Voice']}
