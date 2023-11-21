@@ -1842,7 +1842,10 @@ export const galarBuilder = {
       'Protect', 'Self-Destruct', 'Iron Defense', 'Sandstorm', 'Safeguard', 
       'Rock Polish', 'Attract', 'Substitute', 'Wide Guard', 'Wonder Room', 
       'Endure', 'Imprison', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Mega Kick', 'Stealth Rock'],
+    ],
   }),
   'potw-875': ensurePkmnBuilder({
     species: 'Eiscue', type1: 'Ice', 
@@ -2045,7 +2048,10 @@ export const galarBuilder = {
       'Dragon Pulse', 'Ancient Power', 'Fire Spin', 'Stomp', 'Protect', 
       'Thunder Wave', 'Draco Meteor', 'Sunny Day', 'Rain Dance', 'Substitute', 
       'Endure', 'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Aerial Ace', 'Charge'],
+    ],
   }),
   'potw-881': ensurePkmnBuilder({
     species: 'Arctozolt', type1: 'Electric', type2: 'Ice', 
@@ -2062,7 +2068,10 @@ export const galarBuilder = {
       'Payback', 'Icicle Spear', 'Ancient Power', 'Surf', 'Protect', 
       'Thunder Wave', 'Hail', 'Rain Dance', 'Substitute', 'Endure', 
       'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Icicle Crash', 'Pluck', 'Charge'],
+    ],
   }),
   'potw-882': ensurePkmnBuilder({
     species: 'Dracovish', type1: 'Water', type2: 'Dragon', 
@@ -2078,8 +2087,10 @@ export const galarBuilder = {
       'Bulldoze', 'Rock Blast', 'Giga Impact', 'Liquidation', 'Dragon Pulse', 
       'Ancient Power', 'Surf', 'Whirlpool', 'Waterfall', 'Stomp', 
       'Protect', 'Draco Meteor', 'Rain Dance', 'Substitute', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Super Fang', 'Protect'],
+    ],
   }),
   'potw-883': ensurePkmnBuilder({
     species: 'Arctovish', type1: 'Water', type2: 'Ice', 
@@ -2088,15 +2099,17 @@ export const galarBuilder = {
     eggGroup: [], eggCycles: 35,
     pokedex: `Though it's able to capture prey by freezing its surroundings, it has trouble eating the prey afterward because its mouth is on top of its head.`,
     hp: 90, attack: 90, defense: 100, spAttack: 80, spDefense: 90, speed: 55,
-    move: ['Fishious Rend', 'Frost Breath'],
+    move: ['Fishious Rend', 'Freeze-Dry'],
     moveTMs: [
       'Hyper Beam', 'Snore', 'Dive', 'Icy Wind', 'Rock Tomb', 
       'Facade', 'Rock Slide', 'Stone Edge', 'Brine', 'Rock Blast', 
       'Freeze-Dry', 'Giga Impact', 'Liquidation', 'Icicle Spear', 'Ancient Power', 
       'Surf', 'Whirlpool', 'Waterfall', 'Protect', 'Iron Defense', 
       'Hail', 'Rain Dance', 'Substitute', 'Endure', 'Aurora Veil', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Icicle Crash', 'Super Fang', 'Protect'],
+    ],
   }),
   'potw-884': ensurePkmnBuilder({
     species: 'Duraludon', type1: 'Steel', type2: 'Dragon', 
@@ -2113,6 +2126,9 @@ export const galarBuilder = {
       'Thunder Wave', 'Draco Meteor', 'Swords Dance', 'Iron Defense', 'Screech', 
       'Metal Sound', 'Reflect', 'Light Screen', 'Attract', 'Substitute', 
       'Hone Claws', 'Endure', 'Laser Focus', 
+    ],
+    novelMoves: [[],
+      ['Flash Cannon', 'Body Press', 'Iron Defense'],
     ],
     gmax: {
       gmaxMove: 'G-Max Depletion',
@@ -2194,7 +2210,10 @@ export const galarBuilder = {
       'Solar Blade', 'Protect', 'Swords Dance', 'Agility', 'Quick Attack', 
       'Substitute', 'Quick Guard', 'Work Up', 'Endure', 'Imprison', 
       'Laser Focus', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Sacred Sword', 'Swords Dance']
+    ],
   }),
   'potw-888-crowned_sword': ensurePkmnBuilder({
     species: 'Zacian', type1: 'Fairy', type2: 'Steel',
@@ -2203,14 +2222,17 @@ export const galarBuilder = {
     eggGroup: [], eggCycles: -1,
     pokedex: `Known as a legendary hero, this Pokémon absorbs metal particles, transforming them into a weapon it uses to battle.`,
     hp: 92, attack: 170, defense: 115, spAttack: 80, spDefense: 115, speed: 148,
-    move: ['Moonblast'],
+    move: ['Moonblast', 'Behemoth Blade'],
     moveTMs: [
       'Hyper Beam', 'Snore', 'Dig', 'Iron Tail', 'Swift', 
       'Facade', 'Close Combat', 'Hyper Voice', 'Play Rough', 'Giga Impact', 
       'Solar Blade', 'Protect', 'Swords Dance', 'Agility', 'Quick Attack', 
       'Substitute', 'Quick Guard', 'Work Up', 'Endure', 'Imprison', 
       'Laser Focus', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Sacred Sword', 'Swords Dance']
+    ],
   }),
   'potw-889': ensurePkmnBuilder({
     species: 'Zamazenta', type1: 'Fighting',
@@ -2227,7 +2249,10 @@ export const galarBuilder = {
       'Iron Defense', 'Agility', 'Reflect', 'Light Screen', 'Safeguard', 
       'Quick Attack', 'Power Swap', 'Guard Swap', 'Substitute', 'Wide Guard', 
       'Work Up', 'Endure', 'Imprison', 'Laser Focus', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Moonblast', 'Wide Guard'],
+    ],
   }),
   'potw-889-crowned_shield': ensurePkmnBuilder({
     species: 'Zamazenta', type1: 'Fighting', type2: 'Steel',
@@ -2236,7 +2261,7 @@ export const galarBuilder = {
     eggGroup: [], eggCycles: -1,
     pokedex: `In times past, it worked together with a king of the people to save the Galar region. It absorbs metal that it then uses in battle.`,
     hp: 92, attack: 130, defense: 145, spAttack: 80, spDefense: 145, speed: 128,
-    move: ['Close Combat'],
+    move: ['Close Combat', 'Behemoth Bash'],
     moveTMs: [
       'Hyper Beam', 'Solar Beam', 'Snore', 'Dig', 'Iron Tail', 
       'Swift', 'Facade', 'Close Combat', 'Flash Cannon', 'Hyper Voice', 
@@ -2244,7 +2269,10 @@ export const galarBuilder = {
       'Iron Defense', 'Agility', 'Reflect', 'Light Screen', 'Safeguard', 
       'Quick Attack', 'Power Swap', 'Guard Swap', 'Substitute', 'Wide Guard', 
       'Work Up', 'Endure', 'Imprison', 'Laser Focus', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Moonblast', 'Wide Guard'],
+    ],
   }),
   'potw-890': ensurePkmnBuilder({
     species: 'Eternatus', type1: 'Poison', type2: 'Dragon', 

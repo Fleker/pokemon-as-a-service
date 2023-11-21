@@ -34,7 +34,10 @@ export const specialRaids: BadgeId[] = [
   Potw(P.Pikachu, {var: 1, form: 'alolan'}),
   Potw(P.Pikachu, {var: 1, form: 'galarian'}),
   /* Boosted shiny of the month */
-  Potw(P.Ariados, {var: 1}),
+  Potw(P.Primeape, {var: 1}),
+  Potw(P.Primeape, {var: 2}),
+  Potw(P.Primeape, {var: 3}),
+  Potw(P.Primeape, {var: 4}),
 ]
 
 export interface RaidBoss {
@@ -1082,122 +1085,122 @@ export const timeBoss: {'Day': {[rating: number]: RaidBoss[]}, 'Night': {[rating
 export const forecastBoss: {[key in WeatherType]: {[rating: number]: RaidBoss[]}} = {
   Cloudy: {
     3: [{
-     species: Potw(P.Shuppet, {var: 4}),
+     species: Potw(P.Purrloin, {var: 1}),
     }, {
-     species: Potw(P.Zorua, {var: 1, form: 'hisuian'}),
+     species: Potw(P.Pineco, {var: 1}),
     }],
     4: [{
-      species: Potw(P.Zoroark, {var: 1, form: 'hisuian'})
+      species: Potw(P.Forretress, {var: 1})
     }, {
-      species: Potw(P.Banette, {var: 4})
+      species: Potw(P.Liepard, {var: 1})
     }]
   },
   Fog: {
     3: [{
-     species: Potw(P.Indeedee, {var: 1}), 
+     species: Potw(P.Snubbull, {var: 4}), 
     }, {
-     species: Potw(P.Sableye, {var: 1})
+     species: Potw(P.Baltoy, {var: 1})
     }],
     4: [{
-      species: Potw(P.Indeedee, {var: 1})
+      species: Potw(P.Granbull, {var: 4})
     }, {
-      species: Potw(P.Sableye, {var: 1})
+      species: Potw(P.Claydol, {var: 1})
     }]
   },
   'Heat Wave': {
     3: [{
-      species: Potw(P.Carkol, {var: 1})
+      species: Potw(P.Tropius, {var: 4})
     }, {
-      species: Potw(P.Litleo, {var: 1})
+      species: Potw(P.Shroomish, {var: 4})
     }],
     4: [{
-      species: Potw(P.Coalossal, {var:1})
+      species: Potw(P.Tropius, {var:4})
     }, {
-      species: Potw(P.Pyroar, {var: 1})
+      species: Potw(P.Breloom, {var: 4})
     }]
   },
   Rain: {
     3: [{
-      species: Potw(P.Sinistea, {var: 1})
+      species: Potw(P.Wishiwashi, {var: 4})
     }, {
-      species: Potw(P.Qwilfish, {var: 4})
+      species: Potw(P.Wooper, {var: 4})
     }],
     4: [{
-      species: Potw(P.Sinistea, {var: 1})
+      species: Potw(P.Wishiwashi, {var: 4, form: 'school'})
     }, {
-      species: Potw(P.Qwilfish, {var: 4})
+      species: Potw(P.Quagsire, {var: 4})
     }]
   },
   Sandstorm: {
     3: [{
-      species: Potw(P.Silicobra, {var: 1})
+      species: Potw(P.Stonjourner, {var: 1})
     }, {
-      species: Potw(P.Sigilyph, {var: 2})
+      species: Potw(P.Pawniard, {var: 3})
     }],
     4: [{
-      species: Potw(P.Sandaconda, {var: 1})
+      species: Potw(P.Stonjourner, {var: 1})
     }, {
-      species: Potw(P.Sigilyph, {var: 2})
+      species: Potw(P.Bisharp, {var: 3})
     }],
   },
   'Diamond Dust': {
     3: [{
-      species: Potw(P.Snom, {var: 1}),
+      species: Potw(P.Sneasel, {var: 2, form: 'hisuian'}),
     }, {
-      species: Potw(P.Vanillish, {var: 4})
+      species: Potw(P.Furfrou, {var: 4})
     }],
     4: [{
-      species: Potw(P.Snom, {var: 1}),
+      species: Potw(P.Sneasler, {var: 2}),
     }, {
-      species: Potw(P.Vanilluxe, {var: 4})
+      species: Potw(P.Furfrou, {var: 4})
     }],
   },
   Snow: {
     3: [{
-      species: Potw(P.Snom, {var: 1}),
+      species: Potw(P.Sneasel, {var: 1}),
     }, {
-      species: Potw(P.Vanillish, {var: 3})
+      species: Potw(P.Furfrou, {var: 1})
     }],
     4: [{
-      species: Potw(P.Snom, {var: 1}),
+      species: Potw(P.Sneasler, {var: 1}),
     }, {
-      species: Potw(P.Vanilluxe, {var: 3})
+      species: Potw(P.Furfrou, {var: 1})
     }],
   },
   Thunderstorm: {
     3: [{
-      species: Potw(P.Pincurchin, {var: 1}),
+      species: Potw(P.Flaaffy, {var: 2}),
     }, {
-      species: Potw(P.Chinchou, {var: 1})
+      species: Potw(P.Eelektrik, {var: 3})
     }],
     4: [{
-      species: Potw(P.Pincurchin, {var: 1})
+      species: Potw(P.Ampharos, {var: 2})
     }, {
-      species: Potw(P.Lanturn, {var: 1})
+      species: Potw(P.Eelektross, {var: 3})
     }]
   },
   Sunny: {
     3: [{
-      species: Potw(P.Yamper, {var: 1})
+      species: Potw(P.Zangoose, {var: 3})
     }, {
-      species: Potw(P.Doduo, {var: 1})
+      species: Potw(P.Seviper, {var: 3})
     }],
     4: [{
-      species: Potw(P.Boltund, {var: 1})
+      species: Potw(P.Zangoose, {var: 3})
     }, {
-      species: Potw(P.Dodrio, {var: 1})
+      species: Potw(P.Seviper, {var: 3})
     }]
   },
   Windy: {
     3: [{
-      species: Potw(P.Rufflet, {var: 1})
+      species: Potw(P.Spearow, {var:3})
     }, {
-      species: Potw(P.Pidgeotto, {var: 3})
+      species: Potw(P.Taillow, {var: 1})
     }],
     4: [{
-      species: Potw(P.Braviary, {var: 1, form: 'hisuian'})
+      species: Potw(P.Fearow, {var:3})
     }, {
-      species: Potw(P.Pidgeot, {var: 3})
+      species: Potw(P.Swellow, {var: 1})
     }]
   },
 }
@@ -1879,7 +1882,7 @@ export const bossPrizes: Partial<Record<BadgeId, ItemId[]>> = {
   [P.Ferroseed]: ['occa'],
   [P.Ferrothorn]: ['occa'],
   [P.Pawniard]: ['chople'],
-  [P.Bisharp]: ['chople'],
+  [P.Bisharp]: ['chople', 'leaderscrest'],
   [P.Axew]: ['tmm_axew'],
   [P.Fraxure]: ['tmm_axew'],
   [P.Haxorus]: ['tmm_axew'],
@@ -1913,6 +1916,10 @@ export const bossPrizes: Partial<Record<BadgeId, ItemId[]>> = {
   [P.Florges]: ['tmm_flabebe', 'grassyseed'],
   [P.Aromatisse]: ['sachet'],
   [P.Slurpuff]: ['whippeddream'],
+  [P.Furfrou]: [
+    'trimdandy', 'trimdeputante', 'trimdiamond', 'trimheart',
+    'trimmatron', 'trimnatural', 'trimstar'
+  ],
   [P.Aegislash]: ['gengarite'],
   [P.Dedenne]: ['tmm_dedenne'],
   [P.Klefki]: ['tmm_klefki'],

@@ -1216,7 +1216,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Double-Edge', 'Aqua Ring'],
       ['Brine', 'Mud Shot', 'Tearful Look'],
-      ['Liquidation', 'U-turn', 'Water Sport']
+      ['Liquidation', 'U-turn', 'Water Sport'],
+      ['Round', 'Muddy Water', 'Rain Dance'],
     ],
   }),
   'potw-746-school': ensurePkmnBuilder({
@@ -1237,7 +1238,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Double-Edge', 'Beat Up', 'Aqua Ring'],
       ['Scald', 'Mud Shot', 'Iron Tail', 'Growl'],
-      ['Liquidation', 'U-turn', 'Ice Beam', 'Helping Hand']
+      ['Liquidation', 'U-turn', 'Ice Beam', 'Helping Hand'],
+      ['Earthquake', 'Surf', 'Rain Dance'],
     ],
   }),
   'potw-747': ensurePkmnBuilder({
@@ -1727,7 +1729,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Metal Claw', 'Sand Attack'],
       ['Frustration', 'Harden'],
-      ['Liquidation', 'Spikes']
+      ['Liquidation', 'Spikes'],
+      ['Round', 'Wide Guard'],
     ],
   }),
   'potw-768': ensurePkmnBuilder({
