@@ -1323,8 +1323,8 @@ export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
 
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
-  return legendaryDate.getUTCMonth() === 8 && // September (8)
-    legendaryDate.getUTCDate() <= 22 // September 22nd
+  return legendaryDate.getUTCMonth() === 10 && // November (10)
+    legendaryDate.getUTCDate() <= 2 // November 2nd
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
