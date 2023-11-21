@@ -9614,7 +9614,7 @@ export const Movepool: Movepool = {
     onAfterMove: (inp) => Poison(inp, 0.4),
   },
   Smokescreen: {
-    name: 'Smokescreen', type: 'Poison', aoe: 'Single Opponent',
+    name: 'Smokescreen', type: 'Normal', aoe: 'Single Opponent',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0, criticalHit: 0, accuracy: 1, zMoveFx: 'EvaBuff1',
     flavor: `The user blows thick clouds in the target's face, dropping their accuracy.`,
