@@ -2679,7 +2679,7 @@ const ITEMS_TMS = {
     buy: 0, sell: 18, functional: true,
   }),
   [TX('tm', 'Twin Beam')]: genTm(97, 'Twin Beam', {
-    buy: 0, sell: 18,
+    buy: 0, sell: 18, functional: true,
   }),
   [TX('tm', 'Ice Spinner')]: genTm(98, 'Ice Spinner', {
     buy: 0, sell: 18,

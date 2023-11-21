@@ -1610,21 +1610,12 @@ export const ConditionMap = {
     name: 'Encore',
     turnsActive: 0,
     onTurnEnd: (target) => {
-      console.log('Encore')
-      const breakages = [
-        'The record snapped in half!',
-        'The technical record broke!',
-        'The record is no longer usable!',
-        'The technical record is broken!'
-      ]
-
       if (target.heldItemTotallyConsumed) return new Log()
       // Reset moves
       target.heldItemConsumed = true
       target.heldItemTotallyConsumed = true
       target.movepool = target.move.map(move => Movepool[move] || Movepool.Tackle)
-      const msg = randomItem(breakages)
-      return new Log().add(msg)
+      return new Log()
     },
   }),
   Enduring,
