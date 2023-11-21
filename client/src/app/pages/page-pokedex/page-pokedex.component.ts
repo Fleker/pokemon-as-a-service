@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/co
 import { FirebaseService } from 'src/app/service/firebase.service';
 import {Region, regions} from '../../../../../shared/src/pokedex'
 import {Pokemon, Badge, MATCH_REQS, Personality} from '../../../../../shared/src/badge3'
-import { PokemonGender, PokemonId } from '../../../../../shared/src/pokemon/types';
+import { PokemonForm, PokemonGender, PokemonId } from '../../../../../shared/src/pokemon/types';
 import { F } from '../../../../../shared/src/server-types';
 import * as Pkmn from '../../../../../shared/src/pokemon';
 import {TPokemon} from '../../../../../shared/src/badge-inflate';
@@ -180,6 +180,8 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
   }
 
   lazyLoad(event: MatTabChangeEvent) {
+    const regionalForms: PokemonForm[] = ['alolan', 'galarian', 'hisuian', 'paldean']
+
     console.debug('Load', event.index)
     switch (event.index) {
       case 1: // Living Dex
@@ -235,6 +237,37 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
           }
 
           // Living Dex+
+          for (const regionalForm of regionalForms) {
+            const formSpritesSet = new Set<Sprite>()
+            const keys = Object.keys(this.userPokemon) as PokemonId[]
+            for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
+              const id = parseInt(badgeId.substring(5))
+              let badge;
+              if (pokemon.syncableForms) {
+                for (const form of pokemon.syncableForms) {
+                  if (form !== regionalForm) continue
+                  badge = Pokemon(id, {form})
+                  this.processVariantSprite(formSpritesSet, keys, id, {form})
+                  console.log(formSpritesSet)
+                }
+              }
+              if (id % 50 === 0) {
+                // Take a step back
+                await this.yieldToMain()
+              }
+            }
+            const formSprites = [...formSpritesSet]
+            this.living[livingIndex++] = {
+              label: `${regionalForm.substring(0, 1).toUpperCase()}${regionalForm.substring(1)} Forms`,
+              total: formSprites.length,
+              count: formSprites.filter(r => r.registered).length,
+              sprites: formSprites,
+              emoji: '',
+            }
+            await this.yieldToMain()
+          }
+
+          // All other possible forms
           const formSpritesSet = new Set<Sprite>()
           const keys = Object.keys(this.userPokemon) as PokemonId[]
           for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
@@ -242,6 +275,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
             let badge;
             if (pokemon.syncableForms) {
               for (const form of pokemon.syncableForms) {
+                if (regionalForms.includes(form)) continue
                 badge = Pokemon(id, {form})
                 this.processVariantSprite(formSpritesSet, keys, id, {form})
               }
@@ -390,7 +424,37 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
             await this.yieldToMain()
           }
 
-          // Living Dex+
+          // Shiny Dex+
+          for (const regionalForm of regionalForms) {
+            const formSpritesSet = new Set<Sprite>()
+            const keys = Object.keys(this.userPokemon) as PokemonId[]
+            for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
+              const id = parseInt(badgeId.substring(5))
+              let badge;
+              if (pokemon.syncableForms) {
+                for (const form of pokemon.syncableForms) {
+                  if (form !== regionalForm) continue
+                  badge = Pokemon(id, {form})
+                  this.processVariantSprite(formSpritesSet, keys, id, {form, shiny: true})
+                }
+              }
+              if (id % 50 === 0) {
+                // Take a step back
+                await this.yieldToMain()
+              }
+            }
+            const formSprites = [...formSpritesSet]
+            this.shiny[shinyIndex++] = {
+              label: `${regionalForm.substring(0, 1).toUpperCase()}${regionalForm.substring(1)} Forms`,
+              total: formSprites.length,
+              count: formSprites.filter(r => r.registered).length,
+              sprites: formSprites,
+              emoji: '',
+            }
+            await this.yieldToMain()
+          }
+
+          // All other possible forms
           const formSpritesSet = new Set<Sprite>()
           const keys = Object.keys(this.userPokemon) as PokemonId[]
           for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
@@ -398,6 +462,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
             let badge;
             if (pokemon.syncableForms) {
               for (const form of pokemon.syncableForms) {
+                if (regionalForms.includes(form)) continue
                 badge = Pokemon(id, {form, shiny: true})
                 this.processVariantSprite(formSpritesSet, keys, id, {form, shiny: true})
               }
@@ -633,7 +698,11 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
 
   processVariantSprite(sprites: Set<Sprite>, keys: PokemonId[], id: number, personality: Partial<Personality>) {
     const registered = Badge.quickMatch(id, personality, keys)
-    sprites.add({badge: Pokemon(id, personality), registered})
+    const badge = Pokemon(id, personality)
+    const alreadyAdded = [...sprites].map(s => s.badge).includes(badge)
+    if (!alreadyAdded) {
+      sprites.add({badge, registered})
+    }
   }
 
   async getVariantSprites(pokemon: TPokemon) {
