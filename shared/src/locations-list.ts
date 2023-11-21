@@ -106,6 +106,8 @@ export const iconMap: Record<WeatherType, string> = {
 
 // Try to put timezone strings here for type-safety
 export type Timezone =
+  'Africa/Accra' |
+  'Africa/Cairo' |
   'Africa/Johannesburg' |
   'Africa/Lagos' /* Africa/West */ |
   'Africa/Nairobi' /* Africa/East */ |
@@ -113,11 +115,15 @@ export type Timezone =
   'America/Bogota' |
   'America/Chicago' /* US/Central */ |
   'America/Denver' /* US/Mountain */ |
+  'America/Edmonton' |
   'America/Los_Angeles' /* US/Pacific */ |
+  'America/Montreal' |
   'America/New_York' /* US/Eastern */ |
   'America/Lima' |
   'America/Santiago' |
   'America/Sao_Paulo' |
+  'America/Toronto' |
+  'America/Vancouver' |
   'Asia/Bangkok' |
   'Asia/Dubai' |
   'Asia/Hong_Kong' |
@@ -136,13 +142,27 @@ export type Timezone =
   'Etc/GMT' |
   'Europe/Athens' /* Europe/Eastern */ |
   'Europe/Berlin' |
+  'Europe/Bratislava' |
   'Europe/Brussels' |
+  'Europe/Bucharest' |
+  'Europe/Budapest' |
+  'Europe/Copenhagen' |
   'Europe/Dublin' |
+  'Europe/Helsinki' |
   'Europe/Istanbul' |
+  'Europe/Lisbon' |
   'Europe/London' /* Europe/Western */ |
+  'Europe/Madrid' |
   'Europe/Moscow' |
+  'Europe/Oslo' |
+  'Europe/Paris' |
   'Europe/Prague' |
+  'Europe/Rome' |
+  'Europe/Stockholm' |
   'Europe/Vienna' /* Europe/Central */ |
+  'Europe/Vilnius' |
+  'Europe/Warsaw' |
+  'Europe/Zagreb' |
   'Europe/Zurich' |
   'Pacific/Auckland' |
   'US/Mountain'
@@ -400,7 +420,7 @@ export const Globe = {
   }),
   'CA-MON': assert<Location>({
     label:"Montreal", region:"North America", terrain:"Rural", flag: '🇨🇦', id: 14,
-    hemiLat: 'North', hemiLong: 'West', timezone: 'America/New_York', vivillon: 'icysnow',
+    hemiLat: 'North', hemiLong: 'West', timezone: 'America/Montreal', vivillon: 'icysnow',
     latitude: 45.50, longitude: -73.57,
     fact: "People from this city use a distinct rubber tire subway system.",
     weatherSpring:{Rain:0.1,Snow:0.05,Fog:0.05,Cloudy:0.15,Thunderstorm:0.05, Windy: 0.025},
@@ -420,7 +440,7 @@ export const Globe = {
   }),
   'CA-TOR': assert<Location>({
     label:"Toronto", region:"North America", terrain:"Bay", flag: '🇨🇦', id: 16,
-    hemiLat: 'North', hemiLong: 'West', timezone: 'America/New_York', vivillon: 'icysnow',
+    hemiLat: 'North', hemiLong: 'West', timezone: 'America/Toronto', vivillon: 'icysnow',
     latitude: 43.65, longitude: -79.38,
     fact: "This city was given its name for being the place where trees stand in the water.",
     weatherWinter:{Rain:0.025,"Diamond Dust":0.0075,Fog:0.175,Cloudy:0.25,Snow:0.225, Windy: 0.025},
@@ -430,7 +450,7 @@ export const Globe = {
   }),
   'CA-VAN': assert<Location>({
     label:"Vancouver", region:"North America", terrain:"Bay", flag: '🇨🇦', id: 17,
-    hemiLat: 'North', hemiLong: 'West', timezone: 'America/Los_Angeles', vivillon: 'icysnow',
+    hemiLat: 'North', hemiLong: 'West', timezone: 'America/Vancouver', vivillon: 'icysnow',
     latitude: 49.28, longitude: -123.12,
     fact: 'This city has a large park with an aquarium and petting zoo.',
     weatherSpring:{Fog:0.2,Cloudy:0.25,Rain:0.125,Snow:0.05, Windy: 0.025},
@@ -450,7 +470,7 @@ export const Globe = {
   }),
   'CA-YEG': assert<Location>({
     label:"Edmonton", region:"North America", terrain:"Rural", flag: '🇨🇦', id: 19,
-    hemiLat: 'North', hemiLong: 'West', timezone: 'America/Denver', vivillon: 'icysnow',
+    hemiLat: 'North', hemiLong: 'West', timezone: 'America/Edmonton', vivillon: 'icysnow',
     latitude: 53.55, longitude: -113.49,
     fact: "This city's sole cafe is named after a famous astronomer.",
     weatherSpring:{Fog:0.025,Cloudy:0.125,"Diamond Dust":0.001,Rain:0.075,Snow:0.075, Windy: 0.025},
@@ -600,7 +620,7 @@ export const Globe = {
   }),
   'DK-CPH': assert<Location>({
     label:"Copenhagen", region:"North Europe", terrain:"Bay", flag: '🇩🇰', id: 34,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'continental',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Copenhagen', vivillon: 'continental',
     latitude: 55.75, longitude: 9.32,
     fact: "If you are visiting this city, take some time to see oldest open air museum",
     weatherSpring:{Rain:0.15,Fog:0.1,Cloudy:0.2,Snow:0.05, Windy: 0.03},
@@ -610,7 +630,7 @@ export const Globe = {
   }),
   'EG-CAI': assert<Location>({
     label:"Cairo", region:"Mediterranean", terrain:"Bay", flag: '🇪🇬', id: 35,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Athens', vivillon: 'marine',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Africa/Cairo', vivillon: 'marine',
     latitude: 29.83, longitude: 31.12,
     fact: "A city that's both to the north and downriver.",
     weatherSpring:{Fog:0.1,Sandstorm:0.125,Cloudy:0.15,'Heat Wave':0.025,Rain:0.05, Windy: 0.075},
@@ -620,7 +640,7 @@ export const Globe = {
   }),
   'ES-MAD': assert<Location>({
     label:"Madrid", region:"North Europe", terrain:"Rural", flag: '🇪🇸', id: 36,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'marine',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Madrid', vivillon: 'marine',
     latitude: 40.42, longitude: -3.66,
     fact: "When you get food here, take a look for famous paintings from the namesake.",
     weatherSpring:{Rain:0.15,'Heat Wave':0.025,Thunderstorm:0.025,Cloudy:0.15, Snow: 0.01, Windy: 0.025},
@@ -649,7 +669,7 @@ export const Globe = {
   }),
   'FI-HEL': assert<Location>({
     label:"Helsinki", region:"North Europe", terrain:"Bay", icyRock: true, flag: '🇫🇮', id: 39,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Athens', vivillon: 'icysnow',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Helsinki', vivillon: 'icysnow',
     latitude: 60.17, longitude: 24.94,
     fact: "This city was named after its magnificent sea cape.",
     weatherSpring:{Fog:0.1,Snow:0.05,Rain:0.1,Cloudy:0.2},
@@ -679,7 +699,7 @@ export const Globe = {
   }),
   'FR-PAR': assert<Location>({
     label:"Paris", region:"North Europe", terrain:"Gardens", flag: '🇫🇷', id: 42,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'meadow', flower: 'blue',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Paris', vivillon: 'meadow', flower: 'blue',
     latitude: 48.86, longitude: 2.35,
     fact: "From its churches, museums, and towers, this city is globally renowned for its romantic flair.",
     weatherSpring:{Cloudy:0.1,Thunderstorm:0.1,Rain:0.1, Snow: 0.01},
@@ -699,7 +719,7 @@ export const Globe = {
   }),
   'GH-ACC': assert<Location>({
     label:"Accra", region:"Africa / Middle East", terrain:"Grasslands", flag: '🇬🇭', id: 44,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Etc/GMT', vivillon: 'jungle',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Africa/Accra', vivillon: 'jungle',
     latitude: 5.67, longitude: -0.16,
     fact: "This country's first president now resides in a mausoleum in the downtown of this city.",
     weatherSpring:{'Heat Wave':0.1,Cloudy:0.15,Fog:0.15,Rain:0.1,Thunderstorm:0.1, Windy: 0.05},
@@ -729,7 +749,7 @@ export const Globe = {
   }),
   'HR-ZAG': assert<Location>({
     label:"Zagreb", terrain:"Grasslands", region: "Mediterranean", flag: '🇭🇷', id: 47,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'polar',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Zagreb', vivillon: 'polar',
     latitude: 45.71, longitude: 16.09,
     fact: "This city's name dates back to the twelfth century",
     weatherSpring:{Rain:0.1,Cloudy:0.15,Thunderstorm:0.05,Fog:0.1, Windy: 0.025},
@@ -739,7 +759,7 @@ export const Globe = {
   }),
   'HU-BUD': assert<Location>({
     label:"Budapest", region:"North Europe", terrain:"Rural", flag: '🇭🇺', id: 48,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'polar',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Budapest', vivillon: 'polar',
     latitude: 47.50, longitude: 19.05,
     fact: "When you visit this city you should bolt around to its many old bathhouses",
     weatherSpring:{Rain:0.125,'Heat Wave':0.025,Cloudy:0.2,Thunderstorm:0.025, Windy: 0.025},
@@ -819,7 +839,7 @@ export const Globe = {
   }),
   'IT-ROM': assert<Location>({
     label:"Rome", region:"Mediterranean", terrain:"Gardens", flag: '🇮🇹', id: 56,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'marine', flower: 'red',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Rome', vivillon: 'marine', flower: 'red',
     latitude: 41.45, longitude: 12.50,
     fact: "This city was not built in a day.",
     weatherSpring:{'Heat Wave':0.05,Thunderstorm:0.05,Rain:0.1,Cloudy:0.15, Windy: 0.05},
@@ -909,7 +929,7 @@ export const Globe = {
   }),
   'LT-VNO': assert<Location>({
     label:"Vilnius", region:"North Europe", terrain:"Rural", flag: '🇱🇹', id: 65,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Athens', vivillon: 'polar',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vilnius', vivillon: 'polar',
     latitude: 54.69, longitude: 25.28,
     fact: "In its old town days this city held a large Jewish population",
     weatherSpring:{Cloudy:0.2,Rain:0.1,Snow:0.025, Windy: 0.025},
@@ -959,7 +979,7 @@ export const Globe = {
   }),
   'NO-OSL': assert<Location>({
     label:"Oslo", region:"North Europe", terrain:"Bay", flag: '🇳🇴', id: 70,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'tundra',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Oslo', vivillon: 'tundra',
     latitude: 59.96, longitude: 10.46,
     fact: "Visiting the city's muesums will make you want to scream.",
     weatherSpring:{Fog:0.125,Cloudy:0.15,Snow:0.1,"Diamond Dust":0.001,Rain:0.075},
@@ -1039,7 +1059,7 @@ export const Globe = {
   }),
   'PL-WAW': assert<Location>({
     label:"Warsaw", region:"North Europe", terrain:"Grasslands", flag: '🇵🇱', id: 78,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'polar',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Warsaw', vivillon: 'polar',
     latitude: 52.25, longitude: 21.06,
     fact: "This city has the nickname 'Phoenix City'.",
     weatherSpring:{Thunderstorm:0.05,Fog:0.05,Cloudy:0.25,Rain:0.1, Snow: 0.025, Windy: 0.05},
@@ -1059,7 +1079,7 @@ export const Globe = {
   }),
   'PT-LIS': assert<Location>({
     label:"Lisbon", region:"North Europe", terrain:"Beach", flag: '🇵🇹', id: 80,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/London', vivillon: 'marine',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Lisbon', vivillon: 'marine',
     latitude: 38.72, longitude: -9.18,
     fact: 'This city is in west Europe. But like, very west.',
     weatherSpring:{Fog:0.1,Rain:0.1,Thunderstorm:0.01,Cloudy:0.15,'Heat Wave':0.01, Sandstorm: 0.025},
@@ -1069,7 +1089,7 @@ export const Globe = {
   }),
   'RO-BUH': assert<Location>({
     label:"Bucharest", region:"North Europe", terrain:"Rural", flag: '🇷🇴', id: 81,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Athens', vivillon: 'polar',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Bucharest', vivillon: 'polar',
     latitude: 47.18, longitude: 26.03,
     fact: "This city's famous palace contains the burial place of a famed prince",
     weatherSpring:{Rain:0.125,Thunderstorm:0.025,Fog:0.025,Cloudy:0.2, Windy: 0.025},
@@ -1089,7 +1109,7 @@ export const Globe = {
   }),
   'SE-STO': assert<Location>({
     label:"Stockholm", region:"North Europe", terrain:"Bay", flag: '🇸🇪', id: 83,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'polar',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Stockholm', vivillon: 'polar',
     latitude: 59.28, longitude: 18.06,
     fact: "Visit the an art gallery in this city but bring sneakers. It's the world's longest.",
     weatherSpring:{Snow:0.05,Fog:0.15,Cloudy:0.15,Rain:0.125},
@@ -1109,7 +1129,7 @@ export const Globe = {
   }),
   'SK-BTS': assert<Location>({
     label:"Bratislava", region:"North Europe", terrain:"Rural", flag: '🇸🇰', id: 85,
-    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'polar',
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Bratislava', vivillon: 'polar',
     latitude: 48.11, longitude: 18.02,
     fact: "This is the most stary city",
     weatherSpring:{'Heat Wave':0.025,Thunderstorm:0.025,Cloudy:0.2,Rain:0.125,Fog:0.025, Windy: 0.025},
