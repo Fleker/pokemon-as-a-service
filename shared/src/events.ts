@@ -547,7 +547,7 @@ export const Events = {
     description: 'A day to celebrate what is obviously the cutest Pokémon.',
     frequentSpecies: [P.Eevee],
     encounterHoldItems: [
-      'thunderstone', 'firestone', 'waterstone', 'pomeg', 'tm-Charm'
+      'thunderstone', 'firestone', 'waterstone', 'pomeg', 'tr-Charm'
     ],
     other: [
       'Eevee-lutions may be appear in Great Balls',

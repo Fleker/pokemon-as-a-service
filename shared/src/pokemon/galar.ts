@@ -2482,7 +2482,10 @@ export const galarBuilder = {
       'Power Swap', 'Guard Swap', 'Trick Room', 'Substitute', 'Leech Seed', 
       'Wonder Room', 'Magic Room', 'Endure', 'Mist', 'Imprison', 
       'Grassy Terrain', 'Psychic Terrain', 'Taunt', 'Speed Swap', 'Life Dew', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Psyshock', 'Pollen Puff', 'Life Dew'],
+    ],
   }),
   'potw-898-ice_rider': ensurePkmnBuilder({
     species: 'Calyrex', type1: 'Psychic', type2: 'Ice',
@@ -2504,7 +2507,10 @@ export const galarBuilder = {
       'Power Swap', 'Guard Swap', 'Trick Room', 'Substitute', 'Leech Seed', 
       'Wonder Room', 'Magic Room', 'Endure', 'Mist', 'Imprison', 
       'Grassy Terrain', 'Psychic Terrain', 'Taunt', 'Speed Swap', 'Life Dew', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Zen Headbutt', 'Glacial Lance', 'Life Dew']
+    ],
   }),
   'potw-898-shadow_rider': ensurePkmnBuilder({
     species: 'Calyrex', type1: 'Psychic', type2: 'Ghost',
@@ -2526,7 +2532,10 @@ export const galarBuilder = {
       'Power Swap', 'Guard Swap', 'Trick Room', 'Substitute', 'Leech Seed', 
       'Wonder Room', 'Magic Room', 'Endure', 'Mist', 'Imprison', 
       'Grassy Terrain', 'Psychic Terrain', 'Taunt', 'Speed Swap', 'Life Dew', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Psyshock', 'Astral Barrage', 'Life Dew'],
+    ],
   }),
 }
 

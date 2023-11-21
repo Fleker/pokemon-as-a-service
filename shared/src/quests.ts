@@ -1330,12 +1330,12 @@ export const GLOBAL_QUEST_DATE: () => boolean = (() => {
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
   // docId: 'available',
   docId: 'unavailable',
-  dbKey: 'shinyZarude1',
-  badge: 'potw-893-shiny',
-  boss: Potw(P.Zarude, {shiny: true, var: 1}),
-  title: 'Shiny Zarude Raids',
-  count: 1_500_000,
-  hint: ['A global pot of 1,500,000 Poké Balls will unlock a day of shiny Zarude raids.']
+  dbKey: 'shinyCalyrex1',
+  badge: 'potw-898-shiny',
+  boss: Potw(P.Calyrex, {shiny: true, var: 1}),
+  title: 'Shiny Calyrex Raids',
+  count: 1_000_000,
+  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Calyrex raids.']
 }]
 
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{

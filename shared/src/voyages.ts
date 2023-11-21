@@ -100,6 +100,13 @@ export interface Voyage {
   buckets: [0, number, number, number]
 }
 
+export const getMaxVoyages = (user: Users.Doc) => {
+  // if (user.items['voyagecharm'] && user.items['voyagecharm'] > 0) {
+  //   return 6
+  // }
+  return 3
+}
+
 export function getScore(voyageId: VoyageId, party: PokemonId[]) {
   let score = 0
   const voyage = Voyages[voyageId]

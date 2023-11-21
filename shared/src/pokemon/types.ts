@@ -149,7 +149,7 @@ export const pokemonForms = asLiterals(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
   'strawberry_rainbow_swirl', 'berry_rainbow_swirl', 'love_rainbow_swirl', 'star_rainbow_swirl', 'clover_rainbow_swirl', 'flower_rainbow_swirl', 'ribbon_rainbow_swirl',
   'single_strike', 'rapid_strike', 'ice_rider', 'shadow_rider', 'dada',
   'blaze_breed', 'aqua_breed', 'combat_breed', 'zero', 'hero', 'white_stripe',
-  'two-segment', 'three-segment', 'family_of_three', 'family_of_four', 'curly', 'stretchy', 'droopy',
+  'two_segment', 'three_segment', 'family_of_three', 'family_of_four', 'curly', 'stretchy', 'droopy',
   'green_plumage', 'yellow_plumage', 'blue_plumage', 'white_plumage', 'chest', 'roaming',
   'blood_moon', 'counterfeit', 'unremarkable', 'artisan', 'masterpiece', 'wellspring', 'hearthflame', 'cornerstone',
   // https://www.serebii.net/magikarpjump/magikarp.shtml

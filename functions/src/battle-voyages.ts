@@ -3,7 +3,7 @@ import * as admin from 'firebase-admin'
 import { salamander } from '@fleker/salamander'
 import { DbRaid, Users } from './db-types'
 import { F } from '../../shared/src/server-types'
-import { Doc, Voyages, State, Leg, getScore, getBucket, Voyage, LegendaryBossConditions } from '../../shared/src/voyages'
+import { Doc, Voyages, State, Leg, getScore, getBucket, Voyage, LegendaryBossConditions, getMaxVoyages } from '../../shared/src/voyages'
 import { toRequirements } from './users'
 import { getLocation } from './location'
 import { SHINY_CHARM } from '../../shared/src/quests'
@@ -22,8 +22,6 @@ import { pkmn } from '../../shared/src/sprites'
 
 const db = salamander(admin.firestore())
 const FieldValue = admin.firestore.FieldValue
-
-const MAX_VOYAGES = 3 // While we're in testing
 
 export const voyage_create = functions.https.onCall(async (data: F.VoyageCreate.Req, context): Promise<F.VoyageCreate.Res> => {
   const {uid} = context.auth!
@@ -77,7 +75,7 @@ export const voyage_create = functions.https.onCall(async (data: F.VoyageCreate.
       throw new functions.https.HttpsError('failed-precondition',
         'You already have a voyage scheduled here.')
     }
-    if (Object.keys(voyagesActive).length >= MAX_VOYAGES) {
+    if (Object.keys(voyagesActive).length >= getMaxVoyages(user)) {
       throw new functions.https.HttpsError('out-of-range',
         `You are already in ${Object.keys(voyagesActive).length} voyages`)
     }
@@ -285,7 +283,7 @@ export const voyage_select = functions.https.onCall(async (data: F.VoyageSelect.
           throw new functions.https.HttpsError('failed-precondition',
             'You already have a voyage scheduled here.')
         }
-        if (!voyagesActive[voyage.vid] && Object.keys(voyagesActive).length >= MAX_VOYAGES) {
+        if (!voyagesActive[voyage.vid] && Object.keys(voyagesActive).length >= getMaxVoyages(user)) {
           throw new functions.https.HttpsError('out-of-range',
             `You are already in ${Object.keys(voyagesActive).length} voyages`)
         }
