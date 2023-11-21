@@ -137,6 +137,17 @@ export const Events = {
       return date.month() === 0 && date.date() === 6
     }
   }),
+  'HOUSEPLANT': assert<Event>({
+    title: 'Houseplant Appreciation Day',
+    description: 'Some people will really put wild plants in their homes.',
+    frequentSpecies: [P.Bulbasaur],
+    encounterHoldItems: ['leafstone'],
+    shinyRate: 1,
+    isActive: (user) => {
+      const date = getLocalTime(user)
+      return date.month() === 0 && date.date() === 10
+    }
+  }),
   'LUNAR_NY': assert<Event>({
     title: 'Lunar New Year',
     description: 'Another year over, the new one just the same (except with Rabbits)',
@@ -521,6 +532,9 @@ export const Events = {
     description: 'Take a day to be grateful for what you have, and share with those close to you.',
     frequentSpecies: [P.Unfezant],
     encounterHoldItems: ['leftovers'],
+    other: [
+      'Cramorant may find itself particularly stuffed today.',
+    ],
     shinyRate: 1,
     isActive: (user) => {
       const date = getLocalTime(user)

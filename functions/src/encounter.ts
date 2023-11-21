@@ -268,6 +268,7 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Magikarp, {count: 1, tide: 'Low Tide'}, p))
   list.push(...addIf(P.Eevee, {count: 1}, p))
   // Clefairy are available with a Poké Ball & Moon Stone on Monday nights 20:00 - 23:59
+  list.push(...addIf(P.Bulbasaur, {count: 20, event: 'HOUSEPLANT'}, p))
   list.push(...addIf(P.Clefairy, {count: 5, event: 'MOON_STONE'}, p))
   list.push(...addIf(P.Cleffa, {count: 5, event: 'MOON_STONE'}, p))
   list.push(...addIf(P.Diglett, {count: 20, event: 'MOLE_DAY'}, p))
@@ -1409,6 +1410,7 @@ const ENCOUNTERS_DIVE = (user, _, location, format: EncounterParamFormat = 'List
   list.push(...addIf(P.Luvdisc, {count: 1}, p))
   list.push(...addIf(P.Luvdisc, {count: 20, event: 'VALENTINES_DAY'}, p))
   list.push(...addIf(P.Cramorant, {gate: CATCH_CHARM_SM}, p))
+  list.push(...addIf(Potw(P.Cramorant, {form: 'gorging'}), {gate: CATCH_CHARM_SM, event: 'THANKSGIVING'}, p))
 
   return {
     shinyMultipler: 1,
@@ -2067,6 +2069,7 @@ const ENCOUNTERS_WILDAREA = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Coalossal, {count: 3, weather: 'Heat Wave', terrain: 'Desert'}, p))
   list.push(...addIf(P.Sandaconda, {count: 3, weather: 'Sandstorm', terrain: 'Desert'}, p))
   list.push(...addIf(P.Cramorant, {count: 3, weather: 'Rain', terrain: 'Bay'}, p))
+  list.push(...addIf(Potw(P.Cramorant, {form: 'gorging'}), {count: 3, event: 'THANKSGIVING'}, p))
 
   list.push(...addIf(P.Grapploct, {count: 3, weather: 'Cloudy', terrain: 'Beach'}, p))
   list.push(...addIf(P.Hatterene, {count: 3, weather: 'Fog', terrain: 'Forest', time: 'Day'}, p))
