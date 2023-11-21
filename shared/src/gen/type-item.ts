@@ -244,6 +244,7 @@ export type BattleItemId =
   'maskcornerstone' |
   'maskhearthflame' |
   'maskwellspring' |
+  'berserkgene' |
   'venusaurite' |
   'charizarditex' |
   'charizarditey' |
@@ -436,14 +437,14 @@ export type TmTrId =
   'tm-Twister' |
   'tm-Payback' |
   'tm-Icicle Spear' |
-  'tm-Nature Power' |
-  'tm-Secret Power' |
-  'tm-Ancient Power' |
-  'tm-Superpower' |
-  'tm-Fire Spin' |
-  'tm-Sand Tomb' |
-  'tm-Secret Sword' |
-  'tm-Relic Song' |
+  'tm-Pounce' |
+  'tm-Trailblaze' |
+  'tm-Volt Switch' |
+  'tm-Chilling Water' |
+  'tm-Hyper Drill' |
+  'tm-Rage Fist' |
+  'tm-Twin Beam' |
+  'tm-Ice Spinner' |
   'tm-Dragon Ascent' |
   'tm-Surf' |
   'tm-Cut' |
@@ -457,6 +458,14 @@ export type TmTrId =
   'tm-Psyshield Bash' |
   'tm-Dark Pulse' |
   'tm-Weather Ball' |
+  'tm-Nature Power' |
+  'tm-Secret Power' |
+  'tm-Ancient Power' |
+  'tm-Superpower' |
+  'tm-Fire Spin' |
+  'tm-Sand Tomb' |
+  'tm-Secret Sword' |
+  'tm-Relic Song' |
   'tr-String Shot' |
   'tr-Protect' |
   'tr-Swagger' |

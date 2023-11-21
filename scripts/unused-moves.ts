@@ -6,7 +6,7 @@
 import { Movepool } from '../functions/lib/shared/src/battle/movepool'
 import * as pokemon from '../shared/src/pokemon'
 import fetch from 'node-fetch'
-import { MoveId } from '../shared/src/type-move-meta'
+import { MoveId } from '../shared/src/gen/type-move-meta'
 import { Move } from '../functions/lib/shared/src/battle/types'
 
 const validMoveTutors3: MoveId[] = [
