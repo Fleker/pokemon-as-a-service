@@ -6,24 +6,25 @@ import * as P from '../gen/type-pokemon'
 
 /**
  * ```@markdown
- * potw-004 Charmander (4)
- * potw-088-alolan Grimer (2)
- * potw-117 Seadra (2)
- * potw-027 Sandshrew (2)
- * potw-077 Ponyta (2)
- * potw-840 Applin (2)
- * potw-001 Bulbasaur (2)
- * potw-133 Eevee (2)
- * **58** votes in total
+ * potw-010 Caterpie (1)
+ * potw-220 Swinub (1)
+ * potw-503-hisuian Samurott (1) (no)
+ * potw-570-hisuian Zorua (1)
+ * potw-039 Jigglypuff (1)
+ * potw-004 Charmander (1)
+ * potw-132 Ditto (1)
+ * potw-439 Mime Jr. (1)
+ * potw-774 Minior (1)
+ * **17** votes in total
  * ```
  */
 export const Swarms: Record<RegionType, BadgeId> = {
-  'Africa / Middle East': P.Charmander,
-  'Asia': P.Horsea,
-  'Australia / New Zealand': P.Sandshrew,
-  'Mediterranean': P.Bulbasaur,
-  'North America': P.Ponyta,
-  "North Europe": P.Applin,
-  "Pacific Islands": Potw(P.Grimer, {form: 'alolan'}),
-  "South America": P.Eevee,
+  'Africa / Middle East': P.Jigglypuff,
+  'Asia': P.Caterpie,
+  'Australia / New Zealand': P.Swinub,
+  'Mediterranean': P.Charmander,
+  'North America': P.Ditto,
+  "North Europe": P.Mime_Jr,
+  "Pacific Islands": P.Minior,
+  "South America": Potw(P.Zorua, {form: 'hisuian'}),
 }

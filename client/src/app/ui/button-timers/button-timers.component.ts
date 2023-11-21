@@ -5,7 +5,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 import { OVALCHARM } from '../../../../../shared/src/quests';
 import { Users } from '../../../../../shared/src/server-types';
 
-type Timeable = 'battle' | 'daycare' | 'research' | 'release' | 'raid' | 'gamecorner'
+type Timeable = 'battle' | 'daycare' | 'research' | 'release' | 'raid' | 'gamecorner' | 'wonder'
 
 const icons: Record<Timeable, string> = {
   battle: '/images/sprites/icons/menu-battle.svg',
@@ -27,7 +27,7 @@ export class ButtonTimersComponent implements OnInit, AfterViewInit {
   notify: boolean = false
   user?: Users.Doc
   notifications: Record<Timeable, boolean> = {
-    battle: false, daycare: false, research: false, release: false, raid: false, gamecorner: false,
+    battle: false, daycare: false, research: false, release: false, raid: false, gamecorner: false, wonder: false,
   }
   releaser?: any
 
@@ -39,6 +39,7 @@ export class ButtonTimersComponent implements OnInit, AfterViewInit {
       research: this.toUntil(60, this.user?.researchLastClaim, 'research'),
       release: this.toUntil(60, this.releaser?.releasedTime, 'release'),
       raid: this.toUntil(30, this.user?.lastRaidDate, 'raid'),
+      wonder: this.toUntil(23*60, this.user?.lastWonderTrade, 'wonder'),
       gamecorner: this.toNextGameCorner(),
     }
   }
