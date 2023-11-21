@@ -180,7 +180,13 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
   }
 
   lazyLoad(event: MatTabChangeEvent) {
-    const regionalForms: PokemonForm[] = ['alolan', 'galarian', 'hisuian', 'paldean']
+    const regionalForms: Record<string, PokemonForm[]> = {
+      'Alolan': ['alolan', 'totem'],
+      'Galarian': ['galarian', 'galarian_zen'],
+      'Hisuian': ['hisuian', 'alpha', 'white_stripe', 'noble'],
+      'Paldean': ['paldean', 'combat_breed', 'blaze_breed', 'aqua_breed', 'blood_moon', 'titan'],
+    }
+    const regionalFormsList = Object.values(regionalForms).flat()
 
     console.debug('Load', event.index)
     switch (event.index) {
@@ -237,7 +243,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
           }
 
           // Living Dex+
-          for (const regionalForm of regionalForms) {
+          for (const [label, regionalForm] of Object.entries(regionalForms)) {
             const formSpritesSet = new Set<Sprite>()
             const keys = Object.keys(this.userPokemon) as PokemonId[]
             for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
@@ -245,7 +251,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
               let badge;
               if (pokemon.syncableForms) {
                 for (const form of pokemon.syncableForms) {
-                  if (form !== regionalForm) continue
+                  if (!regionalForm.includes(form)) continue
                   badge = Pokemon(id, {form})
                   this.processVariantSprite(formSpritesSet, keys, id, {form})
                   console.log(formSpritesSet)
@@ -258,7 +264,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
             }
             const formSprites = [...formSpritesSet]
             this.living[livingIndex++] = {
-              label: `${regionalForm.substring(0, 1).toUpperCase()}${regionalForm.substring(1)} Forms`,
+              label: `${label} Forms`,
               total: formSprites.length,
               count: formSprites.filter(r => r.registered).length,
               sprites: formSprites,
@@ -275,7 +281,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
             let badge;
             if (pokemon.syncableForms) {
               for (const form of pokemon.syncableForms) {
-                if (regionalForms.includes(form)) continue
+                if (regionalFormsList.includes(form)) continue
                 badge = Pokemon(id, {form})
                 this.processVariantSprite(formSpritesSet, keys, id, {form})
               }
@@ -425,7 +431,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
           }
 
           // Shiny Dex+
-          for (const regionalForm of regionalForms) {
+          for (const [label, regionalForm] of Object.entries(regionalForms)) {
             const formSpritesSet = new Set<Sprite>()
             const keys = Object.keys(this.userPokemon) as PokemonId[]
             for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
@@ -433,7 +439,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
               let badge;
               if (pokemon.syncableForms) {
                 for (const form of pokemon.syncableForms) {
-                  if (form !== regionalForm) continue
+                  if (!regionalForm.includes(form)) continue
                   badge = Pokemon(id, {form})
                   this.processVariantSprite(formSpritesSet, keys, id, {form, shiny: true})
                 }
@@ -445,7 +451,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
             }
             const formSprites = [...formSpritesSet]
             this.shiny[shinyIndex++] = {
-              label: `${regionalForm.substring(0, 1).toUpperCase()}${regionalForm.substring(1)} Forms`,
+              label: `${label} Forms`,
               total: formSprites.length,
               count: formSprites.filter(r => r.registered).length,
               sprites: formSprites,
@@ -462,7 +468,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
             let badge;
             if (pokemon.syncableForms) {
               for (const form of pokemon.syncableForms) {
-                if (regionalForms.includes(form)) continue
+                if (regionalFormsList.includes(form)) continue
                 badge = Pokemon(id, {form, shiny: true})
                 this.processVariantSprite(formSpritesSet, keys, id, {form, shiny: true})
               }
