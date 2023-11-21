@@ -8,6 +8,7 @@ import { BadgeId, PokemonForm, PokemonId, Type } from "./pokemon/types";
 import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, BOTTLECAPS, SWEETS, GALAR_INGREDIENTS } from "./prizes";
 import { ItemId } from "./items-list";
 import * as P from './gen/type-pokemon'
+import { Users } from './server-types'
 
 export enum Leg {
   NOTHING = 0,

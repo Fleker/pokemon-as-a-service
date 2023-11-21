@@ -2484,7 +2484,7 @@ export const galarBuilder = {
       'Grassy Terrain', 'Psychic Terrain', 'Taunt', 'Speed Swap', 'Life Dew', 
     ],
     novelMoves: [[],
-      ['Psyshock', 'Pollen Puff', 'Life Dew'],
+      ['Psyshock', 'Pollen Puff_Damage', 'Life Dew'],
     ],
   }),
   'potw-898-ice_rider': ensurePkmnBuilder({
