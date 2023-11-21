@@ -11,11 +11,12 @@ export const MAIL_BADGES = {
   'potw-273': 'Seedot',
   'potw-274': 'Nuzleaf',
   'potw-275': 'Shiftry',
+  'potw-276': 'Taillow',
 }
 
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Beat Up',
-  tr: 'tr-Embargo',
+  tm: 'tm-Twister',
+  tr: 'tr-Charm',
 }
 
 export const adminIds = [
