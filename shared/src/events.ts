@@ -527,6 +527,37 @@ export const Events = {
       return date.month() === 9 && date.date() === 31
     }
   }),
+  'KINDNESS': assert<Event>({
+    title: 'World Kindness Day',
+    description: 'Can we just have one day where people are kind to each other?',
+    frequentSpecies: [],
+    encounterHoldItems: ['tr-Helping Hand'],
+    other: [
+      'Togetic may appear in Great Balls',
+      'Togekiss may appear in Ultra Balls',
+    ],
+    shinyRate: 1,
+    isActive: (user) => {
+      const date = getLocalTime(user)
+      return date.month() === 10 && date.date() === 13
+    }
+  }),
+  'EEVEE': assert<Event>({
+    title: 'Eevee Day',
+    description: 'A day to celebrate what is obviously the cutest Pokémon.',
+    frequentSpecies: [P.Eevee],
+    encounterHoldItems: [
+      'thunderstone', 'firestone', 'waterstone', 'pomeg', 'tm-Charm'
+    ],
+    other: [
+      'Eevee-lutions may be appear in Great Balls',
+    ],
+    shinyRate: 1,
+    isActive: (user) => {
+      const date = getLocalTime(user)
+      return date.month() === 10 && date.date() === 21
+    }
+  }),
   'THANKSGIVING': assert<Event>({
     title: 'Thanksgiving',
     description: 'Take a day to be grateful for what you have, and share with those close to you.',
@@ -555,7 +586,7 @@ export const Events = {
   }),
   'CHRISTMAS': assert<Event>({
     title: 'Christmas',
-    description: 'We have reached peak Winter.',
+    description: 'We have reached peak gift-giving.',
     frequentSpecies: [P.Delibird],
     encounterHoldItems: ['charcoal'],
     shinyRate: 1,

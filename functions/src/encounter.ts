@@ -267,6 +267,7 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Goldeen, {count: 1, tide: 'Low Tide'}, p))
   list.push(...addIf(P.Magikarp, {count: 1, tide: 'Low Tide'}, p))
   list.push(...addIf(P.Eevee, {count: 1}, p))
+  list.push(...addIf(P.Eevee, {event: 'EEVEE', count: 20}, p))
   // Clefairy are available with a Poké Ball & Moon Stone on Monday nights 20:00 - 23:59
   list.push(...addIf(P.Bulbasaur, {count: 20, event: 'HOUSEPLANT'}, p))
   list.push(...addIf(P.Clefairy, {count: 5, event: 'MOON_STONE'}, p))
@@ -556,6 +557,7 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Piloswine, {gate: CATCH_CHARM_RBY, count: 1, weather: 'Snow'}, p))
   list.push(...addIf(P.Mantine, {gate: CATCH_CHARM_RBY, terrain: 'Oceanic'}, p))
   list.push(...addIf(P.Skarmory, {gate: CATCH_CHARM_RBY, count: 1, terrain: 'Mountain'}, p))
+  list.push(...addIf(P.Togetic, {event: 'KINDNESS', count: 10}, p))
   // Unown Report logic goes here!
   list.push(...addIf(Potw(P.Unown, {
       form: (p.location.unown as PokemonForm | undefined),
@@ -743,6 +745,15 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(Potw(P.Furfrou, {form: 'natural'}), {gate: CATCH_CHARM_BW, item: ['kangaskhanite']}, p))
   list.push(...addIf(P.Hawlucha, {gate: CATCH_CHARM_BW, item: ['medichamite']}, p))
   list.push(...addIf(P.Goomy, {gate: CATCH_CHARM_BW, item: ['garchompite']}, p))
+  
+  list.push(...addIf(P.Vaporeon, {event: 'EEVEE', weather: 'Rain'}, p))
+  list.push(...addIf(P.Jolteon, {event: 'EEVEE', weather: 'Thunderstorm'}, p))
+  list.push(...addIf(P.Flareon, {event: 'EEVEE', weather: 'Heat Wave'}, p))
+  list.push(...addIf(P.Espeon, {event: 'EEVEE', time: 'Day'}, p))
+  list.push(...addIf(P.Espeon, {event: 'EEVEE', time: 'Night'}, p))
+  list.push(...addIf(P.Leafeon, {event: 'EEVEE', weather: 'Sunny'}, p))
+  list.push(...addIf(P.Glaceon, {event: 'EEVEE', weather: 'Snow'}, p))
+  list.push(...addIf(P.Sylveon, {event: 'EEVEE', terrain: 'Gardens'}, p))
 
   // Alola
   list.push(...addIf(P.Dartrix, {gate: CATCH_CHARM_XY, item: ['zgrassium']}, p))
@@ -964,6 +975,7 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Abomasnow, {gate: CATCH_CHARM_RSE, weather: 'Diamond Dust'}, p))
   list.push(...addIf(P.Abomasnow, {gate: CATCH_CHARM_RSE, weather: 'Snow'}, p))
   list.push(...addIf(P.Rotom, {gate: CATCH_CHARM_RSE, weather: 'Thunderstorm', terrain: 'Urban', time: 'Night'}, p))
+  list.push(...addIf(P.Togekiss, {event: 'KINDNESS', count: 10}, p))
 
   // Unova
   list.push(...addIf(P.Serperior, {gate: CATCH_CHARM_DPPT, item: ['lightstone', 'darkstone']}, p))
