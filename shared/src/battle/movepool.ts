@@ -5653,7 +5653,7 @@ export const Movepool: Movepool = {
     name: 'Jungle Healing', type: 'Grass',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0, accuracy: Infinity, criticalHit: 0,
-    aoe: 'All Allies',
+    aoe: 'All Allies', recovery: true,
     flavor: 'The user feeds its friends a chewy root, healing their hit points and status conditions.',
     onAfterMove: ({target}) => {
       target.status = undefined
@@ -5851,6 +5851,8 @@ export const Movepool: Movepool = {
     onBeforeMove: ({target, move}) => {
       if (target.type1 === 'Grass' || target.type2 === 'Grass') {
         move.accuracy = 0
+        move.failed = true
+        return new Log().add('It failed...')
       }
       return new Log()
     },
@@ -6010,7 +6012,7 @@ export const Movepool: Movepool = {
     name: 'Lunar Blessing', type: 'Psychic',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0, accuracy: Infinity, criticalHit: 0,
-    aoe: 'All Allies',
+    aoe: 'All Allies', recovery: true,
     flavor: 'The user employs moon power to cure status conditions and heal allies.',
     onAfterMove: (inp) => {
       const log = new Log()
@@ -13144,7 +13146,7 @@ export const Movepool: Movepool = {
   'G-Max Finale': {
     name: 'G-Max Finale', type: 'Fairy',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
+    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Allies',
     flavor: 'The user puts the cherry on top. It is a huge cherry! Allies restore health.',
     onAfterMove: ({target}) => {
       return logHeal(target, target.totalHp / 6)
