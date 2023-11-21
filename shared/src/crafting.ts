@@ -338,7 +338,7 @@ export const Recipes = {
     unlocked: {
       hints: [{
         completed: simpleRequirePotwArr([
-          P.Nidoran_F, P.Nidoran_M, P.Tauros, P.Chansey, P.Jynx,
+          P.NidoranF, P.NidoranM, P.Tauros, P.Chansey, P.Jynx,
           P.Nidorina, P.Nidorino, P.Miltank, P.Ralts, P.Snorunt,
         ]),
         msg: 'The Love Ball is able to catch Pokémon that are lovable.'

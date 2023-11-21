@@ -55,13 +55,13 @@ export const Sandshrew = 27
 // 28 potw-028
 export const Sandslash = 28
 // 29 potw-029
-export const Nidoran_F = 29
+export const NidoranF = 29
 // 30 potw-030
 export const Nidorina = 30
 // 31 potw-031
 export const Nidoqueen = 31
 // 32 potw-032
-export const Nidoran_M = 32
+export const NidoranM = 32
 // 33 potw-033
 export const Nidorino = 33
 // 34 potw-034
@@ -2019,7 +2019,7 @@ export const Walking_Wake = 1009
 // 1010 potw-1010
 export const Iron_Leaves = 1010
 // 1011 potw-1011
-export const Dripplin = 1011
+export const Dipplin = 1011
 // 1012 potw-1012
 export const Poltchageist = 1012
 // 1013 potw-1013
@@ -2027,7 +2027,7 @@ export const Sinistcha = 1013
 // 1014 potw-1014
 export const Okidogi = 1014
 // 1015 potw-1015
-export const Monkidori = 1015
+export const Munkidori = 1015
 // 1016 potw-1016
 export const Fezandipiti = 1016
 // 1017 potw-1017

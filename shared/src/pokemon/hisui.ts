@@ -83,7 +83,7 @@ export const hisuiBuilder = {
   'potw-157-hisuian': ensurePkmnBuilder({
     species: 'Typhlosion', type1: 'Fire', type2: 'Ghost', 
     tiers: ['Traditional', 'Arceus Cup'], shiny: 'WILD',
-    weight: 69.8,
+    weight: 69.8, release: 'ultraball',
     eggBase: 'potw-155', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Said to purify lost, forsaken souls with its flames and guide them to the afterlife. I believe its form has been influenced by the energy of the sacred mountain towering at Hisui’s center.`,
     hp: 73, attack: 84, defense: 78, spAttack: 119, spDefense: 85, speed: 95,
@@ -156,7 +156,7 @@ export const hisuiBuilder = {
   'potw-503-hisuian': ensurePkmnBuilder({
     species: 'Samurott', type1: 'Water', type2: 'Dark', 
     tiers: ['Traditional', 'Arceus Cup'], shiny: 'WILD',
-    weight: 58.2,
+    weight: 58.2, release: 'ultraball',
     eggBase: 'potw-501', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Hard of heart and deft of blade, this rare form of Samurott is a product of the Pokémon’s evolution in the region of Hisui. Its turbulent blows crash into foes like ceaseless pounding waves.    `,
     hp: 90, attack: 108, defense: 80, spAttack: 100, spDefense: 65, speed: 85,
@@ -352,7 +352,7 @@ export const hisuiBuilder = {
   'potw-724-hisuian': ensurePkmnBuilder({
     species: 'Decidueye', type1: 'Grass', type2: 'Fighting', 
     tiers: ['Traditional', 'Arceus Cup'], shiny: 'WILD',
-    weight: 37,
+    weight: 37, release: 'ultraball',
     eggBase: 'potw-723', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `The air stored inside the rachises of Decidueye’s feathers insulates the Pokémon against Hisui’s extreme cold. This is firm proof that evolution can be influenced by environment.`,
     hp: 88, attack: 112, defense: 80, spAttack: 95, spDefense: 95, speed: 60,

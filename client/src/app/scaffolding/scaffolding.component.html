@@ -72,8 +72,10 @@
         <span class="label">Global Trade System</span>
       </a>
       <a routerLink="/multiplayer/wonder" routerLinkActive="activebutton" *ngIf="gate.kalos">
-        <img class="icon" src="/images/sprites/icons/menu-wonder.svg" />
-        <span class="label">Wonder Trade</span>
+        <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.wondertrade > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
+          <img class="icon" src="/images/sprites/icons/menu-wonder.svg" />
+          <span class="label">Wonder Trade</span>
+        </span>
       </a>
       <a routerLink="/multiplayer/trade" routerLinkActive="activebutton" *ngIf="gate.kanto">
         <img class="icon" src="/images/sprites/icons/menu-trade.svg" />

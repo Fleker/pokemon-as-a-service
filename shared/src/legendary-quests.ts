@@ -623,7 +623,7 @@ export const FriendSafari: LegendaryQuest = {
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_XY),
     msg: 'Professor Sycamore has a quest for you.'
   }, {
-    completed: simpleRequirePotwArr([P.Nidoran_F, P.Nidoran_M, P.Doduo, P.Exeggcute, P.Rhyhorn, P.Chansey, P.Tangela, P.Kangaskhan, P.Scyther, P.Pinsir, P.Tauros, P.Dratini]),
+    completed: simpleRequirePotwArr([P.NidoranF, P.NidoranM, P.Doduo, P.Exeggcute, P.Rhyhorn, P.Chansey, P.Tangela, P.Kangaskhan, P.Scyther, P.Pinsir, P.Tauros, P.Dratini]),
     msg: 'Have you visited the Safari Zone from Kanto? There are many Pokémon there.'
   }, {
     completed: (r) => { return simpleRequirePotwArr([...FriendSafariMap[r.id.substring(0, 1)]])(r) },

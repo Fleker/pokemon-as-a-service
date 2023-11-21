@@ -2530,6 +2530,7 @@ export const bosses = [
     Potw(P.Drifblim, {var:4}),
   ],
   [
+    // July '23
     Potw(P.Slowbro, {var:1}),
     Potw(P.Venusaur, {var:2}),
     Potw(P.Charizard, {var:2}),
@@ -2669,6 +2670,7 @@ export const bosses = [
     Potw(P.Pelipper, {var:4}),
     Potw(P.Marshadow, {var:1}),
     Potw(P.Magcargo, {var:3}),
+    Potw(P.Pikachu, {var:2, form: 'pop_star'}),
   ],
   [
     // August '23
@@ -3022,6 +3024,7 @@ export const bosses = [
      Potw(P.Ursaluna, {var: 1}),
      Potw(P.Ariados, {var: 1}),
      Potw(P.Morpeko, {var: 1}),
+     Potw(P.Morpeko, {var: 1, form: 'hangry'}),
      Potw(P.Cramorant, {var: 1}),
      Potw(P.Tapu_Koko, {var: 3}),
      Potw(P.Tapu_Fini, {var: 3}),
