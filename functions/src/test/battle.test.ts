@@ -1,13 +1,3 @@
-// Initialize Firebase
-const admin = require('firebase-admin');
-import * as cred from '../fb-credentials.json'
-// Initialize Firebase
-admin.initializeApp({
-  credential: admin.credential.cert(cred),
-  databaseURL: "https://pokemon-of-the-week.firebaseio.com",
-  storageBucket: "pokemon-of-the-week.appspot.com",
-});
-
 import test from 'ava'
 import {criticalHit, SpeedAlignedAction, byPriority, bySpeed, getCasterTurnMove, BattleOptions, attack, turn, execute} from '../../../shared/src/battle/battle-controller'
 import {typeMultiplier} from '../../../shared/src/battle/typeMultiplier'
@@ -15,7 +5,7 @@ import { Movepool, BUFF_STAT } from '../../../shared/src/battle/movepool';
 import { Inventory } from '../../../shared/src/battle/inventory';
 import { AbilityDex } from '../../../shared/src/battle/ability';
 import { Pokemon, Field, MoveInput, Log } from '../../../shared/src/battle/types'
-import { getCondition } from '../../../shared/src/battle/conditions';
+import { getCondition, removeCondition } from '../../../shared/src/battle/conditions';
 import { Weathers } from '../../../shared/src/battle/weather';
 import { ConditionMap } from '../../../shared/src/battle/status';
 import { Badge } from '../../../shared/src/badge3';
@@ -1993,28 +1983,41 @@ test('Loaded Dice guarantees four hits', t => {
 
 test('Terastallization - Stab', t => {
   const aRaichu1 = {...A_RAICHU_V1}
+  // Reset
+  removeCondition(aRaichu1, 'Terastallized')
+  removeCondition(aRaichu1, 'Stab')  
   const teraPsychic = Inventory.terapsychic
   const log = teraPsychic.onBattleStart!(aRaichu1, aRaichu1, false)
   t.log(log)
-  const conditionTera = getCondition(aRaichu1, 'terastallized')!
+  const conditionTera = getCondition(aRaichu1, 'Terastallized')!
   const conditionsStab = aRaichu1.conditions.filter(c => c.name === 'Stab')
   t.is(1, conditionsStab.length)
+  t.log(aRaichu1.conditions)
   t.truthy(conditionTera)
   t.truthy(conditionsStab)
+  t.is('Raichu terastallized into a Psychic-type!', log.msg[0])
+  t.is('Psychic', aRaichu1.type1)
+  t.is(undefined, aRaichu1.type2)
   t.is('Psychic', conditionTera.p!.type)
   t.truthy(conditionTera.p!.stabTera)
 })
 
 test('Terastallization - Third Type', t => {
   const aRaichu1 = {...A_RAICHU_V1}
+  // Reset
+  removeCondition(aRaichu1, 'Terastallized')
+  removeCondition(aRaichu1, 'Stab')
   const teraWater = Inventory.terawater
   const log = teraWater.onBattleStart!(aRaichu1, aRaichu1, false)
   t.log(log)
-  const conditionTera = getCondition(aRaichu1, 'terastallized')!
+  const conditionTera = getCondition(aRaichu1, 'Terastallized')!
   const conditionsStab = aRaichu1.conditions.filter(c => c.name === 'Stab')
-  t.is(1, conditionsStab.length)
   t.truthy(conditionTera)
   t.truthy(conditionsStab)
+  t.log(conditionTera)
+  t.is('Raichu terastallized into a Water-type!', log.msg[0])
+  t.is('Water', aRaichu1.type1)
+  t.is(undefined, aRaichu1.type2)
   t.is('Water', conditionTera.p!.type)
   t.falsy(conditionTera.p!.stabTera)
 })
