@@ -2200,6 +2200,16 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: () => true,
     consumes: () => true,
   },
+  'tm-Hyper Drill': {
+    filter: [P.Dunsparce],
+    pokemon: {
+      [P.Dunsparce]: {
+        badge: P.Dudunsparce,
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
   expcandyxs: {
     // 4/(x * .75) <= 1/2, x ~ 12
     filter: getPokemonLevel(12),

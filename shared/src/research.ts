@@ -625,7 +625,21 @@ const QUEST_POKEMON: Record<string, ResearchQuest> = {
     completedStep: ({capturedPokemon}) => {
       if (!capturedPokemon) return false
       const simple = new TeamsBadge(capturedPokemon).toSimple()
-      return ['Mankey', 'Primeape'].includes(simple)
+      return [P.Mankey, P.Primeape].includes(simple)
+    }
+  },
+  DUNSPARCE: {
+    title: `Catch 18 Dunsparce`,
+    steps: 18,
+    icon: Sprite.item('tm-Hyper Drill'),
+    prize: ['tm-Hyper Drill'],
+    level: LEVEL.L9,
+    active: true,
+    origin: 'gen9',
+    completedStep: ({capturedPokemon}) => {
+      if (!capturedPokemon) return false
+      const simple = new TeamsBadge(capturedPokemon).toSimple()
+      return [P.Dunsparce].includes(simple)
     }
   },
   HALLOWEEN21: {

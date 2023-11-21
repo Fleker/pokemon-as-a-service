@@ -45,6 +45,10 @@ export function item(item: ItemId): string {
     // Most* of TM Machine matrials
     return `/images/sprites/items/potw-item-azurillfur.png`
   }
+  if (item?.startsWith('svs')) {
+    // Sammiches
+    return `/images/sprites/items/potw-item-svibaguette.png`
+  }
   if (ITEMS[item] && ITEMS[item].category === 'berry') {
     return `/images/sprites/berries/${item}.png`
   }
