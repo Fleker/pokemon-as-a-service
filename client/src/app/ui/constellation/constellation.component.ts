@@ -15,7 +15,7 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     let frame = 0
     this.flicker = setInterval(() => {
-      this.drawConstellationPumpkaboo(++frame)
+      this.drawConstellationEternatus(++frame)
     }, 150)
   }
 
@@ -40,6 +40,77 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
     ctx.ellipse(x, y, rad, rad, 0, 0, 360)
     ctx.closePath()
     ctx.fill()
+  }
+
+  drawConstellationEternatus(frame: number) {
+    if (!this.canvas) return
+    const ctx = this.canvas!.nativeElement.getContext('2d')
+    if (ctx === null) return    
+
+    ctx.clearRect(0, 0, 480, 480)
+    ctx.strokeStyle = '#ffffff'
+    ctx.fillStyle = '#ffffff'
+    ctx.beginPath()
+    ctx.moveTo(304, 303)
+    ctx.lineTo(300, 260)
+    ctx.lineTo(391, 164)
+    ctx.lineTo(255, 233)
+    ctx.lineTo(228, 212)
+    ctx.lineTo(132, 89)
+    ctx.lineTo(183, 229)
+    ctx.lineTo(17, 224)
+    ctx.lineTo(160, 261)
+    ctx.lineTo(153, 293)
+    ctx.lineTo(32, 356)
+    ctx.lineTo(162, 329)
+    ctx.lineTo(184, 324)
+    ctx.lineTo(196, 350)
+    ctx.lineTo(211, 330)
+    ctx.lineTo(266, 340)
+    ctx.lineTo(372, 428)
+    ctx.lineTo(289, 315)
+    ctx.lineTo(291, 303) //
+    ctx.lineTo(304, 303)
+    ctx.lineTo(403, 332) //
+    ctx.lineTo(459, 366)
+    ctx.lineTo(422, 253)
+    ctx.lineTo(352, 265) //
+    ctx.lineTo(248, 198)
+    ctx.lineTo(325, 184) //
+    ctx.lineTo(424, 196) //
+    ctx.lineTo(454, 213)
+    ctx.lineTo(427, 236)
+    ctx.lineTo(373, 244)
+    ctx.lineTo(334, 240)
+
+    ctx.stroke()
+    ctx.closePath()
+
+    this.star(ctx, 300, 260, 1, frame)
+    this.star(ctx, 391, 164, 3, frame)
+    this.star(ctx, 255, 233, 5, frame)
+    this.star(ctx, 228, 212, 7, frame)
+    this.star(ctx, 132, 89, 2, frame)
+    this.star(ctx, 183, 229, 4, frame)
+    this.star(ctx, 17, 224, 6, frame)
+    this.star(ctx, 160, 261, 8, frame)
+    this.star(ctx, 153, 293, 1, frame)
+    this.star(ctx, 32, 356, 3, frame)
+    this.star(ctx, 162, 329, 5, frame)
+    this.star(ctx, 184, 324, 7, frame)
+    this.star(ctx, 196, 350, 2, frame)
+    this.star(ctx, 211, 330, 4, frame)
+    this.star(ctx, 266, 340, 6, frame)
+    this.star(ctx, 372, 428, 8, frame)
+    this.star(ctx, 289, 315, 1, frame)
+    this.star(ctx, 304, 303, 3, frame)
+    this.star(ctx, 459, 366, 5, frame)
+    this.star(ctx, 422, 253, 7, frame)
+    this.star(ctx, 248, 198, 2, frame)
+    this.star(ctx, 454, 213, 4, frame)
+    this.star(ctx, 427, 236, 6, frame)
+    this.star(ctx, 373, 244, 8, frame)
+    this.star(ctx, 334, 240, 1, frame)
   }
 
   drawConstellationPumpkaboo(frame: number) {
