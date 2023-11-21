@@ -8904,6 +8904,7 @@ export const Movepool: Movepool = {
     power: 0, criticalHit: 0, accuracy: 1,
     flavor: 'The user flings sand, reducing the accuracy of the target.',
     aoe: 'Single Opponent', zMoveFx: 'EvaBuff1',
+    onBeforeMove: noop,
     onAfterMove: (inp) => BUFF_STAT(inp.target, inp, 'accuracy', -1)
   },
   'Sandsear Storm': {
@@ -11491,7 +11492,7 @@ export const Movepool: Movepool = {
     criticalHit: 1,
     power: 1.11,
     type: 'Fighting',
-    flavor: 'The user strikes at the target with each of its three legs.',
+    flavor: 'The user strikes at the target thrice with its legs.',
     aoe: 'Single Opponent', contact: true,
   },
   'Trop Kick': {

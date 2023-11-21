@@ -315,13 +315,13 @@ function applyEntryHazards(field: Field, prefix: Prefix, pkmn: Pokemon, party: P
 export function renderItemInert(rules: Rules, item?: ItemId): true | string {
   if (!item) return true
   const {category} = ITEMS[item]
-  if (category === 'megastone' && !rules.mega) {
+  if (category === 'megastone' && rules.mega) {
     return 'mega'
   }
-  if (category === 'zcrystal' && !rules.zmoves) {
+  if (category === 'zcrystal' && rules.zmoves) {
     return 'zmove'
   }
-  if (['maxmushroom', 'maxhoney', 'dynamaxcandy'].includes(item) && !rules.dynamax) {
+  if (['maxmushroom', 'maxhoney', 'dynamaxcandy'].includes(item) && rules.dynamax) {
     return 'dmax'
   }
   return true
@@ -647,7 +647,7 @@ export function attack(params: AttackParams): Log {
         if (!condition) {
           const lastDamage = {...ConditionMap['LastDamage']}
           lastDamage.p = {selectedMove: move, dmg: adjustedDmg}
-          caster.conditions.push(lastDamage)
+          target.conditions.push(lastDamage)
         } else {
           condition.p = {selectedMove: move, dmg: adjustedDmg}
         }
