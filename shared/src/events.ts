@@ -2,7 +2,7 @@ import { assert } from '@fleker/gents'
 import { BadgeId } from "./pokemon/types";
 import { Users } from "./server-types";
 import * as P from './gen/type-pokemon'
-import { getLocalTime } from "./locations-list";
+import { getLocalTime, getMoonPhase } from "./locations-list";
 import { ITEMS, ItemId } from "./items-list";
 
 export interface Event {
@@ -58,6 +58,20 @@ export const Events = {
       const hours = date.getUTCHours()
       /* Mondays 8PM - 12AM UTC only */
       return dow === 1 && hours >= 20
+    }
+  }),
+  'FULL_MOON': assert<Event>({
+    title: 'Full Moon',
+    description: 'The moon is shining brightly overhead in all its lunar glory.',
+    encounterHoldItems: [],
+    frequentSpecies: [],
+    other: [
+      'Clefable may appear in Ultra Balls',
+      'Ursaring is looking antsy',
+    ],
+    shinyRate: 1,
+    isActive: () => {
+      return getMoonPhase() === 'Full Moon'
     }
   }),
   'BUG_CATCHING': assert<Event>({
@@ -473,6 +487,19 @@ export const Events = {
     isActive: (user) => {
       const date = getLocalTime(user)
       return date.month() === 8 && date.date() === 25
+    }
+  }),
+  'MOLE_DAY': assert<Event>({
+    title: 'Mole Day',
+    description: "From dawn til dusk, chemists celebrate Avogadro's number.",
+    frequentSpecies: [P.Diglett],
+    encounterHoldItems: ['silverpowder'],
+    shinyRate: 1.00369012667,
+    isActive: (user) => {
+      const date = getLocalTime(user)
+      // 10 23, b/w 6 & 6
+      return date.month() === 9 && date.date() === 23
+        && date.hour() >= 6 && date.hour() <= 18
     }
   }),
   'HALLOWEEN': assert<Event>({

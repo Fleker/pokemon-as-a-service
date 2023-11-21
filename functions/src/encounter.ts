@@ -249,8 +249,8 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Rattata, {count: 1}, p))
   list.push(...addIf(P.Spearow, {count: 1}, p))
   list.push(...addIf(P.Ekans, {count: 1}, p))
-  list.push(...addIf(P.Nidoran_F, {count: 1}, p))
-  list.push(...addIf(P.Nidoran_M, {count: 1}, p))
+  list.push(...addIf(P.NidoranF, {count: 1}, p))
+  list.push(...addIf(P.NidoranM, {count: 1}, p))
   list.push(...addIf(P.Jigglypuff, {count: 1}, p))
   list.push(...addIf(P.Oddish, {count: 1, weather: 'Sunny'}, p))
   list.push(...addIf(P.Paras, {count: 1, terrain: 'Forest'}, p))
@@ -270,6 +270,7 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   // Clefairy are available with a Poké Ball & Moon Stone on Monday nights 20:00 - 23:59
   list.push(...addIf(P.Clefairy, {count: 5, event: 'MOON_STONE'}, p))
   list.push(...addIf(P.Cleffa, {count: 5, event: 'MOON_STONE'}, p))
+  list.push(...addIf(P.Diglett, {count: 20, event: 'MOLE_DAY'}, p))
   list.push(...addIf(P.Zubat, {time: 'Night'}, p))
   list.push(...addIf(P.Magnemite, {terrain: 'Mountain'}, p))
   list.push(...addIf(P.Seel, {terrain: 'Oceanic'}, p))
@@ -843,6 +844,7 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Nidorino, {count: 1}, p))
   list.push(...addIf(P.Nidoking, {gate: CATCH_CHARM_RSE, event: 'THREE_KINGS', count: 10}, p))
   list.push(...addIf(P.Clefable, {count: 5, event: 'MOON_STONE'}, p))
+  list.push(...addIf(P.Clefable, {count: 5, event: 'FULL_MOON'}, p))
   list.push(...addIf(P.Kadabra, {count: 1}, p))
   list.push(...addIf(P.Alakazam, {count: 1, event: 'MEWTWO_BIRTHDAY'}, p))
   list.push(...addIf(P.Machoke, {count: 1}, p))
@@ -1133,8 +1135,8 @@ const ENCOUNTERS_SAFARI = (user, _, location, format: EncounterParamFormat = 'Li
   const p = {user: user as Users.Doc, location, format}
 
   const list: BadgeId[] = []
-  list.push(...addIf(P.Nidoran_F, {count: 1}, p))
-  list.push(...addIf(P.Nidoran_M, {count: 1}, p))
+  list.push(...addIf(P.NidoranF, {count: 1}, p))
+  list.push(...addIf(P.NidoranM, {count: 1}, p))
   list.push(...addIf(P.Doduo, {count: 1}, p))
   list.push(...addIf(P.Exeggcute, {count: 1}, p))
   list.push(...addIf(P.Rhyhorn, {count: 1}, p))
@@ -1273,8 +1275,8 @@ const ENCOUNTERS_PINK_APRICORN = (user, _, location, format: EncounterParamForma
   const p = {user: user as Users.Doc, location, format}
 
   const list: BadgeId[] = []
-  list.push(...addIf(P.Nidoran_F, {count: 1}, p))
-  list.push(...addIf(P.Nidoran_M, {count: 1}, p))
+  list.push(...addIf(P.NidoranF, {count: 1}, p))
+  list.push(...addIf(P.NidoranM, {count: 1}, p))
   list.push(...addIf(P.Tauros, {count: 1}, p))
   list.push(...addIf(P.Chansey, {count: 1}, p))
   list.push(...addIf(P.Jynx, {count: 1}, p))
@@ -1670,8 +1672,8 @@ const ENCOUNTER_FRIENDSAFARI = (user: Users.Doc, now: Date, location: Location, 
 const ENCOUNTERS_HIDDENGROTTO = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const grottoCommon = [
-    P.Nidoran_F,
-    P.Nidoran_M,
+    P.NidoranF,
+    P.NidoranM,
     P.Venonat,
     P.Golduck,
     P.Muk,
@@ -2835,7 +2837,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Dhelmise, P.Solrock, P.Larvitar,
           P.Scyther, P.Pinsir, P.Heracross, P.Carvanha, P.Zorua, P.Mienfoo,
           P.Druddigon, P.Bouffalant, P.Rockruff, P.Fomantis,
-          P.Nidoran_F, P.Nidoran_M, P.Zubat, P.Dratini, P.Torchic, P.Mudkip,
+          P.NidoranF, P.NidoranM, P.Zubat, P.Dratini, P.Torchic, P.Mudkip,
           P.Bagon, P.Beldum, P.Gible,
         ],
         [CATCH_CHARM_SWSH]: [
@@ -2927,7 +2929,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
     bluepokeblock: {
       pokeball: {
         [CATCH_CHARM_RBY]: [
-          P.Squirtle, P.Nidoran_F, P.Oddish, P.Poliwag, P.Tentacool, P.Horsea,
+          P.Squirtle, P.NidoranF, P.Oddish, P.Poliwag, P.Tentacool, P.Horsea,
         ],
         [CATCH_CHARM_GSC]: [
           P.Totodile, P.Chinchou, P.Marill, P.Wooper, P.Phanpy,
@@ -3337,7 +3339,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       pokeball: {
         [CATCH_CHARM_XY]: [
           Potw(P.Burmy, {form: 'trash'}), P.Skitty, P.Hoppip, P.Whismur,
-          P.Luvdisc, P.Snubbull, P.Nidoran_M, P.Mime_Jr, P.Slowpoke,
+          P.Luvdisc, P.Snubbull, P.NidoranM, P.Mime_Jr, P.Slowpoke,
           P.Exeggcute, P.Shelmet, P.Smoochum, P.Igglybuff,
         ]
       },
