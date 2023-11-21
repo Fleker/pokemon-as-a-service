@@ -2722,6 +2722,7 @@ export const sinnohBuilder = {
       ['Psyshock', 'Water Pulse', 'Shadow Ball', 'Nasty Plot'],
       ['Future Sight', 'Giga Drain', 'Drain Punch', 'Psychic Terrain'],
       ['Zen Headbutt', 'Ice Punch', 'U-turn', 'Yawn'],
+      ['Dazzling Gleam', 'Heal Bell', 'Helping Hand']
     ]
   }),
   'potw-481': ensurePkmnBuilder({
@@ -2747,6 +2748,7 @@ export const sinnohBuilder = {
       ['Psyshock', 'Energy Ball', 'Charge Beam', 'Nasty Plot'],
       ['Future Sight', 'Ice Punch', 'Thunder Punch', 'Psychic Terrain'],
       ['Zen Headbutt', 'Fire Punch', 'U-turn', 'Lucky Chant'],
+      ['Blizzard', 'Dazzling Gleam', 'Helping Hand'],
     ],
   }),
   'potw-482': ensurePkmnBuilder({
@@ -2772,7 +2774,8 @@ export const sinnohBuilder = {
     novelMoves: [[],
       ['Psyshock', 'Flamethrower', 'Signal Beam', 'Nasty Plot'],
       ['Future Sight', 'Explosion', 'Assurance', 'Psychic Terrain'],
-      ['Zen Headbutt', 'Thunder Punch', 'U-turn', 'Stealth Rock']
+      ['Zen Headbutt', 'Thunder Punch', 'U-turn', 'Stealth Rock'],
+      ['Explosion', 'Dazzling Gleam', 'Helping Hand'],
     ],
   }),
   'potw-483': ensurePkmnBuilder({
@@ -2799,6 +2802,7 @@ export const sinnohBuilder = {
       ['Ice Beam', 'Magnet Rise'],
       ['Power Gem', 'Flash'],
       ['Earth Power', 'Trick Room'],
+      ['Breaking Swipe', 'Hyper Voice', 'Gravity'],
     ]
   }),
   'potw-484': ensurePkmnBuilder({
@@ -2826,6 +2830,7 @@ export const sinnohBuilder = {
       ['Power Gem', 'Aqua Ring'],
       ['Hydro Pump', 'Ice Beam', 'Gravity'],
       ['Earth Power', 'Rain Dance'],
+      ['Breaking Swipe', 'Surf', 'Hyper Voice', 'Psych Up'],
     ]
   }),
   'potw-485': ensurePkmnBuilder({
@@ -2850,7 +2855,7 @@ export const sinnohBuilder = {
       ['Stone Edge', 'Metal Sound'],
       ['Dark Pulse', 'Will-O-Wisp'],
       ['Heat Wave', 'Earth Power', 'Double Team'],
-      // ['Lava Plume', 'Earthquake', 'Charm'],
+      ['Lava Plume', 'Earthquake', 'Charm'],
     ],
   }),
   'potw-486': ensurePkmnBuilder({
@@ -2874,6 +2879,8 @@ export const sinnohBuilder = {
     novelMoves: [[],
       ['Zen Headbutt', 'Drain Punch', 'Gravity'],
       ['Hammer Arm', 'Knock Off', 'Wide Guard'],
+      ['Iron Head', 'Ice Punch', 'Block'],
+      ['Earthquake', 'Rock Slide', 'Rest'],
     ],
   }),
   'potw-487': ensurePkmnBuilder({
@@ -2900,7 +2907,8 @@ export const sinnohBuilder = {
     novelMoves: [['Dragon Claw'],
       ['Aura Sphere', 'Safeguard'],
       ['Hex', 'Draco Meteor', 'Charge Beam', 'Thunder Wave'],
-      ['Outrage', 'Earth Power', 'Gravity']
+      ['Outrage', 'Earth Power', 'Gravity'],
+      ['Breaking Swipe', 'Brutal Swing', 'Defog'],
     ]
   }),
   'potw-487-altered': ensurePkmnBuilder({
@@ -2927,6 +2935,7 @@ export const sinnohBuilder = {
       ['Aura Sphere', 'Safeguard'],
       ['Hex', 'Draco Meteor', 'Charge Beam', 'Thunder Wave'],
       ['Outrage', 'Earth Power', 'Gravity'],
+      ['Breaking Swipe', 'Brutal Swing', 'Defog']
     ]
   }),
   'potw-487-origin': ensurePkmnBuilder({
@@ -2952,7 +2961,8 @@ export const sinnohBuilder = {
     novelMoves: [['Outrage', 'Aura Sphere', 'Thunder Wave'],
       ['Aura Sphere', 'Calm Mind'],
       ['Hex', 'Draco Meteor', 'Charge Beam', 'Thunder Wave'],
-      ['Outrage', 'Earth Power', 'Pain Split']
+      ['Outrage', 'Earth Power', 'Pain Split'],
+      ['Breaking Swipe', 'Brutal Swing', 'Heal Block'],
     ]
   }),
   'potw-488': ensurePkmnBuilder({
@@ -2976,6 +2986,7 @@ export const sinnohBuilder = {
       ['Aurora Beam', 'Moonblast', 'Moonlight'],
       ['Psycho Cut', 'Grass Knot', 'Trick Room', 'Magic Room'],
       ['Zen Headbutt', 'Signal Beam', 'Lunar Blessing'],
+      ['Thunderbolt', 'Power Gem', 'Double Team']
     ],
   }),
   'potw-489': ensurePkmnBuilder({
@@ -2993,12 +3004,13 @@ export const sinnohBuilder = {
       'Secret Power', 'Ancient Power', 'Surf', 'Whirlpool', 'Waterfall', 
       'Protect', 'Swagger', 'Hail', 'Rain Dance', 'Safeguard', 
       'Aqua Ring', 'Charm', 'Knock Off', 'Substitute', 'Endure', 
-      'Confide', 'Double Team', 
+      'Confide', 'Double Team',
     ],
     novelMoves: [[],
       ['Whirlpool', 'Ice Beam', 'Mud-Slap', 'Aqua Ring'],
       ['Ancient Power', 'Grass Knot', 'Rain Dance'],
       ['Liquidation', 'Zen Headbutt', 'Signal Beam', 'Take Heart'],
+      ['Surf', 'Dazzling Gleam', 'Heal Bell'],
     ],
   }),
   'potw-490': ensurePkmnBuilder({

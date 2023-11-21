@@ -24,6 +24,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Pay Day', 'Metal Sound'],
+      ['Lash Out', 'Swords Dance'],
     ],
   }),
   'potw-077-galarian': ensurePkmnBuilder({
@@ -164,6 +165,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Double Hit', 'Will-O-Wisp'],
+      ['Flamethrower', 'Misty Terrain']
     ],
   }),
   'potw-122-galarian': ensurePkmnBuilder({
@@ -192,6 +194,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Sucker Punch', 'Psychic Terrain'],
+      ['Grass Knot', 'Teeter Dance'],
     ],
   }),
   'potw-144-galarian': ensurePkmnBuilder({
@@ -212,6 +215,9 @@ export const galarBuilder = {
       'Tailwind', 'Substitute', 'Endure', 'Mist', 'Confide', 
       'Roost', 'Laser Focus', 'Aurora Veil', 'Double Team', 
     ],
+    novelMoves: [[],
+      ['Ancient Power', 'Trick Room'],
+    ],
   }),
   'potw-145-galarian': ensurePkmnBuilder({
     species: 'Zapdos', type1: 'Fighting', type2: 'Flying',
@@ -231,6 +237,9 @@ export const galarBuilder = {
       'Substitute', 'Endure', 'Confide', 'Flash', 'Roost', 
       'Laser Focus', 'Double Team', 
     ],
+    novelMoves: [[],
+      ['Ancient Power', 'Detect'],
+    ],
   }),
   'potw-146-galarian': ensurePkmnBuilder({
     species: 'Moltres', type1: 'Dark', type2: 'Flying',
@@ -249,6 +258,9 @@ export const galarBuilder = {
       'Sunny Day', 'Rain Dance', 'Sandstorm', 'Reflect', 'Safeguard', 
       'Tailwind', 'Substitute', 'Endure', 'Confide', 'Roost', 
       'Laser Focus', 'Double Team', 
+    ],
+    novelMoves: [[],
+      ['Ancient Power', 'Nasty Plot'],
     ],
   }),
   'potw-199-galarian': ensurePkmnBuilder({
@@ -299,7 +311,8 @@ export const galarBuilder = {
       'Mist', 'Confide', 'Double Team', 
     ],
     novelMoves: [[],
-      ['Power Gem', 'Grudge']
+      ['Power Gem', 'Grudge'],
+      ['Mirror Coat', 'Destiny Bond'],
     ],
   }),
   'potw-263-galarian': ensurePkmnBuilder({
@@ -479,6 +492,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Uproar', 'Noble Roar'],
       ['Brutal Swing', 'Grassy Terrain'],
+      ['Grass Pledge', 'Earth Power', 'Growth'],
     ],
   }),
   'potw-811': ensurePkmnBuilder({
@@ -500,6 +514,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Uproar', 'Noble Roar'],
       ['Brutal Swing', 'Grassy Terrain'],
+      ['Grass Pledge', 'Earth Power', 'Growth'],
     ],
   }),
   'potw-812': ensurePkmnBuilder({
@@ -522,6 +537,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Boomburst', 'Noble Roar'],
       ['Darkest Lariat', 'Grassy Terrain'],
+      ['Frenzy Plant', 'Earth Power', 'Swords Dance'],
     ],
     gmax: {
       gmaxMove: 'G-Max Drum Solo',
@@ -546,6 +562,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Double Kick', 'Agility'],
       ['Assurance', 'Sand Attack'],
+      ['Fire Pledge', 'Gunk Shot', 'Bulk Up'],
     ],
   }),
   'potw-814': ensurePkmnBuilder({
@@ -566,6 +583,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Double Kick', 'Agility'],
       ['Sucker Punch', 'Sand Attack'],
+      ['Fire Pledge', 'Gunk Shot', 'Bulk Up'],
     ],
   }),
   'potw-815': ensurePkmnBuilder({
@@ -586,6 +604,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Bounce', 'Court Change'],
       ['Blaze Kick', 'Sucker Punch', 'Sand Attack'],
+      ['Blast Burn', 'Gunk Shot', 'Ally Switch'],
     ],
     gmax: {
       gmaxMove: 'G-Max Fireball',
@@ -612,6 +631,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Acrobatics', 'Tearful Look'],
       ['Mud Shot', 'Soak'],
+      ['Water Pledge', 'Weather Ball', 'Mist'],
     ],
   }),
   'potw-817': ensurePkmnBuilder({
@@ -634,6 +654,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Acrobatics', 'Tearful Look'],
       ['Mud Shot', 'Soak'],
+      ['Water Pledge', 'Weather Ball', 'Mist'],
     ],
   }),
   'potw-818': ensurePkmnBuilder({
@@ -655,6 +676,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['U-turn', 'Rain Dance'],
       ['Mud Shot', 'Soak'],
+      ['Hydro Cannon', 'Weather Ball', 'Mist'],
     ],
     gmax: {
       gmaxMove: 'G-Max Hydrosnipe',
@@ -677,6 +699,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Bullet Seed', 'Stuff Cheeks'],
+      ['Tail Slap', 'Gyro Ball', 'Defense Curl'],
     ],
   }),
   'potw-820': ensurePkmnBuilder({
@@ -696,6 +719,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Bullet Seed', 'Covet'],
+      ['Super Fang', 'Gyro Ball', 'Belly Drum'],
     ],
   }),
   'potw-821': ensurePkmnBuilder({
@@ -842,7 +866,8 @@ export const galarBuilder = {
       'Hone Claws', 'Quick Guard', 'Endure', 'Taunt', 'Fake Tears', 
     ],
     novelMoves: [[],
-      ['Tail Slap', 'Tail Whip']
+      ['Tail Slap', 'Tail Whip'],
+      ['Mud Shot', 'Howl'],
     ],
   }),
   'potw-828': ensurePkmnBuilder({
@@ -862,6 +887,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Tail Slap', 'Parting Shot'],
+      ['Mud Shot', 'Howl'],
     ],
   }),
   'potw-829': ensurePkmnBuilder({
@@ -955,6 +981,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Jaw Lock', 'Protect'],
+      ['Revenge', 'Rain Dance'],
     ],
   }),
   'potw-834': ensurePkmnBuilder({
@@ -976,6 +1003,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Head Smash', 'Jaw Lock', 'Protect'],
+      ['Revenge', 'Stealth Rock'],
     ],
     gmax: {
       gmaxMove: 'G-Max Stonesurge',
@@ -1094,7 +1122,10 @@ export const galarBuilder = {
     move: ['Astonish'],
     moveTMs: [
       'Rollout', 'Defense Curl', 'Draco Meteor', 'Attract', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Rollout', 'Withdraw']
+    ],
   }),
   'potw-841': ensurePkmnBuilder({
     species: 'Flapple', type1: 'Grass', type2: 'Dragon', 
@@ -1109,7 +1140,9 @@ export const galarBuilder = {
       'Facade', 'Giga Impact', 'Dragon Pulse', 'Fly', 'Twister', 
       'Protect', 'Defense Curl', 'Dragon Dance', 'Draco Meteor', 'Iron Defense', 
       'Sunny Day', 'Attract', 'Substitute', 'Leech Seed', 'Endure', 
-      
+    ],
+    novelMoves: [[],
+      ['Wing Attack', 'Dragon Dance'],
     ],
     gmax: {
       gmaxMove: 'G-Max Tartness',
@@ -1131,6 +1164,9 @@ export const galarBuilder = {
       'Draco Meteor', 'Iron Defense', 'Amnesia', 'Sunny Day', 'Reflect', 
       'Light Screen', 'Safeguard', 'Attract', 'Substitute', 'Leech Seed', 
       'Endure', 'Sweet Scent', 
+    ],
+    novelMoves: [[],
+      ['Headbutt', 'Curse'],
     ],
     gmax: {
       gmaxMove: 'G-Max Sweetness',
@@ -1333,7 +1369,11 @@ export const galarBuilder = {
       'Superpower', 'Rock Smash', 'Waterfall', 'Protect', 'Bulk Up', 
       'Attract', 'Substitute', 'Soak', 'Work Up', 'Endure', 
       'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Octazooka', 'Taunt'],
+      ['Dig', 'Topsy-Turvy'],
+    ],
   }),
   'potw-853': ensurePkmnBuilder({
     species: 'Grapploct', type1: 'Fighting', 
@@ -1350,7 +1390,11 @@ export const galarBuilder = {
       'Rock Smash', 'Whirlpool', 'Waterfall', 'Protect', 'Bulk Up', 
       'Attract', 'Substitute', 'Soak', 'Work Up', 'Endure', 
       'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Octazooka', 'Octolock'],
+      ['Stomping Tantrum', 'Topsy-Turvy'],
+    ],
   }),
   'potw-854': ensurePkmnBuilder({
     species: 'Sinistea', type1: 'Ghost', 
@@ -1558,6 +1602,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Fake Out', 'Metal Sound'],
+      ['Lash Out', 'Swords Dance'],
     ],
   }),
   'potw-864': ensurePkmnBuilder({
@@ -1581,6 +1626,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Power Gem', 'Strength Sap'],
+      ['Mirror Coat', 'Scald', 'Destiny Bond'],
     ],
   }),
   'potw-865': ensurePkmnBuilder({
@@ -1624,6 +1670,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Shadow Ball', 'Psychic Terrain'],
+      ['Grass Knot', 'Teeter Dance'],
     ],
   }),
   'potw-867': ensurePkmnBuilder({
@@ -1936,8 +1983,10 @@ export const galarBuilder = {
       'Body Press', 'Mud Shot', 'Superpower', 'Strength', 'Rock Smash', 
       'Stomp', 'Protect', 'Swagger', 'Defense Curl', 'Iron Defense', 
       'Screech', 'Attract', 'Substitute', 'Work Up', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['High Horsepower', 'Iron Defense'],
+    ],
   }),
   'potw-879': ensurePkmnBuilder({
     species: 'Copperajah', type1: 'Steel', 
@@ -1955,6 +2004,9 @@ export const galarBuilder = {
       'Rock Smash', 'Stomp', 'Protect', 'Swagger', 'Defense Curl', 
       'Iron Defense', 'Screech', 'Attract', 'Substitute', 'Work Up', 
       'Endure', 'Taunt', 
+    ],
+    novelMoves: [[],
+      ['High Horsepower', 'Iron Defense'],
     ],
     gmax: {
       gmaxMove: 'G-Max Steelsurge',
@@ -2058,12 +2110,15 @@ export const galarBuilder = {
     levelAt: 50, levelTo: 'potw-886',
     pokedex: `After being reborn as a ghost Pokémon, Dreepy wanders the areas it used to inhabit back when it was alive in prehistoric seas.`,
     hp: 28, attack: 60, defense: 30, spAttack: 40, spDefense: 30, speed: 82,
-    move: [/* Dragon Tail,*/ 'Astonish'],
+    move: ['Dragon Tail', 'Astonish'],
     moveTMs: [
       'Snore', 'Swift', 'Facade', 'Infestation', 'Protect', 
       'Thunder Wave', 'Confuse Ray', 'Draco Meteor', 'Quick Attack', 'Attract', 
       'Substitute', 'Endure', 'Double Team', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Quick Attack', 'Helping Hand'],
+    ],
   }),
   'potw-886': ensurePkmnBuilder({
     species: 'Drakloak', type1: 'Dragon', type2: 'Ghost',
@@ -2081,7 +2136,10 @@ export const galarBuilder = {
       'Surf', 'Protect', 'Thunder Wave', 'Will-O-Wisp', 'Confuse Ray', 
       'Dragon Dance', 'Draco Meteor', 'Agility', 'Quick Attack', 'Attract', 
       'Substitute', 'Endure', 'Double Team', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Double-Edge', 'Helping Hand'],
+    ],
   }),
   'potw-887': ensurePkmnBuilder({
     species: 'Dragapult', type1: 'Dragon', type2: 'Ghost', 
@@ -2100,7 +2158,10 @@ export const galarBuilder = {
       'Confuse Ray', 'Dragon Dance', 'Draco Meteor', 'Agility', 'Reflect', 
       'Light Screen', 'Quick Attack', 'Attract', 'Substitute', 'Endure', 
       'Double Team', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Draco Meteor', 'Sucker Punch', 'Helping Hand'],
+    ],
   }),
   'potw-888': ensurePkmnBuilder({
     species: 'Zacian', type1: 'Fairy', 
@@ -2182,7 +2243,10 @@ export const galarBuilder = {
       'Payback', 'Protect', 'Confuse Ray', 'Dragon Dance', 'Draco Meteor', 
       'Agility', 'Screech', 'Reflect', 'Light Screen', 'Substitute', 
       'Endure', 'Venom Drench', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Venoshock', 'Flamethrower', 'Cosmic Power']
+    ],
   }),
   'potw-890-eternamax': ensurePkmnBuilder({
     species: 'Eternatus', type1: 'Poison', type2: 'Dragon', 
@@ -2198,7 +2262,10 @@ export const galarBuilder = {
       'Payback', 'Protect', 'Confuse Ray', 'Dragon Dance', 'Draco Meteor', 
       'Agility', 'Screech', 'Reflect', 'Light Screen', 'Substitute', 
       'Endure', 'Venom Drench', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Venoshock', 'Flamethrower', 'Cosmic Power']
+    ],
   }),
   'potw-891': ensurePkmnBuilder({
     species: 'Kubfu', type1: 'Fighting', 
@@ -2294,8 +2361,11 @@ export const galarBuilder = {
       'Shock Wave', 'Facade', 'Electroweb', 'Giga Impact', 'Ancient Power', 
       'Protect', 'Self-Destruct', 'Thunder Wave', 'Agility', 'Screech', 
       'Rain Dance', 'Reflect', 'Light Screen', 'Substitute', 'Endure', 
-      'Electric Terrain', 
-    ]
+      'Electric Terrain',
+    ],
+    novelMoves: [[],
+      ['Zap Cannon', 'Extreme Speed', 'Lock-On']
+    ],
   }),
   'potw-895': ensurePkmnBuilder({
     species: 'Regidrago', type1: 'Dragon', 
@@ -2310,7 +2380,10 @@ export const galarBuilder = {
       'Dragon Pulse', 'Twister', 'Ancient Power', 'Protect', 'Self-Destruct', 
       'Dragon Dance', 'Draco Meteor', 'Reflect', 'Light Screen', 'Substitute', 
       'Endure', 'Laser Focus', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Hammer Arm', 'Crunch', 'Focus Energy']
+    ],
   }),
   'potw-896': ensurePkmnBuilder({
     species: 'Glastrier', type1: 'Ice', 

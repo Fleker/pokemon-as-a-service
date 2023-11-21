@@ -3539,6 +3539,7 @@ export const hoennBuilder = {
       ['Ice Punch', 'Thunder Punch', 'Sandstorm'],
       ['Heavy Slam', 'Drain Punch', 'Thunder Wave'],
       ['Iron Head', 'Seismic Toss', 'Stealth Rock'],
+      ['Explosion', 'Earthquake', 'Gravity'],
     ],
   }),
   'potw-378': ensurePkmnBuilder({
@@ -3563,6 +3564,7 @@ export const hoennBuilder = {
       ['Earthquake', 'Hail'],
       ['Frost Breath', 'Charge Beam', 'Focus Blast', 'Aurora Veil'],
       ['Signal Beam', 'Hyper Beam', 'Amnesia'],
+      ['Explosion', 'Rock Slide', 'Gravity']
     ],
   }),
   'potw-379': ensurePkmnBuilder({
@@ -3586,7 +3588,8 @@ export const hoennBuilder = {
     novelMoves: [['Thunder Punch', 'Rock Tomb', 'Counter'],
       ['Zap Cannon', 'Earthquake', 'Sandstorm'],
       ['Stomping Tantrum', 'Hammer Arm', 'Magnet Rise'],
-      ['Ice Punch', 'Body Press', 'Iron Defense']
+      ['Ice Punch', 'Body Press', 'Iron Defense'],
+      ['Explosion', 'Rock Slide', 'Gravity'],
     ],
   }),
   'potw-380': ensurePkmnBuilder({
@@ -3682,7 +3685,7 @@ export const hoennBuilder = {
       ['Muddy Water', 'Sheer Cold', 'Thunder', 'Rain Dance'],
       ['Hydro Pump', 'Ice Beam', 'Ancient Power', 'Calm Mind'],
       ['Liquidation', 'Iron Head', 'Signal Beam', 'Aqua Ring'],
-      // ['Earthquake', 'Rock Slide', 'Safeguard'],
+      ['Earthquake', 'Rock Slide', 'Safeguard'],
     ],
     mega: {
       attack: 150, defense: 90, spAttack: 180, spDefense: 160, speed: 90, weight: 430,
@@ -3715,7 +3718,7 @@ export const hoennBuilder = {
       ['Eruption', 'Fissure', 'Solar Beam', 'Sunny Day'],
       ['Hammer Arm', 'Aerial Ace', 'Bulk Up'],
       ['Earth Power', 'Iron Head', 'Stone Edge', 'Hone Claws'],
-      // ['Lava Plume', 'Rock Slide', 'Safeguard'],
+      ['Lava Plume', 'Rock Slide', 'Safeguard'],
     ],
     mega: {
       attack: 180, defense: 160, spAttack: 150, spDefense: 90, speed: 90, weight: 999.7,
@@ -3747,7 +3750,8 @@ export const hoennBuilder = {
     ],
     novelMoves: [['Thunderbolt', 'Surf'],
       ['Extreme Speed', 'Dragon Dance'],
-      ['Dragon Pulse', 'Hurricane', 'Fire Blast', 'Cosmic Power']
+      ['Dragon Pulse', 'Hurricane', 'Fire Blast', 'Cosmic Power'],
+      ['Outrage', 'Iron Head', 'Tailwind'],
     ],
     mega: {
       attack: 180, defense: 100, spAttack: 180, spDefense: 100, speed: 115, weight: 392,

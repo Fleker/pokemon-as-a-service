@@ -21,7 +21,8 @@ export const alolaBuilder = {
     ],
     novelMoves: [[],
       ['Assurance', 'Reversal', 'Focus Energy'],
-      ['Fury Swipes', 'Dig', 'Laser Focus']
+      ['Fury Swipes', 'Dig', 'Laser Focus'],
+      ['Zen Headbutt', 'Embargo'],
     ],
   }),
   'potw-020-alolan': ensurePkmnBuilder({
@@ -46,6 +47,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Revenge', 'Focus Energy'],
       ['Stockpile', 'Spit Up', 'Swallow'],
+      ['Zen Headbutt', 'Embargo'],
     ],
   }),
   'potw-020-totem': ensurePkmnBuilder({
@@ -123,6 +125,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Fury Cutter', 'Hail'],
       ['Natural Gift', 'Spikes'],
+      ['Ice Punch', 'Throat Chop', 'Celebrate'],
     ],
   }),
   'potw-028-alolan': ensurePkmnBuilder({
@@ -148,6 +151,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Metal Burst', 'Leech Life', 'Hail'],
       ['Avalanche', 'Super Fang', 'Spikes'],
+      ['Ice Punch', 'Throat Chop', 'Curse'],
     ],
   }),
   'potw-037-alolan': ensurePkmnBuilder({
@@ -221,6 +225,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Astonish', 'Sand Attack'],
       ['Scratch', 'Stealth Rock'],
+      ['Iron Head', 'Ally Switch'],
     ],
   }),
   'potw-051-alolan': ensurePkmnBuilder({
@@ -243,6 +248,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Sand Tomb', 'Shadow Claw', 'Rototiller'],
       ['Natural Gift', 'Stealth Rock'],
+      ['Earth Power', 'Ally Switch'],
     ],
   }),
   'potw-052-alolan': ensurePkmnBuilder({
@@ -318,6 +324,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Fire Punch', 'Rock Polish'],
       ['Seismic Toss', 'Charge'],
+      ['Electroweb', 'Iron Head', 'Magnet Rise'],
     ],
   }),
   'potw-075-alolan': ensurePkmnBuilder({
@@ -345,6 +352,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Double-Edge_Galvanize', 'Fire Punch', 'Rock Polish'],
       ['Brick Break', 'Charge'],
+      ['Electroweb', 'Iron Head', 'Magnet Rise'],
     ],
   }),
   'potw-076-alolan': ensurePkmnBuilder({
@@ -370,6 +378,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Heavy Slam', 'Rock Polish'],
       ['Steamroller', 'Charge'],
+      ['Electroweb', 'Iron Head', 'Magnet Rise'],
     ],
   }),
   'potw-088-alolan': ensurePkmnBuilder({
@@ -946,6 +955,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
+      ['Air Cutter', 'U-turn', 'Quiver Dance']
     ]
   }),
   'potw-741-baile': ensurePkmnBuilder({
@@ -965,6 +975,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
+      ['Air Cutter', 'U-turn', 'Quiver Dance']
     ]
   }),
   'potw-741-pom_pom': ensurePkmnBuilder({
@@ -984,6 +995,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
+      ['Air Cutter', 'U-turn', 'Quiver Dance']
     ]
   }),
   'potw-741-pau': ensurePkmnBuilder({
@@ -1003,6 +1015,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
+      ['Air Cutter', 'U-turn', 'Quiver Dance']
     ]
   }),
   'potw-741-sensu': ensurePkmnBuilder({
@@ -1022,6 +1035,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
+      ['Air Cutter', 'U-turn', 'Quiver Dance']
     ]
   }),
   'potw-742': ensurePkmnBuilder({
@@ -1639,6 +1653,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Petal Dance', 'Grassy Terrain'],
       ['Echoed Voice', 'Helping Hand'],
+      ['Seed Bomb', 'Flower Shield'],
+      ['Dazzling Gleam', 'Petal Blizzard', 'Floral Healing'],
     ],
   }),
   'potw-765': ensurePkmnBuilder({
@@ -2271,6 +2287,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Grass Knot', 'Wonder Room'],
       ['Venoshock', 'Hex', 'Toxic Spikes'],
+      ['Gunk Shot', 'Ally Switch'],
     ],
   }),
   'potw-794': ensurePkmnBuilder({
@@ -2290,6 +2307,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Thunder Punch', 'Focus Energy'],
       ['Leech Life', 'Power-Up Punch', 'Darkest Lariat', 'Counter'],
+      ['Outrage', 'Work Up']
     ],
   }),
   'potw-795': ensurePkmnBuilder({
@@ -2303,11 +2321,11 @@ export const alolaBuilder = {
       'Facade', 'Electroweb', 'Giga Impact', 'Stomp', 'Protect', 
       'Swagger', 'Agility', 'Substitute', 'Quick Guard', 'Confide', 
       'Taunt', 'Roost', 'Laser Focus', 'Speed Swap', 'Double Team', 
-      
     ],
     novelMoves: [[],
       ['Focus Blast', 'Poison Jab', 'Quiver Dance'],
       ['Triple Kick', 'Ice Beam', 'Double Team'],
+      ['Throat Chop', 'Quick Guard']
     ],
   }),
   'potw-796': ensurePkmnBuilder({
@@ -2326,7 +2344,8 @@ export const alolaBuilder = {
     ],
     novelMoves: [[],
       ['Volt Switch', 'Grass Knot', 'Electric Terrain'],
-      ['Thunder', 'Energy Ball', 'Tail Glow']
+      ['Thunder', 'Energy Ball', 'Tail Glow'],
+      ['Signal Beam', 'Ion Deluge']
     ],
   }),
   'potw-797': ensurePkmnBuilder({
@@ -2346,6 +2365,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Heavy Slam', 'Frustration', 'Block'],
       ['Skull Bash', 'Ingrain'],
+      ['Seed Bomb', 'Autotomize'],
     ],
   }),
   'potw-798': ensurePkmnBuilder({
@@ -2363,6 +2383,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Solar Blade', 'Guillotine', 'Double Team'],
       ['Sacred Sword', 'Screech'],
+      ['Air Cutter', 'Laser Focus']
     ],
   }),
   'potw-799': ensurePkmnBuilder({
@@ -2382,6 +2403,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hammer Arm', 'Iron Defense'],
       ['Heat Crash', 'Amnesia'],
+      ['Outrage', 'Iron Head', 'Wide Guard'],
     ],
   }),
   'potw-800': ensurePkmnBuilder({
@@ -2519,6 +2541,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Venoshock', 'Fell Stinger', 'Toxic'],
       ['Iron Tail', 'Toxic Spikes'],
+      ['Signal Beam', 'Venom Drench']
     ],
   }),
   'potw-804': ensurePkmnBuilder({
@@ -2537,6 +2560,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Air Cutter', 'Toxic'],
       ['Iron Tail', 'Toxic Spikes'],
+      ['Signal Beam', 'Venom Drench']
     ]
   }),
   'potw-805': ensurePkmnBuilder({
@@ -2556,6 +2580,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Double-Edge', 'Autotomize'],
       ['Heat Crash', 'Recycle'],
+      ['Zen Headbutt', 'Stealth Rock'],
     ],
   }),
   'potw-806': ensurePkmnBuilder({
@@ -2574,6 +2599,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Psyshock', 'Switcheroo'],
       ['Night Shade', 'Dark Pulse', 'Recycle'],
+      ['Zen Headbutt', 'Hypnosis']
     ],
   }),
   'potw-807': ensurePkmnBuilder({

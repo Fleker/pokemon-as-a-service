@@ -883,7 +883,10 @@ export const paldeaBuilder = {
     pokedex: `When its anger rose beyond a critical point, this Pokémon gained power that is unfettered by the limits of its physical body.`,
     hp: 110, attack: 115, defense: 80, spAttack: 50, spDefense: 90, speed: 90,
     move: ['Cross Chop', 'Shadow Punch'],
-    moveTMs: []
+    moveTMs: [],
+    novelMoves: [[],
+      ['Outrage', 'Swagger'],
+    ],
   }),
   'potw-980': ensurePkmnBuilder({
     species: 'Clodsire', type1: 'Poison', type2: 'Ground', 

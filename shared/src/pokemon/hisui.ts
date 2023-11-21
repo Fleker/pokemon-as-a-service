@@ -604,7 +604,10 @@ export const hisuiBuilder = {
       'Protect', 'Flatter', 'Calm Mind', 'Iron Defense', 'Agility', 
       'Sunny Day', 'Rain Dance', 'Tailwind', 'Substitute', 'Endure', 
       'Imprison', 'Grassy Terrain', 'Misty Terrain', 'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Extrasensory', 'Calm Mind'],
+    ],
   }),
   'potw-905-incarnate': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
@@ -620,7 +623,10 @@ export const hisuiBuilder = {
       'Protect', 'Flatter', 'Calm Mind', 'Iron Defense', 'Agility', 
       'Sunny Day', 'Rain Dance', 'Tailwind', 'Substitute', 'Endure', 
       'Imprison', 'Grassy Terrain', 'Misty Terrain', 'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Extrasensory', 'Calm Mind'],
+    ],
   }),
   'potw-905-therian': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
@@ -636,6 +642,9 @@ export const hisuiBuilder = {
       'Protect', 'Flatter', 'Calm Mind', 'Iron Defense', 'Agility', 
       'Sunny Day', 'Rain Dance', 'Tailwind', 'Substitute', 'Endure', 
       'Imprison', 'Grassy Terrain', 'Misty Terrain', 'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Extrasensory', 'Calm Mind'],
+    ],
   }),
 }

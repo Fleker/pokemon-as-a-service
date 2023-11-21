@@ -183,7 +183,7 @@ export const potentialPrizes: RaidPrizes[] = [
   [
     [...commonBerries, ...commonTreasure, ...Prizes.EVO_STONES],
     [...uncommonBerries, ...uncommonTreasure, ...Prizes.FOSSILS],
-    [...rareTreasure, ...shards, ...Prizes.TREASURE_RELIC],
+    [...rareTreasure, ...shards, ...Prizes.TREASURE_RELIC, 'dinofossil', 'drakefossil', 'birdfossil', 'fishfossil'],
   ],
   /* 10-Star (Legendary) */
   [
