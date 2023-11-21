@@ -642,6 +642,20 @@ const QUEST_POKEMON: Record<string, ResearchQuest> = {
       return [P.Dunsparce].includes(simple)
     }
   },
+  GIRAFARIG: {
+    title: `Catch 18 Girafarig`,
+    steps: 18,
+    icon: Sprite.item('tm-Twin Beam'),
+    prize: ['tm-Twin Beam'],
+    level: LEVEL.L9,
+    active: true,
+    origin: 'gen9',
+    completedStep: ({capturedPokemon}) => {
+      if (!capturedPokemon) return false
+      const simple = new TeamsBadge(capturedPokemon).toSimple()
+      return [P.Girafarig].includes(simple)
+    }
+  },
   HALLOWEEN21: {
     title: 'Catch 3 Spooky Pokémon',
     steps: 3,

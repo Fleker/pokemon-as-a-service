@@ -2210,6 +2210,16 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: () => true,
     consumes: () => true,
   },
+  'tm-Twin Beam': {
+    filter: [P.Girafarig],
+    pokemon: {
+      [P.Girafarig]: {
+        badge: P.Farigiraf,
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
   expcandyxs: {
     // 4/(x * .75) <= 1/2, x ~ 12
     filter: getPokemonLevel(12),
