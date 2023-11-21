@@ -1157,14 +1157,14 @@ export const forecastBoss: {[key in WeatherType]: {[rating: number]: RaidBoss[]}
   },
   Snow: {
     3: [{
-      species: Potw(P.Sneasel, {var: 1}),
+      species: Potw(P.Sneasel, {var: 2, form: 'hisuian'}),
     }, {
-      species: Potw(P.Furfrou, {var: 1})
+      species: Potw(P.Furfrou, {var: 4})
     }],
     4: [{
-      species: Potw(P.Sneasler, {var: 1}),
+      species: Potw(P.Sneasler, {var: 2}),
     }, {
-      species: Potw(P.Furfrou, {var: 1})
+      species: Potw(P.Furfrou, {var: 4})
     }],
   },
   Thunderstorm: {
