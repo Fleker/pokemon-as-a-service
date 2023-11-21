@@ -130,90 +130,95 @@ export class SpritePokemonComponent implements OnChanges {
   constructor(private dialogs: ManagerService) { }
 
   ngOnChanges(changes: SimpleChanges) {
-    const newv = changes['badge'].currentValue
-    if (this.animate) {
-      this.sparkles = ''
-      setTimeout(() => {
-        this.sparkles = 'gone'
-      }, 2817) // Remove
-    }
-    if (newv !== undefined && newv !== "") {
-      const pkmnBadge = new Badge(newv)
-      const megaPath = this.isMegaEvolution()
-      const gmaxPath = this.isGmax()
-      if (megaPath) {
-        const path = pkmnBadge.toSprite()
-        if (validMegas.includes(path.replace('-shiny', ''))) {
-          /**
-           * Mega sprites have the `-mega` appended to the end.
-           * Examples:
-           *   'potw-003-mega'
-           *   'potw-003-shiny-mega'
-           *   'potw-006-megax'
-           */
-          if (path.includes('-shiny')) {
-            this.src = pkmn(path).replace('-shiny', megaPath + '-shiny')
-          } else {
-            this.src = pkmn(path + megaPath as any)
-          }
-          console.debug('Mega Sprite', path, megaPath, this.src)
-        } else {
-          this.src = pkmn(path)
-        }
-      } else if (gmaxPath) {
-        const path = pkmnBadge.toSprite()
-        if (validGmax.includes(path.replace('-shiny', ''))) {
-          /**
-           * Mega sprites have the `-mega` appended to the end.
-           * Examples:
-           *   'potw-003-mega'
-           *   'potw-003-shiny-mega'
-           *   'potw-006-megax'
-           */
-          if (path.includes('-shiny')) {
-            this.src = pkmn(path).replace('-shiny', gmaxPath + '-shiny')
-          } else {
-            this.src = pkmn(path + gmaxPath as any)
-          }
-          console.debug('Gmax Sprite', path, gmaxPath, this.src)
-        } else {
-          this.src = pkmn(path)
-        }
-      } else if (pkmnBadge.id === I.Zacian && this.held === 'rustedsword') {
-        pkmnBadge.personality.form = 'crowned_sword'
-        this.src = pkmn(pkmnBadge.toSprite())
-      } else if (pkmnBadge.id === I.Zamazenta && this.held === 'rustedshield') {
-        pkmnBadge.personality.form = 'crowned_shield'
-        this.src = pkmn(pkmnBadge.toSprite())
-      } else {
-        this.src = pkmn(pkmnBadge.toSprite())
+    if ('badge' in changes) {
+      const newv = changes['badge'].currentValue
+      if (this.animate) {
+        this.sparkles = ''
+        setTimeout(() => {
+          this.sparkles = 'gone'
+        }, 2817) // Remove
       }
-      this.alt = pkmnBadge.toLabel()
-      this.var = pkmnBadge.personality.variant
-      this.classes = (() => {
-        const clist = []
-        if (this.var !== undefined) {
-          clist.push(`var${this.var}`)
+      if (newv !== undefined && newv !== "") {
+        const pkmnBadge = new Badge(newv)
+        const megaPath = this.isMegaEvolution()
+        const gmaxPath = this.isGmax()
+        if (megaPath) {
+          const path = pkmnBadge.toSprite()
+          if (validMegas.includes(path.replace('-shiny', ''))) {
+            /**
+             * Mega sprites have the `-mega` appended to the end.
+             * Examples:
+             *   'potw-003-mega'
+             *   'potw-003-shiny-mega'
+             *   'potw-006-megax'
+             */
+            if (path.includes('-shiny')) {
+              this.src = pkmn(path).replace('-shiny', megaPath + '-shiny')
+            } else {
+              this.src = pkmn(path + megaPath as any)
+            }
+            console.debug('Mega Sprite', path, megaPath, this.src)
+          } else {
+            this.src = pkmn(path)
+          }
+        } else if (gmaxPath) {
+          const path = pkmnBadge.toSprite()
+          if (validGmax.includes(path.replace('-shiny', ''))) {
+            /**
+             * Mega sprites have the `-mega` appended to the end.
+             * Examples:
+             *   'potw-003-mega'
+             *   'potw-003-shiny-mega'
+             *   'potw-006-megax'
+             */
+            if (path.includes('-shiny')) {
+              this.src = pkmn(path).replace('-shiny', gmaxPath + '-shiny')
+            } else {
+              this.src = pkmn(path + gmaxPath as any)
+            }
+            console.debug('Gmax Sprite', path, gmaxPath, this.src)
+          } else {
+            this.src = pkmn(path)
+          }
+        } else if (pkmnBadge.id === I.Zacian && this.held === 'rustedsword') {
+          pkmnBadge.personality.form = 'crowned_sword'
+          this.src = pkmn(pkmnBadge.toSprite())
+        } else if (pkmnBadge.id === I.Zamazenta && this.held === 'rustedshield') {
+          pkmnBadge.personality.form = 'crowned_shield'
+          this.src = pkmn(pkmnBadge.toSprite())
+        } else if (pkmnBadge.id === I.Eternatus && this.held === 'beserkgene') {
+          pkmnBadge.personality.form = 'eternamax'
+          this.src = pkmn(pkmnBadge.toSprite())
+        } else {
+          this.src = pkmn(pkmnBadge.toSprite())
         }
-        if (pkmnBadge.personality.shiny) {
-          clist.push('shiny')
-        }
-        if (this.animate) {
-          clist.push('animate')
-        }
-        if (pkmnBadge.size) {
-          clist.push(pkmnBadge.size)
-        }
-        if (this.isDmax()) {
-          clist.push('dynamax')
-        }
-        return clist.join(' ')
-      })()
-    } else {
-      this.src = ''
-      this.alt = 'N/A'
-      this.var = 0
-      this.classes = ''
+        this.alt = pkmnBadge.toLabel()
+        this.var = pkmnBadge.personality.variant
+        this.classes = (() => {
+          const clist = []
+          if (this.var !== undefined) {
+            clist.push(`var${this.var}`)
+          }
+          if (pkmnBadge.personality.shiny) {
+            clist.push('shiny')
+          }
+          if (this.animate) {
+            clist.push('animate')
+          }
+          if (pkmnBadge.size) {
+            clist.push(pkmnBadge.size)
+          }
+          if (this.isDmax()) {
+            clist.push('dynamax')
+          }
+          return clist.join(' ')
+        })()
+      } else {
+        this.src = ''
+        this.alt = 'N/A'
+        this.var = 0
+        this.classes = ''
+      }
     }
   }
 
