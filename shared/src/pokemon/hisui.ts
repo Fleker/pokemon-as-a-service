@@ -232,6 +232,9 @@ export const hisuiBuilder = {
       'Embargo', 'Attract', 'Knock Off', 'Substitute', 'Hone Claws', 
       'Imprison', 'Confide', 'Taunt', 'Fake Tears', 'Double Team', 
     ],
+    novelMoves: [[],
+      ['Snarl', 'Nasty Plot'],
+    ],
   }),
   'potw-571-hisuian': ensurePkmnBuilder({
     species: 'Zoroark', type1: 'Normal', type2: 'Ghost', 
@@ -250,6 +253,9 @@ export const hisuiBuilder = {
       'Attract', 'Knock Off', 'Substitute', 'Hone Claws', 'Imprison', 
       'Confide', 'Taunt', 'Fake Tears', 'Laser Focus', 'Double Team', 
     ],
+    novelMoves: [[],
+      ['Extrasensory', 'Nasty Plot'],
+    ],
   }),
   'potw-628-hisuian': ensurePkmnBuilder({
     species: 'Braviary', type1: 'Psychic', type2: 'Flying', 
@@ -267,6 +273,9 @@ export const hisuiBuilder = {
       'Sunny Day', 'Rain Dance', 'Tailwind', 'Attract', 'Substitute', 
       'Hone Claws', 'Work Up', 'Confide', 'Roost', 'Laser Focus', 
       'Double Team', 
+    ],
+    novelMoves: [[],
+      ['Air Slash', 'Twister', 'Roost'],
     ],
   }),
   'potw-705-hisuian': ensurePkmnBuilder({
@@ -332,6 +341,12 @@ export const hisuiBuilder = {
       'Swagger', 'Iron Defense', 'Hail', 'Rain Dance', 'Safeguard', 
       'Rock Polish', 'Attract', 'Substitute', 'Wide Guard', 'Mist', 
       'Confide', 'Flash', 'Double Team', 
+    ],
+    novelMoves: [[],
+      ['Crunch', 'Iron Defense'],
+      ['Ice Shard', 'Heavy Slam', 'Sharpen'],
+      ['Iron Head', 'Aurora Veil'],
+      ['Earthquake', 'Wide Guard'],
     ],
   }),
   'potw-724-hisuian': ensurePkmnBuilder({

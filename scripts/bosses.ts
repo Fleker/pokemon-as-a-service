@@ -11,7 +11,7 @@
  */
 
 import {Potw, TeamsBadge} from '../shared/src/badge2'
-import * as P from '../shared/src/type-pokemon'
+import * as P from '../shared/src/gen/type-pokemon'
 import {datastore, get} from '../shared/src/pokemon'
 import { BadgeId } from '../shared/src/pokemon/types'
 
@@ -3103,6 +3103,26 @@ export const bosses = [
      Potw(P.Heatmor, {var: 3}),
      Potw(P.Stunfisk, {var: 1, form: 'galarian'}),
      Potw(P.Gogoat, {var: 1}),
+     Potw(P.Zoroark, {var: 1, form: 'hisuian'}),
+     Potw(P.Banette, {var: 4}),
+     Potw(P.Indeedee, {var: 1}),
+     Potw(P.Indeedee, {var: 1, gender: 'male'}),
+     Potw(P.Indeedee, {var: 1, gender: 'female'}),
+     Potw(P.Sableye, {var: 1}),
+     Potw(P.Coalossal, {var: 1}),
+     Potw(P.Pyroar, {var: 1}),
+     Potw(P.Sinistea, {var: 1}),
+     Potw(P.Qwilfish, {var: 4}),
+     Potw(P.Sandaconda, {var: 1}),
+     Potw(P.Sigilyph, {var: 2}),
+     Potw(P.Frosmoth, {var: 1}),
+     Potw(P.Vanilluxe, {var: 3}),
+     Potw(P.Pincurchin, {var: 1}),
+     Potw(P.Lanturn, {var: 4}),
+     Potw(P.Boltund, {var: 1}),
+     Potw(P.Dodrio, {var: 1}),
+     Potw(P.Braviary, {var: 1, form: 'hisuian'}),
+     Potw(P.Pidgeot, {var: 3}),
   ]
 ]
 

@@ -5890,7 +5890,7 @@ export const Movepool: Movepool = {
     name: 'Life Dew', type: 'Water',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0, accuracy: Infinity, criticalHit: 0,
-    aoe: 'All Allies',
+    aoe: 'All Allies', recovery: true,
     flavor: 'The user sprays its friends with a light mist, healing their hit points.',
     onAfterMove: ({target}) => {
       return logHeal(target, target.totalHp / 4)

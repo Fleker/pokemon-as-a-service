@@ -995,8 +995,10 @@ export const galarBuilder = {
       'Snore', 'Double-Edge', 'Dig', 'Thunderbolt', 'Swift', 
       'Facade', 'Nuzzle', 'Play Rough', 'Spark', 'Protect', 
       'Thunder Wave', 'Charm', 'Attract', 'Substitute', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Bite', 'Charge'],
+    ],
   }),
   'potw-836': ensurePkmnBuilder({
     species: 'Boltund', type1: 'Electric', 
@@ -1012,7 +1014,10 @@ export const galarBuilder = {
       'Spark', 'Giga Impact', 'Protect', 'Thunder Wave', 'Bulk Up', 
       'Agility', 'Charm', 'Attract', 'Substitute', 'Endure', 
       'Electric Terrain', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Crunch', 'Electrify'],
+    ],
   }),
   'potw-837': ensurePkmnBuilder({
     species: 'Rolycoly', type1: 'Rock', 
@@ -1028,8 +1033,10 @@ export const galarBuilder = {
       'Rock Slide', 'Stone Edge', 'Rock Blast', 'Ancient Power', 'Sand Tomb', 
       'Protect', 'Self-Destruct', 'Will-O-Wisp', 'Iron Defense', 'Sandstorm', 
       'Reflect', 'Rock Polish', 'Attract', 'Substitute', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Rapid Spin', 'Smokescreen'],
+    ],
   }),
   'potw-838': ensurePkmnBuilder({
     species: 'Carkol', type1: 'Rock', type2: 'Fire', 
@@ -1046,8 +1053,10 @@ export const galarBuilder = {
       'Burn Up', 'Body Press', 'Ancient Power', 'Fire Spin', 'Sand Tomb', 
       'Protect', 'Self-Destruct', 'Will-O-Wisp', 'Iron Defense', 'Sandstorm', 
       'Reflect', 'Rock Polish', 'Attract', 'Substitute', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Rapid Spin', 'Smokescreen'],
+    ],
   }),
   'potw-839': ensurePkmnBuilder({
     species: 'Coalossal', type1: 'Rock', type2: 'Fire', 
@@ -1065,6 +1074,9 @@ export const galarBuilder = {
       'Sand Tomb', 'Protect', 'Self-Destruct', 'Will-O-Wisp', 'Iron Defense', 
       'Sandstorm', 'Reflect', 'Rock Polish', 'Attract', 'Substitute', 
       'Endure', 
+    ],
+    novelMoves: [[],
+      ['Rapid Spin', 'Tar Shot'],
     ],
     gmax: {
       gmaxMove: 'G-Max Volcalith',
@@ -1138,7 +1150,9 @@ export const galarBuilder = {
       'Snore', 'Dig', 'Earthquake', 'Mud-Slap', 'Facade', 
       'Bulldoze', 'Mud Shot', 'Sand Tomb', 'Protect', 'Screech', 
       'Sandstorm', 'Attract', 'Substitute', 'Coil', 'Endure', 
-      
+    ],
+    novelMoves: [[],
+      ['Wrap', 'Minimize']
     ],
   }),
   'potw-844': ensurePkmnBuilder({
@@ -1155,6 +1169,9 @@ export const galarBuilder = {
       'Rock Blast', 'Giga Impact', 'Body Press', 'Mud Shot', 'Sand Tomb', 
       'Protect', 'Iron Defense', 'Screech', 'Sandstorm', 'Attract', 
       'Substitute', 'Coil', 'Endure', 
+    ],
+    novelMoves: [[],
+      ['Slam', 'Coil']
     ],
     gmax: {
       gmaxMove: 'G-Max Sandblast',
@@ -1349,7 +1366,10 @@ export const galarBuilder = {
       'Phantom Force', 'Payback', 'Dark Pulse', 'Protect', 'Metronome', 
       'Will-O-Wisp', 'Nasty Plot', 'Substitute', 'Wonder Room', 'Shell Smash', 
       'Endure', 'Imprison', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Mega Drain', 'Withdraw'],
+    ],
   }),
   'potw-855': ensurePkmnBuilder({
     species: 'Polteageist', type1: 'Ghost', 
@@ -1365,7 +1385,10 @@ export const galarBuilder = {
       'Protect', 'Self-Destruct', 'Metronome', 'Will-O-Wisp', 'Nasty Plot', 
       'Reflect', 'Light Screen', 'Substitute', 'Wonder Room', 'Shell Smash', 
       'Endure', 'Imprison', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Giga Drain', 'Shell Smash'],
+    ],
   }),
   'potw-856': ensurePkmnBuilder({
     species: 'Hatenna', type1: 'Psychic', 
@@ -1704,8 +1727,10 @@ export const galarBuilder = {
       'Spark', 'Liquidation', 'Zing Zap', 'Payback', 'Surf', 
       'Protect', 'Self-Destruct', 'Thunder Wave', 'Rain Dance', 'Acupressure', 
       'Attract', 'Substitute', 'Endure', 'Electric Terrain', 'Venom Drench', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Poison Jab', 'Acupressure'],
+    ],
   }),
   'potw-872': ensurePkmnBuilder({
     species: 'Snom', type1: 'Ice', type2: 'Bug', 
@@ -1719,7 +1744,10 @@ export const galarBuilder = {
     moveTMs: [
       'Snore', 'Icy Wind', 'Facade', 'Icicle Spear', 'Protect', 
       'Attract', 'Substitute', 'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Facade', 'Endure'],
+    ],
   }),
   'potw-873': ensurePkmnBuilder({
     species: 'Frosmoth', type1: 'Ice', type2: 'Bug', 
@@ -1736,7 +1764,10 @@ export const galarBuilder = {
       'Reflect', 'Light Screen', 'Safeguard', 'Tailwind', 'Attract', 
       'Substitute', 'Wide Guard', 'Endure', 'Mist', 'Imprison', 
       'Aurora Veil', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Air Slash', 'Quiver Dance']
+    ],
   }),
   'potw-874': ensurePkmnBuilder({
     species: 'Stonjourner', type1: 'Rock', 
@@ -1805,7 +1836,10 @@ export const galarBuilder = {
       'Fake Out', 'Attract', 'Substitute', 'Power Split', 'Guard Split', 
       'Wonder Room', 'Magic Room', 'Endure', 'Imprison', 'Psychic Terrain', 
       'Follow Me', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Magical Leaf', 'Calm Mind'],
+    ],
   }),
   'potw-876-male': ensurePkmnBuilder({
     species: 'Indeedee', type1: 'Psychic', type2: 'Normal',
@@ -1823,7 +1857,10 @@ export const galarBuilder = {
       'Fake Out', 'Attract', 'Substitute', 'Power Split', 'Guard Split', 
       'Wonder Room', 'Magic Room', 'Endure', 'Imprison', 'Psychic Terrain', 
       'Follow Me', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Magical Leaf', 'Calm Mind'],
+    ],
   }),
   'potw-876-female': ensurePkmnBuilder({
     species: 'Indeedee', type1: 'Psychic', type2: 'Normal',
@@ -1841,7 +1878,10 @@ export const galarBuilder = {
       'Fake Out', 'Attract', 'Substitute', 'Power Split', 'Guard Split', 
       'Wonder Room', 'Magic Room', 'Endure', 'Imprison', 'Psychic Terrain', 
       'Follow Me', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Magical Leaf', 'Calm Mind'],
+    ],
   }),
   'potw-877': ensurePkmnBuilder({
     species: 'Morpeko', type1: 'Electric', type2: 'Dark', 

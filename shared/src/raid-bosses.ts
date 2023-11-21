@@ -1042,122 +1042,122 @@ export const timeBoss: {'Day': {[rating: number]: RaidBoss[]}, 'Night': {[rating
 export const forecastBoss: {[key in WeatherType]: {[rating: number]: RaidBoss[]}} = {
   Cloudy: {
     3: [{
-     species: Potw(P.Sneasel, {var: 1}),
+     species: Potw(P.Shuppet, {var: 4}),
     }, {
-     species: Potw(P.Sneasel, {var: 1, form: 'hisuian'}),
+     species: Potw(P.Zorua, {var: 1, form: 'hisuian'}),
     }],
     4: [{
-      species: Potw(P.Weavile, {var: 1})
+      species: Potw(P.Zoroark, {var: 1, form: 'hisuian'})
     }, {
-      species: Potw(P.Sneasler, {var: 1})
+      species: Potw(P.Banette, {var: 4})
     }]
   },
   Fog: {
     3: [{
-     species: Potw(P.Clefairy, {var: 2}), 
+     species: Potw(P.Indeedee, {var: 1}), 
     }, {
-     species: Potw(P.Dusclops, {var: 3})
+     species: Potw(P.Sableye, {var: 1})
     }],
     4: [{
-      species: Potw(P.Dusknoir, {var: 3})
+      species: Potw(P.Indeedee, {var: 1})
     }, {
-      species: Potw(P.Clefable, {var: 2})
+      species: Potw(P.Sableye, {var: 1})
     }]
   },
   'Heat Wave': {
     3: [{
-      species: Potw(P.Growlithe, {var: 1, form: 'hisuian'})
+      species: Potw(P.Carkol, {var: 1})
     }, {
-      species: Potw(P.Sizzlipede, {var: 1})
+      species: Potw(P.Litleo, {var: 1})
     }],
     4: [{
-      species: Potw(P.Growlithe, {var: 1, form: 'hisuian'})
+      species: Potw(P.Coalossal, {var:1})
     }, {
-      species: Potw(P.Centiskorch, {var: 1})
+      species: Potw(P.Pyroar, {var: 1})
     }]
   },
   Rain: {
     3: [{
-      species: Potw(P.Goomy, {var: 1})
+      species: Potw(P.Sinistea, {var: 1})
     }, {
-      species: Potw(P.Goomy, {var: 2})
+      species: Potw(P.Qwilfish, {var: 4})
     }],
     4: [{
-      species: Potw(P.Sliggoo, {var: 2})
+      species: Potw(P.Sinistea, {var: 1})
     }, {
-      species: Potw(P.Sliggoo, {var: 1, form: 'hisuian'})
+      species: Potw(P.Qwilfish, {var: 4})
     }]
   },
   Sandstorm: {
     3: [{
-      species: Potw(P.Chewtle, {var: 1})
+      species: Potw(P.Silicobra, {var: 1})
     }, {
-      species: Potw(P.Sudowoodo, {var: 3})
+      species: Potw(P.Sigilyph, {var: 2})
     }],
     4: [{
-      species: Potw(P.Drednaw, {var: 1})
+      species: Potw(P.Sandaconda, {var: 1})
     }, {
-      species: Potw(P.Sudowoodo, {var: 3})
+      species: Potw(P.Sigilyph, {var: 2})
     }],
   },
   'Diamond Dust': {
     3: [{
-      species: Potw(P.Snorunt, {var: 4}),
+      species: Potw(P.Snom, {var: 1}),
     }, {
-      species: Potw(P.Snorunt, {var: 4})
+      species: Potw(P.Vanillish, {var: 4})
     }],
     4: [{
-      species: Potw(P.Glalie, {var: 4}),
+      species: Potw(P.Snom, {var: 1}),
     }, {
-      species: Potw(P.Froslass, {var: 4})
+      species: Potw(P.Vanilluxe, {var: 4})
     }],
   },
   Snow: {
     3: [{
-      species: Potw(P.Snorunt, {var: 4}),
+      species: Potw(P.Snom, {var: 1}),
     }, {
-      species: Potw(P.Snorunt, {var: 4})
+      species: Potw(P.Vanillish, {var: 3})
     }],
     4: [{
-      species: Potw(P.Glalie, {var: 4}),
+      species: Potw(P.Snom, {var: 1}),
     }, {
-      species: Potw(P.Froslass, {var: 4})
+      species: Potw(P.Vanilluxe, {var: 3})
     }],
   },
   Thunderstorm: {
     3: [{
-      species: Potw(P.Voltorb, {var: 4}),
+      species: Potw(P.Pincurchin, {var: 1}),
     }, {
-      species: Potw(P.Porygon, {var: 1})
+      species: Potw(P.Chinchou, {var: 1})
     }],
     4: [{
-      species: Potw(P.Electrode, {var: 4})
+      species: Potw(P.Pincurchin, {var: 1})
     }, {
-      species: Potw(P.Porygon2, {var: 1})
+      species: Potw(P.Lanturn, {var: 1})
     }]
   },
   Sunny: {
     3: [{
-      species: Potw(P.Wooloo, {var: 1})
+      species: Potw(P.Yamper, {var: 1})
     }, {
-      species: Potw(P.Psyduck, {var: 3})
+      species: Potw(P.Doduo, {var: 1})
     }],
     4: [{
-      species: Potw(P.Dubwool, {var: 1})
+      species: Potw(P.Boltund, {var: 1})
     }, {
-      species: Potw(P.Golduck, {var: 3})
+      species: Potw(P.Dodrio, {var: 1})
     }]
   },
   Windy: {
     3: [{
-      species: Potw(P.Corvisquire, {var: 1})
+      species: Potw(P.Rufflet, {var: 1})
     }, {
-      species: Potw(P.Mantine, {var: 1})
+      species: Potw(P.Pidgeotto, {var: 3})
     }],
     4: [{
-      species: Potw(P.Corviknight, {var: 1})
+      species: Potw(P.Braviary, {var: 1, form: 'hisuian'})
     }, {
-      species: Potw(P.Mantine, {var: 1})
+      species: Potw(P.Pidgeot, {var: 3})
     }]
   },
 }
