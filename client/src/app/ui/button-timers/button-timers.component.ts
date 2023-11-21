@@ -14,6 +14,7 @@ const icons: Record<Timeable, string> = {
   release: '/images/sprites/icons/menu-release.svg',
   raid: '/images/sprites/icons/menu-raid.svg',
   gamecorner: '/images/sprites/icons/menu-games.svg',
+  wonder: '/images/sprites/icons/menu-wonder.svg',
 }
 
 @Component({
