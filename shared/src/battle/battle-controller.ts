@@ -312,19 +312,19 @@ function applyEntryHazards(field: Field, prefix: Prefix, pkmn: Pokemon, party: P
  * @param item The item ID being held
  * @returns Return true if item should not be used
  */
-export function renderItemInert(rules: Rules, item?: ItemId) {
-  if (!item) return false
+export function renderItemInert(rules: Rules, item?: ItemId): true | string {
+  if (!item) return true
   const {category} = ITEMS[item]
   if (category === 'megastone' && !rules.mega) {
-    return true
+    return 'mega'
   }
   if (category === 'zcrystal' && !rules.zmoves) {
-    return true
+    return 'zmove'
   }
   if (['maxmushroom', 'maxhoney', 'dynamaxcandy'].includes(item) && !rules.dynamax) {
-    return true
+    return 'dmax'
   }
-  return false
+  return true
 }
 
 export interface AttackParams {
@@ -1217,6 +1217,34 @@ export function execute(
 
 export function buildMatchup(players: Badge[], heldItems: ItemId[],
     opponents: Badge[], oppoHeld: ItemId[], rules: Rules) {
+
+  const playerSelectMechanic: Record<string, boolean> = {
+    mega: false,
+    zmove: false,
+    dmax: false,
+    tera: false,
+  }
+  const oppoSelectMechanic: Record<string, boolean> = {
+    mega: false,
+    zmove: false,
+    dmax: false,
+    tera: false,
+  }
+  // Whether to disable a given mechanic at the item level before the match
+  // even starts
+  const heldItemConsumed = heldItems.map(item => {
+    const mechanic = renderItemInert(rules, item)
+    if (mechanic !== true) {
+      if (!playerSelectMechanic[mechanic]) {
+        playerSelectMechanic[mechanic] = true
+        return false
+      }
+      return true // Doubling up
+    } else {
+      return true
+    }
+  })
+
   const playerPokemon = players.map((badge, index) => {
     const data = {...Pkmn.get(badge.toLegacyString())} as PokemonDoc
     const pkmn: Pokemon = {...data,
@@ -1227,7 +1255,7 @@ export function buildMatchup(players: Badge[], heldItems: ItemId[],
       movepool: data.move.map(move => Movepool[move] || Movepool.Tackle),
       heldItem: Inventory[heldItems[index]],
       heldItemKey: heldItems[index] as ItemId,
-      heldItemConsumed: renderItemInert(rules, heldItems[index] as ItemId),
+      heldItemConsumed: heldItemConsumed[index],
       heldItemTotallyConsumed: false,
       conditions: [],
       statBuffs: {
@@ -1252,6 +1280,18 @@ export function buildMatchup(players: Badge[], heldItems: ItemId[],
     return pkmn
   })
 
+  const oppoHeldItemConsumed = oppoHeld.map(item => {
+    const mechanic = renderItemInert(rules, item)
+    if (mechanic !== true) {
+      if (!oppoSelectMechanic[mechanic]) {
+        oppoSelectMechanic[mechanic] = true
+        return false
+      }
+      return true // Doubling up
+    } else {
+      return true
+    }
+  })
   const opponentPokemon = opponents.map((badge, index) => {
     const data = {...Pkmn.get(badge.toLegacyString())} as PokemonDoc
     const pkmn: Pokemon = {...data,
@@ -1262,7 +1302,7 @@ export function buildMatchup(players: Badge[], heldItems: ItemId[],
       movepool: data.move.map(move => Movepool[move] || Movepool.Tackle),
       heldItem: Inventory[oppoHeld[index]],
       heldItemKey: oppoHeld[index] as ItemId,
-      heldItemConsumed: renderItemInert(rules, oppoHeld[index] as ItemId),
+      heldItemConsumed: oppoHeldItemConsumed[index],
       heldItemTotallyConsumed: false,
       conditions: [],
       statBuffs: {
