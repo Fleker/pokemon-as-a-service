@@ -2190,6 +2190,16 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: () => true,
     consumes: () => true,
   },
+  'tm-Rage Fist': {
+    filter: [P.Primeape],
+    pokemon: {
+      [P.Primeape]: {
+        badge: P.Annihilape,
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
   expcandyxs: {
     // 4/(x * .75) <= 1/2, x ~ 12
     filter: getPokemonLevel(12),

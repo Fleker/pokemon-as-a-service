@@ -2660,34 +2660,30 @@ const ITEMS_TMS = {
   [TX('tm', 'Icicle Spear')]: genTm(90, 'Icicle Spear', {
     buy: 0, sell: 22,
   }),
-  [TX('tm', 'Nature Power')]: genTm(91, 'Nature Power', {
-    buy: 20, sell: 10,
+  [TX('tm', 'Pounce')]: genTm(91, 'Pounce', {
+    buy: 0, sell: 18,
   }),
-  // Gen 9 may fit in here.
-  [TX('tm', 'Secret Power')]: genTm(92, 'Secret Power', {
-    buy: 20, sell: 10,
+  [TX('tm', 'Trailblaze')]: genTm(92, 'Trailblaze', {
+    buy: 0, sell: 18,
   }),
-  [TX('tm', 'Ancient Power')]: genTm(93, 'Ancient Power', {
-    buy: 0, sell: 10,
-    functional: true,
+  [TX('tm', 'Volt Switch')]: genTm(93, 'Volt Switch', {
+    buy: 0, sell: 18,
   }),
-  [TX('tm', 'Superpower')]: genTm(94, 'Superpower', {
-    buy: 20, sell: 10,
+  [TX('tm', 'Chilling Water')]: genTm(94, 'Chilling Water', {
+    buy: 0, sell: 18,
   }),
-  [TX('tm', 'Fire Spin')]: genTm(95, 'Fire Spin', {
-    buy: 0, sell: 15,
+  [TX('tm', 'Hyper Drill')]: genTm(95, 'Hyper Drill', {
+    buy: 0, sell: 18,
   }),
-  [TX('tm', 'Sand Tomb')]: genTm(96, 'Sand Tomb', {
-    buy: 0, sell: 15,
+  [TX('tm', 'Rage Fist')]: genTm(96, 'Rage Fist', {
+    buy: 0, sell: 18, functional: true,
   }),
-  [TX('tm', 'Secret Sword')]: genTm(97, 'Secret Sword', {
-    buy: 0, sell: 15,
-    functional: true,
+  [TX('tm', 'Twin Beam')]: genTm(97, 'Twin Beam', {
+    buy: 0, sell: 18,
   }),
-  [TX('tm', 'Relic Song')]: genTm(98, 'Relic Song', {
-    buy: 0, sell: 15,
-    functional: true,
-  }),
+  [TX('tm', 'Ice Spinner')]: genTm(98, 'Ice Spinner', {
+    buy: 0, sell: 18,
+  }),  
   [TX('tm', 'Dragon Ascent')]: genTm(99, 'Dragon Ascent', {
     buy: 0, sell: 15,
   }),
@@ -2726,6 +2722,33 @@ const ITEMS_TMS = {
   }),
   [TX('tm', 'Weather Ball')]: genTm(111, 'Weather Ball', {
     buy: 0, sell: 15,
+  }),
+  [TX('tm', 'Nature Power')]: genTm(112, 'Nature Power', {
+    buy: 20, sell: 10,
+  }),
+  [TX('tm', 'Secret Power')]: genTm(113, 'Secret Power', {
+    buy: 20, sell: 10,
+  }),
+  [TX('tm', 'Ancient Power')]: genTm(114, 'Ancient Power', {
+    buy: 0, sell: 10,
+    functional: true,
+  }),
+  [TX('tm', 'Superpower')]: genTm(115, 'Superpower', {
+    buy: 20, sell: 10,
+  }),
+  [TX('tm', 'Fire Spin')]: genTm(116, 'Fire Spin', {
+    buy: 0, sell: 15,
+  }),
+  [TX('tm', 'Sand Tomb')]: genTm(117, 'Sand Tomb', {
+    buy: 0, sell: 15,
+  }),
+  [TX('tm', 'Secret Sword')]: genTm(118, 'Secret Sword', {
+    buy: 0, sell: 15,
+    functional: true,
+  }),
+  [TX('tm', 'Relic Song')]: genTm(119, 'Relic Song', {
+    buy: 0, sell: 15,
+    functional: true,
   }),
 }
 
@@ -3412,6 +3435,11 @@ const ITEMS_KEY = {
     description: 'A mask which may be held by Ogerpon in battle. It is made of Water-type Tera Shards.',
     buy: 0, sell: 0, battle: true,
   },
+  berserkgene: {
+    label: 'Berserk Gene', category: 'key',
+    description: 'An item raid bosses may hold which draws out a great deal of power. Held by a trainer, it is useless.',
+    buy: 0, sell: 0, battle: true,
+  },
   // For integration with the page-encounter page
   'catchingcharm-rby': {
     label: 'RBY Catching Charm',
@@ -3925,7 +3953,32 @@ const ITEMS_INGREDIENTS = {
   sviwatercress: PaldeaIngredient({ label: 'Watercress', description: "A highly bitter herb that only needs a few sprigs to give sandwiches a distinct flavor. It isn't for everyone." }),
   svibasil: PaldeaIngredient({ label: 'Basil', description: 'A bitter herb that only needs a few sprigs to give sandwiches a distinct flavor. It pairs well with tomatoes.' }),
   // SV Sandwiches
-  // svsjambon: PaldeaSandwich('Jambon-Beurre', { description: 'A sandwich made with ham and butter, simple yet tasty.' })
+  svscheese: PaldeaSandwich('Cheese Sandwich', { description: 'A sandwich with creamy cheese, simple yet tasty.' }),
+  svstofu: PaldeaSandwich('Tofu Sandwich', { description: 'A sandwich with blocks of tofu, simple yet tasty.' }),
+  svsherbsausage: PaldeaSandwich('Herbed-Sausage Sandwich', { description: 'A sandwich with pieces of seasoned meat, simple yet tasty.' }),
+  svsegg: PaldeaSandwich('Egg Sandwich', { description: 'A sandwich with hard-boiled eggs, simple yet tasty.' }),
+  svspickle: PaldeaSandwich('Pickle Sandwich', { description: 'A sandwich with pickles, simple yet tasty.' }),
+  svsnoodle: PaldeaSandwich('Noodle Sandwich', { description: 'A sandwich made with wet noodles. Why?' }),
+  svsnouveau: PaldeaSandwich('Nouveau Veggie Sandwich', { description: 'A sandwich full of flavorful veggies.' }),
+  svspotatosalad: PaldeaSandwich('Great Potato Salad Sandwich', { description: 'A sandwich made of potatos and other veggies.' }),
+  svssmoky: PaldeaSandwich('Smoky Sandwich', { description: 'A sandwich with smoked filet which dances on the tongue.' }),
+  svssushi: PaldeaSandwich('Sushi Sandwich', { description: 'When you bite into this sandwich you get a lot of fishy flavor.' }),
+  svshamburger: PaldeaSandwich('Hamburger Patty Sandwich', { description: 'The hamburger patty gives this sandwich a savory flavor.' }),
+  svshefty: PaldeaSandwich('Hefty Sandwich', { description: 'A sandwich with a mix of rich carbs.' }),
+  svsvegetable: PaldeaSandwich('Vegetable Sandwich', { description: 'A sandwich with juicy veggies.' }),
+  svsklawf: PaldeaSandwich('Klawf Claw Sandwich', { description: 'A crunchy sandwich full of ingredients of dubious origin.' }),
+  svsdecadent: PaldeaSandwich('Decadent Sandwich', { description: 'A tasty sandwich with rich flavor and expensive ingredients.' }),
+  svsavocado: PaldeaSandwich('Avocado Sandwich', { description: 'A flavorful sandwich by those who live on the west coast, on any west coast.' }),
+  svsjambon: PaldeaSandwich('Jambon-Beurre', { description: 'A sandwich made with ham and butter, simple yet tasty.' }),
+  svsblt: PaldeaSandwich('BLT Sandwich', { description: 'A classic sandwich with common tastes.' }),
+  svsuvariety: PaldeaSandwich('Ultra Variety Sandwich', { description: 'A hefty sandwich with a variety of palatable flavors.' }),
+  svsutower: PaldeaSandwich('Ultra Tower Sandwich', { description: 'This hefty sandwich does its best to contain its many ingredients.' }),
+  svsurefreshing: PaldeaSandwich('Ultra Refreshing Sandwich', { description: 'A hefty sandwich full of rich vegetable flavor.' }),
+  svsuegg: PaldeaSandwich('Ultra Egg Sandwich', { description: 'An egg sandwich with a handful of other ingredients to create a rich flavor.' }),
+  svscurryrice: PaldeaSandwich('Ultra Curry-and-Rice-style Sandwich', { description: 'A hefty sandwich with a kick of flavor.' }),
+  svsumarmalade: PaldeaSandwich('Ultra Marmalade Sandwich', { description: 'A sandwich with a bit of saltiness but otherwise fantastically balanced.' }),
+  svsunouveau: PaldeaSandwich('Ultra Nouveau Veggie Sandwich', { description: 'A sandwich that is savory, bitter, and sweet.' }),
+  svsuhefty: PaldeaSandwich('Ultra Hefty Sandwich', { description: 'A sandwich full of heavy carbs. Plan for a nap after eating.' }),
 }
 
 function genMegaStone(badge: BadgeId, xy: ' X' | ' Y' | '' = ''): MegaStone {

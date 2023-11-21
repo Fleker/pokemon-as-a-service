@@ -15,7 +15,7 @@ import { getTidesByLocation, Location, timeOfDay } from './locations-list';
 import { weekly } from './platform/weekly';
 
 export type ResearchOrigin = 'gen2' | 'gen3' | 'gen4' | 'gen5' | 'gen6' | 'gen7' |
-  'gen8' | 'gen8-pla'
+  'gen8' | 'gen8-pla' | 'gen9'
 
 export interface ResearchParams {
   capturedPokemon?: BadgeId
@@ -46,10 +46,11 @@ const LEVEL = {
   L6: 150,
   L7: 180,
   L8: 210,
+  L9: 270, // +60 for +PLA
 }
 
 // Quests only go up to this level
-export const LEVEL_MAX = 8
+export const LEVEL_MAX = 9
 
 const PRIZES_SIMPLE: ItemId[] = [
   'premierball'
@@ -611,6 +612,20 @@ const QUEST_POKEMON: Record<string, ResearchQuest> = {
       const {id} = new TeamsBadge(capturedPokemon!)
       return id >= regions[5].range[0] &&
         id <= regions[5].range[1]
+    }
+  },
+  PRIMEAPE: {
+    title: `Catch 18 Mankey or Primeape`,
+    steps: 18,
+    icon: Sprite.item('tm-Rage Fist'),
+    prize: ['tm-Rage Fist'],
+    level: LEVEL.L9,
+    active: true,
+    origin: 'gen9',
+    completedStep: ({capturedPokemon}) => {
+      if (!capturedPokemon) return false
+      const simple = new TeamsBadge(capturedPokemon).toSimple()
+      return ['Mankey', 'Primeape'].includes(simple)
     }
   },
   HALLOWEEN21: {

@@ -198,6 +198,7 @@ function craftPaldeanSandwich(ingredients: ItemId[], output: ItemId): Recipe {
   ingredients.forEach(i => {
     input[i] = 1
   })
+  input['svibaguette'] = 1
   return {
     category: 'bait',
     input,
@@ -899,7 +900,33 @@ export const Recipes = {
   cakemushroom: craftHisuiCake('springymushroom', 'cakemushroom'),
   cakesalt: craftHisuiCake('crunchysalt', 'cakesalt'),
   // Unavailable
-  // sandwichjambon: craftPaldeanSandwich(['sviham', 'svcbutter', 'svibaguette'], 'svsjambon '),
+  sandwichcheese: craftPaldeanSandwich(['svicheese', 'svccreamcheese', 'svcpepper', 'svcsalt'], 'svscheese'),
+  sandwichtofu: craftPaldeanSandwich(['svitofu', 'svitofu', 'svirice', 'svilettuce', 'sviavocado', 'svcwasabi', 'svcsalt'], 'svstofu'),
+  sandwichherbsausage: craftPaldeanSandwich(['svisausage', 'svcketchup'], 'svsherbsausage'),
+  sandwichegg: craftPaldeanSandwich(['sviegg', 'svicucumber', 'svcsalt', 'svcmayonnaise'], 'svsegg'),
+  sandwichpickle: craftPaldeanSandwich(['svipickle', 'svcoliveoil'], 'svspickle'),
+  sandwichnoodle: craftPaldeanSandwich(['svinoodles', 'svcoliveoil', 'svcketchup'], 'svsnoodle'),
+  sandwichnouveau: craftPaldeanSandwich(['sviwatercress', 'svibellpepperyellow', 'svionion', 'svitomato', 'svcoliveoil', 'svcwasabi'], 'svsnouveau'),
+  sandwichpotatosalad: craftPaldeanSandwich(['svipotatosalad', 'svicucumber', 'svibellpepperred', 'sviavocado', 'svcmayonnaise'], 'svspotatosalad'),
+  sandwichsmoky: craftPaldeanSandwich(['svismokedfillet', 'sviwatercress', 'svcvinegar', 'svcsalt', 'svcpepper'], 'svssmoky'),
+  sandwichsushi: craftPaldeanSandwich(['svirice', 'svismokedfillet', 'svismokedfillet', 'sviklawfstick', 'svcsalt', 'svcvinegar', 'svcwasabi'], 'svssushi'),
+  sandwichhamburger: craftPaldeanSandwich(['svihamburger', 'svionion', 'svcvinegar', 'svcpepper'], 'svshamburger'),
+  sandwichhefty: craftPaldeanSandwich(['svitortilla', 'svifriedfillet', 'sviprosciutto', 'svipotatosalad', 'svcsalt', 'svcpeanutbutter'], 'svshefty'),
+  sandwichvegetable: craftPaldeanSandwich(['svibellpeppergreen', 'svicherrytomato', 'svicucumber', 'svcsalt', 'svcoliveoil', 'svcvinegar'], 'svsvegetable'),
+  sandwichklawf: craftPaldeanSandwich(['sviklawfstick', 'svitomato', 'svilettuce', 'svcsalt', 'svcoliveoil'], 'svsklawf'),
+  sandwichdecadent: craftPaldeanSandwich(['svismokedfillet', 'sviklawfstick', 'sviwatercress', 'svibasil', 'svcvinegar', 'svcoliveoil', 'svcsalt'], 'svsdecadent'),
+  sandwichavocado: craftPaldeanSandwich(['sviavocado', 'svismokedfillet', 'svcsalt'], 'svsavocado'),
+  sandwichjambon: craftPaldeanSandwich(['sviham', 'svcbutter'], 'svsjambon'),
+  sandwichblt: craftPaldeanSandwich(['svibacon', 'svilettuce', 'svitomato', 'svcmayonnaise', 'svcmustard'], 'svsblt'),
+  // TODO: Add Herba Mysticas
+  sandwichuvariety: craftPaldeanSandwich(['sviprosciutto', 'svicherrytomato', 'svismokedfillet', 'svipotatosalad', 'svihamburger', 'svcsalt', 'svcvinegar'], 'svsuvariety'),
+  sandwichutower: craftPaldeanSandwich(['svihamburger', 'svinoodles', 'svipotatosalad', 'svirice', 'sviklawfstick', 'svitofu', 'svcoliveoil', 'svcsalt', 'svccurrypowder'], 'svsutower'),
+  sandwichurefreshing: craftPaldeanSandwich(['svicherrytomato', 'sviavocado', 'svikiwi', 'svipickle', 'svcmarmalade', 'svcsalt'], 'svsurefreshing'),
+  sandwichuegg: craftPaldeanSandwich(['sviegg', 'svicucumber', 'svionionred', 'svicheese', 'svcsalt', 'svcmayonnaise'], 'svsuegg'),
+  sandwichcurryrice: craftPaldeanSandwich(['svirice', 'svijalapeno', 'svitomato', 'svccurrypowder', 'svcmayonnaise'], 'svscurryrice'),
+  sandwichumarmalade: craftPaldeanSandwich(['svicheese', 'svcmarmalade', 'svcbutter', 'svccreamcheese'], 'svsumarmalade'),
+  sandwichunouveau: craftPaldeanSandwich(['sviwatercress', 'svibellpepperyellow', 'svionion', 'svitomato', 'svicucumber', 'svcoliveoil', 'svcwasabi', 'svcmayonnaise'], 'svsunouveau'),
+  sandwichuhefty: craftPaldeanSandwich(['svitortilla', 'svifriedfillet', 'sviprosciutto', 'svipotatosalad', 'svisausage', 'svihamburger', 'svcsalt', 'svcpeanutbutter'], 'svsuhefty'),
 }
 
 export type RecipeId = keyof typeof Recipes

@@ -2087,6 +2087,27 @@ export const Inventory: Inventory = {
       return log
     }
   },
+  berserkgene: {
+    // Right now only applies to Eternatus as a secret way to activate its Eternamax form
+    onBattleStart: (caster) => {
+      if (caster.species !== 'Eternatus') {
+        return new Log()
+      }
+      const log = new Log()
+      log.add('Eternatus has starting growing')
+      log.add('and growing')
+      log.add('and growing')
+      log.add('Oh no! It has turned into its Eternamax form!')
+      caster.currentHp *= 255/140
+      caster.totalHp *= 255/140
+      caster.attack *= 115/85
+      caster.defense *= 250/95
+      caster.spAttack *= 125/145
+      caster.spDefense *= 250/95
+      // speed is the same: 130->130
+      return log
+    },
+  },
   legendplate: {
     onBattleStart: (caster, target) => {
       const log = new Log()
