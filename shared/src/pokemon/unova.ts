@@ -1438,7 +1438,8 @@ export const unovaBuilder = {
     ],
   }),
   'potw-555': ensurePkmnBuilder({
-    species: 'Darmanitan', type1: 'Fire', syncableForms: ['ordinary', 'zen', 'galarian', 'galarian_zen'], needForm: 'ordinary',
+    species: 'Darmanitan', type1: 'Fire',
+    syncableForms: ['ordinary', 'zen', 'galarian', 'galarian_zen'], needForm: 'ordinary',
     tiers: ['Traditional', 'Plasma Cup'], shiny: 'WILD', release: 'greatball', weight: 92.9,
     eggBase: 'potw-554', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Its internal fire burns at 2,500° F, making enough power that it can destroy a dump truck with one punch.`,

@@ -991,7 +991,7 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(Potw(P.Sawsbuck, {form: 'autumn'}), {gate: CATCH_CHARM_DPPT, terrain: 'Grasslands', weather: 'Sunny', other: nowSeason === 'Autumn'}, p))
   list.push(...addIf(Potw(P.Sawsbuck, {form: 'winter'}), {gate: CATCH_CHARM_DPPT, terrain: 'Grasslands', weather: 'Sunny', other: nowSeason === 'Winter'}, p))
   list.push(...addIf(P.Krookodile, {gate: CATCH_CHARM_DPPT, terrain: 'Desert', weather: 'Sandstorm', region: 'Africa / Middle East', other: user.battleStadiumRecord[1] >= 4}, p))
-  list.push(...addIf(P.Darmanitan, {gate: CATCH_CHARM_DPPT, terrain: 'Desert', weather: 'Heat Wave'}, p))
+  list.push(...addIf(Potw(P.Darmanitan, {form: 'ordinary'}), {gate: CATCH_CHARM_DPPT, terrain: 'Desert', weather: 'Heat Wave'}, p))
   list.push(...addIf(Potw(P.Darmanitan, {form: 'zen'}), {gate: CATCH_CHARM_DPPT, terrain: 'Desert', weather: 'Fog'}, p))
   list.push(...addIf(P.Crustle, {gate: CATCH_CHARM_DPPT, terrain: 'Beach', weather: 'Sandstorm', other: p.user.raidRecord[1] >= 4}, p))
   list.push(...addIf(P.Scrafty, {gate: CATCH_CHARM_DPPT, terrain: 'Urban', time: 'Night'}, p))
