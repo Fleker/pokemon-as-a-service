@@ -34,6 +34,7 @@ export class PickerPokemonComponent implements OnInit, OnDestroy {
   @Input('pageSize') pageSize = 30
   @Input('entries') customEntries?: Partial<Record<PokemonId, number>> = undefined
   @Input('xlong') xlong = false
+  @Input('selectall') selectAll = false
   @ViewChild('cel') celDialog: CelDialogComponent
   @ViewChild('paginator') paginator?: MatPaginator
   @Output('peek') peek: EventEmitter<HoverSelection|undefined> = new EventEmitter()
@@ -193,11 +194,13 @@ export class PickerPokemonComponent implements OnInit, OnDestroy {
 
   /** A light reset */
   clearSelection(index?: number) {
+    console.log(`Clear ${index}`, this._selection)
     if (index !== undefined) {
       this._selection.splice(index, 1)
     } else {
       this._selection = []
     }
+    console.log(this._selection)
     this.selection.next(this._selection.map(x => x.species))
   }
 
@@ -419,5 +422,17 @@ export class PickerPokemonComponent implements OnInit, OnDestroy {
 
   celDemo() {
     this.celDialog.open()
+  }
+
+  performSelectAll() {
+    const canonicalPage = []
+    for (const entry of this.filterPageBadges) {
+      const inflatedEntry = this.array(entry[1])
+      for (const segment of inflatedEntry) {
+        canonicalPage.push(segment[0])
+      }
+    }
+    this._selection = canonicalPage.slice(0, this.pageSize).map((species, index) => ({ species, index }))
+    this.selection.next(this._selection.map(v => v.species))
   }
 }

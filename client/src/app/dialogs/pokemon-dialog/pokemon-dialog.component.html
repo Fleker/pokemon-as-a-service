@@ -16,6 +16,9 @@
       </td>
     </tr>
   </table>
+  <button mat-icon-button (click)="clearSelection()">
+    <mat-icon>deselect</mat-icon>
+  </button>
   <mat-chip *ngFor="let s of _selection; index as i" (removed)="clearSelection(i)">
     {{selectedLabel[i]}}
     <button matChipRemove>

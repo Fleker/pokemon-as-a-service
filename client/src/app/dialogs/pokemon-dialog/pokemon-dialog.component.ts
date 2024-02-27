@@ -21,7 +21,6 @@ export class PokemonDialogComponent implements OnInit, OnDestroy {
   @ViewChild('picker') picker?: PickerPokemonComponent
   flagPickerPro = false
   duplicate = false
-  _selection: SelectionInternal[] = []
   celPct = 0
   readonly events: Subject<Event> = new Subject()
   hoverSelect: HoverSelection;
@@ -31,13 +30,25 @@ export class PokemonDialogComponent implements OnInit, OnDestroy {
   firebaseListener?: any
 
   get selectedLabel() {
-    return this._selection.map(x => new Badge(x.species).toLabel())
+    return this._selection?.map(x => new Badge(x.species).toLabel())
+  }
+
+  get _selection() {
+    if (this.picker) return this.picker._selection
+    return []
+  }
+
+  set _selection(preset: SelectionInternal[]) {
+    if (this.picker) {
+      this.picker._selection = preset
+    }
   }
 
   get selection() {
     if (this.picker) return this.picker.selection
     return undefined
   }
+
 
   constructor(
     private firebase: FirebaseService,
@@ -60,7 +71,6 @@ export class PokemonDialogComponent implements OnInit, OnDestroy {
 
   open() {
     this.dialog!.nativeElement.showModal()
-    this._selection = this.picker._selection
     this.picker.reload()
   }
 
@@ -76,11 +86,9 @@ export class PokemonDialogComponent implements OnInit, OnDestroy {
 
   /** A light reset */
   clearSelection(index?: number) {
-    if (index !== undefined) {
-      this._selection.splice(index, 1)
-    } else {
-      this._selection = []
-    }
+    console.log(`Clear ${index}`, this._selection)
+    this.picker.clearSelection(index)
+    console.log(this._selection)
     this.selection.next(this._selection.map(x => x.species))
   }
 

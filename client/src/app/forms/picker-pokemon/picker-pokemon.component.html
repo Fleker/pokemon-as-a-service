@@ -16,6 +16,9 @@
   Help
 </button>
 {{countLabel}}
+<button mat-icon-button *ngIf="selectAll" (click)="performSelectAll()">
+  <mat-icon>select_all</mat-icon>
+</button>
 <div *ngIf="useCel && celPct && !xlong">
   <mat-progress-bar mode="determinate" [value]="celPct" class="long"></mat-progress-bar>
 </div>
