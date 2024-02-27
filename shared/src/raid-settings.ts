@@ -96,7 +96,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 1,
     cost: 1,
     prizes: potentialPrizes[1],
-    prizeCount: 4,
+    prizeCount: 5,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -145,7 +145,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 2,
     cost: 1,
     prizes: potentialPrizes[2],
-    prizeCount: 4,
+    prizeCount: 5,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -198,7 +198,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 3,
     cost: 2,
     prizes: potentialPrizes[3],
-    prizeCount: 5,
+    prizeCount: 6,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -258,7 +258,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 4,
     cost: 2,
     prizes: potentialPrizes[4],
-    prizeCount: 5,
+    prizeCount: 6,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -317,7 +317,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 5,
     cost: 3,
     prizes: potentialPrizes[5],
-    prizeCount: 5,
+    prizeCount: 6,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -381,7 +381,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 5,
     cost: 3,
     prizes: potentialPrizes[6],
-    prizeCount: 6,
+    prizeCount: 7,
     canWish: false,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -449,7 +449,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 2,
     cost: 2,
     prizes: potentialPrizes[7],
-    prizeCount: 5,
+    prizeCount: 6,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -508,7 +508,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 2,
     cost: 2,
     prizes: potentialPrizes[8],
-    prizeCount: 6,
+    prizeCount: 8,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -572,7 +572,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 2,
     cost: 2,
     prizes: potentialPrizes[9],
-    prizeCount: 6,
+    prizeCount: 8,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -642,7 +642,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 2,
     cost: 2,
     prizes: potentialPrizes[10],
-    prizeCount: 7,
+    prizeCount: 8,
     canWish: true,
     expires: EXPIRY_TIME,
     buff: (opponent: Pokemon) => {
@@ -709,7 +709,7 @@ export const raidBattleSettings: SharedRaidSetting[] = [
     wishes: 0, // Cannot wish.
     cost: 0, // Cannot join.
     prizes: potentialPrizes[1], // A lot of prizes will be pulled
-    prizeCount: 7,
+    prizeCount: 8,
     canWish: false,
     expires: EXPIRY_TIME_11S,
     buff: (opponent: Pokemon) => {
