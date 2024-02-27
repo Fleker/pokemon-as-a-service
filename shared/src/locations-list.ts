@@ -770,7 +770,7 @@ export const Globe = {
   'ID-CGK': assert<Location>({
     label:"Jakarta", region:"Pacific Islands", terrain:"Tropical", flag: '🇮🇩', id: 49,
     hemiLat: 'South', hemiLong: 'East', timezone: 'Asia/Jakarta', vivillon: 'sun',
-    latitude: 6.13, longitude: 106.87,
+    latitude: -6.13, longitude: 106.87,
     fact: "This city is among the oldest in the Southeast Asian region.",
     weatherAutumn:{Cloudy:0.1,'Heat Wave':0.1,Fog:0.15,Thunderstorm:0.05,Rain:0.15, Windy: 0.01},
     weatherWinter:{Thunderstorm:0.05,Fog:0.15,Cloudy:0.1,Rain:0.2, Windy: 0.01},
