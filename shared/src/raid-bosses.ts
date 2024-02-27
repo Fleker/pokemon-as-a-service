@@ -1136,122 +1136,122 @@ export const timeBoss: {'Day': {[rating: number]: RaidBoss[]}, 'Night': {[rating
 export const forecastBoss: {[key in WeatherType]: {[rating: number]: RaidBoss[]}} = {
   Cloudy: {
     3: [{
-     species: Potw(P.Purrloin, {var: 1}),
+     species: Potw(P.Munna, {var: 2}),
     }, {
-     species: Potw(P.Pineco, {var: 1}),
+     species: Potw(P.Yamask, {var: 3}),
     }],
     4: [{
-      species: Potw(P.Forretress, {var: 1})
+      species: Potw(P.Musharna, {var: 2}),
     }, {
-      species: Potw(P.Liepard, {var: 1})
+      species: Potw(P.Cofagrigus, {var: 3}),
     }]
   },
   Fog: {
     3: [{
-     species: Potw(P.Snubbull, {var: 4}), 
+     species: Potw(P.Natu, {var: 1}), 
     }, {
-     species: Potw(P.Baltoy, {var: 1})
+     species: Potw(P.Mr_Mime, {var: 2}),
     }],
     4: [{
-      species: Potw(P.Granbull, {var: 4})
+      species: Potw(P.Xatu, {var:14}),
     }, {
-      species: Potw(P.Claydol, {var: 1})
+      species: Potw(P.Mr_Mime, {var: 2}),
     }]
   },
   'Heat Wave': {
     3: [{
-      species: Potw(P.Tropius, {var: 4})
+      species: Potw(P.Roselia, {var: 4})
     }, {
-      species: Potw(P.Shroomish, {var: 4})
+      species: Potw(P.Rotom, {var: 2, form: 'heat'})
     }],
     4: [{
-      species: Potw(P.Tropius, {var:4})
+      species: Potw(P.Roserade, {var:4})
     }, {
-      species: Potw(P.Breloom, {var: 4})
+      species: Potw(P.Rotom, {var: 2, form: 'heat'})
     }]
   },
   Rain: {
     3: [{
-      species: Potw(P.Wishiwashi, {var: 4})
+      species: Potw(P.Binacle, {var: 2}),
     }, {
-      species: Potw(P.Wooper, {var: 4})
+      species: Potw(P.Rotom, {var: 2, form: 'wash'}),
     }],
     4: [{
-      species: Potw(P.Wishiwashi, {var: 4, form: 'school'})
+      species: Potw(P.Rotom, {var: 2, form: 'wash'}),
     }, {
-      species: Potw(P.Quagsire, {var: 4})
+      species: Potw(P.Barbaracle, {var: 2}),
     }]
   },
   Sandstorm: {
     3: [{
-      species: Potw(P.Stonjourner, {var: 1})
+      species: Potw(P.Lunatone, {var: 2}),
     }, {
-      species: Potw(P.Pawniard, {var: 3})
+      species: Potw(P.Solrock, {var: 2}),
     }],
     4: [{
-      species: Potw(P.Stonjourner, {var: 1})
+      species: Potw(P.Lunatone, {var: 2}),
     }, {
-      species: Potw(P.Bisharp, {var: 3})
+      species: Potw(P.Solrock, {var: 2}),
     }],
   },
   'Diamond Dust': {
     3: [{
-      species: Potw(P.Sneasel, {var: 2, form: 'hisuian'}),
+      species: Potw(P.Rotom, {var: 2, form: 'frost'}),
     }, {
-      species: Potw(P.Furfrou, {var: 4})
+      species: Potw(P.Delibird, {var: 4})
     }],
     4: [{
-      species: Potw(P.Sneasler, {var: 2}),
+      species: Potw(P.Rotom, {var: 2, form: 'frost'}),
     }, {
-      species: Potw(P.Furfrou, {var: 4})
+      species: Potw(P.Delibird, {var: 4})
     }],
   },
   Snow: {
     3: [{
-      species: Potw(P.Sneasel, {var: 2, form: 'hisuian'}),
+      species: Potw(P.Rotom, {var: 2, form: 'frost'}),
     }, {
-      species: Potw(P.Furfrou, {var: 4})
+      species: Potw(P.Delibird, {var: 1})
     }],
     4: [{
-      species: Potw(P.Sneasler, {var: 2}),
+      species: Potw(P.Rotom, {var: 2, form: 'frost'}),
     }, {
-      species: Potw(P.Furfrou, {var: 4})
+      species: Potw(P.Delibird, {var: 1})
     }],
   },
   Thunderstorm: {
     3: [{
-      species: Potw(P.Flaaffy, {var: 2}),
+      species: Potw(P.Electrike, {var: 3}),
     }, {
-      species: Potw(P.Eelektrik, {var: 3})
+      species: Potw(P.Rotom, {var: 2}),
     }],
     4: [{
-      species: Potw(P.Ampharos, {var: 2})
+      species: Potw(P.Manectric, {var: 3}),
     }, {
-      species: Potw(P.Eelektross, {var: 3})
+      species: Potw(P.Rotom, {var: 2}),
     }]
   },
   Sunny: {
     3: [{
-      species: Potw(P.Zangoose, {var: 3})
+      species: Potw(P.Helioptile, {var: 2}),
     }, {
-      species: Potw(P.Seviper, {var: 3})
+      species: Potw(P.Rotom, {var: 2, form: 'mow'}),
     }],
     4: [{
-      species: Potw(P.Zangoose, {var: 3})
+      species: Potw(P.Heliolisk, {var: 2}),
     }, {
-      species: Potw(P.Seviper, {var: 3})
+      species: Potw(P.Rotom, {var: 2, form: 'mow'}),
     }]
   },
   Windy: {
     3: [{
-      species: Potw(P.Spearow, {var:3})
+      species: Potw(P.Tranquill, {var:2})
     }, {
-      species: Potw(P.Taillow, {var: 1})
+      species: Potw(P.Rotom, {var: 2, form: 'fan'})
     }],
     4: [{
-      species: Potw(P.Fearow, {var:3})
+      species: Potw(P.Unfezant, {var:2})
     }, {
-      species: Potw(P.Swellow, {var: 1})
+      species: Potw(P.Rotom, {var: 2, form: 'fan'})
     }]
   },
 }
@@ -1526,10 +1526,15 @@ for (const time of Object.values(timeBoss)) {
     allBosses.push(...boss)
   }
 }
+/**
+ * Mapping of canonical raid bosses with held items
+ * (This is for display/informational purposes)
+ * @deprecated Look up data from the DB instead
+ */
 export const bossHeldItem: Partial<Record<BadgeId, ItemId>> = {}
 for (const boss of allBosses) {
   if (boss.heldItem) {
-    bossHeldItem[boss.species] = boss.heldItem
+    bossHeldItem[`${boss.species}`] = boss.heldItem
   }
 }
 
@@ -1564,88 +1569,6 @@ standardBosses[5].push({
   species: Potw(P.Unown, {form: unownForm[dayOfMonth] as PokemonForm}),
   condition: captureUnown
 })
-
-
-/**
- * By default the boss holds a Lum Berry, else will have this item.
- * @deprecated
- */
-export const bossHeldItemOld: Partial<Record<BadgeId, ItemId>> = {
-  [Potw(P.Venusaur, {var: 1})]: 'venusaurite',
-  [Potw(P.Venusaur, {var: 2})]: 'maxmushroom',
-  [Potw(P.Charizard, {var: 1})]: 'charizarditex',
-  [Potw(P.Charizard, {var: 2})]: 'maxmushroom',
-  [Potw(P.Blastoise, {var: 1})]: 'blastoiseite',
-  [Potw(P.Blastoise, {var: 2})]: 'maxmushroom',
-  [Potw(P.Butterfree, {var: 1})]: 'maxmashroom',
-  [Potw(P.Butterfree, {var: 3})]: 'zbugium',
-  [Potw(P.Beedrill, {var: 1})]: 'beedrillite',
-  [Potw(P.Pidgeot, {var: 2})]: 'pidgeotite',
-  [Potw(P.Fearow, {var: 1})]: 'zflyinium',
-  [Potw(P.Pikachu, {var: 3})]: 'zpikanium',
-  [Potw(P.Raichu, {var: 3, form: 'alolan'})]: 'zaloraichium',
-  [Potw(P.Arcanine, {var: 3})]: 'zfirium',
-  [Potw(P.Alakazam, {var: 1})]: 'alakazamite',
-  [Potw(P.Machamp, {var: 1})]: 'maxmushroom',
-  [Potw(P.Machamp, {var: 3})]: 'zfightium',
-  [Potw(P.Slowbro, {var: 4})]: 'slowbroite',
-  [Potw(P.Gengar, {var: 1})]: 'gengarite',
-  [Potw(P.Gengar, {var: 4})]: 'maxmushroom',
-  [Potw(P.Hypno, {var: 1})]: 'zpsychicium',
-  [Potw(P.Kingler, {var: 1})]: 'maxmushroom',
-  [Potw(P.Kangaskhan, {var: 2})]: 'kangaskhanite',
-  [Potw(P.Pinsir, {var: 1})]: 'pinsirite',
-  [Potw(P.Pinsir, {var: 4})]: 'pinsirite',
-  [Potw(P.Gyarados, {var: 3})]: 'gyaradosite',
-  [Potw(P.Lapras, {var: 1})]: 'maxmushroom',
-  [Potw(P.Eevee, {var: 1})]: 'zeevium',
-  [Potw(P.Aerodactyl, {var: 1})]: 'aerodactylite',
-  [Potw(P.Snorlax, {var: 2})]: 'zsnorlaium',
-  [Potw(P.Ampharos, {var: 1})]: 'ampharosite',
-  [Potw(P.Lanturn, {var: 2})]: 'zelectrium',
-  [Potw(P.Sudowoodo, {var: 1})]: 'zrockium',
-  [Potw(P.Steelix, {var: 1})]: 'steelixite',
-  [Potw(P.Scizor, {var: 2})]: 'scizorite',
-  [Potw(P.Heracross, {var: 1})]: 'heracrossite',
-  [Potw(P.Heracross, {var: 4})]: 'heracrossite',
-  [Potw(P.Houndoom, {var: 2})]: 'houndoomite',
-  [Potw(P.Tyranitar, {var: 3})]: 'tyranitarite',
-  [Potw(P.Sceptile, {var: 3})]: 'sceptileite',
-  [Potw(P.Blaziken, {var: 3})]: 'blazikenite',
-  [Potw(P.Swampert, {var: 3})]: 'swampertite',
-  [Potw(P.Gardevoir, {var: 1})]: 'gardevoirite',
-  [Potw(P.Sableye, {var: 1})]: 'sableyeite',
-  [Potw(P.Medicham, {var: 3})]: 'medichamite',
-  [Potw(P.Aggron, {var: 1})]: 'aggronite',
-  [Potw(P.Mawile, {var: 1})]: 'mawileite',
-  [Potw(P.Manectric, {var: 1})]: 'manectricite',
-  [Potw(P.Sharpedo, {var: 3})]: 'sharpedoite',
-  [Potw(P.Camerupt, {var: 3})]: 'cameruptite',
-  [Potw(P.Altaria, {var: 1})]: 'altariaite',
-  [Potw(P.Banette, {var: 1})]: 'banetteite',
-  [Potw(P.Absol, {var: 4})]: 'absolite',
-  [Potw(P.Glalie, {var: 1})]: 'glalieite',
-  [Potw(P.Salamence, {var: 2})]: 'salamencite',
-  [Potw(P.Metagross, {var: 1})]: 'metagrossite',
-  [Potw(P.Latias, {var: 2})]: 'latiasite',
-  [Potw(P.Latios, {var: 2})]: 'latiosite',
-  [Potw(P.Lopunny, {var: 2})]: 'lopunnyite',
-  [Potw(P.Lucario, {var: 4})]: 'lucarioite',
-  [Potw(P.Garchomp, {var: 3})]: 'garchompite',
-  [Potw(P.Abomasnow, {var: 1})]: 'abomasnowite',
-  [Potw(P.Gallade, {var: 3})]: 'galladeite',
-  [Potw(P.Stoutland, {var: 1})]: 'znormalium',
-  [Potw(P.Audino, {var: 2})]: 'audinoite',
-  [Potw(P.Garchomp, {var: 4})]: 'maxmushroom',
-  [Potw(P.Diancie, {var: 1})]: 'diancieite',
-  [Potw(P.Decidueye, {var: 1})]: 'zdecidium',
-  [Potw(P.Incineroar, {var: 1})]: 'zincinium',
-  [Potw(P.Primarina, {var: 1})]: 'zprimarium',
-  [Potw(P.Lycanroc, {var: 4})]: 'zlycanium',
-  [Potw(P.Mimikyu, {var: 4})]: 'zmimikyum',
-  [Potw(P.Kommo_o, {var: 1})]: 'zkommonium',
-  [Potw(P.Eternatus, {var: 1})]: 'beserkgene',
-}
 
 export const bossPrizes: Partial<Record<BadgeId, ItemId[]>> = {
   [P.Venusaur]: ['tr-Frenzy Plant', 'venusaurite'],
