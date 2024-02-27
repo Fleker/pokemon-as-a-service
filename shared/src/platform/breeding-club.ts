@@ -8,12 +8,11 @@ import { BadgeId } from '../pokemon/types'
 import * as P from '../gen/type-pokemon'
 
 // eslint-disable-next-line no-irregular-whitespace
-// Winner: Nickit¹, Nickit²  (Send: Thievul², Nickit², Thievul¹, Nickit¹)
 /**
  * Simple badge IDs for the species that have a 4x shiny chance.
  */
 export const babyProduced: BadgeId[] = [
-  P.Nickit,
+  P.Rotom,
 ]
 
 /**
@@ -21,10 +20,10 @@ export const babyProduced: BadgeId[] = [
  * Note that this only is for labels, and has no pragmatic effect.
  */
 export const parents: BadgeId[] = [
-  Potw(P.Nickit, {var: 1}),
-  Potw(P.Nickit, {var: 2}),
-  Potw(P.Thievul, {var: 1}),
-  Potw(P.Thievul, {var: 2}),
+  Potw(P.Rotom, {var: 1}),
+  Potw(P.Rotom, {var: 2}),
+  Potw(P.Rotom, {var: 3}),
+  Potw(P.Rotom, {var: 4}),
 ]
 
 export const history: BadgeId[] = [
@@ -415,4 +414,8 @@ export const history: BadgeId[] = [
   Potw(P.Shiinotic, {var: 2}),
   Potw(P.Shiinotic, {var: 3}),
   Potw(P.Shiinotic, {var: 4}),
+  Potw(P.Nickit, {var: 1}),
+  Potw(P.Nickit, {var: 2}),
+  Potw(P.Thievul, {var: 1}),
+  Potw(P.Thievul, {var: 2}),
 ]
