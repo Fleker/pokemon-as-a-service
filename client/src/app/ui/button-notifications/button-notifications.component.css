@@ -33,6 +33,12 @@ td.notification-msg, td.notification-msg a {
   overflow-x: hidden; /* Brevity is the wit of the soul */
 }
 
+td.notification-msg a {
+  width: calc(40em - 40px - 112px);
+  display: block;
+  overflow-x: auto;
+}
+
 @media (max-width: 600px) {
   td.notification-msg, td.notification-msg a {
     width: calc(100vw - 40px - 72px);
