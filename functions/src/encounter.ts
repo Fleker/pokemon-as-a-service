@@ -3725,12 +3725,12 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
     svsdecadent: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Snorunt, P.Snover, P.Cubchoo, P.Snom,
+          P.Snorunt, P.Snover, P.Cubchoo, P.Snom, P.Swinub,
         ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Sneasel, P.Delibird, P.Bergmite, P.Eiscue,
+          P.Sneasel, P.Delibird, P.Bergmite, P.Eiscue, P.Piloswine,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Cetoddle, 
@@ -3750,6 +3750,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Diglett, P.Phanpy, P.Sandile, P.Sandygast, P.Silicobra,
+          P.Geodude,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Toedscool, 
@@ -3759,6 +3760,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Dugtrio, P.Donphan, P.Larvitar, P.Numel, P.Barboach,
           P.Gible, P.Hippopotas, P.Krokorok, P.Mudbray, P.Sandaconda,
+          P.Graveler,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Toedscruel, 
@@ -3792,19 +3794,21 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Lycanroc, P.Coalossal,
+          P.Lycanroc, P.Coalossal, P.Magcargo,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Garganacl, P.Klawf, P.Glimmora,
         // ]
       }
     },
+    // Here are the shiny sandwiches/DLC sandwiches
     // Bug types
     svsuvariety: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Venonat, P.Pineco, P.Surskit, P.Kricketot, P.Combee,
-          P.Scatterbug, P.Snom,
+          P.Scatterbug, P.Snom, P.Spinarak, P.Sewaddle, P.Grubbin,
+          P.Cutiefly, P.Joltik,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Tarountula, P.Nymble, P.Rellor,
@@ -3813,6 +3817,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Venomoth, P.Masquerain, P.Kricketune, P.Larvesta, P.Spewpa,
+          P.Ariados, P.Yanma, P.Volbeat, P.Illumise, P.Swadloon,
+          P.Charjabug, P.Dewpider,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Spidops, P.Lokix,
@@ -3821,6 +3827,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Scyther, P.Forretress, P.Heracross, P.Vespiquen, P.Volcarona,
+          P.Ribombee, P.Araquanid, P.Galvantula,
         ]
       }
     },
@@ -3830,7 +3837,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Jigglypuff, P.Meowth, P.Teddiursa, P.Slakoth, P.Swablu,
           P.Starly, P.Deerling, P.Fletchling, P.Litleo, P.Skiddo,
-          P.Yungoos, P.Skwovet,
+          P.Yungoos, P.Skwovet, P.Sentret, P.Hoothoot, P.Minccino,
+          P.Pikipek,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Lechonk, P.Tandemaus, P.Smoliv, P.Shroodle,
@@ -3841,7 +3849,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Persian, P.Eevee, P.Girafarig, P.Dunsparce, P.Stantler,
           P.Vigoroth, P.Zangoose, P.Staravia, P.Sawsbuck, P.Rufflet,
           P.Pyroar, P.Gogoat, P.Gumshoos, P.Komala, P.Greedent,
-          P.Indeedee,
+          P.Indeedee, P.Furret, P.Noctowl, P.Aipom, P.Doduo,
+          P.Trumbeak,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Oinkolonge, P.Doliv, P.Squawkabilly, P.Grafaiai, P.Cyclizar,
@@ -3850,7 +3859,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Chansey, P.Ursaring, P.Slaking, P.Staraptor, P.Braviary,
-          P.Oranguru,
+          P.Oranguru, P.Snorlax, P.Dodrio, P.Porygon, P.Smeargle,
+          P.Toucannon,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Arboliva,
@@ -3861,13 +3871,13 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
     svsurefreshing: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Mankey, P.Makuhita, P.Meditite,
+          P.Mankey, P.Makuhita, P.Meditite, P.Timburr, P.Tyrogue,
         ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Primeape, P.Breloom, P.Medicham, P.Croagunk, P.Crabrawler,
-          P.Falinks,
+          P.Falinks, P.Gurdurr, P.Mienfoo, P.Scraggy,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Flamigo, 
@@ -3876,7 +3886,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Heracross, P.Hariyama, P.Lucario, P.Toxicroak, P.Hawlucha,
-          P.Passimian,
+          P.Passimian, P.Mienshao, P.Hakamo_o, P.Scrafty,
         ]
       }
     },
@@ -3885,7 +3895,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Hoppip, P.Wingull, P.Swablu, P.Starly, P.Combee,
-          P.Fletchling, P.Rookidee,
+          P.Fletchling, P.Rookidee, P.Pikipek,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Wattrel, 
@@ -3895,7 +3905,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Skiploom, P.Murkrow, P.Delibird, P.Pelipper, P.Tropius,
           P.Staravia, P.Drifloon, P.Rufflet, P.Fletchinder, P.Oricorio,
-          P.Corvisquire,
+          P.Corvisquire, P.Yanma, P.Gligar, P.Vullaby, P.Cramorant,
+          P.Doduo, P.Trumbeak, P.Minior,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Squawkabilly, P.Kilowattrel, P.Flamigo,
@@ -3905,7 +3916,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Scyther, P.Gyarados, P.Jumpluff, P.Altaria, P.Staraptor,
           P.Vespiquen, P.Drifblim, P.Braviary, P.Talonflame, P.Hawlucha,
-          P.Noibat, P.Corviknight,
+          P.Noibat, P.Corviknight, P.Mandibuzz, P.Dodrio, P.Skarmory,
+          P.Toucannon,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Bombirdier 
@@ -3916,7 +3928,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
     svscurryrice: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Litleo, P.Salandit,
+          P.Litleo, P.Salandit, P.Litwick,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Fuecoco, P.Charcadet
@@ -3925,7 +3937,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Growlithe, P.Houndour, P.Numel, P.Larvesta, P.Fletchinder,
-          P.Pyroar,
+          P.Pyroar, P.Vulpix, P.Slugma, P.Lampent,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Crocalor,
@@ -3934,6 +3946,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Houndoom, P.Camerupt, P.Torkoal, P.Volcarona, P.Talonflame,
+          P.Magcargo, P.Magmar,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Skeledirge,
@@ -3946,6 +3959,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Venonat, P.Grimer, P.Gastly, P.Gulpin, P.Foongus,
           P.Skrelp, P.Salandit, P.Toxel,
+          P.Ekans, P.Bellsprout, P.Koffing, P.Spinarak, P.Oddish,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Shroodle, P.Varoom,
@@ -3955,6 +3969,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Venomoth, P.Muk, P.Haunter, P.Qwilfish, P.Swalot,
           P.Seviper, P.Stunky, P.Croagunk, P.Mareanie,
+          P.Weepinbell, P.Weezing, P.Ariados, P.Gloom, P.Tentacool,
+          P.Tentacruel,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Grafaiai, P.Glimmet,
@@ -3964,6 +3980,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Skuntank, P.Toxicroak, P.Amoonguss, P.Dragalge, P.Toxapex,
           P.Toxtricity,
+          P.Arbok,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Revaroom, P.Glimmora,
@@ -3975,6 +3992,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Jigglypuff, P.Marill, P.Ralts, P.Flabébé, P.Impidimp,
+          P.Cutiefly, P.Milcery, P.Snubbull,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Fidough, P.Tinkatink,
@@ -3983,7 +4001,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Azumarill, P.Kirlia, P.Floette, P.Dedenne, P.Klefki,
-          P.Morgrem,
+          P.Morgrem, P.Clefairy, P.Cottonee, P.Comfey,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Dachsbun, P.Tinkatuff,
@@ -3991,7 +4009,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Gardevoir, P.Mimikyu, P.Hatterene, P.Grimmsnarl,
+          P.Gardevoir, P.Mimikyu, P.Hatterene, P.Grimmsnarl, P.Ribombee,
+          P.Granbull,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Tinkaton, 
@@ -4002,7 +4021,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
     svsuhefty: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Gastly, P.Shuppet, P.Sandygast, P.Sinistea,
+          P.Gastly, P.Shuppet, P.Sandygast, P.Sinistea, P.Duskull,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Grievard, P.Bramblin,
@@ -4011,15 +4030,16 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Haunter, P.Misdreavus, P.Sableye, P.Banette, P.Drifloon,
-          P.Dreepy,
+          P.Dreepy, P.Phantump, P.Golett,
         ],
         // [CATCH_CHARM_SV]: [
-        //   P.Houndstone, 
+        //   P.Houndstone, P.Poltchageist, 
         // ]
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Drifblim, P.Rotom, P.Palossand, P.Mimikyu, P.Drakloak,
+          P.Dusclops, P.Golurk,
         ]
       }
     },
@@ -4028,7 +4048,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Slowpoke, P.Drowzee, P.Ralts, P.Meditite, P.Spoink,
-          P.Gothita, P.Hatenna,
+          P.Gothita, P.Hatenna, P.Espurr, P.Solosis,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Flittle, 
@@ -4038,7 +4058,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Slowbro, P.Hypno, P.Girafarig, P.Kirlia, P.Medicham,
           P.Grumpig, P.Bronzor, P.Gothorita, P.Bruxish, P.Hattrem,
-          P.Indeedee,
+          P.Indeedee, P.Chimecho, P.Exeggcute, P.Beldum, P.Duosion,
+          P.Inkay,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Veluza, 
@@ -4047,6 +4068,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Gardevoir, P.Bronzong, P.Gothitelle, P.Oranguru, P.Hatterene,
+          P.Meowstic, P.Metang, P.Reuniclus,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Espathra 
@@ -4057,7 +4079,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
     svsudecadent: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Sandile, P.Impidimp,
+          P.Sandile, P.Impidimp, P.Poochyena,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Maschiff, 
@@ -4067,7 +4089,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Murkrow, P.Sneasel, P.Houndour, P.Sableye, P.Cacturne,
           P.Stunky, P.Krokorok, P.Zorua, P.Pawniard, P.Deino,
-          P.Morgrem,
+          P.Morgrem, P.Mightyena, P.Nuzleaf, P.Vullaby,
+          P.Morpeko, P.Scraggy, P.Inkay,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Lokix, P.Mabosstiff,
@@ -4076,7 +4099,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Houndoom, P.Skuntank, P.Krookodile, P.Zoroark, P.Bisharp,
-          P.Zweilous, P.Grimmsnarl,
+          P.Zweilous, P.Grimmsnarl, P.Crawdaunt, P.Mandibuzz, P.Scrafty,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Bombirdier, 
@@ -4093,7 +4116,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Dratini, P.Bagon, P.Gible, P.Axew, P.Deino, P.Goomy,
-          P.Dreepy,
+          P.Dreepy, P.Jangmo_o,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Tatsugiri, P.Cyclizar,
@@ -4102,7 +4125,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Dragonair, P.Altaria, P.Shelgon, P.Gabite, P.Fraxure,
-          P.Zweilous, P.Dragalge, P.Sliggoo, P.Noibat, P.Drakloak
+          P.Zweilous, P.Dragalge, P.Sliggoo, P.Noibat, P.Drakloak,
+          P.Hakamo_o, P.Vibrava, P.Duraludon,
         ]
       }
     },
@@ -4119,6 +4143,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Magneton, P.Bronzor, P.Pawniard, P.Klefki, P.Cufant,
+          P.Beldum,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Tinkatuff, 
@@ -4127,6 +4152,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Bronzong, P.Lucario, P.Bisharp, P.Corviknight, P.Copperajah,
+          P.Duraludon, P.Excadrill, P.Metang, P.Skarmory,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Tinkaton, P.Orthworm,
@@ -4140,7 +4166,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Psyduck, P.Slowpoke, P.Shellder, P.Magikarp,
           P.Marill, P.Wingull, P.Surskit, P.Luvdisc, P.Buizel,
           P.Shellos, P.Finneon, P.Skrelp, P.Clauncher, P.Chewtle,
-          P.Arrokuda,
+          P.Arrokuda, P.Poliwag, P.Lotad, P.Ducklett, P.Horsea,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Quaxly, P.Wiglett,
@@ -4152,7 +4178,9 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Pelipper, P.Masquerain, P.Barboach, P.Floatzel,
           P.Lumineon, Potw(P.Basculin, {form: 'blue_stripe'}),
           Potw(P.Basculin, {form: 'red_stripe'}), P.Mareanie,
-          P.Bruxish, P.Drednaw,
+          P.Bruxish, P.Drednaw, P.Poliwhirl, P.Lombre, P.Corphish,
+          P.Cramorant, P.Tentacool, P.Seel, P.Seadra, P.Chinchou,
+          P.Dewpider,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Quaxwell, P.Finizen, P.Tatsugiri, P.Veluza,
@@ -4161,7 +4189,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Gyarados, P.Whiscash, P.Gastrodon, P.Alomomola, P.Clawitzer,
-          P.Toxapex, P.Barraskewda,
+          P.Toxapex, P.Barraskewda, P.Feebas, P.Swanna, P.Tentacruel,
+          P.Dewgong, P.Lapras, P.Lanturn, P.Araquanid,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Quaquaval, P.Wugtrio, P.Dondozo,
@@ -4174,7 +4203,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Hoppip, P.Sunkern, P.Shroomish, P.Cacnea, P.Snover,
           P.Petilil, P.Deerling, P.Foongus, P.Skiddo, P.Bounsweet,
-          P.Applin,
+          P.Applin, P.Bellsprout, P.Lotad, P.Seedot, P.Sewaddle,
+          P.Oddish,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Sprigatito, P.Smoliv, P.Bramblin, P.Toedscool, P.Capsakid,
@@ -4183,10 +4213,12 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Skiploom, P.Breloom, P.Cacturne, P.Tropius, P.Sawsbuck,
-          P.Gogoat, P.Fomantis, P.Steenee,
+          P.Gogoat, P.Fomantis, P.Steenee, P.Weepinbell, P.Lombre,
+          P.Nuzleaf, P.Swadloon, P.Phantump, P.Cottonee, P.Gloom,
+          P.Exeggcute,
         ],
         // [CATCH_CHARM_SV]: [
-        //   P.Floragato, P.Dolliv, P.Toedscruel,
+        //   P.Floragato, P.Dolliv, P.Toedscruel, P.Poltchageist,
         // ]
       },
       ultraball: {
@@ -4203,7 +4235,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Pikachu, P.Magnemite, P.Voltorb, P.Mareep, P.Shinx,
-          P.Tynamo, P.Toxel, P.Tadbulb, P.Wattrel,
+          P.Tynamo, P.Toxel, P.Tadbulb, P.Wattrel, P.Blitzle,
+          P.Joltik,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Pawmi,
@@ -4213,6 +4246,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Magneton, P.Electrode, P.Flaaffy, P.Luxio, P.Pachirisu,
           P.Eelektrik, P.Dedenne, P.Pincurchin, P.Kilowattrel,
+          P.Charjabug, P.Morpeko, P.Minun, P.Plusle, P.Chinchou,
+          P.Zebstrika,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Pawmo,
@@ -4220,7 +4255,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Ampharos, P.Luxray, P.Rotom, P.Toxtricity,
+          P.Ampharos, P.Luxray, P.Rotom, P.Toxtricity, P.Lanturn,
+          P.Electabuzz, P.Galvantula,
         ]
       }
     },
@@ -4242,6 +4278,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Glalie, P.Abomasnow, P.Beartic, P.Cryogonal, P.Avalugg,
+          P.Lapras, P.Dewgong,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Cetitan, 
@@ -4253,6 +4290,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Diglett, P.Phanpy, P.Sandile, P.Sandygast, P.Silicobra,
+          P.Sandshrew, P.Swinub, P.Drilbur,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Toedscool, 
@@ -4262,6 +4300,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         [CATCH_CHARM_SWSH]: [
           P.Dugtrio, P.Donphan, P.Larvitar, P.Numel, P.Barboach,
           P.Gible, P.Hippopotas, P.Krokorok, P.Mudbray, P.Sandaconda,
+          P.Sandslash, P.Gligar, P.Piloswine, P.Rhyhorn, P.Trapinch,
+          P.Golett,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Toedscruel, 
@@ -4270,7 +4310,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       ultraball: {
         [CATCH_CHARM_SWSH]: [
           P.Camerupt, P.Whiscash, P.Gastrodon, P.Gabite, P.Hippowdon,
-          P.Krookodile, P.Mudsdale, P.Palossand,
+          P.Krookodile, P.Mudsdale, P.Palossand, P.Excadrill, P.Rhydon,
+          P.Vibrava, P.Golurk,
         ]
       }
     },
@@ -4278,7 +4319,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
     svsublt: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Rolycoly,
+          P.Rolycoly, P.Geodude, Potw(P.Geodude, {form: 'alolan'}),
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Nacli,
@@ -4287,7 +4328,8 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       greatball: {
         [CATCH_CHARM_SWSH]: [
           P.Sudowoodo, P.Larvitar, P.Rockruff, P.Drednaw, P.Carkol,
-          P.Stonjourner,
+          P.Stonjourner, P.Graveler, Potw(P.Graveler, {form: 'alolan'}),
+          P.Nosepass, P.Rhyhorn, P.Minior,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Naclstack, P.Glimmet,
@@ -4295,7 +4337,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Lycanroc, P.Coalossal,
+          P.Lycanroc, P.Coalossal, P.Rhydon,
         ],
         // [CATCH_CHARM_SV]: [
         //   P.Garganacl, P.Klawf, P.Glimmora,
