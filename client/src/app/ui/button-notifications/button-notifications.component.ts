@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { Notification, F } from '../../../../../shared/src/server-types';
 import { Router } from '@angular/router';
+import { EngagementService } from 'src/app/engagement.service';
 
 declare var navigator: any;
 
@@ -42,7 +43,8 @@ export class ButtonNotificationsComponent implements OnInit {
   constructor(
     private firebase: FirebaseService,
     private snackbar: MatSnackBar,
-    private readonly router: Router
+    private readonly router: Router,
+    private readonly engagement: EngagementService,
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +53,8 @@ export class ButtonNotificationsComponent implements OnInit {
       if (!user.notifications) return
       this.notifications = user.notifications
       this.invNotifications = [...this.notifications].reverse()
-      if (this.ackedNotificationCount > this.notifications.length) {
+      const hasAcked = this.ackedNotificationCount >= this.notifications.length
+      if (hasAcked) {
         this.ackedNotificationCount = this.notifications.length
       }
       // See https://www.w3.org/TR/badging/
@@ -59,6 +62,7 @@ export class ButtonNotificationsComponent implements OnInit {
         // Async process
         (navigator.setAppBadge as Function)(this.notifications.length)
       }
+      this.regenerateWindowTitle()
     })
   }
 
@@ -86,12 +90,23 @@ export class ButtonNotificationsComponent implements OnInit {
   showNotifications() {
     this.dialog.nativeElement.showModal()
     this.ackedNotificationCount = this.notifications.length
+    this.regenerateWindowTitle()
     // Request permission to show notifications via platform
     Notification.requestPermission() // async
   }
 
   close() {
     this.dialog.nativeElement.close()
+  }
+
+  regenerateWindowTitle() {
+    const hasAcked = this.ackedNotificationCount >= this.notifications.length
+
+    if (this.engagement.isNextUi && this.notifications.length) {
+      document.title = `${!hasAcked ? '!' : ''} [${this.notifications.length}] Pokémon of the Week`
+    } else if (!this.notifications.length) {
+      document.title = `Pokémon of the Week`
+    }
   }
 
   navigate(link) {
@@ -124,6 +139,7 @@ export class ButtonNotificationsComponent implements OnInit {
         this.close()
       }
     }
+    this.regenerateWindowTitle()
   }
 
   async launch(item?: Notification) {
