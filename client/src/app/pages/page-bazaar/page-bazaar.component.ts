@@ -22,6 +22,7 @@ export class PageBazaarComponent implements OnInit, OnDestroy {
   merchants: Merchant[] = []
   user?: Users.Doc;
   items?: Record<ItemId, number>
+  sessionCollapsed: Record<string, boolean> = {}
   firebaseListener: any
 
   constructor(
@@ -43,11 +44,17 @@ export class PageBazaarComponent implements OnInit, OnDestroy {
     this.firebaseListener?.unsubscribe()
   }
 
+  updateCollapse(key: string, value: boolean) {
+    console.debug(key, value)
+    this.sessionCollapsed[key] = value
+  }
+
   async refresh() {
     const requirements = await getQuestArgs(this.user!, this.locations, this.firebase)
     const bazaarItems = Object.entries(BAZAAR)
       .filter(([_, merchant]) => !merchant.isOpen(Date.now(), this.items!, requirements))
     this.merchants = bazaarItems.map(b => {
+      // this.sessionCollapsed[b[0]] = true
       const items = (() => {
         if (typeof b[1].items === 'function') {
           return b[1].items()

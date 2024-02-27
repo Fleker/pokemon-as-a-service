@@ -1,5 +1,5 @@
 import { ElementRef } from '@angular/core';
-import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'collapsible-card',
@@ -8,6 +8,7 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
 })
 export class CollapsibleCardComponent {
   @Input('collapsed') collapsed: boolean = false
+  @Output('change') change: EventEmitter<boolean> = new EventEmitter()
   @ViewChild('cardToggle') cardToggle?: ElementRef
   @ViewChild('title') title?: ElementRef
 
@@ -15,5 +16,7 @@ export class CollapsibleCardComponent {
 
   toggle() {
     this.collapsed = !this.collapsed
+    this.change.emit(this.collapsed)
+    console.debug(this.collapsed)
   }
 }
