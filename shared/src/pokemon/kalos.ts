@@ -1838,6 +1838,8 @@ export const kalosBuilder = {
     novelMoves: [['Thunder', 'Focus Blast'],
       ['Horn Leech', 'Night Slash'],
       ['Megahorn', 'Roar'],
+      [],
+      ['Dazzling Gleam', 'Outrage', 'Heal Pulse'],
     ],
   }),
   'potw-717': ensurePkmnBuilder({
@@ -1858,6 +1860,8 @@ export const kalosBuilder = {
     novelMoves: [[],
       ['Focus Blast', 'Taunt'],
       ['Payback', 'Block'],
+      [],
+      ['Rock Slide', 'Snarl', 'Roost'],
     ],
   }),
   'potw-718': ensurePkmnBuilder({
@@ -1876,11 +1880,12 @@ export const kalosBuilder = {
       'Haze', 'Safeguard', 'Substitute', 'Coil', 'Confide', 
       'Double Team', 
     ],
-  novelMoves: [['Rock Slide', 'Iron Tail'],
-    ['Thousand Arrows', 'Dragon Tail', 'Retaliate', 'Camouflage'],
-    ['Thousand Waves', 'Extreme Speed', 'Coil'],
-  ]
-
+    novelMoves: [['Rock Slide', 'Iron Tail'],
+      ['Thousand Arrows', 'Dragon Tail', 'Retaliate', 'Camouflage'],
+      ['Thousand Waves', 'Extreme Speed', 'Coil'],
+      ['Core Enforcer', 'Zen Headbutt', 'Sandstorm'],
+      ['Breaking Swipe', 'Earthquake', 'Sludge Wave', 'Pain Split']
+    ]
   }),
   'potw-718-ten': ensurePkmnBuilder({
     species: 'Zygarde', type1: 'Dragon', type2: 'Ground',
@@ -1897,11 +1902,12 @@ export const kalosBuilder = {
       'Haze', 'Safeguard', 'Substitute', 'Coil', 'Confide', 
       'Double Team', 
     ],
-  novelMoves: [['Rock Slide', 'Iron Tail'], 
-    ['Thousand Arrows', 'Dragon Tail', 'Retaliate', 'Camouflage'],
-    ['Thousand Waves', 'Extreme Speed', 'Coil'],
-  ]
-
+    novelMoves: [['Rock Slide', 'Iron Tail'], 
+      ['Thousand Arrows', 'Dragon Tail', 'Retaliate', 'Camouflage'],
+      ['Thousand Waves', 'Extreme Speed', 'Coil'],
+      ['Zen Headbutt', 'Sandstorm'],
+      ['Breaking Swipe', 'Earthquake', 'Sludge Wave', 'Pain Split']
+    ]
   }),
   'potw-718-fifty': ensurePkmnBuilder({
     species: 'Zygarde', type1: 'Dragon', type2: 'Ground',
@@ -1918,12 +1924,12 @@ export const kalosBuilder = {
       'Haze', 'Safeguard', 'Substitute', 'Coil', 'Confide', 
       'Double Team', 
     ],
-  novelMoves: [['Rock Slide', 'Iron Tail'],
-    ['Thousand Arrows', 'Dragon Tail', 'Retaliate', 'Camouflage'],
-    ['Thousand Waves', 'Extreme Speed', 'Coil'],
-    // ['Core Enforcer'],
-  ]
-
+    novelMoves: [['Rock Slide', 'Iron Tail'],
+      ['Thousand Arrows', 'Dragon Tail', 'Retaliate', 'Camouflage'],
+      ['Thousand Waves', 'Extreme Speed', 'Coil'],
+      ['Core Enforcer', 'Zen Headbutt', 'Dragon Dance'],
+      ['Breaking Swipe', 'Earthquake', 'Sludge Wave', 'Pain Split']
+    ]
   }),
   'potw-718-complete': ensurePkmnBuilder({
     species: 'Zygarde', type1: 'Dragon', type2: 'Ground',
@@ -1940,12 +1946,12 @@ export const kalosBuilder = {
       'Haze', 'Safeguard', 'Substitute', 'Coil', 'Confide', 
       'Double Team', 
     ],
-  novelMoves: [['Rock Slide', 'Iron Tail'],
-    ['Thousand Arrows', 'Dragon Tail', 'Retaliate', 'Camouflage'],
-    ['Thousand Waves', 'Extreme Speed', 'Coil'],
-    // ['Core Enforcer'],
-  ]
-
+    novelMoves: [['Rock Slide', 'Iron Tail'],
+      ['Thousand Arrows', 'Dragon Tail', 'Retaliate', 'Camouflage'],
+      ['Thousand Waves', 'Extreme Speed', 'Coil'],
+      ['Core Enforcer', 'Zen Headbutt', 'Dragon Dance'],
+      ['Breaking Swipe', 'Earthquake', 'Sludge Wave', 'Pain Split']
+    ]
   }),
   'potw-719': ensurePkmnBuilder({
     species: 'Diancie', type1: 'Rock', type2: 'Fairy',

@@ -227,6 +227,7 @@ export const alolaBuilder = {
       ['Astonish', 'Sand Attack'],
       ['Scratch', 'Stealth Rock'],
       ['Iron Head', 'Ally Switch'],
+      ['Magnitude', 'Beat Up', 'Growl'],
     ],
   }),
   'potw-051-alolan': ensurePkmnBuilder({
@@ -250,6 +251,7 @@ export const alolaBuilder = {
       ['Sand Tomb', 'Shadow Claw', 'Rototiller'],
       ['Natural Gift', 'Stealth Rock'],
       ['Earth Power', 'Ally Switch'],
+      ['Earthquake', 'Beat Up', 'Metal Sound'],
     ],
   }),
   'potw-052-alolan': ensurePkmnBuilder({
@@ -1881,6 +1883,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Iron Head', 'Stealth Rock'],
       ['U-turn', 'Cosmic Power'],
+      ['Zen Headbutt', 'Shell Smash'],
     ],
   }),
   'potw-775': ensurePkmnBuilder({

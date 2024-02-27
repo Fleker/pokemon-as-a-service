@@ -3436,6 +3436,7 @@ export const unovaBuilder = {
       ['Metal Burst', 'X-Scissor', 'Work Up'],
       ['Megahorn', 'Helping Hand'],
       ['Zen Headbutt', 'Swords Dance'],
+      ['Revenge', 'Poison Jab', 'Coaching'],
     ],
   }),
   'potw-639': ensurePkmnBuilder({
@@ -3458,6 +3459,7 @@ export const unovaBuilder = {
       ['Poison Jab', 'Work Up'],
       ['Smack Down', 'Megahorn', 'Helping Hand'],
       ['Zen Headbutt', 'Swords Dance'],
+      ['Rock Slide', 'Revenge', 'Earthquake', 'Coaching'],
     ],
   }),
   'potw-640': ensurePkmnBuilder({
@@ -3480,6 +3482,7 @@ export const unovaBuilder = {
       ['Giga Drain', 'Aerial Ace', 'Work Up'],
       ['Solar Blade', 'Megahorn', 'Helping Hand'],
       ['Seed Bomb', 'Zen Headbutt', 'Swords Dance'],
+      ['Smart Strike', 'Revenge', 'Coaching'],
     ],
   }),
   'potw-641': ensurePkmnBuilder({
@@ -3502,6 +3505,7 @@ export const unovaBuilder = {
       ['Extrasensory', 'Hammer Arm', 'Rain Dance'],
       ['Grass Knot', 'Hidden Power_Poison', 'Nasty Plot'],
       ['Air Cutter', 'Heat Wave', 'Tailwind'],
+      ['Bleakwind Storm', 'Sludge Wave', 'Brutal Swing', 'Defog'],
     ],
   }),
   'potw-641-incarnate': ensurePkmnBuilder({
@@ -3524,6 +3528,7 @@ export const unovaBuilder = {
       ['Extrasensory', 'Hammer Arm', 'Rain Dance'],
       ['Grass Knot', 'Hidden Power_Poison', 'Nasty Plot'],
       ['Air Cutter', 'Heat Wave', 'Tailwind'],
+      ['Bleakwind Storm', 'Sludge Wave', 'Brutal Swing', 'Defog'],
     ],
   }),
   'potw-641-therian': ensurePkmnBuilder({
@@ -3546,6 +3551,7 @@ export const unovaBuilder = {
       ['Extrasensory', 'Dark Pulse', 'Embargo'],
       ['Grass Knot', 'Hidden Power_Poison', 'Nasty Plot'],
       ['Air Cutter', 'Heat Wave', 'Tailwind'],
+      ['Bleakwind Storm', 'Sludge Wave', 'Brutal Swing', 'Defog'],
     ],
   }),
   'potw-642': ensurePkmnBuilder({
@@ -3569,6 +3575,7 @@ export const unovaBuilder = {
       ['Hammer Arm', 'Charge'],
       ['Hidden Power_Ghost', 'Defog'],
       ['Electroweb', 'Weather Ball', 'Rain Dance'],
+      ['Wildbolt Storm', 'Sludge Wave', 'Defog'],
     ],
   }),
   'potw-642-incarnate': ensurePkmnBuilder({
@@ -3591,6 +3598,7 @@ export const unovaBuilder = {
       ['Hammer Arm', 'Charge'],
       ['Hidden Power_Ghost', 'Defog'],
       ['Electroweb', 'Weather Ball', 'Rain Dance'],
+      ['Wildbolt Storm', 'Sludge Wave', 'Defog'],
     ],
   }),
   'potw-642-therian': ensurePkmnBuilder({
@@ -3613,6 +3621,7 @@ export const unovaBuilder = {
       ['Dark Pulse', 'Nasty Plot'],
       ['Hidden Power_Ghost', 'Defog'],
       ['Electroweb', 'Weather Ball', 'Rain Dance'],
+      ['Wildbolt Storm', 'Sludge Wave', 'Defog'],
     ],
   }),
   'potw-643': ensurePkmnBuilder({
@@ -3684,6 +3693,7 @@ export const unovaBuilder = {
       ['Hammer Arm', 'Sandstorm'],
       ['Hidden Power_Flying', 'Gravity'],
       ['Outrage', 'Swords Dance'],
+      ['Sandsear Storm', 'Sludge Wave', 'Defog'],
     ],
   }),
   'potw-645-incarnate': ensurePkmnBuilder({
@@ -3706,6 +3716,7 @@ export const unovaBuilder = {
       ['Hammer Arm', 'Sandstorm'],
       ['Hidden Power_Flying', 'Gravity'],
       ['Outrage', 'Swords Dance'],
+      ['Sandsear Storm', 'Sludge Wave', 'Defog'],
     ],
   }),
   'potw-645-therian': ensurePkmnBuilder({
@@ -3728,6 +3739,7 @@ export const unovaBuilder = {
       ['Hammer Arm', 'Swords Dance'],
       ['Hidden Power_Flying', 'Gravity'],
       ['Outrage', 'Swords Dance'],
+      ['Sandsear Storm', 'Sludge Wave', 'Defog'],
     ],
   }),
   'potw-646': ensurePkmnBuilder({

@@ -407,6 +407,7 @@ export const hisuiBuilder = {
       ['Ice Beam', 'Magnet Rise'],
       ['Power Gem', 'Flash'],
       ['Earth Power', 'Trick Room'],
+      ['Breaking Swipe', 'Hyper Voice', 'Gravity'],
     ]
   }),
   'potw-484-origin': ensurePkmnBuilder({
@@ -433,6 +434,7 @@ export const hisuiBuilder = {
       ['Power Gem', 'Aqua Ring'],
       ['Hydro Pump', 'Ice Beam', 'Gravity'],
       ['Earth Power', 'Rain Dance'],
+      ['Breaking Swipe', 'Surf', 'Hyper Voice', 'Psych Up'],
     ]
   }),
   'potw-899': ensurePkmnBuilder({

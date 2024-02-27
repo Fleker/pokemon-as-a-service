@@ -171,7 +171,6 @@ export const paldeaBuilder = {
     move: ['Tackle'],
     moveTMs: []
   }),
-  // TODO: Oinky has gendered stats
   // https://serebii.net/pokedex-sv/oinkologne/
   'potw-916': ensurePkmnBuilder({
     species: 'Oinkologne', type1: 'Normal', 
