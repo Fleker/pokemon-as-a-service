@@ -251,6 +251,7 @@ export interface DbRaid {
   timestamp: FirebaseFirestore.FieldValue | FirebaseFirestore.Timestamp
   timestampLastUpdated: FirebaseFirestore.FieldValue | FirebaseFirestore.Timestamp
   boss: BadgeId
+  bossHeldItem?: ItemId
   rating: number
   result?: number
   location: LocationId

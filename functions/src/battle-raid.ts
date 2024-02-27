@@ -54,7 +54,8 @@ const getRaidBoss = (rating: number, location: Location, charms: string[], quest
   })()
   const badge = Badge.create(simpleBoss.species)
   return {
-    species: badge.toLegacyString()
+    heldItem: simpleBoss.heldItem,
+    species: badge.toLegacyString(),
   }
 }
 const checkShiny = (raid) => {
@@ -139,6 +140,7 @@ export const raid_create = functions.https.onCall(async (data, context) => {
     timestampLastUpdated: FieldValue.serverTimestamp(),
     rating,
     boss: boss.species,
+    bossHeldItem: boss.heldItem,
     location: hostLocation,
     locationLabel: location.label,
     locationWeather: location.forecast!,
@@ -330,8 +332,9 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
       raid.players![key].ready = false
     })
     // Update raid
-    await transaction.update(raidRef, {
+    await transaction.update<DbRaid>(raidRef, {
       boss: newboss.species,
+      bossHeldItem: newboss.heldItem,
       players: raid.players,
       timestampLastUpdated: FieldValue.serverTimestamp(),
       wishes: wishes + 1,
@@ -584,7 +587,7 @@ function buffRaidBoss(opponentPokemon, rating) {
   raidBattleSettings[rating].buff(opponentPokemon)
 }
 // There is no Mega Evolution exception here.
-export async function matchup(players: Badge[], heldItems: ItemId[], opponent: BadgeId, rating: number, location: Location): Promise<ExecuteLog> {
+export async function matchup(players: Badge[], heldItems: ItemId[], opponent: BadgeId, bossHeldItemKey: ItemId = 'lum', rating: number, location: Location): Promise<ExecuteLog> {
   const playerPokemon = players.map((badge, index) => {
     const data = {...Pkmn.get(badge.toLegacyString())} as PokemonDoc
     const pkmn: Pokemon = {...data,
@@ -617,7 +620,6 @@ export async function matchup(players: Badge[], heldItems: ItemId[], opponent: B
     return pkmn
   })
   const data = {...Pkmn.get(opponent)} as PokemonDoc
-  const bossHeldItemKey = bossHeldItem[opponent] || 'lum'
   const opponentPokemon: Pokemon = {
     ...Pkmn.get(opponent)!,
     badge: Badge.fromLegacy(opponent),
@@ -625,7 +627,7 @@ export async function matchup(players: Badge[], heldItems: ItemId[], opponent: B
     totalHp: (data.hp || 50) * 4,
     currentHp: (data.hp || 50) * 4,
     movepool: data.move.map(move => Movepool[move] || Movepool.Tackle),
-    heldItem: Inventory[bossHeldItemKey], // Hold Lum Berry or something else.
+    heldItem: {...Inventory[bossHeldItemKey]}, // Hold Lum Berry or something else.
     heldItemKey: bossHeldItemKey,
     heldItemConsumed: false,
     heldItemTotallyConsumed: false,
@@ -869,7 +871,7 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
   console.log(`${raidId} - Preconditions complete`)
   const location = await getLocation(raid.location)
   location.forecast = raid.locationWeather // Static weather
-  const result = await matchup(players, playerItems, raid.boss, raid.rating, location)
+  const result = await matchup(players, playerItems, raid.boss, raid.bossHeldItem, raid.rating, location)
   console.log(`${raidId} - Match complete`)
   // Mark as completed to prevent repeatedly running raid past this point
   try {
