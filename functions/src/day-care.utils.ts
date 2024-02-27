@@ -412,4 +412,49 @@ export const daycareItems: ItemMap = {
   expcandyl: expcandy(0.25, 2),
   expcandyxl: expcandy(0.15, 3),
   rarecandy: expcandy(0.04, 3),
+  svspb: () => {
+    return {
+      itemConsumed: true,
+      eggConsumed: true,
+      hatchTime: DAY_S * 6,
+    }
+  },
+  svsupickle: () => {
+    return {
+      itemConsumed: true,
+      eggConsumed: true,
+      hatchTime: DAY_S * 4,
+    }
+  },
+  svsdessert: () => {
+    return {
+      itemConsumed: true,
+      eggConsumed: true,
+      hatchTime: DAY_S * 2,
+    }
+  },
+  svsufruit: () => {
+    return {
+      itemConsumed: true,
+      eggConsumed: true,
+      shiny: Math.random() < 0.01,
+      hatchTime: DAY_S * 6,
+    }
+  },
+  svsufivealarm: () => {
+    return {
+      itemConsumed: true,
+      eggConsumed: true,
+      shiny: Math.random() < 0.01,
+      hatchTime: DAY_S * 4,
+    }
+  },
+  svsudessert: () => {
+    return {
+      itemConsumed: true,
+      eggConsumed: true,
+      shiny: Math.random() < 0.01,
+      hatchTime: DAY_S * 2,
+    }
+  },
 }

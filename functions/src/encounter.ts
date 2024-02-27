@@ -3456,6 +3456,229 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Zweilous,
         ]
       }
+    },
+    svscheese: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Venonat,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Venomoth,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Scyther,
+        ]
+      }
+    },
+    svstofu: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Jigglypuff, P.Meowth,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Persian, P.Eevee,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Chansey,
+        ]
+      }
+    },
+    svsherbsausage: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Mankey,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Primeape,
+        ]
+      }
+    },
+    svsegg: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Hoppip,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Skiploom, P.Murkrow,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Scyther, P.Gyarados, P.Jumpluff,
+        ]
+      }
+    },
+    svspickle: {
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Growlithe,
+        ]
+      }
+    },
+    svsnoodle: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Venonat, P.Grimer, P.Gastly,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Venomoth, P.Muk, P.Haunter,
+        ]
+      }
+    },
+    svsnouveau: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Jigglypuff, P.Marill,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Azumarill,
+        ]
+      }
+    },
+    svspotatosalad: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gastly,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Haunter, P.Misdreavus,
+        ]
+      }
+    },
+    svssmoky: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Slowpoke, P.Drowzee,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Slowbro, P.Hypno,
+        ]
+      }
+    },
+    svssushi: {
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Murkrow,
+        ]
+      }
+    },
+    svshamburger: {
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Dratini,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Dragonair,
+        ]
+      }
+    },
+    svshefty: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Magnemite,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Magneton,
+        ]
+      }
+    },
+    svsvegetable: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Psyduck, P.Slowpoke, P.Shellder, P.Magikarp,
+          P.Marill,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Golduck, P.Slowbro,
+          P.Azumarill
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gyarados,
+        ]
+      }
+    },
+    svsklawf: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Hoppip, P.Sunkern,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Skiploom,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Jumpluff,
+        ]
+      }
+    },
+    svsavocado: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Pikachu, P.Magnemite, P.Voltorb,
+          P.Mareep,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Magneton, P.Electrode,
+          P.Flaaffy,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Ampharos,
+        ]
+      }
+    },
+    svsjambon: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Diglett,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Dugtrio,
+        ]
+      },
+    },
+    svsblt: {
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Sudowoodo,
+        ]
+      }
     }
   }
   // We need to file this twice
@@ -3920,22 +4143,22 @@ export const HOLD_ITEMS_5: HoldItemTable = {
   [P.Cufant]: ['laggingtail'],
   [P.Copperajah]: ['laggingtail'],
   [P.Kleavor]: ['wood'],
-  // [P.Toedschool]: ['tinymushroom'],
-  // [P.Toedscreul]: ['bigmushroom'],
-  // [P.Great_Tusk]: ['boosterenergy'],
-  // [P.Brute_Bonnet]: ['boosterenergy'],
-  // [P.Sandy_Shocks]: ['boosterenergy'],
-  // [P.Scream_Tail]: ['boosterenergy'],
-  // [P.Flutter_Mane]: ['boosterenergy'],
-  // [P.Slither_Wing]: ['boosterenergy'],
-  // [P.Roaring_Moon]: ['boosterenergy'],
-  // [P.Iron_Treads]: ['boosterenergy'],
-  // [P.Iron_Moth]: ['boosterenergy'],
-  // [P.Iron_Hands]: ['boosterenergy'],
-  // [P.Iron_Jugulis]: ['boosterenergy'],
-  // [P.Iron_Thorns]: ['boosterenergy'],
-  // [P.Iron_Bundle]: ['boosterenergy'],
-  // [P.Iron_Valiant]: ['boosterenergy'],
+  [P.Toedschool]: ['tinymushroom'],
+  [P.Toedscreul]: ['bigmushroom'],
+  [P.Great_Tusk]: ['boosterenergy'],
+  [P.Brute_Bonnet]: ['boosterenergy'],
+  [P.Sandy_Shocks]: ['boosterenergy'],
+  [P.Scream_Tail]: ['boosterenergy'],
+  [P.Flutter_Mane]: ['boosterenergy'],
+  [P.Slither_Wing]: ['boosterenergy'],
+  [P.Roaring_Moon]: ['boosterenergy'],
+  [P.Iron_Treads]: ['boosterenergy'],
+  [P.Iron_Moth]: ['boosterenergy'],
+  [P.Iron_Hands]: ['boosterenergy'],
+  [P.Iron_Jugulis]: ['boosterenergy'],
+  [P.Iron_Thorns]: ['boosterenergy'],
+  [P.Iron_Bundle]: ['boosterenergy'],
+  [P.Iron_Valiant]: ['boosterenergy'],
 }
 
 /** 15% chance of finding an item. These items tend to be more common or topical. */
