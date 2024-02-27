@@ -3457,227 +3457,507 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         ]
       }
     },
+    // Bug types
     svscheese: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Venonat,
-        ]
+          P.Venonat, P.Pineco, P.Surskit, P.Kricketot, P.Combee,
+          P.Scatterbug, P.Snom,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tarountula, P.Nymble, P.Rellor,
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Venomoth,
-        ]
+          P.Venomoth, P.Masquerain, P.Kricketune, P.Larvesta, P.Spewpa,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Spidops, P.Lokix,
+        // ]
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Scyther,
+          P.Scyther, P.Forretress, P.Heracross, P.Vespiquen, P.Volcarona,
         ]
       }
     },
+    // Normal types
     svstofu: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Jigglypuff, P.Meowth,
-        ]
+          P.Jigglypuff, P.Meowth, P.Teddiursa, P.Slakoth, P.Swablu,
+          P.Starly, P.Deerling, P.Fletchling, P.Litleo, P.Skiddo,
+          P.Yungoos, P.Skwovet,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Lechonk, P.Tandemaus, P.Smoliv, P.Shroodle,
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Persian, P.Eevee,
-        ]
+          P.Persian, P.Eevee, P.Girafarig, P.Dunsparce, P.Stantler,
+          P.Vigoroth, P.Zangoose, P.Staravia, P.Sawsbuck, P.Rufflet,
+          P.Pyroar, P.Gogoat, P.Gumshoos, P.Komala, P.Greedent,
+          P.Indeedee,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Oinkolonge, P.Doliv, P.Squawkabilly, P.Grafaiai, P.Cyclizar,
+        // ]
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Chansey,
-        ]
+          P.Chansey, P.Ursaring, P.Slaking, P.Staraptor, P.Braviary,
+          P.Oranguru,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Arboliva,
+        // ]
       }
     },
+    // Fighting types
     svsherbsausage: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Mankey,
+          P.Mankey, P.Makuhita, P.Meditite,
         ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Primeape,
+          P.Primeape, P.Breloom, P.Medicham, P.Croagunk, P.Crabrawler,
+          P.Falinks,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Flamigo, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Heracross, P.Hariyama, P.Lucario, P.Toxicroak, P.Hawlucha,
+          P.Passimian,
         ]
       }
     },
+    // Flying types
     svsegg: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Hoppip,
-        ]
+          P.Hoppip, P.Wingull, P.Swablu, P.Starly, P.Combee,
+          P.Fletchling, P.Rookidee,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Wattrel, 
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Skiploom, P.Murkrow,
-        ]
+          P.Skiploom, P.Murkrow, P.Delibird, P.Pelipper, P.Tropius,
+          P.Staravia, P.Drifloon, P.Rufflet, P.Fletchinder, P.Oricorio,
+          P.Corvisquire,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Squawkabilly, P.Kilowattrel, P.Flamigo,
+        // ]
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Scyther, P.Gyarados, P.Jumpluff,
-        ]
+          P.Scyther, P.Gyarados, P.Jumpluff, P.Altaria, P.Staraptor,
+          P.Vespiquen, P.Drifblim, P.Braviary, P.Talonflame, P.Hawlucha,
+          P.Noibat, P.Corviknight,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Bombirdier 
+        // ]
       }
     },
+    // Fire types
     svspickle: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Litleo, P.Salandit,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Fuecoco, P.Charcadet
+        // ]
+      },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Growlithe,
-        ]
+          P.Growlithe, P.Houndour, P.Numel, P.Larvesta, P.Fletchinder,
+          P.Pyroar,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Crocalor,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Houndoom, P.Camerupt, P.Torkoal, P.Volcarona, P.Talonflame,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Skeledirge,
+        // ]
       }
     },
+    // Poison types
     svsnoodle: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Venonat, P.Grimer, P.Gastly,
-        ]
-      },
-      greatball: {
-        [CATCH_CHARM_SWSH]: [
-          P.Venomoth, P.Muk, P.Haunter,
-        ]
-      }
-    },
-    svsnouveau: {
-      pokeball: {
-        [CATCH_CHARM_SWSH]: [
-          P.Jigglypuff, P.Marill,
-        ]
-      },
-      greatball: {
-        [CATCH_CHARM_SWSH]: [
-          P.Azumarill,
-        ]
-      }
-    },
-    svspotatosalad: {
-      pokeball: {
-        [CATCH_CHARM_SWSH]: [
-          P.Gastly,
+          P.Venonat, P.Grimer, P.Gastly, P.Gulpin, P.Foongus,
+          P.Skrelp, P.Salandit, P.Toxel,
         ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Shroodle, P.Varoom,
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Haunter, P.Misdreavus,
-        ]
-      }
-    },
-    svssmoky: {
-      pokeball: {
-        [CATCH_CHARM_SWSH]: [
-          P.Slowpoke, P.Drowzee,
-        ]
-      },
-      greatball: {
-        [CATCH_CHARM_SWSH]: [
-          P.Slowbro, P.Hypno,
-        ]
-      }
-    },
-    svssushi: {
-      greatball: {
-        [CATCH_CHARM_SWSH]: [
-          P.Murkrow,
-        ]
-      }
-    },
-    svshamburger: {
-      greatball: {
-        [CATCH_CHARM_SWSH]: [
-          P.Dratini,
-        ]
+          P.Venomoth, P.Muk, P.Haunter, P.Qwilfish, P.Swalot,
+          P.Seviper, P.Stunky, P.Croagunk, P.Mareanie,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Grafaiai, P.Glimmet,
+        // ]
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Dragonair,
+          P.Skuntank, P.Toxicroak, P.Amoonguss, P.Dragalge, P.Toxapex,
+          P.Toxtricity,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Revaroom, P.Glimmora,
+        // ]
+      }
+    },
+    // Fairy types
+    svsnouveau: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Jigglypuff, P.Marill, P.Ralts, P.Flabébé, P.Impidimp,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Fidough, P.Tinkatink,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Azumarill, P.Kirlia, P.Floette, P.Dedenne, P.Klefki,
+          P.Morgrem,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Dachsbun, P.Tinkatuff,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gardevoir, P.Mimikyu, P.Hatterene, P.Grimmsnarl,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tinkaton, 
+        // ]
+      }
+    },
+    // Ghost types
+    svspotatosalad: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gastly, P.Shuppet, P.Sandygast, P.Sinistea,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Grievard, P.Bramblin,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Haunter, P.Misdreavus, P.Sableye, P.Banette, P.Drifloon,
+          P.Dreepy,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Houndstone, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Drifblim, P.Rotom, P.Palossand, P.Mimikyu, P.Drakloak,
         ]
       }
     },
+    // Psychic types
+    svssmoky: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Slowpoke, P.Drowzee, P.Ralts, P.Meditite, P.Spoink,
+          P.Gothita, P.Hatenna,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Flittle, 
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Slowbro, P.Hypno, P.Girafarig, P.Kirlia, P.Medicham,
+          P.Grumpig, P.Bronzor, P.Gothorita, P.Bruxish, P.Hattrem,
+          P.Indeedee,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Veluza, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gardevoir, P.Bronzong, P.Gothitelle, P.Oranguru, P.Hatterene,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Espathra 
+        // ]
+      }
+    },
+    // Dark types
+    svssushi: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Sandile, P.Impidimp,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Maschiff, 
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Murkrow, P.Sneasel, P.Houndour, P.Sableye, P.Cacturne,
+          P.Stunky, P.Krokorok, P.Zorua, P.Pawniard, P.Deino,
+          P.Morgrem,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Lokix, P.Mabosstiff,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Houndoom, P.Skuntank, P.Krookodile, P.Zoroark, P.Bisharp,
+          P.Zweilous, P.Grimmsnarl,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Bombirdier, 
+        // ]
+      }
+    },
+    // Dragon types
+    svshamburger: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Applin,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Dratini, P.Bagon, P.Gible, P.Axew, P.Deino, P.Goomy,
+          P.Dreepy,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tatsugiri, P.Cyclizar,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Dragonair, P.Altaria, P.Shelgon, P.Gabite, P.Fraxure,
+          P.Zweilous, P.Dragalge, P.Sliggoo, P.Noibat, P.Drakloak
+        ]
+      }
+    },
+    // Steel types
     svshefty: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Magnemite,
-        ]
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tinkatink, 
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Magneton,
-        ]
-      }
+          P.Magneton, P.Bronzor, P.Pawniard, P.Klefki, P.Cufant,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tinkatuff, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Bronzong, P.Lucario, P.Bisharp, P.Corviknight, P.Copperajah,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tinkaton, P.Orthworm,
+        // ]
+      },
     },
+    // Water types
     svsvegetable: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
           P.Psyduck, P.Slowpoke, P.Shellder, P.Magikarp,
-          P.Marill,
-        ]
+          P.Marill, P.Wingull, P.Surskit, P.Luvdisc, P.Buizel,
+          P.Shellos, P.Finneon, P.Skrelp, P.Clauncher, P.Chewtle,
+          P.Arrokuda,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Quaxly, P.Wiglett,
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Golduck, P.Slowbro,
-          P.Azumarill
-        ]
+          P.Golduck, P.Slowbro, P.Azumarill, P.Qwilfish,
+          P.Pelipper, P.Masquerain, P.Barboach, P.Floatzel,
+          P.Lumineon, Potw(P.Basculin, {form: 'blue_stripe'}),
+          Potw(P.Basculin, {form: 'red_stripe'}), P.Mareanie,
+          P.Bruxish, P.Drednaw,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Quaxwell, P.Finizen, P.Tatsugiri, P.Veluza,
+        // ]
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Gyarados,
-        ]
+          P.Gyarados, P.Whiscash, P.Gastrodon, P.Alomomola, P.Clawitzer,
+          P.Toxapex, P.Barraskewda,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Quaquaval, P.Wugtrio, P.Dondozo,
+        // ]
       }
     },
+    // Grass types
     svsklawf: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Hoppip, P.Sunkern,
-        ]
+          P.Hoppip, P.Sunkern, P.Shroomish, P.Cacnea, P.Snover,
+          P.Petilil, P.Deerling, P.Foongus, P.Skiddo, P.Bounsweet,
+          P.Applin,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Sprigatito, P.Smoliv, P.Bramblin, P.Toedscool, P.Capsakid,
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Skiploom,
-        ]
+          P.Skiploom, P.Breloom, P.Cacturne, P.Tropius, P.Sawsbuck,
+          P.Gogoat, P.Fomantis, P.Steenee,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Floragato, P.Dolliv, P.Toedscruel,
+        // ]
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Jumpluff,
-        ]
+          P.Jumpluff, P.Abomasnow, P.Amoonguss, P.Lurantis, P.Tsareena,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Meowscarada, P.Arboliva,
+        // ]
       }
     },
+    // Electric types
     svsavocado: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Pikachu, P.Magnemite, P.Voltorb,
-          P.Mareep,
-        ]
+          P.Pikachu, P.Magnemite, P.Voltorb, P.Mareep, P.Shinx,
+          P.Tynamo, P.Toxel, P.Tadbulb, P.Wattrel,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Pawmi,
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Magneton, P.Electrode,
-          P.Flaaffy,
-        ]
+          P.Magneton, P.Electrode, P.Flaaffy, P.Luxio, P.Pachirisu,
+          P.Eelektrik, P.Dedenne, P.Pincurchin, P.Kilowattrel,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Pawmo,
+        // ]
       },
       ultraball: {
         [CATCH_CHARM_SWSH]: [
-          P.Ampharos,
+          P.Ampharos, P.Luxray, P.Rotom, P.Toxtricity,
         ]
       }
     },
+    // Ice types
+    svsdecadent: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Snorunt, P.Snover, P.Cubchoo, P.Snom,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Sneasel, P.Delibird, P.Bergmite, P.Eiscue,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Cetoddle, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Glalie, P.Abomasnow, P.Beartic, P.Cryogonal, P.Avalugg,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Cetitan, 
+        // ]
+      }
+    },
+    // Ground types
     svsjambon: {
       pokeball: {
         [CATCH_CHARM_SWSH]: [
-          P.Diglett,
-        ]
+          P.Diglett, P.Phanpy, P.Sandile, P.Sandygast, P.Silicobra,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Toedscool, 
+        // ]
       },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Dugtrio,
-        ]
+          P.Dugtrio, P.Donphan, P.Larvitar, P.Numel, P.Barboach,
+          P.Gible, P.Hippopotas, P.Krokorok, P.Mudbray, P.Sandaconda,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Toedscruel, 
+        // ]
       },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Camerupt, P.Whiscash, P.Gastrodon, P.Gabite, P.Hippowdon,
+          P.Krookodile, P.Mudsdale, P.Palossand,
+        ]
+      }
     },
+    // Rock types
     svsblt: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Rolycoly,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Nacli,
+        // ]
+      },
       greatball: {
         [CATCH_CHARM_SWSH]: [
-          P.Sudowoodo,
-        ]
+          P.Sudowoodo, P.Larvitar, P.Rockruff, P.Drednaw, P.Carkol,
+          P.Stonjourner,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Naclstack, P.Glimmet,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Lycanroc, P.Coalossal,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Garganacl, P.Klawf, P.Glimmora,
+        // ]
       }
     }
   }
@@ -4143,8 +4423,8 @@ export const HOLD_ITEMS_5: HoldItemTable = {
   [P.Cufant]: ['laggingtail'],
   [P.Copperajah]: ['laggingtail'],
   [P.Kleavor]: ['wood'],
-  [P.Toedschool]: ['tinymushroom'],
-  [P.Toedscreul]: ['bigmushroom'],
+  [P.Toedscool]: ['tinymushroom'],
+  [P.Toedscruel]: ['bigmushroom'],
   [P.Great_Tusk]: ['boosterenergy'],
   [P.Brute_Bonnet]: ['boosterenergy'],
   [P.Sandy_Shocks]: ['boosterenergy'],
@@ -4445,7 +4725,7 @@ export const HOLD_ITEMS_50: HoldItemTable = {
   [P.Mothim]: ['dazzlinghoney'],
   [P.Combee]: ['dazzlinghoney'],
   [P.Vespiquen]: ['dazzlinghoney'],
-  [P.Pachirisu]: ['oran'],
+  [P.Pachirisu]: ['oran', 'tmm_pachirisu'],
   [P.Cherubi]: ['lum'],
   [P.Cherrim]: ['lum', 'kingsleaf'],
   [P.Shellos]: ['nanab', 'tmm_shellos'],
@@ -4461,7 +4741,6 @@ export const HOLD_ITEMS_50: HoldItemTable = {
   [P.Lopunny]: ['oran'],
   [P.Glameow]: ['cheri', 'casterfern'],
   [P.Purugly]: ['cheri', 'casterfern'],
-  [P.Pachirisu]: ['tmm_pachirisu'],
   [P.Honchkrow]: ['plumpbeans'],
   [P.Chingling]: ['skytumblestone'],
   [P.Stunky]: ['pecha'],
