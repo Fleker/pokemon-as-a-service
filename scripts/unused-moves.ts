@@ -7,6 +7,7 @@ import { Movepool } from '../functions/lib/shared/src/battle/movepool'
 import * as pokemon from '../shared/src/pokemon'
 import fetch from 'node-fetch'
 import { MoveId } from '../shared/src/gen/type-move-meta'
+import { get } from '../shared/src/pokemon'
 import { Move } from '../functions/lib/shared/src/battle/types'
 
 const validMoveTutors3: MoveId[] = [
@@ -230,13 +231,17 @@ if (process.argv[2]) {
   // Fetch related to a single Pokemon
   (async () => {
     const id = process.argv[2]
+   // const species = get(`potw-${id}`)!.species
     const max = process.argv[3] === '-' ? 999 : process.argv[3]
     const pageSm = await fetch(`https://serebii.net/pokedex-sm/${id}.shtml`, {})
     const htmlSm: string = await pageSm.text()
     const pageSwSh = await fetch(`https://serebii.net/pokedex-swsh/${id}.shtml`, {}) // Redirects to canon page
     const htmlSwSh: string = await pageSwSh.text()
-    const html = htmlSm + htmlSwSh
-    // console.log(html)
+    const pageSv = await fetch(`https://serebii.net/pokedex-sv/${id}.shtml`, {}) // Redirects to canon page
+    const htmlSv: string = await pageSv.text()
+    const html = htmlSm + htmlSwSh + htmlSv
+    // console.log(species)
+    // console.log(`https://serebii.net/pokedex-swsh/${species}.shtml`)
     const moveCols = html.match(/<td rowspan="2" class="fooinfo"><a href="[\w\s-/.]+">[\w\s-]+<\/a>/g)
     // console.log(moveCols)
     const canonMoves = moveCols?.map(m => m.replace(/<td rowspan="2" class="fooinfo"><a href="[\w\s-/.]+">([\w\s-]+)(<br \/>)?<\/a>/, '$1'))
