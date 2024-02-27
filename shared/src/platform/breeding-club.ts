@@ -12,7 +12,7 @@ import * as P from '../gen/type-pokemon'
  * Simple badge IDs for the species that have a 4x shiny chance.
  */
 export const babyProduced: BadgeId[] = [
-  P.Rotom,
+  P.Komala,
 ]
 
 /**
@@ -20,10 +20,10 @@ export const babyProduced: BadgeId[] = [
  * Note that this only is for labels, and has no pragmatic effect.
  */
 export const parents: BadgeId[] = [
-  Potw(P.Rotom, {var: 1}),
-  Potw(P.Rotom, {var: 2}),
-  Potw(P.Rotom, {var: 3}),
-  Potw(P.Rotom, {var: 4}),
+  Potw(P.Komala, {var: 1}),
+  Potw(P.Komala, {var: 2}),
+  Potw(P.Komala, {var: 3}),
+  Potw(P.Komala, {var: 4}),
 ]
 
 export const history: BadgeId[] = [
@@ -418,4 +418,8 @@ export const history: BadgeId[] = [
   Potw(P.Nickit, {var: 2}),
   Potw(P.Thievul, {var: 1}),
   Potw(P.Thievul, {var: 2}),
+  Potw(P.Rotom, {var: 1}),
+  Potw(P.Rotom, {var: 2}),
+  Potw(P.Rotom, {var: 3}),
+  Potw(P.Rotom, {var: 4}),
 ]
