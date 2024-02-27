@@ -622,7 +622,7 @@ export const hisuiBuilder = {
   'potw-905': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
     syncableForms: ['incarnate', 'therian'], needForm: 'incarnate',
-    tiers: [], shiny: 'FALSE', rarity: 'LEGENDARY',
+    tiers: [], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
     weight: 48, release: 'ultraball',
     eggGroup: [], eggCycles: -1,
     pokedex: `When it flies to this land from across the sea, the bitter winter comes to an end. According to legend, this Pokémon's love gives rise to the budding of fresh life across Hisui.`,
@@ -641,7 +641,7 @@ export const hisuiBuilder = {
   }),
   'potw-905-incarnate': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', rarity: 'LEGENDARY',
+    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
     weight: 48, release: 'ultraball',
     eggGroup: [], eggCycles: -1,
     pokedex: `When it flies to this land from across the sea, the bitter winter comes to an end. According to legend, this Pokémon's love gives rise to the budding of fresh life across Hisui.`,
@@ -660,7 +660,7 @@ export const hisuiBuilder = {
   }),
   'potw-905-therian': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', rarity: 'LEGENDARY',
+    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
     weight: 48, release: 'ultraball',
     eggGroup: [], eggCycles: -1,
     pokedex: `When it flies to this land from across the sea, the bitter winter comes to an end. According to legend, this Pokémon's love gives rise to the budding of fresh life across Hisui.`,

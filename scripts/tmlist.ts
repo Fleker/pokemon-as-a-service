@@ -21,9 +21,9 @@ async function getTMsList(id) {
   return movesTM
 }
 
-async function getTMsListSwSh(rawName) {
-  const name = rawName.toLowerCase().replace(' ', '')
-  console.log(`https://serebii.net/pokedex-swsh/${name}/`)
+async function getTMsListSwSh(id) {
+  console.log(`https://serebii.net/pokedex-swsh/${id}.shtml`)
+  const page = await fetch(`https://serebii.net/pokedex-swsh/${id}.shtml`, {})
   const page = await fetch(`https://serebii.net/pokedex-swsh/${name}/`, {})
   const text = await page.text()
   const movesTM: string[] = []
@@ -41,10 +41,9 @@ async function getTMsListSwSh(rawName) {
   return movesTM
 }
 
-async function getTMsListSv(rawName) {
-  const name = rawName.toLowerCase().replace(' ', '')
-  console.log(`https://serebii.net/pokedex-sv/${name}/`)
-  const page = await fetch(`https://serebii.net/pokedex-sv/${name}/`, {})
+async function getTMsListSv(id) {
+  console.log(`https://serebii.net/pokedex-sv/${id}.shtml`)
+  const page = await fetch(`https://serebii.net/pokedex-sv/${id}.shtml`, {})
   const text = await page.text()
   const movesTM: string[] = []
 
@@ -62,7 +61,7 @@ async function getTMsListSv(rawName) {
 }
 
 async function getMoveTutors(id) {
-  const page = await fetch(`https://serebii.net/pokedex-sm/${id}.shtml`, {})
+  const page = await fetch(`https://serebii.net/pokedex-sm/${id.toString().padStart(3, '0')}.shtml`, {})
   const text = await page.text()
   const validMoveTutors = [
     'Weather Ball', 'Air Cutter', 'Heat Wave', 'Seed Bomb', 'Liquidation',
@@ -92,18 +91,28 @@ function delay(ms) {
   })
 }
 
-const moveTmsRegex = (id) => new RegExp(`(potw-${id}['"]?:.*?moveTMs['"]?:).*?]`, 's');
+const moveTmsRegex = (id) => new RegExp(`(potw-${id.toString().padStart(3, '0')}['"]?:.*?moveTMs['"]?:).*?]`, 's');
 
-async function getTMsFor(id: number, pkmnObj: any) {
-  let tmlist: string[] = []
-  if (id < 810) {
-    tmlist = await getTMsList(id)
-  } else if (id < 899) {
-    tmlist = await getTMsListSwSh(pkmnObj[`potw-${id}`].species)
-  } else if (id < 1011) {
-    tmlist = await getTMsListSv(pkmnObj[`potw-${id}`].species)
+async function getTMsFor(id: number, pkmnObj: any): Promise<string[]> {
+  const pid = id.toString().padStart(3, '0')
+  let tmlist: Set<string> = new Set()
+  if (id <= 809) {
+    const x = await getTMsList(pid)
+    x.forEach(tm => tmlist.add(tm))
+    const y = await getTMsListSwSh(pid)
+    y.forEach(tm => tmlist.add(tm))
+    const z = await getTMsListSv(pid)
+    z.forEach(tm => tmlist.add(tm))
+  } else if (id <= 898) {
+    const y = await getTMsListSwSh(id)
+    y.forEach(tm => tmlist.add(tm))
+    const z = await getTMsListSv(id)
+    z.forEach(tm => tmlist.add(tm))
+  } else if (id <= 1025) {
+    const z = await getTMsListSv(id)
+    z.forEach(tm => tmlist.add(tm))
   }
-  return tmlist
+  return [...tmlist]
 }
 
 (async () => {
@@ -144,17 +153,42 @@ async function getTMsFor(id: number, pkmnObj: any) {
       for (const id of ids) {
         if (id.length > 3) console.log(`TODO: ${id}`)
         try {
-          const tmlist = getTMsFor(parseInt(id), pkmnObj)
+          const tmlist = await getTMsFor(parseInt(id), pkmnObj)
           pkmnData = pkmnData.replace(moveTmsRegex(id), `$1 ${format(tmlist, '      ')}`)
-          await delay(1000)
+          await delay(2000)
         } catch (e) {
           console.error(`node tmlist.js ${id} replace ${region}`)
         }
       }
       fs.writeFileSync(sourcePath, pkmnData)
       return ids
+    } else if (process.argv[3] === 'range') {
+      // node tmlist.js 000 replaceall kanto 001 151
+      const region = process.argv[4]
+      const min = parseInt(process.argv[5])
+      const max = parseInt(process.argv[6])
+      console.log(`Fetching TM/TR list for #s ${min}-${max}`)
+      const filepath = `../functions/lib/shared/src/pokemon/${region}.js`
+      const datastore = require(filepath)
+      const pkmnObj = datastore[`${region}Builder`]
+
+      const sourcePath = `./shared/src/pokemon/${region}.ts`
+      let pkmnData = fs.readFileSync(sourcePath, 'utf-8')
+
+      for (let id = min; id <= max; id++) {
+        try {
+          console.log(`    Fetching TM/TR list for #${id}`)
+          const tmlist = await getTMsFor(id, pkmnObj)
+          pkmnData = pkmnData.replace(moveTmsRegex(id), `$1 ${format(tmlist, '      ')}`)
+          fs.writeFileSync(sourcePath, pkmnData)
+          await delay(2000)
+        } catch (e) {
+          // console.error(e)
+          console.error(`node tmlist.js ${id} replace ${region}`)
+        }
+      }
+      return 'ok'
     }
-    console.log(`Fetching TM/TR list for ${process.argv[2]}`)
     return await getTMsList(process.argv[2])
   })()
   

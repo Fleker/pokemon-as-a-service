@@ -1,4 +1,7 @@
 import { ensurePkmnBuilder } from './types'
+import {kantoBuilder} from './kanto'
+import {johtoBuilder} from './johto'
+import {hisuiBuilder} from './hisui'
 export const paldeaBuilder = {
   'potw-128-combat_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting',
@@ -72,7 +75,13 @@ export const paldeaBuilder = {
     pokedex: `Its fluffy fur is similar in composition to plants. This Pokémon frequently washes its face to keep it from drying out.`,
     hp: 40, attack: 61, defense: 54, spAttack: 45, spDefense: 45, speed: 65,
     move: ['Leafage'],
-    moveTMs: []
+    moveTMs: [
+      'Solar Beam', 'Mud-Slap', 'Swift', 'Facade', 'Leaf Storm', 
+      'Shadow Claw', 'Petal Blizzard', 'Play Rough', 'Leafage', 'Trailblaze', 
+      'Protect', 'Nasty Plot', 'Agility', 'Quick Attack', 'Charm', 
+      'Substitute', 'Leech Seed', 'Hone Claws', 'Endure', 'Grassy Terrain', 
+      'Taunt', 'Fake Tears', 
+    ]
   }),
   'potw-907': ensurePkmnBuilder({
     species: 'Floragato', type1: 'Grass', 
@@ -83,7 +92,13 @@ export const paldeaBuilder = {
     pokedex: `Floragato deftly wields the vine hidden beneath its long fur, slamming the hard flower bud against its opponents.`,
     hp: 61, attack: 80, defense: 63, spAttack: 60, spDefense: 63, speed: 83,
     move: ['Seed Bomb'],
-    moveTMs: []
+    moveTMs: [
+      'Solar Beam', 'Thunder Punch', 'Mud-Slap', 'Swift', 'Facade', 
+      'Aerial Ace', 'Leaf Storm', 'Shadow Claw', 'Petal Blizzard', 'Play Rough', 
+      'Leafage', 'Trailblaze', 'Protect', 'Nasty Plot', 'Agility', 
+      'Quick Attack', 'Charm', 'Substitute', 'Leech Seed', 'Hone Claws', 
+      'Endure', 'Grassy Terrain', 'Taunt', 'Fake Tears', 
+    ]
   }),
   'potw-908': ensurePkmnBuilder({
     species: 'Meowscarada', type1: 'Grass', type2: 'Dark', 
@@ -93,7 +108,15 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon uses the reflective fur lining its cape to camouflage the stem of its flower, creating the illusion that the flower is floating.`,
     hp: 76, attack: 110, defense: 70, spAttack: 81, spDefense: 70, speed: 123,
     move: ['Flower Trick', 'Night Slash'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Thunder Punch', 'Mud-Slap', 'Shadow Ball', 
+      'Swift', 'Facade', 'Aerial Ace', 'Leaf Storm', 'Shadow Claw', 
+      'Petal Blizzard', 'Play Rough', 'Giga Impact', 'Leafage', 'Trailblaze', 
+      'Chilling Water', 'Dark Pulse', 'Protect', 'Frenzy Plant', 'Nasty Plot', 
+      'Agility', 'Quick Attack', 'Charm', 'Trick Room', 'Knock Off', 
+      'Substitute', 'Leech Seed', 'Hone Claws', 'Endure', 'Grassy Terrain', 
+      'Taunt', 'Fake Tears', 'Double Team', 
+    ]
   }),
   'potw-909': ensurePkmnBuilder({
     species: 'Fuecoco', type1: 'Fire', 
@@ -104,7 +127,11 @@ export const paldeaBuilder = {
     pokedex: `It lies on warm rocks and uses the heat absorbed by its square-shaped scales to create fire energy.`,
     hp: 67, attack: 45, defense: 59, spAttack: 63, spDefense: 40, speed: 36,
     move: ['Ember'],
-    moveTMs: []
+    moveTMs: [
+      'Dig', 'Fire Blast', 'Mud-Slap', 'Overheat', 'Facade', 
+      'Hyper Voice', 'Fire Spin', 'Protect', 'Will-O-Wisp', 'Sunny Day', 
+      'Substitute', 'Endure', 
+    ]
   }),
   'potw-910': ensurePkmnBuilder({
     species: 'Crocalor', type1: 'Fire', 
@@ -115,7 +142,11 @@ export const paldeaBuilder = {
     pokedex: `The combination of Crocalor's fire energy and overflowing vitality has caused an egg-shaped fireball to appear on the Pokémon's head.`,
     hp: 81, attack: 55, defense: 78, spAttack: 90, spDefense: 58, speed: 49,
     move: ['Incinerate'],
-    moveTMs: []
+    moveTMs: [
+      'Dig', 'Fire Blast', 'Mud-Slap', 'Overheat', 'Facade', 
+      'Hyper Voice', 'Fire Spin', 'Protect', 'Will-O-Wisp', 'Sunny Day', 
+      'Substitute', 'Endure', 
+    ]
   }),
   'potw-911': ensurePkmnBuilder({
     species: 'Skeledirge', type1: 'Fire', type2: 'Ghost', 
@@ -125,7 +156,13 @@ export const paldeaBuilder = {
     pokedex: `The fiery bird changes shape when Skeledirge sings. Rumor has it that the bird was born when the fireball on Skeledirge's head gained a soul.`,
     hp: 104, attack: 75, defense: 100, spAttack: 110, spDefense: 75, speed: 66,
     move: ['Torch Song', 'Shadow Ball'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Dig', 'Fire Blast', 'Earthquake', 
+      'Mud-Slap', 'Shadow Ball', 'Overheat', 'Facade', 'Shadow Claw', 
+      'Hyper Voice', 'Giga Impact', 'Fire Spin', 'Protect', 'Will-O-Wisp', 
+      'Blast Burn', 'Sunny Day', 'Substitute', 'Endure', 'Imprison', 
+      
+    ]
   }),
   'potw-912': ensurePkmnBuilder({
     species: 'Quaxly', type1: 'Water', 
@@ -136,7 +173,11 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon migrated to Paldea from distant lands long ago. The gel secreted by its feathers repels water and grime.`,
     hp: 55, attack: 65, defense: 45, spAttack: 50, spDefense: 45, speed: 50,
     move: ['Water Gun'],
-    moveTMs: []
+    moveTMs: [
+      'Swift', 'Facade', 'Aerial Ace', 'Double Hit', 'Liquidation', 
+      'Chilling Water', 'Surf', 'Whirlpool', 'Protect', 'Rain Dance', 
+      'Substitute', 'Work Up', 'Endure', 'Misty Terrain', 'Roost', 
+    ]
   }),
   'potw-913': ensurePkmnBuilder({
     species: 'Quaxwell', type1: 'Water', 
@@ -147,7 +188,12 @@ export const paldeaBuilder = {
     pokedex: `These Pokémon constantly run through shallow waters to train their legs, then compete with each other to see which of them kicks most gracefully.`,
     hp: 70, attack: 85, defense: 65, spAttack: 65, spDefense: 60, speed: 65,
     move: ['Aqua Cutter'],
-    moveTMs: []
+    moveTMs: [
+      'Swift', 'Facade', 'Aerial Ace', 'Water Pulse', 'Double Hit', 
+      'Liquidation', 'Chilling Water', 'Surf', 'Whirlpool', 'Protect', 
+      'Feather Dance', 'Rain Dance', 'Substitute', 'Work Up', 'Endure', 
+      'Misty Terrain', 'Roost', 
+    ]
   }),
   'potw-914': ensurePkmnBuilder({
     species: 'Quaquaval', type1: 'Water', type2: 'Fighting', 
@@ -157,7 +203,14 @@ export const paldeaBuilder = {
     pokedex: `A single kick from a Quaquaval can send a truck rolling. This Pokémon uses its powerful legs to perform striking dances from far-off lands.`,
     hp: 85, attack: 120, defense: 80, spAttack: 85, spDefense: 75, speed: 85,
     move: ['Aqua Step', 'Close Combat'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Icy Wind', 'Swift', 'Facade', 'Aerial Ace', 
+      'Water Pulse', 'Close Combat', 'Double Hit', 'Giga Impact', 'Liquidation', 
+      'Chilling Water', 'Ice Spinner', 'Surf', 'Whirlpool', 'Protect', 
+      'Bulk Up', 'Hydro Cannon', 'Swords Dance', 'Agility', 'Feather Dance', 
+      'Rain Dance', 'Endeavor', 'Knock Off', 'Substitute', 'Work Up', 
+      'Endure', 'Misty Terrain', 'Taunt', 'Roost', 
+    ]
   }),
   'potw-915': ensurePkmnBuilder({
     species: 'Lechonk', type1: 'Normal', 
@@ -168,7 +221,12 @@ export const paldeaBuilder = {
     pokedex: `It searches for food all day. It possesses a keen sense of smell but doesn't use it for anything other than foraging.`,
     hp: 54, attack: 45, defense: 40, spAttack: 35, spDefense: 45, speed: 35,
     move: ['Tackle'],
-    moveTMs: []
+    moveTMs: [
+      'Double-Edge', 'Dig', 'Mud-Slap', 'Facade', 'Hyper Voice', 
+      'Bulldoze', 'Play Rough', 'Mud Shot', 'Trailblaze', 'Chilling Water', 
+      'Protect', 'Sunny Day', 'Rain Dance', 'Endeavor', 'Substitute', 
+      'Work Up', 'Endure', 
+    ]
   }),
   // https://serebii.net/pokedex-sv/oinkologne/
   'potw-916': ensurePkmnBuilder({
@@ -179,7 +237,13 @@ export const paldeaBuilder = {
     pokedex: `Oinkologne is proud of its fine, glossy skin. It emits a concentrated scent from the tip of its tail.`,
     hp: 110, attack: 100, defense: 75, spAttack: 59, spDefense: 80, speed: 65,
     move: ['Double-Edge'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Mud-Slap', 'Facade', 
+      'Hyper Voice', 'Bulldoze', 'Play Rough', 'Giga Impact', 'Body Press', 
+      'Mud Shot', 'Trailblaze', 'Chilling Water', 'Protect', 'Sunny Day', 
+      'Rain Dance', 'Endeavor', 'Substitute', 'Work Up', 'Endure', 
+      
+    ]
   }),
   'potw-916-female': ensurePkmnBuilder({
     species: 'Oinkologne', type1: 'Normal', 
@@ -200,7 +264,11 @@ export const paldeaBuilder = {
     pokedex: `The ball of threads wrapped around its body is elastic enough to deflect the scythes of Scyther, this Pokémon's natural enemy.`,
     hp: 35, attack: 41, defense: 45, spAttack: 29, spDefense: 40, speed: 20,
     move: ['Struggle Bug'],
-    moveTMs: []
+    moveTMs: [
+      'Facade', 'Shadow Claw', 'Pounce', 'Trailblaze', 'String Shot', 
+      'Protect', 'Sunny Day', 'Rain Dance', 'Knock Off', 'Substitute', 
+      'Endure', 
+    ]
   }),
   'potw-918': ensurePkmnBuilder({
     species: 'Spidops', type1: 'Bug', 
@@ -210,7 +278,12 @@ export const paldeaBuilder = {
     pokedex: `It clings to branches and ceilings using its threads and moves without a sound. It takes out its prey before the prey even notices it.`,
     hp: 60, attack: 79, defense: 92, spAttack: 52, spDefense: 86, speed: 35,
     move: ['Skitter Smack'],
-    moveTMs: []
+    moveTMs: [
+      'Rock Tomb', 'Facade', 'Aerial Ace', 'Shadow Claw', 'Electroweb', 
+      'Giga Impact', 'Pounce', 'Trailblaze', 'String Shot', 'Protect', 
+      'Sunny Day', 'Rain Dance', 'Knock Off', 'Substitute', 'Endure', 
+      'Taunt', 
+    ]
   }),
   'potw-919': ensurePkmnBuilder({
     species: 'Nymble', type1: 'Bug', 
@@ -221,7 +294,11 @@ export const paldeaBuilder = {
     pokedex: `It has its third set of legs folded up. When it's in a tough spot, this Pokémon jumps over 30 feet using the strength of its legs.`,
     hp: 33, attack: 46, defense: 40, spAttack: 21, spDefense: 25, speed: 45,
     move: ['Struggle Bug'],
-    moveTMs: []
+    moveTMs: [
+      'Facade', 'Pounce', 'Trailblaze', 'Protect', 'Agility', 
+      'Screech', 'Sunny Day', 'Rain Dance', 'Substitute', 'Endure', 
+      
+    ]
   }),
   'potw-920': ensurePkmnBuilder({
     species: 'Lokix', type1: 'Bug', type2: 'Dark', 
@@ -231,7 +308,12 @@ export const paldeaBuilder = {
     pokedex: `When it decides to fight all out, it stands on its previously folded legs to enter Showdown Mode. It neutralizes its enemies in short order.`,
     hp: 71, attack: 102, defense: 78, spAttack: 52, spDefense: 55, speed: 92,
     move: ['Lunge', 'Sucker Punch'],
-    moveTMs: [],
+    moveTMs: [
+      'Double-Edge', 'Facade', 'Aerial Ace', 'Giga Impact', 'Pounce', 
+      'Trailblaze', 'Dark Pulse', 'Protect', 'Swords Dance', 'Agility', 
+      'Screech', 'Sunny Day', 'Rain Dance', 'Knock Off', 'Substitute', 
+      'Endure', 'Taunt', 
+    ],
     novelMoves: [[],
       ['Axe Kick', 'Screech'],
     ]
@@ -245,7 +327,13 @@ export const paldeaBuilder = {
     pokedex: `It has underdeveloped electric sacs on its cheeks. These sacs can produce electricity only if Pawmi rubs them furiously with the pads on its forepaws.`,
     hp: 45, attack: 50, defense: 20, spAttack: 40, spDefense: 25, speed: 60,
     move: ['Thunder Shock'],
-    moveTMs: []
+    moveTMs: [
+      'Dig', 'Thunderbolt', 'Swift', 'Facade', 'Charge Beam', 
+      'Electroweb', 'Nuzzle', 'Play Rough', 'Spark', 'Volt Switch', 
+      'Protect', 'Thunder Wave', 'Agility', 'Sunny Day', 'Rain Dance', 
+      'Quick Attack', 'Charm', 'Wish', 'Fake Out', 'Substitute', 
+      'Endure', 'Electric Terrain', 
+    ]
   }),
   'potw-922': ensurePkmnBuilder({
     species: 'Pawmo', type1: 'Electric', type2: 'Fighting', 
@@ -256,7 +344,14 @@ export const paldeaBuilder = {
     pokedex: `When its group is attacked, Pawmo is the first to leap into battle, defeating enemies with a fighting technique that utilizes electric shocks.`,
     hp: 60, attack: 75, defense: 40, spAttack: 50, spDefense: 40, speed: 85,
     move: ['Spark', 'Arm Thrust'],
-    moveTMs: []
+    moveTMs: [
+      'Thunder Punch', 'Dig', 'Thunderbolt', 'Swift', 'Focus Punch', 
+      'Facade', 'Charge Beam', 'Electroweb', 'Nuzzle', 'Play Rough', 
+      'Spark', 'Volt Switch', 'Protect', 'Thunder Wave', 'Agility', 
+      'Sunny Day', 'Rain Dance', 'Quick Attack', 'Charm', 'Wish', 
+      'Fake Out', 'Knock Off', 'Substitute', 'Endure', 'Electric Terrain', 
+      
+    ]
   }),
   'potw-923': ensurePkmnBuilder({
     species: 'Pawmot', type1: 'Electric', type2: 'Fighting', 
@@ -266,7 +361,16 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon normally is slow to react, but once it enters battle, it will strike down its enemies with lightning-fast movements.`,
     hp: 70, attack: 115, defense: 70, spAttack: 70, spDefense: 60, speed: 105,
     move: ['Double Shock', 'Close Combat'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Thunder Punch', 'Fire Punch', 'Double-Edge', 
+      'Dig', 'Thunderbolt', 'Swift', 'Rock Tomb', 'Focus Punch', 
+      'Facade', 'Close Combat', 'Charge Beam', 'Electroweb', 'Nuzzle', 
+      'Play Rough', 'Spark', 'Giga Impact', 'Body Press', 'Volt Switch', 
+      'Protect', 'Thunder Wave', 'Metronome', 'Bulk Up', 'Agility', 
+      'Sunny Day', 'Rain Dance', 'Quick Attack', 'Charm', 'Wish', 
+      'Fake Out', 'Knock Off', 'Substitute', 'Endure', 'Electric Terrain', 
+      
+    ],
     novelMoves: [[],
       // ['Revival Blessing'],
     ],
@@ -280,7 +384,14 @@ export const paldeaBuilder = {
     pokedex: `Exhibiting great teamwork, they use their incisors to cut pieces out of any material that might be useful for a nest, then make off with them.`,
     hp: 50, attack: 50, defense: 45, spAttack: 40, spDefense: 45, speed: 75,
     move: ['Double Hit'],
-    moveTMs: []
+    moveTMs: [
+      'Double-Edge', 'Dig', 'Mud-Slap', 'Swift', 'Facade', 
+      'Aerial Ace', 'Water Pulse', 'Shadow Claw', 'Hyper Voice', 'Double Hit', 
+      'Play Rough', 'Mud Shot', 'Beat Up', 'Protect', 'Thunder Wave', 
+      'Agility', 'Sunny Day', 'Rain Dance', 'Tickle', 'Charm', 
+      'Switcheroo', 'Substitute', 'Endure', 'Taunt', 'Fake Tears', 
+      
+    ]
   }),
   'potw-925': ensurePkmnBuilder({
     species: 'Maushold', type1: 'Normal', 
@@ -290,7 +401,15 @@ export const paldeaBuilder = {
     pokedex: `The two little ones just appeared one day. The group might be a family of related Pokémon, but nobody knows for sure.`,
     hp: 74, attack: 75, defense: 70, spAttack: 65, spDefense: 75, speed: 111,
     move: ['Population Bomb'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Mud-Slap', 'Swift', 
+      'Facade', 'Aerial Ace', 'Water Pulse', 'Shadow Claw', 'Hyper Voice', 
+      'Double Hit', 'Play Rough', 'Giga Impact', 'Mud Shot', 'Beat Up', 
+      'Trailblaze', 'Chilling Water', 'Protect', 'Thunder Wave', 'Agility', 
+      'Sunny Day', 'Rain Dance', 'Tickle', 'Charm', 'Switcheroo', 
+      'Substitute', 'Endure', 'Taunt', 'Fake Tears', 'Follow Me', 
+      
+    ]
   }),
   'potw-926': ensurePkmnBuilder({
     species: 'Fidough', type1: 'Fairy', 
@@ -301,7 +420,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon is smooth and moist to the touch. Yeast in Fidough's breath induces fermentation in the Pokémon's vicinity.`,
     hp: 37, attack: 55, defense: 70, spAttack: 30, spDefense: 55, speed: 65,
     move: ['Play Rough'],
-    moveTMs: []
+    moveTMs: [
+      'Double-Edge', 'Dig', 'Mud-Slap', 'Facade', 'Play Rough', 
+      'Dazzling Gleam', 'Mud Shot', 'Trailblaze', 'Protect', 'Agility', 
+      'Sunny Day', 'Rain Dance', 'Charm', 'Wish', 'Endeavor', 
+      'Substitute', 'Work Up', 'Endure', 'Misty Terrain', 'Sweet Scent', 
+      
+    ]
   }),
   'potw-927': ensurePkmnBuilder({
     species: 'Dachsbun', type1: 'Fairy', 
@@ -311,7 +436,13 @@ export const paldeaBuilder = {
     pokedex: `The pleasant aroma that emanates from this Pokémon's body helps wheat grow, so Dachsbun has been treasured by farming villages.`,
     hp: 57, attack: 80, defense: 115, spAttack: 50, spDefense: 80, speed: 95,
     move: ['Play Rough'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Mud-Slap', 'Facade', 
+      'Play Rough', 'Giga Impact', 'Dazzling Gleam', 'Body Press', 'Draining Kiss', 
+      'Mud Shot', 'Trailblaze', 'Protect', 'Agility', 'Sunny Day', 
+      'Rain Dance', 'Charm', 'Wish', 'Endeavor', 'Substitute', 
+      'Work Up', 'Endure', 'Misty Terrain', 'Sweet Scent', 
+    ]
   }),
   'potw-928': ensurePkmnBuilder({
     species: 'Smoliv', type1: 'Grass', type2: 'Normal', 
@@ -322,7 +453,12 @@ export const paldeaBuilder = {
     pokedex: `It protects itself from enemies by emitting oil from the fruit on its head. This oil is bitter and astringent enough to make someone flinch.`,
     hp: 41, attack: 35, defense: 45, spAttack: 58, spDefense: 51, speed: 30,
     move: ['Absorb'],
-    moveTMs: []
+    moveTMs: [
+      'Solar Beam', 'Mega Drain', 'Swift', 'Facade', 'Leaf Storm', 
+      'Solar Blade', 'Trailblaze', 'Weather Ball', 'Protect', 'Sunny Day', 
+      'Charm', 'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 
+      'Sweet Scent', 
+    ]
   }),
   'potw-929': ensurePkmnBuilder({
     species: 'Dolliv', type1: 'Grass', type2: 'Normal', 
@@ -333,7 +469,12 @@ export const paldeaBuilder = {
     pokedex: `Dolliv shares its tasty, fresh-scented oil with others. This species has coexisted with humans since times long gone.`,
     hp: 52, attack: 53, defense: 60, spAttack: 78, spDefense: 78, speed: 33,
     move: ['Mega Drain'],
-    moveTMs: []
+    moveTMs: [
+      'Solar Beam', 'Mega Drain', 'Swift', 'Facade', 'Leaf Storm', 
+      'Solar Blade', 'Trailblaze', 'Weather Ball', 'Protect', 'Sunny Day', 
+      'Charm', 'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 
+      'Sweet Scent', 
+    ]
   }),
   'potw-930': ensurePkmnBuilder({
     species: 'Arboliva', type1: 'Grass', type2: 'Normal', 
@@ -343,7 +484,14 @@ export const paldeaBuilder = {
     pokedex: `This calm Pokémon is very compassionate. It will share its delicious, nutrient-rich oil with weakened Pokémon.`,
     hp: 78, attack: 69, defense: 90, spAttack: 125, spDefense: 109, speed: 39,
     move: ['Petal Dance'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Mega Drain', 'Swift', 'Facade', 
+      'Leaf Storm', 'Hyper Voice', 'Petal Blizzard', 'Giga Impact', 'Solar Blade', 
+      'Dazzling Gleam', 'Trailblaze', 'Weather Ball', 'Protect', 'Metronome', 
+      'Sunny Day', 'Reflect', 'Light Screen', 'Safeguard', 'Charm', 
+      'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 'Sweet Scent', 
+      
+    ]
   }),
   'potw-931': ensurePkmnBuilder({
     species: 'Squawkabilly', type1: 'Normal', type2: 'Flying', 
@@ -354,7 +502,13 @@ export const paldeaBuilder = {
     pokedex: `These Pokémon prefer to live in cities. They form flocks based on the color of their feathers, and they fight over territory.`,
     hp: 82, attack: 96, defense: 51, spAttack: 45, spDefense: 51, speed: 92,
     move: ['Uproar', 'Fly'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Facade', 'Aerial Ace', 'Hyper Voice', 
+      'Giga Impact', 'Fly', 'Pounce', 'Protect', 'Swagger', 
+      'Flatter', 'Mimic', 'Feather Dance', 'Sunny Day', 'Quick Attack', 
+      'Tailwind', 'Endeavor', 'Substitute', 'Endure', 'Taunt', 
+      'Roost', 'Fake Tears', 
+    ]
   }),
   'potw-932': ensurePkmnBuilder({
     species: 'Nacli', type1: 'Rock', 
@@ -365,7 +519,12 @@ export const paldeaBuilder = {
     pokedex: `It was born in a layer of rock salt deep under the earth. This species was particularly treasured in the old days, as they would share precious salt.`,
     hp: 55, attack: 55, defense: 75, spAttack: 35, spDefense: 35, speed: 25,
     move: ['Rock Throw'],
-    moveTMs: []
+    moveTMs: [
+      'Dig', 'Earthquake', 'Facade', 'Rock Slide', 'Stone Edge', 
+      'Flash Cannon', 'Bulldoze', 'Mud Shot', 'Ancient Power', 'Protect', 
+      'Iron Defense', 'Sunny Day', 'Rain Dance', 'Sandstorm', 'Rock Polish', 
+      'Substitute', 'Endure', 
+    ]
   }),
   'potw-933': ensurePkmnBuilder({
     species: 'Naclstack', type1: 'Rock', 
@@ -376,7 +535,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon dry cures its prey by spraying salt over them. The curing process steals away the water in the prey's body.`,
     hp: 60, attack: 60, defense: 100, spAttack: 35, spDefense: 65, speed: 35,
     move: ['Rock Slide'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Earthquake', 'Facade', 
+      'Rock Slide', 'Stone Edge', 'Flash Cannon', 'Bulldoze', 'Giga Impact', 
+      'Body Press', 'Mud Shot', 'Ancient Power', 'Protect', 'Iron Defense', 
+      'Sunny Day', 'Rain Dance', 'Sandstorm', 'Rock Polish', 'Substitute', 
+      'Endure', 
+    ]
   }),
   'potw-934': ensurePkmnBuilder({
     species: 'Garganacl', type1: 'Rock', 
@@ -386,7 +551,14 @@ export const paldeaBuilder = {
     pokedex: `Garganacl will rub its fingertips together and sprinkle injured Pokémon with salt. Even severe wounds will promptly heal afterward.`,
     hp: 100, attack: 100, defense: 130, spAttack: 45, spDefense: 90, speed: 35,
     move: ['Stone Edge'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Thunder Punch', 'Fire Punch', 'Double-Edge', 
+      'Dig', 'Earthquake', 'Rock Tomb', 'Focus Punch', 'Facade', 
+      'Rock Slide', 'Stone Edge', 'Flash Cannon', 'Bulldoze', 'Rock Blast', 
+      'Giga Impact', 'Body Press', 'Mud Shot', 'Ancient Power', 'Protect', 
+      'Iron Defense', 'Sunny Day', 'Rain Dance', 'Sandstorm', 'Rock Polish', 
+      'Substitute', 'Wide Guard', 'Endure', 
+    ]
   }),
   'potw-935': ensurePkmnBuilder({
     species: 'Charcadet', type1: 'Fire', 
@@ -397,7 +569,11 @@ export const paldeaBuilder = {
     pokedex: `Burnt charcoal came to life and became a Pokémon. Possessing a fiery fighting spirit, Charcadet will battle even tough opponents.`,
     hp: 40, attack: 50, defense: 40, spAttack: 50, spDefense: 40, speed: 35,
     move: ['Flame Charge'],
-    moveTMs: []
+    moveTMs: [
+      'Fire Blast', 'Overheat', 'Facade', 'Fire Spin', 'Protect', 
+      'Will-O-Wisp', 'Confuse Ray', 'Sunny Day', 'Substitute', 'Endure', 
+      
+    ]
   }),
   'potw-936': ensurePkmnBuilder({
     species: 'Armarouge', type1: 'Fire', type2: 'Psychic', 
@@ -407,7 +583,14 @@ export const paldeaBuilder = {
     pokedex: `Armarouge evolved through the use of a set of armor that belonged to a distinguished warrior. This Pokémon is incredibly loyal.`,
     hp: 85, attack: 60, defense: 100, spAttack: 125, spDefense: 80, speed: 75,
     move: ['Armor Cannon', 'Psyshock'],
-    moveTMs: []
+    moveTMs: [
+      'Solar Beam', 'Fire Blast', 'Shadow Ball', 'Overheat', 'Facade', 
+      'Flash Cannon', 'Psyshock', 'Dragon Pulse', 'Dark Pulse', 'Weather Ball', 
+      'Fire Spin', 'Protect', 'Will-O-Wisp', 'Confuse Ray', 'Calm Mind', 
+      'Iron Defense', 'Sunny Day', 'Reflect', 'Light Screen', 'Trick Room', 
+      'Substitute', 'Wide Guard', 'Endure', 'Psychic Terrain', 'Taunt', 
+      
+    ]
   }),
   'potw-937': ensurePkmnBuilder({
     species: 'Ceruledge', type1: 'Fire', type2: 'Ghost', 
@@ -417,7 +600,13 @@ export const paldeaBuilder = {
     pokedex: `The fiery blades on its arms burn fiercely with the lingering resentment of a sword wielder who fell before accomplishing their goal.`,
     hp: 75, attack: 125, defense: 80, spAttack: 60, spDefense: 100, speed: 85,
     move: ['Bitter Blade', 'Shadow Claw'],
-    moveTMs: []
+    moveTMs: [
+      'Fire Blast', 'Shadow Ball', 'Overheat', 'Facade', 'Close Combat', 
+      'Shadow Claw', 'Solar Blade', 'Phantom Force', 'Fire Spin', 'Protect', 
+      'Will-O-Wisp', 'Confuse Ray', 'Bulk Up', 'Swords Dance', 'Iron Defense', 
+      'Sunny Day', 'Reflect', 'Light Screen', 'Substitute', 'Quick Guard', 
+      'Endure', 'Taunt', 
+    ]
   }),
   'potw-938': ensurePkmnBuilder({
     species: 'Tadbulb', type1: 'Electric', 
@@ -428,7 +617,13 @@ export const paldeaBuilder = {
     pokedex: `Tadbulb shakes its tail to generate electricity. If it senses danger, it will make its head blink on and off to alert its allies.`,
     hp: 61, attack: 31, defense: 41, spAttack: 59, spDefense: 35, speed: 45,
     move: ['Thunder Shock'],
-    moveTMs: []
+    moveTMs: [
+      'Thunderbolt', 'Zap Cannon', 'Mud-Slap', 'Swift', 'Water Pulse', 
+      'Charge Beam', 'Hyper Voice', 'Electroweb', 'Spark', 'Mud Shot', 
+      'Volt Switch', 'Chilling Water', 'Weather Ball', 'Protect', 'Thunder Wave', 
+      'Confuse Ray', 'Rain Dance', 'Reflect', 'Light Screen', 'Substitute', 
+      'Soak', 'Endure', 'Electric Terrain', 
+    ]
   }),
   'potw-939': ensurePkmnBuilder({
     species: 'Bellibolt', type1: 'Electric', 
@@ -438,7 +633,14 @@ export const paldeaBuilder = {
     pokedex: `When this Pokémon expands and contracts its wobbly body, the belly-button dynamo in its stomach produces a huge amount of electricity.`,
     hp: 109, attack: 64, defense: 91, spAttack: 103, spDefense: 83, speed: 45,
     move: ['Zap Cannon'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Thunderbolt', 'Zap Cannon', 'Mud-Slap', 'Swift', 
+      'Water Pulse', 'Charge Beam', 'Hyper Voice', 'Electroweb', 'Spark', 
+      'Giga Impact', 'Mud Shot', 'Volt Switch', 'Chilling Water', 'Weather Ball', 
+      'Protect', 'Thunder Wave', 'Confuse Ray', 'Rain Dance', 'Reflect', 
+      'Light Screen', 'Substitute', 'Soak', 'Endure', 'Electric Terrain', 
+      
+    ]
   }),
   'potw-940': ensurePkmnBuilder({
     species: 'Wattrel', type1: 'Electric', type2: 'Flying', 
@@ -449,7 +651,13 @@ export const paldeaBuilder = {
     pokedex: `When its wings catch the wind, the bones within produce electricity. This Pokémon dives into the ocean, catching prey by electrocuting them.`,
     hp: 40, attack: 40, defense: 35, spAttack: 55, spDefense: 40, speed: 70,
     move: ['Spark', 'Pluck'],
-    moveTMs: []
+    moveTMs: [
+      'Thunderbolt', 'Swift', 'Facade', 'Aerial Ace', 'Charge Beam', 
+      'Electroweb', 'Spark', 'Fly', 'Volt Switch', 'Weather Ball', 
+      'Protect', 'Thunder Wave', 'Agility', 'Feather Dance', 'Quick Attack', 
+      'Tailwind', 'Endeavor', 'Substitute', 'Endure', 'Electric Terrain', 
+      'Roost', 
+    ]
   }),
   'potw-941': ensurePkmnBuilder({
     species: 'Kilowattrel', type1: 'Electric', type2: 'Flying', 
@@ -459,7 +667,13 @@ export const paldeaBuilder = {
     pokedex: `Kilowattrel inflates its throat sac to amplify its electricity. By riding the wind, this Pokémon can fly over 430 miles in a day.`,
     hp: 70, attack: 70, defense: 60, spAttack: 105, spDefense: 60, speed: 125,
     move: ['Electro Ball', 'Dual Wingbeat'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Thunderbolt', 'Swift', 'Facade', 'Aerial Ace', 
+      'Charge Beam', 'Electroweb', 'Spark', 'Giga Impact', 'Fly', 
+      'Volt Switch', 'Weather Ball', 'Protect', 'Thunder Wave', 'Agility', 
+      'Feather Dance', 'Quick Attack', 'Tailwind', 'Endeavor', 'Substitute', 
+      'Endure', 'Electric Terrain', 'Roost', 
+    ]
   }),
   'potw-942': ensurePkmnBuilder({
     species: 'Maschiff', type1: 'Dark', 
@@ -470,7 +684,12 @@ export const paldeaBuilder = {
     pokedex: `It always scowls in an attempt to make opponents take it seriously, but even crying children will burst into laughter when they see Maschiff's face.`,
     hp: 60, attack: 78, defense: 60, spAttack: 40, spDefense: 51, speed: 51,
     move: ['Bite'],
-    moveTMs: []
+    moveTMs: [
+      'Double-Edge', 'Dig', 'Facade', 'Play Rough', 'Payback', 
+      'Trailblaze', 'Dark Pulse', 'Protect', 'Swagger', 'Sunny Day', 
+      'Rain Dance', 'Charm', 'Endeavor', 'Substitute', 'Hone Claws', 
+      'Endure', 'Taunt', 'Fake Tears', 
+    ]
   }),
   'potw-943': ensurePkmnBuilder({
     species: 'Mabosstiff', type1: 'Dark', 
@@ -480,7 +699,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon can store energy in its large dewlap. Mabosstiff unleashes this energy all at once to blow away enemies.`,
     hp: 80, attack: 120, defense: 90, spAttack: 60, spDefense: 70, speed: 85,
     move: ['Crunch'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Facade', 'Hyper Voice', 
+      'Play Rough', 'Giga Impact', 'Payback', 'Trailblaze', 'Dark Pulse', 
+      'Protect', 'Swagger', 'Sunny Day', 'Rain Dance', 'Charm', 
+      'Endeavor', 'Substitute', 'Hone Claws', 'Endure', 'Taunt', 
+      'Fake Tears', 
+    ]
   }),
   'potw-944': ensurePkmnBuilder({
     species: 'Shroodle', type1: 'Poison', type2: 'Normal', 
@@ -491,7 +716,13 @@ export const paldeaBuilder = {
     pokedex: `Though usually a mellow Pokémon, it will sink its sharp, poison-soaked front teeth into any that anger it, causing paralysis in the object of its ire.`,
     hp: 40, attack: 65, defense: 35, spAttack: 40, spDefense: 35, speed: 75,
     move: ['Poison Fang', 'Fury Swipes'],
-    moveTMs: []
+    moveTMs: [
+      'Double-Edge', 'Dig', 'Mud-Slap', 'Facade', 'Sludge Wave', 
+      'Mud Shot', 'Pounce', 'Trailblaze', 'Protect', 'Swagger', 
+      'Flatter', 'Metronome', 'Swords Dance', 'Nasty Plot', 'Sunny Day', 
+      'Rain Dance', 'Switcheroo', 'Endeavor', 'Knock Off', 'Substitute', 
+      'Endure', 'Taunt', 
+    ]
   }),
   'potw-945': ensurePkmnBuilder({
     species: 'Grafaiai', type1: 'Poison', type2: 'Normal', 
@@ -501,7 +732,13 @@ export const paldeaBuilder = {
     pokedex: `The color of the poisonous saliva depends on what the Pokémon eats. Grafaiai covers its fingers in its saliva and draws patterns on trees in forests.`,
     hp: 63, attack: 95, defense: 65, spAttack: 80, spDefense: 72, speed: 110,
     move: ['Poison Jab', 'Slash'],
-    moveTMs: []
+    moveTMs: [
+      'Double-Edge', 'Dig', 'Mud-Slap', 'Facade', 'Shadow Claw', 
+      'Sludge Wave', 'Giga Impact', 'Mud Shot', 'Pounce', 'Trailblaze', 
+      'Protect', 'Swagger', 'Flatter', 'Metronome', 'Swords Dance', 
+      'Nasty Plot', 'Sunny Day', 'Rain Dance', 'Switcheroo', 'Endeavor', 
+      'Knock Off', 'Substitute', 'Endure', 'Taunt', 
+    ]
   }),
   'potw-946': ensurePkmnBuilder({
     species: 'Bramblin', type1: 'Grass', type2: 'Ghost', 
@@ -512,7 +749,12 @@ export const paldeaBuilder = {
     pokedex: `A soul unable to move on to the afterlife was blown around by the wind until it got tangled up with dried grass and became a Pokémon.`,
     hp: 40, attack: 65, defense: 30, spAttack: 45, spDefense: 35, speed: 60,
     move: ['Bullet Seed', 'Astonish'],
-    moveTMs: []
+    moveTMs: [
+      'Solar Beam', 'Mega Drain', 'Rollout', 'Shadow Ball', 'Facade', 
+      'Leaf Storm', 'Infestation', 'Phantom Force', 'Beat Up', 'Pounce', 
+      'Trailblaze', 'Protect', 'Defense Curl', 'Confuse Ray', 'Substitute', 
+      'Leech Seed', 'Endure', 'Grassy Terrain', 
+    ]
   }),
   'potw-947': ensurePkmnBuilder({
     species: 'Brambleghast', type1: 'Grass', type2: 'Ghost', 
@@ -522,7 +764,13 @@ export const paldeaBuilder = {
     pokedex: `It will open the branches of its head to envelop its prey. Once it absorbs all the life energy it needs, it expels the prey and discards it.`,
     hp: 55, attack: 115, defense: 70, spAttack: 80, spDefense: 70, speed: 90,
     move: ['Power Whip', 'Phantom Force'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Mega Drain', 'Rollout', 'Shadow Ball', 
+      'Facade', 'Leaf Storm', 'Infestation', 'Giga Impact', 'Phantom Force', 
+      'Beat Up', 'Pounce', 'Trailblaze', 'Protect', 'Defense Curl', 
+      'Confuse Ray', 'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 
+      
+    ]
   }),
   'potw-948': ensurePkmnBuilder({
     species: 'Toedscool', type1: 'Ground', type2: 'Grass', 
@@ -533,7 +781,14 @@ export const paldeaBuilder = {
     pokedex: `Toedscool lives in muggy forests. The flaps that fall from its body are chewy and very delicious.`,
     hp: 40, attack: 40, defense: 35, spAttack: 50, spDefense: 100, speed: 70,
     move: ['Mud-Slap', 'Mega Drain'],
-    moveTMs: []
+    moveTMs: [
+      'Solar Beam', 'Mega Drain', 'Mud-Slap', 'Swift', 'Leaf Storm', 
+      'Flash Cannon', 'Dazzling Gleam', 'Mud Shot', 'Trailblaze', 'Protect', 
+      'Poison Powder', 'Confuse Ray', 'Screech', 'Rain Dance', 'Reflect', 
+      'Light Screen', 'Tickle', 'Acupressure', 'Trick Room', 'Knock Off', 
+      'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 'Taunt', 
+      
+    ]
   }),
   'potw-949': ensurePkmnBuilder({
     species: 'Toedscruel', type1: 'Ground', type2: 'Grass', 
@@ -543,7 +798,14 @@ export const paldeaBuilder = {
     pokedex: `These Pokémon gather into groups and form colonies deep within forests. They absolutely hate it when strangers approach.`,
     hp: 80, attack: 70, defense: 65, spAttack: 80, spDefense: 120, speed: 100,
     move: ['Earth Power', 'Power Whip'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Mega Drain', 'Mud-Slap', 'Swift', 
+      'Leaf Storm', 'Flash Cannon', 'Giga Impact', 'Dazzling Gleam', 'Mud Shot', 
+      'Trailblaze', 'Protect', 'Poison Powder', 'Confuse Ray', 'Screech', 
+      'Rain Dance', 'Reflect', 'Light Screen', 'Tickle', 'Acupressure', 
+      'Trick Room', 'Knock Off', 'Substitute', 'Leech Seed', 'Endure', 
+      'Grassy Terrain', 'Taunt', 
+    ]
   }),
   'potw-950': ensurePkmnBuilder({
     species: 'Klawf', type1: 'Rock', 
@@ -553,7 +815,14 @@ export const paldeaBuilder = {
     pokedex: `Klawf hangs upside-down from cliffs, waiting for prey. But Klawf can't remain in this position for long because its blood rushes to its head.`,
     hp: 70, attack: 100, defense: 115, spAttack: 35, spDefense: 55, speed: 75,
     move: ['Rock Blast'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Dig', 'Mud-Slap', 'Rock Tomb', 'Facade', 
+      'Rock Slide', 'Stone Edge', 'Shadow Claw', 'Bulldoze', 'Rock Blast', 
+      'Giga Impact', 'Mud Shot', 'Trailblaze', 'Rock Smash', 'Ancient Power', 
+      'Protect', 'Swords Dance', 'Iron Defense', 'Sunny Day', 'Rain Dance', 
+      'Sandstorm', 'Endeavor', 'Knock Off', 'Substitute', 'Endure', 
+      
+    ]
   }),
   'potw-951': ensurePkmnBuilder({
     species: 'Capsakid', type1: 'Grass', 
@@ -564,7 +833,12 @@ export const paldeaBuilder = {
     pokedex: `The more sunlight this Pokémon bathes in, the more spicy chemicals are produced by its body, and thus the spicier its moves become.`,
     hp: 50, attack: 62, defense: 40, spAttack: 62, spDefense: 40, speed: 50,
     move: ['Leafage'],
-    moveTMs: []
+    moveTMs: [
+      'Solar Beam', 'Rollout', 'Facade', 'Leaf Storm', 'Leafage', 
+      'Trailblaze', 'Protect', 'Sunny Day', 'Sandstorm', 'Ingrain', 
+      'Endeavor', 'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 
+      
+    ]
   }),
   'potw-952': ensurePkmnBuilder({
     species: 'Scovillain', type1: 'Grass', type2: 'Fire', 
@@ -574,7 +848,13 @@ export const paldeaBuilder = {
     pokedex: `The red head converts spicy chemicals into fire energy and blasts the surrounding area with a super spicy stream of flame.`,
     hp: 65, attack: 108, defense: 65, spAttack: 108, spDefense: 65, speed: 75,
     move: ['Bullet Seed', 'Flamethrower'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Fire Blast', 'Rollout', 'Overheat', 
+      'Facade', 'Leaf Storm', 'Giga Impact', 'Leafage', 'Trailblaze', 
+      'Protect', 'Will-O-Wisp', 'Sunny Day', 'Sandstorm', 'Ingrain', 
+      'Endeavor', 'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 
+      
+    ],
     novelMoves: [[],
       ['Zen Headbutt', 'Spicy Extract'],
     ],
@@ -588,7 +868,11 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon creates a mud ball by mixing sand and dirt with psychic energy. It treasures its mud ball more than its own life.`,
     hp: 41, attack: 50, defense: 60, spAttack: 31, spDefense: 58, speed: 30,
     move: ['Bug Bite'],
-    moveTMs: []
+    moveTMs: [
+      'Dig', 'Mud-Slap', 'Rollout', 'Rock Tomb', 'Facade', 
+      'Mud Shot', 'Pounce', 'Weather Ball', 'Protect', 'Defense Curl', 
+      'Iron Defense', 'Substitute', 'Endure', 
+    ]
   }),
   'potw-954': ensurePkmnBuilder({
     species: 'Rabsca', type1: 'Bug', type2: 'Psychic', 
@@ -598,7 +882,15 @@ export const paldeaBuilder = {
     pokedex: `The body that supports the ball barely moves. Therefore, it is thought that the true body of this Pokémon is actually inside the ball.`,
     hp: 75, attack: 50, defense: 85, spAttack: 115, spDefense: 100, speed: 45,
     move: ['Bug Buzz', 'Psychic'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Dig', 'Mud-Slap', 'Rollout', 'Shadow Ball', 
+      'Rock Tomb', 'Facade', 'Extrasensory', 'Psyshock', 'Giga Impact', 
+      'Dazzling Gleam', 'Mud Shot', 'Pounce', 'Weather Ball', 'Protect', 
+      'Defense Curl', 'Confuse Ray', 'Calm Mind', 'Iron Defense', 'Sunny Day', 
+      'Rain Dance', 'Sandstorm', 'Reflect', 'Light Screen', 'Safeguard', 
+      'Power Swap', 'Guard Swap', 'Trick Room', 'Substitute', 'Endure', 
+      'Imprison', 'Psychic Terrain', 'Speed Swap', 
+    ],
     novelMoves: [[],
       // ['Revival Blessing'],
     ],
@@ -612,7 +904,13 @@ export const paldeaBuilder = {
     pokedex: `Flittle's toes levitate about half an inch above the ground because of the psychic power emitted from the frills on the Pokémon's belly.`,
     hp: 30, attack: 35, defense: 30, spAttack: 55, spDefense: 30, speed: 75,
     move: ['Confusion'],
-    moveTMs: []
+    moveTMs: [
+      'Mud-Slap', 'Swift', 'Facade', 'Psyshock', 'Pounce', 
+      'Protect', 'Hypnosis', 'Confuse Ray', 'Calm Mind', 'Agility', 
+      'Sunny Day', 'Rain Dance', 'Sandstorm', 'Reflect', 'Light Screen', 
+      'Quick Attack', 'Trick Room', 'Substitute', 'Endure', 'Psychic Terrain', 
+      'Roost', 
+    ]
   }),
   'potw-956': ensurePkmnBuilder({
     species: 'Espathra', type1: 'Psychic', 
@@ -622,7 +920,15 @@ export const paldeaBuilder = {
     pokedex: `It immobilizes opponents by bathing them in psychic power from its large eyes. Despite its appearance, it has a vicious temperament.`,
     hp: 95, attack: 60, defense: 60, spAttack: 101, spDefense: 60, speed: 105,
     move: ['Lumina Crash'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Mud-Slap', 'Shadow Ball', 'Swift', 
+      'Facade', 'Aerial Ace', 'Flash Cannon', 'Hyper Voice', 'Psyshock', 
+      'Giga Impact', 'Dazzling Gleam', 'Pounce', 'Protect', 'Hypnosis', 
+      'Confuse Ray', 'Calm Mind', 'Agility', 'Feather Dance', 'Sunny Day', 
+      'Rain Dance', 'Sandstorm', 'Reflect', 'Light Screen', 'Quick Attack', 
+      'Trick Room', 'Substitute', 'Endure', 'Psychic Terrain', 'Roost', 
+      
+    ]
   }),
   'potw-957': ensurePkmnBuilder({
     species: 'Tinkatink', type1: 'Fairy', type2: 'Steel', 
@@ -633,7 +939,13 @@ export const paldeaBuilder = {
     pokedex: `It swings its handmade hammer around to protect itself, but the hammer is often stolen by Pokémon that eat metal.`,
     hp: 50, attack: 45, defense: 45, spAttack: 35, spDefense: 64, speed: 58,
     move: ['Fairy Wind', 'Metal Claw'],
-    moveTMs: []
+    moveTMs: [
+      'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Flash Cannon', 
+      'Play Rough', 'Draining Kiss', 'Pounce', 'Rock Smash', 'Protect', 
+      'Flatter', 'Thunder Wave', 'Metronome', 'Swords Dance', 'Metal Sound', 
+      'Reflect', 'Light Screen', 'Endeavor', 'Fake Out', 'Knock Off', 
+      'Substitute', 'Endure', 'Fake Tears', 
+    ]
   }),
   'potw-958': ensurePkmnBuilder({
     species: 'Tinkatuff', type1: 'Fairy', type2: 'Steel', 
@@ -644,7 +956,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon will attack groups of Pawniard and Bisharp, gathering metal from them in order to create a large and sturdy hammer.`,
     hp: 65, attack: 55, defense: 55, spAttack: 45, spDefense: 82, speed: 78,
     move: ['Draining Kiss', 'Flash Cannon'],
-    moveTMs: []
+    moveTMs: [
+      'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Flash Cannon', 
+      'Play Rough', 'Draining Kiss', 'Pounce', 'Rock Smash', 'Protect', 
+      'Flatter', 'Thunder Wave', 'Metronome', 'Swords Dance', 'Metal Sound', 
+      'Reflect', 'Light Screen', 'Endeavor', 'Fake Out', 'Knock Off', 
+      'Substitute', 'Endure', 'Fake Tears', 
+    ]
   }),
   'potw-959': ensurePkmnBuilder({
     species: 'Tinkaton', type1: 'Fairy', type2: 'Steel', 
@@ -654,7 +972,13 @@ export const paldeaBuilder = {
     pokedex: `This intelligent Pokémon has a very daring disposition. It knocks rocks into the sky with its hammer, aiming for flying Corviknight.`,
     hp: 85, attack: 75, defense: 77, spAttack: 70, spDefense: 105, speed: 94,
     move: ['Play Rough', 'Gigaton Hammer'],
-    moveTMs: []
+    moveTMs: [
+      'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Flash Cannon', 
+      'Bulldoze', 'Play Rough', 'Draining Kiss', 'Pounce', 'Rock Smash', 
+      'Protect', 'Flatter', 'Thunder Wave', 'Metronome', 'Swords Dance', 
+      'Metal Sound', 'Reflect', 'Light Screen', 'Endeavor', 'Fake Out', 
+      'Knock Off', 'Substitute', 'Endure', 'Fake Tears', 
+    ]
   }),
   'potw-960': ensurePkmnBuilder({
     species: 'Wiglett', type1: 'Water', 
@@ -665,7 +989,12 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon can pick up the scent of a Veluza just over 65 feet away and will hide itself in the sand.`,
     hp: 10, attack: 55, defense: 25, spAttack: 35, spDefense: 25, speed: 95,
     move: ['Aqua Jet'],
-    moveTMs: []
+    moveTMs: [
+      'Dig', 'Mud-Slap', 'Swift', 'Facade', 'Water Pulse', 
+      'Bulldoze', 'Liquidation', 'Mud Shot', 'Chilling Water', 'Surf', 
+      'Whirlpool', 'Protect', 'Agility', 'Rain Dance', 'Sandstorm', 
+      'Substitute', 'Endure', 
+    ]
   }),
   'potw-961': ensurePkmnBuilder({
     species: 'Wugtrio', type1: 'Water', 
@@ -675,7 +1004,12 @@ export const paldeaBuilder = {
     pokedex: `It has a vicious temperament, contrary to what its appearance may suggest. It wraps its long bodies around prey, then drags the prey into its den.`,
     hp: 35, attack: 100, defense: 50, spAttack: 50, spDefense: 70, speed: 120,
     move: ['Triple Dive'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Dig', 'Mud-Slap', 'Swift', 'Facade', 
+      'Water Pulse', 'Bulldoze', 'Giga Impact', 'Liquidation', 'Mud Shot', 
+      'Chilling Water', 'Surf', 'Whirlpool', 'Protect', 'Agility', 
+      'Rain Dance', 'Sandstorm', 'Substitute', 'Endure', 
+    ]
   }),
   'potw-962': ensurePkmnBuilder({
     species: 'Bombirdier', type1: 'Flying', type2: 'Dark', 
@@ -685,7 +1019,14 @@ export const paldeaBuilder = {
     pokedex: `It gathers things up in an apron made from shed feathers added to the Pokémon's chest feathers, then drops those things from high places for fun.`,
     hp: 70, attack: 103, defense: 85, spAttack: 60, spDefense: 85, speed: 82,
     move: ['Dual Wingbeat', 'Payback'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Icy Wind', 'Rock Tomb', 'Facade', 'Aerial Ace', 
+      'Rock Slide', 'Stone Edge', 'Hyper Voice', 'Rock Blast', 'Giga Impact', 
+      'Power Trip', 'Fly', 'Payback', 'Dark Pulse', 'Protect', 
+      'Nasty Plot', 'Feather Dance', 'Sunny Day', 'Rain Dance', 'Sandstorm', 
+      'Tailwind', 'Endeavor', 'Knock Off', 'Substitute', 'Hone Claws', 
+      'Endure', 'Taunt', 'Roost', 
+    ]
   }),
   'potw-963': ensurePkmnBuilder({
     species: 'Finizen', type1: 'Water', 
@@ -696,7 +1037,13 @@ export const paldeaBuilder = {
     pokedex: `It likes playing with others of its kind using the water ring on its tail. It uses ultrasonic waves to sense the emotions of other living creatures.`,
     hp: 70, attack: 45, defense: 40, spAttack: 45, spDefense: 40, speed: 75,
     move: ['Aqua Tail'],
-    moveTMs: []
+    moveTMs: [
+      'Dive', 'Icy Wind', 'Swift', 'Facade', 'Water Pulse', 
+      'Double Hit', 'Liquidation', 'Draining Kiss', 'Chilling Water', 'Surf', 
+      'Waterfall', 'Protect', 'Agility', 'Rain Dance', 'Tickle', 
+      'Haze', 'Charm', 'Substitute', 'Endure', 'Mist', 
+      
+    ]
   }),
   'potw-964': ensurePkmnBuilder({
     species: 'Palafin', type1: 'Water', 
@@ -706,7 +1053,15 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon changes its appearance if it hears its allies calling for help. Palafin will never show anybody its moment of transformation.`,
     hp: 100, attack: 70, defense: 72, spAttack: 53, spDefense: 62, speed: 100,
     move: ['Flip Turn'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Dive', 'Icy Wind', 'Swift', 
+      'Focus Punch', 'Facade', 'Water Pulse', 'Close Combat', 'Hyper Voice', 
+      'Double Hit', 'Giga Impact', 'Liquidation', 'Draining Kiss', 'Chilling Water', 
+      'Surf', 'Whirlpool', 'Waterfall', 'Protect', 'Bulk Up', 
+      'Agility', 'Rain Dance', 'Tickle', 'Haze', 'Charm', 
+      'Endeavor', 'Substitute', 'Endure', 'Mist', 'Taunt', 
+      
+    ]
   }),
   'potw-964-hero': ensurePkmnBuilder({
     species: 'Palafin', type1: 'Water', 
@@ -727,7 +1082,12 @@ export const paldeaBuilder = {
     pokedex: `It is said that this Pokémon was born when an unknown poison Pokémon entered and inspirited an engine left at a scrap-processing factory.`,
     hp: 45, attack: 70, defense: 63, spAttack: 30, spDefense: 45, speed: 47,
     move: ['Smog', 'Gyro Ball'],
-    moveTMs: []
+    moveTMs: [
+      'Double-Edge', 'Sludge', 'Facade', 'Flash Cannon', 'Sludge Wave', 
+      'Bulldoze', 'Protect', 'Swagger', 'Self-Destruct', 'Iron Defense', 
+      'Screech', 'Metal Sound', 'Sunny Day', 'Rain Dance', 'Sandstorm', 
+      'Haze', 'Substitute', 'Endure', 'Taunt', 
+    ]
   }),
   'potw-966': ensurePkmnBuilder({
     species: 'Revavroom', type1: 'Steel', type2: 'Poison', 
@@ -737,7 +1097,13 @@ export const paldeaBuilder = {
     pokedex: `It creates a gas out of poison and minerals from rocks. It then detonates the gas in its cylinders&#8212; now numbering eight&#8212;to generate energy.`,
     hp: 80, attack: 119, defense: 90, spAttack: 54, spDefense: 67, speed: 90,
     move: ['Spin Out', 'Poison Jab'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Sludge', 'Overheat', 'Facade', 
+      'Flash Cannon', 'Sludge Wave', 'Bulldoze', 'Giga Impact', 'Protect', 
+      'Swagger', 'Self-Destruct', 'Iron Defense', 'Screech', 'Metal Sound', 
+      'Sunny Day', 'Rain Dance', 'Sandstorm', 'Haze', 'Endeavor', 
+      'Substitute', 'Shift Gear', 'Endure', 'Taunt', 
+    ],
     novelMoves: [[],
       ['Uproar', 'Shift Gear'],
     ],
@@ -750,7 +1116,14 @@ export const paldeaBuilder = {
     pokedex: `Apparently Cyclizar has been allowing people to ride on its back since ancient times. Depictions of this have been found in 10,000-year-old murals.`,
     hp: 70, attack: 95, defense: 65, spAttack: 85, spDefense: 65, speed: 121,
     move: ['Dragon Rush', 'Double-Edge'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Thunderbolt', 'Mud-Slap', 'Iron Tail', 
+      'Overheat', 'Facade', 'Aerial Ace', 'Hyper Voice', 'Giga Impact', 
+      'Dragon Pulse', 'Mud Shot', 'Trailblaze', 'Ice Spinner', 'Protect', 
+      'Draco Meteor', 'Agility', 'Sunny Day', 'Rain Dance', 'Quick Attack', 
+      'Endeavor', 'Knock Off', 'Substitute', 'Shift Gear', 'Endure', 
+      'Taunt', 
+    ],
     novelMoves: [[],
       // ['Shed Tail'],
     ],
@@ -763,7 +1136,13 @@ export const paldeaBuilder = {
     pokedex: `When attacked, this Pokémon will wield the tendrils on its body like fists and pelt the opponent with a storm of punches.`,
     hp: 70, attack: 85, defense: 145, spAttack: 60, spDefense: 55, speed: 65,
     move: ['Iron Tail'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Earthquake', 'Mud-Slap', 
+      'Iron Tail', 'Rock Tomb', 'Facade', 'Rock Slide', 'Flash Cannon', 
+      'Bulldoze', 'Rock Blast', 'Giga Impact', 'Body Press', 'Mud Shot', 
+      'Sand Tomb', 'Protect', 'Iron Defense', 'Metal Sound', 'Sandstorm', 
+      'Substitute', 'Coil', 'Endure', 
+    ],
     novelMoves: [[],
       // ['Dig', 'Shed Tail']  
     ],
@@ -777,7 +1156,13 @@ export const paldeaBuilder = {
     pokedex: `It absorbs nutrients from cave walls. The petals it wears are made of crystallized poison.`,
     hp: 48, attack: 35, defense: 42, spAttack: 105, spDefense: 60, speed: 60,
     move: ['Ancient Power', 'Acid Spray'],
-    moveTMs: []
+    moveTMs: [
+      'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Sludge Wave', 
+      'Rock Blast', 'Dazzling Gleam', 'Mud Shot', 'Ancient Power', 'Sand Tomb', 
+      'Protect', 'Self-Destruct', 'Confuse Ray', 'Iron Defense', 'Sunny Day', 
+      'Rain Dance', 'Sandstorm', 'Reflect', 'Light Screen', 'Rock Polish', 
+      'Substitute', 'Endure', 
+    ]
   }),
   'potw-970': ensurePkmnBuilder({
     species: 'Glimmora', type1: 'Rock', type2: 'Poison', 
@@ -787,7 +1172,14 @@ export const paldeaBuilder = {
     pokedex: `When this Pokémon detects danger, it will open up its crystalline petals and fire beams from its conical body.`,
     hp: 83, attack: 55, defense: 90, spAttack: 130, spDefense: 81, speed: 86,
     move: ['Power Gem', 'Mortal Spin'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Rock Tomb', 'Facade', 'Rock Slide', 
+      'Stone Edge', 'Flash Cannon', 'Sludge Wave', 'Rock Blast', 'Giga Impact', 
+      'Dazzling Gleam', 'Mud Shot', 'Ancient Power', 'Sand Tomb', 'Protect', 
+      'Self-Destruct', 'Confuse Ray', 'Iron Defense', 'Sunny Day', 'Rain Dance', 
+      'Sandstorm', 'Reflect', 'Light Screen', 'Rock Polish', 'Substitute', 
+      'Endure', 
+    ]
   }),
   'potw-971': ensurePkmnBuilder({
     species: 'Greavard', type1: 'Ghost', 
@@ -798,7 +1190,12 @@ export const paldeaBuilder = {
     pokedex: `It is said that a dog Pokémon that died in the wild without ever interacting with a human was reborn as this Pokémon.`,
     hp: 50, attack: 61, defense: 60, spAttack: 30, spDefense: 55, speed: 34,
     move: ['Lick'],
-    moveTMs: []
+    moveTMs: [
+      'Double-Edge', 'Dig', 'Mud-Slap', 'Shadow Ball', 'Facade', 
+      'Bulldoze', 'Play Rough', 'Phantom Force', 'Mud Shot', 'Protect', 
+      'Confuse Ray', 'Sunny Day', 'Rain Dance', 'Sandstorm', 'Charm', 
+      'Endeavor', 'Substitute', 'Endure', 
+    ]
   }),
   'potw-972': ensurePkmnBuilder({
     species: 'Houndstone', type1: 'Ghost', 
@@ -808,7 +1205,13 @@ export const paldeaBuilder = {
     pokedex: `Houndstone spends most of its time sleeping in graveyards. Among all the dog Pokémon, this one is most loyal to its master.`,
     hp: 72, attack: 101, defense: 100, spAttack: 50, spDefense: 97, speed: 68,
     move: ['Last Respects'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Mud-Slap', 'Shadow Ball', 
+      'Facade', 'Bulldoze', 'Play Rough', 'Giga Impact', 'Phantom Force', 
+      'Body Press', 'Mud Shot', 'Protect', 'Will-O-Wisp', 'Confuse Ray', 
+      'Sunny Day', 'Rain Dance', 'Sandstorm', 'Charm', 'Endeavor', 
+      'Substitute', 'Endure', 
+    ]
   }),
   'potw-973': ensurePkmnBuilder({
     species: 'Flamigo', type1: 'Flying', type2: 'Fighting', 
@@ -818,7 +1221,14 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon apparently ties the base of its neck into a knot so that energy stored in its belly does not escape from its beak.`,
     hp: 82, attack: 115, defense: 74, spAttack: 75, spDefense: 64, speed: 90,
     move: ['Brave Bird', 'Low Kick'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Facade', 'Aerial Ace', 'Water Pulse', 'Close Combat', 
+      'Giga Impact', 'Liquidation', 'Fly', 'Payback', 'Pounce', 
+      'Chilling Water', 'Protect', 'Bulk Up', 'Swords Dance', 'Agility', 
+      'Feather Dance', 'Tailwind', 'Endeavor', 'Substitute', 'Wide Guard', 
+      'Quick Guard', 'Endure', 'Taunt', 'Roost', 'Double Team', 
+      
+    ]
   }),
   'potw-974': ensurePkmnBuilder({
     species: 'Cetoddle', type1: 'Ice', 
@@ -828,7 +1238,13 @@ export const paldeaBuilder = {
     pokedex: `This species left the ocean and began living on land a very long time ago. It seems to be closely related to Wailmer.`,
     hp: 108, attack: 68, defense: 45, spAttack: 30, spDefense: 40, speed: 43,
     move: ['Ice Shard'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Earthquake', 'Icy Wind', 'Facade', 
+      'Water Pulse', 'Ice Shard', 'Hyper Voice', 'Bulldoze', 'Play Rough', 
+      'Liquidation', 'Body Press', 'Icicle Spear', 'Chilling Water', 'Ice Spinner', 
+      'Superpower', 'Protect', 'Amnesia', 'Rain Dance', 'Belly Drum', 
+      'Charm', 'Knock Off', 'Substitute', 'Endure', 
+    ]
   }),
   'potw-975': ensurePkmnBuilder({
     species: 'Cetitan', type1: 'Ice', 
@@ -838,7 +1254,14 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon wanders around snowy, icy areas. It protects its body with powerful muscles and a thick layer of fat under its skin.`,
     hp: 170, attack: 113, defense: 65, spAttack: 45, spDefense: 55, speed: 73,
     move: ['Ice Spinner'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Double-Edge', 'Earthquake', 'Icy Wind', 
+      'Facade', 'Water Pulse', 'Ice Shard', 'Hyper Voice', 'Bulldoze', 
+      'Play Rough', 'Giga Impact', 'Liquidation', 'Body Press', 'Icicle Spear', 
+      'Chilling Water', 'Ice Spinner', 'Superpower', 'Protect', 'Amnesia', 
+      'Rain Dance', 'Belly Drum', 'Charm', 'Knock Off', 'Substitute', 
+      'Endure', 
+    ]
   }),
   'potw-976': ensurePkmnBuilder({
     species: 'Veluza', type1: 'Water', type2: 'Psychic', 
@@ -848,7 +1271,12 @@ export const paldeaBuilder = {
     pokedex: `When Veluza discards unnecessary flesh, its mind becomes honed and its psychic power increases. The spare flesh has a mild but delicious flavor.`,
     hp: 90, attack: 102, defense: 73, spAttack: 78, spDefense: 65, speed: 70,
     move: ['Liquidation', 'Psycho Cut'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Icy Wind', 'Water Pulse', 'Giga Impact', 
+      'Liquidation', 'Chilling Water', 'Surf', 'Waterfall', 'Protect', 
+      'Agility', 'Rain Dance', 'Endeavor', 'Substitute', 'Endure', 
+      'Psychic Terrain', 
+    ],
     novelMoves: [[],
       ['Crunch', 'Fillet Away']
     ],
@@ -861,7 +1289,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon is a glutton, but it's bad at getting food. It teams up with a Tatsugiri to catch prey.`,
     hp: 150, attack: 100, defense: 115, spAttack: 65, spDefense: 65, speed: 35,
     move: ['Wave Crash'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dive', 'Earthquake', 'Facade', 
+      'Water Pulse', 'Rock Slide', 'Bulldoze', 'Giga Impact', 'Liquidation', 
+      'Body Press', 'Chilling Water', 'Surf', 'Waterfall', 'Protect', 
+      'Rain Dance', 'Tickle', 'Substitute', 'Soak', 'Endure', 
+      
+    ]
   }),
   'potw-978': ensurePkmnBuilder({
     species: 'Tatsugiri', type1: 'Dragon', type2: 'Water', 
@@ -871,7 +1305,12 @@ export const paldeaBuilder = {
     pokedex: `This is a small dragon Pokémon. It lives inside the mouth of Dondozo to protect itself from enemies on the outside.`,
     hp: 68, attack: 50, defense: 60, spAttack: 120, spDefense: 95, speed: 82,
     move: ['Dragon Pulse', 'Muddy Water'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Icy Wind', 'Facade', 'Water Pulse', 'Giga Impact', 
+      'Dragon Pulse', 'Chilling Water', 'Surf', 'Whirlpool', 'Protect', 
+      'Dragon Dance', 'Draco Meteor', 'Nasty Plot', 'Rain Dance', 'Substitute', 
+      'Soak', 'Endure', 'Taunt', 
+    ]
   }),
   'potw-979': ensurePkmnBuilder({
     species: 'Annihilape', type1: 'Fighting', type2: 'Ghost', 
@@ -881,7 +1320,15 @@ export const paldeaBuilder = {
     pokedex: `When its anger rose beyond a critical point, this Pokémon gained power that is unfettered by the limits of its physical body.`,
     hp: 110, attack: 115, defense: 80, spAttack: 50, spDefense: 90, speed: 90,
     move: ['Cross Chop', 'Shadow Punch'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Thunder Punch', 'Fire Punch', 'Double-Edge', 
+      'Dig', 'Thunderbolt', 'Earthquake', 'Shadow Ball', 'Swift', 
+      'Rock Tomb', 'Focus Punch', 'Overheat', 'Facade', 'Rock Slide', 
+      'Stone Edge', 'Close Combat', 'Shadow Claw', 'Bulldoze', 'Giga Impact', 
+      'Phantom Force', 'Beat Up', 'Rage Fist', 'Protect', 'Swagger', 
+      'Metronome', 'Bulk Up', 'Screech', 'Sunny Day', 'Rain Dance', 
+      'Endeavor', 'Substitute', 'Endure', 'Taunt', 
+    ],
     novelMoves: [[],
       ['Outrage', 'Swagger'],
     ],
@@ -894,7 +1341,14 @@ export const paldeaBuilder = {
     pokedex: `When attacked, this Pokémon will retaliate by sticking thick spines out from its body. It's a risky move that puts everything on the line.`,
     hp: 130, attack: 75, defense: 60, spAttack: 45, spDefense: 100, speed: 20,
     move: ['Poison Jab', 'Stomping Tantrum'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Earthquake', 'Mud-Slap', 
+      'Rock Tomb', 'Facade', 'Water Pulse', 'Rock Slide', 'Stone Edge', 
+      'Sludge Wave', 'Bulldoze', 'Giga Impact', 'Liquidation', 'Body Press', 
+      'Mud Shot', 'Trailblaze', 'Chilling Water', 'Surf', 'Waterfall', 
+      'Ancient Power', 'Protect', 'Amnesia', 'Rain Dance', 'Sandstorm', 
+      'Haze', 'Substitute', 'Endure', 'Mist', 
+    ],
     novelMoves: [[],
       ['Megahorn', 'Amnesia']
     ],
@@ -907,7 +1361,16 @@ export const paldeaBuilder = {
     pokedex: `Now that the brain waves from the head and tail are synced up, the psychic power of this Pokémon is 10 times stronger than Girafarig's.`,
     hp: 120, attack: 90, defense: 70, spAttack: 110, spDefense: 70, speed: 60,
     move: ['Stomp', 'Twin Beam'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Thunderbolt', 'Earthquake', 'Shadow Ball', 
+      'Swift', 'Facade', 'Charge Beam', 'Hyper Voice', 'Bulldoze', 
+      'Double Hit', 'Psyshock', 'Giga Impact', 'Dazzling Gleam', 'Beat Up', 
+      'Trailblaze', 'Twin Beam', 'Stomp', 'Protect', 'Thunder Wave', 
+      'Confuse Ray', 'Calm Mind', 'Nasty Plot', 'Amnesia', 'Agility', 
+      'Sunny Day', 'Rain Dance', 'Reflect', 'Light Screen', 'Power Swap', 
+      'Guard Swap', 'Trick Room', 'Wish', 'Endeavor', 'Substitute', 
+      'Endure', 'Imprison', 'Psychic Terrain', 
+    ]
   }),
   'potw-982': ensurePkmnBuilder({
     species: 'Dudunsparce', type1: 'Normal', 
@@ -918,7 +1381,16 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon uses its hard tail to make its nest by boring holes into bedrock deep underground. The nest can reach lengths of over six miles.`,
     hp: 125, attack: 100, defense: 80, spAttack: 85, spDefense: 75, speed: 55,
     move: ['Hyper Drill'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Double-Edge', 'Dig', 'Thunderbolt', 
+      'Fire Blast', 'Earthquake', 'Mud-Slap', 'Rollout', 'Shadow Ball', 
+      'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Hyper Voice', 
+      'Bulldoze', 'Giga Impact', 'Body Press', 'Mud Shot', 'Pounce', 
+      'Chilling Water', 'Hyper Drill', 'Ice Spinner', 'Ancient Power', 'Protect', 
+      'Defense Curl', 'Calm Mind', 'Amnesia', 'Agility', 'Screech', 
+      'Sunny Day', 'Rain Dance', 'Sandstorm', 'Tailwind', 'Endeavor', 
+      'Substitute', 'Coil', 'Endure', 'Roost', 
+    ],
     novelMoves: [[],
       ['Hurricane', 'Rollout', 'Scary Face'],
       ['Drill Run', 'Glare'],
@@ -934,7 +1406,13 @@ export const paldeaBuilder = {
     pokedex: `Only a Bisharp that stands above all others in its vast army can evolve into Kingambit.`,
     hp: 100, attack: 135, defense: 120, spAttack: 60, spDefense: 85, speed: 50,
     move: ['Kowtow Cleave', 'Iron Head'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Dig', 'Fury Cutter', 'Rock Tomb', 'Facade', 
+      'Aerial Ace', 'Stone Edge', 'Shadow Claw', 'Flash Cannon', 'Giga Impact', 
+      'Dark Pulse', 'Protect', 'Thunder Wave', 'Swords Dance', 'Iron Defense', 
+      'Metal Sound', 'Rain Dance', 'Sandstorm', 'Substitute', 'Quick Guard', 
+      'Endure', 'Taunt', 
+    ]
   }),
   'potw-984': ensurePkmnBuilder({
     species: 'Great Tusk', type1: 'Ground', type2: 'Fighting', 
@@ -944,7 +1422,15 @@ export const paldeaBuilder = {
     pokedex: `Sightings of this Pokémon have occurred in recent years. The name Great Tusk was taken from a creature listed in a certain book.`,
     hp: 115, attack: 131, defense: 131, spAttack: 53, spDefense: 53, speed: 87,
     move: ['Headlong Rush', 'Close Combat'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Earthquake', 'Mud-Slap', 
+      'Rollout', 'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 
+      'Close Combat', 'Flash Cannon', 'Bulldoze', 'Head Smash', 'Play Rough', 
+      'Psyshock', 'Giga Impact', 'Body Press', 'Mud Shot', 'Ice Spinner', 
+      'Protect', 'Defense Curl', 'Bulk Up', 'Sunny Day', 'Sandstorm', 
+      'Endeavor', 'Knock Off', 'Substitute', 'Endure', 'Taunt', 
+      
+    ]
   }),
   'potw-985': ensurePkmnBuilder({
     species: 'Scream Tail', type1: 'Fairy', type2: 'Psychic', 
@@ -954,7 +1440,16 @@ export const paldeaBuilder = {
     pokedex: `There has been only one reported sighting of this Pokémon. It resembles a mysterious creature depicted in an old expedition journal.`,
     hp: 115, attack: 65, defense: 99, spAttack: 65, spDefense: 115, speed: 111,
     move: ['Play Rough', 'Psychic Fangs'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Thunder Punch', 'Fire Punch', 'Double-Edge', 
+      'Dig', 'Thunderbolt', 'Fire Blast', 'Rock Tomb', 'Facade', 
+      'Water Pulse', 'Hyper Voice', 'Play Rough', 'Psyshock', 'Giga Impact', 
+      'Dazzling Gleam', 'Protect', 'Thunder Wave', 'Metronome', 'Bulk Up', 
+      'Calm Mind', 'Amnesia', 'Sunny Day', 'Rain Dance', 'Sandstorm', 
+      'Reflect', 'Light Screen', 'Trick Room', 'Wish', 'Substitute', 
+      'Endure', 'Imprison', 'Misty Terrain', 'Psychic Terrain', 'Fake Tears', 
+      
+    ]
   }),
   'potw-986': ensurePkmnBuilder({
     species: 'Brute Bonnet', type1: 'Grass', type2: 'Dark', 
@@ -964,7 +1459,13 @@ export const paldeaBuilder = {
     pokedex: `It is possible that the creature listed as Brute Bonnet in a certain book could actually be this Pokémon.`,
     hp: 111, attack: 127, defense: 99, spAttack: 79, spDefense: 99, speed: 55,
     move: ['Giga Drain', 'Sucker Punch'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Double-Edge', 'Mega Drain', 'Facade', 
+      'Leaf Storm', 'Close Combat', 'Giga Impact', 'Body Press', 'Payback', 
+      'Trailblaze', 'Dark Pulse', 'Protect', 'Confuse Ray', 'Sunny Day', 
+      'Ingrain', 'Substitute', 'Endure', 'Grassy Terrain', 'Taunt', 
+      
+    ]
   }),
   'potw-987': ensurePkmnBuilder({
     species: 'Flutter Mane', type1: 'Ghost', type2: 'Fairy', 
@@ -974,7 +1475,14 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon has characteristics similar to those of Flutter Mane, a creature mentioned in a certain book.`,
     hp: 55, attack: 55, defense: 55, spAttack: 135, spDefense: 135, speed: 135,
     move: ['Phantom Force', 'Moonblast'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Thunderbolt', 'Shadow Ball', 'Icy Wind', 'Swift', 
+      'Charge Beam', 'Hyper Voice', 'Psyshock', 'Giga Impact', 'Phantom Force', 
+      'Dazzling Gleam', 'Draining Kiss', 'Dark Pulse', 'Protect', 'Thunder Wave', 
+      'Confuse Ray', 'Calm Mind', 'Sunny Day', 'Charm', 'Trick Room', 
+      'Wish', 'Substitute', 'Endure', 'Imprison', 'Misty Terrain', 
+      'Taunt', 'Fake Tears', 
+    ]
   }),
   'potw-988': ensurePkmnBuilder({
     species: 'Slither Wing', type1: 'Bug', type2: 'Fighting', 
@@ -984,7 +1492,13 @@ export const paldeaBuilder = {
     pokedex: `This mysterious Pokémon has some similarities to a creature that an old book introduced as Slither Wing.`,
     hp: 85, attack: 135, defense: 79, spAttack: 85, spDefense: 105, speed: 81,
     move: ['Leech Life', 'Low Sweep'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Earthquake', 'Facade', 'Aerial Ace', 
+      'Close Combat', 'Giga Impact', 'Body Press', 'Trailblaze', 'Stomp', 
+      'Superpower', 'Protect', 'Will-O-Wisp', 'Poison Powder', 'Bulk Up', 
+      'Sunny Day', 'Rain Dance', 'Sandstorm', 'Substitute', 'Endure', 
+      
+    ]
   }),
   'potw-989': ensurePkmnBuilder({
     species: 'Sandy Shocks', type1: 'Electric', type2: 'Ground', 
@@ -994,7 +1508,14 @@ export const paldeaBuilder = {
     pokedex: `No records exist of this Pokémon being caught. Data is lacking, but the Pokémon's traits match up with a creature shown in an expedition journal.`,
     hp: 85, attack: 81, defense: 97, spAttack: 121, spDefense: 85, speed: 101,
     move: ['Zap Cannon', 'Stomping Tantrum'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Tri Attack', 'Thunderbolt', 'Earthquake', 'Zap Cannon', 
+      'Swift', 'Facade', 'Flash Cannon', 'Charge Beam', 'Electroweb', 
+      'Bulldoze', 'Spark', 'Giga Impact', 'Body Press', 'Mud Shot', 
+      'Volt Switch', 'Sand Tomb', 'Protect', 'Thunder Wave', 'Iron Defense', 
+      'Screech', 'Metal Sound', 'Sunny Day', 'Sandstorm', 'Reflect', 
+      'Light Screen', 'Substitute', 'Endure', 'Electric Terrain', 
+    ]
   }),
   'potw-990': ensurePkmnBuilder({
     species: 'Iron Treads', type1: 'Ground', type2: 'Steel', 
@@ -1004,7 +1525,14 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon closely resembles a scientific weapon that a paranormal magazine claimed was sent to this planet by aliens.`,
     hp: 90, attack: 112, defense: 120, spAttack: 72, spDefense: 70, speed: 106,
     move: ['Stomping Tantrum', 'Steel Roller'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Earthquake', 'Mud-Slap', 'Rollout', 
+      'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Flash Cannon', 
+      'Bulldoze', 'Giga Impact', 'Body Press', 'Mud Shot', 'Volt Switch', 
+      'Ice Spinner', 'Protect', 'Defense Curl', 'Iron Defense', 'Metal Sound', 
+      'Sandstorm', 'Endeavor', 'Knock Off', 'Substitute', 'Electric Terrain', 
+      
+    ]
   }),
   'potw-991': ensurePkmnBuilder({
     species: 'Iron Bundle', type1: 'Ice', type2: 'Water', 
@@ -1014,7 +1542,13 @@ export const paldeaBuilder = {
     pokedex: `Its shape is similar to a robot featured in a paranormal magazine article. The robot was said to have been created by an ancient civilization.`,
     hp: 56, attack: 80, defense: 114, spAttack: 124, spDefense: 60, speed: 136,
     move: ['Blizzard', 'Hydro Pump'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Icy Wind', 'Swift', 'Facade', 
+      'Water Pulse', 'Play Rough', 'Freeze-Dry', 'Giga Impact', 'Chilling Water', 
+      'Ice Spinner', 'Whirlpool', 'Protect', 'Agility', 'Rain Dance', 
+      'Substitute', 'Endure', 'Electric Terrain', 'Taunt', 'Aurora Veil', 
+      
+    ],
   }),
   'potw-992': ensurePkmnBuilder({
     species: 'Iron Hands', type1: 'Fighting', type2: 'Electric', 
@@ -1024,7 +1558,14 @@ export const paldeaBuilder = {
     pokedex: `It is very similar to a cyborg covered exclusively by a paranormal magazine. The cyborg was said to be the modified form of a certain athlete.`,
     hp: 154, attack: 140, defense: 108, spAttack: 50, spDefense: 68, speed: 50,
     move: ['Force Palm', 'Wild Charge'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Thunder Punch', 'Fire Punch', 'Double-Edge', 
+      'Thunderbolt', 'Earthquake', 'Rock Tomb', 'Focus Punch', 'Facade', 
+      'Rock Slide', 'Close Combat', 'Bulldoze', 'Play Rough', 'Giga Impact', 
+      'Body Press', 'Volt Switch', 'Protect', 'Metronome', 'Swords Dance', 
+      'Iron Defense', 'Belly Drum', 'Fake Out', 'Substitute', 'Endure', 
+      'Electric Terrain', 
+    ],
     novelMoves: [[],
       ['Heavy Slam', 'Belly Drum'],
     ],
@@ -1037,7 +1578,14 @@ export const paldeaBuilder = {
     pokedex: `It resembles a certain Pokémon introduced in a paranormal magazine, described as the offspring of a Hydreigon that fell in love with a robot.`,
     hp: 94, attack: 80, defense: 86, spAttack: 122, spDefense: 80, speed: 108,
     move: ['Dark Pulse', 'Air Slash'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Tri Attack', 'Double-Edge', 'Fire Blast', 'Dragon Breath', 
+      'Rock Tomb', 'Facade', 'Flash Cannon', 'Charge Beam', 'Hyper Voice', 
+      'Giga Impact', 'Dragon Pulse', 'Fly', 'Dark Pulse', 'Protect', 
+      'Metal Sound', 'Sunny Day', 'Rain Dance', 'Tailwind', 'Knock Off', 
+      'Substitute', 'Work Up', 'Endure', 'Electric Terrain', 'Taunt', 
+      
+    ]
   }),
   'potw-994': ensurePkmnBuilder({
     species: 'Iron Moth', type1: 'Fire', type2: 'Poison', 
@@ -1047,7 +1595,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon resembles an unknown object described in a paranormal magazine as a UFO sent to observe humanity.`,
     hp: 80, attack: 70, defense: 60, spAttack: 140, spDefense: 110, speed: 110,
     move: ['Fiery Dance', 'Sludge Wave'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Fire Blast', 'Swift', 'Overheat', 
+      'Facade', 'Flash Cannon', 'Charge Beam', 'Sludge Wave', 'Giga Impact', 
+      'Dazzling Gleam', 'Pounce', 'Fire Spin', 'Protect', 'Confuse Ray', 
+      'Agility', 'Screech', 'Metal Sound', 'Sunny Day', 'Light Screen', 
+      'Substitute', 'Endure', 'Electric Terrain', 
+    ]
   }),
   'potw-995': ensurePkmnBuilder({
     species: 'Iron Thorns', type1: 'Rock', type2: 'Electric', 
@@ -1057,7 +1611,15 @@ export const paldeaBuilder = {
     pokedex: `It has some similarities to a Pokémon introduced in a dubious magazine as a Tyranitar from one billion years into the future.`,
     hp: 100, attack: 134, defense: 110, spAttack: 70, spDefense: 84, speed: 72,
     move: ['Stone Edge', 'Wild Charge'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Thunder Punch', 'Fire Punch', 'Double-Edge', 
+      'Dig', 'Thunderbolt', 'Fire Blast', 'Earthquake', 'Rock Tomb', 
+      'Facade', 'Rock Slide', 'Stone Edge', 'Charge Beam', 'Electroweb', 
+      'Bulldoze', 'Rock Blast', 'Giga Impact', 'Body Press', 'Volt Switch', 
+      'Sand Tomb', 'Protect', 'Thunder Wave', 'Dragon Dance', 'Swords Dance', 
+      'Iron Defense', 'Screech', 'Sunny Day', 'Rain Dance', 'Sandstorm', 
+      'Substitute', 'Endure', 'Electric Terrain', 'Taunt', 
+    ]
   }),
   'potw-996': ensurePkmnBuilder({
     species: 'Frigibax', type1: 'Dragon', type2: 'Ice', 
@@ -1068,7 +1630,11 @@ export const paldeaBuilder = {
     pokedex: `Frigibax absorbs heat through its dorsal fin and converts the heat into ice energy. The higher the temperature, the more energy Frigibax stores.`,
     hp: 65, attack: 75, defense: 45, spAttack: 35, spDefense: 45, speed: 55,
     move: ['Dragon Tail', 'Icy Wind'],
-    moveTMs: []
+    moveTMs: [
+      'Dig', 'Icy Wind', 'Dragon Breath', 'Facade', 'Freeze-Dry', 
+      'Dragon Pulse', 'Icicle Spear', 'Protect', 'Draco Meteor', 'Swords Dance', 
+      'Rain Dance', 'Substitute', 'Endure', 
+    ]
   }),
   'potw-997': ensurePkmnBuilder({
     species: 'Arctibax', type1: 'Dragon', type2: 'Ice', 
@@ -1079,7 +1645,11 @@ export const paldeaBuilder = {
     pokedex: `Arctibax freezes the air around it, protecting its face with an ice mask and turning its dorsal fin into a blade of ice.`,
     hp: 90, attack: 95, defense: 66, spAttack: 45, spDefense: 65, speed: 62,
     move: ['Dragon Tail', 'Ice Fang'],
-    moveTMs: []
+    moveTMs: [
+      'Dig', 'Icy Wind', 'Dragon Breath', 'Facade', 'Aerial Ace', 
+      'Freeze-Dry', 'Dragon Pulse', 'Icicle Spear', 'Protect', 'Draco Meteor', 
+      'Swords Dance', 'Rain Dance', 'Substitute', 'Endure', 
+    ]
   }),
   'potw-998': ensurePkmnBuilder({
     species: 'Baxcalibur', type1: 'Dragon', type2: 'Ice', 
@@ -1089,7 +1659,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon blasts cryogenic air out from its mouth. This air can instantly freeze even liquid-hot lava.`,
     hp: 115, attack: 145, defense: 92, spAttack: 75, spDefense: 86, speed: 87,
     move: ['Glaive Rush', 'Icicle Crash'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Earthquake', 'Icy Wind', 
+      'Dragon Breath', 'Facade', 'Aerial Ace', 'Ice Shard', 'Bulldoze', 
+      'Freeze-Dry', 'Giga Impact', 'Dragon Pulse', 'Body Press', 'Icicle Spear', 
+      'Protect', 'Dragon Dance', 'Draco Meteor', 'Swords Dance', 'Rain Dance', 
+      'Substitute', 'Endure', 
+    ]
   }),
   'potw-999': ensurePkmnBuilder({
     species: 'Gimmighoul', type1: 'Ghost',
@@ -1099,7 +1675,10 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon was born inside a treasure chest about 1,500 years ago. It sucks the life-force out of scoundrels who try to steal the treasure.`,
     hp: 45, attack: 30, defense: 70, spAttack: 75, spDefense: 70, speed: 10,
     move: ['Astonish'],
-    moveTMs: [],
+    moveTMs: [
+      'Shadow Ball', 'Protect', 'Confuse Ray', 'Nasty Plot', 'Reflect', 
+      'Light Screen', 'Substitute', 'Endure', 
+    ],
   }),
   'potw-999-chest': ensurePkmnBuilder({
     species: 'Gimmighoul', type1: 'Ghost',
@@ -1128,7 +1707,13 @@ export const paldeaBuilder = {
     pokedex: `Its body seems to be made up of 1,000 coins. This Pokémon gets along well with others and is quick to make friends with anybody.`,
     hp: 87, attack: 60, defense: 95, spAttack: 133, spDefense: 91, speed: 84,
     move: ['Make It Rain', 'Shadow Ball'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Thunder Punch', 'Thunderbolt', 'Shadow Ball', 'Focus Punch', 
+      'Flash Cannon', 'Charge Beam', 'Psyshock', 'Giga Impact', 'Dazzling Gleam', 
+      'Protect', 'Thunder Wave', 'Confuse Ray', 'Nasty Plot', 'Metal Sound', 
+      'Sandstorm', 'Reflect', 'Light Screen', 'Substitute', 'Endure', 
+      
+    ]
   }),
   'potw-1001': ensurePkmnBuilder({
     species: 'Wo-Chien', type1: 'Dark', type2: 'Grass', 
@@ -1138,7 +1723,14 @@ export const paldeaBuilder = {
     pokedex: `The grudge of a person punished for writing the king's evil deeds upon wooden tablets has clad itself in dead leaves to become a Pokémon.`,
     hp: 85, attack: 85, defense: 100, spAttack: 95, spDefense: 135, speed: 70,
     move: ['Power Whip', 'Ruination'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Mega Drain', 'Mud-Slap', 'Facade', 
+      'Leaf Storm', 'Giga Impact', 'Solar Blade', 'Body Press', 'Mud Shot', 
+      'Payback', 'Trailblaze', 'Dark Pulse', 'Protect', 'Poison Powder', 
+      'Sunny Day', 'Rain Dance', 'Reflect', 'Light Screen', 'Tickle', 
+      'Ingrain', 'Knock Off', 'Substitute', 'Leech Seed', 'Endure', 
+      'Grassy Terrain', 'Taunt', 
+    ]
   }),
   'potw-1002': ensurePkmnBuilder({
     species: 'Chien-Pao', type1: 'Dark', type2: 'Ice', 
@@ -1148,7 +1740,12 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon can control 100 tons of fallen snow. It plays around innocently by leaping in and out of avalanches it has caused.`,
     hp: 80, attack: 120, defense: 80, spAttack: 90, spDefense: 65, speed: 135,
     move: ['Sheer Cold', 'Ruination'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Icy Wind', 'Facade', 'Aerial Ace', 'Ice Shard', 
+      'Giga Impact', 'Payback', 'Ice Spinner', 'Dark Pulse', 'Protect', 
+      'Swords Dance', 'Rain Dance', 'Haze', 'Substitute', 'Endure', 
+      'Mist', 'Taunt', 
+    ]
   }),
   'potw-1003': ensurePkmnBuilder({
     species: 'Ting-Lu', type1: 'Dark', type2: 'Ground', 
@@ -1158,7 +1755,13 @@ export const paldeaBuilder = {
     pokedex: `The fear poured into an ancient ritual vessel has clad itself in rocks and dirt to become a Pokémon.`,
     hp: 155, attack: 110, defense: 125, spAttack: 55, spDefense: 80, speed: 45,
     move: ['Fissure', 'Ruination'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Earthquake', 'Mud-Slap', 
+      'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Bulldoze', 
+      'Giga Impact', 'Body Press', 'Mud Shot', 'Payback', 'Stomp', 
+      'Dark Pulse', 'Sand Tomb', 'Protect', 'Sunny Day', 'Sandstorm', 
+      'Substitute', 'Endure', 'Taunt', 
+    ]
   }),
   'potw-1004': ensurePkmnBuilder({
     species: 'Chi-Yu', type1: 'Dark', type2: 'Fire', 
@@ -1168,7 +1771,13 @@ export const paldeaBuilder = {
     pokedex: `It controls flames burning at over 5,400 degrees Fahrenheit. It casually swims through the sea of lava it creates by melting rock and sand.`,
     hp: 55, attack: 80, defense: 80, spAttack: 135, spDefense: 120, speed: 100,
     move: ['Lava Plume', 'Ruination'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Fire Blast', 'Overheat', 'Facade', 'Giga Impact', 
+      'Flame Wheel', 'Payback', 'Dark Pulse', 'Fire Spin', 'Protect', 
+      'Swagger', 'Will-O-Wisp', 'Confuse Ray', 'Nasty Plot', 'Sunny Day', 
+      'Reflect', 'Light Screen', 'Substitute', 'Endure', 'Taunt', 
+      
+    ]
   }),
   'potw-1005': ensurePkmnBuilder({
     species: 'Roaring Moon', type1: 'Dragon', type2: 'Dark', 
@@ -1178,7 +1787,14 @@ export const paldeaBuilder = {
     pokedex: `It is possible that this is the creature listed as Roaring Moon in an expedition journal that still holds many mysteries.`,
     hp: 105, attack: 139, defense: 71, spAttack: 55, spDefense: 101, speed: 119,
     move: ['Dragon Rush', 'Night Slash'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dig', 'Fire Blast', 'Earthquake', 
+      'Dragon Breath', 'Facade', 'Aerial Ace', 'Rock Slide', 'Stone Edge', 
+      'Shadow Claw', 'Hyper Voice', 'Giga Impact', 'Dragon Pulse', 'Fly', 
+      'Body Press', 'Dark Pulse', 'Fire Spin', 'Protect', 'Dragon Dance', 
+      'Draco Meteor', 'Sunny Day', 'Tailwind', 'Knock Off', 'Substitute', 
+      'Endure', 'Taunt', 'Roost', 
+    ]
   }),
   'potw-1006': ensurePkmnBuilder({
     species: 'Iron Valiant', type1: 'Fairy', type2: 'Fighting', 
@@ -1188,7 +1804,17 @@ export const paldeaBuilder = {
     pokedex: `It has some similarities to a mad scientist's invention covered in a paranormal magazine.`,
     hp: 74, attack: 130, defense: 90, spAttack: 120, spDefense: 60, speed: 116,
     move: ['Spirit Break', 'Close Combat'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Thunder Punch', 'Fire Punch', 'Thunderbolt', 
+      'Fury Cutter', 'Shadow Ball', 'Icy Wind', 'Swift', 'Aerial Ace', 
+      'Close Combat', 'Shadow Claw', 'Charge Beam', 'Hyper Voice', 'Psyshock', 
+      'Giga Impact', 'Liquidation', 'Dazzling Gleam', 'Protect', 'Thunder Wave', 
+      'Metronome', 'Hypnosis', 'Confuse Ray', 'Calm Mind', 'Swords Dance', 
+      'Agility', 'Reflect', 'Light Screen', 'Trick Room', 'Knock Off', 
+      'Substitute', 'Wide Guard', 'Quick Guard', 'Endure', 'Imprison', 
+      'Electric Terrain', 'Misty Terrain', 'Psychic Terrain', 'Taunt', 'Double Team', 
+      
+    ]
   }),
   'potw-1007': ensurePkmnBuilder({
     species: 'Koraidon', type1: 'Fighting', type2: 'Dragon', 
@@ -1198,7 +1824,14 @@ export const paldeaBuilder = {
     pokedex: `This seems to be the Winged King mentioned in an old expedition journal. It was said to have split the land with its bare fists.`,
     hp: 100, attack: 135, defense: 115, spAttack: 85, spDefense: 100, speed: 135,
     move: ['Collision Course', 'Outrage'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Double-Edge', 'Dig', 'Fire Blast', 
+      'Mud-Slap', 'Focus Punch', 'Overheat', 'Facade', 'Close Combat', 
+      'Shadow Claw', 'Bulldoze', 'Giga Impact', 'Dragon Pulse', 'Body Press', 
+      'Mud Shot', 'Rock Smash', 'Ancient Power', 'Fire Spin', 'Protect', 
+      'Bulk Up', 'Draco Meteor', 'Swords Dance', 'Agility', 'Screech', 
+      'Sunny Day', 'Substitute', 'Endure', 'Taunt', 
+    ]
   }),
   'potw-1008': ensurePkmnBuilder({
     species: 'Miraidon', type1: 'Electric', type2: 'Dragon', 
@@ -1208,7 +1841,14 @@ export const paldeaBuilder = {
     pokedex: `Much remains unknown about this creature. It resembles Cyclizar, but it is far more ruthless and powerful.`,
     hp: 100, attack: 85, defense: 100, spAttack: 135, spDefense: 115, speed: 135,
     move: ['Electro Drift', 'Dragon Pulse'],
-    moveTMs: []
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Thunderbolt', 'Dragon Breath', 'Shock Wave', 
+      'Overheat', 'Facade', 'Flash Cannon', 'Charge Beam', 'Giga Impact', 
+      'Dragon Pulse', 'Dazzling Gleam', 'Volt Switch', 'Protect', 'Thunder Wave', 
+      'Confuse Ray', 'Calm Mind', 'Draco Meteor', 'Swords Dance', 'Agility', 
+      'Metal Sound', 'Reflect', 'Light Screen', 'Substitute', 'Endure', 
+      'Electric Terrain', 'Taunt', 
+    ]
   }),
   'potw-1009': ensurePkmnBuilder({
     species: 'Walking Wake', type1: 'Water', type2: 'Dragon',
@@ -1217,7 +1857,14 @@ export const paldeaBuilder = {
     pokedex: `This ferocious creature is shrouded in mystery. It’s named after an aquatic monster mentioned in an old expedition journal.`,
     hp: 99, attack: 83, defense: 91, spAttack: 125, spDefense: 83, speed: 109,
     move: ['Hydro Steam', 'Dragon Pulse'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Dragon Breath', 'Swift', 'Facade', 
+      'Water Pulse', 'Giga Impact', 'Liquidation', 'Dragon Pulse', 'Mud Shot', 
+      'Twister', 'Chilling Water', 'Surf', 'Whirlpool', 'Waterfall', 
+      'Weather Ball', 'Protect', 'Dragon Dance', 'Draco Meteor', 'Agility', 
+      'Sunny Day', 'Rain Dance', 'Knock Off', 'Substitute', 'Hone Claws', 
+      'Endure', 
+    ],
   }),
   'potw-1010': ensurePkmnBuilder({
     species: 'Iron Leaves', type1: 'Grass', type2: 'Psychic',
@@ -1226,7 +1873,14 @@ export const paldeaBuilder = {
     pokedex: `Many of its physical characteristics match those of a Virizion from the future that was covered in a paranormal magazine.`,
     hp: 90, attack: 130, defense: 88, spAttack: 70, spDefense: 108, speed: 104,
     move: ['Solar Blade', 'Psyblade'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Double-Edge', 'Swift', 'Facade', 
+      'Aerial Ace', 'Leaf Storm', 'Close Combat', 'Giga Impact', 'Solar Blade', 
+      'Trailblaze', 'Protect', 'Calm Mind', 'Swords Dance', 'Iron Defense', 
+      'Agility', 'Metal Sound', 'Quick Attack', 'Substitute', 'Quick Guard', 
+      'Work Up', 'Endure', 'Imprison', 'Electric Terrain', 'Grassy Terrain', 
+      'Psychic Terrain', 'Taunt', 
+    ],
   }),
   'potw-1011': ensurePkmnBuilder({
     species: 'Dipplin', type1: 'Grass', type2: 'Dragon',
@@ -1235,7 +1889,13 @@ export const paldeaBuilder = {
     pokedex: `Dipplin is two creatures in one Pokémon. Its evolution was triggered by a special apple grown only in one place.`,
     hp: 80, attack: 80, defense: 110, spAttack: 95, spDefense: 80, speed: 40,
     move: ['Syrup Bomb', 'Dragon Pulse'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Rollout', 'Dragon Breath', 'Facade', 
+      'Leaf Storm', 'Double Hit', 'Infestation', 'Giga Impact', 'Dragon Pulse', 
+      'Pounce', 'Protect', 'Defense Curl', 'Draco Meteor', 'Sunny Day', 
+      'Reflect', 'Substitute', 'Endure', 'Grassy Terrain', 'Sweet Scent', 
+      
+    ],
   }),
   'potw-1012': ensurePkmnBuilder({
     species: 'Poltchageist', type1: 'Grass', type2: 'Ghost',
@@ -1245,7 +1905,12 @@ export const paldeaBuilder = {
     pokedex: `Supposedly, the regrets of a tea ceremony master who died before perfecting his craft lingered in some matcha and became a Pokémon.`,
     hp: 40, attack: 45, defense: 45, spAttack: 74, spDefense: 54, speed: 50,
     move: ['Mega Drain', 'Hex'],
-    moveTMs: [],
+    moveTMs: [
+      'Solar Beam', 'Mega Drain', 'Shadow Ball', 'Leaf Storm', 'Phantom Force', 
+      'Protect', 'Calm Mind', 'Iron Defense', 'Nasty Plot', 'Reflect', 
+      'Trick Room', 'Substitute', 'Endure', 'Imprison', 'Grassy Terrain', 
+      'Life Dew', 
+    ],
   }),
   'potw-1013': ensurePkmnBuilder({
     species: 'Sinistcha', type1: 'Grass', type2: 'Ghost',
@@ -1255,7 +1920,12 @@ export const paldeaBuilder = {
     pokedex: `It pretends to be tea, trying to fool people into drinking it so it can drain their life-force. Its ruse is generally unsuccessful.`,
     hp: 71, attack: 60, defense: 106, spAttack: 121, spDefense: 80, speed: 70,
     move: ['Matcha Gotcha', 'Shadow Ball'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Mega Drain', 'Shadow Ball', 'Leaf Storm', 
+      'Phantom Force', 'Protect', 'Calm Mind', 'Iron Defense', 'Nasty Plot', 
+      'Reflect', 'Trick Room', 'Substitute', 'Endure', 'Imprison', 
+      'Grassy Terrain', 'Life Dew', 
+    ],
   }),
   'potw-1014': ensurePkmnBuilder({
     species: 'Okidogi', type1: 'Poison', type2: 'Fighting',
@@ -1264,7 +1934,13 @@ export const paldeaBuilder = {
     pokedex: `After all its muscles were stimulated by the toxic chain around its neck, Okidogi transformed and gained a powerful physique.`,
     hp: 88, attack: 128, defense: 115, spAttack: 58, spDefense: 86, speed: 80,
     move: ['Poison Jab', 'Force Palm'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Ice Punch', 'Thunder Punch', 'Fire Punch', 'Double-Edge', 
+      'Dig', 'Rock Tomb', 'Focus Punch', 'Facade', 'Close Combat', 
+      'Shadow Claw', 'Sludge Wave', 'Giga Impact', 'Body Press', 'Superpower', 
+      'Protect', 'Bulk Up', 'Knock Off', 'Substitute', 'Endure', 
+      'Taunt', 
+    ],
   }),
   'potw-1015': ensurePkmnBuilder({
     species: 'Munkidori', type1: 'Poison', type2: 'Psychic',
@@ -1273,7 +1949,13 @@ export const paldeaBuilder = {
     pokedex: `The chain is made from toxins that enhance capabilities. It stimulated Munkidori's brain and caused the Pokémon's psychic powers to bloom.`,
     hp: 88, attack: 75, defense: 66, spAttack: 130, spDefense: 90, speed: 106,
     move: ['Sludge Wave', 'Future Sight'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Mud-Slap', 'Shadow Ball', 'Swift', 'Facade', 
+      'Shadow Claw', 'Sludge Wave', 'Psyshock', 'Giga Impact', 'Trailblaze', 
+      'Protect', 'Flatter', 'Metronome', 'Confuse Ray', 'Calm Mind', 
+      'Nasty Plot', 'Light Screen', 'Fake Out', 'Substitute', 'Endure', 
+      'Imprison', 'Psychic Terrain', 'Taunt', 
+    ],
   }),
   'potw-1016': ensurePkmnBuilder({
     species: 'Fezandipiti', type1: 'Poison', type2: 'Fairy',
@@ -1282,7 +1964,14 @@ export const paldeaBuilder = {
     pokedex: `Fezandipiti owes its beautiful looks and lovely voice to the toxic stimulants emanating from the chain wrapped around its body.`,
     hp: 88, attack: 91, defense: 82, spAttack: 70, spDefense: 125, speed: 99,
     move: ['Cross Poison', 'Moonblast'],
-    moveTMs: [],
+    moveTMs: [
+      'Hyper Beam', 'Shadow Ball', 'Icy Wind', 'Swift', 'Facade', 
+      'Aerial Ace', 'Shadow Claw', 'Play Rough', 'Giga Impact', 'Dazzling Gleam', 
+      'Fly', 'Beat Up', 'Dark Pulse', 'Protect', 'Swagger', 
+      'Flatter', 'Calm Mind', 'Swords Dance', 'Nasty Plot', 'Agility', 
+      'Light Screen', 'Quick Attack', 'Charm', 'Tailwind', 'Attract', 
+      'Substitute', 'Endure', 'Taunt', 'Roost', 
+    ],
   }),
   'potw-1017': ensurePkmnBuilder({
     species: 'Ogerpon', type1: 'Grass',
@@ -1291,7 +1980,13 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon's type changes based on which mask it's wearing. It confounds its enemies with nimble movements and kicks.`,
     hp: 80, attack: 120, defense: 84, spAttack: 60, spDefense: 96, speed: 110,
     move: ['Ivy Cudgel'],
-    moveTMs: [],
+    moveTMs: [
+      'Solar Beam', 'Rock Tomb', 'Facade', 'Leaf Storm', 'Play Rough', 
+      'Giga Impact', 'Solar Blade', 'Trailblaze', 'Superpower', 'Protect', 
+      'Swords Dance', 'Sunny Day', 'Rain Dance', 'Sandstorm', 'Quick Attack', 
+      'Charm', 'Knock Off', 'Substitute', 'Leech Seed', 'Endure', 
+      'Grassy Terrain', 'Taunt', 'Follow Me', 
+    ],
   }),
   'potw-1018': ensurePkmnBuilder({
     species: 'Archaludon', type1: 'Steel', type2: 'Dragon',
@@ -1299,9 +1994,15 @@ export const paldeaBuilder = {
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `It gathers static electricity from its surroundings. The beams it launches when down on all fours are tremendously powerful.`,
     hp: 90, attack: 105, defense: 130, spAttack: 125, spDefense: 65, speed: 85,
-    // move: ['Metal Burst', 'Dragon Claw', 'Electro Shot'],
-    move: ['Metal Burst'],
-    moveTMs: [],
+    move: ['Metal Burst', 'Dragon Claw', 'Electro Shot'],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Double-Edge', 'Thunderbolt', 'Earthquake', 
+      'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Flash Cannon', 
+      'Giga Impact', 'Dragon Pulse', 'Body Press', 'Rock Smash', 'Dark Pulse', 
+      'Protect', 'Thunder Wave', 'Draco Meteor', 'Swords Dance', 'Iron Defense', 
+      'Metal Sound', 'Reflect', 'Light Screen', 'Substitute', 'Hone Claws', 
+      'Endure', 
+    ],
   }),
   'potw-1019': ensurePkmnBuilder({
     species: 'Hydrapple', type1: 'Grass', type2: 'Dragon',
@@ -1309,9 +2010,15 @@ export const paldeaBuilder = {
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `Seven syrpents live inside an apple made of syrup. The syrpent in the center is the commander.`,
     hp: 80, attack: 120, defense: 84, spAttack: 60, spDefense: 96, speed: 110,
-    // move: ['Syrup Bomb', 'Fickle Beam', 'Dragon Cheer'],
-    move: ['Syrup Bomb'],
-    moveTMs: [],
+    move: ['Syrup Bomb', 'Fickle Beam', 'Dragon Cheer'],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Double-Edge', 'Earthquake', 'Rollout', 
+      'Dragon Breath', 'Facade', 'Leaf Storm', 'Double Hit', 'Infestation', 
+      'Giga Impact', 'Dragon Pulse', 'Body Press', 'Pounce', 'Protect', 
+      'Defense Curl', 'Draco Meteor', 'Nasty Plot', 'Sunny Day', 'Rain Dance', 
+      'Reflect', 'Substitute', 'Endure', 'Grassy Terrain', 'Sweet Scent', 
+      
+    ],
   }),
   'potw-1020': ensurePkmnBuilder({
     species: 'Gouging Fire', type1: 'Fire', type2: 'Dragon',
@@ -1319,9 +2026,14 @@ export const paldeaBuilder = {
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `There are scant few reports of this creature being sighted. One short video shows it rampaging and spouting pillars of flame.`,
     hp: 105, attack: 115, defense: 121, spAttack: 65, spDefense: 93, speed: 91,
-    // move: ['Burning Bulwark', 'Dragon Rush'],
-    move: ['Dragon Rush'],
-    moveTMs: [],
+    move: ['Burning Bulwark', 'Dragon Rush'],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Fire Blast', 'Earthquake', 'Overheat', 
+      'Facade', 'Stone Edge', 'Bulldoze', 'Giga Impact', 'Dragon Pulse', 
+      'Stomp', 'Weather Ball', 'Ancient Power', 'Fire Spin', 'Protect', 
+      'Dragon Dance', 'Draco Meteor', 'Sunny Day', 'Substitute', 'Endure', 
+      
+    ],
   }),
   'potw-1021': ensurePkmnBuilder({
     species: 'Raging Bolt', type1: 'Electric', type2: 'Dragon',
@@ -1329,9 +2041,15 @@ export const paldeaBuilder = {
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `It's said to incinerate everything around it with lightning launched from its fur. Very little is known about this creature.`,
     hp: 125, attack: 73, defense: 91, spAttack: 137, spDefense: 89, speed: 75,
-    // move: ['Thunderclap', 'Dragon Hammer'],
-    move: ['Dragon Hammer'],
-    moveTMs: [],
+    move: ['Thunderclap', 'Dragon Hammer'],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Double-Edge', 'Thunderbolt', 'Earthquake', 
+      'Zap Cannon', 'Dragon Breath', 'Shock Wave', 'Facade', 'Charge Beam', 
+      'Hyper Voice', 'Electroweb', 'Giga Impact', 'Dragon Pulse', 'Body Press', 
+      'Twister', 'Volt Switch', 'Stomp', 'Weather Ball', 'Ancient Power', 
+      'Protect', 'Thunder Wave', 'Calm Mind', 'Draco Meteor', 'Sunny Day', 
+      'Substitute', 'Endure', 'Electric Terrain', 'Taunt', 
+    ],
   }),
   'potw-1022': ensurePkmnBuilder({
     species: 'Iron Boulder', type1: 'Rock', type2: 'Psychic',
@@ -1339,9 +2057,14 @@ export const paldeaBuilder = {
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `It resembles a Pokémon described in a dubious magazine as a Terrakion that had been modified by an evil organization.`,
     hp: 90, attack: 120, defense: 80, spAttack: 68, spDefense: 108, speed: 124,
-    // move: ['Mighty Cleave', 'Psycho Cut'],
-    move: ['Psycho Cut'],
-    moveTMs: [],
+    move: ['Mighty Cleave', 'Psycho Cut'],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Earthquake', 'Rock Tomb', 'Facade', 
+      'Aerial Ace', 'Stone Edge', 'Close Combat', 'Bulldoze', 'Rock Blast', 
+      'Psyshock', 'Giga Impact', 'Solar Blade', 'Protect', 'Swords Dance', 
+      'Iron Defense', 'Agility', 'Sandstorm', 'Quick Attack', 'Substitute', 
+      'Quick Guard', 'Endure', 'Electric Terrain', 'Taunt', 
+    ],
   }),
   'potw-1023': ensurePkmnBuilder({
     species: 'Iron Crown', type1: 'Steel', type2: 'Psychic',
@@ -1349,52 +2072,73 @@ export const paldeaBuilder = {
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `It resembles a mysterious object introduced in a paranormal magazine as a cutting-edge weapon shaped like a Cobalion.`,
     hp: 90, attack: 72, defense: 100, spAttack: 122, spDefense: 108, speed: 98,
-    // move: ['Tachyon Cutter', 'Psycho Cut'],
-    move: ['Psycho Cut'],
-    moveTMs: [],
+    move: ['Tachyon Cutter', 'Psycho Cut'],
+    moveTMs: [
+      'Hyper Beam', 'Double-Edge', 'Facade', 'Flash Cannon', 'Bulldoze', 
+      'Psyshock', 'Giga Impact', 'Solar Blade', 'Volt Switch', 'Protect', 
+      'Calm Mind', 'Swords Dance', 'Iron Defense', 'Agility', 'Metal Sound', 
+      'Substitute', 'Quick Guard', 'Endure', 'Electric Terrain', 
+    ],
   }),
   'potw-1024': ensurePkmnBuilder({
     species: 'Terapagos', type1: 'Normal',
     shiny: 'FALSE', weight: 6.5, eggCycles: 40, rarity: 'LEGENDARY',
-    syncableForms: ['terastal', 'stellar'], needForm: false,
+    syncableForms: ['terastal', 'stellar'], needForm: false, release: 'ultraball',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `Terapagos protects itself using its power to transform energy into hard crystals. This Pokémon is the source of the Terastal phenomenon.`,
     hp: 90, attack: 65, defense: 85, spAttack: 65, spDefense: 85, speed: 60,
-    // move: ['Tera Starstorm'],
-    move: ['Tri Attack'],
-    moveTMs: [],
+    move: ['Tera Starstorm'],
+    moveTMs: [
+      'Hyper Beam', 'Solar Beam', 'Tri Attack', 'Double-Edge', 'Thunderbolt', 
+      'Earthquake', 'Facade', 'Water Pulse', 'Rock Slide', 'Stone Edge', 
+      'Flash Cannon', 'Giga Impact', 'Dragon Pulse', 'Dazzling Gleam', 'Body Press', 
+      'Ice Spinner', 'Surf', 'Dark Pulse', 'Weather Ball', 'Ancient Power', 
+      'Protect', 'Calm Mind', 'Sunny Day', 'Rain Dance', 'Rock Polish', 
+      'Substitute', 'Endure', 
+    ],
   }),
   'potw-1024-terastal': ensurePkmnBuilder({
     species: 'Terapagos', type1: 'Normal',
     shiny: 'FALSE', weight: 6.5, eggCycles: 40, rarity: 'LEGENDARY',
-    tiers: [/* 'SV DLC Cup' */],
+    tiers: [/* 'SV DLC Cup' */], release: 'ultraball',
     pokedex: `Upon sensing danger, it prepares itself for battle by creating a sturdy shell of crystallized Terastal energy.`,
     hp: 95, attack: 95, defense: 110, spAttack: 105, spDefense: 110, speed: 85,
-    // move: ['Tera Starstorm'],
-    move: ['Tri Attack'],
+    move: ['Tera Starstorm'],
     moveTMs: [],
   }),
   'potw-1024-stellar': ensurePkmnBuilder({
     species: 'Terapagos', type1: 'Normal',
     shiny: 'FALSE', weight: 6.5, eggCycles: 40, rarity: 'LEGENDARY',
-    tiers: [/* 'SV DLC Cup' */],
+    tiers: [/* 'SV DLC Cup' */], release: 'ultraball',
     pokedex: `In this form, Terapagos resembles the world as the ancients saw it, and its Terastal energy is abnormally amplified.`,
     hp: 160, attack: 105, defense: 110, spAttack: 130, spDefense: 110, speed: 85,
-    // move: ['Tera Starstorm'],
-    move: ['Tri Attack'],
+    move: ['Tera Starstorm'],
     moveTMs: [],
   }),
   'potw-1025': ensurePkmnBuilder({
     species: 'Pecharunt', type1: 'Poison', type2: 'Ghost',
     shiny: 'FALSE', weight: 0.3, eggCycles: 40, rarity: 'MYTHICAL',
-    tiers: [/* 'SV DLC Cup' */],
+    tiers: [/* 'SV DLC Cup' */], release: 'ultraball',
     pokedex: `It feeds others toxic mochi that draw out desires and capabilities. Those who eat the mochi fall under Pecharunt's control, chained to its will.`,
     hp: 88, attack: 88, defense: 160, spAttack: 88, spDefense: 88, speed: 88,
-    // move: ['Malignant Chain', 'Shadow Ball'],
-    move: ['Smog', 'Shadow Ball'],
-    moveTMs: [],
+    move: ['Malignant Chain', 'Shadow Ball'],
+    moveTMs: [
+      'Rollout', 'Shadow Ball', 'Sludge Wave', 'Phantom Force', 'Protect', 
+      'Defense Curl', 'Nasty Plot', 'Substitute', 'Endure', 'Imprison', 
+      'Fake Tears', 
+    ],
   }),
 }
+paldeaBuilder['potw-128-combat_breed'].moveTMs = kantoBuilder['potw-128'].moveTMs
+paldeaBuilder['potw-128-blaze_breed'].moveTMs = kantoBuilder['potw-128'].moveTMs
+paldeaBuilder['potw-128-aqua_breed'].moveTMs = kantoBuilder['potw-128'].moveTMs
+paldeaBuilder['potw-194-paldean'].moveTMs = johtoBuilder['potw-194'].moveTMs
+paldeaBuilder['potw-901-blood_moon'].moveTMs = hisuiBuilder['potw-901'].moveTMs
+paldeaBuilder['potw-916-female'].moveTMs = paldeaBuilder['potw-916'].moveTMs
+paldeaBuilder['potw-964-hero'].moveTMs = paldeaBuilder['potw-964'].moveTMs
+paldeaBuilder['potw-999-chest'].moveTMs = paldeaBuilder['potw-999'].moveTMs
+paldeaBuilder['potw-1024-terastal'].moveTMs = paldeaBuilder['potw-1024'].moveTMs
+paldeaBuilder['potw-1024-stellar'].moveTMs = paldeaBuilder['potw-1024'].moveTMs
 // Alternate forms are mostly clones of the original
 paldeaBuilder['potw-925-family_of_three'] = {...paldeaBuilder['potw-925']}
 paldeaBuilder['potw-925-family_of_three'].pokedex = `They build huge nests with many rooms that are used for different purposes, such as eating and sleeping.`
