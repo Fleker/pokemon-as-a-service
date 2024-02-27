@@ -291,7 +291,7 @@ export const hisuiBuilder = {
   }),
   'potw-705-hisuian': ensurePkmnBuilder({
     species: 'Sliggoo', type1: 'Steel', type2: 'Dragon', 
-    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball',
     weight: 68.5, levelAt: 50, levelTo: ['potw-706-hisuian'],
     eggBase: 'potw-704', eggGroup: ['Dragon'], eggCycles: 40,
     pokedex: `A creature given to melancholy. I suspect its metallic shell developed as a result of the mucus on its skin reacting with the iron in Hisui’s water.`,
@@ -313,7 +313,7 @@ export const hisuiBuilder = {
   }),
   'potw-706-hisuian': ensurePkmnBuilder({
     species: 'Goodra', type1: 'Steel', type2: 'Dragon', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'ultraball',
     weight: 334.1,
     eggBase: 'potw-704', eggGroup: ['Dragon'], eggCycles: 40,
     pokedex: `Able to freely control the hardness of its metallic shell. It loathes solitude and is extremely clingy—it will fume and run riot if those dearest to it ever leave its side.`,
@@ -386,7 +386,7 @@ export const hisuiBuilder = {
   }),
   'potw-483-origin': ensurePkmnBuilder({
     species: 'Dialga', type1: 'Steel', type2: 'Dragon',
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
+    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY', release: 'ultraball',
     weight: 850,
     eggGroup: [], eggCycles: -1,
     pokedex: `Radiant light caused Dialga to take on a form bearing a striking resemblance to the creator Pokémon. Dialga now wields such colossal strength that one must conclude this is its true form.`,
@@ -412,7 +412,7 @@ export const hisuiBuilder = {
   }),
   'potw-484-origin': ensurePkmnBuilder({
     species: 'Palkia', type1: 'Water', type2: 'Dragon', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
+    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY', release: 'ultraball',
     weight: 660,
     eggGroup: [], eggCycles: -1,
     pokedex: `It soars across the sky in a form that greatly resembles the creator of all things. Perhaps this imitation of appearance is Palkia’s strategy for gaining Arceus’s powers.`,

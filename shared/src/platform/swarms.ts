@@ -7,26 +7,25 @@ import * as P from '../gen/type-pokemon'
 /**
  * ```@markdown
 
- * **17** votes in total
- * potw-001 Bulbasaur (5)
- * potw-868 Milcery (3)
- * potw-025 Pikachu (3)
- * potw-027 Sandshrew (2)
- * potw-1001 Wo-Chien (2) (NO)
- * potw-739 Crabrawler (2)
- * potw-370 Luvdisc (2)
- * potw-004 Charmander (2)
- * potw-116 Horsea (1)
- * 40 votes in total
+potw-010 Caterpie (3)
+potw-001 Bulbasaur (2)
+potw-007 Squirtle (2)
+potw-004 Charmander (2)
+potw-483-origin Dialga (2) (NO!)
+potw-618 Stunfisk (1)
+potw-705-hisuian Sliggoo (1)
+potw-571-hisuian Zoroark (1)
+potw-674 Pancham (1)
+30 votes in total
  * ```
  */
 export const Swarms: Record<RegionType, BadgeId> = {
-  'Africa / Middle East': P.Pikachu,
-  'Asia': P.Charmander,
-  'Australia / New Zealand': P.Sandshrew,
-  'Mediterranean': P.Horsea,
-  'North America': P.Luvdisc,
-  "North Europe": P.Crabrawler,
-  "Pacific Islands": P.Milcery,
-  "South America": P.Bulbasaur,
+  'Africa / Middle East': P.Bulbasaur,
+  'Asia': P.Pancham,
+  'Australia / New Zealand': P.Charmander,
+  'Mediterranean': P.Stunfisk,
+  'North America': P.Goomy,
+  "North Europe": P.Squirtle,
+  "Pacific Islands": Potw(P.Zorua, {form: 'hisui'}),
+  "South America": P.Caterpie,
 }
