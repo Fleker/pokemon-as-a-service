@@ -45,10 +45,11 @@ export class PageMartComponent implements OnInit, OnDestroy {
     megastone: 'Mega Stones',
     fossil: 'Fossils',
     key: 'Key Items',
+    cooking: 'Cooking Ingredients',
   }
   buyCategories: Category[] = [
     'balls', 'items', 'hold', 'berry', 'fertilizer', 'battle', 'tms', 'trs',
-    'material',
+    'material', 'cooking',
   ]
   sellCategories: Category[] = [
     'balls', 'items', 'hold', 'berry', 'fertilizer', 'battle', 'tms', 'trs',

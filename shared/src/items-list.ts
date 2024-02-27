@@ -1280,6 +1280,11 @@ const ITEMS_OTHER = {
     description: 'A well-crafted artisnal teacup which is one-of-a-kind. Tea, or a certain Pokémon, can go inside.',
     buy: 0, sell: 9,
   },
+  metalalloy: {
+    label: 'Metal Alloy', category: 'items',
+    description: 'A piece of fused metal with all kinds of elements baked in. A certain Pokémon will appreciate it.',
+    buy: 0, sell: 0,
+  },
 }
 const BERRY_SIMPLE = (label, description, battle = true, functional = false): Berry => {
   return {
@@ -3358,7 +3363,7 @@ const ITEMS_KEY = {
   teraorb: assert<Item>({
     label: 'Tera Orb', category: 'key',
     description: 'An orb that contains power from an unknown source. When paired with a Tera Crystal, your Pokémon will terastalize.',
-    buy: 0, sell: 0,
+    buy: 0, sell: 0, battle: true,
   }),
   scarletbook: assert<Item>({
     label: 'Scarlet Book', category: 'key',
@@ -3449,7 +3454,8 @@ type PokemonMaterialType = 'Claw' | 'Fur' | 'Goo' | 'Hair' | 'Scales' | 'Sweat'
   | 'Key' | 'Pollen' | 'Powder' | 'Rock' | 'Shell' | 'Scrap' | 'Sand' | 'Mud'
   | 'Parcel' | 'Chip' | 'Thread' | 'Berries' | 'Eyelash' | 'Fang' | 'Juice'
   | 'Spines' | 'Mucus' | 'Stem' | 'Soot' | 'Wax' | 'Tarnish' | 'Seed'
-  | 'Salt' | 'Flaps' | 'Down' | 'Whisker'
+  | 'Salt' | 'Flaps' | 'Down' | 'Whisker' | 'Cream' | 'Flower' | 'Ink' | 'Gel'
+  | 'Shard' | 'Mane Hair' | 'Spike' | 'Paint' | 'Teardrop' | 'Stinger'
 const PokemonMaterial = (species: string, component: PokemonMaterialType): Item => {
   return assert<Item>({
     label: `${species} ${component}`, category: 'material',
@@ -3569,39 +3575,59 @@ const ITEMS_MATERIALS = {
   // TM Machine
   tmm_sandshrew: PokemonMaterial('Sandshrew', 'Claw'),
   tmm_vulpix: PokemonMaterial('Vulpix', 'Fur'),
+  tmm_oddish: PokemonMaterial('Oddish', 'Leaf'),
   tmm_diglett: PokemonMaterial('Diglett', 'Dirt'),
   tmm_meowth: PokemonMaterial('Meowth', 'Fur'),
   tmm_growlithe: PokemonMaterial('Growlithe', 'Fur'),
   tmm_slowpoke: PokemonMaterial('Slowpoke', 'Claw'),
   tmm_magnemite: PokemonMaterial('Magnemite', 'Screw'),
+  tmm_tentacool: PokemonMaterial('Tentacool', 'Stinger'),
+  tmm_doduo: PokemonMaterial('Doduo', 'Down'),
+  tmm_seel: PokemonMaterial('Seel', 'Fur'),
   tmm_grimer: PokemonMaterial('Grimer', 'Toxin'),
   tmm_gastly: PokemonMaterial('Gastly', 'Gas'),
   tmm_drowzee: PokemonMaterial('Drowzee', 'Fur'),
   tmm_voltorb: PokemonMaterial('Voltorb', 'Sparks'),
+  tmm_exeggcute: PokemonMaterial('Exeggcute', 'Shell'),
+  tmm_rhyhorn: PokemonMaterial('Rhyhorn', 'Fang'),
+  tmm_horsea: PokemonMaterial('Horsea', 'Ink'),
   tmm_scyther: PokemonMaterial('Scyther', 'Claw'),
   tmm_tauros: PokemonMaterial('Tauros', 'Hair'),
   tmm_magikarp: PokemonMaterial('Magikarp', 'Scales'),
+  tmm_lapras: PokemonMaterial('Lapras', 'Teardrop'),
+  tmm_eevee: PokemonMaterial('Eevee', 'Fur'),
+  tmm_porygon: PokemonMaterial('Porygon', 'Fragment'),
   tmm_dratini: PokemonMaterial('Dratini', 'Scales'),
   tmm_igglybuff: PokemonMaterial('Igglybuff', 'Fluff'),
+  tmm_chinchou: PokemonMaterial('Chinchou', 'Sparks'),
   tmm_hoppip: PokemonMaterial('Hoppip', 'Leaf'),
   tmm_mareep: PokemonMaterial('Mareep', 'Wool'),
   tmm_sunkern: PokemonMaterial('Sunkern', 'Leaf'),
   tmm_wooper: PokemonMaterial('Wooper', 'Slime'),
   tmm_pineco: PokemonMaterial('Pineco', 'Husk'),
+  tmm_snubbull: PokemonMaterial('Snubbull', 'Hair'),
   tmm_qwilfish: PokemonMaterial('Qwilfish', 'Spines'),
   tmm_sneasel: PokemonMaterial('Sneasel', 'Claw'),
   teddiursaclaw: PokemonMaterial('Teddiursa', 'Claw'),
   tmm_swinub: PokemonMaterial('Swinub', 'Hair'),
   tmm_delibird: PokemonMaterial('Delibird', 'Parcel'),
+  tmm_skarmory: PokemonMaterial('Skarmory', 'Feather'),
   tmm_houndour: PokemonMaterial('Houndour', 'Fang'),
   tmm_phanpy: PokemonMaterial('Phanpy', 'Nail'),
   tmm_stantler: PokemonMaterial('Stantler', 'Hair'),
+  tmm_smeargle: PokemonMaterial('Smeargle', 'Paint'),
+  tmm_tyrogue: PokemonMaterial('Tyrogue', 'Sweat'),
+  tmm_elekid: PokemonMaterial('Elekid', 'Fur'),
+  tmm_magby: PokemonMaterial('Magby', 'Hair'),
   tmm_seedot: PokemonMaterial('Seedot', 'Stem'),
   tmm_slakoth: PokemonMaterial('Slakoth', 'Fur'),
   azurillfur: PokemonMaterial('Azurill', 'Fur'),
   tmm_meditite: PokemonMaterial('Meditite', 'Sweat'),
   tmm_makuhita: PokemonMaterial('Makuhita', 'Sweat'),
   tmm_sableye: PokemonMaterial('Sableye', 'Gem'),
+  tmm_plusle: PokemonMaterial('Plusle', 'Fur'),
+  tmm_minun: PokemonMaterial('Minun', 'Fur'),
+  tmm_trapinch: PokemonMaterial('Trapinch', 'Shell'),
   tmm_numel: PokemonMaterial('Numel', 'Lava'),
   tmm_torkoal: PokemonMaterial('Torkoal', 'Coal'),
   tmm_spoink: PokemonMaterial('Spoink', 'Pearl'),
@@ -3615,8 +3641,11 @@ const ITEMS_MATERIALS = {
   tmm_shuppet: PokemonMaterial('Shuppet', 'Scrap'),
   tmm_luvdisc: PokemonMaterial('Luvdisc', 'Scales'),
   tmm_snorunt: PokemonMaterial('Snorunt', 'Fur'),
+  tmm_beldum: PokemonMaterial('Beldum', 'Claw'),
   tmm_starly: PokemonMaterial('Starly', 'Feather'),
   tmm_buizel: PokemonMaterial('Buizel', 'Fur'),
+  tmm_cranidos: PokemonMaterial('Cranidos', 'Spike'),
+  tmm_sheildon: PokemonMaterial('Sheildon', 'Claw'),
   tmm_shellos: PokemonMaterial('Shellos', 'Mucus'),
   tmm_pachirisu: PokemonMaterial('Pachirisu', 'Fur'),
   tmm_happiny: PokemonMaterial('Happiny', 'Dust'),
@@ -3629,13 +3658,21 @@ const ITEMS_MATERIALS = {
   tmm_finneon: PokemonMaterial('Finneon', 'Scales'),
   tmm_riolu: PokemonMaterial('Riolu', 'Fur'),
   tmm_snover: PokemonMaterial('Snover', 'Berries'),
+  tmm_blitzle: PokemonMaterial('Blitzle', 'Mane Hair'),
+  tmm_drilbur: PokemonMaterial('Drilbur', 'Claw'),
   tmm_sewaddle: PokemonMaterial('Sewaddle', 'Leaf'),
   tmm_timburr: PokemonMaterial('Timburr', 'Sweat'),
+  tmm_cottonee: PokemonMaterial('Cottonee', 'Fluff'),
   tmm_petilil: PokemonMaterial('Petilil', 'Leaf'),
   tmm_basculin: PokemonMaterial('Basculin', 'Fang'),
   tmm_zorua: PokemonMaterial('Zorua', 'Fur'),
+  tmm_scraggy: PokemonMaterial('Scraggy', 'Sweat'),
+  tmm_minccino: PokemonMaterial('Minccino', 'Fur'),
+  tmm_solosis: PokemonMaterial('Solosis', 'Gel'),
   tmm_gothita: PokemonMaterial('Gothita', 'Eyelash'),
   tmm_foongus: PokemonMaterial('Foonguss', 'Spores'),
+  tmm_joltik: PokemonMaterial('Joltik', 'Thread'),
+  tmm_golett: PokemonMaterial('Golett', 'Shard'),
   tmm_cubchoo: PokemonMaterial('Cubchoo', 'Fur'),
   tmm_axew: PokemonMaterial('Axew', 'Scales'),
   tmm_rufflet: PokemonMaterial('Rufflet', 'Feather'),
@@ -3644,11 +3681,17 @@ const ITEMS_MATERIALS = {
   tmm_fletchling: PokemonMaterial('Fletchling', 'Feather'),
   tmm_litleo: PokemonMaterial('Litleo', 'Tuft'),
   tmm_skiddo: PokemonMaterial('Skiddo', 'Leaf'),
+  tmm_espurr: PokemonMaterial('Espurr', 'Fur'),
+  tmm_inkay: PokemonMaterial('Inkay', 'Ink'),
   tmm_flabebe: PokemonMaterial('Flabébé', 'Pollen'),
   tmm_dedenne: PokemonMaterial('Dedenne', 'Fur'),
   tmm_klefki: PokemonMaterial('Klefki', 'Key'),
   tmm_goomy: PokemonMaterial('Goomy', 'Goo'),
   tmm_noibat: PokemonMaterial('Noibat', 'Fur'),
+  tmm_pikipek: PokemonMaterial('Pikipek', 'Feather'),
+  tmm_dewpider: PokemonMaterial('Dewpider', 'Thread'),
+  tmm_comfey: PokemonMaterial('Comfey', 'Flower'),
+  tmm_minior: PokemonMaterial('Minior', 'Shell'),
   tmm_crabrawler: PokemonMaterial('Crabrawler', 'Shell'),
   tmm_oricorio: PokemonMaterial('Oricorio', 'Feather'),
   tmm_rockruff: PokemonMaterial('Rockruff', 'Rock'),
@@ -3664,6 +3707,7 @@ const ITEMS_MATERIALS = {
   tmm_rookidee: PokemonMaterial('Rookidee', 'Feather'),
   tmm_chewtle: PokemonMaterial('Chewtle', 'Claw'),
   tmm_rolycoly: PokemonMaterial('Rolycoly', 'Coal'),
+  tmm_milcery: PokemonMaterial('Milcery', 'Cream'),
   tmm_snom: PokemonMaterial('Snom', 'Thread'),
   tmm_silicobra: PokemonMaterial('Silicobra', 'Sand'),
   tmm_arrokuda: PokemonMaterial('Arrokuda', 'Scales'),
@@ -3675,6 +3719,7 @@ const ITEMS_MATERIALS = {
   tmm_falinks: PokemonMaterial('Falinks', 'Sweat'),
   tmm_pincurchin: PokemonMaterial('Pincurchin', 'Spines'),
   tmm_indeedee: PokemonMaterial('Indeedee', 'Fur'),
+  tmm_duraludon: PokemonMaterial('Duraludon', 'Tarnish'),
   tmm_lechonk: PokemonMaterial('Lechonk', 'Hair'),
   tmm_pawmi: PokemonMaterial('Pawmi', 'Hair'),
   tmm_wattrel: PokemonMaterial('Wattrel', 'Feather'),
@@ -3752,14 +3797,34 @@ function PaldeaIngredient(item: Partial<Item>): Item {
     ...item,
   }
 }
-function PaldeaSandwich(label: string, item: Partial<Bait>): Item {
-  return {
-    label, category: 'bait',
-    description: 'A sandwich made of common ingredients, seasoned to perfection. Wild Pokémon may enjoy eating it.',
-    buy: 0, sell: 7,
+
+function PaldeaSandwich(label: string, item: Partial<Bait>): Bait {
+    return {
+      label, category: 'bait',
+      description: 'A sandwich made of common ingredients, seasoned to perfection. Wild Pokémon may enjoy eating it.',
+    buy: 0, sell: 7, consumption: 5,
     ...item,
   }
 }
+
+function SleepIngredient(label: string, item: Partial<Item | Berry>): Item {
+  return {
+    label, category: 'cooking',
+    description: 'An ingredient that can go into a salad.',
+    buy: 0, sell: 2,
+    ...item,
+  }
+}
+
+function SleepSalad(label: string, item: Partial<Bait>): Bait {
+  return {
+    label: `${label} Salad`, category: 'bait',
+    description: 'A salad made of common greens and drenched in dressing. Wild Pokémon may enjoy eating it but it will make them drowzy.',
+    buy: 0, sell: 15, consumption: 5,
+      ...item,
+  }
+}
+
 const ITEMS_INGREDIENTS = {
   // POFFINS
   poffinspicy: Poffin('Spicy Poffin',
@@ -3939,7 +4004,40 @@ const ITEMS_INGREDIENTS = {
   svsufruit: PaldeaSandwich('Ultra Fruit Sandwich', { description: 'A sandwich littered with fruit, drawing out a sweet taste.', sell: 30 }),
   svsufivealarm: PaldeaSandwich('Ultra Five-Alarm Sandwich', { description: 'A sandwich that is incredibly spicy. Not for everyone.', sell: 30 }),
   svsudessert: PaldeaSandwich('Ultra Dessert Sandwich', { description: 'Move aside ice cream! This is the sweetest sandwich one can make!', sell: 30 }),
+  // Sleep Ingredients
+  sleepislowpoke: SleepIngredient('Slowpoke Tail', {}),
+  sleepifieryherb: SleepIngredient('Fiery Herb', {buy: 5, growTime: 24, yield: {min: 2, max: 3}}),
+  sleepipureoil: SleepIngredient('Pure Oil', {buy: 3}),
+  sleepimushroom: SleepIngredient('Tasty Mushroom', {buy: 5, growTime: 24, yield: {min: 2, max: 3}}),
+  sleepitomato: SleepIngredient('Snoozy Tomato', {buy: 6, growTime: 96, yield: {min: 3, max: 5}}),
+  sleepimilk: SleepIngredient('Moomoo Milk', {}),
+  sleepibeansausage: SleepIngredient('Bean Sausage', {buy: 3}),
+  sleepipotato: SleepIngredient('Soft Potato', {buy: 6, growTime: 96, yield: {min: 3, max: 5}}),
+  // sleepiegg: SleepIngredient('Fancy Egg', {}), // <-- We have this from Galar (boiledegg)
+  // sleepiapple: SleepIngredient('Fancy Apple', {}), // <-- We have this from Galar (fancyapple)
+  sleepisoybeans: SleepIngredient('Greengrass Soybeans', {buy: 5, growTime: 24, yield: {min: 2, max: 3}}),
+  sleepiginger: SleepIngredient('Warming Ginger', {buy: 5, growTime: 24, yield: {min: 2, max: 3}}),
+  sleepicacao: SleepIngredient('Soothing Cacao', {buy: 6, growTime: 96, yield: {min: 3, max: 5}}),
+  // sleepileek: SleepIngredient('Large Leek', {}), // <-- Galar (largeleek)
+  // Sleep Salads
+  sleepsslowpoke: SleepSalad('Slowpoke Tail Pepper', {}),
+  sleepsmushroom: SleepSalad('Spore Mushroom', {}),
+  sleepssnowcloak: SleepSalad('Snow Cloak Caesar', {}),
+  sleepsgluttony: SleepSalad('Gluttony Potato', {}),
+  sleepswaterveil: SleepSalad('Water Veil Tofu', {}),
+  sleepssuperpower: SleepSalad('Superpower Extreme', {}),
+  sleepsbeanham: SleepSalad('Bean Ham', {}),
+  sleepstomato: SleepSalad('Snoozy Tomato', {}),
+  sleepscaprese: SleepSalad('Moomoo Caprese', {}),
+  sleepschocolate: SleepSalad('Contrary Chocolate Meat', {}),
+  sleepsginger: SleepSalad('Overheat Ginger', {}),
+  sleepsapple: SleepSalad('Fancy Apple', {}),
+  sleepsleek: SleepSalad('Immunity Leek', {}),
+  sleepsapplecheese: SleepSalad('Dazzling Apple Cheese', {}),
+  sleepsninja: SleepSalad('Ninja', {}),
+  sleepsheatwave: SleepSalad('Heat Wave Tofu', {}),
 }
+
 function genMegaStone(badge: BadgeId, xy: ' X' | ' Y' | '' = ''): MegaStone {
   const pkmn = get(badge)!
   return {
@@ -3949,6 +4047,7 @@ function genMegaStone(badge: BadgeId, xy: ' X' | ' Y' | '' = ''): MegaStone {
     badge,
   }
 }
+
 const ITEMS_MEGA = {
   venusaurite: genMegaStone(P.Venusaur),
   charizarditex: genMegaStone(P.Charizard, ' X'),
@@ -4081,6 +4180,12 @@ const ITEMS_TERA = {
   teradark: teraShard('Dark'),
   terasteel: teraShard('Steel'),
   terafairy: teraShard('Fairy'),
+  terastellar: {
+    battle: true,
+    category: 'terashard', buy: 0, sell: 0,
+    label: `Stellar Tera Shard`,
+    description: `A jewel shard with a vivd rainbow coloration. When held by a Pokémon, they will terastalize into a Stellar-type.`,
+  }
 }
 function Fossil(label: string, description = 'A fossil.'): Item {
   return {

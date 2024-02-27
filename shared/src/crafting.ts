@@ -1,9 +1,9 @@
 import { assert } from '@fleker/gents'
 import { Badge } from "./badge3"
 import { calculateNetWorth } from "./events"
-import { CATCH_CHARM_DPPT, CATCH_CHARM_SWSH, CATCH_CHARM_XY, LegendaryQuest, requireItem, requireType, simpleRequirePotwArr } from "./legendary-quests"
+import { CATCH_CHARM_DPPT, CATCH_CHARM_SWSH, CATCH_CHARM_XY, LegendaryQuest, requireItem, requireType, simpleRequirePotw, simpleRequirePotwArr } from "./legendary-quests"
 import { Users } from "./server-types"
-import { ItemId } from "./items-list"
+import { Item, ItemId } from "./items-list"
 import * as P from './gen/type-pokemon'
 import asLiterals from './as-literals'
 import { Type } from './pokemon/types'
@@ -211,6 +211,27 @@ function craftPaldeanSandwich(ingredients: ItemId[], output: ItemId): Recipe {
     }
   }
 }
+
+function craftSleepSalad(input: Partial<Record<ItemId, number>>, output: ItemId): Recipe {
+  return {
+    category: 'bait',
+    input,
+    output,
+    unlocked: {
+      hints: [{
+        completed: simpleRequirePotw(P.Snorlax),
+        msg: 'Catch a snoozy Pokémon.'
+      }, {
+        completed: (r) => r.itemsCrafted > 30,
+        msg: 'Try crafting some other items first.'
+      }, {
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+        msg: 'Professor Magnola may help you craft some salads.'
+      }]
+    }
+  }
+}
+
 
 export const Recipes = {
   pokeball: assert<Recipe>({
@@ -942,6 +963,23 @@ export const Recipes = {
   sandwichufruit: craftPaldeanSandwich(['svibanana', 'sviapple', 'svipineapple', 'svikiwi', 'svcwhippedcream', 'svcmarmalade', 'svcyogurt', 'svhmsalty', 'svhmspicy'], 'svsufruit'),
   sandwichufivealarm: craftPaldeanSandwich(['svichorizo', 'svionion', 'svibellpeppergreen', 'svibasil', 'svijalapeno', 'svcmustard', 'svcchilisauce', 'svcpepper', 'svhmsour', 'svhmbitter'], 'svsufivealarm'),
   sandwichudessert: craftPaldeanSandwich(['sviapple', 'sviapple', 'svikiwi', 'svistrawberry', 'svcyogurt', 'svcwhippedcream', 'svhmsour', 'svhmspicy'], 'svsudessert'),
+  // https://www.serebii.net/pokemonsleep/dishes.shtml
+  sleepslowpoke: craftSleepSalad({sleepislowpoke: 3, sleepifieryherb: 3, sleepipureoil: 5}, 'sleepsslowpoke'),
+  sleepsmushroom: craftSleepSalad({sleepimushroom: 6, sleepitomato: 3, sleepipureoil: 3}, 'sleepsmushroom'),
+  sleepssnowcloak: craftSleepSalad({sleepimilk: 5, sleepibeansausage: 3}, 'sleepssnowcloak'),
+  sleepsgluttony: craftSleepSalad({sleepipotato: 6, boiledegg: 3, fancyapple: 1, sleepibeansausage: 1}, 'sleepsgluttony'),
+  sleepswaterveil: craftSleepSalad({sleepisoybeans: 5, sleepitomato: 3}, 'sleepswaterveil'),
+  sleepssuperpower: craftSleepSalad({sleepibeansausage: 5, sleepiginger: 3, boiledegg: 2, sleepipotato: 1}, 'sleepssuperpower'),
+  sleepsbeanham: craftSleepSalad({sleepibeansausage: 8}, 'sleepsbeanham'),
+  sleepstomato: craftSleepSalad({sleepitomato: 8}, 'sleepstomato'),
+  sleepscaprese: craftSleepSalad({sleepimilk: 6, sleepitomato: 3, sleepipureoil: 2}, 'sleepscaprese'),
+  sleepschocolate: craftSleepSalad({sleepicacao: 7, sleepibeansausage: 4}, 'sleepschocolate'),
+  sleepsginger: craftSleepSalad({sleepifieryherb: 5, sleepiginger: 3, sleepitomato: 2}, 'sleepsginger'),
+  sleepsapple: craftSleepSalad({fancyapple: 8}, 'sleepsapple'),
+  sleepsleek: craftSleepSalad({largeleek: 5, sleepiginger: 3}, 'sleepsleek'),
+  sleepsapplecheese: craftSleepSalad({fancyapple: 5, sleepimilk: 2, sleepipureoil: 1}, 'sleepsapplecheese'),
+  sleepsninja: craftSleepSalad({largeleek: 4, sleepisoybeans: 4, sleepimushroom: 2, sleepiginger: 2}, 'sleepsninja'),
+  sleepsheatwave: craftSleepSalad({sleepisoybeans: 5, sleepifieryherb: 3}, 'sleepsheatwave'),
 }
 
 export type RecipeId = keyof typeof Recipes
