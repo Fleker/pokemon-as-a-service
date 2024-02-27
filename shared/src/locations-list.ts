@@ -957,6 +957,16 @@ export const Globe = {
     weatherAutumn:{Thunderstorm:0.15,Fog:0.05,Rain:0.15,'Heat Wave':0.05,Cloudy:0.1},
     weatherWinter:{Cloudy:0.1,'Heat Wave':0.15,Thunderstorm:0.2,Fog:0.05,Rain:0.1},
   }),
+  'NE-AKL': assert<Location>({
+    label: "Auckland", region:"Australia / New Zealand", terrain:"Oceanic", flag: '🇳🇿', id: 159,
+    hemiLat: 'South', hemiLong: 'East', timezone: 'Australia/Sydney', vivillon: 'river',
+    latitude: -36.85, longitude: 174.76,
+    fact: "This is known as the City of Sails.",
+    weatherAutumn:{Fog:0.125,Cloudy:0.1,Rain:0.15,Thunderstorm:0.125, Windy: 0.1},
+    weatherWinter:{Rain:0.075,Thunderstorm:0.10,Fog:0.125,Cloudy:0.10, Windy: 0.1},
+    weatherSpring:{Rain:0.125,Thunderstorm:0.1,Fog:0.125,Cloudy:0.10, Windy: 0.1},
+    weatherSummer:{Fog:0.125,Rain:0.10,Cloudy:0.05,'Heat Wave':0.15,Thunderstorm:0.2, Windy: 0.1},
+  }),
   'NG-LAG': assert<Location>({
     label:"Lagos", region:"Africa / Middle East", terrain:"Beach", flag: '🇳🇬', id: 68,
     hemiLat: 'North', hemiLong: 'East', timezone: 'Africa/Lagos', vivillon: 'river',
@@ -966,6 +976,16 @@ export const Globe = {
     weatherSummer:{Rain:0.075,Thunderstorm:0.2,'Heat Wave':0.25,Fog:0.1,Cloudy:0.175, Sandstorm: 0.025},
     weatherAutumn:{Fog:0.125,Cloudy:0.175,Thunderstorm:0.1,Rain:0.1,'Heat Wave':0.1, Sandstorm: 0.025},
     weatherWinter:{Rain:0.125,Fog:0.15,Thunderstorm:0.025,Cloudy:0.175,'Heat Wave':0.025, Sandstorm: 0.025}
+  }),
+  'NL-AMS': assert<Location>({
+    label:"Amsterdam", region:"North Europe", terrain:"Bay", flag: '🇳🇱', id: 158,
+    hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'polar',
+    latitude: 52.36, longitude: 4.90,
+    fact: "This city is known for its museum of a famed painter",
+    weatherSpring:{Rain:0.10,Fog:0.15,Snow:0.125,Cloudy:0.175,"Diamond Dust":0.0025},
+    weatherSummer:{Rain:0.125,Fog:0.125,'Heat Wave':0.025,Cloudy:0.2,Thunderstorm:0.025},
+    weatherAutumn:{Fog:0.15,Rain:0.10,Cloudy:0.175,Snow:0.075},
+    weatherWinter:{Cloudy:0.2,"Diamond Dust":0.008,Snow:0.25,Rain:0.025,Fog:0.175},
   }),
   'NL-GRQ': assert<Location>({
     label:"Groningen", region:"North Europe", terrain:"Bay", flag: '🇳🇱', id: 69,
