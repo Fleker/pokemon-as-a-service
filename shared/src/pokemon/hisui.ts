@@ -229,6 +229,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Wave Crash', 'Scary Face'],
+      ['Assurance', 'Taunt'],
     ],
   }),
   'potw-570-hisuian': ensurePkmnBuilder({
@@ -470,7 +471,7 @@ export const hisuiBuilder = {
   'potw-900': ensurePkmnBuilder({
     species: 'Kleavor', type1: 'Bug', type2: 'Rock', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball',
-    weight: 89, syncableForms: ['noble'], needForm: false,
+    weight: 89, syncableForms: ['noble', 'alpha'], needForm: false,
     eggBase: 'potw-123', eggGroup: [], eggCycles: -1,
     pokedex: `A violent creature that fells towering trees with its crude axes and shields itself with hard stone. If one should chance upon this Pokémon in the wilds, one's only recourse is to flee.`,
     hp: 70, attack: 135, defense: 95, spAttack: 45, spDefense: 70, speed: 85,
@@ -530,7 +531,10 @@ export const hisuiBuilder = {
       'Agility', 'Rain Dance', 'Endeavor', 'Substitute', 'Soak', 
     ],
     novelMoves: [[],
-      ['Phantom Force', 'Crunch', 'Scary Face']
+      ['Phantom Force', 'Crunch', 'Scary Face'],
+      ['Psychic Fangs', 'Taunt'],
+      /// Head Smash
+      // Last Respects
     ],
   }),
   'potw-902-male': ensurePkmnBuilder({
@@ -548,7 +552,8 @@ export const hisuiBuilder = {
       'Agility', 'Rain Dance', 'Endeavor', 'Substitute', 'Soak', 
     ],
     novelMoves: [[],
-      ['Phantom Force', 'Crunch', 'Scary Face']
+      ['Phantom Force', 'Crunch', 'Scary Face'],
+      ['Psychic Fangs', 'Taunt'],
     ],
   }),
   'potw-902-female': ensurePkmnBuilder({
@@ -566,7 +571,8 @@ export const hisuiBuilder = {
       'Agility', 'Rain Dance', 'Endeavor', 'Substitute', 'Soak', 
     ],
     novelMoves: [[],
-      ['Phantom Force', 'Crunch', 'Scary Face']
+      ['Phantom Force', 'Crunch', 'Scary Face'],
+      ['Ice Fang', 'Taunt'],
     ],
   }),
   'potw-903': ensurePkmnBuilder({

@@ -408,6 +408,7 @@ export const alolaBuilder = {
       ['Power-Up Punch', 'Minimize'],
       ['Shadow Punch', 'Poison Gas'],
       ['Gunk Shot', 'Ice Punch', 'Mean Look'],
+      ['Brutal Swing', 'Rock Tomb', 'Pain Split'],
     ],
   }),
   'potw-089-alolan': ensurePkmnBuilder({
@@ -433,6 +434,7 @@ export const alolaBuilder = {
       ['Power-Up Punch', 'Venom Drench'],
       ['Shadow Punch', 'Poison Gas'],
       ['Gunk Shot', 'Ice Punch', 'Toxic'],
+      ['Brutal Swing', 'Rock Slide', 'Pain Split'],
     ],
   }),
   'potw-103-alolan': ensurePkmnBuilder({
@@ -1932,6 +1934,7 @@ export const alolaBuilder = {
       ['Overheat', 'Body Slam', 'Shell Trap'],
       ['Heat Crash', 'Dragon Tail', 'Lash Out', 'Shell Smash'],
       ['Iron Head', 'Wide Guard'],
+      ['Brutal Swing', 'Outrage', 'Heat Wave', 'Wide Guard'],
     ]
   }),
   'potw-777': ensurePkmnBuilder({

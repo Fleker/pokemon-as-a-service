@@ -6,26 +6,24 @@ import * as P from '../gen/type-pokemon'
 
 /**
  * ```@markdown
-
-potw-010 Caterpie (3)
-potw-001 Bulbasaur (2)
-potw-007 Squirtle (2)
-potw-004 Charmander (2)
-potw-483-origin Dialga (2) (NO!)
-potw-618 Stunfisk (1)
-potw-705-hisuian Sliggoo (1)
-potw-571-hisuian Zoroark (1)
-potw-674 Pancham (1)
-30 votes in total
+potw-001 Bulbasaur (3)
+potw-133 Eevee (2)
+potw-155 Cyndaquil (1)
+potw-759 Stufful (1)
+potw-129-skelly Magikarp (1)
+potw-280 Ralts (1)
+potw-850 Sizzlipede (1)
+potw-877 Morpeko (1)
+33 votes in total
  * ```
  */
 export const Swarms: Record<RegionType, BadgeId> = {
-  'Africa / Middle East': P.Bulbasaur,
-  'Asia': P.Pancham,
-  'Australia / New Zealand': P.Charmander,
-  'Mediterranean': P.Stunfisk,
-  'North America': P.Goomy,
-  "North Europe": P.Squirtle,
-  "Pacific Islands": Potw(P.Zorua, {form: 'hisuian'}),
-  "South America": P.Caterpie,
+  'Africa / Middle East': P.Cyndaquil,
+  'Asia': P.Bulbasaur,
+  'Australia / New Zealand': P.Stufful,
+  'Mediterranean': P.Eevee,
+  'North America': P.Morpeko,
+  "North Europe": P.Ralts,
+  "Pacific Islands": P.Sizzlipede,
+  "South America": Potw(P.Magikarp, {form: 'skelly'}),
 }

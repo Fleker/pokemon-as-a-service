@@ -48,6 +48,7 @@ export const galarBuilder = {
       ['Stomp', 'Heal Pulse'],
       ['Pay Day', 'Misty Terrain'],
       ['Zen Headbutt', 'Throat Chop', 'Psychic Terrain'],
+      ['Heat Wave', 'Morning Sun'],
     ],
   }),
   'potw-078-galarian': ensurePkmnBuilder({
@@ -71,6 +72,7 @@ export const galarBuilder = {
       ['Megahorn', 'Heal Pulse'],
       ['Horn Drill', 'Misty Terrain'],
       ['Zen Headbutt', 'Throat Chop', 'Psychic Terrain'],
+      ['Heat Wave', 'Morning Sun'],
     ],
   }),
   'potw-079-galarian': ensurePkmnBuilder({
@@ -482,6 +484,7 @@ export const galarBuilder = {
       ['Snap Trap', 'Metal Sound'],
       ['Fissure', 'Sand Attack'],
       ['Electroweb', 'Reflect Type'],
+      ['Sludge Wave', 'Pain Split'],
     ],
   }),
   'potw-810': ensurePkmnBuilder({
@@ -1162,7 +1165,8 @@ export const galarBuilder = {
       'Rollout', 'Defense Curl', 'Draco Meteor', 'Attract', 
     ],
     novelMoves: [[],
-      ['Rollout', 'Withdraw']
+      ['Rollout', 'Withdraw'],
+      ['Growth'],
     ],
   }),
   'potw-841': ensurePkmnBuilder({
@@ -1181,6 +1185,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Wing Attack', 'Dragon Dance'],
+      ['Sucker Punch', 'Growth'],
     ],
     gmax: {
       gmaxMove: 'G-Max Tartness',
@@ -1205,6 +1210,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Headbutt', 'Curse'],
+      ['Draco Meteor', 'High Horsepower', 'Growth'],
     ],
     gmax: {
       gmaxMove: 'G-Max Sweetness',
@@ -1903,6 +1909,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Mega Kick', 'Stealth Rock'],
+      ['Heat Crash', 'Gravity'],
     ],
   }),
   'potw-875': ensurePkmnBuilder({
@@ -1923,6 +1930,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Surf', 'Amnesia'],
+      ['Avalanche', 'Body Slam', 'Aurora Veil'],
     ],
   }),
   'potw-875-noice_face': ensurePkmnBuilder({
@@ -1943,6 +1951,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Surf', 'Amnesia'],
+      ['Avalanche', 'Body Slam', 'Hail'],
     ],
   }),
   'potw-876': ensurePkmnBuilder({
@@ -2069,6 +2078,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['High Horsepower', 'Iron Defense'],
+      ['Smack Down', 'Screech'],
     ],
   }),
   'potw-879': ensurePkmnBuilder({
@@ -2090,6 +2100,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['High Horsepower', 'Iron Defense'],
+      ['Heat Crash', 'Screech'],
     ],
     gmax: {
       gmaxMove: 'G-Max Steelsurge',
