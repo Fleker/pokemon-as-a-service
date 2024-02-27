@@ -1,5 +1,4 @@
 import { ensurePkmnBuilder } from './types'
-
 export const hoennBuilder = {
   'potw-252': ensurePkmnBuilder({
     species: 'Treecko',
@@ -724,14 +723,14 @@ export const hoennBuilder = {
       ['Liquidation', 'Gust', 'Mist'],
       ['Air Cutter', 'Uproar', 'Roost'],
     ],
-    tiers: ['Tiny Cup', 'Sky Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Sky Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 9.5,
   }),
   'potw-279': ensurePkmnBuilder({
     species: 'Pelipper',
     type1: 'Water', type2: 'Flying',
     release: 'greatball',
-    tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: 'PELIPPER is a flying transporter that carries small POKéMON and eggs inside its massive bill. This POKéMON builds its nest on steep cliffs facing the sea.',
     eggBase: 'potw-278', eggGroup: ['Water 1', 'Flying'], eggCycles: 20,
     hp: 60, attack: 50, defense: 100, spAttack: 85, spDefense: 70, speed: 65,
@@ -781,7 +780,7 @@ export const hoennBuilder = {
       ['Signal Beam', 'Recycle'],
       ['Disarming Voice', 'Icy Wind', 'Heal Bell'],
     ],
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 6.6,
   }),
   'potw-281': ensurePkmnBuilder({
@@ -812,7 +811,7 @@ export const hoennBuilder = {
       ['Disarming Voice', 'Icy Wind', 'Heal Bell'],
     ],
     shiny: 'WILD', weight: 20.2,
-    tiers: ['GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['GigantaCup', 'Crown Cup', 'Terastallize Cup'],
   }),
   // To get a valid key when using Dawn Stone
   'potw-281-male': ensurePkmnBuilder({
@@ -843,13 +842,13 @@ export const hoennBuilder = {
       ['Disarming Voice', 'Icy Wind', 'Heal Bell'],
     ],
     shiny: 'WILD', weight: 20.2,
-    tiers: ['GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['GigantaCup', 'Crown Cup', 'Terastallize Cup'],
   }),
   'potw-282': ensurePkmnBuilder({
     species: 'Gardevoir',
     type1: 'Psychic', type2: 'Fairy',
     release: 'ultraball', gender: ['male', 'female'],
-    tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: 'GARDEVOIR has the ability to read the future. If it senses impending danger to its TRAINER, this POKéMON is said to unleash its psychokinetic energy at full power.',
     eggBase: 'potw-280', eggGroup: ['Human-Like', 'Amorphous'], eggCycles: 20,
     hp: 68, attack: 65, defense: 65, spAttack: 125, spDefense: 115, speed: 80,
@@ -904,13 +903,13 @@ export const hoennBuilder = {
       ['Liquidation', 'Icy Wind', 'Stun Spore'],
       ['Bubble', 'Sweet Scent'],
     ],
-    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 1.7,
   }),
   'potw-284': ensurePkmnBuilder({
     species: 'Masquerain',
     type1: 'Bug', type2: 'Flying',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Sky Cup', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Sky Cup', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'],
     pokedex: `MASQUERAIN intimidates enemies with the eyelike patterns on its antennas. This POKéMON flaps its four wings to freely fly in any direction - even sideways and backwards - as if it were a helicopter.`,
     eggBase: 'potw-283', eggGroup: ['Water 1', 'Bug'], eggCycles: 15,
     hp: 70, attack: 60, defense: 62, spAttack: 80, spDefense: 82, speed: 60,
@@ -954,13 +953,13 @@ export const hoennBuilder = {
       ['Seed Bomb', 'Venoshock', 'Leech Seed'],
       ['Acid', 'Synthesis'],
     ],
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 4.5,
   }),
   'potw-286': ensurePkmnBuilder({
     species: 'Breloom',
     type1: 'Grass', type2: 'Fighting',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Terastallize Cup'],
     pokedex: 'BRELOOM closes in on its foe with light and sprightly footwork, then throws punches with its stretchy arms. This POKéMON\'s fighting technique puts boxers to shame.',
     eggBase: 'potw-285', eggGroup: ['Fairy', 'Grass'], eggCycles: 15,
     hp: 60, attack: 130, defense: 80, spAttack: 60, spDefense: 60, speed: 70,
@@ -1008,7 +1007,7 @@ export const hoennBuilder = {
       ['Gunk Shot', 'Yawn'],
       ['Play Rough', 'Slack Off'],
     ],
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 24,
   }),
   'potw-288': ensurePkmnBuilder({
@@ -1038,12 +1037,12 @@ export const hoennBuilder = {
       ['Earthquake', 'Slack Off'],
     ],
     shiny: 'WILD', weight: 46.5,
-    tiers: [/*, 'Terastallization Cup'*/],
+    tiers: ['Terastallize Cup'],
   }),
   'potw-289': ensurePkmnBuilder({
     species: 'Slaking',
     type1: 'Normal',
-    release: 'ultraball', tiers: ['Traditional', 'Emerald Cup'/*, 'Terastallization Cup'*/],
+    release: 'ultraball', tiers: ['Traditional', 'Emerald Cup', 'Terastallize Cup'],
     pokedex: `SLAKING spends all day lying down and lolling about. It eats grass growing within its reach. If it eats all the grass it can reach, this POKéMON reluctantly moves to another spot.`,
     eggBase: 'potw-287', eggGroup: ['Field'], eggCycles: 15,
     hp: 150, attack: 160/2, defense: 100, spAttack: 95/2, spDefense: 65, speed: 100,
@@ -1225,7 +1224,7 @@ export const hoennBuilder = {
   }),
   'potw-296': ensurePkmnBuilder({
     species: 'Makuhita',
-    type1: 'Fighting', tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Fighting', tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'],
     pokedex: 'MAKUHITA is tenacious - it will keep getting up and attacking its foe however many times it is knocked down. Every time it gets back up, this POKéMON stores more energy in its body for evolving.',
     eggBase: 'potw-296', eggGroup: ['Human-Like'], eggCycles: 20,
     levelAt: 24, levelTo: 'potw-297',
@@ -1252,7 +1251,7 @@ export const hoennBuilder = {
   'potw-297': ensurePkmnBuilder({
     species: 'Hariyama',
     type1: 'Fighting',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Ultra Cup', 'Terastallize Cup'],
     pokedex: 'HARIYAMA practices its straight-arm slaps in any number of locations. One hit of this POKéMON\'s powerful, openhanded, straight-arm punches could snap a telephone pole in two.',
     eggBase: 'potw-296', eggGroup: ['Human-Like'], eggCycles: 20,
     hp: 144, attack: 120, defense: 60, spAttack: 40, spDefense: 60, speed: 50,
@@ -1382,7 +1381,7 @@ export const hoennBuilder = {
   }),
   'potw-302': ensurePkmnBuilder({
     species: 'Sableye',
-    type1: 'Dark', type2: 'Ghost', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Dark', type2: 'Ghost', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: 'SABLEYE lead quiet lives deep inside caverns. They are feared, however, because these POKéMON are thought to steal the spirits of people when their eyes burn with a sinister glow in the darkness.',
     eggBase: 'potw-302', eggGroup: ['Human-Like'], eggCycles: 25,
     hp: 50, attack: 75, defense: 75, spAttack: 65, spDefense: 65, speed: 50,
@@ -1542,7 +1541,7 @@ export const hoennBuilder = {
   }),
   'potw-307': ensurePkmnBuilder({
     species: 'Meditite',
-    type1: 'Fighting', type2: 'Psychic', tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Fighting', type2: 'Psychic', tiers: ['Tiny Cup', 'Terastallize Cup'],
     pokedex: `MEDITITE undertakes rigorous mental training deep in the mountains. However, whenever it meditates, this POKéMON always loses its concentration and focus. As a result, its training never ends.`,
     eggBase: 'potw-307', eggGroup: ['Human-Like'], eggCycles: 20,
     levelAt: 37, levelTo: 'potw-308',
@@ -1570,7 +1569,7 @@ export const hoennBuilder = {
   'potw-308': ensurePkmnBuilder({
     species: 'Medicham',
     type1: 'Fighting', type2: 'Psychic',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Terastallize Cup'],
     pokedex: `It is said that through meditation, MEDICHAM heightens energy inside its body and sharpens its sixth sense. This POKéMON hides its presence by merging itself with fields and mountains.`,
     eggBase: 'potw-307', eggGroup: ['Human-Like'], eggCycles: 20,
     // With Huge Power ability
@@ -1790,7 +1789,7 @@ export const hoennBuilder = {
   'potw-316': ensurePkmnBuilder({
     species: 'Gulpin',
     type1: 'Poison',
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Terastallize Cup'],
     pokedex: `Virtually all of GULPIN's body is its stomach. As a result, it can swallow something its own size. This POKéMON's stomach contains a special fluid that digests anything.`,
     eggBase: 'potw-316', eggGroup: ['Amorphous'], eggCycles: 20,
     levelAt: 26, levelTo: 'potw-317',
@@ -1816,7 +1815,7 @@ export const hoennBuilder = {
   'potw-317': ensurePkmnBuilder({
     species: 'Swalot',
     type1: 'Poison',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Terastallize Cup'],
     pokedex: `When SWALOT spots prey, it spurts out a hideously toxic fluid from its pores and sprays the target. Once the prey has weakened, this POKéMON gulps it down whole with its cavernous mouth.`,
     eggBase: 'potw-316', eggGroup: ['Amorphous'], eggCycles: 20,
     hp: 100, attack: 73, defense: 83, spAttack: 73, spDefense: 83, speed: 55,
@@ -1949,7 +1948,7 @@ export const hoennBuilder = {
   }),
   'potw-322': ensurePkmnBuilder({
     species: 'Numel',
-    type1: 'Fire', type2: 'Ground', tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Fire', type2: 'Ground', tiers: ['Tiny Cup', 'Terastallize Cup'],
     pokedex: `NUMEL is extremely dull witted - it doesn't notice being hit. However, it can't stand hunger for even a second. This POKéMON's body is a seething cauldron of boiling magma.`,
     eggBase: 'potw-322', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 33, levelTo: 'potw-323',
@@ -1975,7 +1974,7 @@ export const hoennBuilder = {
   'potw-323': ensurePkmnBuilder({
     species: 'Camerupt',
     type1: 'Fire', type2: 'Ground',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Terastallize Cup'],
     pokedex: `CAMERUPT has a volcano inside its body. Magma of 18,000 degrees F courses through its body. Occasionally, the humps on this POKéMON's back erupt, spewing the superheated magma.`,
     eggBase: 'potw-322', eggGroup: ['Field'], eggCycles: 20,
     hp: 70, attack: 100, defense: 70, spAttack: 105, spDefense: 75, speed: 40,
@@ -2007,7 +2006,7 @@ export const hoennBuilder = {
   'potw-324': ensurePkmnBuilder({
     species: 'Torkoal',
     type1: 'Fire',
-    tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: `TORKOAL digs through mountains in search of coal. If it finds some, it fills hollow spaces on its shell with the coal and burns it. If it is attacked, this POKéMON spouts thick black smoke to beat a retreat.`,
     eggBase: 'potw-324', eggGroup: ['Field'], eggCycles: 20,
     hp: 70, attack: 85, defense: 140, spAttack: 85, spDefense: 70, speed: 20,
@@ -2032,7 +2031,7 @@ export const hoennBuilder = {
   }),
   'potw-325': ensurePkmnBuilder({
     species: 'Spoink',
-    type1: 'Psychic', tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Psychic', tiers: ['Tiny Cup', 'Terastallize Cup'],
     pokedex: `SPOINK bounces around on its tail. The shock of its bouncing makes its heart pump. As a result, this POKéMON cannot afford to stop bouncing - if it stops, its heart will stop.`,
     eggBase: 'potw-325', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 32, levelTo: 'potw-326',
@@ -2058,7 +2057,7 @@ export const hoennBuilder = {
   }),
   'potw-326': ensurePkmnBuilder({
     species: 'Grumpig',
-    type1: 'Psychic', release: 'greatball',  tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Psychic', release: 'greatball',  tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Terastallize Cup'],
     pokedex: `GRUMPIG uses the black pearls on its body to amplify its psychic power waves for gaining total control over its foe. When this POKéMON uses its special power, its snorting breath grows labored.`,
     eggBase: 'potw-325', eggGroup: ['Field'], eggCycles: 20,
     hp: 80, attack: 45, defense: 65, spAttack: 90, spDefense: 110, speed: 80,
@@ -2199,7 +2198,7 @@ export const hoennBuilder = {
   'potw-331': ensurePkmnBuilder({
     species: 'Cacnea',
     type1: 'Grass',
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Terastallize Cup'],
     pokedex: 'CACNEA lives in arid locations such as deserts. It releases a strong aroma from its flower to attract prey. When prey comes near, this POKéMON shoots sharp thorns from its body to bring the victim down.',
     eggBase: 'potw-331', eggGroup: ['Grass', 'Human-Like'], eggCycles: 20,
     levelAt: 32, levelTo: 'potw-332',
@@ -2225,7 +2224,7 @@ export const hoennBuilder = {
   'potw-332': ensurePkmnBuilder({
     species: 'Cacturne',
     type1: 'Grass', type2: 'Dark',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Terastallize Cup'],
     pokedex: 'During the daytime, CACTURNE remains unmoving so that it does not lose any moisture to the harsh desert sun. This POKéMON becomes active at night when the temperature drops.',
     eggBase: 'potw-331', eggGroup: ['Grass', 'Human-Like'], eggCycles: 20,
     hp: 70, attack: 115, defense: 60, spAttack: 115, spDefense: 60, speed: 55,
@@ -2250,7 +2249,7 @@ export const hoennBuilder = {
   }),
   'potw-333': ensurePkmnBuilder({
     species: 'Swablu',
-    type1: 'Normal', type2: 'Flying', tiers: ['Tiny Cup', 'Sky Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Normal', type2: 'Flying', tiers: ['Tiny Cup', 'Sky Cup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: `SWABLU has light and fluffy wings that are like cottony clouds. This POKéMON is not frightened of people. It lands on the heads of people and sits there like a cotton-fluff hat.`,
     eggBase: 'potw-333', eggGroup: ['Flying', 'Dragon'], eggCycles: 20,
     levelAt: 35, levelTo: 'potw-334',
@@ -2277,7 +2276,7 @@ export const hoennBuilder = {
   'potw-334': ensurePkmnBuilder({
     species: 'Altaria',
     type1: 'Dragon', type2: 'Flying',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: `ALTARIA dances and wheels through the sky among billowing, cotton-like clouds. By singing melodies in its crystal-clear voice, this POKéMON makes its listeners experience dreamy wonderment.`,
     eggBase: 'potw-333', eggGroup: ['Flying', 'Dragon'], eggCycles: 20,
     hp: 75, attack: 70, defense: 90, spAttack: 70, spDefense: 105, speed: 80,
@@ -2312,7 +2311,7 @@ export const hoennBuilder = {
   'potw-335': ensurePkmnBuilder({
     species: 'Zangoose',
     type1: 'Normal',
-    tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Terastallize Cup'],
     pokedex: `Memories of battling its arch-rival SEVIPER are etched into every cell of ZANGOOSE's body. This POKéMON adroitly dodges attacks with incredible agility.`,
     eggBase: 'potw-335', eggGroup: ['Field'], eggCycles: 20,
     hp: 75, attack: 115, defense: 60, spAttack: 60, spDefense: 60, speed: 90,
@@ -2341,7 +2340,7 @@ export const hoennBuilder = {
   'potw-336': ensurePkmnBuilder({
     species: 'Seviper',
     type1: 'Poison',
-    tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Terastallize Cup'],
     pokedex: `SEVIPER shares a generations-long feud with ZANGOOSE. The scars on its body are evidence of vicious battles. This POKéMON attacks using its sword- edged tail.`,
     eggBase: 'potw-336', eggGroup: ['Field', 'Dragon'], eggCycles: 20,
     hp: 73, attack: 100, defense: 60, spAttack: 100, spDefense: 60, speed: 65,
@@ -2420,7 +2419,7 @@ export const hoennBuilder = {
   }),
   'potw-339': ensurePkmnBuilder({
     species: 'Barboach',
-    type1: 'Water', type2: 'Ground', tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Water', type2: 'Ground', tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: `BARBOACH's sensitive whiskers serve as a superb radar system. This POKéMON hides in mud, leaving only its two whiskers exposed while it waits for prey to come along.`,
     eggBase: 'potw-339', eggGroup: ['Water 2'], eggCycles: 20,
     levelAt: 30, levelTo: 'potw-340',
@@ -2447,7 +2446,7 @@ export const hoennBuilder = {
     species: 'Whiscash',
     type1: 'Water', type2: 'Ground',
     release: 'greatball',
-    tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: `WHISCASH is extremely territorial. Just one of these POKéMON will claim a large pond as its exclusive territory. If a foe approaches it, it thrashes about and triggers a massive earthquake.`,
     eggBase: 'potw-339', eggGroup: ['Water 2'], eggCycles: 20,
     hp: 110, attack: 78, defense: 73, spAttack: 76, spDefense: 71, speed: 60,
@@ -2860,7 +2859,7 @@ export const hoennBuilder = {
   }),
   'potw-353': ensurePkmnBuilder({
     species: 'Shuppet',
-    type1: 'Ghost', tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Ghost', tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'],
     pokedex: `SHUPPET is attracted by feelings of jealousy and vindictiveness. If someone develops strong feelings of vengeance, this POKéMON will appear in a swarm and line up beneath the eaves of that person's home.`,
     eggBase: 'potw-353', eggGroup: ['Amorphous'], eggCycles: 25,
     levelAt: 37, levelTo: 'potw-354',
@@ -2887,7 +2886,7 @@ export const hoennBuilder = {
   'potw-354': ensurePkmnBuilder({
     species: 'Banette',
     type1: 'Ghost',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Ultra Cup', 'Terastallize Cup'],
     pokedex: `BANETTE generates energy for laying strong curses by sticking pins into its own body. This POKéMON was originally a pitiful plush doll that was thrown away.`,
     eggBase: 'potw-353', eggGroup: ['Amorphous'], eggCycles: 25,
     hp: 64, attack: 115, defense: 65, spAttack: 83, spDefense: 63, speed: 65,
@@ -2971,7 +2970,7 @@ export const hoennBuilder = {
   'potw-357': ensurePkmnBuilder({
     species: 'Tropius',
     type1: 'Grass', type2: 'Flying',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Sky Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Sky Cup', 'Ultra Cup', 'Terastallize Cup'],
     pokedex: 'The bunches of fruit around TROPIUS\'s neck are very popular with children. This POKéMON loves fruit, and eats it continuously. Apparently, its love for fruit resulted in its own outgrowth of fruit.',
     eggBase: 'potw-357', eggGroup: ['Monster', 'Grass'], eggCycles: 25,
     hp: 99, attack: 68, defense: 83, spAttack: 72, spDefense: 87, speed: 51,
@@ -3075,7 +3074,7 @@ export const hoennBuilder = {
   }),
   'potw-361': ensurePkmnBuilder({
     species: 'Snorunt', gender: ['male', 'female'],
-    type1: 'Ice', tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Ice', tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: 'SNORUNT live in regions with heavy snowfall. In seasons without snow, such as spring and summer, this POKéMON steals away to live quietly among stalactites and stalagmites deep in caverns.',
     hp: 50, attack: 50, defense: 50, spAttack: 50, spDefense: 50, speed: 50,
     eggBase: 'potw-361', eggGroup: ['Fairy', 'Mineral'], eggCycles: 20,
@@ -3100,7 +3099,7 @@ export const hoennBuilder = {
   // To get a valid key when using Dawn Stone
   'potw-361-female': ensurePkmnBuilder({
     species: 'Snorunt',
-    type1: 'Ice', tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Ice', tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: 'SNORUNT live in regions with heavy snowfall. In seasons without snow, such as spring and summer, this POKéMON steals away to live quietly among stalactites and stalagmites deep in caverns.',
     hp: 50, attack: 50, defense: 50, spAttack: 50, spDefense: 50, speed: 50,
     eggBase: 'potw-361', eggGroup: ['Fairy', 'Mineral'], eggCycles: 20,
@@ -3125,7 +3124,7 @@ export const hoennBuilder = {
   'potw-362': ensurePkmnBuilder({
     species: 'Glalie', gender: ['male', 'female'],
     type1: 'Ice',
-    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Emerald Cup', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: 'GLALIE has a body made of rock, which it hardens with an armor of ice. This POKéMON has the ability to freeze moisture in the atmosphere into any shape it desires.',
     eggBase: 'potw-361', eggGroup: ['Fairy', 'Mineral'], eggCycles: 20,
     hp: 80, attack: 80, defense: 80, spAttack: 80, spDefense: 80, speed: 80,
@@ -3334,7 +3333,7 @@ export const hoennBuilder = {
   }),  
   'potw-370': ensurePkmnBuilder({
     species: 'Luvdisc',
-    type1: 'Water', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Water', tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'],
     pokedex: 'LUVDISC live in shallow seas in the tropics. This heart-shaped POKéMON earned its name by swimming after loving couples it spotted in the ocean\'s waves.',
     eggBase: 'potw-370', eggGroup: ['Water 2'], eggCycles: 20,
     hp: 43, attack: 30, defense: 55, spAttack: 40, spDefense: 65, speed: 97,
@@ -3358,7 +3357,7 @@ export const hoennBuilder = {
   }),
   'potw-371': ensurePkmnBuilder({
     species: 'Bagon',
-    type1: 'Dragon', tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    type1: 'Dragon', tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: `BAGON has a dream of one day soaring in the sky. In doomed efforts to fly, this POKéMON hurls itself off cliffs. As a result of its dives, its head has grown tough and as hard as tempered steel.`,
     eggBase: 'potw-371', eggGroup: ['Dragon'], eggCycles: 40, release: 'greatball',
     levelAt: 30, levelTo: 'potw-372',
@@ -3386,7 +3385,7 @@ export const hoennBuilder = {
     type1: 'Dragon',
     pokedex: `Inside SHELGON's armor-like shell, cells are in the midst of transformation to create an entirely new body. This POKéMON's shell is extremely heavy, making its movements sluggish.`,
     eggBase: 'potw-371', eggGroup: ['Dragon'], eggCycles: 40,
-    levelAt: 50, levelTo: 'potw-373', release: 'greatball', tiers: ['Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    levelAt: 50, levelTo: 'potw-373', release: 'greatball', tiers: ['Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     hp: 65, attack: 95, defense: 100, spAttack: 60, spDefense: 50, speed: 50,
     move: ['Dragon Breath'],
     moveTMs: [
@@ -3410,7 +3409,7 @@ export const hoennBuilder = {
   'potw-373': ensurePkmnBuilder({
     species: 'Salamence',
     type1: 'Dragon', type2: 'Flying',
-    tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Sky Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Emerald Cup', 'Kalos Cup', 'Sky Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     pokedex: `SALAMENCE came about as a result of a strong, long-held dream of growing wings. It is said that this powerful desire triggered a sudden mutation in this POKéMON's cells, causing it to sprout its magnificent wings.`,
     eggBase: 'potw-371', eggGroup: ['Dragon',], eggCycles: 40, release: 'ultraball',
     hp: 95, attack: 135, defense: 80, spAttack: 110, spDefense: 80, speed: 100,

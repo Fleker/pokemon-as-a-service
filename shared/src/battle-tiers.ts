@@ -1,7 +1,6 @@
 import { ItemId } from './items-list'
 import { PokemonDoc } from './pokemon/types'
 import * as Prizes from './prizes'
-
 export type Tier =
   'Traditional' |
   'Red Cup' |
@@ -17,10 +16,9 @@ export type Tier =
   'GigantaCup' |
   'Crown Cup' |
   'Arceus Cup' |
-  // 'Terastallize Cup' |
+  'Terastallize Cup' |
   // 'Treasure Cup' |
   'Beginners Cup'
-
 export interface Rules {
   /**
    * Number of Pokémon that each side must select.
@@ -51,7 +49,6 @@ export interface Rules {
    */
   maxWins: number
 }
-
 /**
  * Represents a style of battle in the Battle Stadium.
  */
@@ -79,12 +76,10 @@ export interface BattleTier {
    */
   prizes: PrizeList
 }
-
 type PrizeList = {
   wins: number
   items: ItemId[]
 }[]
-
 const TraditionalPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'tinymushroom']
@@ -144,7 +139,6 @@ const TraditionalPrizeList: PrizeList = [{
     ...Prizes.MEGA_STONES, ...Prizes.FOSSILS,
     ...Prizes.INCENSE, ...Prizes.RAIDS_3, ...Prizes.TREASURE_RELIC,]
 }]
-
 const RedCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'tinymushroom', 'stardust'],
@@ -168,7 +162,6 @@ const RedCupPrizeList: PrizeList = [{
   items: [...Prizes.TREASURE, ...Prizes.TMS_RB, ...Prizes.TRS_RB,
     ...Prizes.TREASURE_RARE],
 }]
-
 const CrystalCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'tinymushroom', 'stardust'],
@@ -199,8 +192,6 @@ const CrystalCupPrizeList: PrizeList = [{
     ...Prizes.TRS_GS,  ...Prizes.BERRY_ALL, ...Prizes.TYPE_GSC_HOLD,
     ...Prizes.TREASURE_RARE],
 }]
-
-
 const EmeraldCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'heartscale'],
@@ -229,7 +220,6 @@ const EmeraldCupPrizeList: PrizeList = [{
     ...Prizes.TMS_RSE, ...Prizes.TRS_RSE,
     ...Prizes.TYPE_RSE_BERRY, ...Prizes.TYPE_TREASURE_BERRY],
 }]
-
 const PlatinumCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'tinymushroom', 'stardust'],
@@ -263,7 +253,6 @@ const PlatinumCupPrizeList: PrizeList = [{
     ...Prizes.TYPE_PINCH_BERRY, ...Prizes.TYPE_ELEMENTAL_BERRY,
     'lustrousorb', 'adamantorb'],
 }]
-
 const PlasmaCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'stardust', 'prettywing'],
@@ -290,7 +279,6 @@ const PlasmaCupPrizeList: PrizeList = [{
     ...Prizes.TMS_BW, ...Prizes.TRS_BW,
     ...Prizes.TYPE_BW_HOLD, ...Prizes.TYPE_GEMS],
 }]
-
 const KalosCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'stardust', 'prettywing'],
@@ -321,7 +309,6 @@ const KalosCupPrizeList: PrizeList = [{
     ...Prizes.TMS_XY, ...Prizes.TRS_XY,
     ...Prizes.TYPE_XY_ITEMS, ...Prizes.MEGA_STONES],
 }]
-
 const UltraCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'stardust', 'prettywing'],
@@ -354,7 +341,6 @@ const UltraCupPrizeList: PrizeList = [{
     ...Prizes.TMS_SM, ...Prizes.TRS_SM,
     ...Prizes.TYPE_SM_ITEMS, ...Prizes.Z_CRYSTALS, ...Prizes.MEMORIES],
 }]
-
 const GalarCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', ...Prizes.GALAR_INGREDIENTS],
@@ -385,7 +371,6 @@ const GalarCupPrizeList: PrizeList = [{
     ...Prizes.TMS_SWSH, ...Prizes.TRS_SWSH,
     ...Prizes.TYPE_SWSH_ITEMS, 'birdfossil', 'dinofossil', 'drakefossil', 'fishfossil'],
 }]
-
 const GalarDlcCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', ...Prizes.GALAR_INGREDIENTS],
@@ -418,7 +403,6 @@ const GalarDlcCupPrizeList: PrizeList = [{
     'armorite', 'dynite', 'dynamaxcandy', 'galaricatwig', ...Prizes.MINTS,
   ],
 }]
-
 const ArceusCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'stardust'],
@@ -458,7 +442,6 @@ const ArceusCupPrizeList: PrizeList = [{
     ...Prizes.EVO_STONES, ...Prizes.DPP_EVOS,
     ...Prizes.PLATES, ...Prizes.TMS_PLA],
 }]
-
 const TeraCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', ...Prizes.SV_INGREDIENTS],
@@ -493,7 +476,6 @@ const TeraCupPrizeList: PrizeList = [{
     ...Prizes.TMS_SV, ...Prizes.SV_ITEMS, ...Prizes.TERA_SHARDS,
     ...Prizes.SV_HMS],
 }]
-
 const TeraDlcCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', ...Prizes.SV_INGREDIENTS],
@@ -528,7 +510,6 @@ const TeraDlcCupPrizeList: PrizeList = [{
     ...Prizes.TMS_SV, ...Prizes.SV_ITEMS, ...Prizes.TERA_SHARDS,
     ...Prizes.SV_HMS, ...Prizes.SV_DLC_ITEMS],
 }]
-
 const TinyCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'tinymushroom'],
@@ -563,7 +544,6 @@ const TinyCupPrizeList: PrizeList = [{
     ...Prizes.INCENSE, ...Prizes.BERRY_ALL,
     ...Prizes.TRS_ALL],
 }]
-
 const Traditional: BattleTier = {
   label: 'Traditional',
   icon: 'menu-battle.svg',
@@ -575,7 +555,6 @@ const Traditional: BattleTier = {
   },
   prizes: TraditionalPrizeList
 }
-
 const RedCup: BattleTier = {
   label: 'Red Cup',
   icon: 'battle-red.svg',
@@ -587,7 +566,6 @@ const RedCup: BattleTier = {
   },
   prizes: RedCupPrizeList
 }
-
 const CrystalCup: BattleTier = {
   label: 'Crystal Cup',
   icon: 'battle-crystal.svg',
@@ -599,7 +577,6 @@ const CrystalCup: BattleTier = {
   },
   prizes: CrystalCupPrizeList
 }
-
 const EmeraldCup: BattleTier = {
   label: 'Emerald Cup',
   icon: 'battle-emerald.svg',
@@ -612,7 +589,6 @@ const EmeraldCup: BattleTier = {
   keyItemPrizes: ['redorb', 'blueorb'],
   prizes: EmeraldCupPrizeList,
 }
-
 const PlatinumCup: BattleTier = {
   label: 'Platinum Cup',
   icon: 'battle-platinum.svg',
@@ -624,7 +600,6 @@ const PlatinumCup: BattleTier = {
   },
   prizes: PlatinumCupPrizeList,
 }
-
 const PlasmaCup: BattleTier = {
   label: 'Plasma Cup',
   icon: 'battle-plasma.svg',
@@ -636,7 +611,6 @@ const PlasmaCup: BattleTier = {
   },
   prizes: PlasmaCupPrizeList,
 }
-
 const KalosCup: BattleTier = {
   label: 'Kalos Cup',
   icon: 'battle-kalos.svg',
@@ -648,7 +622,6 @@ const KalosCup: BattleTier = {
   },
   prizes: KalosCupPrizeList,
 }
-
 const SkyCup: BattleTier = {
   label: 'Sky Cup',
   icon: 'battle-sky.svg',
@@ -660,7 +633,6 @@ const SkyCup: BattleTier = {
   },
   prizes: KalosCupPrizeList,
 }
-
 const AlolanCup: BattleTier = {
   label: 'Alolan Cup',
   icon: 'battle-alolan.svg',
@@ -673,7 +645,6 @@ const AlolanCup: BattleTier = {
   },
   prizes: UltraCupPrizeList,
 }
-
 const UltraCup: BattleTier = {
   label: 'Ultra Cup',
   icon: 'battle-ultra.svg',
@@ -685,7 +656,6 @@ const UltraCup: BattleTier = {
   },
   prizes: UltraCupPrizeList,
 }
-
 const GalarCup: BattleTier = {
   label: 'GigantaCup',
   icon: 'battle-galar.svg',
@@ -697,7 +667,6 @@ const GalarCup: BattleTier = {
   },
   prizes: GalarCupPrizeList,
 }
-
 const GalarDlcCup: BattleTier = {
   label: 'Crown Cup',
   icon: 'battle-galardlc.svg',
@@ -709,7 +678,6 @@ const GalarDlcCup: BattleTier = {
   },
   prizes: GalarDlcCupPrizeList,
 }
-
 const ArceusCup: BattleTier = {
   label: 'Arceus Cup',
   icon: 'battle-arceus.svg',
@@ -721,7 +689,17 @@ const ArceusCup: BattleTier = {
   },
   prizes: ArceusCupPrizeList,
 }
-
+const TerastallizeCup: BattleTier = {
+  label: 'Terastallize Cup',
+  icon: 'battle-.svg',
+  rules: {
+    fieldSize: 1,
+    partySize: 3,
+    mega: false, zmoves: false,
+    maxWins: 0, tera: true,
+  },
+  prizes: TeraCupPrizeList,
+}
 const TinyCup: BattleTier = {
   label: 'Tiny Cup',
   icon: 'battle-tiny.svg',
@@ -733,7 +711,6 @@ const TinyCup: BattleTier = {
   },
   prizes: TinyCupPrizeList,
 }
-
 const BeginnersCup: BattleTier = {
   label: 'Beginners Cup',
   icon: 'battle-beginner.svg',
@@ -745,12 +722,10 @@ const BeginnersCup: BattleTier = {
   },
   prizes: TinyCupPrizeList,
 }
-
 export const canBeginnersCup = (p: PokemonDoc) => {
   return p.tiers?.includes('Traditional') &&
     p.rarity !== 'LEGENDARY' && p.rarity !== 'MYTHICAL'
 }
-
 export const BATTLE_TIERS: Record<Tier, BattleTier> = {
   Traditional,
   'Red Cup': RedCup,
@@ -765,6 +740,7 @@ export const BATTLE_TIERS: Record<Tier, BattleTier> = {
   'GigantaCup': GalarCup,
   'Crown Cup': GalarDlcCup,
   'Arceus Cup': ArceusCup,
+  'Terastallize Cup': TerastallizeCup,
   'Tiny Cup': TinyCup,
   'Beginners Cup': BeginnersCup,
 }

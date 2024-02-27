@@ -1,5 +1,4 @@
 import { ensurePkmnBuilder } from './types'
-
 export const galarBuilder = {
   'potw-052-galarian': ensurePkmnBuilder({
     species: 'Meowth', type1: 'Steel',
@@ -700,7 +699,7 @@ export const galarBuilder = {
   }),
   'potw-819': ensurePkmnBuilder({
     species: 'Skwovet', type1: 'Normal',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 2.5,
     eggBase: 'potw-819', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 24, levelTo: 'potw-820',
@@ -719,7 +718,7 @@ export const galarBuilder = {
   }),
   'potw-820': ensurePkmnBuilder({
     species: 'Greedent', type1: 'Normal',
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 6,
     eggBase: 'potw-819', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `It stashes berries in its tail—so many berries that they fall out constantly. But this Pokémon is a bit slow-witted, so it doesn't notice the loss.`,
@@ -739,7 +738,7 @@ export const galarBuilder = {
   }),
   'potw-821': ensurePkmnBuilder({
     species: 'Rookidee', type1: 'Flying',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 1.8,
     eggBase: 'potw-821', eggGroup: ['Flying'], eggCycles: 15,
     levelAt: 18, levelTo: 'potw-822',
@@ -760,7 +759,7 @@ export const galarBuilder = {
   }),
   'potw-822': ensurePkmnBuilder({
     species: 'Corvisquire', type1: 'Flying',
-    tiers: ['GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 16,
     eggBase: 'potw-821', eggGroup: ['Flying'], eggCycles: 15,
     levelAt: 38, levelTo: 'potw-823',
@@ -781,7 +780,7 @@ export const galarBuilder = {
   }),
   'potw-823': ensurePkmnBuilder({
     species: 'Corviknight', type1: 'Flying', type2: 'Steel', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 75,
     eggBase: 'potw-821', eggGroup: ['Flying'], eggCycles: 15,
     pokedex: `This Pokémon reigns supreme in the skies of the Galar region. The black luster of its steel body could drive terror into the heart of any foe.`,
@@ -989,7 +988,7 @@ export const galarBuilder = {
   }),
   'potw-833': ensurePkmnBuilder({
     species: 'Chewtle', type1: 'Water', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 8.5,
     eggBase: 'potw-833', eggGroup: ['Monster', 'Water 1'], eggCycles: 20,
     levelAt: 22, levelTo: 'potw-834',
@@ -1008,7 +1007,7 @@ export const galarBuilder = {
   }),
   'potw-834': ensurePkmnBuilder({
     species: 'Drednaw', type1: 'Water', type2: 'Rock', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 115.5,
     eggBase: 'potw-833', eggGroup: ['Monster', 'Water 1'], eggCycles: 20,
     pokedex: `With jaws that can shear through steel rods, this highly aggressive Pokémon chomps down on its unfortunate prey.`,
@@ -1073,7 +1072,7 @@ export const galarBuilder = {
   }),
   'potw-837': ensurePkmnBuilder({
     species: 'Rolycoly', type1: 'Rock', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 12,
     eggBase: 'potw-837', eggGroup: ['Mineral'], eggCycles: 15,
     levelAt: 18, levelTo: 'potw-838',
@@ -1093,7 +1092,7 @@ export const galarBuilder = {
   }),
   'potw-838': ensurePkmnBuilder({
     species: 'Carkol', type1: 'Rock', type2: 'Fire', 
-    tiers: ['GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 78,
     eggBase: 'potw-837', eggGroup: ['Mineral'], eggCycles: 15,
     levelAt: 34, levelTo: 'potw-839',
@@ -1114,7 +1113,7 @@ export const galarBuilder = {
   }),
   'potw-839': ensurePkmnBuilder({
     species: 'Coalossal', type1: 'Rock', type2: 'Fire', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 310.5,
     eggBase: 'potw-837', eggGroup: ['Mineral'], eggCycles: 15,
     pokedex: `It's usually peaceful, but the vandalism of mines enrages it. Offenders will be incinerated with flames that reach 2,700 degrees Fahrenheit.`,
@@ -1140,7 +1139,7 @@ export const galarBuilder = {
   }),
   'potw-840': ensurePkmnBuilder({
     species: 'Applin', type1: 'Grass', type2: 'Dragon', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 0.5,
     eggBase: 'potw-840', eggGroup: ['Grass', 'Dragon'], eggCycles: 20,
     evolveTo: ['potw-841', 'potw-842', 'potw-1011'],
@@ -1156,7 +1155,7 @@ export const galarBuilder = {
   }),
   'potw-841': ensurePkmnBuilder({
     species: 'Flapple', type1: 'Grass', type2: 'Dragon', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 1,
     eggBase: 'potw-840', eggGroup: ['Grass', 'Dragon'], eggCycles: 20,
     pokedex: `It ate a sour apple, and that induced its evolution. In its cheeks, it stores an acid capable of causing chemical burns.`,
@@ -1178,7 +1177,7 @@ export const galarBuilder = {
   }),
   'potw-842': ensurePkmnBuilder({
     species: 'Appletun', type1: 'Grass', type2: 'Dragon', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 13,
     eggBase: 'potw-840', eggGroup: ['Grass', 'Dragon'], eggCycles: 20,
     pokedex: `Eating a sweet apple caused its evolution. A nectarous scent wafts from its body, luring in the bug Pokémon it preys on.`,
@@ -1202,7 +1201,7 @@ export const galarBuilder = {
   }),
   'potw-843': ensurePkmnBuilder({
     species: 'Silicobra', type1: 'Ground', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 7.6,
     eggBase: 'potw-843', eggGroup: ['Field', 'Dragon'], eggCycles: 20,
     levelAt: 36, levelTo: 'potw-844',
@@ -1221,7 +1220,7 @@ export const galarBuilder = {
   }),
   'potw-844': ensurePkmnBuilder({
     species: 'Sandaconda', type1: 'Ground', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 65.5,
     eggBase: 'potw-843', eggGroup: ['Field', 'Dragon'], eggCycles: 20,
     pokedex: `When it contracts its body, over 220 pounds of sand sprays from its nose. If it ever runs out of sand, it becomes disheartened.`,
@@ -1266,7 +1265,7 @@ export const galarBuilder = {
   }),
   'potw-846': ensurePkmnBuilder({
     species: 'Arrokuda', type1: 'Water', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 1,
     eggBase: 'potw-846', eggGroup: [], eggCycles: 20,
     levelAt: 26, levelTo: 'potw-847',
@@ -1286,7 +1285,7 @@ export const galarBuilder = {
   }),
   'potw-847': ensurePkmnBuilder({
     species: 'Barraskewda', type1: 'Water', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 30,
     eggBase: 'potw-846', eggGroup: ['Water 2'], eggCycles: 20,
     pokedex: `This Pokémon has a jaw that's as sharp as a spear and as strong as steel. Apparently Barraskewda's flesh is surprisingly tasty, too.`,
@@ -1305,7 +1304,7 @@ export const galarBuilder = {
   }),
   'potw-848': ensurePkmnBuilder({
     species: 'Toxel', type1: 'Electric', type2: 'Poison', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 11,
     eggGroup: [], eggCycles: 25,
     evolveTo: ['potw-849'], levelAt: 30,
@@ -1324,7 +1323,7 @@ export const galarBuilder = {
   }),
   'potw-849': ensurePkmnBuilder({
     species: 'Toxtricity', type1: 'Electric', type2: 'Poison', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 40, syncableForms: ['amped', 'low_key'], needForm: true,
     eggBase: 'potw-848', eggGroup: ['Human-Like'], eggCycles: 25,
     pokedex: `When this Pokémon sounds as if it's strumming a guitar, it's actually clawing at the protrusions on its chest to generate electricity.`,
@@ -1433,7 +1432,7 @@ export const galarBuilder = {
   }),
   'potw-854': ensurePkmnBuilder({
     species: 'Sinistea', type1: 'Ghost', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 0.2, needForm: true, syncableForms: [...Array(9).fill('phony'), 'antique'],
     eggBase: 'potw-854', eggGroup: ['Mineral', 'Amorphous'], eggCycles: 20,
     evolveTo: ['potw-855'],
@@ -1453,7 +1452,7 @@ export const galarBuilder = {
   }),
   'potw-855': ensurePkmnBuilder({
     species: 'Polteageist', type1: 'Ghost', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 0.4, needForm: true, syncableForms: [...Array(9).fill('phony'), 'antique'],
     eggBase: 'potw-854', eggGroup: ['Mineral', 'Amorphous'], eggCycles: 20,
     pokedex: `This species lives in antique teapots. Most pots are forgeries, but on rare occasions, an authentic work is found.`,
@@ -1473,7 +1472,7 @@ export const galarBuilder = {
   }),
   'potw-856': ensurePkmnBuilder({
     species: 'Hatenna', type1: 'Psychic', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 3.4,
     eggBase: 'potw-856', eggGroup: ['Fairy'], eggCycles: 20,
     levelAt: 32, levelTo: 'potw-857',
@@ -1493,7 +1492,7 @@ export const galarBuilder = {
   }),
   'potw-857': ensurePkmnBuilder({
     species: 'Hattrem', type1: 'Psychic', 
-    tiers: ['GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 4.8,
     eggBase: 'potw-856', eggGroup: ['Fairy'], eggCycles: 20,
     levelAt: 42, levelTo: 'potw-858',
@@ -1513,7 +1512,7 @@ export const galarBuilder = {
   }),
   'potw-858': ensurePkmnBuilder({
     species: 'Hatterene', type1: 'Psychic', type2: 'Fairy', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 5.1,
     eggBase: 'potw-856', eggGroup: ['Fairy'], eggCycles: 20,
     pokedex: `It emits psychic power strong enough to cause headaches as a deterrent to the approach of others.`,
@@ -1538,7 +1537,7 @@ export const galarBuilder = {
   }),
   'potw-859': ensurePkmnBuilder({
     species: 'Impidimp', type1: 'Dark', type2: 'Fairy', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 5.5,
     eggBase: 'potw-859', eggGroup: ['Fairy', 'Human-Like'], eggCycles: 20,
     levelAt: 32, levelTo: 'potw-860',
@@ -1558,7 +1557,7 @@ export const galarBuilder = {
   }),
   'potw-860': ensurePkmnBuilder({
     species: 'Morgrem', type1: 'Dark', type2: 'Fairy', 
-    tiers: ['GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 12.5,
     eggBase: 'potw-859', eggGroup: ['Fairy', 'Human-Like'], eggCycles: 20,
     levelAt: 42, levelTo: 'potw-861',
@@ -1579,7 +1578,7 @@ export const galarBuilder = {
   }),
   'potw-861': ensurePkmnBuilder({
     species: 'Grimmsnarl', type1: 'Dark', type2: 'Fairy', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 61,
     eggBase: 'potw-859', eggGroup: ['Fairy', 'Human-Like'], eggCycles: 20,
     pokedex: `With the hair wrapped around its body helping to enhance its muscles, this Pokémon can overwhelm even Machamp.`,
@@ -1794,7 +1793,7 @@ export const galarBuilder = {
   }),
   'potw-870': ensurePkmnBuilder({
     species: 'Falinks', type1: 'Fighting', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 62,
     eggBase: 'potw-870', eggGroup: ['Fairy', 'Mineral'], eggCycles: 25,
     pokedex: `Five of them are troopers, and one is the brass. The brass's orders are absolute.`,
@@ -1813,7 +1812,7 @@ export const galarBuilder = {
   }),
   'potw-871': ensurePkmnBuilder({
     species: 'Pincurchin', type1: 'Electric', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 1,
     eggBase: 'potw-871', eggGroup: ['Water 1', 'Amorphous'], eggCycles: 20,
     pokedex: `It feeds on seaweed, using its teeth to scrape it off rocks. Electric current flows from the tips of its spines.`,
@@ -1832,7 +1831,7 @@ export const galarBuilder = {
   }),
   'potw-872': ensurePkmnBuilder({
     species: 'Snom', type1: 'Ice', type2: 'Bug', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 3.8,
     eggBase: 'potw-872', eggGroup: ['Bug'], eggCycles: 20,
     evolveTo: ['potw-873'],
@@ -1850,7 +1849,7 @@ export const galarBuilder = {
   }),
   'potw-873': ensurePkmnBuilder({
     species: 'Frosmoth', type1: 'Ice', type2: 'Bug', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 42,
     eggBase: 'potw-872', eggGroup: ['Bug'], eggCycles: 20,
     pokedex: `Icy scales fall from its wings like snow as it flies over fields and mountains. The temperature of its wings is less than -290 degrees Fahrenheit.`,
@@ -1871,7 +1870,7 @@ export const galarBuilder = {
   }),
   'potw-874': ensurePkmnBuilder({
     species: 'Stonjourner', type1: 'Rock', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 520,
     eggBase: 'potw-874', eggGroup: ['Mineral'], eggCycles: 25,
     pokedex: `It stands in grasslands, watching the sun's descent from zenith to horizon. This Pokémon has a talent for delivering dynamic kicks.`,
@@ -1891,7 +1890,7 @@ export const galarBuilder = {
   }),
   'potw-875': ensurePkmnBuilder({
     species: 'Eiscue', type1: 'Ice', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 89, syncableForms: ['ice_face', 'noice_face'], needForm: true,
     eggBase: 'potw-875', eggGroup: ['Water 1', 'Field'], eggCycles: 25,
     pokedex: `It drifted in on the flow of ocean waters from a frigid place. It keeps its head iced constantly to make sure it stays nice and cold.`,
@@ -1911,7 +1910,7 @@ export const galarBuilder = {
   }),
   'potw-875-noice_face': ensurePkmnBuilder({
     species: 'Eiscue', type1: 'Ice', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 89, syncableForms: ['ice_face', 'noice_face'],
     eggBase: 'potw-875', eggGroup: ['Water 1', 'Field'], eggCycles: 25,
     pokedex: `It drifted in on the flow of ocean waters from a frigid place. It keeps its head iced constantly to make sure it stays nice and cold.`,
@@ -1931,7 +1930,7 @@ export const galarBuilder = {
   }),
   'potw-876': ensurePkmnBuilder({
     species: 'Indeedee', type1: 'Psychic', type2: 'Normal', gender: ['female', 'male'],
-    tiers: ['GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 28,
     eggBase: 'potw-876', eggGroup: ['Fairy'], eggCycles: 40,
     pokedex: `It uses the horns on its head to sense the emotions of others. Males will act as valets for those they serve, looking after their every need.`,
@@ -1953,7 +1952,7 @@ export const galarBuilder = {
   }),
   'potw-876-male': ensurePkmnBuilder({
     species: 'Indeedee', type1: 'Psychic', type2: 'Normal',
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 28,
     eggBase: 'potw-876', eggGroup: ['Fairy'], eggCycles: 40,
     pokedex: `It uses the horns on its head to sense the emotions of others. Males will act as valets for those they serve, looking after their every need.`,
@@ -1975,7 +1974,7 @@ export const galarBuilder = {
   }),
   'potw-876-female': ensurePkmnBuilder({
     species: 'Indeedee', type1: 'Psychic', type2: 'Normal',
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 28,
     eggBase: 'potw-876', eggGroup: ['Fairy'], eggCycles: 40,
     pokedex: `These intelligent Pokémon touch horns with each other to share information between them.`,
@@ -2037,7 +2036,7 @@ export const galarBuilder = {
   }),
   'potw-878': ensurePkmnBuilder({
     species: 'Cufant', type1: 'Steel', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 100,
     eggBase: 'potw-878', eggGroup: ['Field', 'Mineral'], eggCycles: 25,
     levelAt: 34, levelTo: 'potw-879',
@@ -2057,7 +2056,7 @@ export const galarBuilder = {
   }),
   'potw-879': ensurePkmnBuilder({
     species: 'Copperajah', type1: 'Steel', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball',
     weight: 650,
     eggBase: 'potw-878', eggGroup: ['Field', 'Mineral'], eggCycles: 25,
     pokedex: `They came over from another region long ago and worked together with humans. Their green skin is resistant to water.`,
@@ -2184,7 +2183,7 @@ export const galarBuilder = {
   }),
   'potw-885': ensurePkmnBuilder({
     species: 'Dreepy', type1: 'Dragon', type2: 'Ghost', 
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD',
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD',
     weight: 2,
     eggBase: 'potw-885', eggGroup: ['Amorphous', 'Dragon'], eggCycles: 40,
     levelAt: 50, levelTo: 'potw-886',
@@ -2202,7 +2201,7 @@ export const galarBuilder = {
   }),
   'potw-886': ensurePkmnBuilder({
     species: 'Drakloak', type1: 'Dragon', type2: 'Ghost',
-    tiers: ['GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball',
+    tiers: ['GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball',
     weight: 11,
     eggBase: 'potw-885', eggGroup: ['Amorphous', 'Dragon'], eggCycles: 40,
     levelAt: 60, levelTo: 'potw-887',
@@ -2223,7 +2222,7 @@ export const galarBuilder = {
   }),
   'potw-887': ensurePkmnBuilder({
     species: 'Dragapult', type1: 'Dragon', type2: 'Ghost', 
-    tiers: ['Traditional', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'ultraball',
+    tiers: ['Traditional', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'ultraball',
     weight: 50,
     eggBase: 'potw-885', eggGroup: ['Amorphous', 'Dragon'], eggCycles: 40,
     pokedex: `When it isn't battling, it keeps Dreepy in the holes on its horns. Once a fight starts, it launches the Dreepy like supersonic missiles.`,
@@ -2600,10 +2599,8 @@ export const galarBuilder = {
     ],
   }),
 }
-
 // Create separate entries for Sinistea so that we get the right evolution entry.
 galarBuilder['potw-854-phony'] = {...galarBuilder['potw-854']}
 galarBuilder['potw-854-phony'].evolvesTo = ['potw-855-phony']
-
 galarBuilder['potw-854-antique'] = {...galarBuilder['potw-854']}
 galarBuilder['potw-854-antique'].evolvesTo = ['potw-855-antique']

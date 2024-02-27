@@ -1,7 +1,7 @@
+
 import { Tier } from '../battle-tiers'
 import { MoveId } from '../gen/type-move-meta'
 import { ensurePkmnBuilder } from './types'
-
 export const kantoBuilder = {
   "potw-001": ensurePkmnBuilder({
     levelAt: 16,
@@ -889,7 +889,7 @@ export const kantoBuilder = {
     eggBase: "potw-172", eggCycles: 10,
     eggGroup: ["Field", "Fairy"],
     evolveTo: ['potw-026', 'potw-026-alolan'],
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 6,
     needForm: false,
     syncableForms: ['belle', 'libre', 'phd', 'pop_star', 'rock_star', 'kantonian', 'hoennian', 'sinnohian', 'unovan', 'kalosian', 'alolan', 'galarian'],
@@ -932,7 +932,7 @@ export const kantoBuilder = {
     ],
     speed: 110,
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 30,
     needForm: false,
     syncableForms: ['alolan'],
@@ -1404,7 +1404,7 @@ export const kantoBuilder = {
     eggBase: "potw-174", eggCycles: 10,
     eggGroup: ['Fairy'],
     levelTo: 'potw-040',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 5.5,
   }),
   "potw-040": ensurePkmnBuilder({
@@ -1441,7 +1441,7 @@ export const kantoBuilder = {
     speed: 45,
     eggBase: "potw-174", eggCycles: 10,
     eggGroup: ['Fairy'],
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 12,
   }),
   "potw-041": ensurePkmnBuilder({
@@ -1713,7 +1713,7 @@ export const kantoBuilder = {
     type1: "Bug",
     levelTo: "potw-049",
     species: "Venonat",
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 30,
   }),
   "potw-049": ensurePkmnBuilder({
@@ -1746,7 +1746,7 @@ export const kantoBuilder = {
     type1: "Bug",
     release: 'greatball',
     species: "Venomoth",
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 12.5,
   }),
   "potw-050": ensurePkmnBuilder({
@@ -1779,7 +1779,7 @@ export const kantoBuilder = {
     pokedex: "Lives about one yard underground where it feeds on plant roots. It sometimes appears above ground.",
     speed: 95,
     eggBase: "potw-050", eggCycles: 20,
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 0.8,
     needForm: false, syncableForms: ['alolan'],
   }),
@@ -1813,7 +1813,7 @@ export const kantoBuilder = {
     attack: 100,
     defense: 50,
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 33.3,
     needForm: false, syncableForms: ['alolan'],
   }),
@@ -1850,7 +1850,7 @@ export const kantoBuilder = {
     attack: 45,
     levelAt: 28,
     defense: 35,
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 4.2,
     needForm: false, syncableForms: ['alolan', 'galarian'],
     gmax: {
@@ -1891,7 +1891,7 @@ export const kantoBuilder = {
     eggBase: "potw-052", eggCycles: 20,
     eggGroup: ['Field'],
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 32,
     needForm: false, syncableForms: ['alolan'],
   }),
@@ -1928,7 +1928,7 @@ export const kantoBuilder = {
     pokedex: "While lulling its enemies with its vacant look, this wily Pokémon will use psychokinetic powers.",
     speed: 55,
     eggBase: "potw-054", eggCycles: 20,
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 19.6,
   }),
   "potw-055": ensurePkmnBuilder({
@@ -1964,7 +1964,7 @@ export const kantoBuilder = {
     speed: 85,
     eggBase: "potw-054", eggCycles: 20,
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 76.6,
   }),
   "potw-056": ensurePkmnBuilder({
@@ -2000,7 +2000,7 @@ export const kantoBuilder = {
     spAttack: 35,
     hp: 40,
     attack: 80,
-    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 28,
   }),
   "potw-057": ensurePkmnBuilder({
@@ -2034,7 +2034,7 @@ export const kantoBuilder = {
     attack: 105,
     defense: 60,
     type1: "Fighting",
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 32, evolveTo: ['potw-979'],
   }),
   "potw-058": ensurePkmnBuilder({
@@ -2066,7 +2066,7 @@ export const kantoBuilder = {
     eggBase: "potw-058", eggCycles: 20,
     eggGroup: ['Field'],
     levelTo: 'potw-059',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 19,
     syncableForms: ['hisuian'], needForm: false,
   }),
@@ -2101,7 +2101,7 @@ export const kantoBuilder = {
     defense: 80,
     type1: "Fire",
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 155,
     syncableForms: ['hisuian', 'noble'], needForm: false,
   }),
@@ -2817,7 +2817,7 @@ export const kantoBuilder = {
     levelAt: 37,
     defense: 65,
     type1: "Water",
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 36,
     needForm: false, syncableForms: ['galarian'],
   }),
@@ -2856,7 +2856,7 @@ export const kantoBuilder = {
     hp: 95,
     attack: 75,
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 78.5,
     needForm: false, syncableForms: ['galarian'],
     mega: {
@@ -2896,7 +2896,7 @@ export const kantoBuilder = {
     ],
     hp: 25,
     attack: 35,
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 6,
   }),
   "potw-082": ensurePkmnBuilder({
@@ -2930,7 +2930,7 @@ export const kantoBuilder = {
     eggBase: "potw-081", eggCycles: 20,
     eggGroup: ['Mineral'],
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 60,
   }),
   "potw-083": ensurePkmnBuilder({
@@ -3133,7 +3133,7 @@ export const kantoBuilder = {
     spDefense: 50,
     spAttack: 40,
     hp: 80,
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 30,
     needForm: false, syncableForms: ['alolan'],
   }),
@@ -3169,7 +3169,7 @@ export const kantoBuilder = {
     ],
     speed: 50,
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 30,
     needForm: false, syncableForms: ['alolan'],
   }),
@@ -3203,7 +3203,7 @@ export const kantoBuilder = {
     speed: 40,
     eggBase: "potw-090", eggCycles: 20,
     levelTo: 'potw-091',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 4,
   }),
   "potw-091": ensurePkmnBuilder({
@@ -3238,7 +3238,7 @@ export const kantoBuilder = {
     attack: 95,
     defense: 180,
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 132.5,
   }),
   "potw-092": ensurePkmnBuilder({
@@ -3274,7 +3274,7 @@ export const kantoBuilder = {
     eggBase: "potw-092", eggCycles: 20,
     eggGroup: ['Amorphous'],
     type2: "Poison",
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 0.1,
   }),
   "potw-093": ensurePkmnBuilder({
@@ -3309,7 +3309,7 @@ export const kantoBuilder = {
     speed: 95,
     eggBase: "potw-092", eggCycles: 20,
     levelTo: 'potw-094',
-    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     release: 'greatball',
     shiny: 'WILD', weight: 0.1,
   }),
@@ -3346,7 +3346,7 @@ export const kantoBuilder = {
     eggBase: "potw-092", eggCycles: 20,
     eggGroup: ['Amorphous'],
     release: 'ultraball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 40.5,
     mega: {
       attack: 65, defense: 80, spAttack: 170, spDefense: 95, speed: 130, weight: 40.5,
@@ -3425,7 +3425,7 @@ export const kantoBuilder = {
     type1: "Psychic",
     levelTo: "potw-097",
     species: "Drowzee",
-    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 32.4,
   }),
   "potw-097": ensurePkmnBuilder({
@@ -3460,7 +3460,7 @@ export const kantoBuilder = {
     speed: 67,
     eggBase: "potw-096", eggCycles: 20,
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 75.6,
   }),
   "potw-098": ensurePkmnBuilder({
@@ -3565,7 +3565,7 @@ export const kantoBuilder = {
       ['Signal Beam', 'Magnet Rise'],
       ['Swift', 'Energy Ball', 'Eerie Impulse'],
     ],
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 10.4,
     syncableForms: ['hisuian'], needForm: false,
   }),
@@ -3596,7 +3596,7 @@ export const kantoBuilder = {
       ['Signal Beam', 'Magnet Rise'],
       ['Swift', 'Energy Ball', 'Eerie Impulse'],
     ],
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Kalos Cup', 'Arceus Cup',/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Kalos Cup', 'Arceus Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 66.6,
     syncableForms: ['hisuian', 'noble'], needForm: false,
   }),
@@ -4012,7 +4012,7 @@ export const kantoBuilder = {
     eggBase: "potw-113", eggCycles: 40,
     eggGroup: ['Fairy'],
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 34.6,
     evolveTo: ['potw-242'],
   }),
@@ -4352,7 +4352,7 @@ export const kantoBuilder = {
     spAttack: 55,
     spDefense: 80,
     release: 'ultraball', levelTo: 'potw-212',
-    tiers: ['Traditional', 'Red Cup', 'Sky Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Sky Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 56,
   }),
   "potw-124": ensurePkmnBuilder({
@@ -4549,8 +4549,9 @@ export const kantoBuilder = {
     attack: 10,
     levelAt: 20,
     defense: 55,
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 10,
+    needForm: false, syncableForms: ['skelly'],
   }),
   "potw-130": ensurePkmnBuilder({
     speed: 81,
@@ -4584,7 +4585,7 @@ export const kantoBuilder = {
     type1: "Water",
     species: "Gyarados",
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 235,
     pokedex: "Rarely seen in the wild. Huge and vicious, it is capable of destroying entire cities in a rage.",
     mega: {
@@ -4649,7 +4650,7 @@ export const kantoBuilder = {
     ],
     spAttack: 48,
     spDefense: 48,
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 4,
     novelMoves: [[], [], [], [], []] // var4
   }),
@@ -4680,7 +4681,7 @@ export const kantoBuilder = {
     speed: 55,
     eggBase: "potw-133", eggCycles: 35,
     eggGroup: ['Field'],
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 6.5,
     levelAt: 0, levelTo: ['potw-470', 'potw-471'],
     evolveTo: ['potw-134', 'potw-135', 'potw-136', 'potw-196', 'potw-197', 'potw-700'],
@@ -4720,7 +4721,7 @@ export const kantoBuilder = {
     eggBase: "potw-133", eggCycles: 35,
     eggGroup: ['Field'],
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 29,
   }),
   "potw-135": ensurePkmnBuilder({
@@ -4754,7 +4755,7 @@ export const kantoBuilder = {
     ],
     speed: 130,
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 24.5,
   }),
   "potw-136": ensurePkmnBuilder({
@@ -4787,7 +4788,7 @@ export const kantoBuilder = {
     type1: "Fire",
     species: "Flareon",
     release: 'greatball',
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 55.1,
   }),
   "potw-137": ensurePkmnBuilder({
@@ -5233,7 +5234,7 @@ export const kantoBuilder = {
     speed: 50,
     eggBase: "potw-147",
     eggGroup: ["Water 1", "Dragon"],
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 3.3, eggCycles: 40,
   }),
   "potw-148": ensurePkmnBuilder({
@@ -5270,7 +5271,7 @@ export const kantoBuilder = {
     spAttack: 70,
     release: 'greatball',
     shiny: 'WILD', weight: 16.5,
-    tiers: ['Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
   }),
   "potw-149": ensurePkmnBuilder({
     type2: "Flying", release: 'ultraball',
@@ -5308,7 +5309,7 @@ export const kantoBuilder = {
       ['Dragon Rush', 'Iron Head', 'Rain Dance'],
       ['Earthquake', 'Roost'],
     ],
-    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'Sky Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/],
+    tiers: ['Traditional', 'Red Cup', 'Crystal Cup', 'Kalos Cup', 'Sky Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 210,
   }),
   "potw-150": ensurePkmnBuilder({
@@ -5403,7 +5404,6 @@ export const kantoBuilder = {
     shiny: 'SYNCABLE', rarity: 'MYTHICAL', weight: 4, eggCycles: -1,
   }),
 }
-
 /**
  * Creates a Pikachu variant that cannot evolve or breed
  * @param move Base moveset
@@ -5423,7 +5423,13 @@ function getPikachuVariant(move: MoveId[], tiers: Tier[], novelMoves = true) {
   }
   return pika
 }
-
+function getMagikarpVariant() {
+  const m = {...kantoBuilder['potw-129']}
+  m.levelTo = undefined
+  m.levelAt = undefined
+  m.tiers = []
+  return m
+}
 // Cosplay Pikachus cannot breed nor can they evolve. They cannot be shiny.
 // See https://www.serebii.net/pokedex-xy/025.shtml
 const pikaTiersCosplay: Tier[] = ['Traditional', 'Kalos Cup']
@@ -5440,3 +5446,4 @@ kantoBuilder['potw-025-unovan'] = getPikachuVariant(['Electro Ball', 'Iron Tail'
 kantoBuilder['potw-025-kalosian'] = getPikachuVariant(['Electro Ball', 'Quick Attack'], pikaTiersHat, false)
 kantoBuilder['potw-025-alolan'] = getPikachuVariant(['Electroweb', 'Iron Tail'], pikaTiersHat, false)
 kantoBuilder['potw-025-galarian'] = getPikachuVariant(['Electroweb', 'Quick Attack'], pikaTiersHat, false)
+kantoBuilder['potw-129-skelly'] = getMagikarpVariant()

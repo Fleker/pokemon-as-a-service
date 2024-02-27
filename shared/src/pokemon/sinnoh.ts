@@ -1,5 +1,4 @@
 import { ensurePkmnBuilder } from './types'
-
 export const sinnohBuilder = {
   'potw-387': ensurePkmnBuilder({
     species: 'Turtwig', type1: 'Grass',
@@ -236,7 +235,7 @@ export const sinnohBuilder = {
   'potw-396': ensurePkmnBuilder({
     species: 'Starly', gender: ['male', 'female'],
     type1: 'Normal', type2: 'Flying',
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 2,
+    tiers: ['Tiny Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 2,
     pokedex: `They flock in great numbers. Though small, they flap their wings with great power.`,
     eggBase: 'potw-396', eggGroup: ['Flying'], eggCycles: 15,
     levelTo: 'potw-397', levelAt: 14,
@@ -260,7 +259,7 @@ export const sinnohBuilder = {
   'potw-397': ensurePkmnBuilder({
     species: 'Staravia', gender: ['male', 'female'],
     type1: 'Normal', type2: 'Flying',
-    shiny: 'WILD', tiers: [/*, 'Terastallization Cup'*/], weight: 15.5,
+    shiny: 'WILD', tiers: ['Terastallize Cup'], weight: 15.5,
     pokedex: `It flies around forests and fields in search of bug Pokémon. It stays within a huge flock.`,
     eggBase: 'potw-396', eggGroup: ['Flying'], eggCycles: 15,
     levelTo: 'potw-398', levelAt: 34,
@@ -284,7 +283,7 @@ export const sinnohBuilder = {
   'potw-398': ensurePkmnBuilder({
     species: 'Staraptor', gender: ['male', 'female'],
     type1: 'Normal', type2: 'Flying',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup'/*, 'Terastallization Cup'*/],
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 24.9,
     pokedex: `It has a savage nature. It will courageously challenge foes that are much larger.`,
     eggBase: 'potw-396', eggGroup: ['Flying'], eggCycles: 15,
@@ -364,7 +363,7 @@ export const sinnohBuilder = {
     species: 'Kricketot',
     gender: ['male', 'female'],
     type1: 'Bug',
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 2.2,
+    tiers: ['Tiny Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 2.2,
     pokedex: `It shakes its head back to front, causing its antennae to hit each other and sound like a xylophone.`,
     eggBase: 'potw-401', eggGroup: ['Bug'], eggCycles: 15,
     levelAt: 10, levelTo: 'potw-402',
@@ -385,7 +384,7 @@ export const sinnohBuilder = {
     species: 'Kricketune',
     gender: ['male', 'female'],
     type1: 'Bug',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 25.5,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 25.5,
     pokedex: `It crosses its knifelike arms in front of its chest when it cries. It can compose melodies ad lib.`,
     eggBase: 'potw-401', eggGroup: ['Bug'], eggCycles: 15,
     hp: 77, attack: 85, defense: 51, spAttack: 55, spDefense: 51, speed: 65,
@@ -410,7 +409,7 @@ export const sinnohBuilder = {
     species: 'Shinx',
     gender: ['male', 'female'],
     type1: 'Electric',
-    tiers: ['Tiny Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 9.5,
+    tiers: ['Tiny Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 9.5,
     pokedex: `All of its fur dazzles if danger is sensed. It flees while the foe is momentarily blinded.`,
     eggBase: 'potw-403', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 15, levelTo: 'potw-404',
@@ -433,7 +432,7 @@ export const sinnohBuilder = {
   }),
   'potw-404': ensurePkmnBuilder({
     species: 'Luxio',
-    gender: ['male', 'female'], tiers: ['Crown Cup'/*, 'Terastallization Cup'*/],
+    gender: ['male', 'female'], tiers: ['Crown Cup', 'Terastallize Cup'],
     type1: 'Electric', shiny: 'WILD', weight: 30.5,
     pokedex: `Its claws loose electricity with enough amperage to cause fainting. They live in small groups.`,
     eggBase: 'potw-403', eggGroup: ['Field'], eggCycles: 20,
@@ -459,7 +458,7 @@ export const sinnohBuilder = {
     species: 'Luxray',
     gender: ['male', 'female'],
     type1: 'Electric',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 42,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 42,
     pokedex: `It has eyes that can see through anything. It spots and captures prey hiding behind objects.`,
     eggBase: 'potw-403', eggGroup: ['Field'], eggCycles: 20,
     hp: 80, attack: 120, defense: 79, spAttack: 95, spDefense: 79, speed: 70,
@@ -857,7 +856,7 @@ export const sinnohBuilder = {
     species: 'Combee',
     gender: ['male', 'male', 'male', 'male', 'male', 'male', 'male', 'female'],
     type1: 'Bug', type2: 'Flying',
-    tiers: ['Tiny Cup', 'Sky Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 5.5,
+    tiers: ['Tiny Cup', 'Sky Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 5.5,
     pokedex: `A Pokémon formed by three others. It busily carries sweet floral honey to VESPIQUEN.`,
     eggBase: 'potw-415', eggGroup: ['Bug'], eggCycles: 15,
     hp: 30, attack: 30, defense: 42, spAttack: 30, spDefense: 42, speed: 70,
@@ -876,7 +875,7 @@ export const sinnohBuilder = {
   'potw-415-female': ensurePkmnBuilder({
     species: 'Combee',
     type1: 'Bug', type2: 'Flying',
-    tiers: ['Tiny Cup', 'Sky Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 5.5,
+    tiers: ['Tiny Cup', 'Sky Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 5.5,
     pokedex: `A Pokémon formed by three others. It busily carries sweet floral honey to VESPIQUEN.`,
     eggBase: 'potw-415', eggGroup: ['Bug'], eggCycles: 15,
     levelAt: 21, levelTo: 'potw-416',
@@ -896,7 +895,7 @@ export const sinnohBuilder = {
   'potw-416': ensurePkmnBuilder({
     species: 'Vespiquen', gender: ['female'],
     type1: 'Bug', type2: 'Flying',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 38.5,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 38.5,
     pokedex: `Its abdomen is a honeycomb for grubs. It raises its grubs on honey collected by COMBEE.`,
     eggBase: 'potw-415', eggGroup: ['Bug'], eggCycles: 15,
     hp: 70, attack: 80, defense: 102, spAttack: 80, spDefense: 102, speed: 40,
@@ -920,7 +919,7 @@ export const sinnohBuilder = {
   'potw-417': ensurePkmnBuilder({
     species: 'Pachirisu', gender: ['male', 'female'],
     type1: 'Electric',
-    tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 3.9,
+    tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 3.9,
     pokedex: `It makes fur balls that crackle with static electricity. It stores them with berries in tree holes.`,
     eggBase: 'potw-417', eggGroup: ['Field', 'Fairy'], eggCycles: 10,
     hp: 60, attack: 45, defense: 70, spAttack: 45, spDefense: 90, speed: 95,
@@ -945,7 +944,7 @@ export const sinnohBuilder = {
   'potw-418': ensurePkmnBuilder({
     species: 'Buizel',
     type1: 'Water',
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 29.5,
+    tiers: ['Tiny Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 29.5,
     pokedex: `It has a flotation sac that is like an inflatable collar. It floats on water with its head out.`,
     eggBase: 'potw-418', eggGroup: ['Water 1', 'Field'], eggCycles: 20,
     levelAt: 26, levelTo: 'potw-419',
@@ -971,7 +970,7 @@ export const sinnohBuilder = {
   'potw-419': ensurePkmnBuilder({
     species: 'Floatzel',
     type1: 'Water',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 33.5,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 33.5,
     pokedex: `It floats using its well-developed flotation sac. It assists in the rescues of drowning people.`,
     eggBase: 'potw-418', eggGroup: ['Water 1', 'Field'], eggCycles: 20,
     hp: 85, attack: 105, defense: 55, spAttack: 85, spDefense: 50, speed: 115,
@@ -1067,7 +1066,7 @@ export const sinnohBuilder = {
   'potw-422': ensurePkmnBuilder({
     species: 'Shellos', needForm: true, syncableForms: ['west_sea', 'east_sea'],
     type1: 'Water',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 6.3,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 6.3,
     pokedex: `Its colors and shapes differ from region to region. In the Sinnoh region, two types are confirmed.`,
     eggBase: 'potw-422', eggGroup: ['Water 1', 'Amorphous'], eggCycles: 20,
     levelAt: 30, levelTo: 'potw-423',
@@ -1090,7 +1089,7 @@ export const sinnohBuilder = {
   }),
   'potw-423': ensurePkmnBuilder({
     species: 'Gastrodon', needForm: true, syncableForms: ['west_sea', 'east_sea'],
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 29.9,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 29.9,
     type1: 'Water', type2: 'Ground',
     pokedex: `It has a pliable body without any bones. If any part of its body is torn off, it grows right back.`,
     eggBase: 'potw-422', eggGroup: ['Water 1', 'Amorphous'], eggCycles: 20,
@@ -1145,7 +1144,7 @@ export const sinnohBuilder = {
   'potw-425': ensurePkmnBuilder({
     species: 'Drifloon',
     type1: 'Ghost', type2: 'Flying',
-    tiers: ['Tiny Cup', 'Sky Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 1.2,
+    tiers: ['Tiny Cup', 'Sky Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 1.2,
     pokedex: `A Pokémon formed by the spirits of people and Pokémon. It loves damp, humid seasons.`,
     eggBase: 'potw-425', eggGroup: ['Amorphous'], eggCycles: 30,
     levelAt: 28, levelTo: 'potw-426',
@@ -1171,7 +1170,7 @@ export const sinnohBuilder = {
   'potw-426': ensurePkmnBuilder({
     species: 'Drifblim',
     type1: 'Ghost', type2: 'Flying',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 15,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 15,
     pokedex: `It's drowzy in daytime, but flies off in the evening in big groups. No one knows where they go.`,
     eggBase: 'potw-425', eggGroup: ['Amorphous'], eggCycles: 30,
     hp: 150, attack: 80, defense: 44, spAttack: 90, spDefense: 54, speed: 80,
@@ -1257,7 +1256,7 @@ export const sinnohBuilder = {
   'potw-429': ensurePkmnBuilder({
     species: 'Mismagius',
     type1: 'Ghost',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 4.4,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 4.4,
     pokedex: `Its cries sound like incantations. Those hearing it are tormented by headaches and hallucinations.`,
     eggBase: 'potw-200', eggGroup: ['Amorphous'], eggCycles: 25,
     hp: 60, attack: 60, defense: 60, spAttack: 105, spDefense: 105, speed: 105,
@@ -1283,7 +1282,7 @@ export const sinnohBuilder = {
   'potw-430': ensurePkmnBuilder({
     species: 'Honchkrow',
     type1: 'Dark', type2: 'Flying',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 27.3,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 27.3,
     pokedex: `Becoming active at night, it is known to swarm with numerous MURKROW in tow.`,
     eggBase: 'potw-198', eggGroup: ['Flying'], eggCycles: 20,
     hp: 100, attack: 125, defense: 52, spAttack: 105, spDefense: 52, speed: 71,
@@ -1385,7 +1384,7 @@ export const sinnohBuilder = {
   'potw-434': ensurePkmnBuilder({
     species: 'Stunky',
     type1: 'Poison', type2: 'Dark',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 19.2,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 19.2,
     pokedex: `It protects itself by spraying a noxious fluid from its rear. The stench lingers for 24 hours.`,
     eggBase: 'potw-434', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 34, levelTo: 'potw-435',
@@ -1410,7 +1409,7 @@ export const sinnohBuilder = {
   'potw-435': ensurePkmnBuilder({
     species: 'Skuntank',
     type1: 'Poison', type2: 'Dark',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 38,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 38,
     pokedex: `It sprays a vile-smelling fluid from the tip of its tail to attack. Its range is over 160 feet.`,
     eggBase: 'potw-434', eggGroup: ['Field'], eggCycles: 20,
     hp: 103, attack: 93, defense: 67, spAttack: 71, spDefense: 61, speed: 84,
@@ -1435,7 +1434,7 @@ export const sinnohBuilder = {
   'potw-436': ensurePkmnBuilder({
     species: 'Bronzor',
     type1: 'Steel', type2: 'Psychic',
-    tiers: ['Tiny Cup', 'Sky Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 60.5,
+    tiers: ['Tiny Cup', 'Sky Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 60.5,
     pokedex: `Implements shaped like it were discovered in ancient tombs. It is unknown if they are related.`,
     eggBase: 'potw-436', eggGroup: ['Mineral'], eggCycles: 20,
     levelAt: 33, levelTo: 'potw-437',
@@ -1462,7 +1461,7 @@ export const sinnohBuilder = {
   'potw-437': ensurePkmnBuilder({
     species: 'Bronzong',
     type1: 'Steel', type2: 'Psychic',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 187,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 187,
     pokedex: `One caused a news sensation when it was dug up at a construction site after a 2,000-year sleep.`,
     eggBase: 'potw-436', eggGroup: ['Mineral'], eggCycles: 20,
     hp: 67, attack: 89, defense: 116, spAttack: 79, spDefense: 116, speed: 33,
@@ -1489,7 +1488,7 @@ export const sinnohBuilder = {
   'potw-438': ensurePkmnBuilder({
     species: 'Bonsly',
     type1: 'Rock',
-    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', levelTo: 'potw-185', weight: 15,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'], shiny: 'WILD', levelTo: 'potw-185', weight: 15,
     pokedex: `It looks as if it is always crying. It is actually adjusting its body fluid levels by eliminating excess.`,
     eggBase: 'potw-185', eggGroup: [], eggCycles: 20,
     hp: 50, attack: 80, defense: 95, spAttack: 10, spDefense: 45, speed: 10,
@@ -1538,7 +1537,7 @@ export const sinnohBuilder = {
   'potw-440': ensurePkmnBuilder({
     species: 'Happiny',
     type1: 'Normal',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', levelTo: 'potw-113', weight: 24.4,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', levelTo: 'potw-113', weight: 24.4,
     pokedex: `It loves round white things. It carries an egg-shaped rock in imitiation of CHANSEY.`,
     eggBase: 'potw-113', eggGroup: ['Undiscovered'], eggCycles: 40,
     hp: 100, attack: 5, defense: 5, spAttack: 15, spDefense: 65, speed: 30,
@@ -1585,7 +1584,7 @@ export const sinnohBuilder = {
   'potw-442': ensurePkmnBuilder({
     species: 'Spiritomb',
     type1: 'Ghost', type2: 'Dark',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 108,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 108,
     pokedex: `A Pokémon that was formed by 108 spirits. It is bound to a fissure in an odd keystone.`,
     eggBase: 'potw-442', eggGroup: ['Amorphous'], eggCycles: 30,
     hp: 50, attack: 92, defense: 108, spAttack: 92, spDefense: 108, speed: 35,
@@ -1609,7 +1608,7 @@ export const sinnohBuilder = {
   'potw-443': ensurePkmnBuilder({
     species: 'Gible', gender: ['male', 'female'],
     type1: 'Dragon', type2: 'Ground',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 20.5,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 20.5,
     pokedex: `It nests in small, horizontal holes in cave walls. It pounces to catch prey that stray too close.`,
     eggBase: 'potw-443', eggGroup: ['Monster', 'Dragon'], eggCycles: 40,
     levelAt: 24, levelTo: 'potw-444',
@@ -1635,7 +1634,7 @@ export const sinnohBuilder = {
   'potw-444': ensurePkmnBuilder({
     species: 'Gabite', gender: ['male', 'female'],
     type1: 'Dragon', type2: 'Ground',
-    release: 'greatball', shiny: 'WILD', tiers: ['Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], weight: 56,
+    release: 'greatball', shiny: 'WILD', tiers: ['Ultra Cup', 'Crown Cup', 'Terastallize Cup'], weight: 56,
     pokedex: `There is a long-held belief that medicine made from its scales will heal even incurable illnesses.`,
     eggBase: 'potw-443', eggGroup: ['Monster', 'Dragon'], eggCycles: 40,
     levelAt: 48, levelTo: 'potw-445',
@@ -1662,7 +1661,7 @@ export const sinnohBuilder = {
   'potw-445': ensurePkmnBuilder({
     species: 'Garchomp', gender: ['male', 'female'],
     type1: 'Dragon', type2: 'Ground',
-    release: 'ultraball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 95,
+    release: 'ultraball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 95,
     pokedex: `When it folds up its body and extends its wings, it looks like a jet plane. It flies at sonic speed.`,
     eggBase: 'potw-443', eggGroup: ['Monster', 'Dragon'], eggCycles: 40,
     hp: 108, attack: 130, defense: 95, spAttack: 80, spDefense: 85, speed: 102,
@@ -1721,7 +1720,7 @@ export const sinnohBuilder = {
   'potw-447': ensurePkmnBuilder({
     species: 'Riolu',
     type1: 'Fighting',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 20.2,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 20.2,
     pokedex: `The aura that emanates from its body intensifies to alert others if it is afraid or sad.`,
     eggBase: 'potw-447', eggGroup: ['Undiscovered'], eggCycles: 25,
     levelTo: 'potw-448',
@@ -1747,7 +1746,7 @@ export const sinnohBuilder = {
   'potw-448': ensurePkmnBuilder({
     species: 'Lucario',
     type1: 'Fighting', type2: 'Steel',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 54,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 54,
     pokedex: `It has the ability to sense the auras of all things. It understands human speech.`,
     eggBase: 'potw-447', eggGroup: ['Field', 'Human-Like'], eggCycles: 25,
     hp: 70, attack: 110, defense: 70, spAttack: 115, spDefense: 70, speed: 90,
@@ -1780,7 +1779,7 @@ export const sinnohBuilder = {
   'potw-449': ensurePkmnBuilder({
     species: 'Hippopotas', gender: ['female', 'male'],
     type1: 'Ground',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 49.5,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 49.5,
     pokedex: `It lives in arid places. Instead of perspiration, it expels grainy sand from its body.`,
     eggBase: 'potw-449', eggGroup: ['Field'], eggCycles: 30,
     levelAt: 34, levelTo: 'potw-450',
@@ -1804,7 +1803,7 @@ export const sinnohBuilder = {
   'potw-450': ensurePkmnBuilder({
     species: 'Hippowdon', gender: ['female', 'male'],
     type1: 'Ground',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 300,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 300,
     pokedex: `It blasts internally stored sand from ports on its body to create a towering twister for attack.`,
     eggBase: 'potw-449', eggGroup: ['Field'], eggCycles: 30,
     hp: 108, attack: 112, defense: 118, spAttack: 68, spDefense: 72, speed: 47,
@@ -1877,7 +1876,7 @@ export const sinnohBuilder = {
   'potw-453': ensurePkmnBuilder({
     species: 'Croagunk', gender: ['male', 'female'],
     type1: 'Poison', type2: 'Fighting',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 23,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 23,
     pokedex: `Its cheeks hold poison sacs. It tries to catch foes off guard to jab them with toxic fingers.`,
     eggBase: 'potw-453', eggGroup: ['Human-Like'], eggCycles: 10,
     levelAt: 37, levelTo: 'potw-454',
@@ -1904,7 +1903,7 @@ export const sinnohBuilder = {
   'potw-454': ensurePkmnBuilder({
     species: 'Toxicroak', gender: ['male', 'female'],
     type1: 'Poison', type2: 'Fighting',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 44.4,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 44.4,
     pokedex: `Its knuckle claws secrete a toxin so vile that even a scratch could prove fatal.`,
     eggBase: 'potw-453', eggGroup: ['Human-Like'], eggCycles: 20,
     hp: 83, attack: 106, defense: 65, spAttack: 86, spDefense: 65, speed: 85,
@@ -1954,7 +1953,7 @@ export const sinnohBuilder = {
   'potw-456': ensurePkmnBuilder({
     species: 'Finneon', gender: ['male', 'female'],
     type1: 'Water',
-    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 7,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 7,
     pokedex: `After long exposure to sunlight, the patterns on its tail fins shine vividly when darkness arrives.`,
     eggBase: 'potw-456', eggGroup: ['Water 2'], eggCycles: 20,
     levelAt: 31, levelTo: 'potw-457',
@@ -1979,7 +1978,7 @@ export const sinnohBuilder = {
   'potw-457': ensurePkmnBuilder({
     species: 'Lumineon', gender: ['male', 'female'],
     type1: 'Water',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 24,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 24,
     pokedex: `It lives on the deep-sea floor. It attracts prey by flashing the patterns on its four tail fins.`,
     eggBase: 'potw-456', eggGroup: ['Water 2'], eggCycles: 20,
     hp: 69, attack: 69, defense: 76, spAttack: 69, spDefense: 86, speed: 91,
@@ -2029,7 +2028,7 @@ export const sinnohBuilder = {
   'potw-459': ensurePkmnBuilder({
     species: 'Snover', gender: ['female', 'male'],
     type1: 'Grass', type2: 'Ice',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 50.5,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 50.5,
     pokedex: `It lives on snowy mountains. Having had little contact with humans, it is boldly inquisitive.`,
     eggBase: 'potw-459', eggGroup: ['Monster', 'Grass'], eggCycles: 20,
     levelAt: 40, levelTo: 'potw-460',
@@ -2054,7 +2053,7 @@ export const sinnohBuilder = {
   'potw-460': ensurePkmnBuilder({
     species: 'Abomasnow', gender: ['female', 'male'],
     type1: 'Grass', type2: 'Ice',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 135.5,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 135.5,
     pokedex: `It whips up blizzards in mountains that are always buried in snow. It is the abominable snowman.`,
     eggBase: 'potw-459', eggGroup: ['Monster', 'Grass'], eggCycles: 20,
     hp: 90, attack: 92, defense: 75, spAttack: 92, spDefense: 85, speed: 60,
@@ -2086,7 +2085,7 @@ export const sinnohBuilder = {
   'potw-461': ensurePkmnBuilder({
     species: 'Weavile',
     type1: 'Dark', type2: 'Ice',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 34,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 34,
     pokedex: `They live in cold regions, forming groups of four or give that hunt prey with impressive coordination.`,
     eggBase: 'potw-215', eggGroup: ['Field'], eggCycles: 20,
     hp: 70, attack: 120, defense: 65, spAttack: 45, spDefense: 85, speed: 125,
@@ -2114,7 +2113,7 @@ export const sinnohBuilder = {
   'potw-462': ensurePkmnBuilder({
     species: 'Magnezone',
     type1: 'Electric', type2: 'Steel',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 180,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 180,
     pokedex: `It evolved from exposure to a special magnetic field. Three units generate magnetism.`,
     eggBase: 'potw-081', eggGroup: ['Mineral'], eggCycles: 20,
     hp: 70, attack: 70, defense: 115, spAttack: 130, spDefense: 90, speed: 60,
@@ -2323,7 +2322,7 @@ export const sinnohBuilder = {
   'potw-470': ensurePkmnBuilder({
     species: 'Leafeon',
     type1: 'Grass',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 25.5,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 25.5,
     pokedex: `Just like a plant, it uses photosynthesis. As a result, it is always enveloped in clear air.`,
     eggBase: 'potw-133', eggGroup: ['Field'], eggCycles: 35,
     hp: 65, attack: 110, defense: 130, spAttack: 60, spDefense: 65, speed: 95,
@@ -2348,7 +2347,7 @@ export const sinnohBuilder = {
   'potw-471': ensurePkmnBuilder({
     species: 'Glaceon',
     type1: 'Ice',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 25.9,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 25.9,
     pokedex: `As a protective technique, it can completely freeze its fur to make its hairs stand like needles.`,
     eggBase: 'potw-133', eggGroup: ['Field'], eggCycles: 35,
     hp: 65, attack: 60, defense: 110, spAttack: 130, spDefense: 95, speed: 65,
@@ -2451,7 +2450,7 @@ export const sinnohBuilder = {
   'potw-475': ensurePkmnBuilder({
     species: 'Gallade', gender: ['male'],
     type1: 'Psychic', type2: 'Fighting',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 52,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 52,
     pokedex: `A master of courtesy and swordsmanship, it fights using extending swords on its elbows.`,
     eggBase: 'potw-280', eggGroup: ['Amorphous'], eggCycles: 20,
     hp: 68, attack: 125, defense: 65, spAttack: 65, spDefense: 115, speed: 80,
@@ -2540,7 +2539,7 @@ export const sinnohBuilder = {
   'potw-478': ensurePkmnBuilder({
     species: 'Froslass', gender: ['female'],
     type1: 'Ice', type2: 'Ghost',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 26.6,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 26.6,
     pokedex: `It freezes foes with an icy breath nearly -60 degrees F. What seems to be its body is actually hollow.`,
     eggBase: 'potw-361', eggGroup: ['Fairy', 'Mineral'], eggCycles: 20,
     hp: 70, attack: 80, defense: 70, spAttack: 80, spDefense: 70, speed: 110,
@@ -2567,7 +2566,7 @@ export const sinnohBuilder = {
     species: 'Rotom',
     syncableForms: ['fan', 'frost', 'heat', 'mow', 'wash'], needForm: false,
     type1: 'Electric', type2: 'Ghost',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.3,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 0.3,
     pokedex: `Its body is composed of plasma. It is known to infiltrate electronic devices and wreak havoc.`,
     eggBase: 'potw-479', eggGroup: ['Amorphous'], eggCycles: 20,
     hp: 50, attack: 50, defense: 77, spAttack: 95, spDefense: 77, speed: 91,
@@ -2590,7 +2589,7 @@ export const sinnohBuilder = {
   'potw-479-fan': ensurePkmnBuilder({
     species: 'Rotom',
     type1: 'Electric', type2: 'Flying',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.3,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 0.3,
     pokedex: `In this form, Rotom applies its new power over wind to its love of pranks. It will happily blow away any important documents it can find.`,
     eggBase: 'potw-479', eggGroup: ['Amorphous'], eggCycles: 20,
     hp: 50, attack: 65, defense: 107, spAttack: 105, spDefense: 107, speed: 86,
@@ -2613,7 +2612,7 @@ export const sinnohBuilder = {
   'potw-479-frost': ensurePkmnBuilder({
     species: 'Rotom',
     type1: 'Electric', type2: 'Ice',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.3,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 0.3,
     pokedex: `Rotom assumes this form when it takes over a refrigerator powered by a special motor. It battles by spewing cold air.`,
     eggBase: 'potw-479', eggGroup: ['Amorphous'], eggCycles: 20,
     hp: 50, attack: 65, defense: 107, spAttack: 105, spDefense: 107, speed: 86,
@@ -2636,7 +2635,7 @@ export const sinnohBuilder = {
   'potw-479-heat': ensurePkmnBuilder({
     species: 'Rotom',
     type1: 'Electric', type2: 'Fire',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.3,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 0.3,
     pokedex: `This Rotom has possessed a convection microwave oven that uses a special motor. It also has a flair for manipulating flames.`,
     eggBase: 'potw-479', eggGroup: ['Amorphous'], eggCycles: 20,
     hp: 50, attack: 65, defense: 107, spAttack: 105, spDefense: 107, speed: 86,
@@ -2659,7 +2658,7 @@ export const sinnohBuilder = {
   'potw-479-mow': ensurePkmnBuilder({
     species: 'Rotom',
     type1: 'Electric', type2: 'Grass',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.3,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 0.3,
     pokedex: `This is Rotom after it's seized control of a lawn mower that has a special motor. As it mows down grass, it scatters the clippings everywhere.`,
     eggBase: 'potw-479', eggGroup: ['Amorphous'], eggCycles: 20,
     hp: 50, attack: 65, defense: 107, spAttack: 105, spDefense: 107, speed: 86,
@@ -2682,7 +2681,7 @@ export const sinnohBuilder = {
   'potw-479-wash': ensurePkmnBuilder({
     species: 'Rotom',
     type1: 'Electric', type2: 'Water',
-    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.3,
+    release: 'greatball', tiers: ['Traditional', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Arceus Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 0.3,
     pokedex: `This form of Rotom enjoys coming up with water-based pranks. Be careful with it if you don't want your room flooded.`,
     eggBase: 'potw-479', eggGroup: ['Amorphous'], eggCycles: 20,
     hp: 50, attack: 65, defense: 107, spAttack: 105, spDefense: 107, speed: 86,

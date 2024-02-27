@@ -1,5 +1,4 @@
 import { ensurePkmnBuilder, } from './types'
-
 export const unovaBuilder = {
   'potw-494': ensurePkmnBuilder({
     species: 'Victini', type1: 'Psychic', type2: 'Fire',
@@ -1274,7 +1273,7 @@ export const unovaBuilder = {
   }),
   'potw-548': ensurePkmnBuilder({
     species: 'Petilil', type1: 'Grass',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 6.6,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 6.6,
     eggBase: 'potw-548', eggGroup: ['Grass'], eggCycles: 20, levelTo: 'potw-549',
     pokedex: `The leaves on its head are very bitter. Eating one of these leaves is known to refresh a tired body.`,
     hp: 45, attack: 35, defense: 50, spAttack: 70, spDefense: 50, speed: 30,
@@ -1296,7 +1295,7 @@ export const unovaBuilder = {
   }),
   'potw-549': ensurePkmnBuilder({
     species: 'Lilligant', type1: 'Grass',
-    tiers: ['Traditional', 'Plasma Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 16.3,
+    tiers: ['Traditional', 'Plasma Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 16.3,
     syncableForms: ['hisuian', 'noble'], needForm: false,
     eggBase: 'potw-548', eggGroup: ['Grass'], eggCycles: 20,
     pokedex: `Even veteran Trainers face a challenge in getting its beautiful flower to bloom. This Pokémon is popular with celebrities.`,
@@ -1321,7 +1320,7 @@ export const unovaBuilder = {
   'potw-550': ensurePkmnBuilder({
     species: 'Basculin', type1: 'Water',
     syncableForms: ['red_stripe', 'blue_stripe', 'white_stripe'], needForm: true,
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 18,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 18,
     eggBase: 'potw-550', eggGroup: ['Water 2'], eggCycles: 40,
     pokedex: `Red and blue Basculin get along so poorly, they'll start fighting instantly. These Pokémon are very hostile.`,
     hp: 70, attack: 92, defense: 65, spAttack: 80, spDefense: 55, speed: 98,
@@ -1343,7 +1342,7 @@ export const unovaBuilder = {
   }),
   'potw-551': ensurePkmnBuilder({
     species: 'Sandile', type1: 'Ground', type2: 'Dark',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 15.2,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 15.2,
     eggBase: 'potw-551', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 29, levelTo: 'potw-552',
     pokedex: `They live buried in the sands of the desert. The sun-warmed sands prevent their body temperature from dropping.`,
@@ -1366,7 +1365,7 @@ export const unovaBuilder = {
   }),
   'potw-552': ensurePkmnBuilder({
     species: 'Krokorok', type1: 'Ground', type2: 'Dark',
-    tiers: ['Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 33.4,
+    tiers: ['Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 33.4,
     eggBase: 'potw-551', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 40, levelTo: 'potw-553',
     pokedex: `They live in groups of a few individuals. Protective membranes shield their eyes from sandstorms.`,
@@ -1390,7 +1389,7 @@ export const unovaBuilder = {
   }),
   'potw-553': ensurePkmnBuilder({
     species: 'Krookodile', type1: 'Ground', type2: 'Dark',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 96.3,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 96.3,
     eggBase: 'potw-551', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `They never allow prey to escape. Their jaws are so powerful, they can crush the body of an automobile.`,
     hp: 95, attack: 117, defense: 70, spAttack: 65, spDefense: 70, speed: 92,
@@ -1830,7 +1829,7 @@ export const unovaBuilder = {
   }),
   'potw-570': ensurePkmnBuilder({
     species: 'Zorua', type1: 'Dark',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 12.5,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 12.5,
     eggBase: 'potw-570', eggGroup: ['Field'], eggCycles: 25,
     syncableForms: ['hisuian'], needForm: false,
     levelAt: 30, levelTo: 'potw-571',
@@ -1854,7 +1853,7 @@ export const unovaBuilder = {
   }),
   'potw-571': ensurePkmnBuilder({
     species: 'Zoroark', type1: 'Dark',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 81.1,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 81.1,
     eggBase: 'potw-570', eggGroup: ['Field'], eggCycles: 20,
     syncableForms: ['hisuian'], needForm: false,
     pokedex: `Bonds between these Pokémon are very strong. It protects the safety of its pack by tricking its opponents.`,
@@ -1924,7 +1923,7 @@ export const unovaBuilder = {
   }),
   'potw-574': ensurePkmnBuilder({
     species: 'Gothita', type1: 'Psychic',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 5.8,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 5.8,
     eggBase: 'potw-574', eggGroup: ['Human-Like'], eggCycles: 20,
     levelAt: 31, levelTo: 'potw-575',
     pokedex: `Their ribbonlike feelers increase their psychic power. They are always staring at something.`,
@@ -1949,7 +1948,7 @@ export const unovaBuilder = {
   }),
   'potw-575': ensurePkmnBuilder({
     species: 'Gothorita', type1: 'Psychic',
-    tiers: [ 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 18,
+    tiers: [ 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 18,
     eggBase: 'potw-574', eggGroup: ['Human-Like'], eggCycles: 20,
     levelAt: 41, levelTo: 'potw-576',
     pokedex: `They use hypnosis to control people and Pokémon. Tales of Gothorita leading people astray are told in every corner.`,
@@ -1974,7 +1973,7 @@ export const unovaBuilder = {
   }),
   'potw-576': ensurePkmnBuilder({
     species: 'Gothitelle', type1: 'Psychic',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 44,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 44,
     eggBase: 'potw-574', eggGroup: ['Human-Like'], eggCycles: 20,
     pokedex: `Starry skies thousands of light-years away are visible in the space distorted by their intense psychic power.`,
     hp: 70, attack: 55, defense: 95, spAttack: 95, spDefense: 110, speed: 65,
@@ -2188,7 +2187,7 @@ export const unovaBuilder = {
   'potw-585': ensurePkmnBuilder({
     species: 'Deerling', type1: 'Normal', type2: 'Grass',
     syncableForms: ['spring', 'summer', 'autumn', 'winter'], needForm: true,
-    tiers: ['Tiny Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 19.5,
+    tiers: ['Tiny Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 19.5,
     eggBase: 'potw-585', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 34, levelTo: 'potw-586',
     pokedex: `The color and scent of their fur changes to match the mountain grass. When they sense hostility, they hide in the grass.`,
@@ -2211,7 +2210,7 @@ export const unovaBuilder = {
   }),
   'potw-586': ensurePkmnBuilder({
     species: 'Sawsbuck', type1: 'Normal', type2: 'Grass',
-    tiers: ['Traditional', 'Plasma Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 92.5,
+    tiers: ['Traditional', 'Plasma Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 92.5,
     syncableForms: ['spring', 'summer', 'autumn', 'winter'], needForm: true,
     eggBase: 'potw-585', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `They migrate according to the seasons. People can tell the season by looking at Sawsbuck's horns.`,
@@ -2302,7 +2301,7 @@ export const unovaBuilder = {
   }),
   'potw-590': ensurePkmnBuilder({
     species: 'Foongus', type1: 'Grass', type2: 'Poison',
-    tiers: ['Tiny Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 1,
+    tiers: ['Tiny Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 1,
     eggBase: 'potw-590', eggGroup: ['Grass'], eggCycles: 20,
     levelAt: 39, levelTo: 'potw-591',
     pokedex: `It lures people in with its Poké Ball pattern, then releases poison spores. Why it resembles a Poké Ball is unknown.`,
@@ -2324,7 +2323,7 @@ export const unovaBuilder = {
   }),
   'potw-591': ensurePkmnBuilder({
     species: 'Amoonguss', type1: 'Grass', type2: 'Poison',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 10.5,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 10.5,
     eggBase: 'potw-590', eggGroup: ['Grass'], eggCycles: 20,
     pokedex: `It lures prey close by dancing and waving its arm caps, which resemble Poké Balls, in a swaying motion.`,
     hp: 114, attack: 85, defense: 70, spAttack: 85, spDefense: 80, speed: 30,
@@ -2394,7 +2393,7 @@ export const unovaBuilder = {
   }),
   'potw-594': ensurePkmnBuilder({
     species: 'Alomomola', type1: 'Water',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 31.6,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 31.6,
     eggBase: 'potw-594', eggGroup: ['Water 1', 'Water 2'], eggCycles: 40,
     pokedex: `The special membrane enveloping Alomomola has the ability to heal wounds.`,
     hp: 165, attack: 75, defense: 80, spAttack: 40, spDefense: 45, speed: 65,
@@ -2574,7 +2573,7 @@ export const unovaBuilder = {
   }),
   'potw-602': ensurePkmnBuilder({
     species: 'Tynamo', type1: 'Electric',
-    tiers: ['Tiny Cup', 'Sky Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 0.3,
+    tiers: ['Tiny Cup', 'Sky Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 0.3,
     eggBase: 'potw-602', eggGroup: ['Amorphous'], eggCycles: 20,
     levelAt: 39, levelTo: 'potw-603',
     pokedex: `While one alone doesn't have much power, a chain of many Tynamo can be as powerful as lightning.`,
@@ -2592,7 +2591,7 @@ export const unovaBuilder = {
   }),
   'potw-603': ensurePkmnBuilder({
     species: 'Eelektrik', type1: 'Electric',
-    tiers: [/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 22,
+    tiers: ['Terastallize Cup'], shiny: 'WILD', weight: 22,
     eggBase: 'potw-602', eggGroup: ['Amorphous'], eggCycles: 20,
     levelTo: 'potw-604',
     pokedex: `They coil around foes and shock them with electricity-generating organs that seem simply to be circular patterns.`,
@@ -2614,7 +2613,7 @@ export const unovaBuilder = {
   }),
   'potw-604': ensurePkmnBuilder({
     species: 'Eelektross', type1: 'Electric',
-    tiers: ['Traditional', 'Plasma Cup', 'Sky Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 80.5,
+    tiers: ['Traditional', 'Plasma Cup', 'Sky Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 80.5,
     eggBase: 'potw-602', eggGroup: ['Amorphous'], eggCycles: 20,
     pokedex: `They crawl out of the ocean using their arms. They will attack prey on shore and immediately drag it into the ocean.`,
     hp: 85, attack: 115, defense: 80, spAttack: 105, spDefense: 80, speed: 50,
@@ -2759,7 +2758,7 @@ export const unovaBuilder = {
   }),
   'potw-610': ensurePkmnBuilder({
     species: 'Axew', type1: 'Dragon',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 18,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 18,
     eggBase: 'potw-610', eggGroup: ['Monster', 'Dragon'], eggCycles: 40,
     levelAt: 38, levelTo: 'potw-611',
     pokedex: `They use their tusks to crush the berries they eat. Repeated regrowth makes their tusks strong and sharp.`,
@@ -2783,7 +2782,7 @@ export const unovaBuilder = {
   }),
   'potw-611': ensurePkmnBuilder({
     species: 'Fraxure', type1: 'Dragon',
-    tiers: [ 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 36,
+    tiers: [ 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 36,
     eggBase: 'potw-610', eggGroup: ['Monster', 'Dragon'], eggCycles: 40,
     levelAt: 48, levelTo: 'potw-612',
     pokedex: `Since a broken tusk will not grow back, they diligently sharpen their tusks on river rocks after they've been fighting.`,
@@ -2807,7 +2806,7 @@ export const unovaBuilder = {
   }),
   'potw-612': ensurePkmnBuilder({
     species: 'Haxorus', type1: 'Dragon',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 105.5,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'ultraball', weight: 105.5,
     eggBase: 'potw-610', eggGroup: ['Monster', 'Dragon'], eggCycles: 40,
     pokedex: `They are kind but can be relentless when defending territory. They challenge foes with tusks that can cut steel.`,
     hp: 76, attack: 147, defense: 90, spAttack: 60, spDefense: 70, speed: 97,
@@ -2831,7 +2830,7 @@ export const unovaBuilder = {
   }),
   'potw-613': ensurePkmnBuilder({
     species: 'Cubchoo', type1: 'Ice',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 8.5,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 8.5,
     eggBase: 'potw-613', eggGroup: ['Field'], eggCycles: 20,
     levelAt: 37, levelTo: 'potw-614',
     pokedex: `When it is not feeling well, its mucus gets watery and the power of its Ice-type moves decreases.`,
@@ -2855,7 +2854,7 @@ export const unovaBuilder = {
   }),
   'potw-614': ensurePkmnBuilder({
     species: 'Beartic', type1: 'Ice',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 260,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 260,
     eggBase: 'potw-613', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `It can make its breath freeze at will. Very able in the water, it swims around in northern seas and catches prey.`,
     hp: 95, attack: 110, defense: 80, spAttack: 70, spDefense: 80, speed: 50,
@@ -2880,7 +2879,7 @@ export const unovaBuilder = {
   }),
   'potw-615': ensurePkmnBuilder({
     species: 'Cryogonal', type1: 'Ice',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Sky Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 148,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Sky Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 148,
     eggBase: 'potw-615', eggGroup: ['Mineral'], eggCycles: 25,
     pokedex: `When its body temperature goes up, it turns into steam and vanishes. When its temperature lowers, it returns to ice.`,
     hp: 70, attack: 50, defense: 30, spAttack: 95, spDefense: 135, speed: 105,
@@ -3092,7 +3091,7 @@ export const unovaBuilder = {
   }),
   'potw-624': ensurePkmnBuilder({
     species: 'Pawniard', type1: 'Dark', type2: 'Steel',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 10.2,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 10.2,
     eggBase: 'potw-624', eggGroup: ['Human-Like'], eggCycles: 20,
     levelAt: 52, levelTo: 'potw-625',
     pokedex: `Blades comprise this Pokémon's entire body. If battling dulls the blades, it sharpens them on stones by the river.`,
@@ -3116,7 +3115,7 @@ export const unovaBuilder = {
   }),
   'potw-625': ensurePkmnBuilder({
     species: 'Bisharp', type1: 'Dark', type2: 'Steel',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 70,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 70,
     eggBase: 'potw-624', eggGroup: ['Human-Like'], eggCycles: 20, evolveTo: ['potw-983'],
     pokedex: `It leads a group of Pawniard. It battles to become the boss, but will be driven from the group if it loses.`,
     hp: 65, attack: 125, defense: 100, spAttack: 60, spDefense: 70, speed: 70,
@@ -3162,7 +3161,7 @@ export const unovaBuilder = {
   }),
   'potw-627': ensurePkmnBuilder({
     species: 'Rufflet', type1: 'Normal', type2: 'Flying',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', weight: 10.5,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 10.5,
     eggBase: 'potw-627', eggGroup: ['Flying'], eggCycles: 20,
     levelAt: 54, levelTo: 'potw-628',
     pokedex: `They crush berries with their talons. They bravely stand up to any opponent, no matter how strong it is.`,
@@ -3185,7 +3184,7 @@ export const unovaBuilder = {
   }),
   'potw-628': ensurePkmnBuilder({
     species: 'Braviary', type1: 'Normal', type2: 'Flying',
-    tiers: ['Traditional', 'Plasma Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 41,
+    tiers: ['Traditional', 'Plasma Cup', 'Sky Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 41,
     syncableForms: ['hisuian'], needForm: false,
     eggBase: 'potw-627', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `They fight for their friends without any thought about danger to themselves. One can carry a car while flying.`,
@@ -3302,7 +3301,7 @@ export const unovaBuilder = {
   }),
   'potw-633': ensurePkmnBuilder({
     species: 'Deino', type1: 'Dark', type2: 'Dragon',
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 17.3,
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 17.3,
     eggBase: 'potw-633', eggGroup: ['Dragon'], eggCycles: 40,
     levelAt: 50, levelTo: 'potw-634',
     pokedex: `It tends to bite everything, and it is not a picky eater. Approaching it carelessly is dangerous.`,
@@ -3325,7 +3324,7 @@ export const unovaBuilder = {
   }),
   'potw-634': ensurePkmnBuilder({
     species: 'Zweilous', type1: 'Dark', type2: 'Dragon',
-    tiers: [ 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 50,
+    tiers: [ 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 50,
     eggBase: 'potw-633', eggGroup: ['Dragon'], eggCycles: 40,
     levelAt: 64, levelTo: 'potw-635',
     pokedex: `After it has eaten up all the food in its territory, it moves to another area. Its two heads do not get along.`,
@@ -3348,7 +3347,7 @@ export const unovaBuilder = {
   }),
   'potw-635': ensurePkmnBuilder({
     species: 'Hydreigon', type1: 'Dark', type2: 'Dragon',
-    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Sky Cup', 'GigantaCup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 160,
+    tiers: ['Traditional', 'Plasma Cup', 'Kalos Cup', 'Sky Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'ultraball', weight: 160,
     eggBase: 'potw-633', eggGroup: ['Dragon'], eggCycles: 40,
     pokedex: `This brutal Pokémon travels the skies on its six wings. Anything that moves seems like a foe to it, triggering its attack.`,
     hp: 92, attack: 105, defense: 90, spAttack: 125, spDefense: 90, speed: 98,
@@ -3374,7 +3373,7 @@ export const unovaBuilder = {
   }),
   'potw-636': ensurePkmnBuilder({
     species: 'Larvesta', type1: 'Bug', type2: 'Fire',
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'greatball', weight: 28.8,
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'greatball', weight: 28.8,
     eggBase: 'potw-636', eggGroup: ['Bug'], eggCycles: 40,
     levelAt: 59, levelTo: 'potw-637',
     pokedex: `This Pokémon was believed to have been born from the sun. When it evolves, its entire body is engulfed in flames.`,
@@ -3396,7 +3395,7 @@ export const unovaBuilder = {
   }),
   'potw-637': ensurePkmnBuilder({
     species: 'Volcarona', type1: 'Bug', type2: 'Fire',
-    tiers: ['Traditional', 'Plasma Cup', 'Ultra Cup', 'Crown Cup'/*, 'Terastallization Cup'*/], shiny: 'WILD', release: 'ultraball', weight: 46,
+    tiers: ['Traditional', 'Plasma Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], shiny: 'WILD', release: 'ultraball', weight: 46,
     eggBase: 'potw-636', eggGroup: ['Bug'], eggCycles: 40,
     pokedex: `When volcanic ash darkened the atmosphere, it is said that Volcarona's fire provided a replacement for the sun.`,
     hp: 85, attack: 60, defense: 65, spAttack: 135, spDefense: 105, speed: 100,

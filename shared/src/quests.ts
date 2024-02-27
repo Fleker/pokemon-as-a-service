@@ -40,6 +40,7 @@ export const MELTANBOX = 'MELTANBOX'
 export const DYNAMAXBAND = 'DYNAMAXING'
 export const CAMPINGGEAR = 'LETSALLMAKECURRY'
 export const ROTOMBIKE = 'SPARKLINGWHITETURBOBIKE'
+export const TERAORB = 'PKMNCHAMPIONNEMONA'
 export const SHINY_CHARM = '93Nj1QmwJlx8eGW9Vq18'
 export const CATCH_CHARM_RBY = 'yuQPa32crRiPBJvi9HU9'
 export const CATCH_CHARM_GSC = 'LcyYjBeK4KAq1BkYgzlx'
@@ -395,6 +396,15 @@ export const KEY_ITEM_QUESTS: Quest[] = [{
   hint: [`You may want to travel across the Wild Area. However, it is much too big to just walk. You'll need better transportation.`],
   quest: L.RotomBike,
   item: 'rotombike',
+  recyclable: true,
+}, {
+  docId: TERAORB,
+  badge: 'potw-item-teraorb',
+  title: 'Gain the power of Terastallization',
+  gate: CATCH_CHARM_SWSH,
+  hint: [`After your many adventures, you are ready for a new journey to a new region.`],
+  quest: L.TeraOrb,
+  item: 'teraorb',
   recyclable: true,
 }]
 export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
@@ -1321,7 +1331,7 @@ export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
   return legendaryDate.getUTCMonth() === 11 && // December (11)
-    legendaryDate.getUTCDate() <= 7 // December 7th
+    legendaryDate.getUTCDate() <= 14 // December 14th
 })
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
   docId: 'available',

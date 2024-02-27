@@ -939,6 +939,36 @@ export const RotomBike: LegendaryQuest = {
     msg: 'There are many strong Pokémon in the Wild Area. Are you prepared to win in battles?'
   }]
 }
+export const TeraOrb: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+    msg: 'After exploring Galar, you may grow restless and ready for something new.'
+  }, {
+    completed: simpleRequirePotw(P.Urshifu),
+    msg: 'Have you caught the mysterious Pokémon from the Isle of Armor?'
+  }, {
+    completed: simpleRequirePotw(P.Calyrex),
+    msg: 'Have you caught the mysterious Pokémon from the Crown Tundra?'
+  }, {
+    completed: simpleRequirePotw(P.Annihilape),
+    msg: 'Have you caught the new Rage Monkey Pokémon?'
+  }, {
+    completed: simpleRequirePotw(P.Farigiraf),
+    msg: 'Have you caught the new Long Neck Pokémon?'
+  }, {
+    completed: simpleRequirePotw(P.Annihilape),
+    msg: 'Have you caught the new Land Snake Pokémon?'
+  }, {
+    completed: simpleRequirePotw(P.Annihilape),
+    msg: 'Have you caught the new Big Blade Pokémon?'
+  }, {
+    completed: (r) => r.voyagesCompleted >= 100,
+    msg: 'Have you taken many voyages across the world?'
+  }, {
+    completed: (r) => r.battleStadiumRecord[1] >= 300,
+    msg: 'You must gain expertise in battles before you can try terastallization.'
+  }]
+}
 export const Mewtwo: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
