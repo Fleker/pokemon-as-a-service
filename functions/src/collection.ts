@@ -29,7 +29,6 @@ import {PokeballId} from '../../shared/src/items-list';
 import * as A from './adventure-log'
 import { sendNotification } from './notifications';
 import isDemo from '../../shared/src/platform/isDemo'
-
 const db = salamander(admin.firestore())
 const FieldValue = admin.firestore.FieldValue;
 interface Egg {
@@ -37,13 +36,11 @@ interface Egg {
   laid?: number,
   hatch?: number,
 }
-
 // Gotta remove the egg & add a new badge
 export const hatch = functions.https.onCall(async (data: F.Hatch.Req, context): Promise<F.Hatch.Res> => {
   const userId = context.auth!.uid
   const {key} = data
   let status = 'You do not have this egg.'
-
   return await db.runTransaction(async transaction => {
     const ref = db.collection('users').doc(userId)
     const userDoc = await transaction.get<Users.Doc>(ref)
@@ -51,17 +48,14 @@ export const hatch = functions.https.onCall(async (data: F.Hatch.Req, context): 
       throw new functions.https.HttpsError('invalid-argument', 'User does not exist.');
     }
     const user = userDoc.data()
-
     if (isDemo) {
       const countUserCaughtPkmn = Object.values(user.pokemon).reduce((p, c) => p + c)
       if (countUserCaughtPkmn > 250) {
         throw new functions.https.HttpsError('out-of-range',
-          'You cannot catch any more Pokemon in demo mode')
+          'You cannot hatch any more Pokemon in demo mode')
       }
     }
-
     const {eggs} = user
-
     for (let i = 0; i < eggs.length; i++) {
       const egg: Egg = eggs[i]
       if (egg.species != key) continue
@@ -90,7 +84,6 @@ export const hatch = functions.https.onCall(async (data: F.Hatch.Req, context): 
         userId,
         speciesId: badge.toLegacyString(),
       })
-
       // Add an item to the items-history collection for stats
       await db.collection('items-history').add({
         userId,
@@ -98,7 +91,6 @@ export const hatch = functions.https.onCall(async (data: F.Hatch.Req, context): 
         target: egg.species,
         timestamp: FieldValue.serverTimestamp()
       })
-
       return {
         species: egg.species,
         badge: badge.toString()
@@ -107,7 +99,6 @@ export const hatch = functions.https.onCall(async (data: F.Hatch.Req, context): 
     throw new functions.https.HttpsError('failed-precondition', status);
   })
 });
-
 const lureBallMapping: Record<LureId, PokeballId[]> = {
   trophygardenkey: ['greatball'],
   friendsafaripass: ['safariball'],
@@ -115,7 +106,6 @@ const lureBallMapping: Record<LureId, PokeballId[]> = {
   adrenalineorb: ['quickball'],
   rotombike: ['duskball'],
 }
-
 exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promise<F.Throw.Res> => {
   if (!context.auth) {
     throw new functions.https.HttpsError('not-found', '')
@@ -193,7 +183,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
           'You cannot catch any more Pokemon in demo mode')
       }
     }
-
     const location = await (async () => {
       if (locationId && Globe[locationId]?.label && hiddenItemsFound.includes(POKEDOLL)) {
         // Update location or fail silently
@@ -245,7 +234,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
         (encounter.shinyMultipler * 1) *// Some balls may have a higher shiny rate
         (Swarms[location.region] === selectedPokemon ? 3 : 1) * // Swarms are slightly improved.
         eventMult * (isEventPkmn ? 2 : 1)
-
       const badge = Badge.create(selectedPokemon)
       const dbPkmn = Pkmn.get(selectedPokemon)!
       const canBeShiny = dbPkmn.shiny === 'WILD'
@@ -277,7 +265,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
       // Remove current ball from inventory
       console.log(`Remove 1 ${pokeball}`);
       items[pokeball]--;
-
       // Calculate bait removal
       if (bait) {
         const p = Math.random()
@@ -287,7 +274,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
           items[bait]--
         }
       }
-
       const nw = calculateNetWorth(user)
       const HOLD_ITEM_POKEBALL = (() => {
         if (nw < 100) return 0.5  /* 50% */
@@ -295,7 +281,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
         if (nw < 1000) return 0.05 /* 5% */
         return 0.005 // 0.5%
       })()
-
       // Check for random hidden items
       let holdItem = guaranteedItem // Preload with guaranteed item if available from conditional logic
       let holdItemQuantity = 1
@@ -347,7 +332,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
           holdItemQuantity = Utils.randomItem([1, 1, 1, 2, 2, 3])
         }
       }
-
       for (const event of activeEvents) {
         if (!holdItem && event.isActive(user as unknown as S.Users.Doc)) {
           /**
@@ -367,7 +351,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
           }
         }
       }
-
       // Souvenirs logic
       if (user.lastLocations && !holdItem) {
         if (!user.lastLocations.includes(locationId || user.location)) {
@@ -377,7 +360,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
             // Update user locations when a souvenir is obtained
             user.lastLocations.unshift(locationId || user.location)
             user.lastLocations.splice(4, user.lastLocations.length) // Trim size
-
             const souvenirPool: Partial<Record<ItemId, number>> = {}
             for (const [collector, souvenir] of Object.entries(Souvenirs)) {
               if (hasItem(user, collector as ItemId)) {
@@ -457,7 +439,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
   const pokedex = `${details.species}'s information was added to the Pokédex:<br>
     <em>${details.pokedex}</em>
     `
-
   // if (userWorth > 1_000_000) {
     // Are there certain players who are catching too much via scripts?
     // This may result in database transactions failing elsewhere due to
@@ -466,7 +447,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
     // Hopefully this will be sufficient in creating enough of a buffer
     // to allow database events elsewhere to proceed.
   // }
-
   return {
     html, pokedex, selectedPokemon, duplicates, holdItem, badge: badge.toString(),
     balls, lastLocations, bait: txnRes.bait,
@@ -475,7 +455,6 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
     }
   }
 })
-
 const MAX_LENGTH = 5
 const THRESHOLD = 60000 // 1 min
 export function checkScripting(releasedTimes) {
@@ -492,9 +471,7 @@ export function checkScripting(releasedTimes) {
   }
   return false
 }
-
 const RELEASE_DEADLINE = 1000 * 60 * 60 // 1 Hour
-
 export const release = functions.https.onCall(async (data: F.Release.Req, context): Promise<F.Release.Res> => {
   const userId = context.auth!.uid
   console.log(`=== Release (${userId}) ===`)
@@ -516,14 +493,12 @@ export const release = functions.https.onCall(async (data: F.Release.Req, contex
     throw new functions.https.HttpsError('failed-precondition',
       'No operations provided')
   }
-
   const receivedItems = await db.runTransaction(async (t) => {
     const ref = db.collection('users').doc(userId)
     const userDoc = await t.get<Users.Doc>(ref)
     if (!userDoc.exists) {
       throw new functions.https.HttpsError('invalid-argument', 'User does not exist');
     }
-
     const releasedLog = await t.get<ReleasedDoc>(ref.collection('adventureLog').doc('released'))
     if (releasedLog.exists) {
       const releasedDoc = releasedLog.data()
@@ -534,7 +509,6 @@ export const release = functions.https.onCall(async (data: F.Release.Req, contex
           `You should wait a bit longer before doing this, maybe in ${minutes} minutes.`)
       }
     }
-
     const user = userDoc.data()
     if (data.pokemon) {
       try {
@@ -580,7 +554,6 @@ export const release = functions.https.onCall(async (data: F.Release.Req, contex
     }
     return []
   })
-
   const releasedLog = await db.collection('users').doc(userId).
     collection('adventureLog')
     .doc('released')
@@ -613,7 +586,6 @@ export const release = functions.https.onCall(async (data: F.Release.Req, contex
       releasedTime: Date.now()
     })
   }
-
   // Create a Map of your items and their counts
   const itemMap: Map<string, number> = new Map()
   receivedItems.forEach(item => itemMap.has(item)
@@ -681,7 +653,6 @@ export const release = functions.https.onCall(async (data: F.Release.Req, contex
     }
   }
 })
-
 export const swarm_vote = functions.https.onCall(async (data: F.SwarmVote.Req, context): Promise<F.SwarmVote.Res> => {
   const {uid} = context.auth!
   const {species, position} = data
@@ -724,7 +695,6 @@ export const swarm_vote = functions.https.onCall(async (data: F.SwarmVote.Req, c
       throw new functions.https.HttpsError('not-found',
         `${species} is much too great.`)
     }
-
     if (swarmCurrentDoc.exists) {
       await t.update<Swarm.Doc>(ref, {
         [`votes.${species}`]: FieldValue.increment(1),
@@ -733,13 +703,11 @@ export const swarm_vote = functions.https.onCall(async (data: F.SwarmVote.Req, c
     } else {
       await t.set<Swarm.Doc>(ref, swarmCurrent)
     }
-
     return {
       data,
     }
   })
 })
-
 export const swarm_notify = functions.firestore.document('test/swarm').onUpdate(async (change) => {
   const {before, after} = change
   if (Object.keys(after.data().users).length === 0) {
@@ -749,6 +717,7 @@ export const swarm_notify = functions.firestore.document('test/swarm').onUpdate(
       const userRef = db.collection('users').doc(u)
       const userDoc = await userRef.get<Users.Doc>()
       const user = userDoc.data()
+      if (!user.notifications) continue
       sendNotification(user, {
         category: 'GAME_EVENT',
         title: 'Mass Outbreaks of Pokémon have changed!',
@@ -762,16 +731,13 @@ export const swarm_notify = functions.firestore.document('test/swarm').onUpdate(
     }
   }
 })
-
 export const tag = functions.https.onCall(async (data: F.Tag.Req, context): Promise<F.Tag.Res> => {
   const userId = context.auth!.uid
   const {operations} = data
-
   if (!operations || !Array.isArray(operations)) {
     throw new functions.https.HttpsError('failed-precondition',
       'There is nothing to do.')
   }
-
   await db.runTransaction(async t => {
     const userRef = db.collection('users').doc(userId)
     const userDoc = await t.get<Users.Doc>(userRef)
@@ -780,12 +746,10 @@ export const tag = functions.https.onCall(async (data: F.Tag.Req, context): Prom
       throw new functions.https.HttpsError('failed-precondition',
         'There is nobody here.')
     }
-
     if (!hasPokemon(user, operations.map(x => x.species))) {
       throw new functions.https.HttpsError('failed-precondition',
         'Your tagging misses the mark.')
     }
-
     for (const op of operations) {
       const badge = new Badge(op.species)
       for (const tag of op.tags) {
@@ -843,16 +807,13 @@ export const tag = functions.https.onCall(async (data: F.Tag.Req, context): Prom
       removePokemon(user, new Badge(op.species))
       addPokemon(user, badge)
     }
-
     // Update our Pokemon
     t.update(userRef, {
       pokemon: user.pokemon
     })
   })
-
   return 'Tags are implemented'
 })
-
 export const tag_manage = functions.https.onCall(async (data: F.TagManage.Req, context): Promise<F.TagManage.Res> => {
   if (!context.auth) {
     throw new functions.https.HttpsError('not-found', '')
@@ -866,7 +827,6 @@ export const tag_manage = functions.https.onCall(async (data: F.TagManage.Req, c
     if (!user.customTags) {
       user.customTags = []
     }
-
     if (action === 'PUSH') {
       tags.forEach(tag => {
         const sanitizedTag = tag.trim()
@@ -902,7 +862,6 @@ export const tag_manage = functions.https.onCall(async (data: F.TagManage.Req, c
       throw new functions.https.HttpsError('failed-precondition',
         'No action found for', action)
     }
-
     t.update<Users.Doc>(ref, {
       customTags: user.customTags
     })

@@ -136,8 +136,8 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     return getBucket(this.voyage, this.score)
   }
   get voyageMaxLabel() {
-    if (!user) return 'three'
-    if (!user.items.voyageCharm) return 'three'
+    if (!this.user) return 'three'
+    if (!this.user.items.voyagecharm) return 'three'
     return 'six'
   }
   /** Obtains query object for routerLink */

@@ -817,7 +817,7 @@ export const VoyageCharm: LegendaryQuest = {
     completed: (r) => r.voyagesCompleted > 180, // 3/day * 30days/mo * 2 mo
     msg: 'Voyages can be long an arduous, but once you do enough of them you become equipped to do them.'
   }, {
-    completed: (r) => simpleRequirePotwArr([P.Wyrdeer, P.Ursaluna, P.Braviary, P.Sneasler, P.Basculegion]),
+    completed: simpleRequirePotwArr([P.Wyrdeer, P.Ursaluna, P.Braviary, P.Sneasler, P.Basculegion]),
     msg: 'Legends say that in the old land of Hisui people would go on voyages by traveling on their Pokémon.'
   }]
 }

@@ -9,7 +9,6 @@ import asLiterals from "./as-literals"
 import { CATCH_CHARM_GSC, CATCH_CHARM_SM, CATCH_CHARM_SWSH, Requirements } from './legendary-quests'
 import { Nature } from './badge3'
 import { GALAR_INGREDIENTS, SWEETS, MINTS } from './prizes'
-
 /**
  * Represents an item, something in the player inventory.
  */
@@ -55,7 +54,6 @@ export interface Item {
    */
   direct?: boolean
 }
-
 export interface Berry extends Item {
   /**
    * Time to maturation, in hours.
@@ -69,30 +67,24 @@ export interface Berry extends Item {
     max: number
   }
 }
-
 export interface MegaStone extends Item {
   badge: BadgeId
 }
-
 export interface Lure extends Item {
   isLure: boolean
 }
-
 export interface SouvenirContainer extends Item {
   isSouvenirContainer: boolean
 }
-
 export interface Souvenir extends Item {
   isSouvenir: boolean
 }
-
 export interface Bait extends Item {
   /** Dividend rate by which the bait will be consumed. */
   consumption: number
   /** Boosted shiny rate */
   shiny?: number
 }
-
 export const categoryKeys = asLiterals([
   'balls', 'items', 'hold', 'treasure', 'berry',
   'battle', 'tms', 'trs', 'key', 'fertilizer', 'fossil', 'material',
@@ -100,8 +92,6 @@ export const categoryKeys = asLiterals([
   'sticker',
 ])
 export type Category = keyof {[K in (typeof categoryKeys)[number]]: string}
-
-
 interface CategoryAttributes {
   label: string
   /** See https://fonts.google.com/icons */
@@ -113,7 +103,6 @@ interface CategoryAttributes {
   /** A quick way to disable new categories */
   active?: boolean
 }
-
 export const categoryAttributes: Record<Category, CategoryAttributes> = {
   balls: {
     label: `PokéBalls`,
@@ -232,7 +221,6 @@ export const categoryAttributes: Record<Category, CategoryAttributes> = {
     active: false,
   }
 }
-
 const HELD_TYPE_ITEM = (label: string, type: Type, buy = 12): Item => {
   return {
     label,
@@ -243,7 +231,6 @@ const HELD_TYPE_ITEM = (label: string, type: Type, buy = 12): Item => {
     daycare: true,
   }
 }
-
 const GEM = (type: Type): Item => {
   return {
     label: `${type} Gem`,
@@ -253,7 +240,6 @@ const GEM = (type: Type): Item => {
     battle: true,
   }
 }
-
 const RKS_MEMORY = (type: Type): Item => {
   return {
     label: `${type} Memory`,
@@ -262,7 +248,6 @@ const RKS_MEMORY = (type: Type): Item => {
     description: `An item to be held by a specific Pokémon. It contains ${type}-type data and changes its type.`,
     battle: true,  }
 }
-
 const APRICORN_BALL = (label): Item => {
   return {
     label,
@@ -271,7 +256,6 @@ const APRICORN_BALL = (label): Item => {
     buy: 0, sell: 3,    
   }
 }
-
 const DEVON_BALL = (label): Item => {
   return {
     label,
@@ -280,11 +264,9 @@ const DEVON_BALL = (label): Item => {
     buy: 4, sell: 3,    
   }
 }
-
 const TX = (cat: 'tm' | 'tr', move: MoveId): string => {
   return `${cat}-${move}`
 }
-
 function Pokeball(opts: {label: string, description: string, buy: number, sell: number}): Item {
   const {label, description, buy, sell} = opts
   return {
@@ -293,7 +275,6 @@ function Pokeball(opts: {label: string, description: string, buy: number, sell: 
      
   }
 }
-
 function Treasure(opts: {label: string, description: string, sell?: number, functional?: boolean}): Item {
   const {label, description, sell, functional} = opts
   return {
@@ -301,7 +282,6 @@ function Treasure(opts: {label: string, description: string, sell?: number, func
     category: 'treasure',
   }
 }
-
 function Slate(opts: {label: string, description: string}): Item {
   const {label, description} = opts
   return {
@@ -310,7 +290,6 @@ function Slate(opts: {label: string, description: string}): Item {
     category: 'treasure',
   }
 }
-
 /**
  * Creates a generic placeholder item in the items category
  * @param opts Label of the item
@@ -326,7 +305,6 @@ function Placeholder(opts: {label: string}): Item {
      
   }
 }
-
 const ITEMS_POKEBALLS = {
   // Poké Balls
   pokeball: Pokeball({
@@ -434,9 +412,7 @@ const ITEMS_POKEBALLS = {
   }),
   // 31 (This is the last one that can canonically exist)
 }
-
 export type PokeballId = keyof typeof ITEMS_POKEBALLS;
-
 const ITEMS_TREASURE = {
   tinymushroom: Treasure({
     label: 'Tiny Mushroom',
@@ -701,7 +677,6 @@ const ITEMS_TREASURE = {
     description: 'Ore that comes from the southern region of Galar. Some collectors will pay a lot for it.'
   }),
 }
-
 const ITEMS_HOLD = {
   kingsrock: {
     label: `King's Rock`,
@@ -865,7 +840,6 @@ const ITEMS_HOLD = {
     buy: 0, sell: 10,  
   },
 }
-
 const APRICORN = (color: string, scent: string): Berry => {
   return {
     label: `${color.substring(0, 1).toUpperCase()}${color.substring(1)} Apricorn`,
@@ -875,7 +849,6 @@ const APRICORN = (color: string, scent: string): Berry => {
     growTime: 96, yield: {min: 2, max: 5},
   }
 }
-
 const ITEMS_OTHER = {
   firestone: {
     label: 'Fire Stone',
@@ -1280,7 +1253,7 @@ const ITEMS_OTHER = {
   leaderscrest: {
     label: "Leader's Crest", category: 'items',
     description: 'A rusted blade signaling ones prestige. Bisharp are eager to obtain one.',
-    buy: 0, sell: 10,
+    buy: 0, sell: 10, functional: true,
   },
   auspiciousarmor: {
     label: 'Auspicious Armor', category: 'items',
@@ -1308,7 +1281,6 @@ const ITEMS_OTHER = {
     buy: 0, sell: 9,
   },
 }
-
 const BERRY_SIMPLE = (label, description, battle = true, functional = false): Berry => {
   return {
     label, category: 'berry',
@@ -1318,7 +1290,6 @@ const BERRY_SIMPLE = (label, description, battle = true, functional = false): Be
     growTime: 36, yield: {min: 4, max: 10},
   }
 }
-
 const BERRY_TYPE = (label: string, type: Type): Berry => {
   return {
     label,
@@ -1329,7 +1300,6 @@ const BERRY_TYPE = (label: string, type: Type): Berry => {
     growTime: 48, yield: {min: 2, max: 6},
   }
 }
-
 const BERRY_PINCH = (label: string, type: string): Berry => {
   return {
     label,
@@ -1340,7 +1310,6 @@ const BERRY_PINCH = (label: string, type: string): Berry => {
     growTime: 96, yield: {min: 4, max: 10},
   }
 }
-
 const BERRY_FRIENDSHIP = (label): Berry => {
   return {
     label, category: 'berry',
@@ -1351,7 +1320,6 @@ const BERRY_FRIENDSHIP = (label): Berry => {
     growTime: 48, yield: {min: 5, max: 14},
   }
 }
-
 const BERRY_TREASURE = (label): Berry => {
   return {
     label, category: 'berry',
@@ -1361,7 +1329,6 @@ const BERRY_TREASURE = (label): Berry => {
     growTime: 72, yield: {min: 2, max: 5},
   }
 }
-
 const BERRY_TREASURE2 = (label, functional = false): Berry => {
   return {
     label, category: 'berry',
@@ -1371,7 +1338,6 @@ const BERRY_TREASURE2 = (label, functional = false): Berry => {
     growTime: 96, yield: {min: 2, max: 5},
   }
 }
-
 const ITEMS_BERRIES = {
   oran: BERRY_SIMPLE('Oran Berry', 'A berry that heals some health in a pinch.', true, true),
   aspear: BERRY_SIMPLE('Aspear Berry', 'A berry that treats freezing when eaten.'),
@@ -1472,9 +1438,7 @@ const ITEMS_BERRIES = {
   wiki: BERRY_TREASURE2('Wiki Berry'),
   hopo: BERRY_TREASURE('Hopo Berry'), // PLA berry
 }
-
 export type BerryId = keyof typeof ITEMS_BERRIES;
-
 const ITEMS_FERTILIZER = {
   growthmulch: assert<Item>({
     label: 'Growth Mulch', category: 'fertilizer',
@@ -1557,9 +1521,7 @@ const ITEMS_FERTILIZER = {
     buy: 3, sell: 1,
   }),
 }
-
 export type FertilizerId = keyof typeof ITEMS_FERTILIZER;
-
 function MINT(nature: Nature): Berry {
   return {
     label: `${nature} Mint`,
@@ -1569,7 +1531,6 @@ function MINT(nature: Nature): Berry {
     growTime: 96, yield: {min: 2, max: 5},
   }
 }
-
 const ITEMS_BATTLE = {
   blackbelt: HELD_TYPE_ITEM('Black Belt', 'Fighting'),
   blackglasses: HELD_TYPE_ITEM('Black Glasses', 'Dark'),
@@ -2352,7 +2313,6 @@ const ITEMS_BATTLE = {
     buy: 0, sell: 2, battle: true,
   },
 }
-
 /**
  * Params for `genTm` and `genTr` function
  */
@@ -2361,7 +2321,6 @@ interface TmTr {
   sell?: number
   functional?: boolean
 }
-
 function genTm(number: number, move: MoveId, params: TmTr): Item {
   return {
     label: `TM-${number.toString().padStart(3, '0')} ${move}`,
@@ -2372,7 +2331,6 @@ function genTm(number: number, move: MoveId, params: TmTr): Item {
     functional: params.functional || false
   }
 }
-
 function genTr(number: number, move: MoveId, params: TmTr): Item {
   return {
     label: `TR-${number.toString().padStart(3, '0')} ${move}`,
@@ -2383,7 +2341,6 @@ function genTr(number: number, move: MoveId, params: TmTr): Item {
     functional: params.functional || false
   }
 }
-
 const ITEMS_TMS = {
   [TX('tm', 'Hyper Beam')]: genTm(0, 'Hyper Beam', {
     buy: 24, sell: 12,
@@ -2751,7 +2708,6 @@ const ITEMS_TMS = {
     functional: true,
   }),
 }
-
 const ITEMS_TRS = {
   /* TRs */
   [TX('tr', 'String Shot')]: genTr(0, 'String Shot', {
@@ -3078,7 +3034,6 @@ const ITEMS_TRS = {
     buy: 0, sell: 5,
   }),
 }
-
 const ITEMS_KEY = {
   squirtbottle: {
     label: 'Squirtbottle', category: 'key',
@@ -3487,7 +3442,6 @@ const ITEMS_KEY = {
       buy: 0, sell: 0,
   },
 }
-
 type PokemonMaterialType = 'Claw' | 'Fur' | 'Goo' | 'Hair' | 'Scales' | 'Sweat'
   | 'Toxin' | 'Poison' | 'Spores' | 'Lava' | 'Coal' | 'Fuzz' | 'Nail' | 'Dirt'
   | 'Slime' | 'Feather' | 'Wool' | 'Pearl' | 'Gas' | 'Fluff' | 'Dust' | 'Needle'
@@ -3496,7 +3450,6 @@ type PokemonMaterialType = 'Claw' | 'Fur' | 'Goo' | 'Hair' | 'Scales' | 'Sweat'
   | 'Parcel' | 'Chip' | 'Thread' | 'Berries' | 'Eyelash' | 'Fang' | 'Juice'
   | 'Spines' | 'Mucus' | 'Stem' | 'Soot' | 'Wax' | 'Tarnish' | 'Seed'
   | 'Salt' | 'Flaps' | 'Down' | 'Whisker'
-
 const PokemonMaterial = (species: string, component: PokemonMaterialType): Item => {
   return assert<Item>({
     label: `${species} ${component}`, category: 'material',
@@ -3504,7 +3457,6 @@ const PokemonMaterial = (species: string, component: PokemonMaterialType): Item 
     buy: 0, sell: 1,
   })
 }
-
 const ITEMS_MATERIALS = {
   apricorn: APRICORN('brown', 'smells old-fashioned'),
   greenapricorn: APRICORN('green', 'has a mysterious, aromatic scent'),
@@ -3746,7 +3698,6 @@ const ITEMS_MATERIALS = {
   tmm_dondozo: PokemonMaterial('Dondozo', 'Whisker'),
   tmm_frigibax: PokemonMaterial('Frigibax', 'Scales'),
 }
-
 function GalarIngredient(label: string, suffix: string): Item {
   return {
     label, category: 'cooking',
@@ -3754,7 +3705,6 @@ function GalarIngredient(label: string, suffix: string): Item {
     buy: 0, sell: 2,
   }
 }
-
 function GalarCurry(label: string, prefix: string, type: Type | string, longevity = false): Bait {
   return {
     label, category: 'bait',
@@ -3763,7 +3713,6 @@ function GalarCurry(label: string, prefix: string, type: Type | string, longevit
     consumption: longevity ? 3 : 2,
   }
 }
-
 function Poffin(label: string, description: string): Bait {
   return {
     label, category: 'bait',
@@ -3771,7 +3720,6 @@ function Poffin(label: string, description: string): Bait {
     buy: 0, sell: 5, consumption: 2,
   }
 }
-
 function HisuiCake(label: string, sensory: string): Bait {
   return {
     label, category: 'bait',
@@ -3779,7 +3727,6 @@ function HisuiCake(label: string, sensory: string): Bait {
     buy: 0, sell: 8, consumption: 4,
   }
 }
-
 function PokePuff(label: string, suffix: string): Bait {
   return {
     label, category: 'bait',
@@ -3787,7 +3734,6 @@ function PokePuff(label: string, suffix: string): Bait {
     buy: 0, sell: 8, consumption: 4,
   }
 }
-
 function PaldeaCondiment(item: Partial<Item>): Item {
   return {
     category: 'cooking',
@@ -3797,7 +3743,6 @@ function PaldeaCondiment(item: Partial<Item>): Item {
     ...item,
   }
 }
-
 function PaldeaIngredient(item: Partial<Item>): Item {
   return {
     category: 'cooking',
@@ -3807,7 +3752,6 @@ function PaldeaIngredient(item: Partial<Item>): Item {
     ...item,
   }
 }
-
 function PaldeaSandwich(label: string, item: Partial<Bait>): Item {
   return {
     label, category: 'bait',
@@ -3816,7 +3760,6 @@ function PaldeaSandwich(label: string, item: Partial<Bait>): Item {
     ...item,
   }
 }
-
 const ITEMS_INGREDIENTS = {
   // POFFINS
   poffinspicy: Poffin('Spicy Poffin',
@@ -3997,7 +3940,6 @@ const ITEMS_INGREDIENTS = {
   svsufivealarm: PaldeaSandwich('Ultra Five-Alarm Sandwich', { description: 'A sandwich that is incredibly spicy. Not for everyone.', sell: 30 }),
   svsudessert: PaldeaSandwich('Ultra Dessert Sandwich', { description: 'Move aside ice cream! This is the sweetest sandwich one can make!', sell: 30 }),
 }
-
 function genMegaStone(badge: BadgeId, xy: ' X' | ' Y' | '' = ''): MegaStone {
   const pkmn = get(badge)!
   return {
@@ -4007,7 +3949,6 @@ function genMegaStone(badge: BadgeId, xy: ' X' | ' Y' | '' = ''): MegaStone {
     badge,
   }
 }
-
 const ITEMS_MEGA = {
   venusaurite: genMegaStone(P.Venusaur),
   charizarditex: genMegaStone(P.Charizard, ' X'),
@@ -4057,9 +3998,7 @@ const ITEMS_MEGA = {
   audinoite: genMegaStone(P.Audino),
   diancieite: genMegaStone(P.Diancie),
 }
-
 export type MegaStoneId = keyof typeof ITEMS_MEGA;
-
 function genZCrystal(label: string, type: Type): Item {
   return {
     battle: true, 
@@ -4068,7 +4007,6 @@ function genZCrystal(label: string, type: Type): Item {
     description: `A Z-Crystal to be held by your Pokémon. It powers up a ${type}-type to great effect.`
   }
 }
-
 function genSpecialZCrystal(label: string, holder: string, functional?: boolean): Item {
   return {
     battle: true, 
@@ -4077,7 +4015,6 @@ function genSpecialZCrystal(label: string, holder: string, functional?: boolean)
     description: `A Z-Crystal to be held by ${holder}. It powers up a move to devastating effect.`
   }
 }
-
 const ITEMS_ZCRYSTAL = {
   zbuginium: genZCrystal('Buginium Z', 'Bug'),
   zdarkinium: genZCrystal('Darkinium Z', 'Dark'),
@@ -4117,7 +4054,6 @@ const ITEMS_ZCRYSTAL = {
   zsolganium: genSpecialZCrystal('Solganium Z', 'Solgaleo'),
   zultranecrozium: genSpecialZCrystal('Ultranecrozium Z', 'Necrozma', true),
 }
-
 function teraShard(type: Type): Item {
   return {
     battle: true,
@@ -4126,7 +4062,6 @@ function teraShard(type: Type): Item {
     description: `A jewel shard with a coloration reminding you of the ${type}-type. When held by a Pokémon, they will terastalize.`,
   }
 }
-
 const ITEMS_TERA = {
   teranormal: teraShard('Normal'),
   terafire: teraShard('Fire'),
@@ -4147,21 +4082,18 @@ const ITEMS_TERA = {
   terasteel: teraShard('Steel'),
   terafairy: teraShard('Fairy'),
 }
-
 function Fossil(label: string, description = 'A fossil.'): Item {
   return {
     category: 'fossil', buy: 0, sell: 15,
     label, description, direct: true,
   }
 }
-
 function FossilGalar(label: string, description = 'A chunk of fossil.'): Item {
   return {
     category: 'fossil', buy: 0, sell: 7,
     label, description, // Needs to be crafted into a real fossil.
   }
 }
-
 export const ITEMS_FOSSILS = {
   helixfossil: Fossil('Helix Fossil', 'A shell of something dug up in the Kanto region.'),
   domefossil: Fossil('Dome Fossil', 'A shell of something dug up in the Kanto region.'),
@@ -4183,7 +4115,6 @@ export const ITEMS_FOSSILS = {
   dvfossil: Fossil('DV Fossil', 'Cara Liss has stuck the fish and drake fossil together. What will it become?'),
   avfossil: Fossil('AV Fossil', 'Cara Liss has stuck the bird and dino fossil together. What will it become?'),
 }
-
 export const ITEMS = {
   ...ITEMS_POKEBALLS,
   ...ITEMS_TREASURE,
@@ -4202,28 +4133,21 @@ export const ITEMS = {
   ...ITEMS_FOSSILS,
   ...ITEMS_TERA,
 };
-
 /** A representation of every item. However, TMs and TRs while spelled correctly are overrepresented. */
 export type ItemId = keyof typeof ITEMS | `tm-${MoveId}` | `tr-${MoveId}`
-
 export const BAZAAR_OPEN = 0
 export const BAZAAR_CLOSED = 1
 export const BAZAAR_SOLDOUT = 2
-
 export const currencies = asLiterals(['pokeball', 'heartscale', 'redshard', 'greenshard',
   'blueshard', 'yellowshard', 'shoalsalt', 'shoalshell', 'reliccopper',
   'relicsilver', 'relicgold', 'soot', 'mysteriousshards', 'mysteriousshardl',
   'armorite', 'dynite', 'galaricatwig'])
-
 export type Currency = keyof {[K in (typeof currencies)[number]]: string}
-
 type BazaarItems = {
   name: ItemId
   rate: number
 }[]
-
 type BazaarFn = () => BazaarItems;
-
 interface Bazaar {
   name: string
   isOpen: (date: number, items: Record<ItemId, number>, r: Requirements) => 0 | 1 | 2
@@ -4234,7 +4158,6 @@ interface Bazaar {
   currency: Currency,
   items: BazaarItems | BazaarFn
 }
-
 const generalMoveTutors: {name: ItemId, rate: number}[] = [{
   name: 'tm-Rock Slide',
   rate: 5
@@ -4272,13 +4195,11 @@ const generalMoveTutors: {name: ItemId, rate: number}[] = [{
   name: 'tr-Mud Sport',
   rate: 3,
 }]
-
 // Treasure changes every day
 const platinumTreasure: ItemId[] = [
   'nugget', 'razorclaw', 'razorfang', 'reapercloth', 'ovalstone',
   'electirizer', 'dubiousdisc', 'protector', 'magmarizer',
 ]
-
 export const BAZAAR = {
   moveTutorLance: assert<Bazaar>({
     name: 'Lance, the move expert', icon: 'emoji_events',
@@ -5306,5 +5227,4 @@ export const BAZAAR = {
     })()
   }),
 }
-
 export type BazaarId = keyof typeof BAZAAR
