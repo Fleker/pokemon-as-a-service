@@ -769,6 +769,30 @@ const ProtectSilky = assert<Status>({
   },
 })
 
+const ProtectBurning = assert<Status>({
+  name: 'ProtectBurning',
+  turnsActive: 0,
+  onTurnEnd: (caster) => {
+    removeCondition(caster, 'ProtectBurning')
+    return nop()
+  },
+  onTargetMove: (inp) => {
+    const {target, move} = inp
+    if (!getCondition(target, 'ProtectBurning')) return new Log()
+    if (['Single Ally', 'Self', 'All Allies'].includes(move.aoe)) return new Log()
+    const log = new Log()
+    if (move.power > 0) {
+      move.failed = true // Move fails
+      log.add(`${target.species} protected itself!`)
+      if (move.contact) {
+        log.push(APPLY_STATUS(target, 'Burn',
+        `Ouch! ${target.species} was burned by the burning fur.`))
+      }
+    }
+    return log
+  },
+})
+
 const Protect = assert<Status>({
   name: 'Protect',
   turnsActive: 0,
@@ -1706,6 +1730,7 @@ export const ConditionMap = {
   ProtectQuick,
   ProtectWide,
   ProtectSilky,
+  ProtectBurning,
   Raid: assert<Status>({
     name: 'Raid',
     turnsActive: 0,
@@ -1734,6 +1759,14 @@ export const ConditionMap = {
       move.accuracy = 0
       return new Log()
     },
+    onTurnEnd: (battler, status) => {
+      if (status.turnsActive >= 2) {
+        // We may have failed to properly disable this condition.
+        // Do so manually.
+        removeCondition(battler, 'Underground')
+      }
+      return new Log()
+    },
   }),
   Underwater: assert<Status>({
     name: 'Underwater',
@@ -1744,6 +1777,14 @@ export const ConditionMap = {
         return new Log()
       }
       move.accuracy = 0
+      return new Log()
+    },
+    onTurnEnd: (battler, status) => {
+      if (status.turnsActive >= 2) {
+        // We may have failed to properly disable this condition.
+        // Do so manually.
+        removeCondition(battler, 'Underwater')
+      }
       return new Log()
     },
   }),
@@ -1765,6 +1806,14 @@ export const ConditionMap = {
       move.accuracy = 0
       return new Log()
     },
+    onTurnEnd: (battler, status) => {
+      if (status.turnsActive >= 2) {
+        // We may have failed to properly disable this condition.
+        // Do so manually.
+        removeCondition(battler, 'InAir')
+      }
+      return new Log()
+    }
   }),
   Bouncing: assert<Status>({
     name: 'Bouncing',
@@ -1781,6 +1830,14 @@ export const ConditionMap = {
         return new Log()
       }
       move.accuracy = 0
+      return new Log()
+    },
+    onTurnEnd: (battler, status) => {
+      if (status.turnsActive >= 2) {
+        // We may have failed to properly disable this condition.
+        // Do so manually.
+        removeCondition(battler, 'Bouncing')
+      }
       return new Log()
     },
   }),
@@ -1801,12 +1858,28 @@ export const ConditionMap = {
       move.accuracy = 0
       return new Log()
     },
+    onTurnEnd: (battler, status) => {
+      if (status.turnsActive >= 2) {
+        // We may have failed to properly disable this condition.
+        // Do so manually.
+        removeCondition(battler, 'SkyDropping')
+      }
+      return new Log()
+    },
   }),
   AShadow: assert<Status>({
     name: 'AShadow',
     turnsActive: 0,
     onTargetMove: ({move}) => {
       move.accuracy = 0
+      return new Log()
+    },
+    onTurnEnd: (battler, status) => {
+      if (status.turnsActive >= 2) {
+        // We may have failed to properly disable this condition.
+        // Do so manually.
+        removeCondition(battler, 'AShadow')
+      }
       return new Log()
     },
   }),
@@ -1829,6 +1902,10 @@ export const ConditionMap = {
   }),
   MeteorGathering: assert<Status>({
     name: 'MeteorGathering',
+    turnsActive: 0,
+  }),
+  ElectroCharging: assert<Status>({
+    name: 'ElectroCharging',
     turnsActive: 0,
   }),
   PreviousMoveFailed: assert<Status>({

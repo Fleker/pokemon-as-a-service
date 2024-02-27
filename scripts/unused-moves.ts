@@ -118,6 +118,9 @@ const var6: MoveId[] = [
   'Scorching Sands',
   // PLA
   'Power Shift',
+  // SV
+  // 'Temper Flare', 'Alluring Voice', 'Dragon Cheer', 'Hard Press',
+  // 'Supercell Slam', 'Psychic Noise', 'Upper Hand',
 ]
 
 const introducedGen9: MoveId[] = [

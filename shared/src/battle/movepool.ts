@@ -648,6 +648,20 @@ export const Movepool: Movepool = {
     aoe: 'Single Opponent',
     onAfterMove: (inp) => Flinch(inp, 0.3)
   },
+  'Alluring Voice': {
+    name: 'Alluring Voice', type: 'Fairy',
+    attackKey: 'spAttack', defenseKey: 'spDefense',
+    power: 1, accuracy: 1, criticalHit: 1,
+    aoe: 'Single Opponent', sound: true,
+    flavor: 'The user strikes with an angelic voice. If the target has boosted stats, it becomes confused.',
+    onAfterMove: (inp) => {
+      const boostedStats = Object.values(inp.target.statBuffs).filter(s => s > 0)
+      if (boostedStats.length > 0) {
+        return Confuse(inp, 1)
+      }
+      return new Log()
+    }
+  },
   // Note: Since target selection specifies the Pokemon themselves instead of
   // slots, this won't really matter in the vast majority of moves where it
   // might have an effect in the main series.
@@ -1655,6 +1669,16 @@ export const Movepool: Movepool = {
     flavor: 'The user spits out a number of seeds at the opponent. Where do the seeds come from?',
     aoe: 'Single Opponent',
     onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.3, 2, 5, caster),
+  },
+  'Burning Bulwark': {
+    name: 'Burning Bulwark', type: 'Fire',
+    attackKey: 'attack', defenseKey: 'defense',
+    accuracy: Infinity, power: 0, criticalHit: 0,
+    priority: 4,
+    aoe: 'Self', zMoveFx: 'DefBuff1',
+    flavor: 'The user wraps itself in white-hot fur to protect itself from attacks. If struck head-on, it will burn the opponent.',
+    onAfterMove: (inp) => APPLY_TEMP_STATUS(inp.caster, ConditionMap.ProtectBurning,
+      `${inp.caster.species} protected itself`)
   },
   'Burning Jealousy': {
     name: 'Burning Jealousy', type: 'Fire',
@@ -2915,6 +2939,22 @@ export const Movepool: Movepool = {
     aoe: 'Single Opponent',
     onAfterMove: (inp) => Paralyze(inp, 0.3),
   },
+  'Dragon Cheer': {
+    name: 'Dragon Cheer', type: 'Dragon',
+    attackKey: 'attack', defenseKey: 'defense',
+    power: 0, accuracy: Infinity, criticalHit: 0,
+    flavor: 'The user sings an old ditty to its allies. Their critical hit ratios increase. Dragon-types will be more roused by this.',
+    aoe: 'All Allies',
+    onAfterMove: (inp) => {
+      if (inp.target.type1 === 'Dragon' || inp.target.type2 === 'Dragon') {
+        BUFF_STAT(inp.target, inp, 'criticalHit', 2)
+        return new Log().add(`${inp.target.species} became especially roused`)
+      } else {
+        BUFF_STAT(inp.target, inp, 'criticalHit', 1)
+        return new Log().add(`${inp.target.species} became roused`)
+      }
+    }
+  },
   'Dragon Claw': {
     name: 'Dragon Claw', type: 'Dragon',
     attackKey: 'attack', defenseKey: 'defense',
@@ -3286,6 +3326,32 @@ export const Movepool: Movepool = {
       return new Log()
     }
   },
+  'Electro Shot': {
+    name: 'Electro Shot', type: 'Electric',
+    attackKey: 'spAttack', defenseKey: 'spDefense',
+    power: 1.5, accuracy: 1, criticalHit: 1,
+    flavor: 'The user draws in static electricty at first, then fires an attack with high-voltage.',
+    aoe: 'Single Opponent',
+    onBeforeMove: (inp) => {
+      const caster = inp.caster
+      const log = BUFF_STAT(caster, inp, 'spAttack')
+      const hasPowerHerb = caster.heldItemKey === 'powerherb' && !caster.heldItemConsumed
+      if (inp.field.weather.name !== 'Rain') {
+        const charging = getCondition(caster, 'ElectroCharging')
+        if (!charging && !hasPowerHerb) {
+          inp.move.failed = true
+          return log.push(APPLY_TEMP_STATUS(caster, ConditionMap.ElectroCharging,
+            `${caster.species} started charging its body`))
+        } else if (hasPowerHerb) {
+          log.add(`${caster.species} powered up with the Power Herb`)
+          caster.heldItemConsumed = true
+          caster.heldItemTotallyConsumed = true
+        }
+      }
+      removeCondition(caster, 'ElectroCharging') // Reset
+      return new Log().add('A burst of high-voltage was released!')
+    },
+  },
   Electroweb: {
     name: 'Electroweb',
     accuracy: 0.95,
@@ -3624,6 +3690,19 @@ export const Movepool: Movepool = {
     flavor: 'The target feels a sharp stabbing. The user\'s attack rises.',
     aoe: 'Single Opponent', contact: true,
     onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'attack')
+  },
+  'Fickle Beam': {
+    name: 'Fickle Beam', type: 'Dragon',
+    attackKey: 'spAttack', defenseKey: 'spDefense',
+    power: 1, accuracy: 1, criticalHit: 1, aoe: 'Single Opponent',
+    flavor: 'The user conjures a beam of light to inflict damage. Sometimes the user\'s many heads get involved, doubling the power.',
+    onBeforeMove: ({move}) => {
+      if (Math.random() < 0.3) {
+        move.power *= 2
+        return new Log().add(`The user is going all out!`)
+      }
+      return new Log()
+    },
   },
   'Fiery Dance': {
     name: 'Fiery Dance', type: 'Fire',
@@ -4739,6 +4818,22 @@ export const Movepool: Movepool = {
     onAfterMove: (inp) => {
       return DefBuff(inp.caster, inp, 1)
     }
+  },
+  'Hard Press': {
+    name: 'Hard Press',
+    accuracy: 1,
+    attackKey: 'attack',
+    defenseKey: 'defense',
+    criticalHit: 1,
+    power: 1,
+    type: 'Steel',
+    flavor: 'The user crushes the target with metallic force. This attack does more damage if the target is healthier.',
+    aoe: 'Single Opponent', contact: true,
+    onBeforeMove: ({target, move}) => {
+      // Move power between 0 -> 1.5
+      move.power = 1.5 * (target.currentHp / target.totalHp)
+      return new Log()
+    },
   },
   'Haze': {
     name: 'Haze',
@@ -6189,6 +6284,26 @@ export const Movepool: Movepool = {
       return log
     }
   },
+  'Malignant Chain': {
+    name: 'Malignant Chain',
+    accuracy: 1,
+    attackKey: 'spAttack',
+    defenseKey: 'spDefense',
+    criticalHit: 1,
+    power: 1.2,
+    type: 'Poison',
+    flavor: 'The power of toxins are placed into a chain which it uses in a ranged attack. It may leave the target badly poisoned.',
+    aoe: 'Single Opponent', zMoveFx: 'DefBuff1',
+    onAfterMove: (inp) => {
+      const log = new Log()
+      log.push(Poison(inp, 0.5))
+      if (inp.target.status?.name === 'Poison') {
+        // If the Poison didn't work, don't toxic
+        log.push(APPLY_TEMP_STATUS(inp.target, ConditionMap.PoisonBad, `${inp.target.species} was badly poisoned`))
+      }
+      return log
+    },
+  },
   'Mat Block': {
     name: 'Mat Block', type: 'Fighting',
     attackKey: 'attack', defenseKey: 'defense',
@@ -6411,6 +6526,20 @@ export const Movepool: Movepool = {
       return log
     },
     onAfterMove: nop,
+  },
+  'Mighty Cleave': {
+    name: 'Mighty Cleave', type: 'Rock',
+    attackKey: 'attack', defenseKey: 'defense',
+    power: 1.15, criticalHit: 1, accuracy: 1,
+    aoe: 'Single Opponent', contact: true,
+    flavor: "Harnesses the power of light on its head to cleave the target, even penetrating protection.",
+    onBeforeMove: ({target}) => {
+      if (getCondition(target, 'Protect')) {
+        // Break through Protect
+        removeCondition(target, 'Protect')
+      }
+      return new Log()
+    },
   },
   'Milk Drink': {
     name: 'Milk Drink', type: 'Normal',
@@ -8036,6 +8165,17 @@ export const Movepool: Movepool = {
       }
       return new Log()
     },
+  },
+  'Psychic Noise': {
+    name: 'Psychic Noise', type: 'Psychic',
+    attackKey: 'attack', defenseKey: 'defense',
+    power: 0.95, accuracy: 1, criticalHit: 1, sound: true,
+    aoe: 'Nearby Opponents',
+    flavor: 'Exclaims a mystical incantation which prevents affected targets from any healing.',
+    onAfterMove: (inp) => {
+      return APPLY_TEMP_STATUS(inp.target, {...ConditionMap['HealBlocked']},
+        `${inp.target.species} has been blocked from healing`)
+    }
   },
   'Psychic Terrain': {
     name: 'Psychic Terrain', type: 'Psychic',
@@ -10490,6 +10630,23 @@ export const Movepool: Movepool = {
       return logDamage(target, target.currentHp / 2)
     }
   },
+  'Supercell Slam': {
+    name: 'Supercell Slam',
+    accuracy: 0.95,
+    attackKey: 'attack',
+    defenseKey: 'defense',
+    criticalHit: 1,
+    power: 1.2,
+    type: 'Electric',
+    flavor: 'The user discharges a supercapacitor into its body with the hope of slamming the opponent for damage. If this move misses, the user gets discharged directly.',
+    aoe: 'Single Opponent', contact: true,
+    onMiss: ({caster}) => {
+      const log = new Log()
+      log.add(`${caster.species} kept going and discharged!`)
+      log.push(logDamage(caster, caster.totalHp / 6))
+      return log
+    }
+  },
   Superpower: {
     name: 'Superpower',
     accuracy: 1,
@@ -10707,6 +10864,22 @@ export const Movepool: Movepool = {
     flavor: 'The user rams into the target at a slow speed.',
     aoe: 'Single Opponent', contact: true,
   },
+  'Tachyon Cutter': {
+    name: 'Tachyon Cutter',
+    accuracy: Infinity,
+    attackKey: 'spAttack',
+    defenseKey: 'spDefense',
+    criticalHit: 1,
+    power: 1.2,
+    type: 'Steel',
+    flavor: 'The user conjures two particle blades to slash the opponent. This attack always hits.',
+    aoe: 'Single Opponent',
+    onAfterMove: () => {
+      const log = new Log()
+      log.add('Hit two times')
+      return log
+    }
+  },
   Tailwind: {
     name: 'Tailwind', type: 'Flying',
     attackKey: 'attack', defenseKey: 'defense',
@@ -10921,6 +11094,19 @@ export const Movepool: Movepool = {
         `${inp.caster.species} noped out of there!`)
     },
   },
+  'Temper Flare': {
+    name: 'Temper Flare', type: 'Ground',
+    attackKey: 'attack', defenseKey: 'defense',
+    power: 0.95, accuracy: 1, criticalHit: 1,
+    flavor: 'The user strikes with fiery desperation. If the previous move failed, this move\'s power doubles.',
+    aoe: 'Single Opponent', contact: true,
+    onBeforeMove: ({caster, move}) => {
+      if (getCondition(caster, 'PreviousMoveFailed')) {
+        move.power *= 2
+      }
+      return new Log()
+    }
+  },
   'Tera Blast': {
     name: 'Tera Blast', type: 'Normal',
     attackKey: 'spAttack', defenseKey: 'spDefense',
@@ -11088,6 +11274,26 @@ export const Movepool: Movepool = {
     flavor: 'The target is hit by 100,000 volts, potentially paralyzing them.',
     aoe: 'Single Opponent',
     onAfterMove: (inp) => Paralyze(inp, 0.1),
+  },
+  'Thunderclap': {
+    name: 'Thunderclap', type: 'Electric',
+    attackKey: 'spAttack', defenseKey: 'spDefense',
+    power: 0.9, accuracy: 1, criticalHit: 1, priority: 1,
+    aoe: 'Single Opponent',
+    flavor: 'Before the target attacks, the user strikes with a bolt of lightning.',
+    onBeforeMove: (inp) => {
+      const targetMoveCondition = getCondition(inp.target, 'NextMove')
+      if (!targetMoveCondition) {
+        inp.move.failed = true
+        return new Log().add('But it failed...')
+      }
+      const move = targetMoveCondition.p!.selectedMove!
+      if (move.power === 0) {
+        inp.move.failed = true
+        return new Log().add('But it failed...')
+      }
+      return new Log()
+    }
   },
   'Thunder Fang': {
     name: 'Thunder Fang',
@@ -11528,7 +11734,7 @@ export const Movepool: Movepool = {
   'Upper Hand': {
     name: 'Upper Hand', type: 'Fighting',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 0.6, /* FIXME */ accuracy: 1, criticalHit: 1, priority: 2,
+    power: 0.85, accuracy: 1, criticalHit: 1, priority: 3,
     aoe: 'Single Opponent', contact: true,
     flavor: 'Before the target gets to make a priority attack, the user strikes first.',
     onBeforeMove: (inp) => {

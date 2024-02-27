@@ -2168,15 +2168,16 @@ export const Inventory: Inventory = {
   terasteel: terastallize('Steel'),
   terafairy: terastallize('Fairy'),
   teraice: terastallize('Ice'),
-   // teraorb: {
-  //   onBattleStart: (caster) => {
-  //     const tera = {...ConditionMap.Terastallized}
-  //     tera.p = { type: caster.type1 }
-  //     caster.heldItemConsumed = false
-  //     caster.heldItemTotallyConsumed = false
-  //     return APPLY_TEMP_STATUS(caster, tera, '')
-  //   }
-  // },
+  terastellar: terastallize('Normal'), // FIXME
+  teraorb: {
+    onBattleStart: (caster) => {
+      const tera = {...ConditionMap.Terastallized}
+      tera.p = { type: caster.type1 } // Hardcode to primary type
+      caster.heldItemConsumed = false
+      caster.heldItemTotallyConsumed = false
+      return APPLY_TEMP_STATUS(caster, tera, '')
+    }
+  },
   boosterenergy: {
     onBattleStart: (caster) => {
       if (![
@@ -2196,7 +2197,10 @@ export const Inventory: Inventory = {
         'Iron Valiant',
         'Walking Wake',
         'Iron Leaves',
-        // TODO: Future paradoxes
+        'Gouging Fire',
+        'Raging Bolt',
+        'Iron Boulder',
+        'Iron Crown',
       ].includes(caster.species)) {
         return new Log() // Do nothing
       }
