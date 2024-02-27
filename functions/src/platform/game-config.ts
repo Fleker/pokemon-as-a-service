@@ -3,19 +3,13 @@ import { ItemId } from '../../../shared/src/items-list';
 import { weeklyId } from '../../../shared/src/platform/weekly';
 export const GROUP_BADGE_ID = weeklyId
 export const MAIL_BADGES = {
-  'potw-270': 'Lotad',
-  'potw-271': 'Lombre',
-  'potw-272': 'Ludicolo',
-  'potw-273': 'Seedot',
-  'potw-274': 'Nuzleaf',
-  'potw-275': 'Shiftry',
-  'potw-276': 'Taillow',
-  'potw-277': 'Swellow',
-  'potw-278': 'Wingull'
+  'potw-278': 'Wingull',
+  'potw-279': 'Pelipper',
+  'potw-280': 'Ralts',
 }
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Icicle Spear',
-  tr: 'tr-Acupressure',
+  tm: 'tm-Leafage',
+  tr: 'tr-Power Trick',
 }
 export const adminIds = [
   'veXJXuNwZ7RsUXV6tQqWjboQOy03' // fleker@

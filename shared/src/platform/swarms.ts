@@ -26,6 +26,6 @@ export const Swarms: Record<RegionType, BadgeId> = {
   'Mediterranean': P.Stunfisk,
   'North America': P.Goomy,
   "North Europe": P.Squirtle,
-  "Pacific Islands": Potw(P.Zorua, {form: 'hisui'}),
+  "Pacific Islands": Potw(P.Zorua, {form: 'hisuian'}),
   "South America": P.Caterpie,
 }
