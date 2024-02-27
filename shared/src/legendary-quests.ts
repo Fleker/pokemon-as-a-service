@@ -15,7 +15,6 @@ import { MoveId, MoveTypeMap } from "./gen/type-move-meta";
 import { calculateNetWorth } from "./events";
 import { MEGA_STONES, MEMORIES, Z_CRYSTALS } from "./prizes";
 import { toBase64 } from "./baseconv";
-
 export const CATCH_CHARM_GSC = 'LcyYjBeK4KAq1BkYgzlx'
 export const CATCH_CHARM_RSE = 'vJHZReab8dpsCgz6ixJy'
 export const CATCH_CHARM_DPPT = 'drIVxbAeXnuVuWCYWTf5'
@@ -24,7 +23,6 @@ export const CATCH_CHARM_XY = 'SYCAMORE'
 export const CATCH_CHARM_SM = 'KUKUI'
 export const CATCH_CHARM_SWSH = 'MAGNOLIA'
 export const CLEAR_BELL = 'yTIJvMaSvvpsjdLQ0nsE'
-
 /**
  * [id]: {
  *   active: true
@@ -33,20 +31,17 @@ export const CLEAR_BELL = 'yTIJvMaSvvpsjdLQ0nsE'
  *   encounter: Pokemon Id
  * }
  */
-
 // Gen 1 DB IDs
 export const MEWTWO = 'mKB5KRO0zXgdYRX5IT9u' // Air Mail
 export const FAB_MAIL = 'Xv6mAuwg9cnNykghYYEl'
 export const DREAM_MAIL = 'geEzpCyuSiPxeaVUuCen'
 export const BEAD_MAIL = 'hDcDXWmJgszg2w01NsYT'
 export const MEW = 'RDYwoV8ZGOpBSdrp7vUc' // Truck
-
 // Gen 2 DB IDs
 export const GYARADOS = 'GqkJ38ATL8BF4ltkTGEO'
 export const LUGIA = 'nYMmUHukrSWQA6dKVhT9'
 export const HO_OH = 'acEfMaNcEAbk3ZHOUJUn'
 export const GS_BALL = 'uKy8bueq7RfB2Ia6akfq'
-
 // Gen 3 DB IDs
 export const REGIROCK = '4rIca77rI58p349pgWEK'
 export const REGICE = 'ggJHm8iE2YI0bxlyXxjo'
@@ -59,7 +54,6 @@ export const DEOXYS = 'DX_DNA_RNA_SPACE'
 export const DEOXYS_ATK = 'DX_ATK'
 export const DEOXYS_DEF = 'DX_DEF'
 export const DEOXYS_SPE = 'DX_SPE'
-
 // Gen 4 DB IDs
 export const SPIRITOMB = 'GZejp1VvyFQ9jGAv2fTS'
 export const CRESSELIA = 'BpxsD1I3P130zMTHtYXv'
@@ -74,7 +68,6 @@ export const GIRANTINA = 'DISTORTION'
 export const DARKRAI = 'PdRaCqqYpkh12XD6dQn1'
 export const SHAYMIN = 'GRACIDEA'
 export const ARCEUS = 'VOIDEGG'
-
 // Gen 5 DB IDs
 export const COBALION = 'ATHOS'
 export const TERRAKION = 'PORTHOS'
@@ -91,7 +84,7 @@ export const KYUREM_BLACK = 'BLACKDRAGON'
 export const KYUREM_WHITE = 'WHITEDRAGON'
 export const THERIAN = 'LOOKING_GLASS'
 export const VOYAGEPASS = 'VOYAGES'
-
+export const VOYAGECHARM = 'FULLPASSPORT'
 // Gen 6 IDs
 export const VIVILLON = 'POKEBALLFLY'
 export const XERNEAS = 'XLIFEPOKEMON'
@@ -102,7 +95,6 @@ export const DIANCIE = 'CARBONJEWEL'
 export const HOOPA = 'ITSHOOPANING'
 export const PRISONBOTTLE = 'PANDORASBOX'
 export const TOWNMAP = 'THEMAP'
-
 // Gen 7 IDs
 export const TYPE_NULL = 'RKS_SYSTEM'
 export const TAPU_KOKO = 'MELEMELEGUARDIAN'
@@ -129,7 +121,6 @@ export const MAGEARNA = 'STEAMPUNK'
 export const MAGEARNA_POKEBALL = 'CLOCKWORK'
 export const ZERAORA = 'THEPOWEROFUS'
 export const MARSHADOW = 'MOVIE20'
-
 // Gen 8 IDs
 export const CRAFTING = 'CRAFTINGKIT'
 export const ZACIAN = 'THECROWNEDSWORD'
@@ -147,10 +138,8 @@ export const CALYREX = 'KINGWITHBIGHEAD'
 export const PLAPONY = 'PECULIARPONYTA'
 export const ENAMORUS = 'HERALDOFSPRING'
 export const LEGENDSPLATE = 'LEGENDSARCEUSPLATE'
-
 const oneDayAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 1).getTime()
 const oneWeekAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).getTime()
-
 export interface Requirements {
   userJoinedDate: number // Timestamp
   location: Location
@@ -188,7 +177,6 @@ export interface Requirements {
   forms: number
   restorations: number
 }
-
 export interface Task {
   /** Function to run to evaluate if the task is complete */
   completed: (r: Requirements) => boolean | Promise<boolean>
@@ -197,18 +185,14 @@ export interface Task {
   /** Machine-focused explanation of how to complete task */
   spoiler?: string
 }
-
 export interface LegendaryQuest {
   hints: Task[]
 }
-
 const ONE_WEEK_ERR = `You sense a powerful force blocking your progress. Try again later.`
-
 export function haveCaught(count: number) {
   return (req: Requirements) => Object.values(req.pokemon)
   .reduce((prev, curr) => prev + curr) >= count
 }
-
 /**
  * Verifies if you have a certain Pokemon in your collection using nat dex number only.
  * @param prefix The Pokemon's nat dex number, encoded as a base64 string
@@ -224,7 +208,6 @@ export function simpleRequirePotw(badge: BadgeId) {
     return false
   }
 }
-
 export function simpleRequirePotwArr(badge: BadgeId[]) {
   const b64 = badge.map(b => toBase64(new TeamsBadge(b).id.toString(16).toUpperCase()))
   const validArray = Array(badge.length).fill(false)
@@ -240,18 +223,15 @@ export function simpleRequirePotwArr(badge: BadgeId[]) {
     return false
   }
 }
-
 export function complexRequirePotw(badge: BadgeId, personality: Partial<Personality>) {
   const pid = new TeamsBadge(badge).id
   return (req: Requirements) => {
     return Badge.quickMatch(pid, personality, Object.keys(req.pokemon) as PokemonId[])
   }
 }
-
 type BidQuestFilter = (badge: BadgeId) => boolean | undefined;
 type LegacyQuestFilter = (badge: TeamsBadge) => boolean | undefined;
 type QuestFilter = (badge: Badge) => boolean | undefined;
-
 export function countForBid(filter: BidQuestFilter, total = 1) {
   return (req: Requirements) => {
     const tempArr = req.teamsBadges
@@ -267,7 +247,6 @@ export function countForBid(filter: BidQuestFilter, total = 1) {
     return false
   }
 }
-
 export function countForLegacy(filter: LegacyQuestFilter, total = 1) {
   return (req: Requirements) => {
     const tempArr = req.teamsBadges
@@ -283,7 +262,6 @@ export function countForLegacy(filter: LegacyQuestFilter, total = 1) {
     return false
   }
 }
-
 export function countFor(filter: QuestFilter, total = 1) {
   return (req: Requirements) => {
     const tempArr = req.pokemonBadges
@@ -299,17 +277,14 @@ export function countFor(filter: QuestFilter, total = 1) {
     return false
   }
 }
-
 export function requirePotw(badges: [BadgeId, Partial<Personality>][]) {
   return (req: Requirements) =>
     badges.every(b => complexRequirePotw(b[0], b[1])(req))
 }
-
 export function requirePotwCount(badges: [BadgeId, Partial<Personality>][]) {
   return (req: Requirements) =>
     badges.filter(b => complexRequirePotw(b[0], b[1])(req)).length
 }
-
 export function requireMove(move: MoveId, total = 1) {
   return (req: Requirements) => {
     const tempArr = req.teamsBadges
@@ -325,7 +300,6 @@ export function requireMove(move: MoveId, total = 1) {
     return false
   }
 }
-
 export function countType(type: Type) {
   return (req: Requirements) => {
     const typeArr = Object.entries(req.pokemon)
@@ -343,7 +317,6 @@ export function countType(type: Type) {
     return 0
   }
 }
-
 export function requireType(type: Type, total: number) {
   return (req: Requirements) => {
     let count = 0
@@ -360,7 +333,6 @@ export function requireType(type: Type, total: number) {
     return false
   }
 }
-
 export function requireItem(item: ItemId | ItemId[], count = 1): (req: Requirements) => boolean {
   if (Array.isArray(item)) {
     return (req: Requirements) =>
@@ -368,12 +340,10 @@ export function requireItem(item: ItemId | ItemId[], count = 1): (req: Requireme
   }
   return (req: Requirements) => req.items[item] !== undefined && req.items[item]! >= count
 }
-
 export function countItem(item: ItemId[]): (req: Requirements) => number {
   return (req: Requirements) =>
     item.filter(i => req.items[i] !== undefined && req.items[i]! > 0).length
 }
-
 export function registerShinyRegion(region: Region): (req: Requirements) => number {
   return (req: Requirements) => {
     const badgeMap = new Map()
@@ -390,7 +360,6 @@ export function registerShinyRegion(region: Region): (req: Requirements) => numb
     return [...badgeMap.values()].filter(n => n === true).length
   }
 }
-
 export const Squirtbottle: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotw(P.Squirtle),
@@ -406,7 +375,6 @@ export const Squirtbottle: LegendaryQuest = {
     msg: 'Ground-type Pokémon likewise detest water. This one has burrowed into its hole.'
   }]
 }
-
 export const BerryPouch: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes('s233iymSHWm4HxT3Q2M4') || (r.items.squirtbottle ?? 0) > 0, // Squirtbottle quest
@@ -422,7 +390,6 @@ export const BerryPouch: LegendaryQuest = {
     msg: 'You need a Pokémon that can TILL the soil.'
   }]
 }
-
 /**
  * Quest to complete to get a transit pass.
  */
@@ -444,7 +411,6 @@ export const Pokedoll: LegendaryQuest = {
     msg: 'Quick traveling can get you to new places to catch more Pokémon, but have you caught them all here?'
   }]
 }
-
 export const Devonscope: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotw(P.Gastly),
@@ -466,7 +432,6 @@ export const Devonscope: LegendaryQuest = {
     msg: 'Steven Stone may be able to help you. He has a small metallic Pokémon.'
   },]
 }
-
 export const Swarms: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotwArr([P.Bulbasaur, P.Charmander, P.Squirtle]),
@@ -485,7 +450,6 @@ export const Swarms: LegendaryQuest = {
     msg: 'A lot of Pokémon will be attracted to something that has a sweet scent.',
   }]
 }
-
 export const Ovalcharm: LegendaryQuest = {
   hints: [{
     completed: (r) => r.eggsLaid > 50,
@@ -495,7 +459,6 @@ export const Ovalcharm: LegendaryQuest = {
     msg: 'Have you seen this cute baby Pokémon? Its body is an eggshell!'
   }]
 }
-
 export const Bank: LegendaryQuest = {
   hints: [{
     completed: (r) => r.moveTutors >= 10,
@@ -517,7 +480,6 @@ export const Bank: LegendaryQuest = {
     msg: 'Catch 500 Pokémon.'
   }]
 }
-
 export const Megas: LegendaryQuest = {
   hints: [{
     completed: requireItem('gengarite'),
@@ -536,7 +498,6 @@ export const Megas: LegendaryQuest = {
     msg: 'Professor Sycamore will ask you to complete research. Do you have enough experience with research tasks?'
   }]
 }
-
 export const ExplorerKit: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_DPPT),
@@ -563,7 +524,6 @@ export const ExplorerKit: LegendaryQuest = {
     msg: 'Have a way to DIG down underground.',
   }]
 }
-
 export const EnigmaStone: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_BW),
@@ -576,7 +536,6 @@ export const EnigmaStone: LegendaryQuest = {
     msg: 'Are you able to handle legendary Pokémon?'
   }]
 }
-
 export const TrophyGarden: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_DPPT),
@@ -589,7 +548,6 @@ export const TrophyGarden: LegendaryQuest = {
     msg: 'Did you know there are 151 Pokémon who are known to inhabit in the Sinnoh region?'
   }]
 }
-
 export const ColressMchn: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_BW),
@@ -617,7 +575,6 @@ export const ColressMchn: LegendaryQuest = {
     msg: 'Colress does not remember meeting you before. Are there other items you have that he may have invented?'
   }]
 }
-
 export const FriendSafari: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_XY),
@@ -633,7 +590,6 @@ export const FriendSafari: LegendaryQuest = {
     msg: 'Make some friends. Try trading with them.'
   }]
 }
-
 export const SootSack: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_RSE),
@@ -662,7 +618,6 @@ export const SootSack: LegendaryQuest = {
     msg: 'You have caught a lot of Pokémon! Take a break with a cookie.'
   }]
 }
-
 export const ZygardeCube: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_XY),
@@ -680,7 +635,6 @@ export const ZygardeCube: LegendaryQuest = {
     msg: 'Have you seen any strange green things?'
   }]
 }
-
 export const Goggles: LegendaryQuest = {
   hints: [{
     completed: countForBid(p => get(p)?.tiers?.includes('Emerald Cup'), 211),
@@ -693,14 +647,12 @@ export const Goggles: LegendaryQuest = {
     msg: 'Have you caught the starter Pokémon of Hoenn? Did you know they can mega evolve?'
   }]
 }
-
 for (let i = 0; i < 18; i++) {
   Goggles.hints.push({
     completed: requireType(types[i], 200),
     msg: `Gain experience catching at least 200 ${types[i]}-type Pokémon.`,
   })
 }
-
 export const OddKeystone: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_DPPT),
@@ -713,7 +665,6 @@ export const OddKeystone: LegendaryQuest = {
     msg: 'Collect experience with Dark-type Pokémon.'
   }]
 }
-
 export const UnownReport: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_GSC),
@@ -729,7 +680,6 @@ export const UnownReport: LegendaryQuest = {
     msg: 'Do your Pokémon know how to use their Hidden Power?'
   }]
 }
-
 export const ZRing: LegendaryQuest = {
   hints: [{
     completed: countForBid(p => get(p)?.tiers?.includes('Ultra Cup'), 400),
@@ -739,14 +689,12 @@ export const ZRing: LegendaryQuest = {
     msg: 'Some Pokémon are "variants" and have different backgrounds. Catch a bunch to research different kinds.'
   }]
 }
-
 for (let i = 0; i < 18; i++) {
   ZRing.hints.push({
     completed: requireType(types[i], 40),
     msg: `Gain some experience with ${types[i]}-type Pokémon.`
   })
 }
-
 export const AdrenalineOrb: LegendaryQuest = {
   hints: [{
     completed: requireItem('zpowerring'),
@@ -768,7 +716,6 @@ export const AdrenalineOrb: LegendaryQuest = {
     msg: 'Have you been to Alola? Places like it are very Tropical.'
   }]
 }
-
 export const CraftingKit: LegendaryQuest = {
   hints: [{
     completed: (r) => calculateNetWorth(r as unknown as Users.Doc) > 10_000,
@@ -781,7 +728,6 @@ export const CraftingKit: LegendaryQuest = {
     msg: 'Crafting was a skill honed long ago in the Hisui region, which is today known as Sinnoh.'
   }]
 }
-
 export const TownMap: LegendaryQuest = {
   hints: [{
     completed: (r) => r.hiddenItemsFound.includes('36NAlRfdNYXVi0Nh2Xvz'),
@@ -833,7 +779,6 @@ export const TownMap: LegendaryQuest = {
     msg: 'Have you seen this butterfly Pokémon? It has a wide variety of patterns.'
   }]
 }
-
 /**
  * BW Catching Charm
  * Get Transit Pass
@@ -858,7 +803,24 @@ export const VoyagePass: LegendaryQuest = {
     msg: 'You will obtain many items. Some may be ready to be planted in the ground.'
   }]
 }
-
+export const VoyageCharm: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+    msg: 'As you complete your PokéDex, you may find ways to unlock additional voyages.'
+  }, {
+    completed: (r) => r.researchCompleted > 240,
+    msg: 'Complete tasks for professors.'
+  }, {
+    completed: (r) => r.raidRecord[1] > 240,
+    msg: 'You need to prove yourself as a victor of many raids.'
+  }, {
+    completed: (r) => r.voyagesCompleted > 180, // 3/day * 30days/mo * 2 mo
+    msg: 'Voyages can be long an arduous, but once you do enough of them you become equipped to do them.'
+  }, {
+    completed: (r) => simpleRequirePotwArr([P.Wyrdeer, P.Ursaluna, P.Braviary, P.Sneasler, P.Basculegion]),
+    msg: 'Legends say that in the old land of Hisui people would go on voyages by traveling on their Pokémon.'
+  }]
+}
 export const ForageBag: LegendaryQuest = {
   hints: [{
     completed: (r) => r.berryGrown > 140,
@@ -886,7 +848,6 @@ export const ForageBag: LegendaryQuest = {
     msg: 'Professor Sycamore might be a good research partner in foraging.'
   }]
 }
-
 export const ItemFinder: LegendaryQuest = {
   hints: [{
     completed: (r) => r.battleStadiumRecord[1] >= 300,
@@ -914,7 +875,6 @@ export const ItemFinder: LegendaryQuest = {
     msg: "Have you caught a lot of Pokémon? They are good, as good as gold.",
   }]
 }
-
 export const DynamaxBand: LegendaryQuest = {
   hints: [{
     completed: (r) => r.battleStadiumRecord[1] >= 50 && r.raidRecord[1] >= 50,
@@ -927,7 +887,6 @@ export const DynamaxBand: LegendaryQuest = {
     msg: 'Are you familiar with the starter Pokémon of the Galar region?'
   }]
 }
-
 export const CampingGear: LegendaryQuest = {
   hints: [{
     completed: (r) => r.battleStadiumRecord[1] >= 50 && r.raidRecord[1] >= 50,
@@ -940,7 +899,6 @@ export const CampingGear: LegendaryQuest = {
     msg: 'Are you familiar with the starter Pokémon of the Galar region?'
   }]
 }
-
 /**
  * SwSh Catching Charm
 Antique Polteageist
@@ -981,7 +939,6 @@ export const RotomBike: LegendaryQuest = {
     msg: 'There are many strong Pokémon in the Wild Area. Are you prepared to win in battles?'
   }]
 }
-
 export const Mewtwo: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1004,7 +961,6 @@ export const Mewtwo: LegendaryQuest = {
     spoiler: 'Catch a Vileplume'
   }]
 }
-
 export const Mew: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1021,7 +977,6 @@ export const Mew: LegendaryQuest = {
     msg: 'The truck was pushed forward. There is nothing under the truck.'
   }]
 }
-
 export const captureGyarados: LegendaryQuest = {
   hints: [{
     completed: countFor(b => b.personality.shiny),
@@ -1061,7 +1016,6 @@ export const captureGyarados: LegendaryQuest = {
     spoiler: 'Catch a Kingdra',
   }]
 }
-
 const captureLugiaHoOh = (which: 'Lugia' | 'HoOh'): LegendaryQuest => {
   const baseMap = {
     Lugia: 'You pick up the wing. It has a metallic look.',
@@ -1086,7 +1040,6 @@ const captureLugiaHoOh = (which: 'Lugia' | 'HoOh'): LegendaryQuest => {
     return ((which === 'Lugia' && r.hiddenItemsFound.includes(HO_OH)) ||
       (which === 'HoOh' && r.hiddenItemsFound.includes(LUGIA))) ? 18 : 6
   }
-
   return {
     hints: [{
       completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1101,11 +1054,8 @@ const captureLugiaHoOh = (which: 'Lugia' | 'HoOh'): LegendaryQuest => {
     }]
   }
 }
-
 export const captureLugia = captureLugiaHoOh('Lugia')
-
 export const captureHoOh = captureLugiaHoOh('HoOh')
-
 export const captureCelebi: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1143,7 +1093,6 @@ export const captureCelebi: LegendaryQuest = {
     'should find some way to keep warm.'
   }]
 }
-
 const commonRegi: Task[] = [{
   completed: (r) => r.userJoinedDate <= oneWeekAgo,
   msg: ONE_WEEK_ERR
@@ -1160,7 +1109,6 @@ const commonRegi: Task[] = [{
   completed: requireItem('tm-Dig'),
   msg: 'You have reached the top of the temple, but you will need a way to burrow into it.'
 }]
-
 export const captureRegice: LegendaryQuest = {
   hints: [
     ...commonRegi,
@@ -1178,7 +1126,6 @@ export const captureRegice: LegendaryQuest = {
     }
   ]
 }
-
 export const captureRegirock: LegendaryQuest = {
   hints: [
     ...commonRegi,
@@ -1192,7 +1139,6 @@ export const captureRegirock: LegendaryQuest = {
     }
   ]
 }
-
 export const captureRegisteel: LegendaryQuest = {
   hints: [
     ...commonRegi,
@@ -1206,7 +1152,6 @@ export const captureRegisteel: LegendaryQuest = {
     }
   ]
 }
-
 export const captureGroudon: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1237,7 +1182,6 @@ export const captureGroudon: LegendaryQuest = {
     msg: 'The weather is fairly mild. There is nothing to report.'
   }]
 }
-
 export const captureKyogre: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1268,7 +1212,6 @@ export const captureKyogre: LegendaryQuest = {
     msg: 'The weather is fairly dry. There is nothing of note.'
   }]
 }
-
 export const captureRayquaza: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1311,7 +1254,6 @@ export const captureRayquaza: LegendaryQuest = {
     msg: 'The weather is clear, without a cloud in the sky. It is a quiet day.'
   }]
 }
-
 export const captureJirachi: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1360,7 +1302,6 @@ export const captureJirachi: LegendaryQuest = {
     msg: 'Professor Birch has said spoken about a Pokémon at the top of a large pillar in the sky!'
   }]
 }
-
 export const captureDeoxys: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,
@@ -1406,21 +1347,18 @@ export const captureDeoxys: LegendaryQuest = {
     msg: 'Professor Birch has said spoken about a Pokémon at the top of a large pillar in the sky!'
   }]
 }
-
 export const captureDeoxysAtk: LegendaryQuest = {
   hints: [...captureDeoxys.hints, {
     completed: requireItem('tm-Superpower'),
     msg: 'You are looking for a Superpowerful Pokémon.'
   }]
 }
-
 export const captureDeoxysDef: LegendaryQuest = {
   hints: [...captureDeoxys.hints, {
     completed: requireItem('tr-Iron Defense'),
     msg: 'You are looking for a Pokémon as defensive as Iron.'
   }]
 }
-
 export const captureDeoxysSpe: LegendaryQuest = {
   hints: [...captureDeoxys.hints, {
     completed: requireItem('tm-Volt Tackle'),
@@ -1430,7 +1368,6 @@ export const captureDeoxysSpe: LegendaryQuest = {
     msg: 'You are looking for a Pokémon that is very Agile.'
   }]
 }
-
 export const captureSpiritomb: LegendaryQuest = {
   hints: [{
     completed: haveCaught(108),
@@ -1452,7 +1389,6 @@ export const captureSpiritomb: LegendaryQuest = {
     msg: 'An eerie voice comes from an old shrine in a small village.'
   }]
 }
-
 export const captureAzelf: LegendaryQuest = {
   hints: [{
     completed: (r) => r.location.terrain === 'Bay',
@@ -1477,7 +1413,6 @@ export const captureAzelf: LegendaryQuest = {
     msg: 'Have you heard of a Pokémon that only appears in the west?'
   }]
 }
-
 export const captureUxie: LegendaryQuest = {
   hints: [{
     completed: (r) => r.location.terrain === 'Bay',
@@ -1502,7 +1437,6 @@ export const captureUxie: LegendaryQuest = {
     msg: 'Have you heard of a Pokémon that only appears in the east?'
   }]
 }
-
 export const captureDialga: LegendaryQuest = {
   hints: [{
     completed: requireItem('adamantorb'),
@@ -1539,7 +1473,6 @@ export const captureDialga: LegendaryQuest = {
     msg: 'A Psychic-type Pokémon with sharp blades may help you finish the journey.'
   }]
 }
-
 export const capturePalkia: LegendaryQuest = {
   hints: [{
     completed: requireItem('lustrousorb'),
@@ -1576,7 +1509,6 @@ export const capturePalkia: LegendaryQuest = {
     msg: 'A Ghost-type Pokémon familiar with the icy peaks may help you complete your journey.'
   }]
 }
-
 export const captureGirantina: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotwArr([P.Dialga, P.Palkia]),
@@ -1615,7 +1547,6 @@ export const captureGirantina: LegendaryQuest = {
     msg: 'Gym Leader Volkner has a relaxed Electivire.'
   }]
 }
-
 export const captureRegigias: LegendaryQuest = {
   hints: [{
     completed: (r) => r.location.terrain === 'Mountain' && r.location.forecast === 'Snow',
@@ -1638,7 +1569,6 @@ export const captureRegigias: LegendaryQuest = {
     msg: 'There are three possible paths, made of different materials, but all of them seem to have been left behind by a bug.'
   }]
 }
-
 export const captureHeatran: LegendaryQuest = {
   hints: [{
     completed: (r) => r.location.forecast === 'Heat Wave',
@@ -1669,7 +1599,6 @@ export const captureHeatran: LegendaryQuest = {
     msg: 'Professor Rowan is at the base of the volcano, not sure if you will be able to successfully confront what is ahead.'
   }]
 }
-
 export const captureCresselia: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotw(P.Blissey),
@@ -1694,7 +1623,6 @@ export const captureCresselia: LegendaryQuest = {
     msg: 'Professor Rowan is not sure if you will be able to catch the silhouette.'
   }]
 }
-
 export const captureManaphy: LegendaryQuest = {
   hints: [{
     completed: (r) => r.berryGrown >= 64,
@@ -1719,7 +1647,6 @@ export const captureManaphy: LegendaryQuest = {
     msg: 'The egg may hatch if it can return to where it was laid.'
   }]
 }
-
 export const captureDarkrai: LegendaryQuest = {
   hints: [{
     completed: requireItem('chesto'),
@@ -1741,7 +1668,6 @@ export const captureDarkrai: LegendaryQuest = {
     msg: 'Looker does not want you to go ahead until you have faced strong opponents.'
   }]
 }
-
 export const captureShaymin: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotw(P.Porygon_Z),
@@ -1766,7 +1692,6 @@ export const captureShaymin: LegendaryQuest = {
     msg: 'Professor Oak sees something in the garden. He wants to know whether you will be able to catch it.'
   }]
 }
-
 export const captureArceus: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotwArr([P.Dialga, P.Palkia, P.Giratina]),
@@ -1788,7 +1713,6 @@ export const captureArceus: LegendaryQuest = {
     msg: 'You will need to ensure you are ready to capture it.'
   }]
 }
-
 export const captureCobalion: LegendaryQuest = {
   hints: [{
     completed: requireType('Fighting', 100),
@@ -1819,7 +1743,6 @@ export const captureCobalion: LegendaryQuest = {
     msg: 'Professor Juniper will not let you challenge the adversary without her approval.'
   }]
 }
-
 export const captureTerrakion: LegendaryQuest = {
   hints: [{
     completed: requireType('Fighting', 100),
@@ -1850,7 +1773,6 @@ export const captureTerrakion: LegendaryQuest = {
     msg: 'Professor Juniper will not let you challenge the adversary without her approval.'
   }]
 }
-
 export const captureVirizion: LegendaryQuest = {
   hints: [{
     completed: requireType('Fighting', 100),
@@ -1881,7 +1803,6 @@ export const captureVirizion: LegendaryQuest = {
     msg: 'Professor Juniper will not let you challenge the adversary without her approval.'
   }]
 }
-
 export const captureLandorus: LegendaryQuest = {
   hints: [{
     completed: (r) => r.location.forecast === 'Windy',
@@ -1906,7 +1827,6 @@ export const captureLandorus: LegendaryQuest = {
     msg: 'Regardless of how, all Pokémon need friendship.'
   }]
 }
-
 export const captureVictini: LegendaryQuest = {
   hints: [{
     completed: (r) => r.battleStadiumRecord[1] >= 151,
@@ -1928,7 +1848,6 @@ export const captureVictini: LegendaryQuest = {
     msg: 'Whether in the sea or sky, there have been records of victories since ancient times.'
   }]
 }
-
 export const captureReshiram: LegendaryQuest = {
   hints: [{
     completed: requireItem('lightstone'),
@@ -1956,7 +1875,6 @@ export const captureReshiram: LegendaryQuest = {
     msg: `Gym Leaders will help you investigate the dragon's rebirth. You see Roxie, Burgh, Clay, and Brycen standing by.`
   }]
 }
-
 export const captureZekrom: LegendaryQuest = {
   hints: [{
     completed: requireItem('darkstone'),
@@ -1984,7 +1902,6 @@ export const captureZekrom: LegendaryQuest = {
     msg: `Gym Leaders will help you investigate the dragon's rebirth. You see Lenora, Elesa, Skyla, and Iris standing by.`
   }]
 }
-
 export const captureKyurem: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotwArr([P.Zekrom, P.Reshiram]),
@@ -2006,7 +1923,6 @@ export const captureKyurem: LegendaryQuest = {
     msg: 'You meet the champion, Alder. He has a Volacrona that emits a brilliant light.'
   }]
 }
-
 export const captureKyuremBlack: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotwArr([P.Haxorus, P.Druddigon, P.Hydreigon, P.Kyurem]),
@@ -2022,7 +1938,6 @@ export const captureKyuremBlack: LegendaryQuest = {
     msg: 'Colress has a device that can splice the DNA together between two Pokémon.'
   }]
 }
-
 export const captureKyuremWhite: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotwArr([P.Haxorus, P.Druddigon, P.Hydreigon, P.Kyurem]),
@@ -2038,7 +1953,6 @@ export const captureKyuremWhite: LegendaryQuest = {
     msg: 'Colress has a device that can splice the DNA together between two Pokémon.'
   }]
 }
-
 export const captureKeldeo: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotwArr([P.Cobalion, P.Terrakion, P.Virizion]),
@@ -2060,7 +1974,6 @@ export const captureKeldeo: LegendaryQuest = {
     msg: 'The apprentice has soft fur that is similar to how soft feathers are.'
   }]
 }
-
 export const captureMeloletta: LegendaryQuest = {
   hints: [{
     completed: requireItem(['tm-Snore', 'tm-Hyper Voice', 'tr-Grass Whistle', 'tr-Screech']),
@@ -2105,7 +2018,6 @@ export const captureMeloletta: LegendaryQuest = {
     msg: 'The ancient musician deserves a crown.'
   }]
 }
-
 export const captureGenesect: LegendaryQuest = {
   hints: [{
     completed: requireItem(['tm-Water Pulse', 'tm-Dark Pulse', 'tm-Hyper Beam', 'tm-Solar Beam', 'tm-Bubble Beam', 'tm-Charge Beam']),
@@ -2152,7 +2064,6 @@ export const captureGenesect: LegendaryQuest = {
     msg: 'This ancient Pokémon should be attracted to shiny objects.'
   }]
 }
-
 export const getRevealGlass: LegendaryQuest = {
   hints: [{
     completed: (r) => r.location.forecast === 'Windy',
@@ -2172,7 +2083,6 @@ export const getRevealGlass: LegendaryQuest = {
     msg: 'Perhaps the scientist Colress knows more about the Djinns. Have you worked with him before?',
   }]
 }
-
 export const PokeballVivillon: LegendaryQuest = {
   hints: [{
     completed: haveCaught(666),
@@ -2204,7 +2114,6 @@ export const PokeballVivillon: LegendaryQuest = {
     msg: 'Catch Vivillon in its many forms.'
   }]
 }
-
 export const Xerneas: LegendaryQuest = {
   hints: [{
     completed: requireItem('charizarditex'),
@@ -2253,7 +2162,6 @@ export const Xerneas: LegendaryQuest = {
     msg: 'Have you seen this Pokémon? It purrs and licks its dark fur!'
   }]
 }
-
 export const Yveltal: LegendaryQuest = {
   hints: [{
     completed: requireItem('charizarditey'),
@@ -2303,7 +2211,6 @@ export const Yveltal: LegendaryQuest = {
     msg: 'Have you seen this Pokémon? It purrs and licks its light fur!'
   }]
 }
-
 export const ZygardeCell: LegendaryQuest = {
   hints: [{
     completed: requirePotw([
@@ -2336,7 +2243,6 @@ export const ZygardeCell: LegendaryQuest = {
     msg: 'Receive a gift from Rock-type leader Grant.'
   }]
 }
-
 export const Diancie: LegendaryQuest = {
   hints: [{
     completed: requireItem('soot', 150), // Is this too high?
@@ -2379,7 +2285,6 @@ export const Diancie: LegendaryQuest = {
     msg: 'Receive a gift from Grass-type leader Ramos.'
   }]
 }
-
 export const Hoopa: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotw(P.Tyrantrum),
@@ -2419,7 +2324,6 @@ export const Hoopa: LegendaryQuest = {
     msg: 'Receive a gift from Fairy-type leader Valerie.'
   }]
 }
-
 export const PrisonBottle: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotw(P.Talonflame),
@@ -2447,7 +2351,6 @@ export const PrisonBottle: LegendaryQuest = {
     msg: 'There are ancient myths about a Pokémon that likes to open rings to other dimensions',
   }]
 }
-
 export const Volcanion: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotwArr([
@@ -2483,7 +2386,6 @@ export const Volcanion: LegendaryQuest = {
     msg: 'Receive a gift from Ice-type leader Wulfric.'
   }]
 }
-
 export const TapuX: LegendaryQuest = {
   hints: [{
     completed: countForBid(p => get(p)?.tiers?.includes('Ultra Cup'), 400),
@@ -2502,7 +2404,6 @@ export const TapuX: LegendaryQuest = {
     msg: 'Catch a Pikachu wearing a tropical hat.'
   }]
 }
-
 export const TapuKoko: LegendaryQuest = {
   hints: [...TapuX.hints, {
     completed: simpleRequirePotw(P.Gumshoos),
@@ -2521,7 +2422,6 @@ export const TapuKoko: LegendaryQuest = {
     msg: "Obtain a TM that does more damage depending on a user's stat boosts."
   }]
 }
-
 export const TapuLele: LegendaryQuest = {
   hints: [...TapuX.hints, {
     completed: simpleRequirePotw(P.Wishiwashi),
@@ -2570,7 +2470,6 @@ export const TapuBulu: LegendaryQuest = {
     msg: "Obtain a TM in which the user disappears into the shadows for a turn."
   }]
 }
-
 export const TapuFini: LegendaryQuest = {
   hints: [...TapuX.hints, {
     completed: simpleRequirePotw(P.Kommo_o),
@@ -2586,7 +2485,6 @@ export const TapuFini: LegendaryQuest = {
     msg: "Obtain a TM that distills draconic power into a pulse of energy.",
   }]
 }
-
 export const SunFlute: LegendaryQuest = {
   hints: [{
     completed: complexRequirePotw(P.Ninetales, {form: 'alolan'}),
@@ -2620,7 +2518,6 @@ export const SunFlute: LegendaryQuest = {
     msg: 'Catch a sunny rock dog.',
   }]
 }
-
 export const MoonFlute: LegendaryQuest = {
   hints: [{
     completed: complexRequirePotw(P.Sandslash, {form: 'alolan'}),
@@ -2654,7 +2551,6 @@ export const MoonFlute: LegendaryQuest = {
     msg: 'Catch a lunar rock dog.',
   }]
 }
-
 export const TypeNull: LegendaryQuest = {
   hints: [{
     completed: requireItem([...MEMORIES]),
@@ -2670,7 +2566,6 @@ export const TypeNull: LegendaryQuest = {
     msg: 'Prove to Gladion you are skilled at battling in raids.'
   }]
 }
-
 export const Necrozma: LegendaryQuest = {
   hints: [{
     completed: requireItem([...Z_CRYSTALS]),
@@ -2689,7 +2584,6 @@ export const Necrozma: LegendaryQuest = {
     msg: 'Elite Four member Kahili has a Pokémon with a long colorful beak.',
   }]
 }
-
 export const NecrozmaUltra: LegendaryQuest = {
   hints: [{
     completed: complexRequirePotw(P.Lycanroc, {form: 'dusk'}),
@@ -2702,7 +2596,6 @@ export const NecrozmaUltra: LegendaryQuest = {
     msg: 'Some Z-Crystals can give distinct Z-Moves to specific Pokémon.'
   }]
 }
-
 export const Magearna: LegendaryQuest = {
   hints: [{
     completed: requirePotw([
@@ -2731,7 +2624,6 @@ export const Magearna: LegendaryQuest = {
     msg: 'Some Pokémon have a distinct form exclusively in the Alolan region.'
   }]
 }
-
 export const MagearnaPokeball: LegendaryQuest = {
   hints: [{
     completed: (r) => {
@@ -2777,7 +2669,6 @@ export const MagearnaPokeball: LegendaryQuest = {
     msg: 'Have you ever encountered the mechanical Pokémon, Magearna?'
   }]
 }
-
 export const Zeraora: LegendaryQuest = {
   hints: [{
     completed: requirePotw([
@@ -2839,7 +2730,6 @@ export const Zeraora: LegendaryQuest = {
     msg: "Zeraora will appear where lightning strikes."
   }]
 }
-
 export const Marshadow: LegendaryQuest = {
   hints: [{
     completed: requirePotw([
@@ -2917,7 +2807,6 @@ export const Marshadow: LegendaryQuest = {
     msg: "Achieve more than 300 victories in battle."
   }]
 }
-
 export const NSolarizer: LegendaryQuest = {
   hints: [{
     completed: requireItem(['dnasplicerblack', 'dnasplicerwhite', 'colressmchn']),
@@ -2930,7 +2819,6 @@ export const NSolarizer: LegendaryQuest = {
     msg: 'There is a Z-Crystal that can only be held by Necrozma.'
   }]
 }
-
 export const NLunarizer: LegendaryQuest = {
   hints: [{
     completed: requireItem(['dnasplicerblack', 'dnasplicerwhite', 'colressmchn']),
@@ -2943,7 +2831,6 @@ export const NLunarizer: LegendaryQuest = {
     msg: 'There is a Z-Crystal that can only be held by Necrozma.'
   }]
 }
-
 export const UltraBeast: LegendaryQuest = {
   hints: [{
     completed: requireItem('zpowerring'),
@@ -2953,56 +2840,48 @@ export const UltraBeast: LegendaryQuest = {
     msg: 'Catch a number of Pokémon from the Alola region.'
   }]
 }
-
 export const Nihilego: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: complexRequirePotw(P.Grimer, {form: 'alolan'}),
     msg: 'Catch a shimmering oil Pokémon.'
   }]
 }
-
 export const Buzzwole: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: complexRequirePotw(P.Sandshrew, {form: 'alolan'}),
     msg: 'Catch a snowy shrew Pokémon.'
   }]
 }
-
 export const Pheramosa: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: complexRequirePotw(P.Vulpix, {form: 'alolan'}),
     msg: 'Catch a snowy fox Pokémon.'
   }]
 }
-
 export const Xurkitree: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: complexRequirePotw(P.Raichu, {form: 'alolan'}),
     msg: 'Catch a surging surfer Pokémon.'
   }]
 }
-
 export const Celesteela: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: complexRequirePotw(P.Exeggutor, {form: 'alolan'}),
     msg: 'Catch a tall tree Pokémon.'
   }]
 }
-
 export const Kartana: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: complexRequirePotw(P.Marowak, {form: 'alolan'}),
     msg: 'Catch a fire juggling Pokémon.'
   }]
 }
-
 export const Guzzlord: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: complexRequirePotw(P.Golem, {form: 'alolan'}),
     msg: 'Catch a ferrous electromagnetic Pokémon.'
   }]
 }
-
 export const Stakataka: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: simpleRequirePotw(P.Solgaleo),
@@ -3012,7 +2891,6 @@ export const Stakataka: LegendaryQuest = {
     msg: 'Obtain a Z-Crystal that can only be used by Solgaleo.'
   }]
 }
-
 export const Blacephalon: LegendaryQuest = {
   hints: [...UltraBeast.hints, {
     completed: simpleRequirePotw(P.Lunala),
@@ -3022,7 +2900,6 @@ export const Blacephalon: LegendaryQuest = {
     msg: 'Obtain a Z-Crystal that can only be used by Lunala.'
   }]
 }
-
 export const Poipole: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotw(P.Stakataka),
@@ -3035,7 +2912,6 @@ export const Poipole: LegendaryQuest = {
     msg: 'Gain the items needed to venture into Ultra Space.'
   }]
 }
-
 export const Meltan: LegendaryQuest = {
   hints: [{
     completed: requirePotw([
@@ -3058,7 +2934,6 @@ export const Meltan: LegendaryQuest = {
     msg: 'It might be interested in seeing your Z-Power ring.'
   }]
 }
-
 /**
  * Have TM084/86
 Catch Galarian Weezing
@@ -3100,7 +2975,6 @@ export const Zacian: LegendaryQuest = {
     msg: 'Have you seen rare Pokémon of Galar? Some may only be drawn to the blade.'
   }]
 }
-
 /**
  * Have TM089/90
 Catch Galarian Darmanitan
@@ -3143,7 +3017,6 @@ export const Zamazenta: LegendaryQuest = {
     msg: 'Have you seen rare Pokémon of Galar? Some may only be drawn to the shield.'
   }]
 }
-
 /**
  * Have the regional form evolutions: Obstagoon, Perrserker, Cursola, Sirfetch’d, Mr. Rime, Runegrigus
 Catch the four fossil Pokemon
@@ -3174,7 +3047,6 @@ export const Eternatus: LegendaryQuest = {
     msg: `Before you can catch Eternatus, you'll need the partnership of the ancient heroes.`
   }]
 }
-
 /**
  * Have Galarian Slowbro
 Have Max Honey
@@ -3192,7 +3064,6 @@ export const Kubfu: LegendaryQuest = {
     msg: 'Kubfu is a Fighting-type Pokémon. It may come closer if it has some friends.'
   }]
 }
-
 /**
  * Have Celebi
 Have other forest Pokemon
@@ -3226,7 +3097,6 @@ export const Zarude: LegendaryQuest = {
     msg: 'Zarude is said to be a good parent to baby Pokémon.'
   }]
 }
-
 /**
 Scroll of Water
 Have Kubfu
@@ -3245,7 +3115,6 @@ export const UrshifuWater: LegendaryQuest = {
     msg: 'To obtain the Scroll of Water, demonstrate experience in Water-type Pokémon.'
   }]
 }
-
 /**
  * Scroll of Darkness
 Have Kubfu
@@ -3264,7 +3133,6 @@ export const UrshifuDark: LegendaryQuest = {
     msg: 'To obtain the Scroll of Dark, demonstrate experience in Dark-type Pokémon.'
   }]
 }
-
 /**
  * TMs 81, 83, 85, 87
 Catch Eternatus
@@ -3296,7 +3164,6 @@ export const Glastrier: LegendaryQuest = {
     msg: 'Slowpoke has a distinct form in the Crown Tundra. What happens when you give it a Galarica wreath?'
   }]
 }
-
 /**
  * TMs 82, 84, 86, 88
 Catch Eternatus
@@ -3330,7 +3197,6 @@ export const Spectrier: LegendaryQuest = {
     msg: 'Slowpoke has a distinct form in the Crown Tundra. What happens when you give it a Galarica wreath?'
   }]
 }
-
 /**
  * Calyrex
 Every form of Alcremie
@@ -3358,7 +3224,6 @@ export const Calyrex: LegendaryQuest = {
     msg: 'Have you explored all the rare Pokémon which live in the Crown Tundra?'
   }]
 }
-
 /**
  * Regidrago
 All 3 Regis & Eternatus
@@ -3385,7 +3250,6 @@ export const Regidrago: LegendaryQuest = {
     msg: 'You arrive at the Split Decision-Ruins. Which path do you take?'
   }]
 }
-
 /**
  * Regieleki
 All 3 Regis & Eternatus
@@ -3418,7 +3282,6 @@ export const Regieleki: LegendaryQuest = {
     msg: 'You arrive at the Split Decision-Ruins. Which path do you take?'
   }]
 }
-
 /**
  * Shiny Ponyta (PLA)
 Caught Kleavor
@@ -3449,7 +3312,6 @@ export const PlaPony: LegendaryQuest = {
     msg: 'Ponyta may approach you if you have a friendly doll to play with.'
   }]
 }
-
 /**
  * Enamorus
 Have all 3 other genies
@@ -3480,7 +3342,6 @@ export const Enamorus: LegendaryQuest = {
     msg: 'There are certain Pokémon evolutions who are only known to have come from the Hisui region.'
   }]
 }
-
 /**
  * - Hisui Starters
  * - Hisui Nobles

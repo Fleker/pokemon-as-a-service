@@ -9,7 +9,6 @@ import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, BOTTLECAPS, SWEETS,
 import { ItemId } from "./items-list";
 import * as P from './gen/type-pokemon'
 import { Users } from './server-types'
-
 export enum Leg {
   NOTHING = 0,
   ITEM = 1,
@@ -21,7 +20,6 @@ export enum Leg {
   KEY_ITEM = 3,
   POKEMON = 4,
 }
-
 export enum State {
   CREATED = 0,
   STARTED = 1,
@@ -29,12 +27,10 @@ export enum State {
   IN_RAID = 2,
   COMPLETE = 3,
 }
-
 export interface Prize {
   items: ItemId[]
   caught: PokemonId[]
 }
-
 export interface Doc {
   /** The type of Voyage */
   vid: VoyageId
@@ -72,19 +68,13 @@ export interface Doc {
   /** Whether it has already been marked as public. */
   isPublic?: boolean
 }
-
 /** 4 buckets of items & Pokémon */
 type VoyageItems = [ItemId[], ItemId[], ItemId[], ItemId[]]
-
 type VoyagePkmn = [BadgeId[], BadgeId[], BadgeId[], BadgeId[]]
-
 type VoyageWeatherPkmn = Record<WeatherType, BadgeId[]>
-
 /** For scores of 1/2, and 3 */
 type VoyageRaidBosses = [BadgeId[], BadgeId[]]
-
 type Stat = 'hp' | 'attack' | 'defense' | 'spAttack' | 'spDefense' | 'speed'
-
 export interface Voyage {
   label: string
   description: string
@@ -100,14 +90,12 @@ export interface Voyage {
   /** Quartiles to set the voyage's bucket ⅓,⅔, max */
   buckets: [0, number, number, number]
 }
-
 export const getMaxVoyages = (user: Users.Doc) => {
-  // if (user.items['voyagecharm'] && user.items['voyagecharm'] > 0) {
-  //   return 6
-  // }
+  if (user.items['voyagecharm'] && user.items['voyagecharm'] > 0) {
+    return 6
+  }
   return 3
 }
-
 export function getScore(voyageId: VoyageId, party: PokemonId[]) {
   let score = 0
   const voyage = Voyages[voyageId]
@@ -134,19 +122,16 @@ export function getScore(voyageId: VoyageId, party: PokemonId[]) {
   }
   return score
 }
-
 export function getBucket(voyageDb: Voyage, voyageScore: number) {
   if (voyageScore < voyageDb.buckets[1]) return 0
   if (voyageScore < voyageDb.buckets[2]) return 1
   if (voyageScore < voyageDb.buckets[3]) return 2
   return 3 // Max
 }
-
 export const LegendaryBossConditions: Partial<Record<BadgeId, WeatherType>> = {
   [P.Thundurus]: 'Thunderstorm',
   [P.Landorus]: 'Sandstorm',
 }
-
 export const Voyages = {
   VAST_OCEAN: assert<Voyage>({
     label: 'Vast Ocean',
@@ -1166,5 +1151,4 @@ export const Voyages = {
   - Oricorio, Jangmo-o
   */
 }
-
 export type VoyageId = keyof typeof Voyages

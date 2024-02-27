@@ -11,7 +11,6 @@ import { calculateNetWorth } from "./events"
 import { Users } from "./server-types"
 import { MEGA_STONES, PLATES } from "./prizes"
 import { datastore, get } from "./pokemon"
-
 // https://pokemon-of-the-week.firebaseapp.com/dowsing?FpDkDv9bHqJ91XupNWGt
 export const CLEAR_BELL = 'yTIJvMaSvvpsjdLQ0nsE'
 export const SQUIRTBOTTLE = 'SQUIRTBOTTLE'
@@ -41,7 +40,6 @@ export const MELTANBOX = 'MELTANBOX'
 export const DYNAMAXBAND = 'DYNAMAXING'
 export const CAMPINGGEAR = 'LETSALLMAKECURRY'
 export const ROTOMBIKE = 'SPARKLINGWHITETURBOBIKE'
-
 export const SHINY_CHARM = '93Nj1QmwJlx8eGW9Vq18'
 export const CATCH_CHARM_RBY = 'yuQPa32crRiPBJvi9HU9'
 export const CATCH_CHARM_GSC = 'LcyYjBeK4KAq1BkYgzlx'
@@ -51,7 +49,6 @@ export const CATCH_CHARM_BW = 'JUNIPER'
 export const CATCH_CHARM_XY = 'SYCAMORE'
 export const CATCH_CHARM_SM = 'KUKUI'
 export const CATCH_CHARM_SWSH = 'MAGNOLIA'
-
 export interface Quest {
   docId: string
   badge: string
@@ -66,7 +63,6 @@ export interface Quest {
     'drIVxbAeXnuVuWCYWTf5' | 'JUNIPER' | 'SYCAMORE' | 'KUKUI' | 'MAGNOLIA',
   completion?: string
 }
-
 export interface PokedexQuest extends Quest {
   count: number
   region: string
@@ -75,13 +71,11 @@ export interface PokedexQuest extends Quest {
   sprite: string
   modes: string[]
 }
-
 export interface GlobalQuest extends Quest {
   count: number
   dbKey: string
   boss: BadgeId
 }
-
 /**
  * Medals are for achievements with multiple thresholds,
  * ie. Bronze, Silver, Gold, etc.
@@ -122,7 +116,6 @@ export interface Medal {
     sprite: string
   }[]
 }
-
 /**
  * A function that verifies the user has completed every requirement for a
  * provided quest.
@@ -141,7 +134,6 @@ export function isQuestComplete(quest: LegendaryQuest, args: L.Requirements): bo
   }
   return true
 }
-
 export const KEY_ITEM_QUESTS: Quest[] = [{
   docId: SQUIRTBOTTLE,
   badge: 'potw-item-squirtbottle',
@@ -279,6 +271,15 @@ export const KEY_ITEM_QUESTS: Quest[] = [{
   item: 'voyagepass',
   recyclable: true,
 }, {
+  docId: L.VOYAGECHARM,
+  badge: 'potw-item-voyagecharm',
+  title: 'World Traveler',
+  gate: CATCH_CHARM_BW,
+  hint: ['With the wind at your back, you will demonstrate your worldly experience.'],
+  quest: L.VoyageCharm,
+  item: 'voyagecharm',
+  recyclable: true,
+}, {
   docId: MEGABRACELET,
   badge: 'megabracelet',
   title: 'Unlock the power of Mega Evolution',
@@ -396,7 +397,6 @@ export const KEY_ITEM_QUESTS: Quest[] = [{
   item: 'rotombike',
   recyclable: true,
 }]
-
 export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   docId: L.MEWTWO,
   badge: 'potw-item-airmail',
@@ -1247,7 +1247,6 @@ export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   item: 'legendplate',
   recyclable: true,
 }]
-
 const CATCH_QUESTS: PokedexQuest[] = [{
   docId: CATCH_CHARM_RBY,
   badge: 'potw-item-catchingcharm-rby',
@@ -1313,20 +1312,17 @@ const CATCH_QUESTS: PokedexQuest[] = [{
   sprite: 'catchingcharm-swsh',
   modes: ['New Voyages', 'New Bazaar stalls'],
 }]
-
 export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
   docId: SHINY_CHARM,
   badge: 'potw-item-shinycharm',
   title: 'Shiny Charm',
   hint: ['You will receive this charm when you have registered every Pokémon in your Pokédex.']
 }]
-
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
   return legendaryDate.getUTCMonth() === 10 && // November (10)
     legendaryDate.getUTCDate() <= 2 // November 2nd
 })
-
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
   // docId: 'available',
   docId: 'unavailable',
@@ -1337,7 +1333,6 @@ export const GLOBAL_QUESTS: GlobalQuest[] = [{
   count: 1_000_000,
   hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Calyrex raids.']
 }]
-
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{
   badge: 'potw-dex-kanto',
   title: `Oak's Evaluation`,
@@ -1501,7 +1496,6 @@ export const POKEDEX_ACHIEVEMENTS: Medal[] = [{
     sprite: 'potw-shiny-alola',
   }],
 }]
-
 export const ONEP_ACHIEVEMENTS: Medal[] = [{
   badge: 'potw-201-a',
   title: 'The Mysterious Ways of the Unown',
@@ -2378,7 +2372,6 @@ export const ONEP_ACHIEVEMENTS: Medal[] = [{
     sprite: 'potw-item-reliccrown',
   }, ]
 }]
-
 export const CATCH_TYPE_ACHIEVEMENTS: Medal[] = [{
   badge: 'type-fighting',
   title: 'Black Belt',
@@ -2923,9 +2916,119 @@ export const CATCH_TYPE_ACHIEVEMENTS: Medal[] = [{
     sprite: 'potw-item-masterball',
   }]
 }]
-
-export const COMMUNITY_ACHIEVEMENTS: Medal[] = []
-
+export const COMMUNITY_ACHIEVEMENTS: Medal[] = [{
+  badge: 'potw-152',
+  title: 'Chonkorita',
+  condition: ({pokemon}) => {
+    const map = Object.entries(pokemon)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      .filter(([key, _]) => new Badge(key).id === I.Chikorita)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      .map(([_, value]) => value)
+    if (map.length) {
+      return map.reduce((prev, curr) => prev + curr)
+    }
+    return 0
+  },
+  hints: [{
+    description: 'Collect 255 Chikorita',
+    count: 255,
+    sprite: 'potw-152',
+  }, {
+    description: 'Collect 1023 Chikorita',
+    count: 1023,
+    sprite: 'potw-152-shiny',
+  }]
+}, {
+  badge: 'cowboy-caterpie',
+  title: 'Cowboy Caterpie',
+  condition: L.countType('Bug'),
+  hints: [{
+    description: 'Collect 151 Bug-type Pokémon',
+    count: 151,
+    sprite: 'potw-010-sandy'
+  }]
+}, {
+  badge: 'potw-157  ',
+  title: 'Space Typhlosion',
+  condition: ({pokemon}) => {
+    const map = Object.entries(pokemon)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .filter(([key, _]) => new Badge(key).id === I.Typhlosion)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .map(([_, value]) => value)
+    if (map.length) {
+      return map.reduce((prev, curr) => prev + curr)
+    }
+    return 0
+  },
+  hints: [{
+    description: 'Catch 10 Typhlosion',
+    count: 10,
+    sprite: 'potw-157-space',
+  }],
+}, {
+  badge: 'mothim-female',
+  title: 'Female Mothim',
+  condition: ({pokemon}) => {
+    const map = Object.entries(pokemon)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .filter(([key, _]) => [I.Burmy, I.Wormadam, I.Mothim].includes(new Badge(key).id))
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .map(([_, value]) => value)
+    if (map.length) {
+      return map.reduce((prev, curr) => prev + curr)
+    }
+    return 0
+  },
+  hints: [{
+    description: 'Collect 10 Burmy, Wormadam, or Mothim',
+    count: 10,
+    sprite: 'potw-414-male',
+  }, {
+    description: 'Collect 25 Burmy, Wormadam, or Mothim',
+    count: 25,
+    sprite: 'potw-414-female',
+  }]
+}, {
+  badge: 'space-kyurem',
+  title: 'Negative Space Kyurem',
+  condition: ({pokemon}) => {
+    const map = Object.entries(pokemon)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .filter(([key, _]) => new Badge(key).id === I.Kyurem)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .map(([_, value]) => value)
+    if (map.length) {
+      return map.reduce((prev, curr) => prev + curr)
+    }
+    return 0
+  },
+  hints: [{
+    description: 'Catch Kyurem',
+    count: 1,
+    sprite: 'negative-kyurem',
+  }]
+}, {
+  badge: 'founders-porygon',
+  title: 'Founding Porygon',
+  condition: ({pokemon}) => {
+    const map = Object.entries(pokemon)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .filter(([key, _]) => new Badge(key).id === I.Porygon)
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .map(([_, value]) => value)
+    if (map.length) {
+      return map.reduce((prev, curr) => prev + curr)
+    }
+    return 0
+  },
+  hints: [{
+    description: 'Collect 25 Porygon',
+    count: 25,
+    sprite: 'potw-137-brin',
+  }]
+}]
 // [key]: Species
 export const DITTOS = {
   'eumLWmbJz5bTJtP3g9d1': 'Bulbasaur',

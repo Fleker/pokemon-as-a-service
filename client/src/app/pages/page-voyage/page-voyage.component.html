@@ -4,7 +4,6 @@
   They will come back with items, Pokémon, and even a raid battle!
   The rewards you encounter will depend on the partner you send.
 </collapsible-card>
-
 <mat-card *ngIf="!inVoyage">
   <h2 *ngIf="voyagesActive && availableVoyages.length">My Active Voyages</h2>
   <p>
@@ -12,7 +11,7 @@
       You have been on <strong>{{voyageCount}} voyages</strong> in total.
     </span>
     <span>
-      You can join three voyages at a time.
+      You can join {{voyageMaxLabel}} voyages at a time.
     </span>
   </p>
   <ul>
@@ -23,7 +22,6 @@
       </a>
     </p>
   </ul>
-
   <h2>Start a new voyage</h2>
   <strong>Eligible Voyages</strong>
   <br>
@@ -34,7 +32,6 @@
       {{voyage.label}}
     </button>
   </ul>
-
   <strong>Ineligible Voyages</strong>
   <br>
   <mat-spinner *ngIf="!processedVoyages"></mat-spinner>
@@ -45,7 +42,6 @@
     </button>
   </ul>
 </mat-card>
-
 <collapsible-card *ngIf="!inVoyage">
   <span title>Public Voyages</span>
   <p>
@@ -62,42 +58,33 @@
     </p>
   </ul>
 </collapsible-card>
-
 <mat-card *ngIf="inVoyage && voyageBadId">
   There is no voyage at this ID.
 </mat-card>
-
 <voyage-header *ngIf="inVoyage && !voyageBadId" [voyage]="voyage" [vid]="voyageDoc?.vid">
 </voyage-header>
-
 <!-- Creation phase -->
 <collapsible-card *ngIf="inVoyage && voyageDoc?.state === 0">
   <span title>Itinerary</span>
-
   <span>The forecast is currently calling for <strong>{{voyageDoc?.weather}}</strong>.</span>
   <br>
   <a [routerLink]="['/multiplayer', 'voyages']">Return to list</a>
   <br><br>
-
   <!-- TODO: Share with teammates -->
   <b id="share" (click)="shareVoyage()">Share this</b> with your teammates:<br>
   <small><a href="/multiplayer/voyages?{{voyageId}}">
     pokemon-of-the-week.firebaseapp.com/multiplayer/voyages?{{voyageId}}
   </a></small>
   <br><br><br>
-
   <button *ngIf="!playerInVoyage" mat-button (click)="joinVoyage()" [disabled]="exec.joinVoyage">
     Join this voyage
   </button>
-
   <button *ngIf="playerInVoyage" mat-button (click)="leaveVoyage()" [disabled]="exec.leaveVoyage">
     Don't go on this voyage
   </button>
-
   <button *ngIf="isHost && !voyageDoc?.isPublic" mat-button (click)="publishVoyage()" [disabled]="exec.publishVoyage">
     Make voyage public
   </button>
-
   <p *ngIf="playerInVoyage">
     You have selected:
     <span *ngFor="let item of playerArray">
@@ -106,13 +93,10 @@
       </span>
     </span>
   </p>
-
   <voyages-meter [score]="score" [vid]="voyageDoc?.vid"></voyages-meter>
-
   <br>
   <span *ngIf="!isHost">Hosted by {{voyageDoc?.players[voyageDoc?.host]?.ldap}}@</span>
   <span *ngIf="isHost">You are the host!</span>
-
   <br>
   <table>
     <tr *ngFor="let item of playerArray">
@@ -128,7 +112,6 @@
     </tr>
   </table>
   <br>
-
   <div *ngIf="playerInVoyage">
     <span>Species Clause is <b>ON</b></span>
     <pokemon-dialog #pokemon [max]="1"></pokemon-dialog>
@@ -144,13 +127,11 @@
     </button>
     <br>
   </div>
-
   <div style="display:none">
     Score: {{score}}
     <br>
     Bucket: {{bucket}}
   </div>
-
   <!-- Host can control legs -->
   <div>
     <span *ngIf="!isHost">
@@ -171,7 +152,6 @@
             Find Items
           </button>
         </td>
-
         <td *ngIf="voyageDoc.legs[1] === 1">
           <strong>Find Items</strong>
           <mat-icon *ngIf="voyageDoc.legs[2] === 1">east</mat-icon>
@@ -182,7 +162,6 @@
             Find Items
           </button>
         </td>
-
         <td *ngIf="voyageDoc.legs[2] === 1">
           <strong>Find Items</strong>
           <mat-icon>south_east</mat-icon>
@@ -192,7 +171,6 @@
             Find Items
           </button>
         </td>
-
         <td></td>
       </tr>
       <tr>
@@ -206,7 +184,6 @@
             Catch Pokémon
           </button>
         </td>
-
         <td *ngIf="voyageDoc.legs[1] === 4">
           <strong>Catch Pokémon</strong>
           <mat-icon *ngIf="voyageDoc.legs[2] === 4">east</mat-icon>
@@ -217,7 +194,6 @@
             Catch Pokémon
           </button>
         </td>
-
         <td *ngIf="voyageDoc.legs[2] === 4">
           <strong>Catch Pokémon</strong>
           <mat-icon>east</mat-icon>
@@ -227,7 +203,6 @@
             Catch Pokémon
           </button>
         </td>
-
         <td>
           <strong>Raid Battle</strong>
         </td>
@@ -242,23 +217,19 @@
             Discover Rare Items
           </button>
         </td>
-
         <td></td>
         <td></td>
         <td></td>
       </tr>
     </table>
   </div>
-
   <button mat-button *ngIf="isHost" (click)="startVoyage()" [disabled]="exec.startVoyage">
     Let's go!
   </button>
 </collapsible-card>
-
 <!-- Started -->
 <collapsible-card *ngIf="inVoyage && voyageDoc?.state === 1">
   <span title>Itinerary</span>
-
   <span>The current forecast is <strong>{{voyageDoc?.weather}}</strong>.</span>
   <br>
   <span>
@@ -269,7 +240,6 @@
   <br>
   <a [routerLink]="['/multiplayer', 'voyages']">Return to list</a>
   <br><br>
-
   <p *ngIf="playerInVoyage">
     You have selected:
     <span *ngFor="let item of playerArray">
@@ -278,9 +248,7 @@
       </span>
     </span>
   </p>
-
   <voyages-meter [score]="score" [vid]="voyageDoc?.vid"></voyages-meter>
-
   <br>
   <table>
     <tr *ngFor="let item of playerArray">
@@ -296,7 +264,6 @@
     </tr>
   </table>
   <br>
-
   <table class="legs">
     <tr>
       <td *ngIf="voyageDoc.legs[0] === 1">
@@ -309,7 +276,6 @@
           Find Items
         </button>
       </td>
-
       <td *ngIf="voyageDoc.legs[1] === 1">
         <strong>Find Items</strong>
         <mat-icon *ngIf="voyageDoc.legs[2] === 1">east</mat-icon>
@@ -320,7 +286,6 @@
           Find Items
         </button>
       </td>
-
       <td *ngIf="voyageDoc.legs[2] === 1">
         <strong>Find Items</strong>
         <mat-icon>south_east</mat-icon>
@@ -330,7 +295,6 @@
           Find Items
         </button>
       </td>
-
       <td></td>
     </tr>
     <tr>
@@ -344,7 +308,6 @@
           Catch Pokémon
         </button>
       </td>
-
       <td *ngIf="voyageDoc.legs[1] === 4">
         <strong>Catch Pokémon</strong>
         <mat-icon *ngIf="voyageDoc.legs[2] === 4">east</mat-icon>
@@ -355,7 +318,6 @@
           Catch Pokémon
         </button>
       </td>
-
       <td *ngIf="voyageDoc.legs[2] === 4">
         <strong>Catch Pokémon</strong>
         <mat-icon>east</mat-icon>
@@ -365,7 +327,6 @@
           Catch Pokémon
         </button>
       </td>
-
       <td>
         <strong>Raid Battle</strong>
       </td>
@@ -380,14 +341,12 @@
           Discover Rare Items
         </button>
       </td>
-
       <td></td>
       <td></td>
       <td></td>
     </tr>
   </table>
 </collapsible-card> 
-
 <!-- Voyage completed -->
 <mat-card *ngIf="voyageDoc?.state === 3">
   <!-- TODO: Animations -->
@@ -397,7 +356,6 @@
   <button mat-button *ngIf="!toClaim" [disabled]="true">
     Rewards have already been claimed
   </button>
-
   <div *ngIf="!toClaim">
     <b>Your Journey:</b>
     <div class="reward typebg {{voyage?.typePrimary}} {{voyageDoc?.vid}} {{voyage?.typeSecondary[1].toLowerCase()}}">
@@ -406,7 +364,6 @@
           <sprite-pokemon class="reward-player" badge="{{item.species}}"></sprite-pokemon>
         </span>
       </span>
-
       <div *ngFor="let leg of voyageDoc?.prizes; index as i" class="reward-step n{{i}}">
         <div class="reward-step-ctr">
           <mat-icon>north</mat-icon>
@@ -430,11 +387,9 @@
       </div>
     </div>
   </div>
-
   <br><br><br>
   <a [routerLink]="['/multiplayer', 'voyages']">Return</a>
 </mat-card>
-
 <dialog #create>
   <h1 class="centered">Create a voyage</h1>
   <strong>{{selectedVoyage?.label}}</strong>
@@ -444,7 +399,6 @@
   <button mat-button [disabled]="exec.confirmCreation" (click)="confirmCreation()">Let's Go!</button>
   <button mat-button secondary (click)="close()">Nevermind</button>
 </dialog>
-
 <dialog #error>
   {{errorMsg}}
   <br><br>

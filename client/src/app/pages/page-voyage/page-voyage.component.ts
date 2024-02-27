@@ -13,7 +13,6 @@ import { PokemonId } from '../../../../../shared/src/pokemon/types';
 import { Users, F } from '../../../../../shared/src/server-types';
 import { Doc, Voyage, Voyages, VoyageId, Leg, getScore, getBucket } from '../../../../../shared/src/voyages';
 import { Event, NavigationEnd, Router } from '@angular/router';
-
 interface Participant {
   key: string
   ldap?: string
@@ -21,17 +20,14 @@ interface Participant {
   species: PokemonId
   mine?: boolean
 }
-
 interface VoyageEntry extends Voyage {
   key: string
 }
-
 interface PublicVoyage {
   key: string
   label: string
   item: ItemId
 }
-
 @Component({
   selector: 'app-page-voyage',
   templateUrl: './page-voyage.component.html',
@@ -68,7 +64,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     publishVoyage: false,
   }
   playerIsReady = false
-
   constructor(
     readonly firebase: FirebaseService,
     private snackbar: MatSnackBar,
@@ -87,7 +82,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   get voyageId() {
     if (!window.location.search) return undefined
     return window.location.search
@@ -96,17 +90,14 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       .replace('?', '')
       .replace('=', '')
   }
-
   get isHost() {
     if (!this.voyageDoc) return false
     return this.voyageDoc.host === this.firebase.getUid()
   }
-
   get playerInVoyage() {
     if (!this.voyageDoc) return false
     return this.voyageDoc.playerList.includes(this.firebase.getUid())
   }
-
   get battleInfo() {
     if (!this.pokemon) return ''
     let out: string[] = []
@@ -116,46 +107,43 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     })
     return out
   }
-
   get voyageCount() {
     if (!this.user) return undefined
     return this.user.voyagesCompleted ?? 0
   }
-
   get voyagesActive() {
     if (!this.user) return {}
     return this.user.voyagesActive ?? {}
   }
-
   get toClaim() {
     if (!this.voyageDoc) return false
     if (!this.user) return false
     return Object.values(this.user.voyagesActive).includes(this.voyageId)
   }
-
   get voyageReturn() {
     if (!this.voyageDoc) return new Date()
     const date = new Date(this.voyageDoc.started)
     date.setHours(date.getHours() + 22) // T+~1D
     return date.toString()
   }
-
   get score() {
     if (!this.voyageDoc) return 0
     const party = Object.values(this.voyageDoc.players).map(player => player.species)
     return getScore(this.voyageDoc.vid, party)
   }
-
   get bucket() {
     if (!this.score) return 0
     return getBucket(this.voyage, this.score)
   }
-
+  get voyageMaxLabel() {
+    if (!user) return 'three'
+    if (!user.items.voyageCharm) return 'three'
+    return 'six'
+  }
   /** Obtains query object for routerLink */
   routerQuery(id: string) {
     return { [id]: '' }
   }
-
   ngOnInit(): void {
     this.firebaseListener = this.firebase.subscribeUser(async user => {
       if (!user) return
@@ -176,7 +164,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
         this.allVoyages.push({...value, key})
       })
       this.processedVoyages = true
-
       const allPublicVoyages = await this.firebase.dbGet(['voyages', '_public'])
       this.publicVoyages = []
       for (const [key, vid] of Object.entries(allPublicVoyages.entries)) {
@@ -192,11 +179,9 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       this.processedPublicVoyages = true
     })
   }
-
   ngOnDestroy() {
     this.firebaseListener?.unsubscribe()
   }
-
   listenToVoyage() {
     this.firebase.dbListen(['voyages', this.voyageId], (doc => {
       if (!doc.exists()) {
@@ -214,19 +199,16 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }))
     }))
   }
-
   isAvailable(voyage: Voyage, args: Requirements) {
     for (const hint of voyage.unlocked.hints) {
       if (!hint.completed(args)) return hint.msg
     }
     return true
   }
-
   openVoyageDialog(voyage: Voyage) {
     this.selectedVoyage = voyage
     this.create.nativeElement.showModal()
   }
-
   confirmCreation() {
     this.exec.confirmCreation = true
     console.debug(`Creating voyage ${this.selectedVoyage.label}`)
@@ -250,7 +232,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   updatePath(legIndex: number, legType: number) {
     this.voyageDoc.legs[legIndex] = legType
     if (legType === Leg.RARE_ITEM) {
@@ -268,7 +249,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   joinVoyage() {
     this.exec.joinVoyage = true
     window.requestAnimationFrame(async () => {
@@ -285,7 +265,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   leaveVoyage() {
     this.exec.leaveVoyage = true
     window.requestAnimationFrame(async () => {
@@ -302,7 +281,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   publishVoyage() {
     this.exec.publishVoyage = true
     const quickConfirm = confirm('Confirm you want to make this public')
@@ -319,7 +297,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   select() {
     this.exec.select = true
     if (!this.playerIsReady) {
@@ -339,7 +316,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   startVoyage() {
     this.exec.startVoyage = true
     window.requestAnimationFrame(async () => {
@@ -354,7 +330,6 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   claim() {
     this.exec.claim = true
     window.requestAnimationFrame(async () => {
@@ -370,18 +345,15 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
     })
   }
-
   reportError(voyage: Voyage) {
     this.errorMsg = this.reasons[voyage.label] ?? 'No error found'
     this.error.nativeElement.showModal()
   }
-
   /** Close all dialogs on this page. */
   close() {
     this.create.nativeElement.close()
     this.error.nativeElement.close()
   }
-
   async shareVoyage() {
     const shareData = {
       title: `Voyage to ${this.selectedVoyage.label}`,
