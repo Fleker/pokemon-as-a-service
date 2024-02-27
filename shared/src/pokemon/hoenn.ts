@@ -3752,6 +3752,7 @@ export const hoennBuilder = {
       ['Extreme Speed', 'Dragon Dance'],
       ['Dragon Pulse', 'Hurricane', 'Fire Blast', 'Cosmic Power'],
       ['Outrage', 'Iron Head', 'Tailwind'],
+      ['Breaking Swipe', 'Brutal Swing', 'Roost'],
     ],
     mega: {
       attack: 180, defense: 100, spAttack: 180, spDefense: 100, speed: 115, weight: 392,

@@ -3645,6 +3645,7 @@ export const unovaBuilder = {
       ['Outrage', 'Extrasensory', 'Noble Roar'],
       ['Fusion Flare', 'Earth Power', 'Helping Hand'],
       ['Earth Power', 'Will-O-Wisp'],
+      ['Draco Meteor', 'Hyper Voice', 'Roost'],
     ],
   }),
   'potw-644': ensurePkmnBuilder({
@@ -3668,7 +3669,8 @@ export const unovaBuilder = {
     novelMoves: [[],
       ['Outrage', 'Zen Headbutt', 'Noble Roar'],
       ['Fusion Bolt', 'Crunch', 'Helping Hand'],
-      ['Earth Power', 'Thunder Wave']
+      ['Earth Power', 'Thunder Wave'],
+      ['Breaking Swipe', 'Rock Slide', 'Roost'],
     ],
   }),
   'potw-645': ensurePkmnBuilder({

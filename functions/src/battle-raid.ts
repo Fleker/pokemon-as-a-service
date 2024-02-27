@@ -140,7 +140,7 @@ export const raid_create = functions.https.onCall(async (data, context) => {
     timestampLastUpdated: FieldValue.serverTimestamp(),
     rating,
     boss: boss.species,
-    bossHeldItem: boss.heldItem,
+    bossHeldItem: boss.heldItem ?? 'lum',
     location: hostLocation,
     locationLabel: location.label,
     locationWeather: location.forecast!,
@@ -334,7 +334,7 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
     // Update raid
     await transaction.update<DbRaid>(raidRef, {
       boss: newboss.species,
-      bossHeldItem: newboss.heldItem,
+      bossHeldItem: newboss.heldItem ?? 'lum',
       players: raid.players,
       timestampLastUpdated: FieldValue.serverTimestamp(),
       wishes: wishes + 1,

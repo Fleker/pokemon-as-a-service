@@ -64,11 +64,12 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Ice Ball', 'Thunder Wave'],
+      ['Gyro Ball', 'Grassy Terrain']
     ],
   }),
   'potw-101-hisuian': ensurePkmnBuilder({
     species: 'Electrode', type1: 'Electric', type2: 'Grass', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball',
     weight: 71,
     eggBase: 'potw-100-hisuian', eggGroup: ['Mineral'], eggCycles: 20,
     pokedex: `The tissue on the surface of its body is curiously similar in composition to an Apricorn. When irritated, this Pokémon lets loose an electric current equal to 20 lightning bolts.`,
@@ -84,6 +85,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Ice Ball', 'Thunder Wave'],
+      ['Gyro Ball', 'Grassy Terrain']
     ],
   }),
   'potw-157-hisuian': ensurePkmnBuilder({
@@ -134,6 +136,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Aqua Tail', 'Spikes'],
       ['Ice Ball', 'Minimize'],
+      ['Throat Chop', 'Gunk Shot', 'Acupressure'],
     ],
   }),
   'potw-215-hisuian': ensurePkmnBuilder({
@@ -159,6 +162,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Quick Attack', 'Swords Dance'],
       ['Shadow Claw', 'Focus Energy'],
+      ['Vacuum Wave', 'Gunk Shot', 'Hone Claws'],
     ],
   }),
   'potw-503-hisuian': ensurePkmnBuilder({
@@ -245,12 +249,13 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Snarl', 'Nasty Plot'],
+      ['Shadow Sneak', 'Foul Play', 'Curse'],
     ],
   }),
   'potw-571-hisuian': ensurePkmnBuilder({
     species: 'Zoroark', type1: 'Normal', type2: 'Ghost', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 73,
+    weight: 73, release: 'greatball',
     eggBase: 'potw-570-hisuian', eggGroup: ['Field'], eggCycles: 25,
     pokedex: `With its disheveled white fur, it looks like an embodiment of death. Heedless of its own safety, Zoroark attacks its nemeses with a bitter energy so intense, it lacerates Zoroark’s own body.`,
     hp: 55, attack: 100, defense: 60, spAttack: 125, spDefense: 60, speed: 110,
@@ -266,6 +271,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Nasty Plot'],
+      ['Dark Pulse', 'Curse'],
     ],
   }),
   'potw-628-hisuian': ensurePkmnBuilder({
@@ -287,6 +293,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Air Slash', 'Twister', 'Roost'],
+      ['Snarl', 'Psychic Terrain']
     ],
   }),
   'potw-705-hisuian': ensurePkmnBuilder({
@@ -339,7 +346,7 @@ export const hisuiBuilder = {
   'potw-713-hisuian': ensurePkmnBuilder({
     species: 'Avalugg', type1: 'Ice', type2: 'Rock', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 262.4,
+    weight: 262.4, release: 'greatball',
     eggBase: 'potw-712', eggGroup: ['Monster', 'Mineral'], eggCycles: 20,
     pokedex: `The armor of ice covering its lower jaw puts steel to shame and can shatter rocks with ease. This Pokémon barrels along steep mountain paths, cleaving through the deep snow.`,
     hp: 95, attack: 127, defense: 184, spAttack: 34, spDefense: 36, speed: 38,
@@ -440,7 +447,7 @@ export const hisuiBuilder = {
   'potw-899': ensurePkmnBuilder({
     species: 'Wyrdeer', type1: 'Normal', type2: 'Psychic', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 95.1,
+    weight: 95.1, release: 'greatball',
     eggBase: 'potw-234', eggGroup: [], eggCycles: -1,
     pokedex: `The black orbs shine with an uncanny light when the Pokémon is erecting invisible barriers. The fur shed from its beard retains heat well and is a highly useful material for winter clothing.`,
     hp: 103, attack: 105, defense: 72, spAttack: 105, spDefense: 75, speed: 65,
@@ -462,7 +469,7 @@ export const hisuiBuilder = {
   }),
   'potw-900': ensurePkmnBuilder({
     species: 'Kleavor', type1: 'Bug', type2: 'Rock', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball',
     weight: 89, syncableForms: ['noble'], needForm: false,
     eggBase: 'potw-123', eggGroup: [], eggCycles: -1,
     pokedex: `A violent creature that fells towering trees with its crude axes and shields itself with hard stone. If one should chance upon this Pokémon in the wilds, one's only recourse is to flee.`,
@@ -486,7 +493,7 @@ export const hisuiBuilder = {
     species: 'Ursaluna', type1: 'Ground', type2: 'Normal', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
     syncableForms: ['blood_moon'], needForm: false,
-    weight: 290,
+    weight: 290, release: 'ultraball',
     eggBase: 'potw-216', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `I believe it was Hisui's swampy terrain that gave Ursaluna its burly physique and newfound capacity to manipulate peat at will.`,
     hp: 130, attack: 140, defense: 105, spAttack: 45, spDefense: 80, speed: 50,
@@ -511,7 +518,7 @@ export const hisuiBuilder = {
   'potw-902': ensurePkmnBuilder({
     species: 'Basculegion', type1: 'Water', type2: 'Ghost', 
     tiers: [], shiny: 'WILD',
-    weight: 110, gender: ['male', 'female'],
+    weight: 110, gender: ['male', 'female'], release: 'greatball',
     eggBase: 'potw-550-white_stripe', eggGroup: [], eggCycles: -1,
     pokedex: `Clads itself in the souls of comrades that perished before fulfilling their goals of journeying upstream. No other species throughout all Hisui's rivers is Basculegion's equal.`,
     hp: 120, attack: 112, defense: 65, spAttack: 80, spDefense: 75, speed: 78,
@@ -529,7 +536,7 @@ export const hisuiBuilder = {
   'potw-902-male': ensurePkmnBuilder({
     species: 'Basculegion', type1: 'Water', type2: 'Ghost', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 110,
+    weight: 110, release: 'greatball',
     eggBase: 'potw-550-white_stripe', eggGroup: [], eggCycles: -1,
     pokedex: `Clads itself in the souls of comrades that perished before fulfilling their goals of journeying upstream. No other species throughout all Hisui's rivers is Basculegion's equal.`,
     hp: 120, attack: 112, defense: 65, spAttack: 80, spDefense: 75, speed: 78,
@@ -547,7 +554,7 @@ export const hisuiBuilder = {
   'potw-902-female': ensurePkmnBuilder({
     species: 'Basculegion', type1: 'Water', type2: 'Ghost', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 110,
+    weight: 110, release: 'greatball',
     eggBase: 'potw-550-white_stripe', eggGroup: [], eggCycles: -1,
     pokedex: `Clads itself in the souls of comrades that perished before fulfilling their goals of journeying upstream. No other species throughout all Hisui's rivers is Basculegion's equal.`,
     hp: 120, attack: 92, defense: 65, spAttack: 100, spDefense: 75, speed: 78,
@@ -565,7 +572,7 @@ export const hisuiBuilder = {
   'potw-903': ensurePkmnBuilder({
     species: 'Sneasler', type1: 'Fighting', type2: 'Poison', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 43,
+    weight: 43, release: 'greatball',
     eggBase: 'potw-215-hisuian', eggGroup: [], eggCycles: -1,
     pokedex: `Because of Sneasler's virulent poison and daunting physical prowess, no other species could hope to best it on the frozen highlands. Preferring solitude, this species does not form packs.`,
     hp: 80, attack: 130, defense: 60, spAttack: 40, spDefense: 80, speed: 120,
@@ -582,12 +589,13 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Quick Attack', 'Swords Dance'],
       ['Shadow Claw', 'Focus Energy'],
+      ['Vacuum Wave', 'Gunk Shot', 'Toxic Spikes'],
     ],
   }),
   'potw-904': ensurePkmnBuilder({
     species: 'Overqwil', type1: 'Dark', type2: 'Poison', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 60.5,
+    weight: 60.5, release: 'greatball',
     eggBase: 'potw-211-hisuian', eggGroup: [], eggCycles: -1,
     pokedex: `Its lancelike spikes and savage temperament have earned it the nickname "sea fiend." It slurps up poison to nourish itself.`,
     hp: 85, attack: 115, defense: 95, spAttack: 65, spDefense: 65, speed: 85,
@@ -602,13 +610,14 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Aqua Tail', 'Toxic Spikes'],
       ['Ice Ball', 'Spikes'],
+      ['Throat Chop', 'Gunk Shot', 'Acupressure'],
     ],
   }),
   'potw-905': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
     syncableForms: ['incarnate', 'therian'], needForm: 'incarnate',
     tiers: [], shiny: 'FALSE', rarity: 'LEGENDARY',
-    weight: 48,
+    weight: 48, release: 'ultraball',
     eggGroup: [], eggCycles: -1,
     pokedex: `When it flies to this land from across the sea, the bitter winter comes to an end. According to legend, this Pokémon's love gives rise to the budding of fresh life across Hisui.`,
     hp: 74, attack: 115, defense: 70, spAttack: 135, spDefense: 80, speed: 106,
@@ -627,7 +636,7 @@ export const hisuiBuilder = {
   'potw-905-incarnate': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', rarity: 'LEGENDARY',
-    weight: 48,
+    weight: 48, release: 'ultraball',
     eggGroup: [], eggCycles: -1,
     pokedex: `When it flies to this land from across the sea, the bitter winter comes to an end. According to legend, this Pokémon's love gives rise to the budding of fresh life across Hisui.`,
     hp: 74, attack: 115, defense: 70, spAttack: 135, spDefense: 80, speed: 106,
@@ -646,7 +655,7 @@ export const hisuiBuilder = {
   'potw-905-therian': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'FALSE', rarity: 'LEGENDARY',
-    weight: 48,
+    weight: 48, release: 'ultraball',
     eggGroup: [], eggCycles: -1,
     pokedex: `When it flies to this land from across the sea, the bitter winter comes to an end. According to legend, this Pokémon's love gives rise to the budding of fresh life across Hisui.`,
     hp: 74, attack: 115, defense: 110, spAttack: 135, spDefense: 100, speed: 46,

@@ -24,6 +24,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Pay Day', 'Metal Sound'],
       ['Lash Out', 'Swords Dance'],
+      ['Seed Bomb', 'Fake Tears'],
     ],
   }),
   'potw-077-galarian': ensurePkmnBuilder({
@@ -96,6 +97,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Water Pulse', 'Psych Up'],
+      ['Ice Fang', 'Light Screen'],
     ],
   }),
   'potw-080-galarian': ensurePkmnBuilder({
@@ -122,6 +124,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Water Pulse', 'Psych Up'],
+      ['Avalanche', 'Light Screen'],
     ],
   }),
   'potw-083-galarian': ensurePkmnBuilder({
@@ -287,6 +290,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Water Pulse', 'Psych Up'],
+      ['Blizzard', 'Reflect'],
     ],
   }),
   'potw-222-galarian': ensurePkmnBuilder({
@@ -314,6 +318,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Power Gem', 'Grudge'],
       ['Mirror Coat', 'Destiny Bond'],
+      ['Liquidation', 'Curse'],
     ],
   }),
   'potw-263-galarian': ensurePkmnBuilder({
@@ -453,6 +458,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Slam', 'Crafty Shield'],
       ['Rock Tomb', 'Curse'],
+      ['Zen Headbutt', 'Destiny Bond'],
     ],
   }),
   'potw-618-galarian': ensurePkmnBuilder({
@@ -925,6 +931,8 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Round', 'Sing'],
       ['Grass Knot', 'Weather Ball', 'Sunny Day'],
+      ['Seed Bomb', 'Pollen Puff_Damage', 'Sleep Powder'],
+      ['Razor Leaf', 'Pollen Puff_Heal', 'Stun Spore'],
     ],
   }),
   'potw-830': ensurePkmnBuilder({
@@ -945,6 +953,8 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Hyper Voice', 'Cotton Spore'],
       ['Solar Beam', 'Weather Ball', 'Sunny Day'],
+      ['Seed Bomb', 'Pollen Puff_Damage', 'Sleep Powder'],
+      ['Razor Leaf', 'Pollen Puff_Heal', 'Stun Spore'],
     ],
   }),
   'potw-831': ensurePkmnBuilder({
@@ -965,6 +975,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Double Kick', 'Cotton Guard'],
       ['Headbutt', 'Wild Charge', 'Thunder Wave'],
+      ['Zen Headbutt', 'Endure'],
     ],
   }),
   'potw-832': ensurePkmnBuilder({
@@ -984,6 +995,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Reversal', 'Cotton Guard'],
       ['Mega Kick', 'Wild Charge', 'Thunder Wave'],
+      ['Zen Headbutt', 'Guard Split'],
     ],
   }),
   'potw-833': ensurePkmnBuilder({
@@ -1363,6 +1375,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Slam', 'Smokescreen'],
       ['Wrap', 'Coil'],
+      ['Heat Wave', 'Thunder Fang', 'Will-O-Wisp'],
     ]
   }),
   'potw-851': ensurePkmnBuilder({
@@ -1382,6 +1395,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Crunch', 'Smokescreen'],
       ['Power Whip', 'Coil'],
+      ['Heat Wave', 'Thunder Fang', 'Will-O-Wisp'],
     ],
     gmax: {
       gmaxMove: 'G-Max Centiferno',
@@ -1645,6 +1659,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Fake Out', 'Metal Sound'],
       ['Lash Out', 'Swords Dance'],
+      ['Seed Bomb', 'Pay Day', 'Stealth Rock'],
     ],
   }),
   'potw-864': ensurePkmnBuilder({
@@ -1669,6 +1684,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Power Gem', 'Strength Sap'],
       ['Mirror Coat', 'Scald', 'Destiny Bond'],
+      ['Liquidation', 'Curse'],
     ],
   }),
   'potw-865': ensurePkmnBuilder({
@@ -1736,6 +1752,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Slam', 'Crafty Shield'],
       ['Stone Edge', 'Curse'],
+      ['Zen Headbutt', 'Destiny Bond'],
     ],
   }),
   'potw-868': ensurePkmnBuilder({
@@ -2464,7 +2481,8 @@ export const galarBuilder = {
       'Electric Terrain',
     ],
     novelMoves: [[],
-      ['Zap Cannon', 'Extreme Speed', 'Lock-On']
+      ['Zap Cannon', 'Extreme Speed', 'Lock-On'],
+      ['Rapid Spin', 'Ancient Power', 'Magnet Rise'],
     ],
   }),
   'potw-895': ensurePkmnBuilder({
@@ -2482,7 +2500,8 @@ export const galarBuilder = {
       'Endure', 'Laser Focus', 
     ],
     novelMoves: [[],
-      ['Hammer Arm', 'Crunch', 'Focus Energy']
+      ['Hammer Arm', 'Crunch', 'Focus Energy'],
+      ['Vise Grip', 'Fire Fang', 'Dragon Dance'],
     ],
   }),
   'potw-896': ensurePkmnBuilder({

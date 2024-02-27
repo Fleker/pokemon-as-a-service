@@ -41,7 +41,7 @@ export const paldeaBuilder = {
   'potw-901-blood_moon': ensurePkmnBuilder({
     species: 'Ursaluna', type1: 'Ground', type2: 'Normal', 
     tiers: ['Traditional' /* 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 290,
+    weight: 290, release: 'ultraball',
     eggBase: 'potw-216', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `It crossed the sea and drifted ashore in a new land. Surviving in this place led it to take on a unique appearance and gain special powers.`,
     hp: 113, attack: 70, defense: 120, spAttack: 135, spDefense: 65, speed: 52,
@@ -1094,7 +1094,7 @@ export const paldeaBuilder = {
   'potw-999': ensurePkmnBuilder({
     species: 'Gimmighoul', type1: 'Ghost',
     shiny: 'FALSE', weight: 3.8, syncableForms: ['chest', 'roaming'], needForm: 'chest',
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */],
+    tiers: [],
     evolveTo: ['potw-1000'], eggCycles: -1,
     pokedex: `This Pokémon was born inside a treasure chest about 1,500 years ago. It sucks the life-force out of scoundrels who try to steal the treasure.`,
     hp: 45, attack: 30, defense: 70, spAttack: 75, spDefense: 70, speed: 10,
@@ -1133,7 +1133,7 @@ export const paldeaBuilder = {
   'potw-1001': ensurePkmnBuilder({
     species: 'Wo-Chien', type1: 'Dark', type2: 'Grass', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 74.2, release: 'ultraball',
+    weight: 74.2, release: 'ultraball', rarity: 'LEGENDARY',
     eggGroup: [], eggCycles: 25,
     pokedex: `The grudge of a person punished for writing the king's evil deeds upon wooden tablets has clad itself in dead leaves to become a Pokémon.`,
     hp: 85, attack: 85, defense: 100, spAttack: 95, spDefense: 135, speed: 70,
@@ -1143,7 +1143,7 @@ export const paldeaBuilder = {
   'potw-1002': ensurePkmnBuilder({
     species: 'Chien-Pao', type1: 'Dark', type2: 'Ice', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 152.2, release: 'ultraball',
+    weight: 152.2, release: 'ultraball', rarity: 'LEGENDARY',
     eggGroup: [], eggCycles: 25,
     pokedex: `This Pokémon can control 100 tons of fallen snow. It plays around innocently by leaping in and out of avalanches it has caused.`,
     hp: 80, attack: 120, defense: 80, spAttack: 90, spDefense: 65, speed: 135,
@@ -1153,7 +1153,7 @@ export const paldeaBuilder = {
   'potw-1003': ensurePkmnBuilder({
     species: 'Ting-Lu', type1: 'Dark', type2: 'Ground', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 699.7, release: 'ultraball',
+    weight: 699.7, release: 'ultraball', rarity: 'LEGENDARY',
     eggGroup: [], eggCycles: 25,
     pokedex: `The fear poured into an ancient ritual vessel has clad itself in rocks and dirt to become a Pokémon.`,
     hp: 155, attack: 110, defense: 125, spAttack: 55, spDefense: 80, speed: 45,
@@ -1163,7 +1163,7 @@ export const paldeaBuilder = {
   'potw-1004': ensurePkmnBuilder({
     species: 'Chi-Yu', type1: 'Dark', type2: 'Fire', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 4.9, release: 'ultraball',
+    weight: 4.9, release: 'ultraball', rarity: 'LEGENDARY',
     eggGroup: [], eggCycles: 25,
     pokedex: `It controls flames burning at over 5,400 degrees Fahrenheit. It casually swims through the sea of lava it creates by melting rock and sand.`,
     hp: 55, attack: 80, defense: 80, spAttack: 135, spDefense: 120, speed: 100,
@@ -1193,7 +1193,7 @@ export const paldeaBuilder = {
   'potw-1007': ensurePkmnBuilder({
     species: 'Koraidon', type1: 'Fighting', type2: 'Dragon', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 303, release: 'ultraball',
+    weight: 303, release: 'ultraball', rarity: 'LEGENDARY',
     eggGroup: [], eggCycles: 25,
     pokedex: `This seems to be the Winged King mentioned in an old expedition journal. It was said to have split the land with its bare fists.`,
     hp: 100, attack: 135, defense: 115, spAttack: 85, spDefense: 100, speed: 135,
@@ -1203,7 +1203,7 @@ export const paldeaBuilder = {
   'potw-1008': ensurePkmnBuilder({
     species: 'Miraidon', type1: 'Electric', type2: 'Dragon', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 240, release: 'ultraball',
+    weight: 240, release: 'ultraball', rarity: 'LEGENDARY',
     eggGroup: [], eggCycles: 25,
     pokedex: `Much remains unknown about this creature. It resembles Cyclizar, but it is far more ruthless and powerful.`,
     hp: 100, attack: 85, defense: 100, spAttack: 135, spDefense: 115, speed: 135,
@@ -1259,7 +1259,7 @@ export const paldeaBuilder = {
   }),
   'potw-1014': ensurePkmnBuilder({
     species: 'Okidogi', type1: 'Poison', type2: 'Fighting',
-    shiny: 'FALSE', weight: 92, eggCycles: 40,
+    shiny: 'FALSE', weight: 92, eggCycles: 40, release: 'ultraball', rarity: 'LEGENDARY',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `After all its muscles were stimulated by the toxic chain around its neck, Okidogi transformed and gained a powerful physique.`,
     hp: 88, attack: 128, defense: 115, spAttack: 58, spDefense: 86, speed: 80,
@@ -1268,7 +1268,7 @@ export const paldeaBuilder = {
   }),
   'potw-1015': ensurePkmnBuilder({
     species: 'Munkidori', type1: 'Poison', type2: 'Psychic',
-    shiny: 'FALSE', weight: 12.2, eggCycles: 40,
+    shiny: 'FALSE', weight: 12.2, eggCycles: 40, release: 'ultraball', rarity: 'LEGENDARY',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `The chain is made from toxins that enhance capabilities. It stimulated Munkidori's brain and caused the Pokémon's psychic powers to bloom.`,
     hp: 88, attack: 75, defense: 66, spAttack: 130, spDefense: 90, speed: 106,
@@ -1277,7 +1277,7 @@ export const paldeaBuilder = {
   }),
   'potw-1016': ensurePkmnBuilder({
     species: 'Fezandipiti', type1: 'Poison', type2: 'Fairy',
-    shiny: 'FALSE', weight: 30.1, eggCycles: 40,
+    shiny: 'FALSE', weight: 30.1, eggCycles: 40, release: 'ultraball', rarity: 'LEGENDARY',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `Fezandipiti owes its beautiful looks and lovely voice to the toxic stimulants emanating from the chain wrapped around its body.`,
     hp: 88, attack: 91, defense: 82, spAttack: 70, spDefense: 125, speed: 99,
@@ -1286,7 +1286,7 @@ export const paldeaBuilder = {
   }),
   'potw-1017': ensurePkmnBuilder({
     species: 'Ogerpon', type1: 'Grass',
-    shiny: 'FALSE', weight: 39.8, eggCycles: 40, release: 'ultraball',
+    shiny: 'FALSE', weight: 39.8, eggCycles: 40, release: 'ultraball', rarity: 'LEGENDARY',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `This Pokémon's type changes based on which mask it's wearing. It confounds its enemies with nimble movements and kicks.`,
     hp: 80, attack: 120, defense: 84, spAttack: 60, spDefense: 96, speed: 110,
@@ -1355,7 +1355,7 @@ export const paldeaBuilder = {
   }),
   'potw-1024': ensurePkmnBuilder({
     species: 'Terapagos', type1: 'Normal',
-    shiny: 'FALSE', weight: 6.5, eggCycles: 40,
+    shiny: 'FALSE', weight: 6.5, eggCycles: 40, rarity: 'LEGENDARY',
     syncableForms: ['terastal', 'stellar'], needForm: false,
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `Terapagos protects itself using its power to transform energy into hard crystals. This Pokémon is the source of the Terastal phenomenon.`,
@@ -1366,7 +1366,7 @@ export const paldeaBuilder = {
   }),
   'potw-1024-terastal': ensurePkmnBuilder({
     species: 'Terapagos', type1: 'Normal',
-    shiny: 'FALSE', weight: 6.5, eggCycles: 40,
+    shiny: 'FALSE', weight: 6.5, eggCycles: 40, rarity: 'LEGENDARY',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `Upon sensing danger, it prepares itself for battle by creating a sturdy shell of crystallized Terastal energy.`,
     hp: 95, attack: 95, defense: 110, spAttack: 105, spDefense: 110, speed: 85,
@@ -1376,7 +1376,7 @@ export const paldeaBuilder = {
   }),
   'potw-1024-stellar': ensurePkmnBuilder({
     species: 'Terapagos', type1: 'Normal',
-    shiny: 'FALSE', weight: 6.5, eggCycles: 40,
+    shiny: 'FALSE', weight: 6.5, eggCycles: 40, rarity: 'LEGENDARY',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `In this form, Terapagos resembles the world as the ancients saw it, and its Terastal energy is abnormally amplified.`,
     hp: 160, attack: 105, defense: 110, spAttack: 130, spDefense: 110, speed: 85,
@@ -1386,7 +1386,7 @@ export const paldeaBuilder = {
   }),
   'potw-1025': ensurePkmnBuilder({
     species: 'Pecharunt', type1: 'Poison', type2: 'Ghost',
-    shiny: 'FALSE', weight: 0.3, eggCycles: 40,
+    shiny: 'FALSE', weight: 0.3, eggCycles: 40, rarity: 'MYTHICAL',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `It feeds others toxic mochi that draw out desires and capabilities. Those who eat the mochi fall under Pecharunt's control, chained to its will.`,
     hp: 88, attack: 88, defense: 160, spAttack: 88, spDefense: 88, speed: 88,
