@@ -41,6 +41,7 @@ export class PageWondertradeComponent {
         })
         this.snackbar.open('Your Pokémon has been sent to the Wonder Trade. Check back later!', '', { duration: 5000 })
         this.pokemon.reset()
+        this.firebase.refreshUser()
         // Do not re-enable the confirm button since we can't re-use it for another day.
       } catch (e) {
         this.snackbar.open(e.message, '', { duration: 5000 })
