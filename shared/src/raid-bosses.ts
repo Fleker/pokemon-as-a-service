@@ -1260,206 +1260,206 @@ export const forecastBoss: {[key in WeatherType]: {[rating: number]: RaidBoss[]}
 export const terrainBoss: {[key in TerrainType]: {[rating: number]: RaidBoss[]}} = {
   Bay: {
     2: [{
-      species: Potw(P.Vulpix, {var: 3, form: 'alolan'})
+      species: Potw(P.Arrokuda, {var: 2})
     }, {
-      species: Potw(P.Seel, {var: 4})
+      species: Potw(P.Popplio, {var: 2})
     }],
     3: [{
-      species: Potw(P.Vulpix, {var: 3, form: 'alolan'})
+      species: Potw(P.Arrokuda, {var: 2})
     }, {
-      species: Potw(P.Seel, {var: 4})
+      species: Potw(P.Brionne, {var: 2})
     }],
     4: [{
-      species: Potw(P.Ninetales, {var: 3, form: 'alolan'})
+      species: Potw(P.Barraskewda, {var:2})
     }, {
-      species: Potw(P.Dewgong, {var: 4})
+      species: Potw(P.Primarina, {var: 2})
     }]
   },
   Beach: {
     2: [{
-      species: Potw(P.Grimer, {var: 3, form: 'alolan'})
+      species: Potw(P.Pincurchin, {var: 2})
     }, {
-      species: Potw(P.Chinchou, {var: 2})
+      species: Potw(P.Squirtle, {var: 3})
     }],
     3: [{
-      species: Potw(P.Grimer, {var: 3, form: 'alolan'})
+      species: Potw(P.Pincurchin, {var: 2})
     }, {
-      species: Potw(P.Chinchou, {var: 2})
+      species: Potw(P.Wartortle, {var: 3})
     }],
     4: [{
-      species: Potw(P.Muk, {var: 3, form: 'alolan'})
+      species: Potw(P.Pincurchin, {var: 2})
     }, {
-      species: Potw(P.Lanturn, {var: 2})
+      species: Potw(P.Blastoise, {var: 3})
     }]
   },
   Mountain: {
     2: [{
-      species: Potw(P.Scyther, {var: 2})
+      species: Potw(P.Rolycoly, {var: 2})
     }, {
-      species: Potw(P.Beldum, {var: 2})
+      species: Potw(P.Skarmory, {var: 1})
     }],
     3: [{
-      species: Potw(P.Scyther, {var: 2})
+      species: Potw(P.Carkol, {var: 2})
     }, {
-      species: Potw(P.Metang, {var: 2})
+      species: Potw(P.Skarmory, {var: 1})
     }],
     4: [{
-      species: Potw(P.Kleavor, {var: 2})
+      species: Potw(P.Coalossal, {var: 2})
     }, {
-      species: Potw(P.Metagross, {var: 2})
+      species: Potw(P.Skarmory, {var: 1})
     }],
   },
   Tropical: {
     2: [{
-      species: Potw(P.Exeggcute, {var: 2})
+      species: Potw(P.Yamper, {var: 2})
     }, {
-      species: Potw(P.Litwick, {var: 2})
+      species: Potw(P.Basculin, {var: 4})
     }],
     3: [{
-      species: Potw(P.Exeggcute, {var: 2})
+      species: Potw(P.Yamper, {var: 2})
     }, {
-      species: Potw(P.Lampent, {var: 2})
+      species: Potw(P.Basculin, {var: 4})
     }],
     4: [{
-      species: Potw(P.Exeggutor, {var: 2})
+      species: Potw(P.Boltund, {var: 2})
     }, {
-      species: Potw(P.Chandelure, {var: 2})
+      species: Potw(P.Basculin, {var: 4})
     }],
   },
   Rural: {
     2: [{
-      species: Potw(P.Stantler, {var: 1})
+      species: Potw(P.Indeedee, {var: 2})
     }, {
-      species: Potw(P.Jangmo_o, {var: 1})
+      species: Potw(P.Treecko, {var: 3})
     }],
     3: [{
-      species: Potw(P.Stantler, {var: 1})
+      species: Potw(P.Indeedee, {var: 2})
     }, {
-      species: Potw(P.Hakamo_o, {var: 1})
+      species: Potw(P.Grovyle, {var: 3})
     }],
     4: [{
-      species: Potw(P.Wyrdeer, {var: 1})
+      species: Potw(P.Indeedee, {var: 2})
     }, {
-      species: Potw(P.Kommo_o, {var: 1})
+      species: Potw(P.Sceptile, {var: 3})
     }],
   },
   Desert: {
     2: [{
-      species: Potw(P.Yamask, {var: 2, form: 'galarian'})
+      species: Potw(P.Silicobra, {var: 2})
     }, {
-      species: Potw(P.Mawile, {var: 2})
+      species: Potw(P.Shuckle, {var: 4})
     }],
     3: [{
-      species: Potw(P.Yamask, {var: 2, form: 'galarian'})
+      species: Potw(P.Silicobra, {var: 2})
     }, {
-      species: Potw(P.Mawile, {var: 2})
+      species: Potw(P.Shuckle, {var: 4})
     }],
     4: [{
-      species: Potw(P.Yamask, {var: 2, form: 'galarian'})
+      species: Potw(P.Sandaconda, {var: 2})
     }, {
-      species: Potw(P.Mawile, {var: 2})
+      species: Potw(P.Shuckle, {var: 4})
     }],
   },
   Grasslands: {
     2: [{
-      species: Potw(P.Wooloo, {var: 2})
+      species: Potw(P.Falinks, {var: 2})
     }, {
-      species: Potw(P.Ponyta, {var: 3})
+      species: Potw(P.Torchic, {var: 2})
     }],
     3: [{
-      species: Potw(P.Wooloo, {var: 2})
+      species: Potw(P.Falinks, {var: 2})
     }, {
-      species: Potw(P.Ponyta, {var: 3})
+      species: Potw(P.Combusken, {var: 2})
     }],
     4: [{
-      species: Potw(P.Dubwool, {var: 2})
+      species: Potw(P.Falinks, {var: 2})
     }, {
-      species: Potw(P.Rapidash, {var: 3})
+      species: Potw(P.Blaziken, {var: 2})
     }],
   },
   Gardens: {
     2: [{
-      species: Potw(P.Gossifleur, {var: 2})
+      species: Potw(P.Sinistea, {var: 2})
     }, {
-      species: Potw(P.Kecleon, {var: 1})
+      species: Potw(P.Snivy, {var: 3})
     }],
     3: [{
-      species: Potw(P.Gossifleur, {var: 2})
+      species: Potw(P.Sinistea, {var: 2})
     }, {
-      species: Potw(P.Kecleon, {var: 1})
+      species: Potw(P.Servine, {var: 3})
     }],
     4: [{
-      species: Potw(P.Eldegoss, {var: 2})
+      species: Potw(P.Polteageist, {var: 2})
     }, {
-      species: Potw(P.Kecleon, {var: 1})
+      species: Potw(P.Serperior, {var: 3})
     }]
   },
   Forest: {
     2: [{
-      species: Potw(P.Sizzlipede, {var: 2})
+      species: Potw(P.Rookidee, {var: 2})
     }, {
-      species: Potw(P.Swinub, {var: 2})
+      species: Potw(P.Tepig, {var: 3})
     }],
     3: [{
-      species: Potw(P.Sizzlipede, {var: 2})
+      species: Potw(P.Corvisquire, {var: 2})
     }, {
-      species: Potw(P.Piloswine, {var: 2})
+      species: Potw(P.Pignite, {var: 3})
     }],
     4: [{
-      species: Potw(P.Centiskorch, {var: 2})
+      species: Potw(P.Corviknight, {var: 2})
     }, {
-      species: Potw(P.Mamoswine, {var: 2})
+      species: Potw(P.Emboar, {var: 3})
     }],
   },
   Urban: {
     2: [{
-      species: Potw(P.Cutiefly, {var: 3})
+      species: Potw(P.Meowth, {var: 3, form: 'alolan'})
     }, {
-      species: Potw(P.Porygon, {var: 2})
+      species: Potw(P.Tyrogue, {var:1})
     }],
     3: [{
-      species: Potw(P.Cutiefly, {var: 3})
+      species: Potw(P.Meowth, {var: 3, form: 'alolan'})
     }, {
-      species: Potw(P.Porygon2, {var:2})
+      species: Potw(P.Hitmontop, {var:1})
     }],
     4: [{
-      species: Potw(P.Ribombee, {var: 3})
+      species: Potw(P.Persian, {var: 3, form: 'alolan'})
     }, {
-      species: Potw(P.Porygon_Z, {var: 2})
+      species: Potw(P.Hitmontop, {var:1})
     }]
   },
   Rainforest: {
     2: [{
-      species: Potw(P.Salandit, {var: 4})
+      species: Potw(P.Blipbug, {var: 2})
     }, {
-      species: Potw(P.Karrablast, {var: 3})
+      species: Potw(P.Bulbasaur, {var: 3})
     }],
     3: [{
-      species: Potw(P.Salandit, {var: 4})
+      species: Potw(P.Dottler, {var: 2})
     }, {
-      species: Potw(P.Karrablast, {var: 3})
+      species: Potw(P.Ivysaur, {var: 3})
     }],
     4: [{
-      species: Potw(P.Salazzle, {var: 4})
+      species: Potw(P.Orbeetle, {var: 2})
     }, {
-      species: Potw(P.Escavalier, {var: 3})
+      species: Potw(P.Venusaur, {var: 3})
     }],
   },
   Oceanic: {
     2: [{
-      species: Potw(P.Qwilfish, {var: 2, form: 'hisuian'})
+      species: Potw(P.Cramorant, {var: 2})
     }, {
-      species: Potw(P.Feebas, {var: 2})
+      species: Potw(P.Mudkip, {var: 1})
     }],
     3: [{
-      species: Potw(P.Qwilfish, {var: 2, form: 'hisuian'})
+      species: Potw(P.Cramorant, {var: 2})
     }, {
-      species: Potw(P.Feebas, {var: 2})
+      species: Potw(P.Marshtomp, {var: 1})
     }],
     4: [{
-      species: Potw(P.Overqwil, {var: 2})
+      species: Potw(P.Cramorant, {var: 2})
     }, {
-      species: Potw(P.Milotic, {var: 2})
+      species: Potw(P.Swampert, {var: 1})
     }],
   }
 }

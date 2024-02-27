@@ -277,6 +277,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Fake Out', 'Screech'],
       ['Pay Day', 'Taunt'],
+      ['Gunk Shot', 'Flatter'],
     ],
   }),
   'potw-053-alolan': ensurePkmnBuilder({
@@ -302,6 +303,7 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Swift', 'Embargo'],
       ['Power Gem', 'Nasty Plot'],
+      ['Gunk Shot', 'Parting Shot'],
     ],
   }),
   'potw-074-alolan': ensurePkmnBuilder({
