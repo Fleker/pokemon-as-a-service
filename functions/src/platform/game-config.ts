@@ -11,10 +11,11 @@ export const MAIL_BADGES = {
   'potw-275': 'Shiftry',
   'potw-276': 'Taillow',
   'potw-277': 'Swellow',
+  'potw-278': 'Wingull'
 }
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Payback',
-  tr: 'tr-Rock Polish',
+  tm: 'tm-Icicle Spear',
+  tr: 'tr-Acupressure',
 }
 export const adminIds = [
   'veXJXuNwZ7RsUXV6tQqWjboQOy03' // fleker@

@@ -1320,12 +1320,12 @@ export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
 }]
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
-  return legendaryDate.getUTCMonth() === 10 && // November (10)
-    legendaryDate.getUTCDate() <= 2 // November 2nd
+  return legendaryDate.getUTCMonth() === 11 && // December (11)
+    legendaryDate.getUTCDate() <= 7 // December 7th
 })
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  // docId: 'available',
-  docId: 'unavailable',
+  docId: 'available',
+  // docId: 'unavailable',
   dbKey: 'shinyCalyrex1',
   badge: 'potw-898-shiny',
   boss: Potw(P.Calyrex, {shiny: true, var: 1}),
