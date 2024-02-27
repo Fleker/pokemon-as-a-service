@@ -3455,7 +3455,7 @@ type PokemonMaterialType = 'Claw' | 'Fur' | 'Goo' | 'Hair' | 'Scales' | 'Sweat'
   | 'Parcel' | 'Chip' | 'Thread' | 'Berries' | 'Eyelash' | 'Fang' | 'Juice'
   | 'Spines' | 'Mucus' | 'Stem' | 'Soot' | 'Wax' | 'Tarnish' | 'Seed'
   | 'Salt' | 'Flaps' | 'Down' | 'Whisker' | 'Cream' | 'Flower' | 'Ink' | 'Gel'
-  | 'Shard' | 'Mane Hair' | 'Spike' | 'Paint' | 'Teardrop' | 'Stinger'
+  | 'Shard' | 'Mane Hair' | 'Spike' | 'Paint' | 'Teardrop' | 'Stinger' | 'Bauble'
 const PokemonMaterial = (species: string, component: PokemonMaterialType): Item => {
   return assert<Item>({
     label: `${species} ${component}`, category: 'material',
@@ -3604,6 +3604,7 @@ const ITEMS_MATERIALS = {
   tmm_mareep: PokemonMaterial('Mareep', 'Wool'),
   tmm_sunkern: PokemonMaterial('Sunkern', 'Leaf'),
   tmm_wooper: PokemonMaterial('Wooper', 'Slime'),
+  tmm_murkrow: PokemonMaterial('Murkrow', 'Bauble'),
   tmm_pineco: PokemonMaterial('Pineco', 'Husk'),
   tmm_snubbull: PokemonMaterial('Snubbull', 'Hair'),
   tmm_qwilfish: PokemonMaterial('Qwilfish', 'Spines'),
@@ -3645,7 +3646,7 @@ const ITEMS_MATERIALS = {
   tmm_starly: PokemonMaterial('Starly', 'Feather'),
   tmm_buizel: PokemonMaterial('Buizel', 'Fur'),
   tmm_cranidos: PokemonMaterial('Cranidos', 'Spike'),
-  tmm_sheildon: PokemonMaterial('Sheildon', 'Claw'),
+  tmm_shieldon: PokemonMaterial('Shieldon', 'Claw'),
   tmm_shellos: PokemonMaterial('Shellos', 'Mucus'),
   tmm_pachirisu: PokemonMaterial('Pachirisu', 'Fur'),
   tmm_happiny: PokemonMaterial('Happiny', 'Dust'),
@@ -3797,16 +3798,14 @@ function PaldeaIngredient(item: Partial<Item>): Item {
     ...item,
   }
 }
-
 function PaldeaSandwich(label: string, item: Partial<Bait>): Bait {
-    return {
-      label, category: 'bait',
-      description: 'A sandwich made of common ingredients, seasoned to perfection. Wild Pokémon may enjoy eating it.',
+  return {
+    label, category: 'bait',
+    description: 'A sandwich made of common ingredients, seasoned to perfection. Wild Pokémon may enjoy eating it.',
     buy: 0, sell: 7, consumption: 5,
     ...item,
   }
 }
-
 function SleepIngredient(label: string, item: Partial<Item | Berry>): Item {
   return {
     label, category: 'cooking',
@@ -3815,16 +3814,14 @@ function SleepIngredient(label: string, item: Partial<Item | Berry>): Item {
     ...item,
   }
 }
-
 function SleepSalad(label: string, item: Partial<Bait>): Bait {
   return {
     label: `${label} Salad`, category: 'bait',
     description: 'A salad made of common greens and drenched in dressing. Wild Pokémon may enjoy eating it but it will make them drowzy.',
     buy: 0, sell: 15, consumption: 5,
-      ...item,
+    ...item,
   }
 }
-
 const ITEMS_INGREDIENTS = {
   // POFFINS
   poffinspicy: Poffin('Spicy Poffin',
@@ -4037,7 +4034,6 @@ const ITEMS_INGREDIENTS = {
   sleepsninja: SleepSalad('Ninja', {}),
   sleepsheatwave: SleepSalad('Heat Wave Tofu', {}),
 }
-
 function genMegaStone(badge: BadgeId, xy: ' X' | ' Y' | '' = ''): MegaStone {
   const pkmn = get(badge)!
   return {
@@ -4047,7 +4043,6 @@ function genMegaStone(badge: BadgeId, xy: ' X' | ' Y' | '' = ''): MegaStone {
     badge,
   }
 }
-
 const ITEMS_MEGA = {
   venusaurite: genMegaStone(P.Venusaur),
   charizarditex: genMegaStone(P.Charizard, ' X'),
