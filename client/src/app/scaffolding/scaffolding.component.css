@@ -120,6 +120,10 @@ mat-toolbar button[mat-icon-button] {
   color: var(--toolbar-text-color);
 }
 
+mat-drawer {
+  color: var(--menu-text-color);
+}
+
 mat-drawer a {
   line-height: 34px;
   color: var(--menu-text-color);

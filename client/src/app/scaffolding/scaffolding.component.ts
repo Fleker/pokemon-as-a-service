@@ -44,6 +44,8 @@ import * as BWeather from '../../../../shared/src/battle/weather'
 import * as BTypes from '../../../../shared/src/battle/types'
 import { raidBattleSettings } from '../../../../shared/src/raid-settings'
 
+declare var window: any;
+
 interface Gate {
   kanto: boolean
   johto: boolean
@@ -198,6 +200,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
         this.completedUnclaimedVoyages = user.notifications ?
           user.notifications.filter(n => n.cat === 'VOYAGE_COMPLETE').length
           : 0
+        this.updateTheme(user)
       } else {
         this.firestoreManual = false
       }
@@ -253,5 +256,19 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
   async logout() {
     await this.firebase.logout()
     window.location.href = 'https://pokemon.com' // Bye
+  }
+
+  updateTheme(user: Users.Doc) {
+    if (user.settings!.theme === 'dark') {
+      localStorage.setItem('darktheme', 'true')
+      window.setDarkMode(true)
+    } else  if (user.settings!.theme === 'light') {
+      localStorage.setItem('darktheme', 'false')
+      window.setDarkMode(false)
+    } else {
+      localStorage.setItem('darktheme', 'false')
+      const dark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      window.setDarkMode(dark)
+    }
   }
 }
