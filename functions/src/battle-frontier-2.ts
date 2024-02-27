@@ -158,13 +158,17 @@ export const battle_stadium = functions.runWith(battleStadiumOptions)
       // Check you have valid Pokémon
       for (const pkmn of species) {
         const dblookup = Pkmn.get(pkmn.toLegacyString())!
+        if (!dblookup.tiers) {
+          throw new functions.https.HttpsError('failed-precondition',
+              `${pkmn} is not allowed to compete in any tier`)
+        }
         if (tier === 'Beginners Cup') {
-          if (dblookup.tiers && canBeginnersCup(dblookup)) {
+          if (!canBeginnersCup(dblookup)) {
             throw new functions.https.HttpsError('failed-precondition',
               `${pkmn} is not allowed to compete (Tier ${tier})`)
           }
         } else {
-          if (dblookup.tiers && !dblookup.tiers.includes(tier)) {
+          if (!dblookup.tiers.includes(tier)) {
             throw new functions.https.HttpsError('failed-precondition',
               `${pkmn} is not allowed to compete (Tier ${tier})`)
           }
