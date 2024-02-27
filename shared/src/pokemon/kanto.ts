@@ -4551,8 +4551,13 @@ export const kantoBuilder = {
     tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 10,
     needForm: false, syncableForms: ['skelly',
-      'orange_and_white_calico', 'orange,_white,_and_black_calico', 'white_and_orange_calico',
+      'orange_and_white_calico', 'orange_white_and_black_calico', 'white_and_orange_calico',
       'orange_and_gold_calico', 'orange_two_tone', 'orange_orca', 'orange_dapples',
+      'pink_two_tone', 'pink_orca', 'pink_dapples', 'gray_bubbles', 'gray_diamonds', 'gray_patches',
+      'purple_bubbles', 'purple_diamonds', 'purple_patches', 'apricot_tiger', 'apricot_zebra',
+      'apricot_stripes', 'brown_tiger', 'brown_zebra', 'brown_stripes', 'orange_forehead',
+      'orange_mask', 'black_forehead', 'black_mask', 'saucy_blue', 'blue_raindrop', 'violet_blue',
+      'violet_raindrop',
     ],
   }),
   "potw-130": ensurePkmnBuilder({
@@ -5451,9 +5456,32 @@ kantoBuilder['potw-025-alolan'] = getPikachuVariant(['Electroweb', 'Iron Tail'],
 kantoBuilder['potw-025-galarian'] = getPikachuVariant(['Electroweb', 'Quick Attack'], pikaTiersHat, false)
 kantoBuilder['potw-129-skelly'] = getMagikarpVariant()
 kantoBuilder['potw-129-orange_and_white_calico'] = getMagikarpVariant()
-kantoBuilder['potw-129-orange,_white,_and_black_calico'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange_white_and_black_calico'] = getMagikarpVariant()
 kantoBuilder['potw-129-white_and_orange_calico'] = getMagikarpVariant()
 kantoBuilder['potw-129-orange_and_gold_calico'] = getMagikarpVariant()
 kantoBuilder['potw-129-orange_two_tone'] = getMagikarpVariant()
 kantoBuilder['potw-129-orange_orca'] = getMagikarpVariant()
 kantoBuilder['potw-129-orange_dapples'] = getMagikarpVariant()
+kantoBuilder['potw-129-pink_two_tone'] = getMagikarpVariant()
+kantoBuilder['potw-129-pink_orca'] = getMagikarpVariant()
+kantoBuilder['potw-129-pink_dapples'] = getMagikarpVariant()
+kantoBuilder['potw-129-gray_bubbles'] = getMagikarpVariant()
+kantoBuilder['potw-129-gray_diamonds'] = getMagikarpVariant()
+kantoBuilder['potw-129-gray_patches'] = getMagikarpVariant()
+kantoBuilder['potw-129-purple_bubbles'] = getMagikarpVariant()
+kantoBuilder['potw-129-purple_diamonds'] = getMagikarpVariant()
+kantoBuilder['potw-129-purple_patches'] = getMagikarpVariant()
+kantoBuilder['potw-129-apricot_tiger'] = getMagikarpVariant()
+kantoBuilder['potw-129-apricot_zebra'] = getMagikarpVariant()
+kantoBuilder['potw-129-apricot_stripes'] = getMagikarpVariant()
+kantoBuilder['potw-129-brown_tiger'] = getMagikarpVariant()
+kantoBuilder['potw-129-brown_zebra'] = getMagikarpVariant()
+kantoBuilder['potw-129-brown_stripes'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange_forehead'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange_mask'] = getMagikarpVariant()
+kantoBuilder['potw-129-black_forehead'] = getMagikarpVariant()
+kantoBuilder['potw-129-black_mask'] = getMagikarpVariant()
+kantoBuilder['potw-129-saucy_blue'] = getMagikarpVariant()
+kantoBuilder['potw-129-blue_raindrop'] = getMagikarpVariant()
+kantoBuilder['potw-129-violet_blue'] = getMagikarpVariant()
+kantoBuilder['potw-129-violet_raindrop'] = getMagikarpVariant()

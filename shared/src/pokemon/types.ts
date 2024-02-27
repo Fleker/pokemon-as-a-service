@@ -144,7 +144,7 @@ export const pokemonForms = asLiterals(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
   'green_plumage', 'yellow_plumage', 'blue_plumage', 'white_plumage', 'chest', 'roaming',
   'blood_moon', 'counterfeit', 'unremarkable', 'artisan', 'masterpiece', 'wellspring', 'hearthflame', 'cornerstone',
   // https://www.serebii.net/magikarpjump/magikarp.shtml
-  'skelly', 'orange_and_white_calico', 'orange,_white,_and_black_calico', 'white_and_orange_calico',
+  'skelly', 'orange_and_white_calico', 'orange_white_and_black_calico', 'white_and_orange_calico',
   'orange_and_gold_calico', 'orange_two_tone', 'orange_orca', 'orange_dapples',
   'pink_two_tone', 'pink_orca', 'pink_dapples', 'gray_bubbles', 'gray_diamonds', 'gray_patches',
   'purple_bubbles', 'purple_diamonds', 'purple_patches',
