@@ -39,5 +39,5 @@ export const regions: Region[] = [{
   range: [899, 905], total: 7,
 }, {
   key: 'paldea', label: 'Paldea',
-  range: [906, 1017], total: 112,
+  range: [906, 1025], total: 120,
 }]
