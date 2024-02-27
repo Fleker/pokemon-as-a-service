@@ -1488,6 +1488,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Magical Leaf', 'Calm Mind'],
+      ['Mystical Fire', 'Psychic Terrain'],
     ],
   }),
   'potw-857': ensurePkmnBuilder({
@@ -1507,6 +1508,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Magical Leaf', 'Brutal Swing', 'Calm Mind'],
+      ['Mystical Fire', 'Psychic Terrain'],
     ],
   }),
   'potw-858': ensurePkmnBuilder({
@@ -1527,6 +1529,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Magical Leaf', 'Magic Powder'],
+      ['Mystical Fire', 'Psychic Terrain'],
     ],
     gmax: {
       gmaxMove: 'G-Max Smite',
@@ -1550,6 +1553,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Revenge', 'Reflect'],
+      ['Leech Life', 'Light Screen'],
     ],
   }),
   'potw-860': ensurePkmnBuilder({
@@ -1570,6 +1574,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Drain Punch', 'Reflect'],
+      ['Leech Life', 'Light Screen'],
     ],
   }),
   'potw-861': ensurePkmnBuilder({
@@ -1591,7 +1596,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Hammer Arm', 'Reflect'],
-      // ['Light Screen'],
+      ['Power Whip', 'Light Screen'],
     ],
     gmax: {
       gmaxMove: 'G-Max Snooze',
@@ -2007,6 +2012,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Bullet Seed', 'Flatter'],
+      ['Ice Fang', 'Electric Terrain'],
     ],
   }),
   'potw-877-hangry': ensurePkmnBuilder({
@@ -2026,6 +2032,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Bullet Seed', 'Flatter'],
+      ['Ice Fang', 'Electric Terrain'],
     ],
   }),
   'potw-878': ensurePkmnBuilder({

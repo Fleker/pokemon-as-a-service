@@ -3411,6 +3411,23 @@ export const bosses = [
     Potw(P.Venusaur, {var: 1}),
     Potw(P.Cramorant, {var: 2}),
     Potw(P.Swampert, {var: 1}),
+    Potw(P.Grimmsnarl, {var: 2}),
+    Potw(P.Hatterene, {var: 2}),
+    Potw(P.Huntail, {var: 1}),
+    Potw(P.Gorebyss, {var: 1}),
+    Potw(P.Ursaluna, {var: 2}),
+    Potw(P.Excadrill, {var:3}),
+    Potw(P.Seismitoad, {var: 2}),
+    Potw(P.Corsola, {var: 1}),
+    Potw(P.Goodra, {var: 2, form: 'hisuian'}),
+    Potw(P.Shedinja, {var: 1}),
+    Potw(P.Swoobat, {var: 2}),
+    Potw(P.Noivern, {var: 1}),
+    Potw(P.Ninjask, {var: 1}),
+    Potw(P.Morpeko, {var: 2}),
+    Potw(P.Morpeko, {var: 2, form: 'hangry'}),
+    Potw(P.Linoone, {var: 4}),
+    Potw(P.Durant, {var: 3}),
   ]
 ]
 
