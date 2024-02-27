@@ -26,7 +26,7 @@ export const hisuiBuilder = {
   'potw-059-hisuian': ensurePkmnBuilder({
     species: 'Arcanine', type1: 'Fire', type2: 'Rock', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 168,
+    weight: 168, release: 'greatball',
     eggBase: 'potw-058-hisuian', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Snaps at its foes with fangs cloaked in blazing flame. Despite its bulk, it deftly feints every which way, leading opponents on a deceptively merry chase as it all but dances around them.`,
     hp: 95, attack: 115, defense: 80, spAttack: 95, spDefense: 80, speed: 90,
@@ -271,7 +271,7 @@ export const hisuiBuilder = {
   'potw-628-hisuian': ensurePkmnBuilder({
     species: 'Braviary', type1: 'Psychic', type2: 'Flying', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
-    weight: 43.4,
+    weight: 43.4, release: 'greatball',
     eggBase: 'potw-627', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `Screaming a bloodcurdling battle cry, this huge and ferocious bird Pokémon goes out on the hunt. It blasts lakes with shock waves, then scoops up any prey that float to the water’s surface.`,
     hp: 110, attack: 83, defense: 70, spAttack: 112, spDefense: 70, speed: 65,

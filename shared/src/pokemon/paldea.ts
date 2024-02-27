@@ -1126,7 +1126,7 @@ export const paldeaBuilder = {
   'potw-1000': ensurePkmnBuilder({
     species: 'Gholdengo', type1: 'Steel', type2: 'Ghost', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 30, eggCycles: -1,
+    weight: 30, eggCycles: -1, release: 'ultraball',
     pokedex: `Its body seems to be made up of 1,000 coins. This Pokémon gets along well with others and is quick to make friends with anybody.`,
     hp: 87, attack: 60, defense: 95, spAttack: 133, spDefense: 91, speed: 84,
     move: ['Make It Rain', 'Shadow Ball'],
@@ -1135,7 +1135,7 @@ export const paldeaBuilder = {
   'potw-1001': ensurePkmnBuilder({
     species: 'Wo-Chien', type1: 'Dark', type2: 'Grass', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 74.2,
+    weight: 74.2, release: 'ultraball',
     eggGroup: [], eggCycles: 25,
     pokedex: `The grudge of a person punished for writing the king's evil deeds upon wooden tablets has clad itself in dead leaves to become a Pokémon.`,
     hp: 85, attack: 85, defense: 100, spAttack: 95, spDefense: 135, speed: 70,
@@ -1145,7 +1145,7 @@ export const paldeaBuilder = {
   'potw-1002': ensurePkmnBuilder({
     species: 'Chien-Pao', type1: 'Dark', type2: 'Ice', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 152.2,
+    weight: 152.2, release: 'ultraball',
     eggGroup: [], eggCycles: 25,
     pokedex: `This Pokémon can control 100 tons of fallen snow. It plays around innocently by leaping in and out of avalanches it has caused.`,
     hp: 80, attack: 120, defense: 80, spAttack: 90, spDefense: 65, speed: 135,
@@ -1155,7 +1155,7 @@ export const paldeaBuilder = {
   'potw-1003': ensurePkmnBuilder({
     species: 'Ting-Lu', type1: 'Dark', type2: 'Ground', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 699.7,
+    weight: 699.7, release: 'ultraball',
     eggGroup: [], eggCycles: 25,
     pokedex: `The fear poured into an ancient ritual vessel has clad itself in rocks and dirt to become a Pokémon.`,
     hp: 155, attack: 110, defense: 125, spAttack: 55, spDefense: 80, speed: 45,
@@ -1165,7 +1165,7 @@ export const paldeaBuilder = {
   'potw-1004': ensurePkmnBuilder({
     species: 'Chi-Yu', type1: 'Dark', type2: 'Fire', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 4.9,
+    weight: 4.9, release: 'ultraball',
     eggGroup: [], eggCycles: 25,
     pokedex: `It controls flames burning at over 5,400 degrees Fahrenheit. It casually swims through the sea of lava it creates by melting rock and sand.`,
     hp: 55, attack: 80, defense: 80, spAttack: 135, spDefense: 120, speed: 100,
@@ -1175,7 +1175,7 @@ export const paldeaBuilder = {
   'potw-1005': ensurePkmnBuilder({
     species: 'Roaring Moon', type1: 'Dragon', type2: 'Dark', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 380,
+    weight: 380, release: 'greatball',
     eggGroup: [], eggCycles: 25,
     pokedex: `It is possible that this is the creature listed as Roaring Moon in an expedition journal that still holds many mysteries.`,
     hp: 105, attack: 139, defense: 71, spAttack: 55, spDefense: 101, speed: 119,
@@ -1185,7 +1185,7 @@ export const paldeaBuilder = {
   'potw-1006': ensurePkmnBuilder({
     species: 'Iron Valiant', type1: 'Fairy', type2: 'Fighting', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 35,
+    weight: 35, release: 'greatball',
     eggGroup: [], eggCycles: 25,
     pokedex: `It has some similarities to a mad scientist's invention covered in a paranormal magazine.`,
     hp: 74, attack: 130, defense: 90, spAttack: 120, spDefense: 60, speed: 116,
@@ -1195,7 +1195,7 @@ export const paldeaBuilder = {
   'potw-1007': ensurePkmnBuilder({
     species: 'Koraidon', type1: 'Fighting', type2: 'Dragon', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 303,
+    weight: 303, release: 'ultraball',
     eggGroup: [], eggCycles: 25,
     pokedex: `This seems to be the Winged King mentioned in an old expedition journal. It was said to have split the land with its bare fists.`,
     hp: 100, attack: 135, defense: 115, spAttack: 85, spDefense: 100, speed: 135,
@@ -1205,7 +1205,7 @@ export const paldeaBuilder = {
   'potw-1008': ensurePkmnBuilder({
     species: 'Miraidon', type1: 'Electric', type2: 'Dragon', 
     tiers: [/* 'Terastallization Cup', 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 240,
+    weight: 240, release: 'ultraball',
     eggGroup: [], eggCycles: 25,
     pokedex: `Much remains unknown about this creature. It resembles Cyclizar, but it is far more ruthless and powerful.`,
     hp: 100, attack: 85, defense: 100, spAttack: 135, spDefense: 115, speed: 135,
@@ -1214,7 +1214,7 @@ export const paldeaBuilder = {
   }),
   'potw-1009': ensurePkmnBuilder({
     species: 'Walking Wake', type1: 'Water', type2: 'Dragon',
-    shiny: 'SYNCABLE', weight: 280, eggCycles: 40,
+    shiny: 'SYNCABLE', weight: 280, eggCycles: 40, release: 'ultraball',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `An unusual Pokémon of unknown origins.`,
     hp: 99, attack: 83, defense: 91, spAttack: 125, spDefense: 83, speed: 109,
@@ -1223,7 +1223,7 @@ export const paldeaBuilder = {
   }),
   'potw-1010': ensurePkmnBuilder({
     species: 'Iron Leaves', type1: 'Grass', type2: 'Psychic',
-    shiny: 'SYNCABLE', weight: 125, eggCycles: 40,
+    shiny: 'SYNCABLE', weight: 125, eggCycles: 40, release: 'ultraball',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `An unusual Pokémon of unknown origins.`,
     hp: 90, attack: 130, defense: 88, spAttack: 70, spDefense: 108, speed: 104,
@@ -1288,7 +1288,7 @@ export const paldeaBuilder = {
   }),
   'potw-1017': ensurePkmnBuilder({
     species: 'Ogerpon', type1: 'Grass',
-    shiny: 'FALSE', weight: 39.8, eggCycles: 40,
+    shiny: 'FALSE', weight: 39.8, eggCycles: 40, release: 'ultraball',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `This Pokémon's type changes based on which mask it's wearing. It confounds its enemies with nimble movements and kicks.`,
     hp: 80, attack: 120, defense: 84, spAttack: 60, spDefense: 96, speed: 110,
@@ -1297,7 +1297,7 @@ export const paldeaBuilder = {
   }),
   'potw-1096': ensurePkmnBuilder({
     species: 'Raging Bolt', type1: 'Electric', type2: 'Dragon',
-    shiny: 'FALSE', weight: 39.8, eggCycles: 40,
+    shiny: 'FALSE', weight: 39.8, eggCycles: 40, release: 'ultraball',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `This Pokémon's type changes based on which mask it's wearing. It confounds its enemies with nimble movements and kicks.`,
     hp: 80, attack: 120, defense: 84, spAttack: 60, spDefense: 96, speed: 110,
@@ -1306,7 +1306,7 @@ export const paldeaBuilder = {
   }),
   'potw-1097': ensurePkmnBuilder({
     species: 'Iron Crown', type1: 'Psychic', type2: 'Steel',
-    shiny: 'FALSE', weight: 39.8, eggCycles: 40,
+    shiny: 'FALSE', weight: 39.8, eggCycles: 40, release: 'ultraball',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `This Pokémon's type changes based on which mask it's wearing. It confounds its enemies with nimble movements and kicks.`,
     hp: 80, attack: 120, defense: 84, spAttack: 60, spDefense: 96, speed: 110,
