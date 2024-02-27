@@ -233,7 +233,7 @@ dialog {
   max-width: 40em;
 }
 
-#public-raids input {
+#public-raids input, #joined-raids input {
   min-width: 300px;
 }
 

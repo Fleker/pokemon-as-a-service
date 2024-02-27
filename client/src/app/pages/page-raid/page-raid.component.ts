@@ -106,8 +106,9 @@ export class PageRaidComponent implements OnDestroy, OnInit {
 
   myRaids: ListedRaid[] = []
   joinedRaids: ListedRaid[] = []
+  joinedRaidFilter = ''
   publicRaids: ListedRaid[] = []
-  publicRaidFilter: string = ''
+  publicRaidFilter = ''
 
   passDebt?: number
   wishingpiece?: number
@@ -213,9 +214,21 @@ export class PageRaidComponent implements OnDestroy, OnInit {
     })
   }
 
+  get filteredJoinedRaids() {
+    if (!this.joinedRaids) return []
+    if (this.joinedRaidFilter === '') return this.joinedRaids
+    return this.joinedRaids.filter((raid) => {
+      const badge = new Badge(raid.boss)
+      if (this.joinedRaidFilter === raid.rating.toString()) return true
+      if (this.joinedRaidFilter === badge.id.toString()) return true
+      if (badge.toLabel().toLowerCase().includes(this.joinedRaidFilter.toLowerCase())) return true
+      return false
+    })
+  }
+
   get battleInfo() {
     if (!this.pokemon) return ''
-    let out: string[] = []
+    const out: string[] = []
     this.pokemon._selection.forEach((p, i) => {
       let res = new Badge(p.species).toLabel()!
       if (this.items?._selection[i]) {

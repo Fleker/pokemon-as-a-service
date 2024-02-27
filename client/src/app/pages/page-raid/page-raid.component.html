@@ -161,8 +161,10 @@
   <div id="joined-raids" *ngIf="joinedRaids">
     <h3>Joined raids</h3>
     <button mat-button (click)="clearAll()" id="raid-clear" [disabled]="exec.clear">Clear all raids</button>
+    <br>
+    <input [(ngModel)]="joinedRaidFilter" placeholder="Search Badge ID, Label, or Stars" />
     <br><br>
-    <raid-card *ngFor="let item of joinedRaids" [id]="item.id" [boss]="item.boss" [rating]="item.rating" [reason]="item.reason" [exec]="exec.clear" [cancel]="true"
+    <raid-card *ngFor="let item of filteredJoinedRaids" [id]="item.id" [boss]="item.boss" [rating]="item.rating" [reason]="item.reason" [exec]="exec.clear" [cancel]="true"
       (cancel)="clear($event)">
     </raid-card>
   </div>
