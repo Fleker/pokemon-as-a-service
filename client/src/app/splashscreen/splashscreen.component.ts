@@ -1,7 +1,6 @@
 import { ElementRef, HostBinding, Renderer2, ViewChild } from '@angular/core';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../service/firebase.service';
-
 const tips = [
   "Tips may show up here.",
   "The Game Corner changes every day. Keep trying.",
@@ -48,7 +47,6 @@ const tips = [
   'When Silvally heads into battle with memories, its type changes! This affects its signature move.',
   'Crabrawler gains more power from the snow. Only one snowy location a day will have this effect.',
 ]
-
 @Component({
   selector: 'app-splashscreen',
   templateUrl: './splashscreen.component.html',
@@ -58,17 +56,14 @@ export class SplashscreenComponent implements OnInit, AfterViewInit {
   @HostBinding('style.opacity') opacitySplash = '1'
   @HostBinding('style.display') showSplash = 'block'
   @ViewChild('droppings') droppings: ElementRef<HTMLImageElement>
-  appVersion: string = 'v2.8.23'
+  appVersion: string = 'v2.8.24'
   needLogin: boolean = false
   selectedTip: string = '...'
   isLoaded = false
-
   constructor(private firebase: FirebaseService, private renderer: Renderer2) { }
-
   ngOnInit(): void {
     this.selectedTip = tips[Math.floor(Math.random() * tips.length)]
   }
-
   ngAfterViewInit() {
     this.firebase.subscribeAuth().subscribe(res => {
       this.needLogin = !res || !res.user
@@ -84,7 +79,6 @@ export class SplashscreenComponent implements OnInit, AfterViewInit {
       }
     })
   }
-
   async login() {
     // Login in the user
     await this.firebase.login()

@@ -2,7 +2,6 @@ import * as functions from 'firebase-functions'
 import * as admin from 'firebase-admin'
 import spacetime from 'spacetime'
 import {salamander} from '@fleker/salamander'
-
 import { randomItem } from './utils'
 import {BadgeId, PokemonDoc, PokemonId} from '../../shared/src/pokemon/types'
 import * as Pkmn from '../../shared/src/pokemon'
@@ -22,10 +21,10 @@ import { RuntimeOptions } from 'firebase-functions';
 import { CREATED, COMPLETED, IN_PROGRESS, EXPIRED, violatesRoomSize, raidBattleSettings, getPityCount, raidSelectPreconditionCheck } from './battle-raid.utils';
 import { getLocation } from './location';
 import { RaidBoss, bossPrizes, BOOSTED_SHINY, getAvailableBosses, bossHeldItem } from '../../shared/src/raid-bosses';
+import { MONTH_THEME, timeBoss, standardBosses, forecastBoss, regionBoss, terrainBoss } from '../../shared/src/raid-bosses';
 import { hasItem, awardItem, calculateNetWorth, addPokemon } from './users.utils';
 import { ItemId } from '../../shared/src/items-list';
 import { timeOfDay } from './location.utils';
-
 import * as A from './adventure-log'
 import { Requirements } from '../../shared/src/legendary-quests';
 import { forEveryUser } from './admin';
@@ -40,16 +39,13 @@ import { Notification, PublicRaidsDoc } from '../../shared/src/server-types'
 import { typePrizes } from '../../shared/src/raid-prizes'
 import {BattleOptions, execute, ExecuteLog} from '../../shared/src/battle/battle-controller'
 import isDemo from '../../shared/src/platform/isDemo'
-
 const _db = admin.firestore()
 const db = salamander(_db)
 const FieldValue = admin.firestore.FieldValue
 const allSettled = require('promise.allsettled');
-
 const getRaidBoss = (rating: number, location: Location, charms: string[], questArgs: Requirements, desiredBoss?: BadgeId): RaidBoss => {
   const tod = timeOfDay(spacetime(new Date(), location.timezone))
   const filterBosses = getAvailableBosses(rating, location, charms, questArgs, tod)
-
   const simpleBoss = (() => {
     if (desiredBoss && filterBosses.find(b => b.species === desiredBoss)) {
       return {species: desiredBoss}
@@ -61,7 +57,6 @@ const getRaidBoss = (rating: number, location: Location, charms: string[], quest
     species: badge.toLegacyString()
   }
 }
-
 const checkShiny = (raid) => {
   const db = Pkmn.get(raid.boss)!
   if (db.shiny === 'FALSE') return 0 // Never be shiny
@@ -80,16 +75,13 @@ const checkShiny = (raid) => {
   }
   return 1/raidDefault
 }
-
 export const raid_create = functions.https.onCall(async (data, context) => {
   const host = context.auth!.uid
   const {rating} = data
-
   if (!Number.isInteger(rating)) {
     throw new functions.https.HttpsError('failed-precondition',
       `You cannot create a raid with this condition`)
   }
-
   if (isAdmin(host)) {
     // We're all good here
   } else {
@@ -103,14 +95,12 @@ export const raid_create = functions.https.onCall(async (data, context) => {
           `You, yes you specifically, cannot create a ${rating}-star raid`)
     }
   }
-
   const hostDoc = await db.collection('users').doc(host).get()
   const hostData = hostDoc.data() as Users.Doc
   if (!hostData.hiddenItemsFound.includes(POKEDOLL)) {
     throw new functions.https.HttpsError('failed-precondition',
     'To host raids you must first have a transit pass')
   }
-
   // Get player current location
   const hostLocation = hostData.location || 'US-MTV'
   const location = await getLocation(hostLocation)
@@ -157,7 +147,6 @@ export const raid_create = functions.https.onCall(async (data, context) => {
     isPublic: false,
     wishes: 0,
   }
-
   if (!hostData.lastRaidDate) {
     // Add this field before the following transaction
     await db.runTransaction(async transaction => {
@@ -166,12 +155,10 @@ export const raid_create = functions.https.onCall(async (data, context) => {
       await transaction.update(ref, {lastRaidDate})
     })
   }
-
   let {raidActive} = hostData
   if (!raidActive) {
     raidActive = {}
   }
-
   // Give raid pass
   await db.runTransaction(async transaction => {
     // Raid pass
@@ -179,7 +166,6 @@ export const raid_create = functions.https.onCall(async (data, context) => {
     const userDoc = await transaction.get(ref)
     const user = userDoc.data() as Users.Doc
     const {items} = user
-
     const wishes = raidBattleSettings[rating].wishes
     const hasWishingPieces = hasItem(user, 'wishingpiece', wishes)
     // Check against a `lastRaidDate` field to prevent someone from
@@ -202,24 +188,29 @@ export const raid_create = functions.https.onCall(async (data, context) => {
     const lastRaidDate = Date.now()
     await transaction.update(ref, {items, lastRaidDate})
   })
-
   const raidId = await db.collection('raids').add(entry)
-
   raidActive[raidId.id] = {
     boss: boss.species as BadgeId,
     rating,
     reason: 'Created raid'
   }
-
   // Update
   await hostDoc.ref.update({ raidActive })
-
   return {
     raidId: raidId.id,
-    boss
-  }
+    boss,
+    debug: {
+      terrainBoss,
+      regionBoss,
+      standardBosses,
+      forecastBoss,
+      timeBoss,
+      MONTH_THEME,
+      BOOSTED_SHINY,
+      bossHeldItem,
+    }
+  } as any
 })
-
 export const raid_publicize = functions.https.onCall(async (data, context) => {
   const userId = context.auth!.uid
   const {raidId} = data
@@ -233,19 +224,15 @@ export const raid_publicize = functions.https.onCall(async (data, context) => {
     throw new functions.https.HttpsError('failed-precondition',
       `The raid cannot be published in its current state ${raid.state}`)
   }
-
   await db.collection('raids').doc(raidId).update({isPublic: true})
-
   await db.runTransaction(async transaction => {
     const publicRef = db.collection('raids').doc('_public')
     const publicDoc = await transaction.get<PublicRaidsDoc>(publicRef)
     const {list} = publicDoc.data()
-
     if (list.filter(entry => entry.id === raidId).length) {
       throw new functions.https.HttpsError('already-exists',
         'This raid is already marked as public.')
     }
-
     list.unshift({
       boss: raid.boss,
       id: raidId,
@@ -255,7 +242,6 @@ export const raid_publicize = functions.https.onCall(async (data, context) => {
     await transaction.update<PublicRaidsDoc>(publicRef, {list})
   })
 })
-
 /**
  * API params for raid_wish
  */
@@ -280,33 +266,27 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
     const doc = await transaction.get(raidRef)
     const raid = doc.data() as DbRaid
     const expiryTime = raidBattleSettings[raid.rating].expires
-
     if (raid.rating < 1 || raid.rating > raidBattleSettings.length) {
       throw new functions.https.HttpsError('failed-precondition',
           `You cannot wish about a ${raid.rating}-star raid`)
     }
-
     if (!raidBattleSettings[raid.rating].canWish) {
       // Special case
       throw new functions.https.HttpsError('failed-precondition',
           `You cannot wish about a ${raid.rating}-star raid`)
     }
-
     if (raid.host !== userId) {
       throw new functions.https.HttpsError('failed-precondition',
           `You cannot wish when it is not your raid`)
     }
-
     const timestamp = raid.timestamp as FirebaseFirestore.Timestamp
     if (timestamp.toMillis() < Date.now() - expiryTime) {
       // await doc.ref.update({ state: EXPIRED })
       throw new functions.https.HttpsError('failed-precondition',
         'This raid has expired')
     }
-
     // Raid pass
     const user = await transaction.get(ref)
-
     let willPity = false
     if (raid.wishes > getPityCount(user.data() as Users.Doc)) {
       console.info('Bad luck buddy')
@@ -315,7 +295,6 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
       }
       willPity = true
     }
-
     if (!willPity) {
       const {items} = user.data()!
       if (items.wishingpiece && items.wishingpiece > 0) {
@@ -326,7 +305,6 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
       }
       await transaction.update(ref, {items})
     }
-
     // Reselect boss
     const {boss, locationWeather, wishes} = raid
     // Get player current location
@@ -336,7 +314,6 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
     location.forecast = locationWeather // Static weather
     // Check eligibility
     const questArgs: Requirements = toRequirements(hostData, location)
-
     const newboss = (() => {
       let nextBoss: RaidBoss = {
         species: boss as BadgeId
@@ -348,12 +325,10 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
       }
       return nextBoss
     })()
-
     // Nobody is ready for this
     Object.keys(raid.players!).forEach(key => {
       raid.players![key].ready = false
     })
-
     // Update raid
     await transaction.update(raidRef, {
       boss: newboss.species,
@@ -361,7 +336,6 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
       timestampLastUpdated: FieldValue.serverTimestamp(),
       wishes: wishes + 1,
     })
-
     // Update active raids
     const {raidActive} = hostData
     if (!raidActive![raidId]) {
@@ -373,14 +347,12 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
     }
     raidActive![raidId].boss = newboss.species as BadgeId
     await transaction.update(ref, { raidActive })
-
     return {
       isPublic: raid.isPublic,
       newboss,
       willPity,
     }
   })
-
   if (isPublic) {
     await db.runTransaction(async transaction => {
       const publicRef = db.collection('raids').doc('_public')
@@ -395,7 +367,6 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
       }
     })
   }
-
   return {
     isPublic,
     newboss,
@@ -403,7 +374,6 @@ export const raid_wish = functions.https.onCall(async (data: RaidWishParams, con
     willPity,
   }
 })
-
 /**
  * Closes raid in a transaction in a 'best case' approach.
  * If the transaction fails, don't do anything about it.
@@ -424,14 +394,11 @@ async function closeRaid(raidId) {
   })
   await allSettled([transaction])
 }
-
 export const raid_select = functions.https.onCall(async (data, context) => {
   const userId = context.auth!.uid
   const {item, raidId} = data
   const dataSpecies: BadgeId | PokemonId | 'null' | 'first' = data.species
-
   console.log('1', data.species)
-
   const species: PokemonId | 'null' | 'first' = (() => {
     if (dataSpecies === 'null' || dataSpecies === 'first') {
       return dataSpecies
@@ -440,24 +407,19 @@ export const raid_select = functions.https.onCall(async (data, context) => {
       Badge.fromLegacy(dataSpecies).toString() :
       new Badge(dataSpecies).toString()
   })()
-
   console.log('2', data.species, species)
-
   let {ready} = data
   if (ready === undefined) {
     ready = true
   }
-
   try {
     return await db.runTransaction(async t => {
       const userRef = db.collection('users').doc(userId)
       const userDoc = await t.get(userRef)
       const raidRef = db.collection('raids').doc(raidId)
       const raidDoc = await t.get(raidRef)
-
       const raid  = raidDoc.data() as DbRaid
       const user = userDoc.data() as Users.Doc
-
       // Pass precondition check or throw
       try {
         const res = await raidSelectPreconditionCheck(raid, user, userId, species, item)
@@ -466,7 +428,6 @@ export const raid_select = functions.https.onCall(async (data, context) => {
           // Leave room
           delete raid.players![userId]
           const playerList = Object.keys(raid.players!)
-
           if (raid.host !== userId) {
             const {items} = userDoc.data()!
             if (items.raidpass) {
@@ -476,7 +437,6 @@ export const raid_select = functions.https.onCall(async (data, context) => {
             }
             t.update<Users.Doc>(userRef, {items})
           }
-
           if (raid.host === userId) {
             // Let's re-select a host
             raid.host = randomItem(playerList)
@@ -494,14 +454,12 @@ export const raid_select = functions.https.onCall(async (data, context) => {
               notifications: newHost.notifications,
             })
           }
-
           t.update<DbRaid>(raidRef, {
             'players': raid.players,
             host: raid.host,
             playerList,
             timestampLastUpdated: FieldValue.serverTimestamp()
           })
-
           if (raidBattleSettings[raid.rating].maxMembers === playerList.length && raid.isPublic) {
             // Re-add if necessary
             const publicDoc = await db.collection('raids').doc('_public').get()
@@ -516,7 +474,6 @@ export const raid_select = functions.https.onCall(async (data, context) => {
               await publicDoc.ref.set({list})
             }
           }
-
           if (raid.players![userId]) {
             return 'ok'
           } else {
@@ -526,7 +483,6 @@ export const raid_select = functions.https.onCall(async (data, context) => {
           // Check room size in transaction
           const playerList = Object.keys(raid.players!)
           raid.playerList = playerList
-
           if (violatesRoomSize(raid, userId)) {
             if (raid.isPublic) {
               // At this point we should remove from the public list
@@ -535,7 +491,6 @@ export const raid_select = functions.https.onCall(async (data, context) => {
             throw new functions.https.HttpsError('failed-precondition',
               `The raid cannot handle any more players`)
           }
-
           if (userId !== raid.host && !(userId in raid.players!)) {
             if (!hasItem(user, 'raidpass')) {
               // This player has not even conceived of raid passes yet
@@ -548,10 +503,8 @@ export const raid_select = functions.https.onCall(async (data, context) => {
                 `You do not have the necessary ${res.raidPrice} number of raid passes`)
             }
           }
-
           // Join the room!
           console.log('5', species)
-
           const speciesToJoin = (() => {
             if (res.speciesToJoin!.startsWith('potw-')) {
               return Badge.fromLegacy(res.speciesToJoin!).toString()
@@ -576,7 +529,6 @@ export const raid_select = functions.https.onCall(async (data, context) => {
               ready, ldap: user.ldap,
             }
           }
-
           let {raidActive} = user
           if (!raidActive) {
             raidActive = {}
@@ -586,7 +538,6 @@ export const raid_select = functions.https.onCall(async (data, context) => {
             rating: raid.rating,
             reason: 'Joined this raid',
           }
-
           t.update<Users.Doc>(userRef, {items: user.items, raidActive})
           if (Object.keys(raid.players!).length === 5 && raid.rating === 11) {
             throw new functions.https.HttpsError('failed-precondition',
@@ -616,7 +567,6 @@ export const raid_select = functions.https.onCall(async (data, context) => {
               await publicDoc.ref.set({list})
             }
           }
-
           return raid.players![userId]
         }
         return `Got unexpected result ${res.state}`
@@ -630,11 +580,9 @@ export const raid_select = functions.https.onCall(async (data, context) => {
   }
   return 'OK'
 })
-
 function buffRaidBoss(opponentPokemon, rating) {
   raidBattleSettings[rating].buff(opponentPokemon)
 }
-
 // There is no Mega Evolution exception here.
 export async function matchup(players: Badge[], heldItems: ItemId[], opponent: BadgeId, rating: number, location: Location): Promise<ExecuteLog> {
   const playerPokemon = players.map((badge, index) => {
@@ -668,7 +616,6 @@ export async function matchup(players: Badge[], heldItems: ItemId[], opponent: B
     pkmn.weight *= {xxs: 0.8, xxl: 1.2, n: 1}[size ?? 'n']
     return pkmn
   })
-
   const data = {...Pkmn.get(opponent)} as PokemonDoc
   const bossHeldItemKey = bossHeldItem[opponent] || 'lum'
   const opponentPokemon: Pokemon = {
@@ -698,10 +645,8 @@ export async function matchup(players: Badge[], heldItems: ItemId[], opponent: B
     opponentPokemon.conditions.push({...ConditionMap.RaidNoble})
   }
   // Raid bosses have no explicit size modifier
-
   // Buff Raid Boss
   buffRaidBoss(opponentPokemon, rating)
-
   const options: BattleOptions = {
     opponentMoves: raidBattleSettings[rating].moves,
     startMsg: `A ${opponentPokemon.species} has appeared and lets out a loud cry! It is dramatically larger than it should be!`,
@@ -713,7 +658,6 @@ export async function matchup(players: Badge[], heldItems: ItemId[], opponent: B
   }
   return execute(playerPokemon, [opponentPokemon], options, location, {fieldSize: -1, partySize: -1, maxWins: 0, mega: true, zmoves: true})
 }
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function prizesPromise(raidId: string, raid: DbRaid, prizesMap: Record<any, any>, userId: string, result: any, mult: number) {
   // Do we do one prize per person? Do we add more based on difficulty?
@@ -737,9 +681,7 @@ function prizesPromise(raidId: string, raid: DbRaid, prizesMap: Record<any, any>
       return 0
     })()
     const numPrizes = raidBattleSettings[raid.rating].prizeCount * mult + netMult
-
     prizesMap[userId] = []
-
     /// Create the prize pool
     const stdPrizes = raidBattleSettings[raid.rating].prizes
     // Make common ones more common
@@ -761,7 +703,6 @@ function prizesPromise(raidId: string, raid: DbRaid, prizesMap: Record<any, any>
       // 5x
       prizesArr.push(...bprizes, ...bprizes, ...bprizes, ...bprizes, ...bprizes)
     }
-
     for (let i = 0; i < numPrizes; i++) {
       const prize = randomItem(prizesArr) || 'pokeball'
       prizesMap[userId].push(prize)
@@ -773,7 +714,6 @@ function prizesPromise(raidId: string, raid: DbRaid, prizesMap: Record<any, any>
       raidRecord = [0, 1, 0, 0]
     }
     console.log('Player', userId, 'gets', prizesMap[userId], raidId, raid.rating)
-
     // Player then captures the Pokémon
     const claimedBoss = Badge.create(raid.boss)
     claimedBoss.personality.pokeball = 'premierball'
@@ -799,7 +739,6 @@ function prizesPromise(raidId: string, raid: DbRaid, prizesMap: Record<any, any>
       prizesMap[userId].unshift('Prize allocation failed: Manual claim')
       console.log('Cannot update database right now')
     }
-
     if (mandateClaim) {
       sendNotification(user, {
         category: 'RAID_CLAIM',
@@ -826,7 +765,6 @@ function prizesPromise(raidId: string, raid: DbRaid, prizesMap: Record<any, any>
     return userDoc.id
   })
 }
-
 const raidStartRuntime = {
   timeoutSeconds: 240,
 } as RuntimeOptions
@@ -869,19 +807,16 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
     throw new functions.https.HttpsError('failed-precondition',
       'This raid has expired. Raid passes are returned once a day.')
   }
-
   Object.values(raid.players!).forEach(player => {
     if (!player.ready && !override) {
       throw new functions.https.HttpsError('failed-precondition',
         'Not everyone is ready yet. Do you want to start anyway?')
     }
   })
-
   if (Object.values(raid.players!).length === 0) {
     throw new functions.https.HttpsError('not-found',
       'You cannot start a raid without any Pokémon!')
   }
-
   // Mark as in-progress to prevent last-minute submissions
   try {
     await db.runTransaction(async transaction => {
@@ -911,7 +846,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
     throw new functions.https.HttpsError('unavailable',
       'Cannot mark raid as in-progress for some reason: ' + e)
   }
-
   /// Look at battle-frontier-2.ts
   const players: Badge[] = [
     ...Object.keys(raid.players!).sort()
@@ -923,7 +857,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
       .map(key => raid.players![key].species)
       .map(key => key.startsWith('potw-') ? Badge.fromLegacy(key) : new Badge(key)),
   ]
-
   const playerItems: ItemId[] = [
     ...Object.keys(raid.players!).sort()
       .filter(key => raid.players![key].tank)
@@ -932,14 +865,12 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
       .filter(key => !raid.players![key].tank)
       .map(key => raid.players![key].item!),
   ]
-
   // Run the battle
   console.log(`${raidId} - Preconditions complete`)
   const location = await getLocation(raid.location)
   location.forecast = raid.locationWeather // Static weather
   const result = await matchup(players, playerItems, raid.boss, raid.rating, location)
   console.log(`${raidId} - Match complete`)
-
   // Mark as completed to prevent repeatedly running raid past this point
   try {
     await db.runTransaction(async transaction => {
@@ -964,7 +895,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
       'Cannot mark raid as nearly completed for some reason: ' + e)
   }
   console.log(`${raidId} - Mark as complete`)
-
   if (raid.isPublic) {
     try {
       await closeRaid(raidId)
@@ -974,7 +904,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
     }
     console.log(`${raidId} - Splice public raid complete`)
   }
-
   // Consume items
   const playerIds = [
     ...Object.keys(raid.players!).sort()
@@ -1012,7 +941,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
       'Player documents are unavailable to manage item removal: ' + e)
   }
   console.log(`${raidId} - Item consumption complete`)
-
   // Update adventure logs, notify users, remove active raid
   const adventureLogUpdates = playerIds.map(async (userId) => {
     await db.runTransaction(async t => {
@@ -1026,7 +954,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
       } else {
         delete raidActive[raidId]
       }
-
       await t.update<Users.Doc>(userRef, {
         raidActive,
       })
@@ -1045,7 +972,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
     //   })
     // })
   })
-
   try {
     await allSettled(adventureLogUpdates)
   } catch (e) {
@@ -1053,7 +979,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
       `Cannot update adventure logs for players: ${e}`)
   }
   console.log(`${raidId} - Adventure logging complete`)
-
   // Determine shinyness for raid boss
   let mandateClaim = raidBattleSettings[raid.rating].mandateClaim
   if ((Math.random() / raid.rating) < checkShiny(raid)) {
@@ -1066,7 +991,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
       boss: raid.boss
     })
   }
-
   const prizesMap = {}
   const claimUsers: string[] = []
   if (mandateClaim) {
@@ -1109,7 +1033,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
           const userDoc = await transaction.get<Users.Doc>(userRef)
           if (!userDoc.exists) return Promise.resolve()
           const user = userDoc.data()
-
           let {raidRecord} = user
           if (raidRecord) {
             raidRecord[result.result]++
@@ -1139,7 +1062,6 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
     }
   }
   console.log(`${raidId} - Final stretch`)
-
   // Post log for everyone
   try {
     await db.collection('raids').doc(raidId).update<DbRaid>({
@@ -1160,10 +1082,8 @@ export const raid_start = functions.runWith(raidStartRuntime).https.onCall(async
       `Cannot update raid result data: ${e}`)
   }
   console.log(`${raidId} - Result compilations complete`)
-
   return { result }
 })
-
 export const raid_claim = functions.https.onCall(async (data, context) => {
   const userId = context.auth!.uid
   const {raidId} = data
@@ -1184,7 +1104,6 @@ export const raid_claim = functions.https.onCall(async (data, context) => {
         'Prize already allocated')
     }
     const prizesToAllocate = prizes![userId].filter(p => !p.includes('Prize allocation failed'))
-
     const userRef = db.collection('users').doc(userId)
     const userDoc = await transaction.get<Users.Doc>(userRef)
     if (!userDoc.exists) return Promise.resolve()
@@ -1252,7 +1171,6 @@ export const raid_claim = functions.https.onCall(async (data, context) => {
     prizes
   }
 })
-
 export const raid_tank = functions.https.onCall(async (data, context) => {
   const userId = context.auth!.uid
   const {raidId, playerId, isTank} = data
@@ -1274,12 +1192,10 @@ export const raid_tank = functions.https.onCall(async (data, context) => {
     throw new functions.https.HttpsError('failed-precondition',
       'Failed precondition 2.')
   }
-
   await db.collection('raids').doc(raidId).update({
     [`players.${playerId}.tank`]: isTank === true
   })
 })
-
 /**
  * This can now be pulled in directly through Users.Doc.raidActive
  * @deprecated
@@ -1351,7 +1267,6 @@ export const raid_list = functions.https.onCall(async (data, context) => {
   })
   return Object.values(raids)
 })
-
 // Run daily
 const raidDispenseRuntime = {
   timeoutSeconds: 540,
@@ -1360,7 +1275,6 @@ const raidDispenseRuntime = {
 // Daily, 1AM GMT
 export const raid_dispense = functions.runWith(raidDispenseRuntime)
     .pubsub.schedule('0 1 */1 * *').onRun(async () => {
-
   let dispenses = 0
   await forEveryUser(['items.raidpass', '<', 25], async (user, ref) => {
     const max = (() => {
@@ -1373,7 +1287,6 @@ export const raid_dispense = functions.runWith(raidDispenseRuntime)
       await db.runTransaction(async transaction => {
         const {items, notifications} = user
         const hasDispenseNotification = notifications?.find(n => n.link === '/multiplayer/raids')
-
         if (items.raidpass && items.raidpass > max) {
           // Do not change, allowing one to theoretically have many
         } else if (items.raidpass) {
@@ -1382,7 +1295,6 @@ export const raid_dispense = functions.runWith(raidDispenseRuntime)
         } else {
           items.raidpass = 5
         }
-
         if (items.wishingpiece && items.wishingpiece > max) {
           // Do not change, allowing one to theoretically have many
         } else if (items.wishingpiece) {
@@ -1416,18 +1328,14 @@ export const raid_dispense = functions.runWith(raidDispenseRuntime)
   })
   return `Dispensed Raid Passes and Wishing Pieces for ${dispenses} accounts`
 })
-
 export const getAdventureLog = async (userId: string) => {
   const raidHistory = await A.readRaid(userId, {limit: 1})
-
   if (raidHistory.length) {
     return {
       history: raidHistory,
     }
   }
-
   // Retroactively generate
-
   const raidSnapshot = await db.collection('raids')
       .where('playerList', 'array-contains', userId)
       .orderBy('timestamp', 'asc')
@@ -1442,7 +1350,6 @@ export const getAdventureLog = async (userId: string) => {
       timestamp: doc.data().timestamp,
     })
   )
-
   await db.runTransaction(async t => {
     for (const doc of raidSnapshotDocs) {
       let timestamp
@@ -1464,12 +1371,10 @@ export const getAdventureLog = async (userId: string) => {
       })
     }
   })
-
   return {
     history: raidSnapshotDocs,
   }
 }
-
 export const raid_history = functions.https.onCall(async (_, context) => {
   const userId = context.auth!.uid
   const raids = await getAdventureLog(userId)
@@ -1485,7 +1390,6 @@ export const raid_history = functions.https.onCall(async (_, context) => {
     raidRecord,
   }
 })
-
 // Periodically, 1AM GMT
 const raidPublicRemoveCron = {
   timeoutSeconds: 540,
@@ -1539,7 +1443,6 @@ export const raid_public_remove = functions.runWith(raidPublicRemoveCron)
       })
     }
   }
-
   // Next cleanup public raids
   const publicRef = db.collection('raids').doc('_public')
   const publicRaids = await publicRef.get<PublicRaidsDoc>()
@@ -1566,7 +1469,6 @@ export const raid_public_remove = functions.runWith(raidPublicRemoveCron)
       staleRaids.push(raidDoc.id)
     }
   })
-
   try {
     await db.runTransaction(async transaction => {
       const publicDoc = await transaction.get<PublicRaidsDoc>(publicRef)
@@ -1584,7 +1486,6 @@ export const raid_public_remove = functions.runWith(raidPublicRemoveCron)
   } catch (e) {
     console.error('cannot prune public raid list', e)
   }
-
   // Run through all almost raids, reminder
   for (let i = 1; i < raidBattleSettings.length; i++) {
     const nearExpiryTime = new Date(Date.now() - raidBattleSettings[i].expires + 1000 * 60 * 60 * 24)
@@ -1614,7 +1515,6 @@ export const raid_public_remove = functions.runWith(raidPublicRemoveCron)
       })
     }
   }
-
   const stalledRaids = await db.collection('raids')
     .where('state', '==', COMPLETED)
     .where('log', '==', '') // Empty string
@@ -1628,7 +1528,6 @@ export const raid_public_remove = functions.runWith(raidPublicRemoveCron)
       state: CREATED,
       timestamp: FieldValue.serverTimestamp(),
     })
-
     const hostDoc = await db.collection('users').doc(raid.host).get()
     const hostData = hostDoc.data() as Users.Doc
     try {
@@ -1646,7 +1545,6 @@ export const raid_public_remove = functions.runWith(raidPublicRemoveCron)
       console.error(`Error notifying stalled raid: ${e}`)
     }
   }
-
   const brokenRaids = await db.collection('raids')
     .where('state', '==', IN_PROGRESS)
     .where('log', '==', '') // Empty string
@@ -1673,20 +1571,17 @@ export const raid_public_remove = functions.runWith(raidPublicRemoveCron)
       notifications: FieldValue.arrayUnion(notify),
     })
   }
-
   await db.collection('admin').doc('cron').update({
     raidPublicRemove: Date.now()
   })
   console.info(`Removed ${staleRaids.length} raids from the public list`)
 })
-
 interface RaidActiveClearParams {
   /**
    * If a raid ID is provided, only clear that entry.
    */
   id?: string
 }
-
 /**
  * Function that clears the 'raidActive' field of the UserDoc.
  */

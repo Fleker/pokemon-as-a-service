@@ -1,25 +1,21 @@
 // node mysteryGift.js [dry]
-const species = 270
+const species = 277
 ///
 const admin = require('firebase-admin');
 import {Badge, Pokemon} from '../shared/src/badge3'
 const pkmn = Pokemon(species)
 const badge = new Badge(pkmn)
 const bstr = badge.toString()
-
 const isDryRun = process.argv[2] === 'dry'
 if (isDryRun) {
   console.info('This is a dry run')
 }
-
 admin.initializeApp({
   credential: admin.credential.cert(require('../service-key.json'))
 });
-
 const db = admin.firestore();
 const settings = {timestampsInSnapshots: true};
 db.settings(settings);
-
 (async () => {
   const ref = await db.collection('hiddenItems').add({
     encounter: bstr,
@@ -28,14 +24,10 @@ db.settings(settings);
   const hiddenItemId = ref.id
   console.log(`Granting a MYSTERYGIFT: ${badge.toLegacyString()} / ${bstr} - (${hiddenItemId})`)
   console.log('.....')
-
   const querySnapshot = await db.collection('users').get()
   console.log('.....')
-
   // querySnapshot.docs.forEach(d => console.log(d.data().ldap, d.id))
-
   // return
-
   for (const doc of querySnapshot.docs) {
     // console.log(doc.id);
     if (doc.id.startsWith('npc')) {
@@ -78,6 +70,5 @@ db.settings(settings);
       console.log(`Skip ${doc.id} ${ldap}`)
     }
   }
-
   console.log(`OK have done Pokemon ${species} as ${bstr}`)
 })()

@@ -5,21 +5,18 @@
     <br>
     <img src="{{DOWSING_MCHN}}" />
   </div>
-
   <!-- Pkmn -->
   <div *ngIf="dowseType === 1">
     You found a wild {{res.label}}! Looks like it wants to stay with you.
     <br>
     <sprite-pokemon badge="{{res.species}}" [dialog]="true"></sprite-pokemon>
   </div>
-
   <!-- Egg -->
   <div *ngIf="dowseType === 2">
     You found an egg! You carefully picked up the egg.
     <br>
     <img src="{{res.sprite}}" title="Egg" />
   </div>
-
   <!-- Item -->
   <div *ngIf="dowseType === 3">
     You found a <strong>{{res.label}}</strong>!
@@ -27,7 +24,6 @@
     <br><br>
     <sprite-item item="{{res.api.item}}"></sprite-item>
   </div>
-
   <!-- Legendary -->
   <div *ngIf="dowseType === 4">
     <sprite-pokemon badge="{{res.species}}" [dialog]="true"></sprite-pokemon>
@@ -40,13 +36,12 @@
       You found the legendary {{res.label}}! Looks like it wants to stay with you.
     </span>
   </div>
-
   <!-- Radio -->
   <div *ngIf="dowseType === 5">
     <em>
       This is Buena, coming to you live from Goldenrod City. Here's a question
       for all our listeners. If you know the answer, call in and you may be
-      able to win a valuable prize.·
+      able to win a valuable prize.
     </em>
     <br>
     <p class="radio-question">
@@ -63,7 +58,6 @@
       Submit Answer
     </button>
   </div>
-
   <!-- Radio Answer -->
   <div *ngIf="dowseType === 6">
     <em>
@@ -94,7 +88,6 @@
       </em>
     </div>
   </div>
-
   <!-- Pkmn -->
   <div *ngIf="dowseType === 7">
     You found a wild {{res.label}}! Looks like it wants to stay with you.
@@ -104,7 +97,6 @@
     It is holding a an item!
     <sprite-item item="{{res.api.item}}"></sprite-item>
   </div>
-
   <!-- Error -->
   <div *ngIf="dowseType === 9">
     {{textRes}}
