@@ -3,21 +3,16 @@ import { Tier } from "../battle-tiers"
 import { CanBeShiny } from "../shiny"
 import { MoveId } from "../gen/type-move-meta"
 import {datastoreBuilder} from '../pokemon'
-
 export const types = asLiterals([
   'Bug', 'Normal', 'Fighting', 'Flying', 'Fire', 'Poison', 'Fairy', 'Ghost',
     'Psychic', 'Dark', 'Dragon', 'Steel', 'Water', 'Grass', 'Ice', 'Electric',
     'Ground', 'Rock', 'Status'
 ])
-
 export type Type = keyof {[K in (typeof types)[number]]: string}
-
 export type EggGroup = 'Monster' | 'Water 1' | 'Bug' | 'Flying' | 'Field' | 'Fairy' | 'Grass'
     | 'Human-Like' | 'Water 3' | 'Mineral' | 'Amorphous' | 'Water 2' | 'Ditto' | 'Dragon'
     | 'Undiscovered'
-
 export type PokemonGender = 'male' | 'female' | ''
-
 interface Mega {
   attack: number
   defense: number
@@ -29,12 +24,10 @@ interface Mega {
   weight: number
   pokedex: string
 }
-
 interface Gigantamax {
   gmaxMove: MoveId
   pokedex: string
 }
-
 export interface PokemonDocBuilder {
   species: string
   pokedex: string
@@ -103,12 +96,10 @@ export interface PokemonDocBuilder {
    */
   eggCycles: 5 | 10 | 15 | 20 | 25 | 30 | 35 | 40 | -1
 }
-
 export interface PokemonDoc extends PokemonDocBuilder {
   eggBase?: BadgeId | BadgeId[]
   levelTo?: BadgeId | BadgeId[]
 }
-
 export const pokemonForms = asLiterals(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
   'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u',
   'v', 'w', 'x', 'y', 'z', '?', '!',
@@ -154,22 +145,20 @@ export const pokemonForms = asLiterals(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
   'blood_moon', 'counterfeit', 'unremarkable', 'artisan', 'masterpiece', 'wellspring', 'hearthflame', 'cornerstone',
   // https://www.serebii.net/magikarpjump/magikarp.shtml
   'skelly', 'orange_and_white_calico', 'orange,_white,_and_black_calico', 'white_and_orange_calico',
-  'orange_and_gold_calico', 'orange_two-tone', 'orange_orca', 'orange_dapples',
-  'pink_two-tone', 'pink_orca', 'pink_dapples', 'gray_bubbles', 'gray_diamonds', 'gray_patches',
+  'orange_and_gold_calico', 'orange_two_tone', 'orange_orca', 'orange_dapples',
+  'pink_two_tone', 'pink_orca', 'pink_dapples', 'gray_bubbles', 'gray_diamonds', 'gray_patches',
   'purple_bubbles', 'purple_diamonds', 'purple_patches',
   'apricot_tiger', 'apricot_zebra', 'apricot_stripes',
   'brown_tiger', 'brown_zebra', 'brown_stripes', 'orange_forehead', 'orange_mask',
   'black_forehead', 'black_mask', 'saucy_blue',
   'blue_raindrop', 'violet_blue', 'violet_raindrop', 'gold',
+  'terastal', 'stellar',
 ])
-
 export type PokemonForm = keyof {[K in (typeof pokemonForms)[number]]: string}
-
 // type BadgePartShiny = `-shiny` | ''
 // type BadgePartForm = `-${PokemonForm}` | ''
 // type BadgePartVariant = '-var0' | '-var1' | '-var2' | '-var3' | ''
 // type BadgePartGender = '-male' | '-female' | ''
-
 /**
  * Expression produces a union type that is too complex to represent.
  */
@@ -179,7 +168,6 @@ export type PokemonForm = keyof {[K in (typeof pokemonForms)[number]]: string}
 // export type BadgeId = `potw-${N}${N}${N}${BadgePartVariant}${BadgePartGender}${BadgePartShiny}`
 // export type BadgeId = `potw-${N}${N}${N}${N}`
 export type BadgeId = keyof typeof datastoreBuilder;
-
 type A64 = '' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' |
   'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' |
   'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'x' | 'y' | 'z' |
@@ -193,7 +181,6 @@ type B64 = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' |
   'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'X' | 'Y' | 'Z' |
   '-' | '_'
 export type PokemonId = `${A64}${B64}#Yf_4`
-
 export function ensurePkmnBuilder(obj: PokemonDocBuilder) {
   return obj;
 }

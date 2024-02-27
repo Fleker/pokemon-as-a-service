@@ -1,4 +1,3 @@
-
 import { Tier } from '../battle-tiers'
 import { MoveId } from '../gen/type-move-meta'
 import { ensurePkmnBuilder } from './types'
@@ -4551,7 +4550,10 @@ export const kantoBuilder = {
     defense: 55,
     tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
     shiny: 'WILD', weight: 10,
-    needForm: false, syncableForms: ['skelly'],
+    needForm: false, syncableForms: ['skelly',
+      'orange_and_white_calico', 'orange,_white,_and_black_calico', 'white_and_orange_calico',
+      'orange_and_gold_calico', 'orange_two_tone', 'orange_orca', 'orange_dapples',
+    ],
   }),
   "potw-130": ensurePkmnBuilder({
     speed: 81,
@@ -5428,6 +5430,7 @@ function getMagikarpVariant() {
   m.levelTo = undefined
   m.levelAt = undefined
   m.tiers = []
+  m.shiny = 'FALSE'
   return m
 }
 // Cosplay Pikachus cannot breed nor can they evolve. They cannot be shiny.
@@ -5447,3 +5450,10 @@ kantoBuilder['potw-025-kalosian'] = getPikachuVariant(['Electro Ball', 'Quick At
 kantoBuilder['potw-025-alolan'] = getPikachuVariant(['Electroweb', 'Iron Tail'], pikaTiersHat, false)
 kantoBuilder['potw-025-galarian'] = getPikachuVariant(['Electroweb', 'Quick Attack'], pikaTiersHat, false)
 kantoBuilder['potw-129-skelly'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange_and_white_calico'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange,_white,_and_black_calico'] = getMagikarpVariant()
+kantoBuilder['potw-129-white_and_orange_calico'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange_and_gold_calico'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange_two_tone'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange_orca'] = getMagikarpVariant()
+kantoBuilder['potw-129-orange_dapples'] = getMagikarpVariant()

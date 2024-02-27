@@ -25,18 +25,15 @@ import { get } from '../../shared/src/pokemon'
 import randomItem from '../../shared/src/random-item'
 import { CATCH_CHARM_XY } from '../../shared/src/legendary-quests'
 import { NECTARS } from '../../shared/src/prizes'
-
 function setGender(id: BadgeId, gender: PokemonGender) {
   const badge = new TeamsBadge(id);
   badge.gender = gender;
   return badge.toString();
 }
-
 export function deduplicate(
   encounters: Encounter, pokemon: TPokemon, duplicates: boolean, isLure = false
 ) {
   if (duplicates) return encounters.list
-
   const badges: ReadonlySet<BadgeId> = new Set(
     Object.keys(pokemon)!.map(p => {
       const b = new Badge(p)
@@ -58,13 +55,10 @@ export function deduplicate(
     return false;
   })
 }
-
 const nop = () => ''
-
 type Gate = 'yuQPa32crRiPBJvi9HU9' | 'LcyYjBeK4KAq1BkYgzlx' |
 'vJHZReab8dpsCgz6ixJy' | 'drIVxbAeXnuVuWCYWTf5' |
 'JUNIPER' | 'SYCAMORE' | 'KUKUI' | 'MAGNOLIA'
-
 interface EncounterRule {
   /**
    * Need a catch charm
@@ -109,16 +103,13 @@ interface EncounterRule {
   /** This is the bait being used. */
   bait?: ItemId
 }
-
 type EncounterParamFormat = 'Pokedex' | 'List' | 'Client'
-
 interface EncounterParams {
   user: Users.Doc
   location: Location
   format?: EncounterParamFormat
   bait?: ItemId
 }
-
 export function addIf(pokemon: BadgeId, opts: EncounterRule, params: EncounterParams) {
   if (params.format === undefined || params.format === 'List') {
     const willAdd = (() => {
@@ -238,10 +229,8 @@ export function addIf(pokemon: BadgeId, opts: EncounterRule, params: EncounterPa
   }
   return []
 }
-
 const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Caterpie, {count: 1, time: 'Day'}, p))
   list.push(...addIf(P.Weedle, {count: 1, time: 'Night'}, p))
@@ -278,7 +267,15 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Seel, {terrain: 'Oceanic'}, p))
   list.push(...addIf(P.Grimer, {terrain: 'Urban'}, p))
   list.push(...addIf(P.Krabby, {region: 'Mediterranean'}, p))
-
+  // Magikarp
+  list.push(...addIf(Potw(P.Magikarp, {form: 'skelly'}), {tide: 'High Tide', weather: 'Sunny', item: ['gyaradosite']}, p))
+  list.push(...addIf(Potw(P.Magikarp, {form: 'orange_and_white_calico'}), {tide: 'High Tide', weather: 'Cloudy', item: ['gyaradosite']}, p))
+  list.push(...addIf(Potw(P.Magikarp, {form: 'orange,_white,_and_black_calico'}), {tide: 'High Tide', weather: 'Fog', item: ['gyaradosite']}, p))
+  list.push(...addIf(Potw(P.Magikarp, {form: 'white_and_orange_calico'}), {tide: 'High Tide', weather: 'Heat Wave', item: ['gyaradosite']}, p))
+  list.push(...addIf(Potw(P.Magikarp, {form: 'orange_and_gold_calico'}), {tide: 'High Tide', weather: 'Windy', item: ['gyaradosite']}, p))
+  list.push(...addIf(Potw(P.Magikarp, {form: 'orange_two_tone'}), {tide: 'High Tide', weather: 'Thunderstorm', item: ['gyaradosite']}, p))
+  list.push(...addIf(Potw(P.Magikarp, {form: 'orange_orca'}), {tide: 'High Tide', weather: 'Rain', item: ['gyaradosite']}, p))
+  list.push(...addIf(Potw(P.Magikarp, {form: 'orange_dapples'}), {tide: 'High Tide', weather: 'Snow', item: ['gyaradosite']}, p))
   // Johto
   list.push(...addIf(P.Chikorita, {gate: CATCH_CHARM_RBY, count: 1}, p))
   list.push(...addIf(P.Cyndaquil, {gate: CATCH_CHARM_RBY, count: 1}, p))
@@ -339,7 +336,6 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Spheal, {gate: CATCH_CHARM_GSC, terrain: 'Bay'}, p))
   list.push(...addIf(P.Spheal, {gate: CATCH_CHARM_GSC, terrain: 'Beach'}, p))
   list.push(...addIf(P.Azurill, {event: 'INTERN_DAY', count: 20}, p))
-
   // Sinnoh
   list.push(...addIf(P.Turtwig, {gate: CATCH_CHARM_RSE, other: p.location.mossyRock === true}, p))
   list.push(...addIf(P.Chimchar, {gate: CATCH_CHARM_RSE, other: p.location.magneticField === true}, p))
@@ -371,7 +367,6 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Glameow, {gate: CATCH_CHARM_RSE, terrain: 'Urban'}, p))
   list.push(...addIf(P.Stunky, {gate: CATCH_CHARM_RSE, weather: 'Fog'}, p))
   list.push(...addIf(P.Hippopotas, {gate: CATCH_CHARM_RSE, terrain: 'Desert'}, p))
-
   // Unova
   list.push(...addIf(P.Snivy, {gate: CATCH_CHARM_DPPT, item: ['lightstone', 'darkstone']}, p))
   list.push(...addIf(P.Tepig, {gate: CATCH_CHARM_DPPT, item: ['lightstone', 'darkstone']}, p))
@@ -403,7 +398,6 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Klink, {gate: CATCH_CHARM_DPPT, weather: 'Thunderstorm', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Tynamo, {gate: CATCH_CHARM_DPPT, weather: 'Thunderstorm', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Litwick, {gate: CATCH_CHARM_DPPT, terrain: 'Urban', time: 'Night'}, p))
-
   // Kalos
   list.push(...addIf(P.Chespin, {gate: CATCH_CHARM_BW, item: ['venusaurite']}, p))
   list.push(...addIf(P.Fennekin, {gate: CATCH_CHARM_BW, item: ['charizarditex']}, p))
@@ -423,7 +417,6 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(Potw(P.Flabébé, {form: 'white'}), {gate: CATCH_CHARM_BW, item: ['gardevoirite'], terrain: 'Gardens', other: p.location.flower === 'white'}, p))
   list.push(...addIf(Potw(P.Flabébé, {form: 'yellow'}), {gate: CATCH_CHARM_BW, item: ['gardevoirite'], terrain: 'Gardens', other: p.location.flower === 'yellow'}, p))
   list.push(...addIf(P.Inkay, {gate: CATCH_CHARM_BW, item: ['absolite']}, p))
-
   // Alola
   list.push(...addIf(P.Rowlet, {gate: CATCH_CHARM_XY, item: ['zgrassium']}, p))
   list.push(...addIf(P.Litten, {gate: CATCH_CHARM_XY, item: ['zfirium']}, p))
@@ -436,7 +429,6 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Wimpod, {gate: CATCH_CHARM_XY, weather: 'Fog', item: ['zbuginium']}, p))
   list.push(...addIf(P.Sandygast, {gate: CATCH_CHARM_XY, terrain: 'Beach', item: ['zghostium'], tide: 'Low Tide'}, p))
   list.push(...addIf(P.Meltan, {gate: CATCH_CHARM_XY, item: ['meltanbox'], others: [p.user.lastLocations?.includes(p.user.location) ?? true]}, p))
-
   // Galar
   list.push(...addIf(P.Grookey, {gate: CATCH_CHARM_SM, terrain: 'Gardens'}, p))
   list.push(...addIf(P.Scorbunny, {gate: CATCH_CHARM_SM, terrain: 'Grasslands'}, p))
@@ -452,7 +444,6 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   // IOA
   list.push(...addIf(Potw(P.Diglett, {form: 'alolan'}), {gate: CATCH_CHARM_SM, item: ['itemfinder'], others: [p.user.lastLocations?.includes(p.user.location) ?? true]}, p))
   list.push(...addIf(Potw(P.Slowpoke, {form: 'galarian'}), {gate: CATCH_CHARM_SM, item: ['galaricatwig'], terrain: 'Beach'}, p))
-
   // Swarms
   if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
     const swarmPokemon = Swarms[location.region || 'North America']
@@ -460,7 +451,6 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
     // (Keeping in mind that list + list/11 does increase the list size)
     list.push(...addIf(swarmPokemon, {count: Math.floor(list.length / 11)}, p))
   }
-
   return {
     shinyMultipler: 1,
     list,
@@ -472,12 +462,10 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
     }
   }
 }
-
 const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
   const date = spacetime(now, location.timezone)
   const nowSeason = season(location, now)
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Bulbasaur, {count: 1}, p))
   list.push(...addIf(P.Charmander, {count: 1}, p))
@@ -535,7 +523,6 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   // Lapras are available with a Great Ball or Ultra Ball on Fridays
   list.push(...addIf(P.Lapras, {event: 'HAPPY_FRIDAY'}, p))
   list.push(...addIf(P.Dratini, {weather: 'Fog', time: 'Day'}, p))
-
   // Johto
   list.push(...addIf(P.Bayleef, {gate: CATCH_CHARM_RBY, count: 1}, p))
   list.push(...addIf(P.Quilava, {gate: CATCH_CHARM_RBY, count: 1}, p))
@@ -626,7 +613,6 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Sealeo, {gate: CATCH_CHARM_GSC, terrain: 'Beach'}, p))
   list.push(...addIf(P.Bagon, {gate: CATCH_CHARM_GSC, terrain: 'Mountain'}, p))
   list.push(...addIf(P.Beldum, {gate: CATCH_CHARM_GSC, weather: 'Thunderstorm'}, p))
-
   // Sinnoh
   list.push(...addIf(P.Grotle, {gate: CATCH_CHARM_RSE, other: p.location.mossyRock === true}, p))
   list.push(...addIf(P.Monferno, {gate: CATCH_CHARM_RSE, other: p.location.magneticField === true}, p))
@@ -646,7 +632,6 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Lumineon, {gate: CATCH_CHARM_RSE, region: 'Mediterranean'}, p))
   list.push(...addIf(P.Snover, {gate: CATCH_CHARM_RSE, weather: 'Snow'}, p))
   list.push(...addIf(P.Snover, {event: 'WINTER', count: 20}, p))
-
   // Unova
   list.push(...addIf(P.Servine, {gate: CATCH_CHARM_DPPT, item: ['lightstone', 'darkstone']}, p))
   list.push(...addIf(P.Pignite, {gate: CATCH_CHARM_DPPT, item: ['lightstone', 'darkstone']}, p))
@@ -713,7 +698,6 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Shelmet, {gate: CATCH_CHARM_DPPT, weather: 'Rain', terrain: 'Forest'}, p))
   list.push(...addIf(P.Karrablast, {gate: CATCH_CHARM_DPPT, weather: 'Heat Wave', terrain: 'Forest'}, p))
   list.push(...addIf(P.Blitzle, {gate: CATCH_CHARM_DPPT, weather: 'Thunderstorm', terrain: 'Grasslands'}, p))
-
   // Kalos
   list.push(...addIf(P.Quilladin, {gate: CATCH_CHARM_BW, item: ['venusaurite']}, p))
   list.push(...addIf(P.Braixen, {gate: CATCH_CHARM_BW, item: ['charizarditex']}, p))
@@ -754,7 +738,6 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Leafeon, {event: 'EEVEE', weather: 'Sunny'}, p))
   list.push(...addIf(P.Glaceon, {event: 'EEVEE', weather: 'Snow'}, p))
   list.push(...addIf(P.Sylveon, {event: 'EEVEE', terrain: 'Gardens'}, p))
-
   // Alola
   list.push(...addIf(P.Dartrix, {gate: CATCH_CHARM_XY, item: ['zgrassium']}, p))
   list.push(...addIf(P.Torracat, {gate: CATCH_CHARM_XY, item: ['zfirium']}, p))
@@ -795,7 +778,6 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Drampa, {gate: CATCH_CHARM_XY, terrain: 'Rural', item: ['zdragonium']}, p))
   list.push(...addIf(P.Dhelmise, {gate: CATCH_CHARM_XY, terrain: 'Oceanic', item: ['zsteelium']}, p))
   list.push(...addIf(P.Jangmo_o, {gate: CATCH_CHARM_XY, item: ['zdragonium']}, p))
-
   // Galar
   list.push(...addIf(P.Thwackey, {gate: CATCH_CHARM_SM, terrain: 'Gardens'}, p))
   list.push(...addIf(P.Raboot, {gate: CATCH_CHARM_SM, terrain: 'Grasslands'}, p))
@@ -828,20 +810,17 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
     list.push(...addIf(Potw(P.Yamask, {form: 'galarian'}), {gate: CATCH_CHARM_SM, location, terrain: 'Grasslands', time: 'Night'}, p))
     list.push(...addIf(Potw(P.Stunfisk, {form: 'galarian'}), {gate: CATCH_CHARM_SM, location, terrain: 'Grasslands', weather: 'Thunderstorm'}, p))
   }
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
   const nowSeason = season(location, now)
   const allBadges = getAllPokemon(user)
   const simpleBadges = allBadges.map(badge => new TeamsBadge(badge).toSimple())
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Ivysaur, {count: 1}, p))
   list.push(...addIf(P.Venusaur, {count: 1}, p))
@@ -879,7 +858,6 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(Potw(P.Porygon, {form: 'brin'}), {event: 'APRIL_FOOLS', count: 20}, p))
   list.push(...addIf(Potw(P.Porygon, {form: 'page'}), {event: 'APRIL_FOOLS', count: 20}, p))
   list.push(...addIf(P.Dragonair, {count: 1, time: 'Day', weather: 'Fog'}, p))
-
   // If the player has won at least six times in the Battle Stadium,
   // Hitmonlee and Hitmonchan are available w/ Ultra Ball.
   list.push(...addIf(P.Hitmonlee, {other: user.battleStadiumRecord && user.battleStadiumRecord[1] > 6}, p))
@@ -896,7 +874,6 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Dragonite, {terrain: 'Oceanic', weather: 'Fog'}, p))
   list.push(...addIf(P.Nidoqueen, {event: 'MOTHERS_DAY', count: 10}, p))
   list.push(...addIf(P.Nidoking, {event: 'FATHERS_DAY', count: 10}, p))
-
   // Johto
   list.push(...addIf(P.Meganium, {gate: CATCH_CHARM_RBY, count: 1}, p))
   list.push(...addIf(P.Typhlosion, {gate: CATCH_CHARM_RBY, count: 1}, p))
@@ -955,7 +932,6 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Walrein, {gate: CATCH_CHARM_GSC, terrain: 'Beach'}, p))
   list.push(...addIf(P.Shelgon, {gate: CATCH_CHARM_GSC, terrain: 'Mountain'}, p))
   list.push(...addIf(P.Metang, {gate: CATCH_CHARM_GSC, weather: 'Thunderstorm'}, p))
-
   // Sinnoh
   list.push(...addIf(P.Torterra, {gate: CATCH_CHARM_RSE, other: p.location.mossyRock === true}, p))
   list.push(...addIf(P.Infernape, {gate: CATCH_CHARM_RSE, other: p.location.magneticField === true}, p))
@@ -976,7 +952,6 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Abomasnow, {gate: CATCH_CHARM_RSE, weather: 'Snow'}, p))
   list.push(...addIf(P.Rotom, {gate: CATCH_CHARM_RSE, weather: 'Thunderstorm', terrain: 'Urban', time: 'Night'}, p))
   list.push(...addIf(P.Togekiss, {event: 'KINDNESS', count: 10}, p))
-
   // Unova
   list.push(...addIf(P.Serperior, {gate: CATCH_CHARM_DPPT, item: ['lightstone', 'darkstone']}, p))
   list.push(...addIf(P.Emboar, {gate: CATCH_CHARM_DPPT, item: ['lightstone', 'darkstone']}, p))
@@ -1023,7 +998,6 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Zebstrika, {gate: CATCH_CHARM_DPPT, weather: 'Thunderstorm', terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Larvesta, {gate: CATCH_CHARM_DPPT, weather: 'Sunny', terrain: 'Tropical', time: 'Day'}, p))
   list.push(...addIf(P.Whimsicott, {event: 'SUMMER'}, p))
-
   // Kalos
   list.push(...addIf(P.Chesnaught, {gate: CATCH_CHARM_BW, item: ['venusaurite']}, p))
   list.push(...addIf(P.Delphox, {gate: CATCH_CHARM_BW, item: ['charizarditex']}, p))
@@ -1041,7 +1015,6 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Barbaracle, {gate: CATCH_CHARM_BW, item: ['sharpedoite'], terrain: 'Beach'}, p))
   list.push(...addIf(P.Carbink, {gate: CATCH_CHARM_BW, item: ['steelixite'], terrain: 'Mountain'}, p))
   list.push(...addIf(P.Noibat, {gate: CATCH_CHARM_BW, item: ['altariaite'], weather: 'Windy'}, p))
-
   // Alola
   list.push(...addIf(P.Decidueye, {gate: CATCH_CHARM_XY, item: ['zgrassium']}, p))
   list.push(...addIf(P.Incineroar, {gate: CATCH_CHARM_XY, item: ['zfirium']}, p))
@@ -1060,7 +1033,6 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Turtonator, {gate: CATCH_CHARM_XY, weather: 'Heat Wave', item: ['zfirium']}, p))
   list.push(...addIf(P.Hakamo_o, {gate: CATCH_CHARM_XY, item: ['zdragonium']}, p))
   list.push(...addIf(P.Golisopod, {gate: CATCH_CHARM_XY, weather: 'Fog', item: ['zbuginium']}, p))
-
   // Galar
   list.push(...addIf(P.Corviknight, {gate: CATCH_CHARM_SM, terrain: 'Forest', time: 'Day'}, p))
   list.push(...addIf(P.Orbeetle, {gate: CATCH_CHARM_SM, terrain: 'Grasslands', time: 'Night'}, p))
@@ -1075,23 +1047,19 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Duraludon, {gate: CATCH_CHARM_SM, terrain: 'Mountain', weather: 'Thunderstorm'}, p))
   list.push(...addIf(P.Drakloak, {gate: CATCH_CHARM_SM, weather: 'Fog'}, p))
   list.push(...addIf(Potw(P.Weezing, {form: 'galarian'}), {count: 10, event: 'MONTREAL_PROTOCOL'}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 function ENCOUNTERS_LEGENDARY(user: Users.Doc, now, location, format: EncounterParamFormat = 'List'): Encounter {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Articuno, {count: 1}, p))
   list.push(...addIf(P.Zapdos, {count: 1}, p))
   list.push(...addIf(P.Moltres, {count: 1}, p))
   list.push(...addIf(P.Dragonite, {count: 1}, p))
-
   // Johto
   list.push(...addIf(P.Raikou, {gate: CATCH_CHARM_RBY}, p))
   list.push(...addIf(P.Entei, {gate: CATCH_CHARM_RBY}, p))
@@ -1104,7 +1072,6 @@ function ENCOUNTERS_LEGENDARY(user: Users.Doc, now, location, format: EncounterP
   list.push(...addIf(P.Metagross, {gate: CATCH_CHARM_GSC, weather: 'Thunderstorm'}, p))
   list.push(...addIf(P.Latias, {item: ['blueorb']}, p))
   list.push(...addIf(P.Latios, {item: ['redorb']}, p))
-
   // Sinnoh
   list.push(...addIf(P.Garchomp, {gate: CATCH_CHARM_RSE, weather: 'Sandstorm'}, p))
   const azelf = Pokemon(Azelf)
@@ -1114,7 +1081,6 @@ function ENCOUNTERS_LEGENDARY(user: Users.Doc, now, location, format: EncounterP
       hasPokemonFuzzy(user, uxie) && !hasPokemonFuzzy(user, mesprit)
   list.push(...addIf(P.Mesprit, {other: mespritCondition}, p))
   list.push(...addIf(P.Phione, {gate: CATCH_CHARM_DPPT, tide: 'High Tide', terrain: 'Tropical'}, p))
-
   // Unova
   const hasLandorus = TeamsBadge.match(P.Landorus, getAllPokemon(p.user), MATCH_REQS).match
   list.push(...addIf(P.Haxorus, {gate: CATCH_CHARM_DPPT, terrain: 'Mountain', weather: 'Cloudy'}, p))
@@ -1122,31 +1088,25 @@ function ENCOUNTERS_LEGENDARY(user: Users.Doc, now, location, format: EncounterP
   list.push(...addIf(Potw(P.Tornadus, {form: 'incarnate'}), {gate: CATCH_CHARM_DPPT, weather: 'Windy', item:['lightstone'], others: [hasLandorus]}, p))
   list.push(...addIf(Potw(P.Thundurus, {form: 'incarnate'}), {gate: CATCH_CHARM_DPPT, weather: 'Windy', item: ['darkstone'], others: [hasLandorus]}, p))
   list.push(...addIf(P.Volcarona, {gate: CATCH_CHARM_DPPT, weather: 'Sunny', terrain: 'Tropical', time: 'Day'}, p))
-
   // Kalos
   list.push(...addIf(P.Goodra, {gate: CATCH_CHARM_BW, item: ['garchompite'], weather: 'Rain'}, p))
   list.push(...addIf(P.Noivern, {gate: CATCH_CHARM_BW, item: ['altariaite']}, p))
-
   // Alola
   list.push(...addIf(P.Kommo_o, {gate: CATCH_CHARM_XY, item: ['zdragonium']}, p))
-
   // Galar
   list.push(...addIf(P.Dragapult, {gate: CATCH_CHARM_SM, weather: 'Fog'}, p))
   const galarianBirds = hasPokemonFuzzy(user, Pokemon(I.Slowking, {form: 'galarian'}))
   list.push(...addIf(Potw(P.Articuno, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
   list.push(...addIf(Potw(P.Zapdos, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
   list.push(...addIf(Potw(P.Moltres, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 const ENCOUNTERS_SAFARI = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.NidoranF, {count: 1}, p))
   list.push(...addIf(P.NidoranM, {count: 1}, p))
@@ -1160,7 +1120,6 @@ const ENCOUNTERS_SAFARI = (user, _, location, format: EncounterParamFormat = 'Li
   list.push(...addIf(P.Pinsir, {count: 1}, p))
   list.push(...addIf(P.Tauros, {count: 1}, p))
   list.push(...addIf(P.Dratini, {count: 1}, p))
-
   // Sinnoh
   list.push(...addIf(P.Staravia, {gate: CATCH_CHARM_RSE}, p))
   list.push(...addIf(P.Yanma, {gate: CATCH_CHARM_RSE}, p))
@@ -1169,18 +1128,15 @@ const ENCOUNTERS_SAFARI = (user, _, location, format: EncounterParamFormat = 'Li
   list.push(...addIf(P.Skorupi, {gate: CATCH_CHARM_RSE}, p))
   list.push(...addIf(P.Croagunk, {gate: CATCH_CHARM_RSE}, p))
   list.push(...addIf(P.Carnivine, {gate: CATCH_CHARM_RSE}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 // Fast Ball
 const ENCOUNTERS_WHITE_APRICORN = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Dugtrio, {count: 1}, p))
   list.push(...addIf(P.Persian, {count: 1}, p))
@@ -1190,24 +1146,19 @@ const ENCOUNTERS_WHITE_APRICORN = (user, _, location, format: EncounterParamForm
   list.push(...addIf(P.Scyther, {count: 1}, p))
   list.push(...addIf(P.Jumpluff, {count: 1}, p))
   list.push(...addIf(P.Sneasel, {count: 1}, p))
-
   // Hoenn
   list.push(...addIf(P.Grovyle, {gate: CATCH_CHARM_GSC}, p))
-
   // Galar
   list.push(...addIf(P.Eiscue, {gate: CATCH_CHARM_SM}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 // Friend Ball
 const ENCOUNTERS_GREEN_APRICORN = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Golbat, {count: 1}, p))
   list.push(...addIf(P.Eevee, {count: 2}, p))
@@ -1218,18 +1169,15 @@ const ENCOUNTERS_GREEN_APRICORN = (user, _, location, format: EncounterParamForm
   list.push(...addIf(P.Togetic, {count: 1}, p))
   list.push(...addIf(P.Marill, {count: 1}, p))
   list.push(...addIf(P.Snom, {gate: CATCH_CHARM_SM, weather: 'Snow'}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 // Heavy Ball
 const ENCOUNTERS_BLACK_APRICORN = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Snorlax, {count: 1}, p))
   list.push(...addIf(P.Gyarados, {count: 1}, p))
@@ -1240,25 +1188,20 @@ const ENCOUNTERS_BLACK_APRICORN = (user, _, location, format: EncounterParamForm
   list.push(...addIf(P.Mantine, {count: 1}, p))
   list.push(...addIf(P.Pupitar, {count: 1}, p))
   list.push(...addIf(P.Tyranitar, {count: 1}, p))
-
   // Hoenn
   list.push(...addIf(P.Hariyama, {gate: CATCH_CHARM_GSC}, p))
-
   // Galar
   list.push(...addIf(P.Stonjourner, {gate: CATCH_CHARM_SM}, p))
   list.push(...addIf(P.Cufant, {gate: CATCH_CHARM_SM}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 // Level Ball
 const ENCOUNTERS_RED_APRICORN = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Butterfree, {count: 1}, p))
   list.push(...addIf(P.Beedrill, {count: 1}, p))
@@ -1268,25 +1211,21 @@ const ENCOUNTERS_RED_APRICORN = (user, _, location, format: EncounterParamFormat
   list.push(...addIf(P.Ariados, {count: 1, time: 'Night'}, p))
   list.push(...addIf(P.Quagsire, {count: 1}, p))
   list.push(...addIf(P.Flaaffy, {count: 1}, p))
-
   // Hoenn
   list.push(...addIf(P.Linoone, {gate: CATCH_CHARM_GSC}, p))
   
   // Galar
   list.push(...addIf(P.Skwovet, {gate: CATCH_CHARM_SM}, p))
   list.push(...addIf(P.Rookidee, {gate: CATCH_CHARM_SM}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 // Love Ball
 const ENCOUNTERS_PINK_APRICORN = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.NidoranF, {count: 1}, p))
   list.push(...addIf(P.NidoranM, {count: 1}, p))
@@ -1296,25 +1235,20 @@ const ENCOUNTERS_PINK_APRICORN = (user, _, location, format: EncounterParamForma
   list.push(...addIf(P.Nidorina, {count: 1}, p))
   list.push(...addIf(P.Nidorino, {count: 1}, p))
   list.push(...addIf(P.Miltank, {count: 1}, p))
-
   // Hoenn
   list.push(...addIf(P.Ralts, {gate: CATCH_CHARM_GSC}, p))
   list.push(...addIf(P.Snorunt, {gate: CATCH_CHARM_GSC}, p))
-
   // Galar
   list.push(...addIf(P.Indeedee, {gate: CATCH_CHARM_SM}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 // Lure Ball
 const ENCOUNTERS_BLUE_APRICORN = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Goldeen, {count: 1}, p))
   list.push(...addIf(P.Magikarp, {count: 1}, p))
@@ -1325,24 +1259,19 @@ const ENCOUNTERS_BLUE_APRICORN = (user, _, location, format: EncounterParamForma
   list.push(...addIf(P.Corsola, {count: 20, event: 'EARTH_DAY'}, p))
   list.push(...addIf(P.Remoraid, {count: 1}, p))
   list.push(...addIf(P.Mantine, {count: 1}, p))
-
   // Hoenn
   list.push(...addIf(P.Luvdisc, {gate: CATCH_CHARM_GSC}, p))
   list.push(...addIf(P.Luvdisc, {count: 20, event: 'VALENTINES_DAY'}, p))
-
   list.push(...addIf(P.Arrokuda, {gate: CATCH_CHARM_SM}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 // Moon Ball
 const ENCOUNTERS_YELLOW_APRICORN = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Eevee, {count: 1}, p))
   list.push(...addIf(P.Nidorina, {count: 1}, p))
@@ -1352,23 +1281,19 @@ const ENCOUNTERS_YELLOW_APRICORN = (user, _, location, format: EncounterParamFor
   list.push(...addIf(P.Murkrow, {count: 1}, p))
   list.push(...addIf(P.Sneasel, {count: 1}, p))
   list.push(...addIf(P.Houndour, {count: 1}, p))
-
   // Hoenn
   list.push(...addIf(P.Skitty, {gate: CATCH_CHARM_GSC}, p))
   list.push(...addIf(P.Hatenna, {gate: CATCH_CHARM_SM, terrain: 'Forest'}, p)) // There is no 'Heal Ball'
   list.push(...addIf(P.Impidimp, {gate: CATCH_CHARM_SM, terrain: 'Forest'}, p))
-
   return {
     shinyMultipler: 1,
     list,
     guaranteedItem: nop
   }
 }
-
 // Sport Ball
 const ENCOUNTERS_BUG_CATCHING = (user, _, location: Location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Caterpie, {count: 2}, p))
   list.push(...addIf(P.Metapod, {count: 2}, p))
@@ -1385,13 +1310,11 @@ const ENCOUNTERS_BUG_CATCHING = (user, _, location: Location, format: EncounterP
   list.push(...addIf(P.Spinarak, {count: 2, time: 'Night'}, p))
   list.push(...addIf(P.Ariados, {count: 1, time: 'Night'}, p))
   list.push(...addIf(P.Pineco, {count: 2}, p))
-
   list.push(...addIf(P.Scyther, {event: 'BUG_CATCHING', count: 5}, p))
   list.push(...addIf(P.Pinsir, {event: 'BUG_CATCHING', count: 5}, p))
   list.push(...addIf(P.Yanma, {event: 'BUG_CATCHING', count: 3}, p))
   list.push(...addIf(P.Forretress, {terrain: 'Forest'}, p))
   list.push(...addIf(P.Forretress, {terrain: 'Rainforest'}, p))
-
   return {
     shinyMultipler: 1,
     list,
@@ -1407,7 +1330,6 @@ const ENCOUNTERS_BUG_CATCHING = (user, _, location: Location, format: EncounterP
     },
   }
 }
-
 const ENCOUNTERS_DIVE = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
@@ -1423,7 +1345,6 @@ const ENCOUNTERS_DIVE = (user, _, location, format: EncounterParamFormat = 'List
   list.push(...addIf(P.Luvdisc, {count: 20, event: 'VALENTINES_DAY'}, p))
   list.push(...addIf(P.Cramorant, {gate: CATCH_CHARM_SM}, p))
   list.push(...addIf(Potw(P.Cramorant, {form: 'gorging'}), {gate: CATCH_CHARM_SM, event: 'THANKSGIVING'}, p))
-
   return {
     shinyMultipler: 1,
     list,
@@ -1448,7 +1369,6 @@ const ENCOUNTERS_DIVE = (user, _, location, format: EncounterParamFormat = 'List
     }
   }
 }
-
 const ENCOUNTERS_LUXURY = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   
@@ -1462,7 +1382,6 @@ const ENCOUNTERS_LUXURY = (user, _, location, format: EncounterParamFormat = 'Li
   list.push(...addIf(P.Clefairy, {count: 1}, p))
   list.push(...addIf(P.Marill, {count: 1}, p))
   list.push(...addIf(P.Snom, {gate: CATCH_CHARM_SM, weather: 'Snow'}, p))
-
   return {
     shinyMultipler: 1,
     list,
@@ -1477,10 +1396,8 @@ const ENCOUNTERS_LUXURY = (user, _, location, format: EncounterParamFormat = 'Li
     }
   }
 }
-
 const ENCOUNTERS_NEST = (user, _, location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Caterpie, {count: 1}, p))
   list.push(...addIf(P.Weedle, {count: 1}, p))
@@ -1490,7 +1407,6 @@ const ENCOUNTERS_NEST = (user, _, location, format: EncounterParamFormat = 'List
   list.push(...addIf(P.Mareep, {count: 1}, p))
   list.push(...addIf(P.Wurmple, {count: 1}, p))
   list.push(...addIf(P.Wooloo, {gate: CATCH_CHARM_SM, terrain: 'Grasslands'}, p))
-
   return {
     shinyMultipler: 1,
     list,
@@ -1505,7 +1421,6 @@ const ENCOUNTERS_NEST = (user, _, location, format: EncounterParamFormat = 'List
     }
   }
 }
-
 const ENCOUNTERS_NET = (user, __, location: Location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
@@ -1517,11 +1432,9 @@ const ENCOUNTERS_NET = (user, __, location: Location, format: EncounterParamForm
   list.push(...addIf(P.Goldeen, {count: 1}, p))
   list.push(...addIf(P.Staryu, {count: 1}, p))
   list.push(...addIf(P.Surskit, {count: 1}, p))
-
   list.push(...addIf(P.Feebas, {other: location.feebas, count: 1}, p))
   list.push(...addIf(P.Blipbug, {gate: CATCH_CHARM_SM}, p))
   list.push(...addIf(P.Sizzlipede, {gate: CATCH_CHARM_SM, weather: 'Heat Wave'}, p))
-
   return {
     shinyMultipler: 1,
     list,
@@ -1541,10 +1454,8 @@ const ENCOUNTERS_NET = (user, __, location: Location, format: EncounterParamForm
     }
   }
 }
-
 const ENCOUNTERS_DUSK = (user, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Zubat, {count: 1}, p))
   list.push(...addIf(P.Sneasel, {count: 1}, p))
@@ -1552,10 +1463,8 @@ const ENCOUNTERS_DUSK = (user, now: Date, location: Location, format: EncounterP
   list.push(...addIf(P.Gligar, {count: 1}, p))
   list.push(...addIf(P.Murkrow, {count: 1}, p))
   list.push(...addIf(P.Misdreavus, {count: 1}, p))
-
   // Hoenn
   list.push(...addIf(P.Duskull, {gate: CATCH_CHARM_GSC}, p))
-
   // Sinnoh
   list.push(...addIf(P.Kricketune, {gate: CATCH_CHARM_RSE, terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Skuntank, {gate: CATCH_CHARM_RSE, weather: 'Fog'}, p))
@@ -1564,14 +1473,12 @@ const ENCOUNTERS_DUSK = (user, now: Date, location: Location, format: EncounterP
   
   // Galar
   list.push(...addIf(P.Rolycoly, {gate: CATCH_CHARM_SM, terrain: 'Mountain'}, p))
-
   return {
     shinyMultipler: 1.5,
     list,
     guaranteedItem: nop
   }
 }
-
 function ENCOUNTERS_QUICK(user, _, location, format: EncounterParamFormat = 'List'): Encounter {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   
@@ -1595,17 +1502,14 @@ function ENCOUNTERS_QUICK(user, _, location, format: EncounterParamFormat = 'Lis
   list.push(...addIf(P.Ralts, {gate: CATCH_CHARM_RSE, count: 1}, p))
   list.push(...addIf(P.Snorunt, {gate: CATCH_CHARM_RSE, count: 1}, p))
   list.push(...addIf(P.Nickit, {gate: CATCH_CHARM_SM}, p))
-
   return {
     list,
     shinyMultipler: 1.5,
     guaranteedItem: nop,
   }
 }
-
 const ENCOUNTERS_DREAM = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
-
   const list: BadgeId[] = []
   list.push(...addIf(P.Munna, {count: 14}, p))
   list.push(...addIf(P.Musharna, {count: 1}, p))
@@ -1615,7 +1519,6 @@ const ENCOUNTERS_DREAM = (user: Users.Doc, now: Date, location: Location, format
     guaranteedItem: nop,
   }
 }
-
 const ENCOUNTERS_BACKLOT = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const day = new Date().getDate()
@@ -1657,19 +1560,15 @@ const ENCOUNTERS_BACKLOT = (user: Users.Doc, now: Date, location: Location, form
     guaranteedItem: nop,
   }
 }
-
 const ENCOUNTER_FRIENDSAFARI = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List', params: Record<string, string> = {}) => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
-
   const {friendSafari} = params
   const list: BadgeId[] = []
-
   for (const safari of friendSafari) {
     for (const pkmn of FriendSafariMap[safari]) {
       list.push(...addIf(pkmn, {count: 1}, p))
     }
   }
-
   return {
     list,
     shinyMultipler: 1.5,
@@ -1682,7 +1581,6 @@ const ENCOUNTER_FRIENDSAFARI = (user: Users.Doc, now: Date, location: Location, 
     },
   }
 }
-
 const ENCOUNTERS_HIDDENGROTTO = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const grottoCommon = [
@@ -1715,7 +1613,6 @@ const ENCOUNTERS_HIDDENGROTTO = (user: Users.Doc, now: Date, location: Location,
     P.Mienfoo,
     P.Bouffalant
   ] as BadgeId[]
-
   const grottoUncommon = [
     P.Eevee,
     P.Vaporeon,
@@ -1729,14 +1626,12 @@ const ENCOUNTERS_HIDDENGROTTO = (user: Users.Doc, now: Date, location: Location,
     P.Leafeon,
   ] as BadgeId[]
   const list: BadgeId[] = []
-
   for (const badge of grottoCommon) {
     list.push(...addIf(badge, {count: 4}, p))
   }
   for (const badge of grottoUncommon) {
     list.push(...addIf(badge, {count: 1}, p))
   }
-
   list.push(...addIf(P.Absol, {count: 2, weather: 'Cloudy'}, p))
   list.push(...addIf(P.Granbull, {count: 2, weather: 'Fog'}, p))
   list.push(...addIf(P.Amoonguss, {count: 2, weather: 'Heat Wave'}, p))
@@ -1746,7 +1641,6 @@ const ENCOUNTERS_HIDDENGROTTO = (user: Users.Doc, now: Date, location: Location,
   list.push(...addIf(P.Drifloon, {count: 2, weather: 'Windy'}, p))
   list.push(...addIf(P.Cubchoo, {count: 2, weather: 'Diamond Dust'}, p))
   list.push(...addIf(P.Cubchoo, {count: 2, weather: 'Snow'}, p))
-
   /**
    * Forest: Pinwheel Forest
    * Mountain: Giant Chasm
@@ -1779,7 +1673,6 @@ const ENCOUNTERS_HIDDENGROTTO = (user: Users.Doc, now: Date, location: Location,
   list.push(...addIf(P.Leavanny, {count: 2, terrain: 'Rainforest'}, p))
   list.push(...addIf(P.Amoonguss, {count: 3, terrain: 'Forest'}, p))
   list.push(...addIf(P.Amoonguss, {count: 3, terrain: 'Gardens'}, p))
-
   return {
     list,
     shinyMultipler: 1.5,
@@ -1806,7 +1699,6 @@ const ENCOUNTERS_HIDDENGROTTO = (user: Users.Doc, now: Date, location: Location,
     },
   }
 }
-
 const ENCOUNTERS_ADRENALINE = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const sosCommon = [
@@ -1815,7 +1707,6 @@ const ENCOUNTERS_ADRENALINE = (user: Users.Doc, now: Date, location: Location, f
     P.Pawniard,
     P.Mareanie,
   ] as BadgeId[]
-
   const sosUncommon = [
     P.Pikachu,
     P.Jigglypuff,
@@ -1837,7 +1728,6 @@ const ENCOUNTERS_ADRENALINE = (user: Users.Doc, now: Date, location: Location, f
     P.Toucannon,
   ] as BadgeId[]
   const list: BadgeId[] = []
-
   const sosRare = [
     P.Jynx,
     P.Electabuzz,
@@ -1854,7 +1744,6 @@ const ENCOUNTERS_ADRENALINE = (user: Users.Doc, now: Date, location: Location, f
     P.Hakamo_o,
     P.Kommo_o,
   ] as BadgeId[]
-
   for (const badge of sosCommon) {
     list.push(...addIf(badge, {count: 9}, p))
   }
@@ -1864,7 +1753,6 @@ const ENCOUNTERS_ADRENALINE = (user: Users.Doc, now: Date, location: Location, f
   for (const badge of sosRare) {
     list.push(...addIf(badge, {count: 1}, p))
   }
-
   // Malie Garden
   list.push(...addIf(Potw(P.Persian, {form: 'alolan'}), {count: 1, terrain: 'Gardens'}, p))
   list.push(...addIf(P.Slowbro, {count: 5, terrain: 'Bay'}, p))
@@ -1892,7 +1780,6 @@ const ENCOUNTERS_ADRENALINE = (user: Users.Doc, now: Date, location: Location, f
   list.push(...addIf(Potw(P.Castform, {form: 'sunny'}), {count: 7, weather: 'Heat Wave'}, p))
   list.push(...addIf(Potw(P.Castform, {form: 'rainy'}), {count: 7, weather: 'Rain'}, p))
   list.push(...addIf(Potw(P.Castform, {form: 'snowy'}), {count: 7, weather: 'Snow'}, p))
-
   // Add titans as quite rare encounters
   list.push(...addIf(Potw(P.Gumshoos, {form: 'totem'}), {count: 1, item: ['znormalium'], time: 'Day'}, p))
   list.push(...addIf(Potw(P.Raticate, {form: 'totem'}), {count: 1, item: ['zdarkinium'], time: 'Night'}, p))
@@ -1905,7 +1792,6 @@ const ENCOUNTERS_ADRENALINE = (user: Users.Doc, now: Date, location: Location, f
   list.push(...addIf(Potw(P.Mimikyu, {form: 'totem'}), {count: 1, item: ['zghostium']}, p))
   list.push(...addIf(Potw(P.Ribombee, {form: 'totem'}), {count: 1, item: ['zfairium']}, p))
   list.push(...addIf(Potw(P.Kommo_o, {form: 'totem'}), {count: 1, item: ['zdragonium']}, p))
-
   return {
     list,
     shinyMultipler: 2,
@@ -1931,11 +1817,9 @@ const ENCOUNTERS_ADRENALINE = (user: Users.Doc, now: Date, location: Location, f
     },
   }
 }
-
 const ENCOUNTERS_WILDAREA = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
-
   // https://serebii.net/swordshield/wildarea.shtml
   // Generally: 5 is common, 3 is uncommon/stone evos, 1 is rare/trade evos
   list.push(...addIf(P.Pikachu, {count: 5}, p))
@@ -1943,7 +1827,6 @@ const ENCOUNTERS_WILDAREA = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Vileplume, {count: 3, time: 'Night', weather: 'Heat Wave'}, p))
   list.push(...addIf(P.Machoke, {count: 5, weather: 'Cloudy'}, p))
   list.push(...addIf(P.Machamp, {count: 1, weather: 'Cloudy'}, p))
-
   list.push(...addIf(P.Cloyster, {count: 3, terrain: 'Oceanic'}, p))
   list.push(...addIf(P.Haunter, {count: 3, time: 'Night'}, p))
   list.push(...addIf(P.Gengar, {count: 1, time: 'Night', weather: 'Fog'}, p))
@@ -1955,79 +1838,66 @@ const ENCOUNTERS_WILDAREA = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Seaking, {count: 5, terrain: 'Bay'}, p))
   list.push(...addIf(P.Gyarados, {count: 3, terrain: 'Oceanic', weather: 'Thunderstorm'}, p))
   list.push(...addIf(P.Lapras, {count: 3, terrain: 'Oceanic', weather: 'Snow'}, p))
-
   list.push(...addIf(P.Vaporeon, {count: 3, weather: 'Rain'}, p))
   list.push(...addIf(P.Jolteon, {count: 3, weather: 'Thunderstorm'}, p))
   list.push(...addIf(P.Flareon, {count: 3, weather: 'Heat Wave'}, p))
   list.push(...addIf(P.Snorlax, {count: 3, time: 'Day'}, p))
   list.push(...addIf(P.Noctowl, {count: 3, time: 'Night', weather: 'Windy'}, p))
-
   list.push(...addIf(P.Lanturn, {count: 3, weather: 'Thunderstorm', terrain: 'Bay'}, p))
   list.push(...addIf(P.Xatu, {count: 3, weather: 'Windy'}, p))
   list.push(...addIf(P.Bellossom, {count: 3, time: 'Day', weather: 'Heat Wave'}, p))
   list.push(...addIf(P.Sudowoodo, {count: 3, weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Quagsire, {count: 5, weather: 'Rain'}, p))
-
   list.push(...addIf(P.Espeon, {count: 3, weather: 'Cloudy', time: 'Day'}, p))
   list.push(...addIf(P.Umbreon, {count: 3, weather: 'Cloudy', time: 'Night'}, p))
   list.push(...addIf(P.Steelix, {count: 1, weather: 'Sandstorm', terrain: 'Desert'}, p))
   list.push(...addIf(P.Shuckle, {count: 3, terrain: 'Desert'}, p))
   list.push(...addIf(P.Piloswine, {count: 3, weather: 'Snow'}, p))
-
   list.push(...addIf(P.Octillery, {count: 3, terrain: 'Bay'}, p))
   list.push(...addIf(P.Tyranitar, {count: 3, weather: 'Sandstorm', terrain: 'Desert'}, p))
   list.push(...addIf(Potw(P.Linoone, {form: 'galarian'}), {count: 3, time: 'Night'}, p))
   list.push(...addIf(P.Ludicolo, {count: 3, weather: 'Rain'}, p))
   list.push(...addIf(P.Shiftry, {count: 3, weather: 'Heat Wave'}, p))
-
   list.push(...addIf(P.Pelipper, {count: 5, weather: 'Rain', terrain: 'Beach'}, p))
   list.push(...addIf(P.Kirlia, {count: 5, weather: 'Fog'}, p))
   list.push(...addIf(P.Gardevoir, {count: 3, weather: 'Fog'}, p))
   list.push(...addIf(P.Ninjask, {count: 3, terrain: 'Desert'}, p))
   list.push(...addIf(P.Manectric, {count: 3, terrain: 'Grasslands', weather: 'Thunderstorm'}, p))
-
   list.push(...addIf(P.Roselia, {count: 5, terrain: 'Gardens', weather: 'Sunny'}, p))
   list.push(...addIf(P.Wailmer, {count: 5, terrain: 'Oceanic', weather: 'Rain'}, p))
   list.push(...addIf(P.Flygon, {count: 3, terrain: 'Desert', weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Whiscash, {count: 3, terrain: 'Bay', weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Crawdaunt, {count: 3, terrain: 'Bay', weather: 'Rain', time: 'Night'}, p))
-
   list.push(...addIf(P.Claydol, {count: 3, terrain: 'Desert'}, p))
   list.push(...addIf(P.Milotic, {count: 1, terrain: 'Oceanic'}, p))
   list.push(...addIf(P.Dusclops, {count: 3, terrain: 'Rural', time: 'Night'}, p))
   list.push(...addIf(P.Glalie, {count: 3, terrain: 'Rural', weather: 'Snow'}, p))
   list.push(...addIf(P.Roserade, {count: 3, terrain: 'Gardens', weather: 'Sunny'}, p))
-
   list.push(...addIf(P.Vespiquen, {count: 3, terrain: 'Gardens', weather: 'Cloudy'}, p))
   list.push(...addIf(P.Gastrodon, {count: 3, terrain: 'Bay', weather: 'Rain'}, p))
   list.push(...addIf(P.Drifblim, {count: 3, weather: 'Windy', time: 'Night'}, p))
   list.push(...addIf(P.Skuntank, {count: 3, weather: 'Fog', time: 'Night'}, p))
   list.push(...addIf(P.Bronzong, {count: 3, weather: 'Fog', time: 'Day'}, p))
-
   list.push(...addIf(P.Mime_Jr, {count: 5, weather: 'Fog', time: 'Day'}, p))
   list.push(...addIf(P.Lucario, {count: 3, weather: 'Cloudy', terrain: 'Rural'}, p))
   list.push(...addIf(P.Drapion, {count: 3, time: 'Night', terrain: 'Rural'}, p))
   list.push(...addIf(P.Abomasnow, {count: 3, weather: 'Snow', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Weavile, {count: 3, weather: 'Snow', terrain: 'Mountain'}, p))
-
   list.push(...addIf(P.Leafeon, {count: 3, other: p.location.mossyRock === true}, p))
   list.push(...addIf(P.Glaceon, {count: 3, other: p.location.icyRock === true}, p))
   list.push(...addIf(P.Gallade, {count: 3, terrain: 'Rural', weather: 'Fog'}, p))
   list.push(...addIf(P.Dusknoir, {count: 1, terrain: 'Rural', weather: 'Fog', time: 'Night'}, p))
   list.push(...addIf(P.Liepard, {count: 5, terrain: 'Rural', time: 'Night'}, p))
-
   list.push(...addIf(P.Musharna, {count: 3, terrain: 'Urban', time: 'Night'}, p))
   list.push(...addIf(P.Unfezant, {count: 3, terrain: 'Grasslands', time: 'Day'}, p))
   list.push(...addIf(P.Gigalith, {count: 1, terrain: 'Grasslands', weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Excadrill, {count: 3, terrain: 'Grasslands', weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Conkeldurr, {count: 1, terrain: 'Urban', weather: 'Cloudy'}, p))
-
   list.push(...addIf(P.Palpitoad, {count: 5, terrain: 'Bay', weather: 'Rain'}, p))
   list.push(...addIf(P.Seismitoad, {count: 3, terrain: 'Bay', weather: 'Rain'}, p))
   list.push(...addIf(P.Crustle, {count: 3, terrain: 'Beach', time: 'Night'}, p))
   list.push(...addIf(P.Sigilyph, {count: 3, terrain: 'Rural', time: 'Night'}, p))
   list.push(...addIf(P.Garbodor, {count: 3, terrain: 'Urban', time: 'Night'}, p))
-
   list.push(...addIf(P.Cinccino, {count: 3, terrain: 'Urban', time: 'Day', weather: 'Sunny'}, p))
   list.push(...addIf(P.Vanillish, {count: 5, terrain: 'Urban', weather: 'Snow'}, p))
   list.push(...addIf(P.Vanilluxe, {count: 3, terrain: 'Urban', weather: 'Snow'}, p))
@@ -2039,25 +1909,21 @@ const ENCOUNTERS_WILDAREA = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Klinklang, {count: 3, terrain: 'Urban', weather: 'Thunderstorm'}, p))
   list.push(...addIf(P.Beheeyem, {count: 3, terrain: 'Rural', time: 'Night'}, p))
   list.push(...addIf(P.Chandelure, {count: 3, weather: 'Heat Wave', time: 'Night'}, p))
-
   list.push(...addIf(P.Haxorus, {count: 3, weather: 'Cloudy'}, p))
   list.push(...addIf(P.Beartic, {count: 3, weather: 'Snow', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Golurk, {count: 3, time: 'Night', terrain: 'Rural'}, p))
   list.push(...addIf(P.Bisharp, {count: 3, time: 'Night', terrain: 'Urban'}, p))
   list.push(...addIf(P.Diggersby, {count: 3, weather: 'Sandstorm', terrain: 'Grasslands'}, p))
-
   list.push(...addIf(P.Pangoro, {count: 3, weather: 'Cloudy', terrain: 'Forest'}, p))
   list.push(...addIf(P.Doublade, {count: 3, weather: 'Fog', terrain: 'Urban'}, p))
   list.push(...addIf(P.Aegislash, {count: 1, weather: 'Fog', terrain: 'Urban'}, p))
   list.push(...addIf(P.Barbaracle, {count: 3, weather: 'Rain', terrain: 'Bay'}, p))
   list.push(...addIf(P.Sylveon, {count: 3, weather: 'Fog'}, p))
-
   list.push(...addIf(P.Hawlucha, {count: 3, weather: 'Cloudy', region: 'North America'}, p))
   list.push(...addIf(P.Gourgeist, {count: 1, weather: 'Heat Wave', terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Avalugg, {count: 3, weather: 'Snow', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Noivern, {count: 3, weather: 'Windy', time: 'Night'}, p))
   list.push(...addIf(P.Vikavolt, {count: 3, weather: 'Thunderstorm', other: p.location.magneticField === true}, p))
-
   list.push(...addIf(P.Ribombee, {count: 3, terrain: 'Gardens', time: 'Day'}, p))
   list.push(...addIf(P.Mudsdale, {count: 3, terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Araquanid, {count: 3, weather: 'Rain', terrain: 'Bay'}, p))
@@ -2069,29 +1935,24 @@ const ENCOUNTERS_WILDAREA = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Mimikyu, {count: 3, weather: 'Cloudy', time: 'Night', terrain: 'Forest'}, p))
   list.push(...addIf(P.Kommo_o, {count: 3, weather: 'Cloudy', terrain: 'Tropical'}, p))
   list.push(...addIf(P.Greedent, {count: 3, time: 'Day', terrain: 'Forest'}, p))
-
   list.push(...addIf(P.Corviknight, {count: 3, time: 'Night', terrain: 'Forest'}, p))
   list.push(...addIf(P.Orbeetle, {count: 3, weather: 'Fog', terrain: 'Forest'}, p))
   list.push(...addIf(P.Thievul, {count: 3, time: 'Night', terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Eldegoss, {count: 3, weather: 'Sunny', terrain: 'Gardens'}, p))
   list.push(...addIf(P.Dubwool, {count: 3, time: 'Day', terrain: 'Grasslands'}, p))
-
   list.push(...addIf(P.Drednaw, {count: 3, weather: 'Sandstorm', terrain: 'Bay'}, p))
   list.push(...addIf(P.Boltund, {count: 3, weather: 'Thunderstorm', terrain: 'Bay'}, p))
   list.push(...addIf(P.Coalossal, {count: 3, weather: 'Heat Wave', terrain: 'Desert'}, p))
   list.push(...addIf(P.Sandaconda, {count: 3, weather: 'Sandstorm', terrain: 'Desert'}, p))
   list.push(...addIf(P.Cramorant, {count: 3, weather: 'Rain', terrain: 'Bay'}, p))
   list.push(...addIf(Potw(P.Cramorant, {form: 'gorging'}), {count: 3, event: 'THANKSGIVING'}, p))
-
   list.push(...addIf(P.Grapploct, {count: 3, weather: 'Cloudy', terrain: 'Beach'}, p))
   list.push(...addIf(P.Hatterene, {count: 3, weather: 'Fog', terrain: 'Forest', time: 'Day'}, p))
   list.push(...addIf(P.Grimmsnarl, {count: 3, weather: 'Fog', terrain: 'Forest', time: 'Night'}, p))
   list.push(...addIf(P.Obstagoon, {count: 3, weather: 'Cloudy', terrain: 'Urban', time: 'Night'}, p))
   list.push(...addIf(P.Perrserker, {count: 3, weather: 'Thunderstorm', terrain: 'Urban'}, p))
-
   list.push(...addIf(P.Copperajah, {count: 3, weather: 'Thunderstorm', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Duraludon, {count: 3, weather: 'Thunderstorm', terrain: 'Rural'}, p))
-
   return {
     list,
     shinyMultipler: 3,
@@ -2115,14 +1976,11 @@ const ENCOUNTERS_WILDAREA = (user: Users.Doc, now: Date, location: Location, for
     },
   }
 }
-
-
 const ENCOUNTERS_FEATHERBALL = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
   list.push(...addIf(P.Starly, {count: 2}, p))
   list.push(...addIf(P.Zubat, {count: 2}, p))
-
   list.push(...addIf(P.Magikarp, {count: 2}, p))
   list.push(...addIf(P.Mantyke, {count: 2}, p))
   return {
@@ -2141,7 +1999,6 @@ const ENCOUNTERS_FEATHERBALL = (user: Users.Doc, now: Date, location: Location, 
     },
   }
 }
-
 const ENCOUNTERS_WINGBALL = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
@@ -2149,7 +2006,6 @@ const ENCOUNTERS_WINGBALL = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Murkrow, {count: 2}, p))
   list.push(...addIf(P.Staravia, {count: 2}, p))
   list.push(...addIf(P.Golbat, {count: 2}, p))
-
   list.push(...addIf(P.Barboach, {count: 2}, p))
   list.push(...addIf(P.Finneon, {count: 2}, p))
   list.push(...addIf(P.Tentacool, {count: 2}, p))
@@ -2169,7 +2025,6 @@ const ENCOUNTERS_WINGBALL = (user: Users.Doc, now: Date, location: Location, for
     },
   }
 }
-
 const ENCOUNTERS_JETBALL = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
@@ -2179,7 +2034,6 @@ const ENCOUNTERS_JETBALL = (user: Users.Doc, now: Date, location: Location, form
   list.push(...addIf(P.Honchkrow, {count: 2}, p))
   list.push(...addIf(P.Magnezone, {count: 2}, p))
   list.push(...addIf(P.Togekiss, {count: 2}, p))
-
   list.push(...addIf(P.Whiscash, {count: 2}, p))
   list.push(...addIf(P.Mantine, {count: 2}, p))
   list.push(...addIf(P.Tentacruel, {count: 2}, p))
@@ -2199,7 +2053,6 @@ const ENCOUNTERS_JETBALL = (user: Users.Doc, now: Date, location: Location, form
     },
   }
 }
-
 const ENCOUNTERS_LEADENBALL = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
@@ -2234,7 +2087,6 @@ const ENCOUNTERS_LEADENBALL = (user: Users.Doc, now: Date, location: Location, f
     },
   }
 }
-
 const ENCOUNTERS_GIGATONBALL = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
@@ -2242,7 +2094,6 @@ const ENCOUNTERS_GIGATONBALL = (user: Users.Doc, now: Date, location: Location, 
   list.push(...addIf(P.Glalie, {count: 2}, p))
   list.push(...addIf(P.Bronzong, {count: 2}, p))
   list.push(...addIf(P.Garchomp, {count: 2}, p))
-
   list.push(...addIf(P.Heracross, {count: 2}, p))
   list.push(...addIf(P.Wormadam_Plant, {count: 2}, p))
   list.push(...addIf(P.Wormadam_Sandy, {count: 2}, p))
@@ -2264,40 +2115,29 @@ const ENCOUNTERS_GIGATONBALL = (user: Users.Doc, now: Date, location: Location, 
     },
   }
 }
-
 const ENCOUNTERS_BEASTBALL = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
   const list: BadgeId[] = []
   const nihilegoCondition = hasPokemonFuzzy(user, Pokemon(I.Nihilego))
   list.push(...addIf(P.Nihilego, {other: nihilegoCondition}, p))
-
   const xurkitreeCondition = hasPokemonFuzzy(user, Pokemon(I.Xurkitree))
   list.push(...addIf(P.Xurkitree, {other: xurkitreeCondition}, p))
-
   const pheramosaCondition = hasPokemonFuzzy(user, Pokemon(I.Pheromosa))
   list.push(...addIf(P.Pheromosa, {other: pheramosaCondition}, p))
-
   const buzzwoleCondition = hasPokemonFuzzy(user, Pokemon(I.Buzzwole))
   list.push(...addIf(P.Buzzwole, {other: buzzwoleCondition}, p))
-
   const celesteelaCondition = hasPokemonFuzzy(user, Pokemon(I.Celesteela))
   list.push(...addIf(P.Celesteela, {other: celesteelaCondition}, p))
-
   const kartanaCondition = hasPokemonFuzzy(user, Pokemon(I.Kartana))
   list.push(...addIf(P.Kartana, {other: kartanaCondition}, p))
-
   const guzzlordCondition = hasPokemonFuzzy(user, Pokemon(I.Guzzlord))
   list.push(...addIf(P.Guzzlord, {other: guzzlordCondition}, p))
-
   const stakatakaCondition = hasPokemonFuzzy(user, Pokemon(I.Stakataka))
   list.push(...addIf(P.Stakataka, {other: stakatakaCondition}, p))
-
   const blacephalonCondition = hasPokemonFuzzy(user, Pokemon(I.Blacephalon))
   list.push(...addIf(P.Blacephalon, {other: blacephalonCondition}, p))
-
   const poipoleCondition = hasPokemonFuzzy(user, Pokemon(I.Poipole))
   list.push(...addIf(P.Poipole, {other: poipoleCondition}, p))
-
   return {
     list,
     shinyMultipler: 3,
@@ -2314,7 +2154,6 @@ const ENCOUNTERS_BEASTBALL = (user: Users.Doc, now: Date, location: Location, fo
     },
   }
 }
-
 const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
   const {bait, pokeball} = params
   const p: EncounterParams = {user: user as Users.Doc, location, format, bait}
@@ -3959,7 +3798,852 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
         //   P.Garganacl, P.Klawf, P.Glimmora,
         // ]
       }
-    }
+    },
+    // Bug types
+    svsuvariety: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Venonat, P.Pineco, P.Surskit, P.Kricketot, P.Combee,
+          P.Scatterbug, P.Snom,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tarountula, P.Nymble, P.Rellor,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Venomoth, P.Masquerain, P.Kricketune, P.Larvesta, P.Spewpa,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Spidops, P.Lokix,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Scyther, P.Forretress, P.Heracross, P.Vespiquen, P.Volcarona,
+        ]
+      }
+    },
+    // Normal types
+    svsutower: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Jigglypuff, P.Meowth, P.Teddiursa, P.Slakoth, P.Swablu,
+          P.Starly, P.Deerling, P.Fletchling, P.Litleo, P.Skiddo,
+          P.Yungoos, P.Skwovet,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Lechonk, P.Tandemaus, P.Smoliv, P.Shroodle,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Persian, P.Eevee, P.Girafarig, P.Dunsparce, P.Stantler,
+          P.Vigoroth, P.Zangoose, P.Staravia, P.Sawsbuck, P.Rufflet,
+          P.Pyroar, P.Gogoat, P.Gumshoos, P.Komala, P.Greedent,
+          P.Indeedee,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Oinkolonge, P.Doliv, P.Squawkabilly, P.Grafaiai, P.Cyclizar,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Chansey, P.Ursaring, P.Slaking, P.Staraptor, P.Braviary,
+          P.Oranguru,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Arboliva,
+        // ]
+      }
+    },
+    // Fighting types
+    svsurefreshing: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Mankey, P.Makuhita, P.Meditite,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Primeape, P.Breloom, P.Medicham, P.Croagunk, P.Crabrawler,
+          P.Falinks,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Flamigo, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Heracross, P.Hariyama, P.Lucario, P.Toxicroak, P.Hawlucha,
+          P.Passimian,
+        ]
+      }
+    },
+    // Flying types
+    svsuegg: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Hoppip, P.Wingull, P.Swablu, P.Starly, P.Combee,
+          P.Fletchling, P.Rookidee,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Wattrel, 
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Skiploom, P.Murkrow, P.Delibird, P.Pelipper, P.Tropius,
+          P.Staravia, P.Drifloon, P.Rufflet, P.Fletchinder, P.Oricorio,
+          P.Corvisquire,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Squawkabilly, P.Kilowattrel, P.Flamigo,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Scyther, P.Gyarados, P.Jumpluff, P.Altaria, P.Staraptor,
+          P.Vespiquen, P.Drifblim, P.Braviary, P.Talonflame, P.Hawlucha,
+          P.Noibat, P.Corviknight,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Bombirdier 
+        // ]
+      }
+    },
+    // Fire types
+    svscurryrice: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Litleo, P.Salandit,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Fuecoco, P.Charcadet
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Growlithe, P.Houndour, P.Numel, P.Larvesta, P.Fletchinder,
+          P.Pyroar,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Crocalor,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Houndoom, P.Camerupt, P.Torkoal, P.Volcarona, P.Talonflame,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Skeledirge,
+        // ]
+      }
+    },
+    // Poison types
+    svsumarmalade: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Venonat, P.Grimer, P.Gastly, P.Gulpin, P.Foongus,
+          P.Skrelp, P.Salandit, P.Toxel,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Shroodle, P.Varoom,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Venomoth, P.Muk, P.Haunter, P.Qwilfish, P.Swalot,
+          P.Seviper, P.Stunky, P.Croagunk, P.Mareanie,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Grafaiai, P.Glimmet,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Skuntank, P.Toxicroak, P.Amoonguss, P.Dragalge, P.Toxapex,
+          P.Toxtricity,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Revaroom, P.Glimmora,
+        // ]
+      }
+    },
+    // Fairy types
+    svsunouveau: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Jigglypuff, P.Marill, P.Ralts, P.Flabébé, P.Impidimp,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Fidough, P.Tinkatink,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Azumarill, P.Kirlia, P.Floette, P.Dedenne, P.Klefki,
+          P.Morgrem,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Dachsbun, P.Tinkatuff,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gardevoir, P.Mimikyu, P.Hatterene, P.Grimmsnarl,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tinkaton, 
+        // ]
+      }
+    },
+    // Ghost types
+    svsuhefty: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gastly, P.Shuppet, P.Sandygast, P.Sinistea,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Grievard, P.Bramblin,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Haunter, P.Misdreavus, P.Sableye, P.Banette, P.Drifloon,
+          P.Dreepy,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Houndstone, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Drifblim, P.Rotom, P.Palossand, P.Mimikyu, P.Drakloak,
+        ]
+      }
+    },
+    // Psychic types
+    svsubocadillo: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Slowpoke, P.Drowzee, P.Ralts, P.Meditite, P.Spoink,
+          P.Gothita, P.Hatenna,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Flittle, 
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Slowbro, P.Hypno, P.Girafarig, P.Kirlia, P.Medicham,
+          P.Grumpig, P.Bronzor, P.Gothorita, P.Bruxish, P.Hattrem,
+          P.Indeedee,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Veluza, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gardevoir, P.Bronzong, P.Gothitelle, P.Oranguru, P.Hatterene,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Espathra 
+        // ]
+      }
+    },
+    // Dark types
+    svsudecadent: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Sandile, P.Impidimp,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Maschiff, 
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Murkrow, P.Sneasel, P.Houndour, P.Sableye, P.Cacturne,
+          P.Stunky, P.Krokorok, P.Zorua, P.Pawniard, P.Deino,
+          P.Morgrem,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Lokix, P.Mabosstiff,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Houndoom, P.Skuntank, P.Krookodile, P.Zoroark, P.Bisharp,
+          P.Zweilous, P.Grimmsnarl,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Bombirdier, 
+        // ]
+      }
+    },
+    // Dragon types
+    svsuhamburger: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Applin,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Dratini, P.Bagon, P.Gible, P.Axew, P.Deino, P.Goomy,
+          P.Dreepy,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tatsugiri, P.Cyclizar,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Dragonair, P.Altaria, P.Shelgon, P.Gabite, P.Fraxure,
+          P.Zweilous, P.Dragalge, P.Sliggoo, P.Noibat, P.Drakloak
+        ]
+      }
+    },
+    // Steel types
+    svsucurrynoodle: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Magnemite,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tinkatink, 
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Magneton, P.Bronzor, P.Pawniard, P.Klefki, P.Cufant,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tinkatuff, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Bronzong, P.Lucario, P.Bisharp, P.Corviknight, P.Copperajah,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Tinkaton, P.Orthworm,
+        // ]
+      },
+    },
+    // Water types
+    svsuzesty: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Psyduck, P.Slowpoke, P.Shellder, P.Magikarp,
+          P.Marill, P.Wingull, P.Surskit, P.Luvdisc, P.Buizel,
+          P.Shellos, P.Finneon, P.Skrelp, P.Clauncher, P.Chewtle,
+          P.Arrokuda,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Quaxly, P.Wiglett,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Golduck, P.Slowbro, P.Azumarill, P.Qwilfish,
+          P.Pelipper, P.Masquerain, P.Barboach, P.Floatzel,
+          P.Lumineon, Potw(P.Basculin, {form: 'blue_stripe'}),
+          Potw(P.Basculin, {form: 'red_stripe'}), P.Mareanie,
+          P.Bruxish, P.Drednaw,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Quaxwell, P.Finizen, P.Tatsugiri, P.Veluza,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Gyarados, P.Whiscash, P.Gastrodon, P.Alomomola, P.Clawitzer,
+          P.Toxapex, P.Barraskewda,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Quaquaval, P.Wugtrio, P.Dondozo,
+        // ]
+      }
+    },
+    // Grass types
+    svslbitter: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Hoppip, P.Sunkern, P.Shroomish, P.Cacnea, P.Snover,
+          P.Petilil, P.Deerling, P.Foongus, P.Skiddo, P.Bounsweet,
+          P.Applin,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Sprigatito, P.Smoliv, P.Bramblin, P.Toedscool, P.Capsakid,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Skiploom, P.Breloom, P.Cacturne, P.Tropius, P.Sawsbuck,
+          P.Gogoat, P.Fomantis, P.Steenee,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Floragato, P.Dolliv, P.Toedscruel,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Jumpluff, P.Abomasnow, P.Amoonguss, P.Lurantis, P.Tsareena,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Meowscarada, P.Arboliva,
+        // ]
+      }
+    },
+    // Electric types
+    svsusushi: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Pikachu, P.Magnemite, P.Voltorb, P.Mareep, P.Shinx,
+          P.Tynamo, P.Toxel, P.Tadbulb, P.Wattrel,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Pawmi,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Magneton, P.Electrode, P.Flaaffy, P.Luxio, P.Pachirisu,
+          P.Eelektrik, P.Dedenne, P.Pincurchin, P.Kilowattrel,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Pawmo,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Ampharos, P.Luxray, P.Rotom, P.Toxtricity,
+        ]
+      }
+    },
+    // Ice types
+    svsuklawf: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Snorunt, P.Snover, P.Cubchoo, P.Snom,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Sneasel, P.Delibird, P.Bergmite, P.Eiscue,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Cetoddle, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Glalie, P.Abomasnow, P.Beartic, P.Cryogonal, P.Avalugg,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Cetitan, 
+        // ]
+      }
+    },
+    // Ground types
+    svsuspicysweet: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Diglett, P.Phanpy, P.Sandile, P.Sandygast, P.Silicobra,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Toedscool, 
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Dugtrio, P.Donphan, P.Larvitar, P.Numel, P.Barboach,
+          P.Gible, P.Hippopotas, P.Krokorok, P.Mudbray, P.Sandaconda,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Toedscruel, 
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Camerupt, P.Whiscash, P.Gastrodon, P.Gabite, P.Hippowdon,
+          P.Krookodile, P.Mudsdale, P.Palossand,
+        ]
+      }
+    },
+    // Rock types
+    svsublt: {
+      pokeball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Rolycoly,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Nacli,
+        // ]
+      },
+      greatball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Sudowoodo, P.Larvitar, P.Rockruff, P.Drednaw, P.Carkol,
+          P.Stonjourner,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Naclstack, P.Glimmet,
+        // ]
+      },
+      ultraball: {
+        [CATCH_CHARM_SWSH]: [
+          P.Lycanroc, P.Coalossal,
+        ],
+        // [CATCH_CHARM_SV]: [
+        //   P.Garganacl, P.Klawf, P.Glimmora,
+        // ]
+      }
+    },
+    // Pokemon Sleep encounters: https://www.serebii.net/pokemonsleep/pokemon.shtml
+    // Use the canonical type only (except for slowpoke)
+    // Psychic
+    sleepsslowpoke: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Slowpoke,
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Wynaut,
+        ],
+        [CATCH_CHARM_DPPT]: [
+          P.Mime_Jr,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Slowbro,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_RBY]: [
+          P.Mr_Mime,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Wobbuffet,
+        ],
+      }
+    },
+    // Poison
+    sleepsmushroom: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Ekans,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Arbok,
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Gulpin,
+        ],
+        [CATCH_CHARM_DPPT]: [
+          P.Croagunk,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_RSE]: [
+          P.Swalot,
+        ],
+        [CATCH_CHARM_DPPT]: [
+          P.Toxicroak,
+        ],
+      }
+    },
+    // Ice
+    sleepssnowcloak: {
+      pokeball: {
+        [CATCH_CHARM_RSE]: [
+          P.Spheal,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RSE]: [
+          P.Sealeo,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_RSE]: [
+          P.Walrein,
+        ],
+      }
+    },
+    // Normal/Fairy
+    sleepsgluttony: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Rattata, P.Cleffa, P.Meowth, P.Igglybuff, P.Togepi,
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Slakoth, P.Swablu
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Raticate, P.Clefairy, P.Eevee, P.Jigglypuff
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Vigoroth,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_RBY]: [
+          P.Persian, P.Kangaskhan, P.Ditto,
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Slaking,
+        ],
+      }
+    },
+    // Water
+    sleepswaterveil: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Squirtle, P.Psyduck,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Totodile,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Wartortle,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Croconaw,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_RBY]: [
+          P.Blastoise, P.Golduck,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Feraligatr,
+        ],
+      }      
+    },
+    // Fighting
+    sleepssuperpower: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Mankey,
+        ],
+        [CATCH_CHARM_DPPT]: [
+          P.Riolu,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Primeape,
+        ]
+      },
+    },
+    // Ghost
+    sleepsbeanham: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Gastly,
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Shuppet,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Haunter,
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Banette,
+        ],
+      },
+    },
+    // Grass
+    sleepstomato: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Bulbasaur, P.Bellsprout,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Chikorita,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Ivysaur, P.Weepinbell,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Bayleef,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_RBY]: [
+          P.Venusaur,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Meganium,
+        ],
+      }
+    },
+    // Electric
+    sleepscaprese: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Pichu,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Mareep,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Pikachu,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Flaaffy,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_GSC]: [
+          P.Ampharos,
+        ]
+      }
+    },
+    // Bug
+    sleepschocolate: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Caterpie,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Metapod,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_RBY]: [
+          P.Butterfree, P.Pinsir,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Heracross,
+        ],
+      }
+    },
+    // Fire
+    sleepsginger: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Charmander,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Cyndaquil,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Charmeleon, P.Growlithe,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Quilava,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_RBY]: [
+          P.Charizard,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Typhlosion,
+        ],
+      }
+    },
+    // Dragon
+    sleepsapple: {
+      ultraball: {
+        [CATCH_CHARM_RSE]: [
+          P.Altaria,
+        ],
+      }
+    },
+    // Flying
+    sleepsleek: {
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Doduo,
+        ]
+      },
+      ultraball: {
+        [CATCH_CHARM_RBY]: [
+          P.Dodrio,
+        ]
+      },
+    },
+    // Steel
+    sleepsapplecheese: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Magnemite,
+        ]
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Magneton,
+        ]
+      },
+    },
+    // Dark
+    sleepsninja: {
+      greatball: {
+        [CATCH_CHARM_GSC]: [
+          P.Houndour,
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Sableye,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_GSC]: [
+          P.Houndoom,
+        ],
+        [CATCH_CHARM_RSE]: [
+          P.Absol,
+        ],
+      }
+    },
+    // Ground/Rock
+    sleepsheatwave: {
+      pokeball: {
+        [CATCH_CHARM_RBY]: [
+          P.Diglett, P.Geodude, P.Cubone,
+        ],
+        [CATCH_CHARM_DPPT]: [
+          P.Bonsly,
+        ],
+      },
+      greatball: {
+        [CATCH_CHARM_RBY]: [
+          P.Dugtrio, P.Graveler, P.Onix,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Sudowoodo, P.Larvitar,
+        ],
+      },
+      ultraball: {
+        [CATCH_CHARM_RBY]: [
+          P.Marowak,
+        ],
+        [CATCH_CHARM_GSC]: [
+          P.Pupitar,
+        ],
+      }
+    },
   }
   // We need to file this twice
   // First, for the addIf backend impl
@@ -3982,7 +4666,6 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       }
     }
   }
-
   return {
     list,
     shinyMultipler: 3 * (baitDb?.shiny ?? 1),
@@ -3991,7 +4674,6 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
     },
   }
 }
-
 const ENCOUNTERS_NONE = () => {
   return {
     shinyMultipler: 0,
@@ -3999,7 +4681,6 @@ const ENCOUNTERS_NONE = () => {
     guaranteedItem: nop,
   }
 }
-
 function fromDatabase(gift: ItemId) {
   return [
     ...fromRegion(Pkmn.datastore, gift),
@@ -4017,7 +4698,6 @@ function fromRegion(region: {[key in BadgeId]?: PokemonDoc}, gift: ItemId) {
   })
   return ids
 }
-
 // repeatball: Don't allow just _any_ Pokémon to be recaught
 const invalidList = [
   ...fromDatabase('ultraball'),
@@ -4028,21 +4708,16 @@ const invalidList = [
   P.Kyogre, P.Groudon, P.Rayquaza, P.Jirachi, P.Deoxys,
   P.Deoxys_Attack, P.Deoxys_Defense, P.Deoxys_Speed,
 ]
-
 type EncounterKey = PokeballId | LureId | 'campinggear'
-
 type EncounterFn = (user: Users.Doc, time: Date, location: Location,
   format: EncounterParamFormat, params: Record<string, string>) => Encounter;
-
 type EncounterTable = Record<EncounterKey, EncounterFn>;
-
 interface Encounter {
   shinyMultipler: number
   list: BadgeId[]
   guaranteedItem: (species: string, time: Date, location: Location,
       user: Users.Doc) => (ItemId | string)
 }
-
 export const ENCOUNTERS: EncounterTable = {
   pokeball: ENCOUNTERS_COMMON,
   greatball: ENCOUNTERS_UNCOMMON,
@@ -4112,9 +4787,7 @@ export const ENCOUNTERS: EncounterTable = {
   campinggear: ENCOUNTERS_BAIT,
   rotombike: ENCOUNTERS_WILDAREA,
 }
-
 type HoldItemTable = Partial<Record<BadgeId, ItemId[]>>
-
 /** 5% chance of finding an item. These items tend to be rare. */
 export const HOLD_ITEMS_5: HoldItemTable = {
   [P.Squirtle]: ['blackglasses'],
@@ -4440,7 +5113,6 @@ export const HOLD_ITEMS_5: HoldItemTable = {
   [P.Iron_Bundle]: ['boosterenergy'],
   [P.Iron_Valiant]: ['boosterenergy'],
 }
-
 /** 15% chance of finding an item. These items tend to be more common or topical. */
 export const HOLD_ITEMS_15: HoldItemTable = {
   [P.Raticate]: ['oran'],
@@ -4456,6 +5128,7 @@ export const HOLD_ITEMS_15: HoldItemTable = {
   [P.Arcanine]: ['rawst'],
   [P.Seel]: ['aspear'],
   [P.Dewgong]: ['aspear'],
+  [P.Slowpoke]: ['sleepislowpoke'],
   [P.Shellder]: ['pearl'],
   [P.Cloyster]: ['pearl'],
   [P.Staryu]: ['stardust'],
@@ -4474,6 +5147,7 @@ export const HOLD_ITEMS_15: HoldItemTable = {
   [P.Skarmory]: ['sharpbeak'],
   [P.Smoochum]: ['aspear'],
   [P.Magby]: ['rawst'],
+  [P.Miltank]: ['sleepimilk'],
   [P.Linoone]: ['oran'],
   [P.Wingull]: ['prettywing'],
   [P.Pelipper]: ['prettywing'],
@@ -4538,7 +5212,6 @@ export const HOLD_ITEMS_15: HoldItemTable = {
   [P.Kommo_o]: ['razorclaw'],
   // [P.Toedscreul]: ['tinymushroom'],
 }
-
 /** 50% chance of finding an item. These items are common and normally materials. */
 export const HOLD_ITEMS_50: HoldItemTable = {
   [P.Pikachu]: ['oran'],
