@@ -297,6 +297,32 @@ export namespace Users {
       researchCompleted: number
       currentBadgesLength: number
     }
+    yearInReview22?: {
+      // We're in Gen 6 now--Angular
+      battleWins: number
+      raidWins: number
+      eggsLaid: number
+      pokedex: {
+        kanto: number
+        johto: number
+        hoenn: number
+        sinnoh: number
+        unova: number
+        kalos: number
+        alola: number
+        galar: number
+        hisui: number
+      }
+      gtsTraded: number
+      berryGrown: number
+      researchCompleted: number
+      voyagesCompleted: number
+      formChangeCount: number
+      evolutionCount: number
+      restorationCount: number
+      currentBadgesLength: number
+      wealth: 0
+    }
     /** Custom badges that the user may have, which we need to sync */
     customBadges?: string[]
     /** Metric for number of wonder trades made by player. */

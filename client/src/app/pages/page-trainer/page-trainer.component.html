@@ -1,8 +1,8 @@
-<mat-card *ngIf="yir && false" class="typebg Ice">
+<mat-card *ngIf="yir && enableYir" class="typebg Ice">
   <h1>Pokémon Wrapped</h1>
   <button mat-button (click)="launchYir()">
     <mat-icon>calendar_month</mat-icon>
-    Tap here to get some nostalgia
+    Check out your Pokémon Wrapped
   </button>
 </mat-card>
 
@@ -230,30 +230,32 @@
       <b>Battles</b>
       <br>
       <sprite-item item="{{yir?.battleItem}}"></sprite-item>
+      <p>
+        There have been a lot of changes to the battle system this year,
+        including Natures and switch outs.
+      </p>
       <p *ngIf="yir?.battleWins > 0">
         Wow you've been battling a lot this year! You have won
         {{this.user?.battleStadiumRecord[1] - yir!.battleWins}}
         matches.
       </p>
-      <p *ngIf="yir?.battleItem === 'megabracelet'">
-        You have received the Mega Bracelet. You must've been mega
-        evolving your Pokémon a bunch!
+      <p *ngIf="yir?.battleItem === 'dynamaxband'">
+        With the Dynamax Band, you are now able to Dynamax or even Gigantamax
+        your Pokémon! I'm sure you've had some epic battles this year.
       </p>
       <p *ngIf="yir?.battleItem === 'zpowerring'">
         You have received the Z-Power Ring. You must've launched incredibly
         powerful Z-Moves against your opponents.
       </p>
-      <p *ngIf="yir?.battleItem === 'protectivepads'">
-        You even won Protective Pads after one match. Do you remember how
-        close that battle was?
+      <p *ngIf="yir?.battleItem === 'sausages'">
+        You even won Sausages after one match. Did you have a tasty curry
+        to celebrate?
       </p>
-      <p *ngIf="yir?.battleItem === 'safetygoggles'">
-        You even won Safety Goggles after one match. Do you remember how
-        close that battle was?
+      <p *ngIf="yir?.battleItem === 'throatspray'">
+        You even won Throat Spray after one match. Did you shout with joy?
       </p>
-      <p *ngIf="yir?.battleItem === 'assaultvest'">
-        You even won an Assault Vest after one match. Do you remember how
-        close that battle was?
+      <p *ngIf="yir?.battleItem === 'dynamaxcandy'">
+        You even won a Dynamax Candy after one match. Did you have a giant battle?
       </p>
       <sprite-pokemon *ngIf="yir?.rb" badge="{{yir?.rb?.sprite}}"></sprite-pokemon>
       <br>
@@ -261,6 +263,10 @@
         You really seem to love raids.
         In {{this.user?.raidRecord[1] - yir!.raidWins}}
         this year, you have been victorious!
+      </p>
+      <p *ngIf="yir?.raidWins > 0">
+        There are still over 600 Pokémon who have not debuted in raids.
+        I hope you're willing to catch them all.
       </p>
       <p *ngIf="yir?.rb">
         Remember when you battled against that {{yir?.rb?.label}}?
@@ -280,19 +286,16 @@
       <img src="{{yir?.egg}}">
       <p *ngIf="yir?.eggsLaid">
         You have gone to the Day Care a lot this year. {{this.user?.eggsLaid - yir?.eggsLaid}} eggs
-        were laid in 2022.
+        were laid in 2023.
       </p>
       <sprite-item item="ovalcharm" *ngIf="yir?.ovalcharm"></sprite-item>
       <p *ngIf="yir?.ovalcharm">
         It probably helps that you have the Oval Charm.
       </p>
       <p>
-        Fun Fact: Rotom was the first Pokémon this year to be voted in the
-        Breeding Club. Since then, the club has updated 19 times. This includes
-        Porygon twice!
-      </p>
-      <p>
-        Wow, all of you really like Porygon.
+        Fun Fact: Meditite & Elekid were the first Pokémon to be voted in the
+        Breeding Club this year. Since then, the club has updated 23 times.
+        Thanks to all your votes!
       </p>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -300,7 +303,7 @@
       </div>
     </mat-step>
     <mat-step>
-      <b>Berries</b>
+      <b>Treasure</b>
       <br>
       <sprite-item item="{{yir?.favoriteBerry?.key}}"></sprite-item>
       <p *ngIf="yir?.berryGrown">
@@ -314,22 +317,28 @@
         don't get squished!
       </p>
       <p *ngIf="!this.user?.itemsCrafted">
-        You can do more than eat the berries plain. You can add Crafting as
-        a resolution for next year.
+        Did you know you can blend berries together into new items? They can
+        help you catch rare Pokémon.
       </p>
       <p *ngIf="this.user?.itemsCrafted">
         You aren't just growing them either. You seem to have an eye for
-        crafting. {{this.user?.itemsCrafted}} items have been crafted.
+        crafting. {{this.user?.itemsCrafted - yir?.itemsCrafted}} items have been crafted
+        this year.
       </p>
-      <p *ngIf="!yir?.pokeblock">
-        Once you start crafting, try making PokéBlocks. Pikachu seem to enjoy
-        the taste.
+      <p *ngIf="!yir?.curry">
+        If you feel hungry, try making curry. Many wild Pokémon will enjoy
+        thme too.
       </p>
-      <p *ngIf="yir?.pokeblock">
-        <sprite-pokemon badge="p#Y024"></sprite-pokemon>
+      <p *ngIf="yir?.alcremie">
+        <sprite-pokemon badge="dB#Yf_4"></sprite-pokemon>
         <br>
-        Pikachus certainly enjoy the taste of PokéBlocks, but I guess I don't
-        need to tell that to you!
+        I hope you haven't gotten too dizzy from spinning many Milcery.
+      </p>
+      <p>
+        <sprite-item item="svibaguette"></sprite-item>
+        <br>
+        Your net worth has jumped from {{yir?.wealth}} to {{yir?.wealth23}}.
+        Way to go! Get that bread.
       </p>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -345,14 +354,16 @@
         {{this.user?.researchCompleted - yir?.researchCompleted}}
         research tasks.
       </p>
-      <p *ngIf="yir?.zcrystals">
-        <sprite-item item="{{yir?.zcrystals}}"></sprite-item>
-        <br>
-        You've even managed to obtain a Z-Crystal.
+      <p *ngIf="this.user?.researchCompleted > 180">
+        You probably have seen new research tasks this year. Try completing
+        as many as you can!
       </p>
       <p *ngIf="this.user?.moveTutors">
         You have also been carefully studying the Move Tutor. Over the last
-        year you have tutored your Pokémon {{this.user?.moveTutors}} times.
+        year you have tutored your Pokémon {{this.user?.moveTutors - yir?.moveTutors}} times.
+      </p>
+      <p>
+        Have you had a chance to chat with Professor Oak?
       </p>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -373,15 +384,15 @@
       </p>
       <p *ngIf="this.user?.formChangeCount">
         They didn't just sit in a box somewhere. You have been active.
-        Your Pokémon have changed forms {{this.user?.formChangeCount}} times.
+        Your Pokémon have changed forms {{this.user?.formChangeCount - yir?.formChangeCount}} times.
       </p>
       <p *ngIf="this.user?.evolutionCount">
         While you may admire your Pokémon, they have grown a lot. You have
-        evolved your Pokémon {{this.user?.evolutionCount}} times.
+        evolved your Pokémon {{this.user?.evolutionCount - yir?.evolutionCount}} times.
       </p>
       <p *ngIf="this.user?.restorationCount">
         Your Pokémon have come from all kinds of places.
-        {{this.user?.restorationCount}} have been restored from an item.
+        {{this.user?.restorationCount - yir?.restorationCount}} have been restored from an item.
       </p>
       <p *ngIf="yir">
         You have used the GTS {{this.user?.gtsTraded - yir?.gtsTraded}} times
@@ -390,21 +401,26 @@
           That must be why you have unlocked {{this.user?.friendSafari.length}}
           zones in the Friend Safari.
         </span>
+        <span *ngIf="this.user?.wonderTradeCount">
+          Additionally, you've used the new Wonder Trade feature
+          {{this.user?.wonderTradeCount}} times.
+        </span>
       </p>
       <p>
         <span *ngIf="yir?.newDex">
           You finally finished the {{yir?.newDex}} PokéDex this year. Way to go!
         </span>
-        <span *ngIf="this.user?.pokedex.kalos === 72">
-          You not only unlocked Kalos this year, but caught all of the Pokémon!
+        <span *ngIf="this.user?.pokedex.galar === 89">
+          You not only unlocked Galar this year, but caught all of the Pokémon!
         </span>
-        <span *ngIf="this.user?.pokedex.kalos < 72">
-          You not only unlocked Kalos this year, but caught {{this.user?.pokedex.kalos}}
+        <span *ngIf="this.user?.pokedex.galar < 89">
+          You not only unlocked Galar this year, but caught
+          {{this.user?.pokedex.galar}}
           of the Pokémon there! You're so close!
         </span>
-        <span *ngIf="this.user?.pokedex.alola">
-          Pokémon from the Alola region are just being discovered, but you've
-          already managed to catch {{this.user?.pokedex.alola}} of them.
+        <span *ngIf="this.user?.pokedex.paldea">
+          Pokémon from the Paldea region are just being discovered, but you've
+          already managed to catch {{this.user?.pokedex.paldea}} of them.
         </span>
       </p>
       <div>
@@ -415,37 +431,42 @@
     <mat-step>
       <b>New Features</b>
       <br>
-      <sprite-pokemon badge="aa#Yf_4"></sprite-pokemon>
-      <sprite-pokemon badge="ad#Yf_4"></sprite-pokemon>
-      <sprite-pokemon badge="ag#Yf_4"></sprite-pokemon>
+      <sprite-pokemon badge="cG#Yf_4"></sprite-pokemon>
+      <sprite-pokemon badge="cJ#Yf_4"></sprite-pokemon>
+      <sprite-pokemon badge="cM#Yf_4"></sprite-pokemon>
       <p>
-        There have been many new features launched throughout the year. The
-        biggest was a complete website redesign in Angular. It took some time
-        for it to work well, but things are going much smoother now.
+        There have been many new features launched throughout the year.
+        The biggest one has been Professor Oak as a chatbot through the
+        PokéGear. It's a new feature that I hope to improve over time.
       </p>
       <p>
-        Pokémon from Kalos have began appearing. This has brought
-        new features like Mega Evolutions.
+        Also noteworthy is the shutdown of the legacy site. This new UI has
+        improved significantly since its inception.
+      </p>
+      <p>
+        The launch of an <a href="https://github.com/fleker/pokemon-as-a-service">
+          open-source version
+        </a>
+        will let the game expand to new domains.
+      </p>
+      <p>
+        Many Pokémon have been added from the Alola, Galar, and Hisui regions.
+        We're very close to catching them all!
       </p>
       <p>
         New game features have made catching Pokémon more depth than before
-        including the Friend Safari, fossil restoration, and souvenirs.
+        including bait, Wonder Trade, multiple sizes, and more!
+      </p>
+      <p *ngIf="this.user?.voyagesCompleted">
+        Many game modes have seen more content added over time.
+        You have gone on {{this.user?.voyagesCompleted - yir?.voyagesCompleted}}
+        voyages over the last year.
       </p>
       <p>
-        New game modes provide new ways to play the game includin crafting and
-        voyages.
-        <span *ngIf="this.user?.itemsCrafted">
-          And you've already crafted {{this.user?.itemsCrafted}} items.
-        </span>
-        <span *ngIf="this.user?.voyagesCompleted">
-          You have already gone on {{this.user?.voyagesCompleted}}
-          voyages in such a short period of time.
-        </span>
-      </p>
-      <p>
-        We are now embarking on a journey to Alola.
+        In the next year, expect to see even more Pokémon. There is one more
+        region to go.
+        <br>
         I'm excited for the future.
-        I hope you are too.
       </p>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -455,7 +476,7 @@
     <mat-step>
       <b>That's a wrap!</b>
       <br>
-      <sprite-pokemon badge="2n#Yf_4"></sprite-pokemon>
+      <sprite-pokemon badge="e2#Yf_4"></sprite-pokemon>
       <p>
         Wow it's been a busy year for all of us.
         I realize that being able to play a Pokémon game at work, with your

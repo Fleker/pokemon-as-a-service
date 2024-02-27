@@ -13,6 +13,7 @@ import { PokemonId } from '../../../../../shared/src/pokemon/types';
 import { battleRanking } from '../../../../../shared/src/prizes';
 import { Users, F, notificationTypes } from '../../../../../shared/src/server-types';
 import { egg, quest } from '../../../../../shared/src/sprites';
+import { calculateNetWorth } from '../../../../../shared/src/events';
 
 declare var window: any;
 
@@ -37,6 +38,7 @@ export class PageTrainerComponent implements OnInit, OnDestroy {
   }
   firebaseListener: any
   yir?: any;
+  enableYir = true
 
   constructor(
     private firebase: FirebaseService,
@@ -241,43 +243,118 @@ export class PageTrainerComponent implements OnInit, OnDestroy {
     this.dialogYir!.nativeElement.showModal()
   }
 
+  yirCalculate(pkmn: PokemonId) {
+    const badge = new Badge(pkmn)
+    let score = 0
+    if (['greatball', 'ultraball'].includes(badge.personality.pokeball)) {
+      score += 10
+    } else if (['featherball', 'jetball', 'wingball', 'gigatonball', 'leadenball'].includes(badge.personality.pokeball)) {
+      score += 50
+    } else if (!['pokeball', 'premierball'].includes(badge.personality.pokeball)) {
+      score += 25
+    } else {
+      score -= 10
+    }
+    if (badge.personality.shiny) {
+      score += 100
+    }
+    if (badge.personality.form) {
+      score += 15
+    }
+    if (['totem', 'alpha', 'titan'].includes(badge.personality.form)) {
+      score += 5
+    }
+    if (badge.personality.variant) {
+      score += 10
+    }
+    if (badge.personality.gender) {
+      score += 10
+    }
+    if (badge.personality.affectionate) {
+      score += 3
+    }
+    if (badge.personality.location === 'US-MTV') {
+      score -= 2
+    }
+    const db = get(badge.toLegacyString())
+    if (db.rarity === 'LEGENDARY') {
+      score += 30
+    } else if (db.rarity === 'MYTHICAL') {
+      score += 45
+    }
+    if (db.release === 'ultraball') {
+      score += 3
+    } else if (db.release === 'greatball') {
+      score += 1
+    }
+    if (badge.id >= 906) { // Paldea
+      score += 65
+    } else if (badge.id >= 899) { // Hisui
+      score += 50
+    } else if (badge.id >= 810) { // Galar
+      score += 45
+    } else if (badge.id >= 722) { // Alola
+      score += 30
+    } else if (badge.id >= 650) { // Kalos
+      score += 15
+    } else if (badge.id >= 494) { // Unova
+      score += 5
+    }
+    return score
+  }
+
+  /**
+   * 2023 recap:
+   * - Shiny Shaymin
+   * - Shut down legacy domain
+   * - Wonder Trade
+   * - GMax
+   * - XXL/XXS
+   * - Natures
+   * - Field effects/switching
+   * - Ultra Beasts
+   * - Meltan
+   * - Much of Alola + Galar + Hisui
+   * - Open source
+   * - PokéGear
+   */
   computeYir() {
     const pkmnKeys = Object.keys(this.user.pokemon) as PokemonId[]
     this.yir = {
-      ...this.user.yearInReview21,
+      ...this.user.yearInReview22,
       battleItem: (() => {
-        if (this.user.items.zpowerring) {
+        if (this.user.items.dynamaxband) {
+          return 'dynamaxband'
+        } else if (this.user.items.zpowerring) {
           return 'zpowerring'
-        } else if (this.user.items.megabracelet) {
-          return 'megabracelet'
-        } else if (this.user.items.protectivepads) {
-          return 'protectivepads'
-        } else if (this.user.items.safetygoggles) {
-          return 'safetygoggles'
-        } else if (this.user.items.assaultvest) {
-          return 'assaultvest'
+        } else if (this.user.items.sausages) {
+          return 'sausages'
+        } else if (this.user.items.throatspray) {
+          return 'throatspray'
+        } else if (this.user.items.dynamaxcandy) {
+          return 'dynamaxcandy'
         }
         return undefined
       })(),
       mega: this.user.items.megabracelet,
       zring: this.user.items.zpowerring,
+      dmax: this.user.items.dynamaxband,
       rb: (() => {
-        if (Badge.match('7J#YL_4', pkmnKeys, MATCH_REQS)) {
-          return {sprite: '7J#YL_4', label: 'Shiny Arceus'}
-        } else if (Badge.match('7K#YL_4', pkmnKeys, MATCH_REQS)) {
-          return {sprite: '7K#YL_4', label: 'Shiny Victini'}
-        } else if (Badge.match('a7#YL_4', pkmnKeys, MATCH_REQS)) {
-          return {sprite: 'a7#YL_4', label: 'Shiny Keldeo'}
-        } else if (Badge.match('a8#YL_4', pkmnKeys, MATCH_REQS)) {
-          return {sprite: 'a8#YL_4', label: 'Shiny Meloletta'}
-        } else if (Badge.match('a9#YL_4', pkmnKeys, MATCH_REQS)) {
-          return {sprite: 'a9#YL_4', label: 'Shiny Genesect'}
-        } else if (Badge.match('bf#YL_4', pkmnKeys, MATCH_REQS)) {
-          return {sprite: 'bf#YL_4', label: 'Shiny Diancie'}
-        } else if (Badge.match('7G#YL_4', pkmnKeys, MATCH_REQS)) {
-          return {sprite: '7G#YL_4', label: 'Shiny Manaphy'}
-        } else if (Badge.match('7H#YL_4', pkmnKeys, MATCH_REQS)) {
-          return {sprite: '7H#YL_4', label: 'Shiny Darkrai'}
+        if (Badge.match('7I#YL_4', pkmnKeys, MATCH_REQS)) {
+          return {sprite: '7I#YL_4', label: 'Shiny Shaymin'}
+        } else if (Badge.match('cx#YL_4', pkmnKeys, MATCH_REQS)) {
+          return {sprite: 'cx#YL_4', label: 'Shiny Magearna'}
+        } else if (Badge.match('cy#YL_4', pkmnKeys, MATCH_REQS)) {
+          return {sprite: 'cy#YL_4', label: 'Shiny Marshadow'}
+        } else if (Badge.match('cD#YL_4', pkmnKeys, MATCH_REQS)) {
+          return {sprite: 'cD#YL_4', label: 'Shiny Zeraora'}
+        } else if (Badge.match('cE#YL_4', pkmnKeys, MATCH_REQS)) {
+          return {sprite: 'cE#YL_4', label: 'Shiny Meltan'}
+          // Or evolved to Melmetal
+        } else if (Badge.match('cF#YL_4', pkmnKeys, MATCH_REQS)) {
+          return {sprite: 'cE#YL_4', label: 'Shiny Meltan'}
+        } else if (Badge.match('dZ#YL_4', pkmnKeys, MATCH_REQS)) {
+          return {sprite: 'dZ#YL_4', label: 'Shiny Zarude'}
         }
         return undefined
       })(),
@@ -301,14 +378,20 @@ export class PageTrainerComponent implements OnInit, OnDestroy {
           label: ITEMS[favoriteBerry].label
         }
       })(),
-      pokeblock: (() => {
-        const pikas = [
-          'p#Y024', 'p#Y064', 'p#Y0a4', 'p#Y0e4', 'p#Y0i4'
-        ]
-        for (const p of pikas) {
-          if (Badge.match('7H#YL_4', pkmnKeys, MATCH_REQS)) {
-            return true
+      curry: (() => {
+        for (const k of Object.keys(this.user.items)) {
+          if (k.startsWith('curry')) {
+            const i = ITEMS[k]
+            if (i.consumption !== undefined) {
+              return true
+            }
           }
+        }
+        return false
+      })(),
+      alcremie: (() => {
+        for (const k of Object.keys(this.user.pokemon)) {
+          if (k.startsWith('dB')) return true
         }
         return false
       })(),
@@ -320,69 +403,44 @@ export class PageTrainerComponent implements OnInit, OnDestroy {
         }
         return undefined
       })(),
+      wealth23: calculateNetWorth(this.user),
       pkmnCaught: inflate(this.user.pokemon).length,
       pkmnTop: (() => {
-        // We launched new PokeBalls so that's something we can use
-        const newBalls = pkmnKeys
-          .map(p => new Badge(p))
-          // try to avoid shiny raid bosses
-          .filter(p => p.personality.pokeball !== 'pokeball' && p.personality.pokeball !== 'premierball')
-        if (!newBalls.length) return undefined
-        const shiny = newBalls.filter(p => p.personality.shiny)
-        if (shiny.length) {
-          return {
-            sprite: shiny[0].toString(),
-            ball: shiny[0].personality.pokeball,
-            label: shiny[0].toLabel(),
-            location: Globe[shiny[0].personality.location]?.label,
-          }
-        }
-        const legendary = newBalls.filter(p => {
-          const db = get(p.toLegacyString())!
-          if (db.rarity === 'MYTHICAL' || db.rarity === 'LEGENDARY') {
-            return true
-          }
-          return false
-        })
-        if (legendary.length) {
-          return {
-            sprite: legendary[0].toString(),
-            ball: legendary[0].personality.pokeball,
-            label: legendary[0].toLabel(),
-            location: Globe[legendary[0].personality.location]?.label,
-          }
-        }
-        const kalosAlola = newBalls.filter(p => p.id > 649)
-        if (kalosAlola.length) {
-          return {
-            sprite: kalosAlola[0].toString(),
-            ball: kalosAlola[0].personality.pokeball,
-            label: kalosAlola[0].toLabel(),
-            location: Globe[kalosAlola[0].personality.location]?.label,
-          }
-        }
+        const topPkmn = pkmnKeys.sort((a, b) =>
+          this.yirCalculate(b) - this.yirCalculate(a))
+        console.log(topPkmn)
+        const top = new Badge(topPkmn[0])
         return {
-          sprite: newBalls[0].toString(),
-          ball: newBalls[0].personality.pokeball,
-          label: newBalls[0].toLabel(),
-          location: Globe[newBalls[0].personality.location]?.label,
+          sprite: top.toString(),
+          ball: top.personality.pokeball,
+          label: top.toLabel(),
+          location: Globe[top.personality.location]?.label,
         }
       })(),
       newDex: (() => {
         const {pokedex} = this.user
-        if (pokedex.unova === 156 && this.user.yearInReview21.pokedex.unova < 156) {
+        if (pokedex.galar === 89 && this.user.yearInReview22?.pokedex.galar < 89) {
+          return 'Galar'
+        }
+        if (pokedex.alola === 86 && this.user.yearInReview22?.pokedex.alola < 86) {
+          return 'Alola'
+        }
+        if (pokedex.kalos === 72 && this.user.yearInReview22?.pokedex.kalos < 72) {
+          return 'Kalos'
+        }
+        if (pokedex.unova === 156 && this.user.yearInReview22?.pokedex.unova < 156) {
           return 'Unova'
         }
-        if (pokedex.sinnoh === 107 && this.user.yearInReview21.pokedex.sinnoh < 107) {
+        if (pokedex.sinnoh === 107 && this.user.yearInReview22?.pokedex.sinnoh < 107) {
           return 'Sinnoh'
         }
-        if (pokedex.hoenn === 135 && this.user.yearInReview21.pokedex.hoenn < 135) {
+        if (pokedex.hoenn === 135 && this.user.yearInReview22?.pokedex.hoenn < 135) {
           return 'Hoenn'
         }
-        if (pokedex.johto === 100 && this.user.yearInReview21.pokedex.johto < 100) {
+        if (pokedex.johto === 100 && this.user.yearInReview22?.pokedex.johto < 100) {
           return 'Johto'
         }
-        if (pokedex.kanto === 151 && this.user.yearInReview21.pokedex.kanto < 151) {
+        if (pokedex.kanto === 151 && this.user.yearInReview22?.pokedex.kanto < 151) {
           return 'Kanto'
         }
         return undefined
