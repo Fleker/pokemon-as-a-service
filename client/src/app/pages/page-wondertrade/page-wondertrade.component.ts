@@ -40,9 +40,10 @@ export class PageWondertradeComponent {
           species: this.pokemon._selection[0].species,
         })
         this.snackbar.open('Your Pokémon has been sent to the Wonder Trade. Check back later!', '', { duration: 5000 })
+        this.pokemon.reset()
+        // Do not re-enable the confirm button since we can't re-use it for another day.
       } catch (e) {
         this.snackbar.open(e.message, '', { duration: 5000 })
-      } finally {
         this.exec.confirm = false
       }
     })

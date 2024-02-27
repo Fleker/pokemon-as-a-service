@@ -1,7 +1,7 @@
 <mat-card>
   <h1>My Pokémon <mat-icon (click)="tutorialOpen()">help</mat-icon></h1>
   <p>Your Pokémon are waiting patiently with bated breath.</p>
-  <pokemon-picker #picker [multiple]="true" filterdefault="RELEASE" filtercel='"RELEASE" in tags'></pokemon-picker>
+  <pokemon-picker #picker [multiple]="true" [pageSize]="900" [selectall]="true" filterdefault="RELEASE" filtercel='"RELEASE" in tags'></pokemon-picker>
   <br>
   <button mat-button raised [disabled]="!releaseSpecies" (click)="openDialog()">
     Release
