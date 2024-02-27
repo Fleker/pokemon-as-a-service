@@ -678,7 +678,6 @@ export const Movepool: Movepool = {
         inp.casters[1] = casterTemp
         return new Log().add(`${inp.prefix} ${inp.casters[0].species} and ${inp.casters[1].species} swapped`)
       }
-
       // Switch to spot 0
       const casterTemp = inp.casters[casterIndex]
       inp.casters[casterIndex] = inp.casters[0]
@@ -1643,7 +1642,7 @@ export const Movepool: Movepool = {
     type: 'Steel',
     priority: 1,
     flavor: 'The user strikes its fist faster than a speeding bullet.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
   },
   'Bullet Seed': {
     name: 'Bullet Seed',
@@ -2030,7 +2029,7 @@ export const Movepool: Movepool = {
     attackKey: 'attack', defenseKey: 'defense',
     criticalHit: 1, accuracy: 1, power: 0.8,
     flavor: 'The user throws its fist multiple times in rapid succession.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onBeforeMove: ({caster, move}) => HIT_MANY(move, 0.18, 2, 5, caster),
   },
   'Comeuppance': {
@@ -2559,7 +2558,6 @@ export const Movepool: Movepool = {
     onAfterMove: ({target, field, prefix, targetPrefix}) => {
       const log = new Log()
       log.add('The field was cleared.')
-
       field.sides[prefix].lightscreen = 0
       field.sides[prefix].reflect = 0
       field.sides[prefix].mist = 0
@@ -2568,7 +2566,6 @@ export const Movepool: Movepool = {
       field.sides[prefix].stealthRock = false
       field.sides[prefix].sharpSteel = false
       field.sides[prefix].stickyWeb = false
-
       field.sides[targetPrefix].lightscreen = 0
       field.sides[targetPrefix].reflect = 0
       field.sides[targetPrefix].mist = 0
@@ -2577,15 +2574,12 @@ export const Movepool: Movepool = {
       field.sides[targetPrefix].stealthRock = false
       field.sides[targetPrefix].sharpSteel = false
       field.sides[targetPrefix].stickyWeb = false
-
       field.terrain = undefined
-
       if (getCondition(target, 'Safeguard')) {
         // Doesn't hit all targets. This is a known issue.
         removeCondition(target, 'Safeguard')
         log.add(`${target.species} safeguard was removed`)
       }
-
       if (field.weather.name === 'Fog') {
         // Well, defog it then!
         // Sunny is the default.
@@ -2748,7 +2742,7 @@ export const Movepool: Movepool = {
     power: 0.9,
     type: 'Normal',
     flavor: 'The target is hit by an unexpected punch which might confuse them.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => Confuse(inp, 0.2),
   },
   'Doom Desire': {
@@ -2818,7 +2812,7 @@ export const Movepool: Movepool = {
     power: 1.4,
     type: 'Steel',
     flavor: 'The user hits the target twice with what are effectively iron clubs.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => {
       const log = new Log()
       log.add('Hit twice')
@@ -3035,7 +3029,7 @@ export const Movepool: Movepool = {
     attackKey: 'attack', defenseKey: 'defense',
     accuracy: 1, criticalHit: 1, power: 0.95,
     flavor: 'The user drains the target of its energy using its fist.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: ({caster, target, damage}) => {
       const log = logDrain(caster, damage!, 2)
       log.add(`${target.species} had its energy drained`)
@@ -3164,7 +3158,7 @@ export const Movepool: Movepool = {
     power: 1.75,
     type: 'Fighting',
     flavor: 'The user hits the target with a lot of force. The target gets confused.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => Confuse(inp, 1)
   },
   'Earthquake': {
@@ -3767,7 +3761,7 @@ export const Movepool: Movepool = {
     power: 0.95,
     type: 'Fire',
     flavor: 'The user strikes the target with a flaming fist.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => Burn(inp, 0.1),
   },
   'Fire Spin': {
@@ -4084,7 +4078,7 @@ export const Movepool: Movepool = {
     attackKey: 'attack', defenseKey: 'defense', priority: -3,
     accuracy: 1, criticalHit: 1, power: 1.7,
     flavor: 'The user takes a turn to focus. If they can stay focused, this attack does a lot of damage.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onBeforeMove: ({caster, move}) => {
       const cantFocus = getCondition(caster, 'AlreadyHit')
       const log = new Log()
@@ -4719,7 +4713,7 @@ export const Movepool: Movepool = {
     power: 1.2,
     type: 'Fighting',
     flavor: 'The user slams its arm at the target, but the user\'s speed drops.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'speed', -1)
   },
   'Happy Hour': {
@@ -4765,7 +4759,6 @@ export const Movepool: Movepool = {
       caster.statBuffs.speed = 0
       caster.statBuffs.accuracy = 0
       caster.statBuffs.evasiveness = 0
-
       target.statBuffs.attack = 0
       target.statBuffs.defense = 0
       target.statBuffs.spAttack = 0
@@ -4773,7 +4766,6 @@ export const Movepool: Movepool = {
       target.statBuffs.speed = 0
       target.statBuffs.accuracy = 0
       target.statBuffs.evasiveness = 0
-
       const log = new Log()
       log.add(`The stat changes of ${caster.species} and ${target.species} were reset`)
       return log
@@ -4804,7 +4796,7 @@ export const Movepool: Movepool = {
     power: 1.4,
     type: 'Ground',
     flavor: 'The user slams into the target at close range. The damage is immense, but its own defenses lower.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => {
       const log = new Log()
       log.push(BUFF_STAT(inp.caster, inp, 'defense', -1))
@@ -4909,7 +4901,6 @@ export const Movepool: Movepool = {
         return new Log().add('The target cannot be crashed into.')
       }
       const ratio = target.weight / caster.weight
-
       if (ratio > 0.5) {
         move.power = 0.6
       } else if (ratio > 0.33) {
@@ -4948,7 +4939,6 @@ export const Movepool: Movepool = {
         return new Log().add('The target cannot be slammed.')
       }
       const ratio = target.weight / caster.weight
-
       if (ratio > 0.5) {
         move.power = 0.6
       } else if (ratio > 0.33) {
@@ -5317,7 +5307,7 @@ export const Movepool: Movepool = {
     power: 1.2,
     type: 'Ice',
     flavor: 'The user smacks opponent, lowering its own speed.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'speed', -1)
   },
   'Ice Punch': {
@@ -5329,7 +5319,7 @@ export const Movepool: Movepool = {
     power: 0.95,
     type: 'Ice',
     flavor: 'The user throws a chilly punch. It might freeze the target.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true,  punching: true,
     onAfterMove: (inp) => Freeze(inp, 0.1),
   },
   'Ice Shard': {
@@ -5599,7 +5589,7 @@ export const Movepool: Movepool = {
     priority: 1,
     flavor: 'A swift punch covered by a torrent. This move goes quickly.',
     aoe: 'Single Opponent',
-    contact: true,
+    contact: true, punching: true,
   },
   Judgment: {
     name: 'Judgment', type: 'Normal',
@@ -6073,9 +6063,7 @@ export const Movepool: Movepool = {
     priority: 1,
     flavor: 'The fist moves at the speed of sound to hit the target.',
     aoe: 'Single Opponent',
-    contact: true,
-    onBeforeMove: nop,
-    onAfterMove: nop,
+    contact: true, punching: true,
   },
   'Magical Leaf': {
     name: 'Magical Leaf',
@@ -6294,7 +6282,7 @@ export const Movepool: Movepool = {
     attackKey: 'attack', defenseKey: 'defense',
     power: 1, criticalHit: 1, accuracy: 0.85,
     flavor: 'The target is hit by a punch with lots of energy.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
   },
   'Memento': {
     name: 'Memento', type: 'Dark',
@@ -6395,7 +6383,7 @@ export const Movepool: Movepool = {
     power: 1.1,
     type: 'Steel',
     flavor: 'The user throws a fist like a meteor. It might raise their attack.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => AtkBuff(inp.caster, inp, 0.25),
   },
   'Metronome': {
@@ -6680,7 +6668,6 @@ export const Movepool: Movepool = {
       const {field, prefix} = inp
       const log = new Log()
       log.add('The field was cleared.')
-
       field.sides[prefix].spikes = 0
       field.sides[prefix].toxicSpikes = 0
       field.sides[prefix].stealthRock = false
@@ -7552,7 +7539,7 @@ export const Movepool: Movepool = {
   'Plasma Fists': {
     name: 'Plasma Fists', type: 'Electric', aoe: 'Single Opponent',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 1.2, accuracy: 1, criticalHit: 1,
+    power: 1.2, accuracy: 1, criticalHit: 1, contact: true, punching: true,
     flavor: 'The user strikes with the electricity built up in its fists. Electrons remain on the field after.',
     onAfterMove: ({field}) => {
       field.ions = true
@@ -7908,7 +7895,7 @@ export const Movepool: Movepool = {
   },
   'Power-Up Punch': {
     name: 'Power-Up Punch', type: 'Fighting',
-    attackKey: 'attack', defenseKey: 'defense', contact: true,
+    attackKey: 'attack', defenseKey: 'defense', contact: true, punching: true,
     power: 0.6, accuracy: 1, criticalHit: 1, aoe: 'Single Opponent',
     flavor: 'A weak punch that only gets stronger with repeated use.',
     onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'attack', 1)
@@ -8273,7 +8260,8 @@ export const Movepool: Movepool = {
   'Rage Fist': {
     name: 'Rage Fist', type: 'Ghost',
     attackKey: 'attack', defenseKey: 'defense',
-    accuracy: 1, power: 0.7, criticalHit: 1, aoe: 'Single Opponent', contact: true,
+    accuracy: 1, power: 0.7, criticalHit: 1, aoe: 'Single Opponent',
+    punching: true, contact: true,
     flavor: 'The user strikes with anger. The more it is hit, the angrier it gets.',
     onBeforeMove: (inp) => {
       const timesHit = getCondition(inp.caster, 'TimesHit')
@@ -8387,7 +8375,6 @@ export const Movepool: Movepool = {
       const {caster, field, prefix} = inp
       const log = new Log()
       log.add('The field was cleared.')
-
       field.sides[prefix].spikes = 0
       field.sides[prefix].toxicSpikes = 0
       field.sides[prefix].stealthRock = false
@@ -8522,7 +8509,6 @@ export const Movepool: Movepool = {
     flavor: 'The user takes a nap in the middle of battle! Somehow it helps.',
     onAfterMove: ({caster}) => {
       caster.status = {...StatusMap.Asleep}
-
       caster.status.p = {
         Rest: true
       }
@@ -9203,7 +9189,7 @@ export const Movepool: Movepool = {
     power: 0.9,
     type: 'Ghost',
     flavor: 'The user thrusts their fist with the power of shadows. This move always hits.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
   },
   'Shadow Sneak': {
     name: 'Shadow Sneak',
@@ -9452,7 +9438,7 @@ export const Movepool: Movepool = {
     power: 1.05,
     type: 'Fighting',
     flavor: 'The user strikes upwards.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     // TODO Can hit 'Fly' pkmn
   },
   'Slack Off': {
@@ -10548,7 +10534,7 @@ export const Movepool: Movepool = {
     name: 'Surging Strikes', type: 'Water',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0.95, criticalHit: Infinity, accuracy: 1,
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     flavor: 'The user rushes forward to attack the foe in three rapid strikes, always resulting in a critical hit.',
   },
   Synthesis: {
@@ -11134,7 +11120,7 @@ export const Movepool: Movepool = {
     power: 0.95,
     type: 'Electric',
     flavor: 'The user jabs the target with a charged fist. Paralysis is possible.',
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     onAfterMove: (inp) => Paralyze(inp, 0.1),
   },
   'Thunder Shock': {
@@ -11195,7 +11181,6 @@ export const Movepool: Movepool = {
       const {caster, field, prefix} = inp
       const log = new Log()
       log.add('The field was cleared.')
-
       field.sides[prefix].spikes = 0
       field.sides[prefix].toxicSpikes = 0
       field.sides[prefix].stealthRock = false
@@ -11252,7 +11237,6 @@ export const Movepool: Movepool = {
       if (caster.type1 === 'Poison' || caster.type2 === 'Poison') {
         move.accuracy = Infinity
       }
-
       return log
     },
     onAfterMove: (inp) => {
@@ -11338,11 +11322,12 @@ export const Movepool: Movepool = {
       caster.speed = Math.min(target.speed, species.speed * 2)
       caster.weight = target.weight
       caster.statBuffs = {...target.statBuffs}
-      caster.movepool = target.movepool
+      caster.move = [...species.move]
       // If Ditto transforms into Ditto, handle this
       if (caster.movepool[0].name === 'Transform') {
-        caster.movepool = [Movepool.Struggle] // Use Struggle instead
+        caster.move = ['Struggle'] // Use Struggle instead
       }
+      caster.movepool = caster.move.map(m => ({...Movepool[m]}))
       caster.moveTMs = target.moveTMs
       return new Log().add(`${caster.species} has transformed ` +
           `into a copy of ${target.species}!`)
@@ -11928,7 +11913,7 @@ export const Movepool: Movepool = {
     name: 'Wicked Blow', type: 'Dark',
     attackKey: 'attack', defenseKey: 'defense',
     power: 1, criticalHit: Infinity, accuracy: 1,
-    aoe: 'Single Opponent', contact: true,
+    aoe: 'Single Opponent', contact: true, punching: true,
     flavor: 'The user builds up energy to attack the foe in one blow, always resulting in a critical hit.',
   },
   'Wicked Torque': {
@@ -13016,23 +13001,18 @@ export const Movepool: Movepool = {
     onAfterMove: ({target, field, prefix, targetPrefix}) => {
       const log = new Log()
       log.add('The field was cleared.')
-
       field.sides[prefix].lightscreen = 0
       field.sides[prefix].reflect = 0
       field.sides[prefix].mist = 0
-
       field.sides[targetPrefix].lightscreen = 0
       field.sides[targetPrefix].reflect = 0
       field.sides[targetPrefix].mist = 0
-
       field.terrain = undefined
-
       if (getCondition(target, 'Safeguard')) {
         // Doesn't hit all targets. This is a known issue.
         removeCondition(target, 'Safeguard')
         log.add(`${target.species} safeguard was removed`)
       }
-
       if (field.weather.name === 'Fog') {
         // Well, defog it then!
         // Sunny is the default.

@@ -324,6 +324,9 @@ export function renderItemInert(rules: Rules, item?: ItemId): true | string {
   if (['maxmushroom', 'maxhoney', 'dynamaxcandy'].includes(item) && rules.dynamax) {
     return 'dmax'
   }
+  if (item.startsWith('tera') && rules.tera) {
+    return 'tera'
+  }
   return true
 }
 

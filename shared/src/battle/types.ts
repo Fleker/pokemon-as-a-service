@@ -149,6 +149,12 @@ export interface Move {
    */
   recovery?: boolean
   /**
+   * 
+   * Specifies whether or not this is a 'punching' move. Used with Punching
+   * Glove item and Iron Fist ability.
+   */
+  punching?: boolean
+  /**
    * The Pokemon that will be impacted by the use of this move.
    */
   aoe: AreaOfEffect

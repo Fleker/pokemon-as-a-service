@@ -671,6 +671,11 @@ export const Inventory: Inventory = {
       inp.field.sides[inp.prefix].goldCoins = true
       return new Log()
     },
+    onAfterTargetMove: (inp) => {
+      // There's no access to field at start of match.
+      inp.field.sides[inp.prefix].goldCoins = true
+      return new Log()
+    },
   },
   brightpowder: {
     onTargetMove: (_, __, move) => {
@@ -2163,12 +2168,95 @@ export const Inventory: Inventory = {
   terasteel: terastallize('Steel'),
   terafairy: terastallize('Fairy'),
   teraice: terastallize('Ice'),
-  boosterenergy: {},
-  abilityshield: {},
-  clearamulet: {},
-  mirrorherb: {},
+   // teraorb: {
+  //   onBattleStart: (caster) => {
+  //     const tera = {...ConditionMap.Terastallized}
+  //     tera.p = { type: caster.type1 }
+  //     caster.heldItemConsumed = false
+  //     caster.heldItemTotallyConsumed = false
+  //     return APPLY_TEMP_STATUS(caster, tera, '')
+  //   }
+  // },
+  boosterenergy: {
+    onBattleStart: (caster) => {
+      if (![
+        'Great Tusk',
+        'Scream Tail',
+        'Brute Bonnet',
+        'Flutter Mane',
+        'Slither Wing',
+        'Sandy Shocks',
+        'Iron Treads',
+        'Iron Bundle',
+        'Iron Hands',
+        'Iron Jugulis',
+        'Iron Moth',
+        'Iron Thorns',
+        'Roaring Moon',
+        'Iron Valiant',
+        'Walking Wake',
+        'Iron Leaves',
+        // TODO: Future paradoxes
+      ].includes(caster.species)) {
+        return new Log() // Do nothing
+      }
+      const topStat = (() => {
+        let top = 'speed'
+        if (caster[top] < caster.attack) {
+          top = 'attack'
+        }
+        if (caster[top] < caster.defense) {
+          top = 'defense'
+        }
+        if (caster[top] < caster.spAttack) {
+          top = 'spAttack'
+        }
+        if (caster[top] < caster.spDefense) {
+          top = 'spDefense'
+        }
+        return top
+      })()
+      const l = new Log()
+      l.add(`The Booster Energy was consumed!`)
+      l.add(`${caster.species}'s ${topStat} rose`)
+      if (topStat === 'speed') {
+        caster[topStat] *= 1.5
+      } else {
+        caster[topStat] *= 1.3
+      }
+      caster.heldItemConsumed = true
+      caster.heldItemTotallyConsumed = true
+      return l
+    }
+  },
+  abilityshield: {}, // Abilities do not work
+  clearamulet: {}, // See buffStat logic
+  mirrorherb: {
+    onAfterTargetMove: (inp) => {
+      const oppoStatIncreases = Object.entries(inp.caster.statBuffs).filter(([k, v]) => v > 0)
+      const log = new Log()
+      if (oppoStatIncreases.length) {
+        log.add(`${inp.target.species}'s Mirror Herb activated`)
+        oppoStatIncreases.forEach(([stat, val]) => {
+          inp.target.statBuffs[stat] = val
+          log.add(`${inp.target.species}'s ${stat} increased`)
+        })
+        inp.target.heldItemConsumed = true
+        inp.target.heldItemTotallyConsumed = true
+      }
+      return log
+    }
+  },
   loadeddice: {}, // See Hit Many logic
-  punchingglove: {},
+  punchingglove: {
+    onCasterMove: (inp) => {
+      if (inp.move.punching) {
+        inp.move.power *= 1.1
+        inp.move.contact = false // Hardcode
+      }
+      return new Log()
+    },
+  },
   covertcloak: {},
   mochimuscle: {},
   mochiresist: {},
