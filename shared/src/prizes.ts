@@ -380,7 +380,7 @@ export const SV_ITEMS: ItemId[] = [
 export const SV_DLC_ITEMS: ItemId[] = [
   'mochimuscle', 'mochiresist', 'mochigenius', 'mochiclever', 'mochiswift',
   'mochihealth', 'mochifreshstart', 'fairyfeather', 'syrupyapple',
-  'teacupunremarkable', 'teacupmasterpiece',
+  'teacupunremarkable', 'teacupmasterpiece', 'metalalloy',
 ]
 
 export const SV_INGREDIENTS: ItemId[] = [

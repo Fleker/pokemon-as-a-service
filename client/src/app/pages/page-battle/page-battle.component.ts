@@ -29,6 +29,7 @@ interface LeaderboardRatio {
 
 interface TierData {
   label: string
+  icon: string
   topPokemon: string[]
   topWins: LeaderboardUser[]
   topWinsWeekly: LeaderboardUser[]
@@ -163,6 +164,7 @@ export class PageBattleComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
     this.leaderboardCurr = this.leaderboardData[tier]
+    this.leaderboardCurr.icon = BATTLE_TIERS[tier].icon
     // Make wins user-friendly
     while (this.leaderboardCurr.topWinsWeekly.length < 5) {
       this.leaderboardCurr.topWinsWeekly.push({

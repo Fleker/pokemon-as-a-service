@@ -48,6 +48,9 @@
     <span *ngIf="tiers[selectedTier].rules.dynamax">
       <br>Dynamaxing is allowed. Let your partner hold a Dynamax Candy and it will Dynamax once in battle.
     </span>
+    <span *ngIf="tiers[selectedTier].rules.tera">
+      <br>When your partner holds a tera orb it will terastallize once in battle.
+    </span>
     <span *ngIf="tiers[selectedTier].rules.maxWins">
       <br>Only for those with up to {{tiers[selectedTier].rules.maxWins}} total wins.
     </span>
@@ -75,7 +78,10 @@
 </collapsible-card>
 
 <collapsible-card id="leaderboard">
-  <span title *ngIf="!isLastLeaderboard">{{leaderboardCurr?.label}} Leaderboard</span>
+  <span title *ngIf="!isLastLeaderboard">
+    <mat-icon svgIcon="{{leaderboardCurr?.icon}}"></mat-icon>
+    {{leaderboardCurr?.label}} Leaderboard
+  </span>
   <span title *ngIf="isLastLeaderboard">Hall of Fame</span>
   <span *ngIf="!leaderboardData">
     Reading data from server...

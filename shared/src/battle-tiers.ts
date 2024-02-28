@@ -60,7 +60,7 @@ export interface BattleTier {
   /**
    * Sprite image URL to represent this tier. Currently not implemented.
    */
-  icon?: string
+  icon: string
   /**
    * Series of rules for this cup.
    */
@@ -508,8 +508,9 @@ const TeraDlcCupPrizeList: PrizeList = [{
   wins: Prizes.winTier(5),
   items: [...Prizes.TREASURE, ...Prizes.TREASURE_RARE, ...Prizes.SV_INGREDIENTS,
     ...Prizes.TMS_SV, ...Prizes.SV_ITEMS, ...Prizes.TERA_SHARDS,
-    ...Prizes.SV_HMS, ...Prizes.SV_DLC_ITEMS],
+    ...Prizes.SV_HMS, ...Prizes.SV_DLC_ITEMS, 'terastellar'],
 }]
+
 const TinyCupPrizeList: PrizeList = [{
   wins: -1,
   items: ['pokeball', 'tinymushroom'],
@@ -546,7 +547,7 @@ const TinyCupPrizeList: PrizeList = [{
 }]
 const Traditional: BattleTier = {
   label: 'Traditional',
-  icon: 'menu-battle.svg',
+  icon: 'battle-traditional',
   rules: {
     partySize: 1,
     fieldSize: 1,
@@ -557,7 +558,7 @@ const Traditional: BattleTier = {
 }
 const RedCup: BattleTier = {
   label: 'Red Cup',
-  icon: 'battle-red.svg',
+  icon: 'battle-red',
   rules: {
     fieldSize: 1,
     partySize: 1,
@@ -568,7 +569,7 @@ const RedCup: BattleTier = {
 }
 const CrystalCup: BattleTier = {
   label: 'Crystal Cup',
-  icon: 'battle-crystal.svg',
+  icon: 'battle-crystal',
   rules: {
     fieldSize: 1,
     partySize: 1,
@@ -579,7 +580,7 @@ const CrystalCup: BattleTier = {
 }
 const EmeraldCup: BattleTier = {
   label: 'Emerald Cup',
-  icon: 'battle-emerald.svg',
+  icon: 'battle-emerald',
   rules: {
     fieldSize: 2,
     partySize: 2,
@@ -591,7 +592,7 @@ const EmeraldCup: BattleTier = {
 }
 const PlatinumCup: BattleTier = {
   label: 'Platinum Cup',
-  icon: 'battle-platinum.svg',
+  icon: 'battle-platinum',
   rules: {
     fieldSize: 2,
     partySize: 2,
@@ -602,7 +603,7 @@ const PlatinumCup: BattleTier = {
 }
 const PlasmaCup: BattleTier = {
   label: 'Plasma Cup',
-  icon: 'battle-plasma.svg',
+  icon: 'battle-plasma',
   rules: {
     fieldSize: 3,
     partySize: 3,
@@ -613,7 +614,7 @@ const PlasmaCup: BattleTier = {
 }
 const KalosCup: BattleTier = {
   label: 'Kalos Cup',
-  icon: 'battle-kalos.svg',
+  icon: 'battle-kalos',
   rules: {
     fieldSize: 2,
     partySize: 2,
@@ -624,7 +625,7 @@ const KalosCup: BattleTier = {
 }
 const SkyCup: BattleTier = {
   label: 'Sky Cup',
-  icon: 'battle-sky.svg',
+  icon: 'battle-sky',
   rules: {
     fieldSize: 1,
     partySize: 1,
@@ -635,7 +636,7 @@ const SkyCup: BattleTier = {
 }
 const AlolanCup: BattleTier = {
   label: 'Alolan Cup',
-  icon: 'battle-alolan.svg',
+  icon: 'battle-alolan',
   rules: {
     // Two Pkmn, switch out
     fieldSize: 1,
@@ -647,7 +648,7 @@ const AlolanCup: BattleTier = {
 }
 const UltraCup: BattleTier = {
   label: 'Ultra Cup',
-  icon: 'battle-ultra.svg',
+  icon: 'battle-ultra',
   rules: {
     fieldSize: 2,
     partySize: 2,
@@ -658,7 +659,7 @@ const UltraCup: BattleTier = {
 }
 const GalarCup: BattleTier = {
   label: 'GigantaCup',
-  icon: 'battle-galar.svg',
+  icon: 'battle-galar',
   rules: {
     fieldSize: 2,
     partySize: 4,
@@ -669,7 +670,7 @@ const GalarCup: BattleTier = {
 }
 const GalarDlcCup: BattleTier = {
   label: 'Crown Cup',
-  icon: 'battle-galardlc.svg',
+  icon: 'battle-galardlc',
   rules: {
     fieldSize: 2,
     partySize: 4,
@@ -680,7 +681,7 @@ const GalarDlcCup: BattleTier = {
 }
 const ArceusCup: BattleTier = {
   label: 'Arceus Cup',
-  icon: 'battle-arceus.svg',
+  icon: 'battle-arceus',
   rules: {
     fieldSize: 1,
     partySize: 1,
@@ -691,7 +692,7 @@ const ArceusCup: BattleTier = {
 }
 const TerastallizeCup: BattleTier = {
   label: 'Terastallize Cup',
-  icon: 'battle-.svg',
+  icon: 'battle-paldea',
   rules: {
     fieldSize: 1,
     partySize: 3,
@@ -702,7 +703,7 @@ const TerastallizeCup: BattleTier = {
 }
 const TinyCup: BattleTier = {
   label: 'Tiny Cup',
-  icon: 'battle-tiny.svg',
+  icon: 'battle-tiny',
   rules: {
     fieldSize: 1,
     partySize: 1,
@@ -713,7 +714,7 @@ const TinyCup: BattleTier = {
 }
 const BeginnersCup: BattleTier = {
   label: 'Beginners Cup',
-  icon: 'battle-beginner.svg',
+  icon: 'battle-beginner',
   rules: {
     fieldSize: 1,
     partySize: 1,
