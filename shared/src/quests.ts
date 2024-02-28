@@ -1334,14 +1334,14 @@ export const GLOBAL_QUEST_DATE: () => boolean = (() => {
     legendaryDate.getUTCDate() <= 14 // December 14th
 })
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  docId: 'available',
-  // docId: 'unavailable',
-  dbKey: 'shinyCalyrex1',
-  badge: 'potw-898-shiny',
-  boss: Potw(P.Calyrex, {shiny: true, var: 1}),
-  title: 'Shiny Calyrex Raids',
+  // docId: 'available',
+  docId: 'unavailable',
+  dbKey: 'shinyJirachi2',
+  badge: 'potw-385-shiny',
+  boss: Potw(P.Jirachi, {shiny: true, var: 2}),
+  title: 'Shiny Jirachi Raids',
   count: 1_000_000,
-  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Calyrex raids.']
+  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Jirachi raids.']
 }]
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{
   badge: 'potw-dex-kanto',
