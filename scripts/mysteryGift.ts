@@ -1,5 +1,5 @@
 // node mysteryGift.js [dry]
-const species = 278
+const species = 283
 ///
 const admin = require('firebase-admin');
 import {Badge, Pokemon} from '../shared/src/badge3'

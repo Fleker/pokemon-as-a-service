@@ -6,10 +6,13 @@ export const MAIL_BADGES = {
   'potw-278': 'Wingull',
   'potw-279': 'Pelipper',
   'potw-280': 'Ralts',
+  'potw-281': 'Kirlia',
+  'potw-282': 'Gardevoir',
+  'potw-283': 'Surskit',
 }
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Leafage',
-  tr: 'tr-Power Trick',
+  tm: 'tm-Razor Shell',
+  tr: 'tr-Power Swap',
 }
 export const adminIds = [
   'veXJXuNwZ7RsUXV6tQqWjboQOy03' // fleker@
