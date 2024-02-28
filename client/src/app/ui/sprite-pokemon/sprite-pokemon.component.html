@@ -6,6 +6,7 @@
     decoding="async"
     (click)="openDialog()"
     *ngIf="badge !== undefined">
+<img id="overlay" src="{{overlaySrc}}" *ngIf="overlaySrc" />
 <span class="sparkle l {{sparkles}}">✨</span>
 <span class="sparkle c {{sparkles}}">✨</span>
 <span class="sparkle r {{sparkles}}">✨</span>

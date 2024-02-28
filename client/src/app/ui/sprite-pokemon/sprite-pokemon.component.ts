@@ -104,6 +104,16 @@ const validGmax = [
   P.Urshifu,
 ]
 
+const teraSprites: Partial<Record<ItemId, string>> = {
+  teranormal: './images/sprites/icons/teranormal.png',
+  terafighting: './images/sprites/icons/terafighting.png',
+  teraflying: './images/sprites/icons/teraflying.png',
+  terapoison: './images/sprites/icons/terapoison.png',
+  teraground: './images/sprites/icons/teraground.png',
+  terarock: './images/sprites/icons/terarock.png',
+}
+const teraSpriteKeys = Object.keys(teraSprites)
+
 // See https://msikma.github.io/pokesprite/overview/dex-gen8.html for more icons
 
 @Component({
@@ -122,6 +132,7 @@ export class SpritePokemonComponent implements OnChanges {
   @ViewChild('ddex') ddex?: ElementRef<PokedexDialog>
   @ViewChild('img') img: ElementRef<HTMLImageElement>
   src?: string
+  overlaySrc?: string
   alt?: string
   var?: number
   classes?: string
@@ -189,6 +200,9 @@ export class SpritePokemonComponent implements OnChanges {
         } else if (pkmnBadge.id === I.Eternatus && this.held === 'beserkgene') {
           pkmnBadge.personality.form = 'eternamax'
           this.src = pkmn(pkmnBadge.toSprite())
+        } else if (teraSpriteKeys.includes(this.held)) {
+          this.overlaySrc = teraSprites[this.held]
+          this.src = pkmn(pkmnBadge.toSprite())
         } else {
           this.src = pkmn(pkmnBadge.toSprite())
         }
@@ -210,6 +224,9 @@ export class SpritePokemonComponent implements OnChanges {
           }
           if (this.isDmax()) {
             clist.push('dynamax')
+          }
+          if (teraSpriteKeys.includes(this.held)) {
+            clist.push('terastallized', this.held)
           }
           return clist.join(' ')
         })()

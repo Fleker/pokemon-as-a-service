@@ -85,6 +85,40 @@ img.var7 {
   background-image: url('/images/sprites/bgvar7.png');
 }
 
+img.teranormal {
+  --teracolor: var(--type-normal);
+}
+
+img.terafighting {
+  --teracolor: var(--type-fighting);
+}
+
+img.teraflying {
+  --teracolor: var(--type-flying);
+}
+
+img.terapoison {
+  --teracolor: var(--type-poison);
+}
+
+img.teraground {
+  --teracolor: var(--type-ground);
+}
+
+img.terarock {
+  --teracolor: var(--type-rock);
+}
+
+img.terastallized {
+  animation: shine2 1s linear infinite;
+}
+
+#overlay {
+  position: relative;
+  top: -40px;
+  margin-bottom: -40px;
+}
+
 img:hover {
   background-color: rgba(0, 0, 0, 0.1) !important
 }
@@ -161,6 +195,18 @@ span.gone {
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@keyframes shine2 {
+  0% {
+    filter: blur(0px) hue-rotate(0deg) brightness(1) drop-shadow(0px 0px 2px var(--teracolor));
+  }
+  50% {
+    filter: blur(0.5px) hue-rotate(25deg) brightness(1.2) drop-shadow(0px 0px 3px var(--teracolor));
+  }
+  100% {
+    filter: blur(0px) hue-rotate(0deg) brightness(1) drop-shadow(0px 0px 2px var(--teracolor));
   }
 }
 
