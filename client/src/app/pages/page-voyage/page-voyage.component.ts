@@ -222,7 +222,7 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
         const docId = res.data.docId
         this.router.navigate(['/multiplayer/voyages'], {
           queryParams: {
-            [docId]: docId,
+            [docId]: '',
           }
         })
       } catch (e) {

@@ -1051,11 +1051,13 @@ export const Voyages = {
     bosses: [
       [
         P.Porygon_Z, P.Rampardos, P.Bastiodon, Potw(P.Sliggoo, {form: 'hisuian'}),
-        Potw(P.Golbat, {form: 'alpha'}), Potw(P.Parasect, {form: 'alpha'}),
+        Potw(P.Golbat, {form: 'alpha'}), Potw(P.Parasect, {form: 'alpha'}), Potw(P.Graveler, {form: 'alpha'}),
+        Potw(P.Rapidash, {form: 'alpha'}), Potw(P.Magikarp, {form: 'alpha'}), Potw(P.Scyther, {form: 'alpha'}),
+        Potw(P.Snorlax, {form: 'alpha'}),
       ],
       [
         Potw(P.Decidueye, {form: 'hisuian'}), Potw(P.Typhlosion, {form: 'hisuian'}), Potw(P.Samurott, {form: 'hisuian'}),
-        Potw(P.Alakazam, {form: 'alpha'}),
+        Potw(P.Alakazam, {form: 'alpha'}), Potw(P.Golem, {form: 'alpha'}), Potw(P.Scizor, {form: 'alpha'}),
       ],
     ],
     unlocked: {
