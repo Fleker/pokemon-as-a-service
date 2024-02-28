@@ -148,6 +148,17 @@ export const Events = {
       return date.month() === 0 && date.date() === 10
     }
   }),
+  'MILK': assert<Event>({
+    title: 'National Milk Day',
+    description: 'Get some cookies and a fresh beverage.',
+    frequentSpecies: [P.Miltank],
+    encounterHoldItems: ['sleepimilk'],
+    shinyRate: 1,
+    isActive: (user) => {
+      const date = getLocalTime(user)
+      return date.month() === 0 && date.date() === 11
+    }
+  }),
   'LUNAR_NY': assert<Event>({
     title: 'Lunar New Year',
     description: 'Another year over, the new one just the same (except with Rabbits)',

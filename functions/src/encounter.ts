@@ -259,6 +259,7 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Eevee, {event: 'EEVEE', count: 20}, p))
   // Clefairy are available with a Poké Ball & Moon Stone on Monday nights 20:00 - 23:59
   list.push(...addIf(P.Bulbasaur, {count: 20, event: 'HOUSEPLANT'}, p))
+  list.push(...addIf(P.Miltank, {count: 20, event: 'MILK'}, p))
   list.push(...addIf(P.Clefairy, {count: 5, event: 'MOON_STONE'}, p))
   list.push(...addIf(P.Cleffa, {count: 5, event: 'MOON_STONE'}, p))
   list.push(...addIf(P.Diglett, {count: 20, event: 'MOLE_DAY'}, p))
@@ -442,8 +443,11 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Sinistea, {gate: CATCH_CHARM_SM, terrain: 'Urban', weather: 'Fog', time: 'Night'}, p))
   list.push(...addIf(P.Milcery, {gate: CATCH_CHARM_SM, terrain: 'Urban', weather: 'Sunny', time: 'Day'}, p))
   // IOA
-  list.push(...addIf(Potw(P.Diglett, {form: 'alolan'}), {gate: CATCH_CHARM_SM, item: ['itemfinder'], others: [p.user.lastLocations?.includes(p.user.location) ?? true]}, p))
-  list.push(...addIf(Potw(P.Slowpoke, {form: 'galarian'}), {gate: CATCH_CHARM_SM, item: ['galaricatwig'], terrain: 'Beach'}, p))
+  list.push(...addIf(Potw(P.Diglett, {form: 'alolan'}), {gate: CATCH_CHARM_SWSH, item: ['itemfinder'], others: [p.user.lastLocations?.includes(p.user.location) ?? true]}, p))
+  list.push(...addIf(Potw(P.Slowpoke, {form: 'galarian'}), {gate: CATCH_CHARM_SWSH, item: ['galaricatwig'], terrain: 'Beach'}, p))
+
+  // Paldea
+  list.push(...addIf(Potw(P.Wooper, {form: 'paldean'}), {gate: CATCH_CHARM_SWSH, item: ['teraorb'], location: 'ES-MAD'}, p))
   // Swarms
   if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
     const swarmPokemon = Swarms[location.region || 'North America']
@@ -1047,6 +1051,11 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Duraludon, {gate: CATCH_CHARM_SM, terrain: 'Mountain', weather: 'Thunderstorm'}, p))
   list.push(...addIf(P.Drakloak, {gate: CATCH_CHARM_SM, weather: 'Fog'}, p))
   list.push(...addIf(Potw(P.Weezing, {form: 'galarian'}), {count: 10, event: 'MONTREAL_PROTOCOL'}, p))
+
+  list.push(...addIf(Potw(P.Tauros, {form: 'combat_breed'}), {gate: CATCH_CHARM_SWSH, item: ['teraorb'], location: 'ES-MLG'}, p))
+  list.push(...addIf(Potw(P.Tauros, {form: 'blaze_breed'}), {gate: CATCH_CHARM_SWSH, item: ['scarletbook'], location: 'ES-MLG'}, p))
+  list.push(...addIf(Potw(P.Tauros, {form: 'aqua_breed'}), {gate: CATCH_CHARM_SWSH, item: ['violetbook'], location: 'ES-MLG'}, p))
+
   return {
     shinyMultipler: 1,
     list,
