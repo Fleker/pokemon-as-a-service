@@ -3572,6 +3572,7 @@ export const bosses = [
     Potw(P.Kingdra, {var:4}),
     Potw(P.Weezing, {var:3,form:'galarian'}),
     Potw(P.Krookodile, {var:1}),
+    Potw(P.Jirachi, {var:2}),
   ]
 ]
 

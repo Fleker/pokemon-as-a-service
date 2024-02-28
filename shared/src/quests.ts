@@ -41,6 +41,9 @@ export const DYNAMAXBAND = 'DYNAMAXING'
 export const CAMPINGGEAR = 'LETSALLMAKECURRY'
 export const ROTOMBIKE = 'SPARKLINGWHITETURBOBIKE'
 export const TERAORB = 'PKMNCHAMPIONNEMONA'
+export const SCARLETBOOK = 'PROFESSORSADARESEARCH'
+export const VIOLETBOOK = 'PROFESSORTURORESEARCH'
+ 
 export const SHINY_CHARM = '93Nj1QmwJlx8eGW9Vq18'
 export const CATCH_CHARM_RBY = 'yuQPa32crRiPBJvi9HU9'
 export const CATCH_CHARM_GSC = 'LcyYjBeK4KAq1BkYgzlx'
@@ -50,6 +53,8 @@ export const CATCH_CHARM_BW = 'JUNIPER'
 export const CATCH_CHARM_XY = 'SYCAMORE'
 export const CATCH_CHARM_SM = 'KUKUI'
 export const CATCH_CHARM_SWSH = 'MAGNOLIA'
+export const CATCH_CHARM_SV = 'SADATURO'
+
 export interface Quest {
   docId: string
   badge: string
@@ -61,7 +66,8 @@ export interface Quest {
   quest?: LegendaryQuest
   gate?: 'yuQPa32crRiPBJvi9HU9' | 'LcyYjBeK4KAq1BkYgzlx' |
     'DX_DNA_RNA_SPACE' | 'vJHZReab8dpsCgz6ixJy' |
-    'drIVxbAeXnuVuWCYWTf5' | 'JUNIPER' | 'SYCAMORE' | 'KUKUI' | 'MAGNOLIA',
+    'drIVxbAeXnuVuWCYWTf5' | 'JUNIPER' | 'SYCAMORE' | 'KUKUI' | 'MAGNOLIA' |
+    'SADATURO'
   completion?: string
 }
 export interface PokedexQuest extends Quest {
@@ -405,6 +411,24 @@ export const KEY_ITEM_QUESTS: Quest[] = [{
   hint: [`After your many adventures, you are ready for a new journey to a new region.`],
   quest: L.TeraOrb,
   item: 'teraorb',
+  recyclable: true,
+}, {
+  docId: SCARLETBOOK,
+  badge: 'potw-item-scarletbook',
+  title: "Following the research of Sada",
+  gate: CATCH_CHARM_SV,
+  hint: [`Years later, you hear of a book that was sought after by Professor Sada.`],
+  quest: L.ScarletBook,
+  item: 'scarletbook',
+  recyclable: true,
+}, {
+  docId: TERAORB,
+  badge: 'potw-item-violetbook',
+  title: "Following the research of Turo",
+  gate: CATCH_CHARM_SV,
+  hint: [`Many years later, you hear of a book that was sought after by Professor Turo.`],
+  quest: L.VioletBook,
+  item: 'violetbook',
   recyclable: true,
 }]
 export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
@@ -1256,7 +1280,44 @@ export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   hint: ['Arceus is highly revered, but up to this point its true power has not been unveiled.'],
   item: 'legendplate',
   recyclable: true,
-}]
+}, {
+  docId: L.WOCHIEN,
+  quest: L.WoChien,
+  badge: 'potw-1001',
+  title: 'The Tablets of Ruin',
+  gate: CATCH_CHARM_SV,
+  hint: ['Your history teacher tells you a story about a greedy king who receives tablets.'],
+  encounter: Potw(P.Wo_Chien),
+  recyclable: true,
+}, {
+  docId: L.CHIENPAO,
+  quest: L.ChienPao,
+  badge: 'potw-1002',
+  title: 'The Sword of Ruin',
+  gate: CATCH_CHARM_SV,
+  hint: ['Your history teacher tells you a story about a greedy king who receives swords.'],
+  encounter: Potw(P.Chien_Pao),
+  recyclable: true,
+}, {
+  docId: L.TINGLU,
+  quest: L.TingLu,
+  badge: 'potw-1003',
+  title: 'The Vessel of Ruin',
+  gate: CATCH_CHARM_SV,
+  hint: ['Your history teacher tells you a story about a greedy king who receives a vessel.'],
+  encounter: Potw(P.Ting_Lu),
+  recyclable: true,
+}, {
+  docId: L.CHIYU,
+  quest: L.ChiYu,
+  badge: 'potw-1004',
+  title: 'The Beads of Ruin',
+  gate: CATCH_CHARM_SV,
+  hint: ['Your history teacher tells you a story about a greedy king who receives beads.'],
+  encounter: Potw(P.Chi_Yu),
+  recyclable: true,
+}, ]
+
 const CATCH_QUESTS: PokedexQuest[] = [{
   docId: CATCH_CHARM_RBY,
   badge: 'potw-item-catchingcharm-rby',
@@ -1322,20 +1383,23 @@ const CATCH_QUESTS: PokedexQuest[] = [{
   sprite: 'catchingcharm-swsh',
   modes: ['New Voyages', 'New Bazaar stalls'],
 }]
+
 export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
   docId: SHINY_CHARM,
   badge: 'potw-item-shinycharm',
   title: 'Shiny Charm',
   hint: ['You will receive this charm when you have registered every Pokémon in your Pokédex.']
 }]
+
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
-  return legendaryDate.getUTCMonth() === 11 && // December (11)
-    legendaryDate.getUTCDate() <= 14 // December 14th
+  return legendaryDate.getUTCMonth() === 0 && // January (0)
+    legendaryDate.getUTCDate() <= 18 // January 18th
 })
+
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  // docId: 'available',
-  docId: 'unavailable',
+  docId: 'available',
+  // docId: 'unavailable',
   dbKey: 'shinyJirachi2',
   badge: 'potw-385-shiny',
   boss: Potw(P.Jirachi, {shiny: true, var: 2}),
@@ -1343,6 +1407,7 @@ export const GLOBAL_QUESTS: GlobalQuest[] = [{
   count: 1_000_000,
   hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Jirachi raids.']
 }]
+
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{
   badge: 'potw-dex-kanto',
   title: `Oak's Evaluation`,

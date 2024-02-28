@@ -22,6 +22,7 @@ export const CATCH_CHARM_BW = 'JUNIPER'
 export const CATCH_CHARM_XY = 'SYCAMORE'
 export const CATCH_CHARM_SM = 'KUKUI'
 export const CATCH_CHARM_SWSH = 'MAGNOLIA'
+export const CATCH_CHARM_SV = 'SADATURO'
 export const CLEAR_BELL = 'yTIJvMaSvvpsjdLQ0nsE'
 /**
  * [id]: {
@@ -138,6 +139,19 @@ export const CALYREX = 'KINGWITHBIGHEAD'
 export const PLAPONY = 'PECULIARPONYTA'
 export const ENAMORUS = 'HERALDOFSPRING'
 export const LEGENDSPLATE = 'LEGENDSARCEUSPLATE'
+
+// Gen 9 IDs
+export const WOCHIEN = 'RUINSOFSOUTHPROVINCE'
+export const CHIENPAO = 'RUINSOFWESTPROVINCE'
+export const TINGLU = 'RUINSOFSOCARRATTRAIL'
+export const CHIYU = 'RUINSOFNORTHPROVINCE'
+export const OGERPON = 'THEOGREOFKITAKAMI'
+export const OKIDOGI = 'THERETAINEROFPARADISE'
+export const MUNKIDORI = 'THERETAINEROFWISTFUL'
+export const FEZANDIPITI = 'THERETAINEROFONIMOUNTAIN'
+export const TERAPAGOS = 'TERASTALLIZINGTURTLE'
+export const PECHARUNT = 'MOCHIMOCHIMOCHIMOCHI'
+
 const oneDayAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 1).getTime()
 const oneWeekAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).getTime()
 export interface Requirements {
@@ -956,10 +970,10 @@ export const TeraOrb: LegendaryQuest = {
     completed: simpleRequirePotw(P.Farigiraf),
     msg: 'Have you caught the new Long Neck Pokémon?'
   }, {
-    completed: simpleRequirePotw(P.Annihilape),
+    completed: simpleRequirePotw(P.Dudunsparce),
     msg: 'Have you caught the new Land Snake Pokémon?'
   }, {
-    completed: simpleRequirePotw(P.Annihilape),
+    completed: simpleRequirePotw(P.Kingambit),
     msg: 'Have you caught the new Big Blade Pokémon?'
   }, {
     completed: (r) => r.voyagesCompleted >= 100,
@@ -969,6 +983,148 @@ export const TeraOrb: LegendaryQuest = {
     msg: 'You must gain expertise in battles before you can try terastallization.'
   }]
 }
+
+export const ScarletBook: LegendaryQuest = {
+  hints: [{
+    completed: requireItem(['teraorb']),
+    msg: 'First you must obtain the Tera Orb.'
+  }, {
+    completed: simpleRequirePotw(P.Klawf),
+    msg: 'Have you encountered the Stony Cliff Titan?'
+  }, {
+    completed: simpleRequirePotw(P.Bombirdier),
+    msg: 'Have you encountered the Open Sky Titan?'
+  }, {
+    completed: simpleRequirePotw(P.Orthworm),
+    msg: 'Have you encountered the Lurking Steel Titan?'
+  }, {
+    completed: simpleRequirePotw(P.Donphan),
+    msg: 'Have you encountered the Quaking Earth Titan? It resembles this other Pokémon.'
+  }, {
+    completed: simpleRequirePotw(P.Dondozo),
+    msg: 'Have you encountered the Fake Dragon Titan?'
+  }, {
+    completed: simpleRequirePotw(P.Toedscruel),
+    msg: 'Have you encountered this Pokémon? It bares an odd resemblance to Tentacruel.'
+  }, {
+    completed: requireItem(['terafighting']),
+    msg: 'Have you found this crystal? Its colors remind you of the Fighting-type.'
+  }]
+}
+
+export const VioletBook: LegendaryQuest = {
+  hints: [{
+    completed: requireItem(['teraorb']),
+    msg: 'First you must obtain the Tera Orb.'
+  }, {
+    completed: simpleRequirePotw(P.Pawniard),
+    msg: 'Have you encountered this favorite of the Segin Squad?'
+  }, {
+    completed: simpleRequirePotw(P.Torkoal),
+    msg: 'Have you encountered this favorite of the Schedar Squad?'
+  }, {
+    completed: simpleRequirePotw(P.Muk),
+    msg: 'Have you encountered this favorite of the Navi Squad?'
+  }, {
+    completed: simpleRequirePotw(P.Dachsbun),
+    msg: 'Have you encountered this favorite of the Ruchbah Squad?'
+  }, {
+    completed: simpleRequirePotw(P.Annihilape),
+    msg: 'Have you encountered this favorite of the Caph Base Squad?'
+  }, {
+    completed: simpleRequirePotw(P.Revavroom),
+    msg: 'Have you encountered this favorite of Team Star?'
+  },{
+    completed: simpleRequirePotw(P.Wugtrio),
+    msg: 'Have you encountered this Pokémon? It bares an odd resemblance to Dugtrio.'
+  }, {
+    completed: requireItem(['teraelectric']),
+    msg: 'Have you found this crystal? Its colors remind you of the Electric-type.'
+  }]
+}
+
+export const RuinousTreasures: Task[] = [{
+  completed: simpleRequirePotw(P.Gholdengo),
+  msg: 'Are you familiar with the Pokémon of pure treasure?'
+}, {
+  completed: simpleRequirePotw(P.Kingambit),
+  msg: 'Are you familiar with the Big Blade Pokémon?'
+}, {
+  completed: simpleRequirePotwArr([
+    P.Meowscarada, P.Lokix, P.Houndoom, P.Umbreon, P.Mabosstiff,
+    P.Skuntank, P.Zoroark, P.Weavile, P.Honchkrow, P.Cacturne,
+    P.Krookodile, P.Grimmsnarl, P.Bombirdier, P.Sableye, P.Spiritomb,
+    P.Tyranitar, P.Hydreigon
+  ]),
+  msg: 'There are many Dark-type Pokémon which call Paldea their home.'
+}]
+
+export const WoChien: LegendaryQuest = {
+  hints: [...RuinousTreasures, {
+    completed: simpleRequirePotwArr([
+      P.Meowscarada, P.Jumpluff, P.Sunflora, P.Tsareena, P.Arboliva,
+      P.Lilligant, P.Breloom, P.Flapple, P.Appletun, P.Leafeon,
+      P.Sawsbuck, P.Amoonguss, P.Gogoat, P.Brambleghast, P.Toedscruel,
+      P.Tropius, P.Lurantis, P.Scovillain, P.Cacturne, P.Abomasnow,
+    ]),
+    msg: 'There are many Grass-type Pokémon which call Paldea their home. Have you caught them all?'
+  }, {
+    completed: requireItem('teragrass', 10),
+    msg: 'Have you been collecting tera shards of the Grass-type?'
+  }, {
+    completed: requireItem('ruinousstakese', 8),
+    msg: 'Have you collected all eight ruinous stakes?'
+  }]
+}
+
+export const ChienPao: LegendaryQuest = {
+  hints: [...RuinousTreasures, {
+    completed: simpleRequirePotwArr([
+      P.Frosmoth, P.Abomasnow, P.Delibird, P.Beartic, P.Glalie,
+      P.Froslass, P.Cryogonal, P.Cetitan, P.Avalugg, P.Eiscue,
+      P.Glaceon, P.Weavile,
+    ]),
+    msg: 'There are many Ice-type Pokémon which call Paldea their home. Have you caught them all?'
+  }, {
+    completed: requireItem('teraice', 10),
+    msg: 'Have you been collecting tera shards of the Ice-type?'
+  }, {
+    completed: requireItem('ruinousstakesw', 8),
+    msg: 'Have you collected all eight ruinous stakes?'
+  }]
+}
+
+export const TingLu: LegendaryQuest = {
+  hints: [...RuinousTreasures, {
+    completed: simpleRequirePotwArr([
+      P.Clodsire, P.Donphan, P.Garchomp, P.Dugtrio, P.Camerupt,
+      P.Whiscash, P.Toedscruel, P.Hippopotas, P.Krookodile, P.Sandaconda,
+      P.Mudsdale, P.Palossand, P.Gastrodon,
+    ]),
+    msg: 'There are many Ground-type Pokémon which call Paldea their home. Have you caught them all?'
+  }, {
+    completed: requireItem('teraground', 10),
+    msg: 'Have you been collecting tera shards of the Ground-type?'
+  }, {
+    completed: requireItem('ruinousstakenw', 8),
+    msg: 'Have you collected all eight ruinous stakes?'
+  }]
+}
+
+export const ChiYu: LegendaryQuest = {
+  hints: [...RuinousTreasures, {
+    completed: simpleRequirePotwArr([
+    ]),
+    msg: 'There are many Fire-type Pokémon which call Paldea their home. Have you caught them all?'
+  }, {
+    completed: requireItem('terafire', 10),
+    msg: 'Have you been collecting tera shards of the Fire-type?'
+  }, {
+    completed: requireItem('ruinousstakene', 8),
+    msg: 'Have you collected all eight ruinous stakes?'
+  }]
+}
+
 export const Mewtwo: LegendaryQuest = {
   hints: [{
     completed: (r) => r.userJoinedDate <= oneWeekAgo,

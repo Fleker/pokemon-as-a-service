@@ -676,6 +676,22 @@ const ITEMS_TREASURE = {
     label: 'Dynite Ore',
     description: 'Ore that comes from the southern region of Galar. Some collectors will pay a lot for it.'
   }),
+  ruinousstakenw: Treasure({
+    label: 'Northwestern Ruinous Stake',
+    description: 'A strange stake found buried in the earth. It has an eerie green glow.'
+  }),
+  ruinousstakene: Treasure({
+    label: 'Northeastern Ruinous Stake',
+    description: 'A strange stake found buried in the earth. It has a sinister blue glow.'
+  }),
+  ruinousstakese: Treasure({
+    label: 'Southeastern Ruinous Stake',
+    description: 'A strange stake found buried in the earth. It has a foreboding purple glow.'
+  }),
+  ruinousstakesw: Treasure({
+    label: 'Southwestern Ruinous Stake',
+    description: 'A strange stake found buried in the earth. It has a sickly orange glow.'
+  }),
 }
 const ITEMS_HOLD = {
   kingsrock: {
