@@ -262,7 +262,7 @@ sprite-pokemon.animate.none {
   }
 }
 
-img.icon.smol {
+.icon.smol {
   height: 10px;
   width: 10px;
 }

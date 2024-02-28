@@ -8,94 +8,94 @@
         Pokémon
       </strong>
       <a routerLink="/pokemon/collection" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-pokeball.svg" />
+        <mat-icon svgIcon="menu-pokeball"></mat-icon>
         <span class="label">Pokémon</span>
       </a>
       <a routerLink="/pokemon/eggs" *ngIf="gate.eggs" routerLinkActive="activebutton">
         <span [matBadge]="engagement.eggsToHatch" [matBadgeHidden]="engagement.eggsToHatch === 0" matBadgeOverlap="true" matBadgePosition="after">
-          <img class="icon" src="/images/sprites/icons/menu-egg.svg" />
+          <mat-icon svgIcon="menu-egg"></mat-icon>
           <span class="label">Eggs</span>
         </span>
       </a>
       <a routerLink="/pokemon/bank" *ngIf="gate.bank" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-bank.svg" />
+        <mat-icon svgIcon="menu-bank"></mat-icon>
         <span class="label">Bank</span>
       </a>
       <a routerLink="/pokemon/release" routerLinkActive="activebutton">
         <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.release > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
-          <img class="icon" src="/images/sprites/icons/menu-release.svg" />
+          <mat-icon svgIcon="menu-release"></mat-icon>
           <span class="label">Release</span>
         </span>
       </a>
       <a routerLink="/pokemon/pokedex" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-pokedex.svg" />
+        <mat-icon svgIcon="menu-pokedex"></mat-icon>
         <span class="label">Pokédex</span>
       </a>
       <a routerLink="/pokemon/catch" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-encounters.svg" />
+        <mat-icon svgIcon="menu-encounters"></mat-icon>
         <span class="label">Encounters</span>
       </a>
       <a routerLink="/pokemon/deleter" routerLinkActive="activebutton" *ngIf="gate.hoenn">
-        <img class="icon" src="/images/sprites/icons/menu-deleter.svg" />
+        <mat-icon svgIcon="menu-deleter"></mat-icon>
         <span class="label">Move Deleter</span>
       </a>
       <a routerLink="/pokemon/tutor" routerLinkActive="activebutton" *ngIf="gate.hoenn">
-        <img class="icon" src="/images/sprites/icons/menu-tutor.svg" />
+        <mat-icon svgIcon="menu-tutor"></mat-icon>
         <span class="label">Move Tutor</span>
       </a>
       <strong>Items</strong>
       <a routerLink="/items/bag" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-bag.svg" />
+        <mat-icon svgIcon="menu-bag"></mat-icon>
         <span class="label">Bag</span>
       </a>
       <a routerLink="/items/mart" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-mart.svg" />
+        <mat-icon svgIcon="menu-mart"></mat-icon>
         <span class="label">Mart</span>
       </a>
       <a routerLink="/items/bazaar" routerLinkActive="activebutton" *ngIf="gate.johto">
-        <img class="icon" src="/images/sprites/icons/menu-bazaar.svg" />
+        <mat-icon svgIcon="menu-bazaar"></mat-icon>
         <span class="label">Bazaar</span>
       </a>
       <a routerLink="/items/craft" routerLinkActive="activebutton" *ngIf="gate.craft">
-        <img class="icon" src="/images/sprites/icons/menu-crafting.svg" />
+        <mat-icon svgIcon="menu-crafting"></mat-icon>
         <span class="label">Crafting</span>
       </a>
       <strong>Multiplayer</strong>
       <a routerLink="/multiplayer/nursery" routerLinkActive="activebutton" *ngIf="gate.eggs">
         <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.daycare > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
-          <img class="icon" src="/images/sprites/icons/menu-daycare.svg" />
+          <mat-icon svgIcon="menu-daycare"></mat-icon>
           <span class="label">Day Care</span>
         </span>
       </a>
       <a routerLink="/multiplayer/gts" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-gts.svg" />
+        <mat-icon svgIcon="menu-gts"></mat-icon>
         <span class="label">Global Trade System</span>
       </a>
       <a routerLink="/multiplayer/wonder" routerLinkActive="activebutton" *ngIf="gate.kalos">
         <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.wondertrade > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
-          <img class="icon" src="/images/sprites/icons/menu-wonder.svg" />
+          <mat-icon svgIcon="menu-wonder"></mat-icon>
           <span class="label">Wonder Trade</span>
         </span>
       </a>
       <a routerLink="/multiplayer/trade" routerLinkActive="activebutton" *ngIf="gate.kanto">
-        <img class="icon" src="/images/sprites/icons/menu-trade.svg" />
+        <mat-icon svgIcon="menu-trade"></mat-icon>
         <span class="label">Private Trade</span>
       </a>
       <a routerLink="/multiplayer/battle" routerLinkActive="activebutton">
         <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.battle > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
-          <img class="icon" src="/images/sprites/icons/menu-battle.svg" />
+          <mat-icon svgIcon="menu-battle"></mat-icon>
           <span class="label">Battle Stadium</span>
         </span>
       </a>
       <a routerLink="/multiplayer/raids" routerLinkActive="activebutton" *ngIf="gate.raids">
         <span matBadge="{{completedUnclaimedRaids}}" [matBadgeHidden]="completedUnclaimedRaids === 0" matBadgeOverlap="true" matBadgePosition="after">
-          <img class="icon" src="/images/sprites/icons/menu-raids.svg" />
+          <mat-icon svgIcon="menu-raids"></mat-icon>
           <span class="label">Raids</span>
           </span>
       </a>
       <a routerLink="/multiplayer/voyages" routerLinkActive="activebutton" *ngIf="gate.voyages">
         <span matBadge="{{completedUnclaimedVoyages}}" [matBadgeHidden]="completedUnclaimedVoyages === 0" matBadgeOverlap="true" matBadgePosition="after">
-          <img class="icon" src="/images/sprites/icons/menu-voyages.svg" />
+          <mat-icon svgIcon="menu-voyages"></mat-icon>
           <span class="label">Voyages</span>
         </span>
       </a>
@@ -103,53 +103,53 @@
       <strong>Secret Base</strong>
       <a routerLink="/base/gamecorner" routerLinkActive="activebutton">
         <span matBadge="·" [matBadgeHidden]="engagement.timeUntil.gamecorner > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
-          <img class="icon" src="/images/sprites/icons/menu-games.svg" />
+          <mat-icon svgIcon="menu-games"></mat-icon>
           <span class="label">Game Corner</span>
         </span>
       </a>
       <a routerLink="/base/farm" routerLinkActive="activebutton" *ngIf="gate.farm">
         <span [matBadge]="engagement.berriesToPlot" [matBadgeHidden]="engagement.berriesToPlot === 0" matBadgeOverlap="true" matBadgePosition="after">
-          <img class="icon" src="/images/sprites/icons/menu-farm.svg" />
+          <mat-icon svgIcon="menu-farm"></mat-icon>
           <span class="label">Berry Farm</span>
         </span>
       </a>
       <a routerLink="/base/quests" routerLinkActive="activebutton">
         <span matBadge="{{completedUnclaimedQuests}}" [matBadgeHidden]="completedUnclaimedQuests === 0" matBadgeOverlap="true" matBadgePosition="after">
-          <img class="icon" src="/images/sprites/icons/menu-quests.svg" />
+          <mat-icon svgIcon="menu-quests"></mat-icon>
           <span class="label">Quests</span>
         </span>
     </a>
       <a routerLink="/base/achievements" routerLinkActive="activebutton">
-          <img class="icon" src="/images/sprites/icons/menu-achievements.svg" />
+          <mat-icon svgIcon="menu-achievements"></mat-icon>
           <span class="label">{{questLabel}}</span>
       </a>
       <a routerLink="/base/research" routerLinkActive="activebutton">
         <span *ngIf="!completedUnclaimedResearch" matBadge="·" [matBadgeHidden]="engagement.timeUntil.research > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
-          <img class="icon" src="/images/sprites/icons/menu-research.svg" />
+          <mat-icon svgIcon="menu-research"></mat-icon>
           <span class="label">Research</span>
         </span>
         <span *ngIf="completedUnclaimedResearch" matBadge="{{completedUnclaimedResearch}}" matBadgeOverlap="true" matBadgePosition="after">
-          <img class="icon" src="/images/sprites/icons/menu-research.svg" />
+          <mat-icon svgIcon="menu-research"></mat-icon>
           <span class="label">Research</span>
         </span>
       </a>
       <strong>Account</strong>
       <a routerLink="/profile/trainer" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-trainer.svg" />
+        <mat-icon svgIcon="menu-trainer"></mat-icon>
         <span class="label">Trainer Card</span>
       </a>
       <a routerLink="/help/" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-about.svg" />
+        <mat-icon svgIcon="menu-about"></mat-icon>
         <span class="label">About</span>
       </a>
       <a routerLink="/admin/" routerLinkActive="activebutton" *ngIf="engagement.isAdmin">
         <span matBadge="{{cronsViolatingSlo}}" [matBadgeHidden]="!cronsViolatingSlo">
-          <img class="icon" src="/images/sprites/icons/menu-admin.svg" />
+          <mat-icon svgIcon="menu-admin"></mat-icon>
           <span class="label">Admin</span>
         </span>
       </a>
       <a routerLink="/chat/" routerLinkActive="activebutton">
-        <img class="icon" src="/images/sprites/icons/menu-pokegear.svg" />
+        <mat-icon svgIcon="menu-pokegear"></mat-icon>
         <span class="label">PokéGear</span>
       </a>
       <a routerLink="/multiplayer/battlesim/" routerLinkActive="activebutton" *ngIf="engagement.isNextUi">

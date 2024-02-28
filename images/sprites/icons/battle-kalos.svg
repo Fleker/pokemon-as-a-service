@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <rect x="33.506" y="33.935" width="431.701" height="431.701" rx="8" ry="8" style="stroke-width: 20px; fill: rgba(216, 216, 216, 0); stroke: rgb(153, 153, 153);"/>
-  <path d="M 250.645 85.052 L 423.657 210.753 L 357.573 414.141 L 143.717 414.141 L 77.633 210.753 Z" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153);" bx:shape="n-gon 250.645 266.968 181.916 181.916 5 0 1@dbf7a0cb"/>
+<svg viewBox="0 0 500 500" width="500" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path d="M 245.191 0 L 490.383 178.142 L 396.728 466.383 L 93.654 466.383 L -0.001 178.142 Z" style="stroke: rgb(0, 0, 0); fill: currentcolor;" bx:shape="n-gon 245.191 257.81 257.81 257.81 5 0 1@d35935b4"/>
 </svg>

@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 500 500" width="500" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <rect x="33.506" y="33.935" width="431.701" height="431.701" rx="8" ry="8" style="stroke-width: 20px; fill: rgba(216, 216, 216, 0); stroke: rgb(153, 153, 153); visibility: hidden;"/>
-  <path style="stroke-width: 20px; fill: rgba(216, 216, 216, 0); stroke: rgb(186, 218, 85); visibility: hidden;" d="M 387.457 397.766 L 97.509 371.564 L 393.9 108.677 L 245.275 241.838 L 125.859 100.945"/>
-  <path d="M 204.279 105.24 H 284.554 V 205.471 H 369.846 V 289.218 H 284.554 V 388.316 H 204.279 V 289.218 H 118.987 V 205.471 H 204.279 Z" style="fill: rgb(153, 153, 153); stroke-linecap: round; stroke: rgb(153, 153, 153); stroke-width: 50px; stroke-linejoin: round; stroke-dashoffset: 9px;" bx:shape="cross 118.987 105.24 250.859 283.076 83.747 80.275 0.502 1@661a9ae4"/>
-  <rect x="17.182" y="17.182" width="448.454" height="448.454" rx="8" ry="8" style="fill: rgba(216, 216, 216, 0); stroke: rgb(153, 153, 153); stroke-width: 20px;"/>
+<svg viewBox="0 0 500 500" width="500px" height="500px" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path d="M 193.367 35.216 H 313.357 V 185.034 H 440.846 V 310.213 H 313.357 V 458.339 H 193.367 V 310.213 H 65.879 V 185.034 H 193.367 Z" style="fill: currentcolor; stroke-linecap: round; stroke: currentcolor; stroke-width: 50px; stroke-linejoin: round; stroke-dashoffset: 9px;" bx:shape="cross 65.879 35.216 374.967 423.123 125.179 119.99 0.502 1@020639b5"/>
 </svg>

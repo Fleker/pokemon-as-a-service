@@ -115,7 +115,7 @@ export class ButtonLocationComponent implements OnInit {
 
   get tideSprite() {
     const path = this.tides === 'High Tide' ? 'high-tide' : 'low-tide'
-    return `/images/sprites/icons/${path}.svg`
+    return path
   }
 
   get moonSprite() {
@@ -129,7 +129,7 @@ export class ButtonLocationComponent implements OnInit {
       'Last Quarter': 'moon-3q',
       'Waning Crescent': 'moon-nc',
     }[this.moonPhase || 'New Moon']
-    return `/images/sprites/icons/${path}.svg`
+    return path
   }
 
   get todSprite() {
@@ -138,7 +138,7 @@ export class ButtonLocationComponent implements OnInit {
       'Dusk': 'tod-dusk',
       'Night': 'tod-night',
     }[this.localTimeDay || 'Day']
-    return `/images/sprites/icons/${path}.svg`
+    return path
   }
 
   get location() {

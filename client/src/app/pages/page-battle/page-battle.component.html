@@ -30,7 +30,7 @@
     <mat-radio-button *ngFor="let tier of tierKeys"
       (click)="populateLeaderboard(tier)"
       [value]="tier">
-      <img *ngIf="tiers[tier].icon" src="/images/sprites/icons/{{tiers[tier].icon}}" class="icon" />
+      <mat-icon color="primary" class="icon" svgIcon="{{tiers[tier].icon}}"></mat-icon>
       {{tier}}
     </mat-radio-button>
   </mat-radio-group>

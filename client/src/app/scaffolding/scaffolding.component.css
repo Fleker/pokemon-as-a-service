@@ -43,8 +43,12 @@ mat-drawer img {
   margin-right: 4px;
 }
 
-nav img.icon {
-  display: initial;
+nav mat-icon {
+  width: 20px;
+  height: 20px;
+  padding-right: 4px;
+  vertical-align: sub;
+  overflow: visible;
 }
 
 nav a {

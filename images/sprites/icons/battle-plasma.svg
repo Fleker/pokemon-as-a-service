@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <rect x="33.505" y="27.062" width="433.419" height="432.13" style="fill: rgba(216, 216, 216, 0); stroke: rgb(153, 153, 153); stroke-width: 20px;" rx="101.361" ry="101.361"/>
-  <path d="M 253.866 60.567 L 308.645 179.328 L 438.521 194.727 L 342.501 283.524 L 367.989 411.802 L 253.866 347.921 L 139.743 411.802 L 165.231 283.524 L 69.211 194.727 L 199.087 179.328 Z" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153);" bx:shape="star 253.866 254.725 194.158 194.158 0.48 5 1@e0470246"/>
+<svg viewBox="0 0 500 500" width="500" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <path d="M 248.148 0 L 321.763 159.597 L 496.297 180.291 L 367.259 299.621 L 401.512 472.007 L 248.148 386.16 L 94.784 472.007 L 129.037 299.621 L -0.001 180.291 L 174.533 159.597 Z" style="stroke: rgb(0, 0, 0); fill: currentcolor;" bx:shape="star 248.148 260.919 260.919 260.919 0.48 5 1@61a593ae"/>
 </svg>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <rect x="48.969" y="82.045" width="407.646" height="310.996" rx="6" ry="6" style="fill: rgba(216, 216, 216, 0); stroke: rgb(153, 153, 153); stroke-width: 20px;"/>
-  <path d="M 255.235 99.656 L 360.261 169.029 L 255.235 238.402 L 150.209 169.029 Z" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153);" bx:shape="n-gon 255.235 169.029 105.026 69.373 4 0 1@e244af7b"/>
-  <path d="M 255.162 237.328 L 360.188 306.701 L 255.162 376.074 L 150.136 306.701 Z" style="stroke: rgb(0, 0, 0); fill: rgb(153, 153, 153);" bx:shape="n-gon 255.162 306.701 105.026 69.373 4 0 1@775867cb"/>
+<svg viewBox="0 0 500 500" width="500" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <ellipse style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: currentColor;" cx="249.476" cy="303.471" rx="85.636" ry="85.636"/>
+  <path d="M 252.16 51.927 L 310.965 169.538 L 193.354 169.538 L 252.16 51.927 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: currentColor;" bx:shape="triangle 193.354 51.927 117.611 117.611 0.5 0 1@6c7c361b"/>
+  <path d="M 424.551 328.066 L 483.356 445.677 L 365.745 445.677 L 424.551 328.066 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: currentColor;" bx:shape="triangle 365.745 328.066 117.611 117.611 0.5 0 1@a699aca5"/>
+  <path d="M 70.377 328.066 L 129.182 445.677 L 11.571 445.677 L 70.377 328.066 Z" style="stroke: rgb(0, 0, 0); stroke-width: 0px; fill: currentColor;" bx:shape="triangle 11.571 328.066 117.611 117.611 0.5 0 1@1980be25"/>
 </svg>

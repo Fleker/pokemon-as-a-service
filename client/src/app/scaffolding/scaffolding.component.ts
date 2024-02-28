@@ -43,7 +43,8 @@ import * as BType from '../../../../shared/src/battle/typeMultiplier'
 import * as BWeather from '../../../../shared/src/battle/weather'
 import * as BTypes from '../../../../shared/src/battle/types'
 import { raidBattleSettings } from '../../../../shared/src/raid-settings'
-
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from "@angular/platform-browser";
 declare var window: any;
 
 interface Gate {
@@ -125,8 +126,11 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
     private locations: LocationService,
     engagement: EngagementService,
     private feedback: FeedbackService,
+    private iconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer,
   ) {
     this.engagement = engagement
+    this.loadCustomIcons()
   }
 
   ngOnInit(): void {
@@ -257,6 +261,84 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.firebase.logout()
     window.location.href = 'https://pokemon.com' // Bye
   }
+
+  loadCustomIcons() {
+    const icons = {
+      // Battle Icons
+      'battle-traditional': 'images/sprites/icons/menu-battle2.svg',
+      'battle-red': 'images/sprites/icons/battle-red.svg',
+      'battle-crystal': 'images/sprites/icons/battle-crystal.svg',
+      'battle-emerald': 'images/sprites/icons/battle-emerald.svg',
+      'battle-platinum': 'images/sprites/icons/battle-platinum.svg',
+      'battle-plasma': 'images/sprites/icons/battle-plasma.svg',
+      'battle-kalos': 'images/sprites/icons/battle-kalos.svg',
+      'battle-sky': 'images/sprites/icons/battle-sky.svg',
+      'battle-alolan': 'images/sprites/icons/battle-alolan.svg',
+      'battle-ultra': 'images/sprites/icons/battle-ultra.svg',
+      'battle-galar': 'images/sprites/icons/battle-galar.svg',
+      'battle-galardlc': 'images/sprites/icons/battle-galardlc.svg',
+      'battle-arceus': 'images/sprites/icons/battle-arceus.svg',
+      'battle-paldea': 'images/sprites/icons/battle-paldea.svg',
+      'battle-paldeadlc': 'images/sprites/icons/battle-paldeadlc.svg',
+      'battle-tiny': 'images/sprites/icons/battle-tiny.svg',
+      'battle-beginner': 'images/sprites/icons/battle-beginner.svg',
+      // Menu Icons
+      'menu-about': 'images/sprites/icons/menu-about.svg',
+      'menu-achievements': 'images/sprites/icons/menu-achievements.svg',
+      'menu-admin': 'images/sprites/icons/menu-admin.svg',
+      'menu-bag': 'images/sprites/icons/menu-bag.svg',
+      'menu-bank': 'images/sprites/icons/menu-bank.svg',
+      'menu-battle': 'images/sprites/icons/menu-battle2.svg',
+      'menu-bazaar': 'images/sprites/icons/menu-bazaar.svg',
+      'menu-crafting': 'images/sprites/icons/menu-crafting.svg',
+      'menu-daycare': 'images/sprites/icons/menu-daycare.svg',
+      'menu-deleter': 'images/sprites/icons/menu-deleter.svg',
+      'menu-egg': 'images/sprites/icons/menu-egg.svg',
+      'menu-encounters': 'images/sprites/icons/menu-encounters.svg',
+      'menu-farm': 'images/sprites/icons/menu-farm.svg',
+      'menu-games': 'images/sprites/icons/menu-games.svg',
+      'menu-gts': 'images/sprites/icons/menu-gts.svg',
+      'menu-mart': 'images/sprites/icons/menu-mart.svg',
+      'menu-pokeball': 'images/sprites/icons/menu-pokeball.svg',
+      'menu-pokedex': 'images/sprites/icons/menu-pokedex.svg',
+      'menu-pokegear': 'images/sprites/icons/menu-pokegear.svg',
+      'menu-quests': 'images/sprites/icons/menu-quests.svg',
+      'menu-raids': 'images/sprites/icons/menu-raids.svg',
+      'menu-release': 'images/sprites/icons/menu-release.svg',
+      'menu-research': 'images/sprites/icons/menu-research.svg',
+      'menu-trade': 'images/sprites/icons/menu-trade.svg',
+      'menu-trainer': 'images/sprites/icons/menu-trainer.svg',
+      'menu-tutor': 'images/sprites/icons/menu-tutor.svg',
+      'menu-voyages': 'images/sprites/icons/menu-voyages.svg',
+      'menu-wonder': 'images/sprites/icons/menu-wonder.svg',
+      'menu-wonder2': 'images/sprites/icons/menu-wonder.svg',
+      // Map Icons
+      'moon-1q': 'images/sprites/icons/moon-1q.svg',
+      'moon-3q': 'images/sprites/icons/moon-3q.svg',
+      'moon-full': 'images/sprites/icons/moon-full.svg',
+      'moon-nc': 'images/sprites/icons/moon-nc.svg',
+      'moon-new': 'images/sprites/icons/moon-new.svg',
+      'moon-ng': 'images/sprites/icons/moon-ng.svg',
+      'moon-xc': 'images/sprites/icons/moon-xc.svg',
+      'moon-xg': 'images/sprites/icons/moon-xg.svg',
+      'tod-day': 'images/sprites/icons/tod-day.svg',
+      'tod-dusk': 'images/sprites/icons/tod-dusk.svg',
+      'tod-night': 'images/sprites/icons/tod-night.svg',
+      'high-tide': 'images/sprites/icons/high-tide.svg',
+      'low-tide': 'images/sprites/icons/low-tide.svg',
+      'map-flower': 'images/sprites/icons/map-flower.svg',
+      'map-icy': 'images/sprites/icons/map-icy.svg',
+      'map-magnetic': 'images/sprites/icons/map-magnetic.svg',
+      'map-meteor': 'images/sprites/icons/map-meteor.svg',
+      'map-moss': 'images/sprites/icons/map-moss.svg',
+    }
+    for (const [name, url] of Object.entries(icons)) {
+      console.debug('    > icon register', name)
+      this.iconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(url))
+    }
+    console.debug('Icon Registry is configured')
+  }
+
 
   updateTheme(user: Users.Doc) {
     if (user.settings!.theme === 'dark') {

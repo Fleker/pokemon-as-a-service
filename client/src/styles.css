@@ -83,10 +83,6 @@ body.dark .mat-tab-label, body.dark .mat-tab-link {
   color: rgba(255, 255, 255, 0.87);
 }
 
-body.dark img.icon {
-  filter: brightness(2);
-}
-
 body.dark mat-slide-toggle, body.dark .mat-mdc-slide-toggle, body.dark .mdc-form-field {
   color: var(--app-text-color) !important;
 }
@@ -155,6 +151,11 @@ mat-drawer-content {
 
 mat-icon {
   vertical-align: middle; /* Unless overridden */
+  color: var(--app-text-color); /* Unless overridden */
+}
+
+body.dark mat-icon {
+  color: white;
 }
 
 button sprite-item {
@@ -570,6 +571,11 @@ img.icon {
   filter: brightness(0); /* Make it black */
 }
 
+mat-icon.icon {
+  width: 28px;
+  height: 28px;
+}
+
 img.icon.leaflet-marker-icon {
   filter: initial;
 }
@@ -582,7 +588,7 @@ img.icon.leaflet-marker-icon {
   padding: 7px !important;
 }
 
-img.right {
+img.right, mat-icon.right {
   margin-left: 8px;
 }
 
