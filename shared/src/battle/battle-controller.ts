@@ -246,6 +246,7 @@ export function switchOutPokemon(field: Field, prefix: Prefix, pkmn: Pokemon, pa
   } else {
     log.add(`I'm counting on you ${next.species}!`)
   }
+  log.push(next.heldItem?.onEnterBattle?.(next))
   log.push(applyEntryHazards(field, prefix, next, party))
   return log
 }
@@ -1102,6 +1103,9 @@ export function execute(
         log.push(condition.onBattleStart?.(pkmn))
       })
     }
+    if (getCondition(pkmn, 'OnField')) {
+      log.push(pkmn.heldItem?.onEnterBattle?.(pkmn))
+    }
   }
   for (const pkmn of opponents) {
     if (pkmn.ability) {
@@ -1116,6 +1120,9 @@ export function execute(
       pkmn.conditions.forEach(condition => {
         log.push(condition.onBattleStart?.(pkmn))
       })
+    }
+    if (getCondition(pkmn, 'OnField')) {
+      log.push(pkmn.heldItem?.onEnterBattle?.(pkmn))
     }
   }
 

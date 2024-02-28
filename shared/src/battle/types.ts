@@ -207,6 +207,10 @@ export interface Item {
    */
   onBattleStart?: (caster: Pokemon, target: Pokemon, consumed: boolean) => Log
   /**
+   * Logic to run when this Pokémon is first sent out.
+   */
+  onEnterBattle?: (caster: Pokemon) => Log
+  /**
    * Logic to run right before you use a move.
    */
   onCasterMove?:  (input: MoveInput, consumed: boolean) => Log

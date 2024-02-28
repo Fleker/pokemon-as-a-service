@@ -10819,7 +10819,7 @@ export const Movepool: Movepool = {
       APPLY_TEMP_STATUS(target, ConditionMap.Switcherooed)
       const log = new Log()
       log.add(`${caster.species} swapped items with ${target.species}`)
-      log.add(`${caster.species} received one ${caster.heldItem}`)
+      log.add(`${caster.species} received one ${ITEMS[casterHeldItemKey!]?.label}`)
       return log
     }
   },
@@ -11591,7 +11591,7 @@ export const Movepool: Movepool = {
       APPLY_TEMP_STATUS(target, ConditionMap.Switcherooed)
       const log = new Log()
       log.add(`${caster.species} swapped items with ${target.species}`)
-      log.add(`${caster.species} received one ${caster.heldItem}`)
+      log.add(`${caster.species} received one ${ITEMS[casterHeldItemKey!]?.label}`)
       return log
     }
   },

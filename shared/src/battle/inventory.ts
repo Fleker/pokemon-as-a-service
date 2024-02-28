@@ -296,7 +296,7 @@ export function complexZCrystal(zLookup: MoveId): Item {
 
 export function terastallize(teraType: Type): Item {
   return {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       const tera = {...ConditionMap.Terastallized}
       tera.p = { type: teraType }
       caster.heldItemConsumed = true
@@ -730,8 +730,12 @@ export const Inventory: Inventory = {
       move.power *= 1.3
       return new Log()
     },
-    onAfterCasterMoveOnce: ({caster}) => {
-      return logDamage(caster, caster.totalHp / 10, true)
+    onAfterCasterMoveOnce: ({caster, damage}) => {
+      if (damage && damage > 0) {
+        // No recoil if no damage done
+        return logDamage(caster, caster.totalHp / 10, true)
+      }
+      return new Log() 
     },
   },
   lightball: {
@@ -1416,250 +1420,249 @@ export const Inventory: Inventory = {
       return new Log()
     }
   },
-  safetygoggles: {
-      },
+  safetygoggles: {},
   gardevoirite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Gardevoir)
     },    
   },
   venusaurite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Venusaur)
     },
   },
   charizarditex: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Charizard, 'megax')
     },
   },
   charizarditey: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Charizard, 'megay')
     },
   },
   blastoiseite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Blastoise)
     },
   },
   alakazamite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Alakazam)
     },
   },
   gengarite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Gengar)
     },
   },
   absolite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Absol)
     },
   },
   aerodactylite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Aerodactyl)
     },
   },
   ampharosite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Ampharos)
     },
   },
   banetteite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Banette)
     },
   },
   blueorb: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Kyogre)
     },
   },
   gyaradosite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Gyarados)
     },
   },
   heracrossite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Heracross)
     },
   },
   lucarioite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Lucario)
     },
   },
   manectricite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Manectric)
     },
   },
   mawileite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Mawile)
     },
   },
   medichamite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Medicham)
     },
   },
   mewtwoitex: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Mewtwo, 'megax')
     },
   },
   mewtwoitey: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Mewtwo, 'megay')
     },
   },
   pinsirite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Pinsir)
     },
   },
   redorb: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Groudon)
     },
   },
   scizorite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Scizor)
     },
   },
   beedrillite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Beedrill)
     },
   },
   pidgeotite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Pidgeot)
     },
   },
   slowbroite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Slowbro)
     },
   },
   kangaskhanite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Kangaskhan)
     },
   },
   steelixite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Steelix)
     },
   },
   houndoomite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Houndoom)
     },
   },
   tyranitarite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Tyranitar)
     },
   },
   sceptileite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Sceptile)
     },
   },
   abomasnowite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Abomasnow)
     },
   },
   aggronite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Aggron)
     },
   },
   audinoite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Audino)
     },
   },
   blazikenite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Blaziken)
     },
   },
   galladeite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Gallade)
     },
   },
   garchompite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Garchomp)
     },
   },
   glalieite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Glalie)
     },
   },
   latiasite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Latias)
     },
   },
   latiosite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Latios)
     },
   },
   lopunnyite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Lopunny)
     },
   },
   metagrossite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Metagross)
     },
   },
   sableyeite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Sableye)
     },
   },
   salamenceite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Salamence)
     },
   },
   swampertite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Swampert)
     },
   },
   sharpedoite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Sharpedo)
     },
   },
   cameruptite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Camerupt)
     },
   },
   altariaite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Altaria)
     },
   },
   diancieite: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       return performMegaEvolution(caster, P.Diancie)
     },
   },
@@ -1880,7 +1883,7 @@ export const Inventory: Inventory = {
   zsolganium: complexZCrystal('Searing Sunraze Smash'),
   zultranecrozium: complexZCrystal('Light That Burns the Sky'),
   dynamaxcandy: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       // DYNAMAX!
       if (caster.heldItemConsumed) {
         return new Log().add('Dynamax is not supported in this format.')
@@ -1912,7 +1915,7 @@ export const Inventory: Inventory = {
     }
   },
   maxmushroom: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       // GIGANTAMAX!
       if (caster.heldItemConsumed) {
         return new Log().add('Gigantamax is not supported in this format.')
@@ -1949,7 +1952,7 @@ export const Inventory: Inventory = {
     }
   },
   maxhoney: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       // GIGANTAMAX!
       if (caster.heldItemConsumed) {
         return new Log().add('Gigantamax is not supported in this format.')
@@ -2170,7 +2173,7 @@ export const Inventory: Inventory = {
   teraice: terastallize('Ice'),
   terastellar: terastallize('Normal'), // FIXME
   teraorb: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       const tera = {...ConditionMap.Terastallized}
       tera.p = { type: caster.type1 } // Hardcode to primary type
       caster.heldItemConsumed = false
@@ -2179,7 +2182,7 @@ export const Inventory: Inventory = {
     }
   },
   boosterenergy: {
-    onBattleStart: (caster) => {
+    onEnterBattle: (caster) => {
       if (![
         'Great Tusk',
         'Scream Tail',
