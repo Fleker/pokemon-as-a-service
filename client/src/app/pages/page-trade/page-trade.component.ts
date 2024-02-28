@@ -87,19 +87,22 @@ export class PageTradeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.pokemon?.events.subscribe(event => {
-      if (event === 'CLOSE') {
-        this.updateOffer()
-      }
-    })
-    this.items?.events.subscribe(event => {
-      if (event === 'CLOSE') {
-        this.updateOffer()
-      }
-    })
+    setTimeout(() => {
+      this.pokemon?.events.subscribe(event => {
+        if (event === 'CLOSE') {
+          this.updateOffer()
+        }
+      })
+      this.items?.events.subscribe(event => {
+        if (event === 'CLOSE') {
+          this.updateOffer()
+        }
+      })
+    }, 1000)
   }
 
   async updateOffer() {
+    console.debug(this.pokemon._selection)
     try {
       await this.firebase.exec('trade_offer', {
         species: this.pokemon._selection[0].species,
@@ -240,7 +243,7 @@ export class PageTradeComponent implements OnInit, AfterViewInit {
 
       const others = data[this.otherOffer.role]
       this.otherOffer = {
-        id: others.id.substring(0, 1), // friend safari
+        id: others.id?.substring(0, 1), // friend safari
         role: this.otherOffer.role,
         species: others.offerSpecies,
         speciesLabel: new Badge(others.offerSpecies).toLabel(),
