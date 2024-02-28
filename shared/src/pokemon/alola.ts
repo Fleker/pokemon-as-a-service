@@ -126,6 +126,7 @@ export const alolaBuilder = {
       ['Fury Cutter', 'Hail'],
       ['Natural Gift', 'Spikes'],
       ['Ice Punch', 'Throat Chop', 'Celebrate'],
+      ['Magnitude', 'Safeguard'],
     ],
   }),
   'potw-028-alolan': ensurePkmnBuilder({
@@ -152,6 +153,7 @@ export const alolaBuilder = {
       ['Metal Burst', 'Leech Life', 'Hail'],
       ['Avalanche', 'Super Fang', 'Spikes'],
       ['Ice Punch', 'Throat Chop', 'Curse'],
+      ['Earthquake', 'Safeguard'],
     ],
   }),
   'potw-037-alolan': ensurePkmnBuilder({
@@ -177,6 +179,7 @@ export const alolaBuilder = {
       ['Aurora Beam', 'Extrasensory', 'Confuse Ray'],
       ['Aqua Tail', 'Tail Whip'],
       ['Weather Ball', 'Rain Dance'],
+      ['Icy Wind', 'Snarl', 'Hail'],
     ],
   }),
   'potw-038-alolan': ensurePkmnBuilder({
@@ -203,7 +206,7 @@ export const alolaBuilder = {
       ['Extrasensory', 'Nasty Plot'],
       ['Aqua Tail', 'Howl'],
       ['Sheer Cold', 'Weather Ball', 'Rain Dance'],
-      // ['Blizzard', 'Hail'],
+      ['Blizzard', 'Snarl', 'Hail'],
     ],
   }),
   'potw-050-alolan': ensurePkmnBuilder({
@@ -278,6 +281,7 @@ export const alolaBuilder = {
       ['Fake Out', 'Screech'],
       ['Pay Day', 'Taunt'],
       ['Gunk Shot', 'Flatter'],
+      ['Uproar', 'Snarl', 'Helping Hand'],
     ],
   }),
   'potw-053-alolan': ensurePkmnBuilder({
@@ -304,6 +308,7 @@ export const alolaBuilder = {
       ['Swift', 'Embargo'],
       ['Power Gem', 'Nasty Plot'],
       ['Gunk Shot', 'Parting Shot'],
+      ['Hyper Voice', 'Snarl', 'Helping Hand'],
     ],
   }),
   'potw-074-alolan': ensurePkmnBuilder({
@@ -330,6 +335,7 @@ export const alolaBuilder = {
       ['Fire Punch', 'Rock Polish'],
       ['Seismic Toss', 'Charge'],
       ['Electroweb', 'Iron Head', 'Magnet Rise'],
+      ['Discharge', 'Brutal Swing', 'Wide Guard'],
     ],
   }),
   'potw-075-alolan': ensurePkmnBuilder({
@@ -358,6 +364,7 @@ export const alolaBuilder = {
       ['Double-Edge_Galvanize', 'Fire Punch', 'Rock Polish'],
       ['Brick Break', 'Charge'],
       ['Electroweb', 'Iron Head', 'Magnet Rise'],
+      ['Discharge', 'Rock Slide', 'Brutal Swing', 'Wide Guard'],
     ],
   }),
   'potw-076-alolan': ensurePkmnBuilder({
@@ -384,6 +391,7 @@ export const alolaBuilder = {
       ['Heavy Slam', 'Rock Polish'],
       ['Steamroller', 'Charge'],
       ['Electroweb', 'Iron Head', 'Magnet Rise'],
+      ['Discharge', 'Rock Slide', 'Brutal Swing', 'Wide Guard'],
     ],
   }),
   'potw-088-alolan': ensurePkmnBuilder({
@@ -979,7 +987,7 @@ export const alolaBuilder = {
   }),
   'potw-741': ensurePkmnBuilder({
     species: 'Oricorio', type1: 'Fire', type2: 'Flying',
-    tiers: ['Traditional', 'Alolan Cup', 'Ultra Cup', 'Terastallize Cup'], shiny: 'WILD', weight: 3.4,
+    tiers: [], shiny: 'WILD', weight: 3.4,
     syncableForms: ['baile', 'pom_pom', 'pau', 'sensu'], needForm: true,
     eggBase: 'potw-741', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `It beats its wings together to create fire. As it moves in the steps of its beautiful dance, it bathes opponents in intense flames.`,

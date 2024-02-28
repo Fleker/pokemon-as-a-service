@@ -3555,6 +3555,23 @@ export const bosses = [
     Potw(P.Pangoro, {var:2}),
     Potw(P.Eiscue, {var:2}),
     Potw(P.Seaking, {var:1}),
+    Potw(P.Sandslash, {var:4,form:'alolan'}),
+    Potw(P.Hawlucha, {var:1}),
+    Potw(P.Darmanitan, {var:2,form:'galarian'}),
+    Potw(P.Darmanitan, {var:2,form:'galarian_zen'}),
+    Potw(P.Scolipede, {var:3}),
+    Potw(P.Sirfetchd, {var:2}),
+    Potw(P.Clawitzer, {var:2}),
+    Potw(P.Golem, {var:4,form:'alolan'}),
+    Potw(P.Azumarill, {var:4}),
+    Potw(P.Avalugg, {var:2, form:'hisuian'}),
+    Potw(P.Bouffalant, {var:2}),
+    Potw(P.Persian, {var:4,form:'alolan'}),
+    Potw(P.Dragalge, {var:2}),
+    Potw(P.Ninetales, {var:4,form:'alolan'}),
+    Potw(P.Kingdra, {var:4}),
+    Potw(P.Weezing, {var:3,form:'galarian'}),
+    Potw(P.Krookodile, {var:1}),
   ]
 ]
 

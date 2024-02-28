@@ -150,6 +150,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Leaf Blade', 'Detect'],
+      ['Steel Wing', 'Sand Attack'],
     ],
   }),
   'potw-110-galarian': ensurePkmnBuilder({
@@ -172,7 +173,8 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Double Hit', 'Will-O-Wisp'],
-      ['Flamethrower', 'Misty Terrain']
+      ['Flamethrower', 'Misty Terrain'],
+      ['Gunk Shot', 'Toxic Spikes'],
     ],
   }),
   'potw-122-galarian': ensurePkmnBuilder({
@@ -394,6 +396,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Thrash', 'Belly Drum'],
+      ['Lash Out', 'Yawn'],
     ],
   }),
   'potw-555-galarian': ensurePkmnBuilder({
@@ -416,6 +419,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Superpower', 'Belly Drum'],
+      ['Lash Out', 'Yawn'],
     ],
   }),
   'potw-555-galarian_zen': ensurePkmnBuilder({
@@ -438,6 +442,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Superpower', 'Belly Drum'],
+      ['Lash Out', 'Will-O-Wisp'],
     ],
   }),
   'potw-562-galarian': ensurePkmnBuilder({
@@ -1753,6 +1758,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Leaf Blade', 'Brave Bird', 'Iron Defense'],
+      ['Steel Wing', 'Sand Attack'],
     ],
   }),
   'potw-866': ensurePkmnBuilder({
