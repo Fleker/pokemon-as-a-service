@@ -93,7 +93,6 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
   }
   loaded: boolean = false
   firebaseListener: any
-  maxRegions = 10 // Galar + Hisui + Unknown
   dialog = {
     title: '',
     sprite: '',
@@ -113,6 +112,12 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
     return this.cooking.filter(m => m.registered).length
   }
 
+  get maxRegions() {
+    return this.engager.isNextUi ?
+      11 : // Paldea + Hisui + Unknown
+      11   // Paldea + Hisui + Unknown
+  }
+
   constructor(
     private firebase: FirebaseService,
     private links: LinksService,
@@ -124,9 +129,6 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
     this.links.init().then(() => {
       this.variantsFr = this.links.templates!.variants
     })
-    if (this.engager.isNextUi) {
-      this.maxRegions = 11 // Paldea + Unknown + Hisui
-    }
     this.firebaseListener = this.firebase.subscribeUser(async user => {
       if (user && !this.loaded) {
         this.loaded = true
