@@ -9,14 +9,14 @@ div {
   margin-right: 4px;
 }
 
-img.icon {
-  width: 16px;
-  height: 16px;
+mat-icon {
+  width: 20px;
+  height: 20px;
   vertical-align: top;
   opacity: 0.8;
   transition: all 150ms;
 }
 
-div:hover img.icon {
+div:hover mat-icon {
   opacity: 1;
 }

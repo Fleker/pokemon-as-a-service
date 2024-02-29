@@ -331,6 +331,25 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
       'map-magnetic': 'images/sprites/icons/map-magnetic.svg',
       'map-meteor': 'images/sprites/icons/map-meteor.svg',
       'map-moss': 'images/sprites/icons/map-moss.svg',
+      // Types
+      'type-Normal': 'images/sprites/icons/type-Normal.svg',
+      'type-Ice': 'images/sprites/icons/type-Ice.svg',
+      'type-Grass': 'images/sprites/icons/type-Grass.svg',
+      'type-Poison': 'images/sprites/icons/type-Poison.svg',
+      'type-Bug': 'images/sprites/icons/type-Bug.svg',
+      'type-Water': 'images/sprites/icons/type-Water.svg',
+      'type-Fire': 'images/sprites/icons/type-Fire.svg',
+      'type-Flying': 'images/sprites/icons/type-Flying.svg',
+      'type-Fighting': 'images/sprites/icons/type-Fighting.svg',
+      'type-Electric': 'images/sprites/icons/type-Electric.svg',
+      'type-Ground': 'images/sprites/icons/type-Ground.svg',
+      'type-Rock': 'images/sprites/icons/type-Rock.svg',
+      'type-Ghost': 'images/sprites/icons/type-Ghost.svg',
+      'type-Psychic': 'images/sprites/icons/type-Psychic.svg',
+      'type-Dragon': 'images/sprites/icons/type-Dragon.svg',
+      'type-Dark': 'images/sprites/icons/type-Dark.svg',
+      'type-Steel': 'images/sprites/icons/type-Steel.svg',
+      'type-Fairy': 'images/sprites/icons/type-Fairy.svg',
     }
     for (const [name, url] of Object.entries(icons)) {
       this.iconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(url))

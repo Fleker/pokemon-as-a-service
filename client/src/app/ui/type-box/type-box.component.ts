@@ -10,7 +10,7 @@ export class TypeBoxComponent {
   @Input('type') type?: Type
 
   get typeIcon() {
-    return `/images/sprites/icons/type-${this.type}.svg`
+    return `type-${this.type}`
   }
 
   get typel() {
