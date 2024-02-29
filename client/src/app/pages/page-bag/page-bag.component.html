@@ -37,6 +37,11 @@
             {{item.description}}
           </small>
         </td>
+        <td *ngIf="key === 'tms' || key === 'trs'">
+          <button mat-icon-button (click)="openMoveDialog(item.key)">
+            <mat-icon>open_in_browser</mat-icon>
+          </button>
+        </td>
       </tr>
     </table>
   </collapsible-card>

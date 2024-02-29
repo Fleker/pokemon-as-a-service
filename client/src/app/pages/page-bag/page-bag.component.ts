@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { LinksService } from 'src/app/links.service';
-import { FirebaseService } from 'src/app/service/firebase.service';
+import { FirebaseService, FirebaseListener } from 'src/app/service/firebase.service';
 import { ITEMS, ItemId, categoryKeys, categoryAttributes, Category } from '../../../../../shared/src/items-list';
 import { ItemEntries } from '../../../../../shared/src/item-entries';
 import { PokemonDialogComponent } from 'src/app/dialogs/pokemon-dialog/pokemon-dialog.component';
@@ -10,6 +10,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ElementRef } from '@angular/core';
 import { F } from '../../../../../shared/src/server-types';
 import { Subject } from 'rxjs';
+import { ManagerService } from 'src/app/dialogs/manager.service';
+import { MoveId } from '../../../../../shared/src/gen/type-move-meta';
+import { Gyroscope } from '../../service/w3c-generic-sensor';
 
 declare var window;
 
@@ -42,8 +45,8 @@ export class PageBagComponent implements OnInit, OnDestroy {
   itemUse?: F.UseItem.Res
   action: string
   /** Capture Gyroscope data for Inkay */
-  gyroscope: any
-  firebaseListener: any
+  gyroscope: Gyroscope
+  firebaseListener: FirebaseListener
   categories = categoryKeys
   categoryAttributes = categoryAttributes
   spinSubject: Subject<UserSpin> = new Subject()
@@ -52,6 +55,7 @@ export class PageBagComponent implements OnInit, OnDestroy {
     private firebase: FirebaseService,
     private links: LinksService,
     private snackbar: MatSnackBar,
+    private dialogs: ManagerService,
   ) {
     for (const c of this.categories) {
       this.bag[c] = []
@@ -243,6 +247,12 @@ export class PageBagComponent implements OnInit, OnDestroy {
       this.dialog.nativeElement!.close()
       this.snackbar.open(e.message, '', {duration: 5000})
     }
+  }
+
+  openMoveDialog(itemLabel: string) {
+    const moveName = itemLabel.split('-').slice(1).join(' ')
+    console.debug(itemLabel, '>', moveName)
+    this.dialogs.openMovedex(moveName as MoveId)
   }
 
   close() {

@@ -1,6 +1,6 @@
 import { OnChanges } from '@angular/core';
 import { SimpleChanges } from '@angular/core';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ManagerService } from 'src/app/dialogs/manager.service';
 import { Type } from '../../../../../shared/src/pokemon/types';
 import { MoveId, MoveTypeMap } from '../../../../../shared/src/gen/type-move-meta';
