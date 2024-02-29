@@ -8,6 +8,7 @@ import * as P from './gen/type-pokemon'
 import asLiterals from './as-literals'
 import { Type } from './pokemon/types'
 import { get } from './pokemon'
+import {forEachBadgeId, myPokemon} from './badge-inflate'
 
 export const recipeCategoryKeys = asLiterals(['crafting', 'tmmachine', 'bait'])
 export type RecipeCategory = keyof {[K in (typeof recipeCategoryKeys)[number]]: string}
@@ -120,8 +121,8 @@ function craftCurryRare(input: Partial<Record<ItemId, number>>, output: ItemId, 
           }
           const stat = kindStat[kind]
           let c = 0
-          for (const [key, value] of Object.entries(r.pokemon)) {
-            const badge = new Badge(key)
+          for (const [badgeId, value] of myPokemon(r.pokemon)) {
+            const badge = new Badge(badgeId)
             const db = get(badge.toLegacyString())
             if (!db) return false
             if (db[stat] >= 100) {
@@ -260,12 +261,12 @@ export const Recipes = {
       }, {
         completed: ({pokemon}) => {
           let sum = 0
-          for (const [key, value] of Object.entries<number>(pokemon)) {
-            const badge = new Badge(key)
+          forEachBadgeId(pokemon, ([badgeId, value]) => {
+            const badge = new Badge(badgeId)
             if (badge.personality.pokeball === 'greatball') {
               sum += value
             }
-          }
+          })
           return sum >= 50
         },
         msg: 'Catch more in Great Balls.'
@@ -287,12 +288,12 @@ export const Recipes = {
       }, {
         completed: ({pokemon}) => {
           let sum = 0
-          for (const [key, value] of Object.entries<number>(pokemon)) {
-            const badge = new Badge(key)
+          forEachBadgeId(pokemon, ([badgeId, value]) => {
+            const badge = new Badge(badgeId)
             if (badge.personality.pokeball === 'ultraball') {
               sum += value
             }
-          }
+          })
           return sum >= 50
         },
         msg: 'Catch more in Ultra Balls.'
