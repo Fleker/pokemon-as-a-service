@@ -94,7 +94,7 @@
         <strong>Battle Stadium Cups</strong>
         <br>
         <div *ngFor="let item of pokemon.tiers">
-          <img *ngIf="battleTiers[item].icon" src="/images/sprites/icons/{{battleTiers[item].icon}}" class="icon" />
+          <mat-icon svgIcon="{{battleTiers[item].icon}}"></mat-icon>
           {{item}}
         </div>
       </div>
