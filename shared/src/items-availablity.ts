@@ -2657,7 +2657,7 @@ export function useItem(params: ItemUsageParams): UseItemOutput {
 
   const buddy = [PI.Rellor, PI.Pawmo, PI.Bramblin]
   if (buddy.includes(badge.id)) {
-    if (!badge.defaultTags.includes('BUDDY')) {
+    if (!badge.defaultTags?.includes('BUDDY')) {
       throw new Error(`Item ${item} cannot be used on this acquantiance. You need to be friends.`)
     }
     const evol = [PI.Rabsca, PI.Pawmot, PI.Brambleghast]

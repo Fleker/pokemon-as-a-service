@@ -9,7 +9,7 @@ import { getLocation } from './location'
 import { SHINY_CHARM } from '../../shared/src/quests'
 import {  inflate } from '../../shared/src/badge-inflate'
 import { shinyRate } from './platform/game-config'
-import { addPokemon, awardItem, hasPokemon } from './users.utils'
+import { addPokemon, awardItem, hasPokemon, removePokemon } from './users.utils'
 import { BadgeId, PokemonId } from '../../shared/src/pokemon/types'
 import { Badge } from '../../shared/src/badge3'
 import { ItemId, PokeballId } from '../../shared/src/items-list'
@@ -710,7 +710,7 @@ export const voyage_claim = functions.https.onCall(async (data: F.VoyageClaim.Re
       })
 
       // Finizen evolves into Palafin in a 'Union Circle'
-      const playerSelectedPokemon = new Badge(voyage.players[userId].pokemon)
+      const playerSelectedPokemon = new Badge(voyage.players[userId].species)
       if (playerSelectedPokemon.id === I.Finizen) {
         // Evolve!
         removePokemon(user, playerSelectedPokemon)
@@ -718,7 +718,7 @@ export const voyage_claim = functions.https.onCall(async (data: F.VoyageClaim.Re
         playerSelectedPokemon.personality.form = 'zero'
         addPokemon(user, playerSelectedPokemon)
         // Update this in our database
-        voyage.players[userId].pokemon = playerSelectedPokemn.toString()
+        voyage.players[userId].species = playerSelectedPokemon.toString()
       }
     }
 

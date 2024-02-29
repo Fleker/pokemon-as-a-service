@@ -13,10 +13,10 @@ const locationLabel = 'Mountain View'
 const locationWeather = 'Rain'
 const timestamp = {
   toMillis: () => Date.now() - 1000
-} as unknown as FirebaseFirestore.Timestamp
+} as any
 const timestampLastUpdated = {
   toMillis: () => Date.now() - 1000
-} as unknown as FirebaseFirestore.Timestamp
+} as any
 
 const emptyRaid = () => {
   const raid: DbRaid = {
