@@ -570,6 +570,28 @@ export const raid_select = functions.https.onCall(async (data, context) => {
               await publicDoc.ref.set({list})
             }
           }
+
+          // Send notification when conditions make sense
+          if (Object.keys(raid.players!).length === raidBattleSettings[raid.rating].maxMembers) {
+            // Player count is correct
+            if (Object.values(raid.players!).every(p => p.ready)) {
+              // Okay we're good
+              const hostRef = db.collection('users').doc(raid.host)
+              const hostDoc = await hostRef.get<Users.Doc>()
+              const host = hostDoc.data()
+              sendNotification(host, {
+                title: `Your ${raid.rating}-Star Raid is ready to start`,
+                category: 'PLAYER_EVENT',
+                body: 'Every player in the raid has been marked as ready',
+                link: `/raids?${raidId}`,
+                icon: pkmn(raid.boss),
+              })
+              t.update<Users.Doc>(hostRef, {
+                notifications: host.notifications,
+              })
+            }
+          }
+
           return raid.players![userId]
         }
         return `Got unexpected result ${res.state}`

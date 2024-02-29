@@ -309,6 +309,27 @@ export const voyage_select = functions.https.onCall(async (data: F.VoyageSelect.
           // Update player count is not available
         }
 
+        // Send notification when conditions make sense
+        if (Object.keys(voyage.players!).length === 4) {
+          // Player count is correct
+          if (Object.values(voyage.players!).every(p => p.ready)) {
+            // Okay we're good
+            const hostRef = db.collection('users').doc(voyage.host)
+            const hostDoc = await hostRef.get<Users.Doc>()
+            const host = hostDoc.data()
+            sendNotification(host, {
+              title: `Your voyage is ready to start`,
+              category: 'PLAYER_EVENT',
+              body: 'Every player in the voyage has been marked as ready',
+              link: `/multiplayer/voyages?${voyageId}`,
+              icon: pkmn(new Badge(voyage.players[voyage.host].species).toSprite()),
+            })
+            t.update<Users.Doc>(hostRef, {
+              notifications: host.notifications,
+            })
+          }
+        }
+
         return voyage.players![uid]
       }
       throw new functions.https.HttpsError('not-found', `Got invalid state ${res.state}`)
