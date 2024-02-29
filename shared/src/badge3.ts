@@ -1,11 +1,13 @@
 import { toBase10, toBase16, toBase64 } from './baseconv'
 import * as Pkmn from './pokemon'
-import { BadgeId, PokemonForm, PokemonId } from './pokemon/types'
+import { BadgeId, PokemonForm, PokemonId, Type, types } from './pokemon/types'
 import { PokeballId } from './items-list'
 import { PokeballArr } from './gen/type-item'
 import { LocationId } from './locations-list'
 import { locationArray } from './gen/type-location'
 import { TeamsBadge } from './badge2'
+import {AbilityId} from './battle/ability'
+import {RibbonMarksTable} from './ribbon-marks'
 import randomItem from './random-item'
 
 /**
@@ -43,16 +45,24 @@ export interface Personality {
   gender: 'male' | 'female' | ''
   shiny: boolean
   affectionate: boolean
+  /** Whether this Pokémon has the ability to Gigantamax */
+  gmax?: boolean
   form?: PokemonForm
   location: LocationId
+  /** The type this Pokémon will naturally become when terastallizing */
+  teraType?: Type
+  /** The ability this Pokémon has in battle (if this ever happens) */
+  ability?: AbilityId
+  /** Whether this Pokémon originally belongs to the trainer (can have very specific mechanics) */
+  isOwner?: boolean
   /**
    * Optional field to store any details while
    * debugging the parsers. Do not expect this to
    * stay.
    */
   debug?: {
-    byte1: string, byte2: string, byte3: string, byte4: string,
-    number1: number, number2: number, number3: number, number4: number,
+    byte1: string, byte2: string, byte3: string, byte4: string, byte5: string,
+    number1: number, number2: number, number3: number, number4: number, number5: number,
     formIndex?: number, variantId: number,
   }
 }
@@ -61,7 +71,8 @@ export function toPersonality(personality64: string, id: number): Personality {
   const pkmn = Pkmn.get(`potw-${id}`)
   if (!pkmn) throw new Error(`No Pokemon exists potw-${id} w/${personality64}`)
 
-  const personality16 = toBase16(personality64).padStart(8, '0')
+  // Pad the start in the case of Hardy PokeBall
+  const personality16 = toBase16(personality64).padStart(10, '0')
   // Breaks up the personality into base16 strings, where every 2 characters is one byte
   // Byte 1
   const byte1 = personality16.substring(0, 2)
@@ -89,13 +100,16 @@ export function toPersonality(personality64: string, id: number): Personality {
   })()
   const shiny = (number2 & 2) >> 1 === 1
   const affectionate = (number2 & 1) === 1
-  // Byte 3 - Form
+  // Byte 3
+  // | GMAX (1) | UNUSED (1) | FORM (6) |
   const byte3 = personality16.substring(4, 6)
   const number3 = parseInt(byte3, 16)
-  const formIndex = (() => {
-    if (number3 === 255) return undefined
-    return number3
-  })()
+  const gmaxable = pkmn.gmax !== undefined
+  const gmax = (number3 & 128) !== 0 && gmaxable
+    const formIndex = (() => {
+    if (number3 === 63) return undefined
+    return number3 & 63
+     })()
   const form = (() => {
     if (formIndex !== undefined) {
       // Do datastore lookup to get forms on base
@@ -108,7 +122,37 @@ export function toPersonality(personality64: string, id: number): Personality {
   const byte4 = personality16.substring(6, 8)
   const number4 = parseInt(byte4, 16)
   const location = locationArray[number4] ?? 'Unknown'
-
+  // Byte 5
+  // | TERA TYPE (5) | ABILITY (2) | OWNERSHIP (1) |
+  const byte5 = personality16.substring(8, 10)
+  const number5 = parseInt(byte5, 16)
+  const teraType = (() => {
+    if (isNaN(number5)) {
+      // Compute default tera type in a deterministic way
+      if (pkmn.type2) {
+        const teraModifier = ((number1 & 31) + (number2 & 12) + (number2 & 2) + number4) % 2
+        return [pkmn.type1, pkmn.type2][teraModifier]
+      }
+      return pkmn.type1
+    }
+    const teraIndex = (number5 & 248) >> 3
+    return types[teraIndex] ?? pkmn.type1
+  })()
+  const ability = (() => {
+    if (isNaN(number5)) {
+      return pkmn.abilities?.[1] ?? 'PlaceholderPower'
+    }
+    const abilityIndex = (number5 & 6) >> 1
+    return pkmn.abilities?.[abilityIndex] ?? 'PlaceholderPower'
+  })()
+  const isOwner = (() => {
+    if (isNaN(number5)) {
+      return true // We don't know for sure, so let's assume
+    }
+    const ownerIndex = (number5 & 1)
+    return ownerIndex !== 0
+  })()
+   
   return {
     pokeball: pokeball as PokeballId,
     nature: nature as Nature,
@@ -116,11 +160,15 @@ export function toPersonality(personality64: string, id: number): Personality {
     gender,
     shiny,
     affectionate,
+    gmax,
     form,
     location: location as LocationId,
+    teraType,
+    ability,
+    isOwner,
     debug: {
-      byte1, byte2, byte3, byte4,
-      number1, number2, number3, number4,
+      byte1, byte2, byte3, byte4, byte5,
+      number1, number2, number3, number4, number5,
       formIndex, variantId,
     }
   }
@@ -155,27 +203,33 @@ export function fromPersonality(personality: Personality, id: number): string {
     return variant << 4 | gender << 2 | shiny << 1 | affection
   })().toString(16).padStart(2, '0')
   const byte3 = (() => {
-    if (personality.form) {
-      if (!pkmn.syncableForms) {
-        console.error(`No Pokemon syncable forms exist for potw-${id}` +
-          `/${personality.form}`)
-        return 255 // No form
-        // throw new Error(`No Pokemon syncable forms exist for potw-${id}` +
-        //   `/${personality.form}`)
-      }
-      const index = pkmn.syncableForms!.indexOf(personality.form)
-      if (index > -1) {
-        return index
-      }
-    }
-    return 255
+    const gmaxable = pkmn.gmax !== undefined
+    const gmaxId = (personality.gmax === true && gmaxable ? 128 : 0)
+         if (personality.form) {
+           if (!pkmn.syncableForms) {
+             console.error(`No Pokemon syncable forms exist for potw-${id}` +
+               `/${personality.form}`)
+        return 63  | gmaxId // No form
+           }
+           const index = pkmn.syncableForms!.indexOf(personality.form)
+           if (index > -1) {
+        return index | gmaxId
+           }
+         }
+    return 63 | gmaxId
+       })().toString(16).padStart(2, '0')
+       const byte4 = (() => {
+         const locale = locationArray.indexOf(personality.location)
+         if (locale > -1) return locale
+         return 0 // Unknown
+       })().toString(16).padStart(2, '0')
+  const byte5 = (() => {
+    const teraIndex = types.indexOf(personality.teraType ?? pkmn.type1)
+    const abilityIndex = pkmn.abilities?.indexOf(personality.ability!) ?? 1
+    const isOwner = personality.isOwner ? 1 : 0
+    return (teraIndex << 3) | (abilityIndex << 1) | isOwner
   })().toString(16).padStart(2, '0')
-  const byte4 = (() => {
-    const locale = locationArray.indexOf(personality.location)
-    if (locale > -1) return locale
-    return 0 // Unknown
-  })().toString(16).padStart(2, '0')
-  return toBase64((byte1 + byte2 + byte3 + byte4).toUpperCase())
+  return toBase64((byte1 + byte2 + byte3 + byte4 + byte5).toUpperCase())
 }
 
 export type Tag = 'FAVORITE' | 'BUDDY' | 'BATTLE' |
@@ -243,7 +297,7 @@ export function fromTags(tagArr: number[]) {
  * @param tags List of tag indicies
  * @returns String serialization of Pokemon badge.
  */
-export function Pokemon(id: number, personality: Partial<Personality> = {}, defaultTags?: Tag[], tags?: number[]): PokemonId {
+export function Pokemon(id: number, personality: Partial<Personality> = {}, defaultTags?: Tag[], tags?: number[], ribbons?: string[]): PokemonId {
   const pkmn = new Badge()
   pkmn.id = id
   pkmn.personality = {
@@ -259,6 +313,9 @@ export function Pokemon(id: number, personality: Partial<Personality> = {}, defa
   }
   if (tags) {
     pkmn.tags = tags
+  }
+  if (ribbons) {
+    pkmn.ribbons = ribbons
   }
   return pkmn.toString() as PokemonId
 }
@@ -387,6 +444,7 @@ export class Badge {
   // Tags
   defaultTags?: Tag[]
   tags?: number[] /* Tag indicies */
+  ribbons?: string[] /* Ribbon and mark lookup indicies */
 
   constructor(badgeString?: string) {
     if (typeof badgeString !== 'string') return
@@ -403,6 +461,7 @@ export class Badge {
     }
     this.original = badgeString
     const [id, personality, tags] = badgeString.split('#')
+    const [, ribbons] = badgeString.split('$')
     this.id = toBase10(id)
     if (personality) {
       this.personality = toPersonality(personality, this.id)
@@ -410,6 +469,9 @@ export class Badge {
     if (tags) {
       this.defaultTags = toDefaultTags(tags)
       this.tags = toTags(tags)
+    }
+    if (ribbons) {
+      this.ribbons = ribbons.split('')
     }
   }
 
@@ -434,15 +496,21 @@ export class Badge {
     })()
     // No Mountain View Pokemon can be xx[s|l] as its default
     if (number4 === 0 || number4 === 132) return undefined
-    const sizeModifier = (idMod + (number1 & 31) + (number2 & 12) + (number2 & 2) + number4) % 64
-    const sizeArray = Array(57).fill(undefined)
-    sizeArray.push('s') // 58
-    sizeArray.push('l') // 59
-    sizeArray.push('xs') // 60
-    sizeArray.push('xl') // 61
-    sizeArray.push('xxs') // 62
-    sizeArray.push('xxl') // 63
-    return sizeArray[sizeModifier]
+    const sizeModifier = (1 + idMod + (number1 & 31) + (number2 & 12) + (number2 & 2) + number4) % 64
+    if (sizeModifier === 58) {
+      return 's'
+    } else if (sizeModifier === 59) {
+      return 'l'
+    } else if (sizeModifier === 60) {
+      return 'xs'
+    } else if (sizeModifier === 61) {
+      return 'xl'
+    } else if (sizeModifier === 62) {
+      return 'xxs'
+    } else if (sizeModifier === 63) {
+      return 'xxl'
+    }
+    return undefined
   }
 
   /** Identifies whether a badge is abnormal and is automatically corrected in constructor. */
@@ -477,6 +545,11 @@ export class Badge {
     if (gender === 'female') res += ' ♀'
     if (affectionate) res += '♥'
     if (shiny) res += '✨'
+    if (this.ribbons?.length) {
+      if (RibbonMarksTable[this.ribbons[0]].title) {
+        res += ` ${RibbonMarksTable[this.ribbons[0]].title}`
+      }
+    }
     return res
   }
 
@@ -494,14 +567,14 @@ export class Badge {
     if (this.tags?.length) {
       tags64 = fromTags(this.tags)
     }
-    if (defaultTags64 === '' && tags64 === '') {
-      return `${id64}#${personality64}` as PokemonId
+    let out = `${id64}#${personality64}`
+    if (defaultTags64 === '0' && tags64 !== '') {
+      out += `#${defaultTags64}${tags64}`
     }
-    if (defaultTags64 === '0' && tags64 === '') {
-      // If there are no tags then drop the whole thing
-      return `${id64}#${personality64}` as PokemonId
+    if (this.ribbons !== undefined) {
+      out += `$${this.ribbons!.join('')}`
     }
-    return `${id64}#${personality64}#${defaultTags64}${tags64}` as unknown as PokemonId
+    return out as unknown as PokemonId
   }
 
   toOriginalString(): PokemonId {
@@ -580,11 +653,15 @@ export class Badge {
    * - Form if not provided and it needs one (`needForm`)
    * - Gender if not provided and it needs one
    * - Will assign one of eight natures
-   * 
-   * This will NOT add additional properties:
-   * - Shiny
-   * - Location
-   * - PokeBall
++   * - Will assign an ability at random, preferring non-hidden abilities
++   * - Will set the user to the owner
+    * 
+    * This will NOT add additional properties:
+    * - Shiny
+    * - Location
+    * - PokeBall
++   * - Tera type (default is deterministic)
++   * - Ribbons/Marks (these should be given in higher-level logic)
    * @param badgeId Optional badge ID format
    * @returns A pre-fabbed Badge object where you can add custom properties as-needed
    */
@@ -605,6 +682,19 @@ export class Badge {
     } else if (!badge.personality.form && dbPkmn.syncableForms && dbPkmn.needForm) {
       badge.personality.form = dbPkmn.needForm as PokemonForm
     }
+    console.error(badge.id, badge.personality.form)
+    badge.personality.ability = (() => {
+      if (Math.random() < 0.45) {
+        return dbPkmn.abilities?.[1] ?? 'PlaceholderPower'
+      }
+      if (Math.random() < 0.9) {
+        return dbPkmn.abilities?.[2] ?? 'PlaceholderPower'
+      }
+      return dbPkmn.abilities?.[3]   ?? 'PlaceholderPower'
+    })()
+    badge.personality.isOwner = true
+    badge.personality.gmax = false
+    badge.personality.affectionate = false
     return badge
   }
 

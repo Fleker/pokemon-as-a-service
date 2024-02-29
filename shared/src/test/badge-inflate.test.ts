@@ -3,8 +3,8 @@ import {User, getAllPokemon, arrayToMap, TPokemon} from '../badge-inflate'
 
 test('Test inflation', t => {
   const pokemon = {
-    '33#Yf_4': 3,
-    '7v#Yw24': 1,
+    '33#3MfUhy': 3,
+    '7v#3O08hW': 1,
     '6#4f_4': 0,
   }
   const currentBadges = ['potw-001', 'potw-025', 'potw-010-shiny']
@@ -38,8 +38,8 @@ test('Stress test inflation', t => {
 
 test('Test deflation', t => {
   const pokemon = {
-    '33#Yf_4': 3,
-    '7v#Yw24': 1,
+    '33#fUhy': 3,
+    '7v#fUhW': 1,
     '6#4f_4': 0,
   }
   const currentBadges = ['potw-001', 'potw-025', 'potw-010-shiny', 'potw-025']
@@ -47,11 +47,11 @@ test('Test deflation', t => {
   const allBadges = getAllPokemon(user)
   const allMap = arrayToMap(allBadges)
   const expected = {
-    '33#Yf_4': 3,
-    '7v#Yw24': 1,
-    '1#Yf_4': 1,
-    'p#Yf_4': 2,
-    'a#YL_4': 1,
+    '33#fUhy': 3,
+    '7v#fUhW': 1,
+    '1#3MfUhG': 1,
+    'p#3MfUhW': 2,
+    'a#3OfUg2': 1,
   } as TPokemon
   t.deepEqual(allMap, expected)
 })

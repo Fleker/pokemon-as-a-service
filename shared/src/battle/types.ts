@@ -306,6 +306,7 @@ export interface Status {
  */
 export interface Ability {
   name: string
+  flavor: string
   turn: number
   onBattleStart?: (caster: Pokemon, target: Pokemon) => Log
   onCasterMove?:  (input: MoveInput) => Log

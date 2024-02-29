@@ -3,15 +3,19 @@ import { Tier } from "../battle-tiers"
 import { CanBeShiny } from "../shiny"
 import { MoveId } from "../gen/type-move-meta"
 import {datastoreBuilder} from '../pokemon'
+import {AbilityId} from '../battle/ability'
+
 export const types = asLiterals([
   'Bug', 'Normal', 'Fighting', 'Flying', 'Fire', 'Poison', 'Fairy', 'Ghost',
     'Psychic', 'Dark', 'Dragon', 'Steel', 'Water', 'Grass', 'Ice', 'Electric',
     'Ground', 'Rock', 'Status'
 ])
+
 export type Type = keyof {[K in (typeof types)[number]]: string}
 export type EggGroup = 'Monster' | 'Water 1' | 'Bug' | 'Flying' | 'Field' | 'Fairy' | 'Grass'
     | 'Human-Like' | 'Water 3' | 'Mineral' | 'Amorphous' | 'Water 2' | 'Ditto' | 'Dragon'
     | 'Undiscovered'
+
 export type PokemonGender = 'male' | 'female' | ''
 interface Mega {
   attack: number
@@ -31,7 +35,6 @@ interface Gigantamax {
 export interface PokemonDocBuilder {
   species: string
   pokedex: string
-  abilityName?: string
   type1: Type
   type2?: Type
   hp: number
@@ -45,6 +48,7 @@ export interface PokemonDocBuilder {
   moveAll?: MoveId[]
   // For variations
   novelMoves?: MoveId[][]
+  abilities?: [AbilityId, AbilityId, AbilityId, AbilityId]
   // Day Care
   eggBase?: string | string[]
   eggGroup?: EggGroup[]

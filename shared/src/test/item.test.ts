@@ -123,7 +123,7 @@ test('Location evolutions', t => {
     pokemon, hours, items, gyroZ,
   }), {
     consumedItem: true,
-    output: new Badge(Pokemon(P.Leafeon)).toString(),
+    output: new Badge(Pokemon(P.Leafeon, {teraType: 'Normal'})).toString(),
     changeType: 'EVO',
   })
 
@@ -134,7 +134,7 @@ test('Location evolutions', t => {
     pokemon, hours, items, gyroZ,
   }), {
     consumedItem: true,
-    output: new Badge(Pokemon(P.Glaceon)).toString(),
+    output: new Badge(Pokemon(P.Glaceon, {teraType: 'Normal'})).toString(),
     changeType: 'EVO',
   })
 
@@ -174,7 +174,7 @@ test('Location evolutions', t => {
     pokemon, hours, items, gyroZ,
   }), {
     consumedItem: true,
-    output: new Badge(Pokemon(P.Glaceon, {shiny: true, variant: 1})).toString(),
+    output: new Badge(Pokemon(P.Glaceon, {shiny: true, variant: 1, teraType: 'Normal'})).toString(),
     changeType: 'EVO',
   })
 })
@@ -201,7 +201,7 @@ test('Basic evolutions', t => {
     location, pokemon, hours, items, gyroZ,
   }), {
     consumedItem: true,
-    output: new Badge(Pokemon(P.Flareon)).toString(),
+    output: new Badge(Pokemon(P.Flareon, {teraType: 'Normal'})).toString(),
     changeType: 'EVO',
   })
 
