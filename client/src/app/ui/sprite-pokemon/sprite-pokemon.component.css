@@ -121,6 +121,46 @@ img.terasteel {
   --teracolor: var(--type-steel);
 }
 
+img.terafire {
+  --teracolor: var(--type-fire);
+}
+
+img.terawater {
+  --teracolor: var(--type-water);
+}
+
+img.teragrass {
+  --teracolor: var(--type-grass);
+}
+
+img.teraelectric {
+  --teracolor: var(--type-electric);
+}
+
+img.terapsychic {
+  --teracolor: var(--type-psychic);
+}
+
+img.teraice {
+  --teracolor: var(--type-ice);
+}
+
+img.teradragon {
+  --teracolor: var(--type-dragon);
+}
+
+img.terafairy {
+  --teracolor: var(--type-fairy);
+}
+
+img.teradark {
+  --teracolor: var(--type-dark);
+}
+
+img.terastellar {
+  --teracolor: var(--type-stellar);
+}
+
 img.terastallized {
   animation: shine2 1s linear infinite;
 }

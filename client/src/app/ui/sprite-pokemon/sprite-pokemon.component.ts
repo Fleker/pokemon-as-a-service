@@ -114,6 +114,16 @@ const teraSprites: Partial<Record<ItemId, string>> = {
   terabug: './images/sprites/icons/terabug.png',
   teraghost: './images/sprites/icons/teraghost.png',
   terasteel: './images/sprites/icons/terasteel.png',
+  terafire: './images/sprites/icons/terafire.png',
+  terawater: './images/sprites/icons/terawater.png',
+  teragrass: './images/sprites/icons/teragrass.png',
+  teraelectric: './images/sprites/icons/teraelectric.png',
+  terapsychic: './images/sprites/icons/terapsychic.png',
+  teraice: './images/sprites/icons/teraice.png',
+  teradragon: './images/sprites/icons/teradragon.png',
+  terafairy: './images/sprites/icons/terafairy.png',
+  teradark: './images/sprites/icons/teradark.png',
+  terastellar: './images/sprites/icons/terastellar.png',
 }
 const teraSpriteKeys = Object.keys(teraSprites)
 
