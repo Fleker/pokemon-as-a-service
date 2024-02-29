@@ -167,6 +167,19 @@
     <mat-slide-toggle [(ngModel)]="settings.flagSchedulerYield" (click)="updateSetting('flagSchedulerYield')">
       Use scheduler.yield for long-running tasks
     </mat-slide-toggle>
+    <br>
+    This feature requires the flag
+    <a href="chrome://flags/#enable-experimental-web-platform-features">
+      #enable-experimental-web-platform-features
+    </a>
+    to be enabled. 
+
+    <br><br>
+    Enable the browser flag
+    <a href="chrome://flags/#enable-desktop-pwas-tab-strip">
+      #enable-desktop-pwas-tab-strip
+    </a>
+    for an improved PWA experience.
   </p>
   <button mat-button (click)="registerProtocolHandlers()">
     <mat-icon>code</mat-icon>

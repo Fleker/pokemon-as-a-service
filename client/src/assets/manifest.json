@@ -12,7 +12,18 @@
     }
   ],
   "display": "standalone",
-  "display_override": ["window-controls-overlay"],
+  "display_override": ["window-controls-overlay", "tabbed"],
+  "tab_strip": {
+    "home_tab": {
+      "url": "./pokemon/collection",
+      "icons": [{
+        "src": "./images/sprites/icons/menu-pokeball.svg",
+        "sizes": "any",
+        "type": "image/svg+xml"
+      }]
+    },
+    "new_tab_button": "auto"
+  },
   "theme_color": "#3f51b5",
   "background_color": "#3f51b5",
   "protocol_handlers": [{
