@@ -1283,7 +1283,7 @@ export function buildMatchup(players: Badge[], heldItems: ItemId[],
       pkmn[nerf] /= 1.1
     }
     const size = badge.size
-    pkmn.weight *= {xxs: 0.8, xxl: 1.2, n: 1}[size ?? 'n']
+    pkmn.weight *= Pkmn.weightModifier[size ?? 'n']
     if (index < rules.fieldSize) {
       pkmn.conditions = [{...ConditionMap.OnField}]
     }
@@ -1330,7 +1330,7 @@ export function buildMatchup(players: Badge[], heldItems: ItemId[],
       pkmn[nerf] /= 1.1
     }
     const size = badge.size
-    pkmn.weight *= {xxs: 0.8, xxl: 1.2, n: 1}[size ?? 'n']
+    pkmn.weight *= Pkmn.weightModifier[size ?? 'n']
     if (index < rules.fieldSize) {
       pkmn.conditions = [{...ConditionMap.OnField}]
     }

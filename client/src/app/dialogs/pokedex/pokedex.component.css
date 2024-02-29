@@ -39,28 +39,21 @@ img.main-sprite.uncaught {
 }
 
 .novelSize {
-  width: 5em;
-  display: block;
-  margin-left: 8px;
-  border-left: solid 1px #999;
-  padding-left: 8px;
-  padding-right: 4px;
-  opacity: 90%;
-  background-color: rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
 }
 
 .weight {
-  width: 5em;
+  width: 340px;
   display: inline-block;
   margin-left: 8px;
   border-left: solid 1px #999;
   padding-left: 8px;
   padding-right: 4px;
+  padding-bottom: 4px;
   opacity: 90%;
   background-color: rgba(0, 0, 0, 0.15);
   cursor: help;
-  border-bottom: dotted 1px #999;
+  border-bottom: dotted 1px var(--app-text-color);
 }
 
 span.nature {

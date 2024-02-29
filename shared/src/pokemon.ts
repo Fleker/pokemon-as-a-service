@@ -51,6 +51,16 @@ export function assertPkmnDocs<K extends string>(obj: {[key in K]: PokemonDocBui
   return obj as {[key in K]: PokemonDoc};
 }
 
+export const weightModifier: Record<string, number> = {
+  'xxs': 0.8,
+  'xs': 0.925,
+  's': 0.95,
+  'n': 1,
+  'l': 1.05,
+  'xl': 1.075,
+  'xxl': 1.2,
+}
+
 export const kanto = assertPkmnDocs(kantoBuilder);
 export const johto = assertPkmnDocs(johtoBuilder);
 export const hoenn = assertPkmnDocs(hoennBuilder);

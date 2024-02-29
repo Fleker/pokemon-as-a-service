@@ -435,13 +435,14 @@ export class Badge {
     // No Mountain View Pokemon can be xx[s|l] as its default
     if (number4 === 0 || number4 === 132) return undefined
     const sizeModifier = (idMod + (number1 & 31) + (number2 & 12) + (number2 & 2) + number4) % 64
-    if (sizeModifier === 62) {
-      return 'xxs'
-    }
-    if (sizeModifier === 63) {
-      return 'xxl'
-    }
-    return undefined
+    const sizeArray = Array(57).fill(undefined)
+    sizeArray.push('s') // 58
+    sizeArray.push('l') // 59
+    sizeArray.push('xs') // 60
+    sizeArray.push('xl') // 61
+    sizeArray.push('xxs') // 62
+    sizeArray.push('xxl') // 63
+    return sizeArray[sizeModifier]
   }
 
   /** Identifies whether a badge is abnormal and is automatically corrected in constructor. */

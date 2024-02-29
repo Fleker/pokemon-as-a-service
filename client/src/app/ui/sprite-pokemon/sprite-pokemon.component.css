@@ -55,6 +55,26 @@ img.loaded {
   height: 36px;
 }
 
+:host(.xs) img, img.xs {
+  width: 39x;
+  height: 39px;
+}
+
+:host(.s) img, img.s {
+  width: 39px;
+  height: 39px;
+}
+
+:host(.l) img, img.l {
+  width: 41px;
+  height: 41px;
+}
+
+:host(.xl) img, img.xl {
+  width: 41px;
+  height: 41px;
+}
+
 :host(.xxl) img, img.xxl {
   width: 44px;
   height: 44px;

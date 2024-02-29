@@ -63,7 +63,7 @@ export class PokedexDialog implements OnInit, OnDestroy {
   pokemonOneMinus?: PokemonId
   pokemonOnePlus?: PokemonId
   caughtForms?: PokemonId[]
-  novelSize?: 'xxs' | 'xxl'
+  novelSize?: 'xxs' | 'xs' | 's' | 'l' | 'xl' | 'xxl'
   unlocked = {
     moves: false,
     areas: false,
@@ -150,7 +150,7 @@ export class PokedexDialog implements OnInit, OnDestroy {
     console.debug('lookupId', lookupId)
     this.pokemon = Pkmn.get(lookupId)!
     const size = this.badge.size
-    this.weight = Math.round(this.pokemon.weight * 10 * {xxs: 0.8, xxl: 1.2, n: 1}[size ?? 'n']) / 10
+    this.weight = Math.round(this.pokemon.weight * 10 * Pkmn.weightModifier[size ?? 'n']) / 10
     this.key = (this.pokemon as any)['key'] as BadgeId
     console.debug('pkmn key', this.key)
     if (Array.isArray(this.pokemon.eggBase)) {

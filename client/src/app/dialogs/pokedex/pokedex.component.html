@@ -39,12 +39,13 @@
         </mat-chip>
       </div>
       <br>
-      <!-- Maybe this should be a bit fancier -->
-      <div *ngIf="novelSize" class="novelSize">{{novelSize}}</div>
 
       <!-- Should weight also be affected by size? That has battle implications. -->
       <span class="weight" title="{{weight * 2.20462 | number:'1.1-1'}} lbs">
         {{weight}} kg
+        <span *ngIf="novelSize" class="novelSize">
+          ({{novelSize}})
+        </span>
       </span>
       <br>
       <span class="dex-entry">
