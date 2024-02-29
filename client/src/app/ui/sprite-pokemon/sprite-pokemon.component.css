@@ -109,6 +109,18 @@ img.terarock {
   --teracolor: var(--type-rock);
 }
 
+img.terabug {
+  --teracolor: var(--type-bug);
+}
+
+img.teraghost {
+  --teracolor: var(--type-ghost);
+}
+
+img.terasteel {
+  --teracolor: var(--type-steel);
+}
+
 img.terastallized {
   animation: shine2 1s linear infinite;
 }
