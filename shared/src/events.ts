@@ -161,14 +161,14 @@ export const Events = {
   }),
   'LUNAR_NY': assert<Event>({
     title: 'Lunar New Year',
-    description: 'Another year over, the new one just the same (except with Rabbits)',
-    frequentSpecies: [P.Bunnelby],
+    description: 'Another year over, the new one just the same (except with Dragons)',
+    frequentSpecies: [P.Bagon],
     encounterHoldItems: ['stardust'],
-    shinyRate: 1.25, // Moderate increase
+    shinyRate: 1.1, // Moderate increase
     isActive: (user) => {
       const date = getLocalTime(user)
-      // Officially on the 22nd but celebrations start on Friday.
-      return date.month() === 0 && date.date() <= 22 && date.date() >= 20
+      // Officially on the 10th but celebrations start on Friday.
+      return date.month() === 1 && date.date() <= 10 && date.date() >= 9
     }
   }),
   'MEWTWO_BIRTHDAY': assert<Event>({
@@ -216,7 +216,7 @@ export const Events = {
     frequentSpecies: [P.Petilil],
     encounterHoldItems: ['powerherb'],
     other: [],
-    shinyRate: 1.5,
+    shinyRate: 1.3,
     isActive: (user) => {
       const date = getLocalTime(user)
       return date.month() === 2 && date.date() === 17
