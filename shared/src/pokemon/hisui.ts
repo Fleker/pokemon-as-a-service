@@ -21,6 +21,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Crunch', 'Howl'],
+      ['Return', 'Stealth Rock'],
     ],
   }),
   'potw-059-hisuian': ensurePkmnBuilder({
@@ -44,6 +45,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Reversal', 'Howl'],
+      ['Extreme Speed', 'Stealth Rock'],
     ],
   }),
   'potw-100-hisuian': ensurePkmnBuilder({
@@ -208,6 +210,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Drain Punch', 'Aerial Ace', 'Victory Dance'],
+      ['Axe Kick', 'Poison Jab', 'Sleep Powder'],
     ],
   }),
   'potw-550-white_stripe': ensurePkmnBuilder({

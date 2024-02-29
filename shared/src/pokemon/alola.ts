@@ -1005,7 +1005,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
-      ['Air Cutter', 'U-turn', 'Quiver Dance']
+      ['Air Cutter', 'U-turn', 'Quiver Dance'],
+      ['Icy Wind', 'Roost'],
     ]
   }),
   'potw-741-baile': ensurePkmnBuilder({
@@ -1025,7 +1026,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
-      ['Air Cutter', 'U-turn', 'Quiver Dance']
+      ['Air Cutter', 'U-turn', 'Quiver Dance'],
+      ['Icy Wind', 'Roost'],
     ]
   }),
   'potw-741-pom_pom': ensurePkmnBuilder({
@@ -1045,7 +1047,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
-      ['Air Cutter', 'U-turn', 'Quiver Dance']
+      ['Air Cutter', 'U-turn', 'Quiver Dance'],
+      ['Icy Wind', 'Roost'],
     ]
   }),
   'potw-741-pau': ensurePkmnBuilder({
@@ -1065,7 +1068,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
-      ['Air Cutter', 'U-turn', 'Quiver Dance']
+      ['Air Cutter', 'U-turn', 'Quiver Dance'],
+      ['Icy Wind', 'Roost'],
     ]
   }),
   'potw-741-sensu': ensurePkmnBuilder({
@@ -1085,7 +1089,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Hidden Power_Rock', 'Tailwind'],
       ['Hurricane', 'Reversal', 'Teeter Dance'],
-      ['Air Cutter', 'U-turn', 'Quiver Dance']
+      ['Air Cutter', 'U-turn', 'Quiver Dance'],
+      ['Icy Wind', 'Roost'],
     ]
   }),
   'potw-742': ensurePkmnBuilder({

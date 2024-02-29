@@ -204,6 +204,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Sucker Punch', 'Psychic Terrain'],
       ['Grass Knot', 'Teeter Dance'],
+      ['Zen Headbutt', 'Thunderbolt', 'Magic Room'],
     ],
   }),
   'potw-144-galarian': ensurePkmnBuilder({
@@ -1784,6 +1785,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Shadow Ball', 'Psychic Terrain'],
       ['Grass Knot', 'Teeter Dance'],
+      ['Zen Headbutt', 'Thunderbolt', 'Magic Room'],
     ],
   }),
   'potw-867': ensurePkmnBuilder({
@@ -2288,6 +2290,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Quick Attack', 'Helping Hand'],
+      ['Sucker Punch', 'Curse'],
     ],
   }),
   'potw-886': ensurePkmnBuilder({
@@ -2310,6 +2313,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Double-Edge', 'Helping Hand'],
+      ['Sucker Punch', 'Curse'],
     ],
   }),
   'potw-887': ensurePkmnBuilder({
@@ -2332,6 +2336,7 @@ export const galarBuilder = {
     ],
     novelMoves: [[],
       ['Draco Meteor', 'Sucker Punch', 'Helping Hand'],
+      ['Psychic Fangs', 'Curse'],
     ],
   }),
   'potw-888': ensurePkmnBuilder({
