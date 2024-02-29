@@ -8,13 +8,23 @@ import { Users } from '../../../../../shared/src/server-types';
 type Timeable = 'battle' | 'daycare' | 'research' | 'release' | 'raid' | 'gamecorner' | 'wonder'
 
 const icons: Record<Timeable, string> = {
-  battle: '/images/sprites/icons/menu-battle.svg',
-  daycare: '/images/sprites/icons/menu-daycare.svg',
-  research: '/images/sprites/icons/menu-research.svg',
-  release: '/images/sprites/icons/menu-release.svg',
-  raid: '/images/sprites/icons/menu-raid.svg',
-  gamecorner: '/images/sprites/icons/menu-games.svg',
-  wonder: '/images/sprites/icons/menu-wonder.svg',
+  battle: '/images/sprites/icons/notification-battle.svg',
+  daycare: '/images/sprites/icons/notification-daycare.svg',
+  research: '/images/sprites/icons/notification-research.svg',
+  release: '/images/sprites/icons/notification-release.svg',
+  raid: '/images/sprites/icons/notification-raid.svg',
+  gamecorner: '/images/sprites/icons/notification-games.svg',
+  wonder: '/images/sprites/icons/notification-wonder.svg',
+}
+
+const labels: Record<Timeable, string> = {
+  battle: 'Battle Stadium',
+  daycare: 'Day Care',
+  research: 'Research Claim',
+  release: 'Release Function',
+  raid: 'Raid Creation',
+  gamecorner: 'Game Corner',
+  wonder: 'Wonder Trade',
 }
 
 @Component({
@@ -89,7 +99,7 @@ export class ButtonTimersComponent implements OnInit, AfterViewInit {
     const until = num - this.toMinutes(now - field || 0)
     if (until <= 0) {
       if (this.notify && !this.notifications[key]) {
-        new Notification(`You can now use the ${key}.`, {
+        new Notification(`You can now use the ${labels[key]}.`, {
           timestamp: Date.now(),
           icon: icons[key],
           tag: 'timer',
