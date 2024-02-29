@@ -82,6 +82,10 @@ export class PageTrainerComponent implements OnInit, OnDestroy {
     return Math.ceil(this.docSize / 1024 * 100)
   }
 
+  get ldap() {
+    return this.user?.ldap
+  }
+
   ngOnInit(): void {
     this.firebaseListener = this.firebase.subscribeUser(user => {
       if (user) {
@@ -198,6 +202,21 @@ export class PageTrainerComponent implements OnInit, OnDestroy {
       this.snackbar.open(e.message, '', {duration: 5000})
     } finally {
       this.exec.requestHistory = false
+    }
+  }
+
+  async updateLdap() {
+    try {
+      const newLdap = window.prompt('Select a new username')
+      if (!newLdap || !newLdap.length) return;
+      const letsBeSure = window.confirm(`Are you sure you want to change your username to ${newLdap}?`)
+      if (!letsBeSure) return;
+      const letsBeNice = window.confirm('Confirm you are doing the right thing and not trying to impersonate someone else or use an impolite name. Doing so will result in penalities up to a ban.')
+      if (!letsBeNice) return;
+      await this.firebase.exec<F.UserSyncLdap.Req, F.UserSyncLdap.Res>('user_sync_ldap', {newLdap})
+      this.snackbar.open(`Welcome to the world of Pokémon, ${newLdap}!`, '', {duration: 3000})
+    } catch (e) {
+      this.snackbar.open(e.message, '', {duration: 5000})
     }
   }
 

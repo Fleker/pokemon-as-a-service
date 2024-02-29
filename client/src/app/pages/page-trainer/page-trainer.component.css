@@ -46,3 +46,7 @@ mat-select {
 dialog {
   max-width: 40em;
 }
+
+.ldap {
+  border-bottom: dashed 1px;
+}

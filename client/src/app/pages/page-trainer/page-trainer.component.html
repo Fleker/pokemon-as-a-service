@@ -7,8 +7,17 @@
 </mat-card>
 
 <mat-card>
-  <h1>Me</h1>
-
+  <h1>
+    Me
+  </h1>
+  <p>
+    You are
+    <span class='ldap'>{{ldap}}
+      <button mat-icon-button (click)="updateLdap()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </span>
+  </p>
   <p>
     This is your Trainer Card. Here is where you can view and change settings.
   </p>

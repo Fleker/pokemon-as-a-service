@@ -733,22 +733,23 @@ export const user_history = functions.https.onCall(async (data: F.UserHistory.Re
  * datastore places where the LDAP is a set field, such as raids. However,
  * those are transient places.
  */
-export const user_sync_ldap = functions.https.onCall(async (data: Record<string, never>, context): Promise<void> => {
+export const user_sync_ldap = functions.https.onCall(async (data: F.UserSyncLdap.Req, context): Promise<F.UserSyncLdap.Res> => {
   const {uid} = context.auth!
-  const userAccount = await auth.getUser(uid)
+  const {newLdap} = data
   const userRef = db.collection('users').doc(uid)
   const userDoc = await userRef.get<Users.Doc>()
   const user = userDoc.data()
-  const {email} = userAccount
-  if (!email) {
+  if (!newLdap) {
     throw new functions.https.HttpsError('not-found', `Syncing user account has no email`)
   }
-  const ldap = obtainUsernameFromEmail(email)
-  if (ldap !== user.ldap) {
+  if (newLdap !== user.ldap) {
     console.log('Sync LDAP')
     await userRef.update<Users.Doc>({
-      ldap,
+      ldap: newLdap,
     })
   }
-  return undefined
+  return {
+    newLdap,
+    uid,
+  }
 })

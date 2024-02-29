@@ -1027,6 +1027,17 @@ export namespace F {
     }
   }
 
+  export namespace UserSyncLdap {
+    export interface Req {
+      newLdap: string
+    }
+
+    export interface Res {
+      newLdap: string
+      uid: string
+    }
+  }
+
   export namespace UseTmTr {
     export interface Req {
       species: BadgeId | PokemonId
