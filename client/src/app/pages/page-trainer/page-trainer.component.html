@@ -172,7 +172,18 @@
     <a href="chrome://flags/#enable-experimental-web-platform-features">
       #enable-experimental-web-platform-features
     </a>
-    to be enabled. 
+    to be enabled.
+
+    <br><br>
+    <mat-slide-toggle [(ngModel)]="settings.flagSelectList" (click)="updateSetting('flagSelectList')">
+      Use selectlist dropdowns
+    </mat-slide-toggle>
+    <br>
+    This feature requires the flag
+    <a href="chrome://flags/#enable-experimental-web-platform-features">
+      #enable-experimental-web-platform-features
+    </a>
+    to be enabled.
 
     <br><br>
     Enable the browser flag
