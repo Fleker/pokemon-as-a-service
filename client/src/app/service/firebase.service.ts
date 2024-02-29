@@ -23,6 +23,10 @@ interface Querying {
   max?: number
 }
 
+export interface FirebaseListener {
+  unsubscribe: () => void
+}
+
 const vapidKey = 'BPijse_h4bJXlMuwHQIKE1wmJSR_71HlKUI_-Ii2CK3Hban8_HuJnYHW9QL9-jcBcoDXiVMxGvpjri3I9MU52GY'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -133,7 +137,7 @@ export class FirebaseService {
    * Creates a subscription to the user doc and immediately executes a callback
    * to retrieve the data. Returns the unsubscriber as a function.
    */
-  subscribeUser(callback: (u: Users.Doc) => void) {
+  subscribeUser(callback: (u: Users.Doc) => void): FirebaseListener {
     const listener = this.userSubject.subscribe(callback)
     callback(this.userData)
     return listener
