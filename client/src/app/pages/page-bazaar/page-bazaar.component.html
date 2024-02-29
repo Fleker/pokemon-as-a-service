@@ -8,7 +8,7 @@
   <p>The open bazaar features traveling merchants from all over.</p>
 </mat-card>
 
-<collapsible-card *ngFor="let m of merchants" [collapsed]="sessionCollapsed[m.key] ?? true" (change)="updateCollapse(m.key, $event)">
+<collapsible-card *ngFor="let m of merchants" [collapsed]="sessionCollapsed[m.key] ?? true">
   <span title>
     <mat-icon *ngIf="m.icon">{{m.icon}}</mat-icon>
     <sprite-item *ngIf="!m.icon" item="{{m.items[0]}}"></sprite-item>
