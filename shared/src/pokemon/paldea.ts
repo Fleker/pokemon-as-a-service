@@ -35,7 +35,7 @@ export const paldeaBuilder = {
     tiers: ['Tiny Cup', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 11,
     eggBase: 'potw-194-paldean', eggGroup: ['Water 1', 'Field'], eggCycles: 20,
-    levelAt: 20, levelTo: 'potw-980', // FIXME
+    levelAt: 20, levelTo: 'potw-980',
     pokedex: `After losing a territorial struggle, Wooper began living on land. The Pokémon changed over time, developing a poisonous film to protect its body.`,
     hp: 55, attack: 45, defense: 45, spAttack: 25, spDefense: 25, speed: 15,
     move: ['Poison Tail', 'Mud Shot'],
@@ -71,7 +71,7 @@ export const paldeaBuilder = {
     tiers: ['Tiny Cup', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 4.1,
     eggBase: 'potw-906', eggGroup: ['Field'], eggCycles: 10,
-    levelAt: 16, levelTo: 'potw-906', // FIXME
+    levelAt: 16, levelTo: 'potw-907',
     pokedex: `Its fluffy fur is similar in composition to plants. This Pokémon frequently washes its face to keep it from drying out.`,
     hp: 40, attack: 61, defense: 54, spAttack: 45, spDefense: 45, speed: 65,
     move: ['Leafage'],
@@ -2137,6 +2137,7 @@ paldeaBuilder['potw-901-blood_moon'].moveTMs = hisuiBuilder['potw-901'].moveTMs
 paldeaBuilder['potw-916-female'].moveTMs = paldeaBuilder['potw-916'].moveTMs
 paldeaBuilder['potw-964-hero'].moveTMs = paldeaBuilder['potw-964'].moveTMs
 paldeaBuilder['potw-999-chest'].moveTMs = paldeaBuilder['potw-999'].moveTMs
+paldeaBuilder['potw-999-roaming'].moveTMs = paldeaBuilder['potw-999'].moveTMs
 paldeaBuilder['potw-1024-terastal'].moveTMs = paldeaBuilder['potw-1024'].moveTMs
 paldeaBuilder['potw-1024-stellar'].moveTMs = paldeaBuilder['potw-1024'].moveTMs
 // Alternate forms are mostly clones of the original

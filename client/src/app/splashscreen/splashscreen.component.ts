@@ -46,6 +46,7 @@ const tips = [
   'Rockruff will evolve at any time of the day. However, this time does determine its final form.',
   'When Silvally heads into battle with memories, its type changes! This affects its signature move.',
   'Crabrawler gains more power from the snow. Only one snowy location a day will have this effect.',
+  'When Pawniwards or Bisharps are defeated in a raid, they may drop a particular item.',
 ]
 @Component({
   selector: 'app-splashscreen',
@@ -56,7 +57,7 @@ export class SplashscreenComponent implements OnInit, AfterViewInit {
   @HostBinding('style.opacity') opacitySplash = '1'
   @HostBinding('style.display') showSplash = 'block'
   @ViewChild('droppings') droppings: ElementRef<HTMLImageElement>
-  appVersion: string = 'v2.8.28'
+  appVersion: string = 'v2.8.29'
   needLogin: boolean = false
   selectedTip: string = '...'
   isLoaded = false

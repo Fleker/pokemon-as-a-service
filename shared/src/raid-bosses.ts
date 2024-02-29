@@ -129,7 +129,7 @@ export const regionBoss: {[key in RegionType]: {[rating: number]: RaidBoss[]}} =
       species: Potw(P.Bouffalant, {var: 2})
     }],
     3: [{
-      species: Potw(P.Avalugg, {var: 2, 'hisuian'})
+      species: Potw(P.Avalugg, {var: 2, form: 'hisuian'})
     }, {
       species: Potw(P.Bouffalant, {var: 2})
     }]

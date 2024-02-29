@@ -333,7 +333,6 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
       'map-moss': 'images/sprites/icons/map-moss.svg',
     }
     for (const [name, url] of Object.entries(icons)) {
-      console.debug('    > icon register', name)
       this.iconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(url))
     }
     console.debug('Icon Registry is configured')
