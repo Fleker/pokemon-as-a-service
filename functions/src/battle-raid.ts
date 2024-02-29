@@ -579,13 +579,17 @@ export const raid_select = functions.https.onCall(async (data, context) => {
               const hostRef = db.collection('users').doc(raid.host)
               const hostDoc = await hostRef.get<Users.Doc>()
               const host = hostDoc.data()
-              sendNotification(host, {
-                title: `Your ${raid.rating}-Star Raid is ready to start`,
-                category: 'PLAYER_EVENT',
-                body: 'Every player in the raid has been marked as ready',
-                link: `/raids?${raidId}`,
-                icon: pkmn(raid.boss),
-              })
+              try {
+                sendNotification(host, {
+                  title: `Your ${raid.rating}-Star Raid is ready to start`,
+                  category: 'PLAYER_EVENT',
+                  body: 'Every player in the raid has been marked as ready',
+                  link: `/raids?${raidId}`,
+                  icon: pkmn(raid.boss),
+                })
+              } catch (e) {
+                console.error(`Could not send ready notification to ${host.ldap}`)
+              }
               t.update<Users.Doc>(hostRef, {
                 notifications: host.notifications,
               })

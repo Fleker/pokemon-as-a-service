@@ -40,7 +40,8 @@ export function sendNotification(user: Users.Doc, details: Notification) {
     user.notifications.push(dbNotification)
   }
   
-  if (user.fcm && sendFcmNotification !== false) {
+  if (user.fcm && user.fcm.length && sendFcmNotification !== false) {
+    console.info(`User ${user.ldap} has fcm ${user.fcm} for notification ${details.title}`)
     return admin.messaging().sendToDevice(user.fcm, {
       notification: {
         title: details.title,
