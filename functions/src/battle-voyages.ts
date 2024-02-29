@@ -19,6 +19,7 @@ import { randomVariant } from '../../shared/src/farming'
 import { get } from '../../shared/src/pokemon'
 import { sendNotification } from './notifications'
 import { pkmn } from '../../shared/src/sprites'
+import * as I from '../../shared/src/gen/type-pokemon-ids'
 
 const db = salamander(admin.firestore())
 const FieldValue = admin.firestore.FieldValue
@@ -704,15 +705,21 @@ export const voyage_claim = functions.https.onCall(async (data: F.VoyageClaim.Re
         })
       })
 
-      if (user.voyagesCompleted) {
-        user.voyagesCompleted++
-      } else {
-        user.voyagesCompleted = 1
+      // Finizen evolves into Palafin in a 'Union Circle'
+      const playerSelectedPokemon = new Badge(voyage.players[userId].pokemon)
+      if (playerSelectedPokemon.id === I.Finizen) {
+        // Evolve!
+        removePokemon(user, playerSelectedPokemon)
+        playerSelectedPokemon.id = I.Palafin
+        playerSelectedPokemon.personality.form = 'zero'
+        addPokemon(user, playerSelectedPokemon)
+        // Update this in our database
+        voyage.players[userId].pokemon = playerSelectedPokemn.toString()
       }
     }
 
     t.update<Users.DbDoc>(userRef, {
-      voyagesCompleted: user.voyagesCompleted,
+      voyagesCompleted: FieldValue.increment(1),
       [`voyagesActive.${voyage.vid}`]: FieldValue.delete(),
       pokemon: user.pokemon,
       items: user.items,
@@ -720,6 +727,7 @@ export const voyage_claim = functions.https.onCall(async (data: F.VoyageClaim.Re
 
     t.update<Doc>(voyageRef, {
       claimList: voyage.claimList,
+      players: voyage.players
     })
 
     return voyageId

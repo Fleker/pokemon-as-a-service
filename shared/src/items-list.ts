@@ -597,7 +597,7 @@ const ITEMS_TREASURE = {
   gimmighoulcoin: assert<Souvenir>({
     label: 'Gimmighoul Coin', category: 'treasure',
     description: 'A strange coin dropped by a small Pokémon. What currency is this used for?',
-    buy: 0, sell: 0, isSouvenir: true, functional: false, /* FIXME */
+    buy: 0, sell: 0, isSouvenir: true, functional: true,
   }),
   mysteriousshards: Treasure({
     label: 'Mysterious Shard (Small)',

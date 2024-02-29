@@ -2230,6 +2230,19 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: () => true,
     consumes: () => true,
   },
+  'gimmighoulcoin': {
+    filter: [B2.Potw(P.Gimmighoul, {form: 'roaming'}), B2.Potw(P.Gimmighoul, {form: 'chest'})],
+    pokemon: {
+      [B2.Potw(P.Gimmighoul, {form: 'roaming'})]: {
+        badge: P.Gholdengo,
+      },
+      [B2.Potw(P.Gimmighoul, {form: 'chest'})]: {
+        badge: P.Gholdengo,
+      },
+    },
+    usable: ({quantity}) => quantity >= 999,
+    consumes: () => 999,
+  },
   expcandyxs: {
     // 4/(x * .75) <= 1/2, x ~ 12
     filter: getPokemonLevel(12),
@@ -2635,6 +2648,20 @@ export function useItem(params: ItemUsageParams): UseItemOutput {
     }
     badge.id = PI.Obstagoon
     badge.personality.form = undefined // Reset form
+    return {
+      consumedItem: true,
+      output: badge.toString(),
+      changeType: 'EVO',
+    }
+  }
+
+  const buddy = [PI.Rellor, PI.Pawmo, PI.Bramblin]
+  if (buddy.includes(badge.id)) {
+    if (!badge.defaultTags.includes('BUDDY')) {
+      throw new Error(`Item ${item} cannot be used on this acquantiance. You need to be friends.`)
+    }
+    const evol = [PI.Rabsca, PI.Pawmot, PI.Brambleghast]
+    badge.id = evol[buddy.indexOf(badge.id)]
     return {
       consumedItem: true,
       output: badge.toString(),
