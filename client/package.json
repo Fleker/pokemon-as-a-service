@@ -27,6 +27,8 @@
     "@angular/service-worker": "~16.2.12",
     "@fleker/cel-js": "^1.0.0",
     "firebase": "^9.8.2",
+    "marked": "^4.2.12",
+    "ngx-markdown": "^17.1.1",
     "rxjs": "~7.4.0",
     "spacetime": "^7.1.0",
     "tslib": "^2.3.0",
