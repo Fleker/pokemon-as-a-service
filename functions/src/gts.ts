@@ -294,7 +294,7 @@ export const gts_upload = functions.https.onCall(async (data: GtsUploadParams, c
       `Pokémon ${lookingForId} does not exist`)
   }
 
-  if (speciesId.personality.form && !pokemonForms.includes(speciesId.personality.form)) {
+  if (speciesId.personality.form && !pokemonForms.includes(speciesId.personality.form!)) {
     throw new functions.https.HttpsError('invalid-argument', `Seeking Pokémon ${lookingForId} cannot exist`)
   }
 

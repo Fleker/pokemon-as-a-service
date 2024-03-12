@@ -3912,6 +3912,7 @@ export const unovaBuilder = {
       ['Draco Meteor', 'Blizzard', 'Hyper Voice', 'Roost'],
       ['Outrage', 'Sheer Cold', 'Focus Blast', 'Helping Hand'],
       ['Iron Head', 'Dragon Dance'],
+      ['Breaking Swipe', 'Brutal Swing', 'Roost'],
     ],
   }),
   'potw-646-white': ensurePkmnBuilder({
@@ -3935,6 +3936,7 @@ export const unovaBuilder = {
       ['Draco Meteor', 'Shadow Ball', 'Roost'],
       ['Fusion Flare', 'Helping Hand'],
       ['Iron Head', 'Dragon Dance'],
+      ['Breaking Swipe', 'Brutal Swing', 'Roost'],
     ],
   }),
   'potw-646-black': ensurePkmnBuilder({
@@ -3958,6 +3960,7 @@ export const unovaBuilder = {
       ['Outrage', 'Shadow Claw', 'Roost'],
       ['Fusion Bolt', 'Helping Hand'],
       ['Iron Head', 'Dragon Dance'],
+      ['Breaking Swipe', 'Brutal Swing', 'Roost'],
     ],
   }),
   'potw-647': ensurePkmnBuilder({

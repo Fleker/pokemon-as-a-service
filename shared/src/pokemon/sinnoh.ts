@@ -3169,6 +3169,7 @@ export const sinnohBuilder = {
       ['Sludge Bomb', 'Psychic'],
       ['Night Shade', 'Focus Blast'],
       ['Throat Chop', 'Dream Eater'],
+      ['Snarl', 'Blizzard', 'Wonder Room'],
     ],
   }),
   'potw-492': ensurePkmnBuilder({

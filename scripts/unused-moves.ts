@@ -141,6 +141,7 @@ const introducedGen9: MoveId[] = [
   // 'Upper Hand',
 ]
 
+// Moves added to PotW starting with 3.9.x
 const potwIntroducedGen9: MoveId[] = []
 
 // ??
