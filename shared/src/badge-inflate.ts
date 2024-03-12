@@ -76,7 +76,7 @@ export function arrayToMap(arr: BadgeId[], map: TPokemon = {}): TPokemon {
     const b = Badge.fromLegacy(p).toString()
     const parts = b.split('#')
     const id = parts[0]
-    const metadata = parts.splice(0, 1).join('#')
+    const metadata = parts.splice(1).join('#')
     if (map[id]) {
       if (map[id][metadata]) map[id][metadata]++
       else map[id][metadata] = 1

@@ -39,6 +39,8 @@ import { Notification, PublicRaidsDoc } from '../../shared/src/server-types'
 import { typePrizes } from '../../shared/src/raid-prizes'
 import {BattleOptions, execute, ExecuteLog} from '../../shared/src/battle/battle-controller'
 import isDemo from '../../shared/src/platform/isDemo'
+import { myPokemon } from '../../shared/src/badge-inflate'
+
 const _db = admin.firestore()
 const db = salamander(_db)
 const FieldValue = admin.firestore.FieldValue
@@ -747,7 +749,9 @@ function prizesPromise(raidId: string, raid: DbRaid, prizesMap: Record<any, any>
     claimedBoss.personality.pokeball = 'premierball'
     claimedBoss.personality.location = raid.location
     if (isDemo) {
-      const countUserCaughtPkmn = Object.values(user.pokemon).reduce((p, c) => p + c)
+      const countUserCaughtPkmn = [...myPokemon(user.pokemon)]
+        .map(([, v]) => v)
+        .reduce((p, c) => p + c)
       if (countUserCaughtPkmn > 250) {
         throw new functions.https.HttpsError('out-of-range',
           'You cannot catch any more Pokemon in demo mode')
@@ -1158,7 +1162,9 @@ export const raid_claim = functions.https.onCall(async (data, context) => {
     claimedBoss.personality.pokeball = 'premierball'
     claimedBoss.personality.location = location
     if (isDemo) {
-      const countUserCaughtPkmn = Object.values(user.pokemon).reduce((p, c) => p + c)
+      const countUserCaughtPkmn = [...myPokemon(user.pokemon)]
+        .map(([, v]) => v)
+        .reduce((p, c) => p + c)
       if (countUserCaughtPkmn > 250) {
         throw new functions.https.HttpsError('out-of-range',
           'You cannot catch any more Pokemon in demo mode')

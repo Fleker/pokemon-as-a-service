@@ -518,6 +518,15 @@ export class Badge {
     return this.original !== this.toString()
   }
 
+  /** Split the badge string into two parts for database storage */
+  get fragments() {
+    return [
+      toBase64(this.id.toString(16).toUpperCase()),
+      this.toString().split('#').slice(1).join('#')
+    ]
+  }
+
+
   /**
    * Returns visual label for this badge.
    * @returns User-friendly representation of badge.

@@ -1,6 +1,6 @@
 import test from 'ava'
 import { TeamsBadge } from '../badge2';
-import { Badge, Pokemon } from '../badge3';
+import { Badge, Pokemon, fromPersonality } from '../badge3';
 import { toBase64 } from '../baseconv';
 import { Requirements, requirePotw, simpleRequirePotw, simpleRequirePotwArr, complexRequirePotw, requireType } from '../legendary-quests';
 import { Globe } from '../locations-list';
@@ -10,17 +10,33 @@ import * as I from '../gen/type-pokemon-ids'
 
 test('requirePokemon', t => {
   const pokemon = {
-    [Pokemon(I.Bulbasaur)]: 1,
-    [Pokemon(I.Castform, {form: 'rainy'})]: 1,
-    [Pokemon(I.Shellos, {form: 'east_sea'})]: 1,
-    [Pokemon(I.Wormadam, {form: 'plant', gender: 'female', shiny: true})]: 1,
-    [Pokemon(I.Wormadam, {form: 'sandy', gender: 'female', variant: 2})]: 1,
-    [Pokemon(I.Wormadam, {form: 'trash'})]: 1,
-    [Pokemon(I.Exeggutor, {form: 'alolan'})]: 1,
-    [Pokemon(I.Marowak, {})]: 1,
+    [toBase64(I.Bulbasaur)]: {
+      [fromPersonality({gender: '', pokeball: 'pokeball', shiny: false, affectionate: false, location: 'US-MTV'}, I.Bulbasaur)]: 1
+    },
+    [toBase64(I.Castform)]: {
+      [fromPersonality({form: 'rainy', pokeball: 'nestball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Castform)]: 1
+    },
+    [toBase64(I.Shellos)]: {
+      [fromPersonality({form: 'east_sea', pokeball: 'greatball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Shellos)]: 1
+    },
+    [toBase64(I.Wormadam)]: {
+      [fromPersonality({form: 'plant', pokeball: 'netball', gender: 'female', shiny: true, affectionate: false, location: 'US-MTV'}, I.Wormadam)]: 1,
+      [fromPersonality({form: 'sandy', pokeball: 'netball', gender: 'female', variant: 2, shiny: false, affectionate: false, location: 'US-MTV'}, I.Wormadam)]: 1,
+      [fromPersonality({form: 'trash', pokeball: 'pokeball', gender: 'female', shiny: false, affectionate: false, location: 'US-MTV'}, I.Wormadam)]: 1,
+    },
+    [toBase64(I.Exeggutor)]: {
+      [fromPersonality({form: 'alolan', pokeball: 'masterball', gender: '', shiny: false, affectionate: false, location: 'AE-DXB'}, I.Exeggutor)]: 1,
+    },
+    [toBase64(I.Marowak)]: {
+      [fromPersonality({pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Marowak)]: 1
+    }
   }
-  const pokemonKeys = Object.entries(pokemon).filter(([, v]) => v > 0).map(([k]) => k) as PokemonId[]
-  const pokemonBadges = Object.entries(pokemon)
+  t.log(pokemon)
+  t.log([...myPokemon(pokemon)])
+  t.log([...myPokemon(pokemon)].map(([x]) => new Badge(x).toLegacyString()))
+  t.log([...myPokemon(pokemon)].map(([x]) => new Badge(x).toLabel()))
+  const pokemonKeys = [...myPokemon(pokemon)].filter(([, v]) => v > 0).map(([k]) => k) as PokemonId[]
+  const pokemonBadges = [...myPokemon(pokemon)]
     .filter(([, v]) => v > 0)
     .map(([k, v]) => [new Badge(k), v]) as [Badge, number][]
   const teamsBadges = pokemonBadges

@@ -26,6 +26,7 @@ import { OptCapt } from './dowsing-machine.utils'
 import { getLocation } from './location'
 import { Location } from '../../shared/src/locations-list'
 import { Questions } from '../../shared/src/radio-quiz'
+import { myPokemon } from '../../shared/src/badge-inflate'
 import { salamander, SalamanderRef, SalamanderSnapshot, SalamanderTxn } from '@fleker/salamander'
 import { DowsingHiddenItem, Users } from './db-types'
 import { BadgeId } from '../../shared/src/pokemon/types';
@@ -214,7 +215,9 @@ const foundPokemon = async (userId: string, data: DowsePokemonDoc, hiddenItem: s
     const user = userDoc.data()
 
     if (isDemo) {
-      const countUserCaughtPkmn = Object.values(user.pokemon).reduce((p, c) => p + c)
+      const countUserCaughtPkmn = [...myPokemon(user.pokemon)]
+        .map(([, v]) => v)
+        .reduce((p, c) => p + c)
       if (countUserCaughtPkmn > 250) {
         throw new functions.https.HttpsError('out-of-range',
           'You cannot catch any more Pokemon in demo mode')

@@ -12,10 +12,10 @@ import { salamander } from '@fleker/salamander';
 import { regions } from '../../shared/src/pokedex';
 import { Location } from '../../shared/src/locations-list';
 import { registerShinyRegion, Requirements } from '../../shared/src/legendary-quests';
-import { getAllPokemon } from '../../shared/src/badge-inflate';
+import { getAllPokemon, myPokemon } from '../../shared/src/badge-inflate';
 import { F } from '../../shared/src/server-types';
 import { assert } from '@fleker/gents';
-import { Badge } from '../../shared/src/badge3';
+import { Badge, fromPersonality } from '../../shared/src/badge3';
 import { PokemonId } from '../../shared/src/pokemon/types';
 import { obtainUsernameFromEmail, verifyUserEmail } from './vendor/example-tasks'
 
@@ -94,9 +94,15 @@ export const create_user_auto = functions.auth.user().onCreate(async (user) => {
     eggsLaid: 0,
     pokemon: {
       // Basic forms of Bulbasaur, Charmander, Squirtle
-      '1#Yf_4': 1,
-      '4#Yf_4': 1,
-      '7#Yf_4': 1,
+      '1': {
+        [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 1)]: 1
+      },
+      '4': {
+        [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 4)]: 1
+      },
+      '7': {
+        [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 7)]: 1
+      }
     },
     pokedex: {
       kanto: 0, johto: 0, hoenn: 0, sinnoh: 0,
@@ -239,10 +245,9 @@ export function toRequirements(user: Users.Doc, location: Location): Requirement
     console.info(`lastPokeball not a timestamp: ${lastPokeball}`)
     return lastPokeball
   })()
-  const pokemonKeys = Object.entries(user.pokemon).filter(([, v]) => v > 0).map(([k]) => k) as PokemonId[]
-  const pokemonBadges = Object.entries(user.pokemon)
-    .filter(([, v]) => v > 0)
-    .map(([k, v]) => [new Badge(k), v]) as [Badge, number][]
+  const pokemonKeys = [...myPokemon(user.pokemon)]
+    .filter(([, v]) => v > 0).map(([k]) => k) as PokemonId[]
+  const pokemonBadges = [...myPokemon(user.pokemon)]
   const teamsBadges = pokemonBadges
     .map(([k, v]) => [new TeamsBadge(k.toLegacyString()), v]) as [TeamsBadge, number][]
   const badgeKeys = teamsBadges.map(([k]) => k.toString())

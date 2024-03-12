@@ -6,7 +6,7 @@ import * as Sw from './platform/swarms'
 import { ItemId } from './items-list'
 import { TeamsBadge } from "./badge2";
 import { get } from "./pokemon";
-import { TPokemon } from "./badge-inflate";
+import { TPokemon, myPokemon } from "./badge-inflate";
 import { Badge, Personality } from "./badge3";
 import { Users } from "./server-types";
 import { FriendSafariMap } from "./friend-safari";
@@ -204,8 +204,11 @@ export interface LegendaryQuest {
 }
 const ONE_WEEK_ERR = `You sense a powerful force blocking your progress. Try again later.`
 export function haveCaught(count: number) {
-  return (req: Requirements) => Object.values(req.pokemon)
-  .reduce((prev, curr) => prev + curr) >= count
+  return (req: Requirements) => {
+    const pkmn: [PokemonId, number][] = [...myPokemon(req.pokemon)]
+    const caught: number[]  = pkmn.map(([p, n]) => n)
+    return caught.reduce((prev, curr) => prev + curr) >= count
+  }
 }
 /**
  * Verifies if you have a certain Pokemon in your collection using nat dex number only.
@@ -240,7 +243,7 @@ export function simpleRequirePotwArr(badge: BadgeId[]) {
 export function complexRequirePotw(badge: BadgeId, personality: Partial<Personality>) {
   const pid = new TeamsBadge(badge).id
   return (req: Requirements) => {
-    return Badge.quickMatch(pid, personality, Object.keys(req.pokemon) as PokemonId[])
+    return Badge.quickMatch(pid, personality, [...myPokemon(req.pokemon)].map(([k]) => k) as PokemonId[])
   }
 }
 type BidQuestFilter = (badge: BadgeId) => boolean | undefined;
@@ -316,7 +319,7 @@ export function requireMove(move: MoveId, total = 1) {
 }
 export function countType(type: Type) {
   return (req: Requirements) => {
-    const typeArr = Object.entries(req.pokemon)
+    const typeArr = [...myPokemon(req.pokemon)]
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .filter(([key, _]) => {
       const dbkey = new Badge(key).toLegacyString()
@@ -334,7 +337,7 @@ export function countType(type: Type) {
 export function requireType(type: Type, total: number) {
   return (req: Requirements) => {
     let count = 0
-    for (const [key, c] of Object.entries(req.pokemon)) {
+    for (const [key, c] of myPokemon(req.pokemon)) {
       const dbkey = new Badge(key).toLegacyString()
       const db = get(dbkey)
       if (!db) continue;
@@ -610,7 +613,7 @@ export const SootSack: LegendaryQuest = {
     msg: 'Professor Birch has a quest for you.'
   }, {
     completed: ({pokemon}) => {
-      const map = Object.entries(pokemon)
+      const map = [...myPokemon(pokemon)]
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([key, _]) => new Badge(key).id === I.Spinda)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars

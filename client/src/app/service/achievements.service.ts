@@ -10,6 +10,7 @@ import { Users } from '../../../../shared/src/server-types';
 import getQuestArgs from '../to-requirements';
 import { FirebaseService } from './firebase.service';
 import { LocationService } from './location.service';
+import { TPokemon, myPokemon } from '../../../../shared/src/badge-inflate';
 
 export type AchievementEvent = {
   item?: ItemId
@@ -29,7 +30,7 @@ export class AchievementsService {
   user: Users.Doc
   currentStats: Record<string, number> = {}
   currentItems?: Partial<Record<string, number>>
-  currentPokemon?: Partial<Record<string, number>>
+  currentPokemon?: TPokemon
   toast?: ElementRef<HTMLDivElement>
   events: AchievementEvent[]
   requirements?: Requirements;
@@ -303,15 +304,17 @@ export class AchievementsService {
     }
     this.currentItems = user.items
 
-    for (const [key, value] of Object.entries(user.pokemon)) {
+    for (const [key, value] of myPokemon(user.pokemon)) {
       const badge = new Badge(key)
+      const [id, personality] = badge.fragments
       const db = get(badge.toLegacyString())
       if (!db) continue
-      if (this.currentPokemon[key] && this.currentPokemon[key] < value) {
+      if (this.currentPokemon[id] !== undefined) {
+        events.push({ pokemon: key as PokemonId, label: badge.toLabel(), description: 'Added to your Pokédex', new: true})
+      } else if (this.currentPokemon[id][personality] === undefined) {
         events.push({ pokemon: key as PokemonId, label: badge.toLabel(), description: 'Sent to your boxes', new: true})
-      } else if (!(key in this.currentPokemon)) {
+      } else if (this.currentPokemon[id][personality] !== undefined && this.currentPokemon[id][personality] < value) {
         events.push({ pokemon: key as PokemonId, label: badge.toLabel(), description: 'Sent to your boxes', new: true})
-        // events.push({ pokemon: key as PokemonId, label: badge.toLabel(), description: 'Added to your Pokédex', new: true })
       }
     }
     this.currentPokemon = user.pokemon

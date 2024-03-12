@@ -238,7 +238,6 @@ async function useItemTarget(data: F.UseItem.OnTarget, userId: string): Promise<
       target: targetBadge.toString(),
       item,
       items: items as Record<ItemId, number>,
-      pokemon: user.pokemon || {},
       location: userLocation,
       hours,
       gyroZ: data.gyroZ,

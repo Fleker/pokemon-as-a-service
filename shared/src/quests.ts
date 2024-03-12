@@ -11,6 +11,8 @@ import { calculateNetWorth } from "./events"
 import { Users } from "./server-types"
 import { MEGA_STONES, PLATES } from "./prizes"
 import { datastore, get } from "./pokemon"
+import { myPokemon } from "./badge-inflate"
+
 // https://pokemon-of-the-week.firebaseapp.com/dowsing?FpDkDv9bHqJ91XupNWGt
 export const CLEAR_BELL = 'yTIJvMaSvvpsjdLQ0nsE'
 export const SQUIRTBOTTLE = 'SQUIRTBOTTLE'
@@ -422,7 +424,7 @@ export const KEY_ITEM_QUESTS: Quest[] = [{
   item: 'scarletbook',
   recyclable: true,
 }, {
-  docId: TERAORB,
+  docId: VIOLETBOOK,
   badge: 'potw-item-violetbook',
   title: "Following the research of Turo",
   gate: CATCH_CHARM_SV,
@@ -1398,14 +1400,14 @@ export const GLOBAL_QUEST_DATE: () => boolean = (() => {
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  docId: 'available',
-  // docId: 'unavailable',
-  dbKey: 'shinyJirachi2',
-  badge: 'potw-385-shiny',
-  boss: Potw(P.Jirachi, {shiny: true, var: 2}),
-  title: 'Shiny Jirachi Raids',
+  // docId: 'available',
+  docId: 'unavailable',
+  dbKey: 'shinyManaphy2',
+  badge: 'potw-491-shiny',
+  boss: Potw(P.Manaphy, {shiny: true, var: 2}),
+  title: 'Shiny Manaphy Raids',
   count: 1_000_000,
-  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Jirachi raids.']
+  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Manaphy raids.']
 }]
 
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{
@@ -2321,7 +2323,7 @@ export const ONEP_ACHIEVEMENTS: Medal[] = [{
   badge: 'sparkle-star',
   title: 'Shiny Living Dex',
   condition: (r) => {
-    const valid = Object.entries(r.pokemon) 
+    const valid = [...myPokemon(r.pokemon)]
       .filter(([key]) => new Badge(key).personality.shiny)
       .map(([, count]) => count)
     if (valid.length) return valid.reduce((pre, curr) => pre + curr)
@@ -2360,7 +2362,7 @@ export const ONEP_ACHIEVEMENTS: Medal[] = [{
   badge: 'tiny-star',
   title: 'Honey, I shrunk the Pokémon',
   condition: (r) => {
-    const valid = Object.entries(r.pokemon) 
+    const valid = [...myPokemon(r.pokemon)]
       .filter(([key]) => new Badge(key).size === 'xxs')
       .map(([, count]) => count)
     if (valid.length) return valid.reduce((pre, curr) => pre + curr)
@@ -2375,7 +2377,7 @@ export const ONEP_ACHIEVEMENTS: Medal[] = [{
   badge: 'massive-star',
   title: 'Honey, I grew the Pokémon',
   condition: (r) => {
-    const valid = Object.entries(r.pokemon) 
+    const valid = [...myPokemon(r.pokemon)]
       .filter(([key]) => new Badge(key).size === 'xxl')
       .map(([, count]) => count)
     if (valid.length) return valid.reduce((pre, curr) => pre + curr)
@@ -2390,7 +2392,7 @@ export const ONEP_ACHIEVEMENTS: Medal[] = [{
   badge: 'totem-alpha-titan',
   title: 'Pokémon Giants',
   condition: (r) => {
-    const valid = Object.entries(r.pokemon) 
+    const valid = [...myPokemon(r.pokemon)] 
       .filter(([key]) => ['totem', 'alpha', 'noble', 'titan'].includes(new Badge(key).personality.form ?? ''))
       .map(([, count]) => count)
     if (valid.length) return valid.reduce((pre, curr) => pre + curr)
@@ -2956,7 +2958,7 @@ export const CATCH_TYPE_ACHIEVEMENTS: Medal[] = [{
 }, {
   badge: 'catch-champ',
   title: 'Catching Champion',
-  condition: ({pokemon}) => Object.values(pokemon).reduce((p, c) => p + c),
+  condition: ({pokemon}) => [...myPokemon(pokemon)].map(([k, v]) => v).reduce((p, c) => p + c),
   hints: [{
     description: 'Catch 50 Pokémon.',
     count: 50,
@@ -2995,7 +2997,7 @@ export const COMMUNITY_ACHIEVEMENTS: Medal[] = [{
   badge: 'potw-152',
   title: 'Chonkorita',
   condition: ({pokemon}) => {
-    const map = Object.entries(pokemon)
+    const map = [...myPokemon(pokemon)]
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       .filter(([key, _]) => new Badge(key).id === I.Chikorita)
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -3027,7 +3029,7 @@ export const COMMUNITY_ACHIEVEMENTS: Medal[] = [{
   badge: 'potw-157  ',
   title: 'Space Typhlosion',
   condition: ({pokemon}) => {
-    const map = Object.entries(pokemon)
+    const map = [...myPokemon(pokemon)]
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .filter(([key, _]) => new Badge(key).id === I.Typhlosion)
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -3046,7 +3048,7 @@ export const COMMUNITY_ACHIEVEMENTS: Medal[] = [{
   badge: 'mothim-female',
   title: 'Female Mothim',
   condition: ({pokemon}) => {
-    const map = Object.entries(pokemon)
+    const map = [...myPokemon(pokemon)]
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .filter(([key, _]) => [I.Burmy, I.Wormadam, I.Mothim].includes(new Badge(key).id))
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -3069,7 +3071,7 @@ export const COMMUNITY_ACHIEVEMENTS: Medal[] = [{
   badge: 'space-kyurem',
   title: 'Negative Space Kyurem',
   condition: ({pokemon}) => {
-    const map = Object.entries(pokemon)
+    const map = [...myPokemon(pokemon)]
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .filter(([key, _]) => new Badge(key).id === I.Kyurem)
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -3088,7 +3090,7 @@ export const COMMUNITY_ACHIEVEMENTS: Medal[] = [{
   badge: 'founders-porygon',
   title: 'Founding Porygon',
   condition: ({pokemon}) => {
-    const map = Object.entries(pokemon)
+    const map = [...myPokemon(pokemon)]
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     .filter(([key, _]) => new Badge(key).id === I.Porygon)
     // eslint-disable-next-line @typescript-eslint/no-unused-vars

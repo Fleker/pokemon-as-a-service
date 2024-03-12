@@ -7,6 +7,7 @@ import {Subject} from 'rxjs'
 import { DebugService } from '../debug.service';
 import { getFunctions, Functions, httpsCallable, HttpsCallableResult, HttpsCallableOptions } from "firebase/functions";
 import { Users } from '../../../../shared/src/server-types';
+import { fromPersonality } from '../../../../shared/src/badge3';
 import {getMessaging, getToken, Messaging, onMessage} from 'firebase/messaging'
 
 interface AuthData {
@@ -83,9 +84,15 @@ const defaultUser: Users.Doc = {
   eggsLaid: 0,
   pokemon: {
     // Basic forms of Bulbasaur, Charmander, Squirtle
-    '1#Yf_4': 1,
-    '4#Yf_4': 1,
-    '7#Yf_4': 1,
+    '1': {
+      [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 1)]: 1
+    },
+    '4': {
+      [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 4)]: 1
+    },
+    '7': {
+      [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 7)]: 1
+    }
   },
   pokedex: {
     kanto: 0, johto: 0, hoenn: 0, sinnoh: 0,

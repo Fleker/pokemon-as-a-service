@@ -33,7 +33,10 @@ export function toBase16(src: string) {
  * @param src Input string
  * @returns Same string in base_64
  */
-export function toBase64(src: string) {
+export function toBase64(src: string | number) {
+  if (typeof src === 'number') {
+    src = src.toString(16).toUpperCase()
+  }
   return convert(src, BASE16, BASE64)
 }
 

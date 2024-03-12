@@ -627,7 +627,7 @@ test('Badge sizes', t => {
   })()
   t.is(idMod, 7)
   t.log(squirtleFromDenver.personality)
-  const {number1, number2, number4} = squirtleFromDenver.personality.debug
+  const {number1, number2, number4} = squirtleFromDenver.personality.debug!
   const squirtMod = (1 + idMod + (number1 & 31) + (number2 & 12) + (number2 & 2) + number4) % 64
   t.is(number1, 0)
   t.is(number2, 240)
@@ -639,4 +639,24 @@ test('Badge sizes', t => {
   t.is(squirtleFromDenver.size, 'xxl')
   t.is(monfernoFromDenver.size, 'xxs')
   t.is(gulpinFromMtv.size, undefined)
+})
+
+test('Default personality strings', t => {
+  const simpleBulbasaur = Pokemon(1, { location: 'US-MTV', pokeball: 'pokeball' })
+  t.is(simpleBulbasaur, '1#3MfUhG')
+  const simpleCharmander = Pokemon(4, { location: 'US-MTV', pokeball: 'pokeball' })
+  t.is(simpleCharmander, '4#3MfUgy')
+  const simpleSquirtle = Pokemon(7, { location: 'US-MTV', pokeball: 'pokeball' })
+  t.is(simpleSquirtle, '7#3MfUhy')
+})
+
+test('Badge fragments', t => {
+  const simpleBulbasaur = new Badge(Pokemon(1, { location: 'US-MTV', pokeball: 'pokeball' }))
+  t.deepEqual(simpleBulbasaur.fragments, [
+    '1', '3MfUhG'
+  ])
+  const simpleCaterpie = new Badge(Pokemon(10, { location: 'US-MTV', pokeball: 'pokeball' }))
+  t.deepEqual(simpleCaterpie.fragments, [
+    'a', '3MfUg2'
+  ])
 })

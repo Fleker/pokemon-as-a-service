@@ -65,14 +65,12 @@ test('Gligar and razor fang', t => {
   const gligarStr = gligar.toLegacyString()
   const evolution = razorfang.pokemon[gligarStr] as EvolutionEntry
   const gliscorStr = new Badge(Pokemon(P.Gliscor)).toLegacyString()
-  const currentPokemon: TPokemon = {}
   t.is(evolution.badge, gliscorStr)
-  t.false(razorfang.usable({target: gligar, hours: 15, currentPokemon, quantity: 1}))
-  t.true(razorfang.usable({target: gligar, hours: 18, currentPokemon, quantity: 1}))
+  t.false(razorfang.usable({target: gligar, hours: 15, quantity: 1}))
+  t.true(razorfang.usable({target: gligar, hours: 18, quantity: 1}))
 })
 
 test('Use item fail precondition', t => {
-  const pokemon = {}
   const location = Globe['US-MTV']
   const hours = 1
   const items = {
@@ -83,21 +81,21 @@ test('Use item fail precondition', t => {
   t.throws(() => useItem({
     target: Pokemon(P.Abomasnow),
     item: 'pokeball',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }))
 
   // Abomasnow does not evolve
   t.throws(() => useItem({
     target: Pokemon(P.Abomasnow),
     item: 'rarecandy',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }))
 
   // Cannot use item at this time
   t.throws(() => useItem({
     target: Pokemon(P.Riolu),
     item: 'kelpsy',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }))
 })
 
@@ -105,12 +103,6 @@ test('Location evolutions', t => {
   const Nosepass = Pokemon(P.Nosepass, {variant: 1})
   const Magneton = Pokemon(P.Magneton, {shiny: true})
   const Eevee2 = Pokemon(P.Eevee, {variant: 1, shiny: true})
-  const pokemon = {
-    [Pokemon(P.Eevee)]: 1,
-    [Nosepass]: 1,
-    [Magneton]: 1,
-    [Eevee2]: 1,
-  }
   const hours = 1
   const items = {
     pokeball: 1
@@ -120,7 +112,7 @@ test('Location evolutions', t => {
     target: Pokemon(P.Eevee),
     item: 'rarecandy',
     location: Globe['BR-GRU'],
-    pokemon, hours, items, gyroZ,
+    hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Leafeon, {teraType: 'Normal'})).toString(),
@@ -131,7 +123,7 @@ test('Location evolutions', t => {
     target: Pokemon(P.Eevee),
     item: 'rarecandy',
     location: Globe['FI-HEL'],
-    pokemon, hours, items, gyroZ,
+    hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Glaceon, {teraType: 'Normal'})).toString(),
@@ -142,7 +134,7 @@ test('Location evolutions', t => {
     target: Nosepass,
     item: 'rarecandy',
     location: Globe['US-BLD'],
-    pokemon, hours, items,  gyroZ,
+    hours, items,  gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Probopass, {variant: 1})).toString(),
@@ -153,7 +145,7 @@ test('Location evolutions', t => {
     target: Magneton,
     item: 'rarecandy',
     location: Globe['US-BLD'],
-    pokemon, hours, items, gyroZ,
+    hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Magnezone, {shiny: true})).toString(),
@@ -164,14 +156,14 @@ test('Location evolutions', t => {
     target: Pokemon(P.Eevee),
     item: 'rarecandy',
     location: Globe['US-MTV'],
-    pokemon, hours, items, gyroZ,
+    hours, items, gyroZ,
   }))
 
   t.deepEqual(useItem({
     target: Eevee2,
     item: 'rarecandy',
     location: Globe['FI-HEL'],
-    pokemon, hours, items, gyroZ,
+    hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Glaceon, {shiny: true, variant: 1, teraType: 'Normal'})).toString(),
@@ -180,15 +172,6 @@ test('Location evolutions', t => {
 })
 
 test('Basic evolutions', t => {
-  const pokemon = {
-    [Pokemon(P.Eevee)]: 1,
-    [Pokemon(P.Metapod)]: 1,
-    [Pokemon(P.Magneton)]: 1,
-    [Pokemon(P.Snorunt, {gender: 'female'})]: 1,
-    [Pokemon(P.Bidoof, {gender: 'female'})]: 1,
-    [Pokemon(P.Cherubi)]: 1,
-    [Pokemon(P.Kirlia, {gender: 'male'})]: 1,
-  }
   const hours = 1
   const location = Globe['US-MTV']
   const items = {
@@ -198,7 +181,7 @@ test('Basic evolutions', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Eevee),
     item: 'firestone',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Flareon, {teraType: 'Normal'})).toString(),
@@ -208,7 +191,7 @@ test('Basic evolutions', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Metapod),
     item: 'expcandyxl',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Butterfree)).toString(),
@@ -218,7 +201,7 @@ test('Basic evolutions', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Snorunt, {gender: 'female'}),
     item: 'dawnstone',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Froslass, {gender: 'female'})).toString(),
@@ -228,7 +211,7 @@ test('Basic evolutions', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Bidoof, {gender: 'female'}),
     item: 'rarecandy',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Bibarel, {gender: 'female'})).toString(),
@@ -238,7 +221,7 @@ test('Basic evolutions', t => {
   const unformedCherubiToFormedCherrim = useItem({
     target: Pokemon(P.Cherubi),
     item: 'rarecandy',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   })
   const cherrim = new Badge(unformedCherubiToFormedCherrim.output)
   t.true(['overcast', 'sunshine'].includes(cherrim.personality.form!),
@@ -247,7 +230,7 @@ test('Basic evolutions', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Kirlia, {gender: 'male'}),
     item: 'dawnstone',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Gallade, {gender: 'male'})).toString(),
@@ -256,14 +239,6 @@ test('Basic evolutions', t => {
 })
 
 test('Form shifts', t => {
-  const pokemon = {
-    [Pokemon(P.Eevee)]: 1,
-    [Pokemon(P.Metapod)]: 1,
-    [Pokemon(P.Castform)]: 1,
-    [Pokemon(P.Castform, {form: 'rainy'})]: 1,
-    [Pokemon(P.Rotom, {form: 'fan'})]: 1,
-    [Pokemon(P.Cherrim, {form: 'overcast', shiny: true, variant: 1})]: 1,
-  }
   const hours = 1
   const location = Globe['US-MTV']
   const items = {
@@ -273,7 +248,7 @@ test('Form shifts', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Castform),
     item: 'tr-Sunny Day',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: false,
     output: new Badge(Pokemon(P.Castform, {form: 'sunny'})).toString(),
@@ -283,7 +258,7 @@ test('Form shifts', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Castform, {form: 'rainy'}),
     item: 'tr-Sunny Day',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: false,
     output: new Badge(Pokemon(P.Castform, {form: 'sunny'})).toString(),
@@ -293,7 +268,7 @@ test('Form shifts', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Castform, {form: 'rainy'}),
     item: 'tr-Defog',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: false,
     output: new Badge(Pokemon(P.Castform)).toString(),
@@ -303,7 +278,7 @@ test('Form shifts', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Rotom, {form: 'fan'}),
     item: 'brokenlight',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: false,
     output: new Badge(Pokemon(P.Rotom)).toString(),
@@ -313,7 +288,7 @@ test('Form shifts', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Cherrim, {form: 'overcast', shiny: true, variant: 1}),
     item: 'tr-Sunny Day',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: false,
     output: new Badge(Pokemon(P.Cherrim, {form: 'sunshine', shiny: true, variant: 1})).toString(),
@@ -323,7 +298,7 @@ test('Form shifts', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Cherrim, {form: 'sunshine', variant: 4}),
     item: 'tr-Defog',
-    location, pokemon, hours, items, gyroZ,
+    location, hours, items, gyroZ,
   }), {
     consumedItem: false,
     output: new Badge(Pokemon(P.Cherrim, {form: 'overcast', variant: 4})).toString(),
@@ -332,13 +307,6 @@ test('Form shifts', t => {
 })
 
 test('Functional evolutions', t => {
-  const pokemon = {
-    [Pokemon(P.Riolu)]: 1,
-    [Pokemon(P.Nincada)]: 1,
-    [Pokemon(P.Abomasnow)]: 1,
-    [Pokemon(P.Abra)]: 1,
-    [Pokemon(P.Aerodactyl)]: 1,
-  }
   const hours = 1
   const location = Globe['US-MTV']
   const items = {
@@ -349,7 +317,7 @@ test('Functional evolutions', t => {
   //   target: Pokemon(P.Riolu),
   //   item: 'kelpsy',
   //   hours: 12,
-  //   location, pokemon, items, gyroZ,
+  //   location, items, gyroZ,
   // }), {
   //   consumedItem: true,
   //   output: new Badge(Pokemon(P.Lucario)).toString(),
@@ -360,7 +328,7 @@ test('Functional evolutions', t => {
     target: Pokemon(P.Riolu, {affectionate: true}),
     item: 'kelpsy',
     hours: 12,
-    location, pokemon, items, gyroZ,
+    location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Lucario, {affectionate: true})).toString(),
@@ -373,14 +341,14 @@ test('Functional evolutions', t => {
       target: Pokemon(P.Riolu),
       item: 'kelpsy',
       hours: 24,
-      location, pokemon, items, gyroZ,
+      location, items, gyroZ,
     })
   })
 
   t.deepEqual(useItem({
     target: Pokemon(P.Nincada),
     item: 'rarecandy',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Ninjask)).toString(),
@@ -390,15 +358,6 @@ test('Functional evolutions', t => {
 })
 
 test('Burmy evolution', t => {
-  const pokemon = {
-    [Pokemon(P.Burmy, {gender: 'male'})]: 1,
-    [Pokemon(P.Burmy, {form: 'plant', gender: 'female'})]: 1,
-    [Pokemon(P.Burmy, {form: 'sandy', gender: 'female'})]: 1,
-    [Pokemon(P.Burmy, {form: 'trash', gender: 'female'})]: 1,
-    [Pokemon(P.Burmy)]: 1,
-    [Pokemon(P.Burmy, {gender: 'male', form: 'plant'})]: 1,
-    [Pokemon(P.Burmy, {gender: 'male', form: 'plant', variant: 1})]: 1,
-  }
   const hours = 1
   const location = Globe['US-MTV']
   const items = {
@@ -408,7 +367,7 @@ test('Burmy evolution', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Burmy, {gender: 'male'}),
     item: 'rarecandy',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Mothim, {gender: 'male'})).toString(),
@@ -418,7 +377,7 @@ test('Burmy evolution', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Burmy),
     item: 'rarecandy',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Mothim)).toString(),
@@ -428,7 +387,7 @@ test('Burmy evolution', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Burmy, {form: 'trash', gender: 'female'}),
     item: 'rarecandy',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Wormadam, {form: 'trash', gender: 'female'})).toString(),
@@ -438,7 +397,7 @@ test('Burmy evolution', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Burmy, {gender: 'male', form: 'plant'}),
     item: 'expcandym',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Mothim, {gender:'male'})).toString(),
@@ -448,7 +407,7 @@ test('Burmy evolution', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Burmy, {gender: 'male', form: 'plant', variant: 1}),
     item: 'expcandym',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Mothim, {gender:'male', variant: 1})).toString(),
@@ -457,10 +416,6 @@ test('Burmy evolution', t => {
 })
 
 test('Combee evo', t => {
-  const pokemon = {
-    [Pokemon(P.Combee, {gender: 'female'})]: 1,
-    [Pokemon(P.Combee, {gender: 'male'})]: 1,
-  }
   const hours = 1
   const location = Globe['US-MTV']
   const items = {
@@ -470,7 +425,7 @@ test('Combee evo', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Combee, {gender: 'female'}),
     item: 'rarecandy',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Vespiquen, {gender: 'female'})).toString(),
@@ -481,7 +436,7 @@ test('Combee evo', t => {
     useItem({
       target: Pokemon(P.Combee, {gender: 'male'}),
       item: 'rarecandy',
-      hours, location, pokemon, items, gyroZ,
+      hours, location, items, gyroZ,
     })
   })
 })
@@ -512,9 +467,6 @@ test('getVariantForMove', t => {
 })
 
 test('Cosplay Pikachu', t => {
-  const pokemon = {
-    [Pokemon(P.Pikachu, {form: 'belle'})]: 10,
-  }
   const hours = 1
   const location = Globe['US-MTV']
   const items = {
@@ -525,19 +477,11 @@ test('Cosplay Pikachu', t => {
   t.throws(() => useItem({
     target: Pokemon(P.Pikachu, {form: 'belle'}),
     item: 'thunderstone',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }))
 })
 
 test('Alolan evos', t => {
-  const pokemon = {
-    [Pokemon(P.Pikachu, {})]: 10,
-    [Pokemon(P.Vulpix, {})]: 10,
-    [Pokemon(P.Vulpix, {form: 'alolan'})]: 10,
-    [Pokemon(P.Sandshrew, {form: 'alolan'})]: 10,
-    [Pokemon(P.Minior, {form: 'blue_meteor'})]: 10,
-    [Pokemon(P.Minior, {form: 'blue_core'})]: 10,
-  }
   const hours = 1
   const location = Globe['US-MTV']
   const items = {
@@ -548,7 +492,7 @@ test('Alolan evos', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Pikachu, {}),
     item: 'thunderstone',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Raichu, {})).toString(),
@@ -558,7 +502,7 @@ test('Alolan evos', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Pikachu, {}),
     item: 'strangesouvenir',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Raichu, {form: 'alolan'})).toString(),
@@ -569,7 +513,7 @@ test('Alolan evos', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Vulpix, {}),
     item: 'firestone',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Ninetales, {})).toString(),
@@ -580,7 +524,7 @@ test('Alolan evos', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Vulpix, {form: 'alolan'}),
     item: 'icestone',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: true,
     output: new Badge(Pokemon(P.Ninetales, {form: 'alolan'})).toString(),
@@ -591,28 +535,28 @@ test('Alolan evos', t => {
   t.throws(() => useItem({
     target: Pokemon(P.Vulpix, {}),
     item: 'icestone',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }))
 
   // Verify A-Vulix + Fire Stone = Nothing
   t.throws(() => useItem({
     target: Pokemon(P.Vulpix, {form: 'alolan'}),
     item: 'firestone',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }))
 
   // Verify A-Sandshrew cannot evolve with candy
   t.throws(() => useItem({
     target: Pokemon(P.Sandshrew, {form: 'alolan'}),
     item: 'rarecandy',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }))
 
   // Verify Miniors can crack open
   t.deepEqual(useItem({
     target: Pokemon(P.Minior, {form: 'blue_meteor'}),
     item: 'tr-Shell Smash',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: false,
     output: new Badge(Pokemon(P.Minior, {form: 'blue_core'})).toString(),
@@ -623,7 +567,7 @@ test('Alolan evos', t => {
   t.deepEqual(useItem({
     target: Pokemon(P.Minior, {form: 'blue_core'}),
     item: 'tr-Iron Defense',
-    hours, location, pokemon, items, gyroZ,
+    hours, location, items, gyroZ,
   }), {
     consumedItem: false,
     output: new Badge(Pokemon(P.Minior, {form: 'blue_meteor'})).toString(),

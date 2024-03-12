@@ -3,6 +3,7 @@ import { Badge } from "../../../shared/src/badge3"
 import { Requirements } from "../../../shared/src/legendary-quests"
 import { Globe } from "../../../shared/src/locations-list"
 import { PokemonId } from "../../../shared/src/pokemon/types"
+import { myPokemon } from "../../../shared/src/badge-inflate"
 import { Users } from "../../../shared/src/server-types"
 import { FirebaseService } from "./service/firebase.service"
 import { LocationService } from "./service/location.service"
@@ -19,8 +20,9 @@ export default async function getQuestArgs(user: Users.Doc, locations: LocationS
   const loc = await locations.getLocation(user.location)
   location = {...location, ...loc}
 
-  const pokemonKeys = Object.entries(user.pokemon).filter(([, v]) => v > 0).map(([k]) => k) as PokemonId[]
-  const pokemonBadges = Object.entries(user.pokemon)
+  const pokemonKeys = [...myPokemon(user.pokemon)]
+    .filter(([, v]) => v > 0).map(([k]) => k) as PokemonId[]
+  const pokemonBadges = [...myPokemon(user.pokemon)]
     .filter(([, v]) => v > 0)
     .map(([k, v]) => [new Badge(k), v]) as [Badge, number][]
   const teamsBadges = pokemonBadges

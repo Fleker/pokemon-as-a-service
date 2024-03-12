@@ -34,7 +34,7 @@ type EvolutionMap = {[pkmnId in BadgeId]?: EvolutionEntry | EvolutionEntryFuncti
 
 interface AvailabilityUsable {
   target: Badge
-  currentPokemon: TPokemon
+  // currentPokemon: TPokemon
   hours: number
   quantity: number
 }
@@ -2299,7 +2299,7 @@ export interface ItemUsageParams {
   target: PokemonId,
   item: ItemId
   location: Location,
-  pokemon: TPokemon
+  // pokemon: TPokemon
   hours: number,
   items: Record<ItemId, number>
   /** Gyroscopic sensor data for Z-axis. For Inkay. */
@@ -2342,7 +2342,7 @@ const milcerySweets: ItemId[] = [
 ]
 
 export function useItem(params: ItemUsageParams): UseItemOutput {
-  const {target, item, location, pokemon, hours, items} = params
+  const {target, item, location, hours, items} = params
   // We assume this Pokemon exists
   const badge = new Badge(target)
   const availability: Availability = ItemAvailability[item]!
@@ -2359,7 +2359,7 @@ export function useItem(params: ItemUsageParams): UseItemOutput {
   // if (!B2.TeamsBadge.match(badge.toLegacyString(), filter, MATCH_FILTER).match) {
     throw new Error(`Cannot use item ${item} on target ${target}/${badge.toLegacyString()}: ${dbKey} ${filter}`)
   }
-  if (!availability.usable({target: badge, currentPokemon: pokemon, hours, quantity: items[item]})) {
+  if (!availability.usable({target: badge, hours, quantity: items[item]})) {
     throw new Error(`Cannot use item ${item} on target ${target}/${badge.toLegacyString()} at this time`)
   }
 
@@ -2701,6 +2701,10 @@ export function useItem(params: ItemUsageParams): UseItemOutput {
     // Make sure we cannot evolve the Spiky-Eared Pichu.
     throw new Error(`Pichu cannot be evolved.`)
   }
+  if (badge.personality.gmax && [PI.Pikachu, PI.Eevee, PI.Meowth].includes(badge.id)) {
+    throw new Error(`This special Pokémon cannot be evolved.`)
+  }
+
 
   let transform: EvolutionEntry;
   if (typeof availability.pokemon[target] === 'object') {

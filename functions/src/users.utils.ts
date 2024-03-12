@@ -33,10 +33,16 @@ export const hasPokemon = (user: Users.Doc, fnPkmn: PokemonId | PokemonId[]) => 
     hasPkmn = true
     const pmap = {...user.pokemon}
     for (const p of pkmn) {
-      if (pmap[p] !== undefined && pmap[p]! > 0) {
-        pmap[p]!--
+      const pbadge = new Badge(p)
+      const [id, personality] = pbadge.fragments
+      if (pmap[id]) {
+        if (pmap[id][personality] !== undefined && pmap[id][personality]! > 0) {
+          pmap[id][personality]!--
+        } else {
+          return false
+        }
       } else {
-        hasPkmn = false
+        return false // Bail
       }
     }
   }
@@ -61,12 +67,16 @@ export const hasPokemon = (user: Users.Doc, fnPkmn: PokemonId | PokemonId[]) => 
       const matcher = Badge.match(p, keys, MATCH_GTS)
       if (matcher.match) {
         const pk = matcher.result!
-        if (pmap[pk] !== undefined && pmap[pk]! > 1) {
-          pmap[pk]!--
-        } else if (pmap[pk] !== undefined && pmap[pk]! === 1) {
-          delete pmap[pk]
+        const pbadge = new Badge(pk)
+        const [id, personality] = pbadge.fragments
+        if (pmap[id]) {
+          if (pmap[id][personality] !== undefined && pmap[id][personality]! > 0) {
+            pmap[id][personality]!--
+          } else {
+            return false
+          }
         } else {
-          hasPkmn = false
+          return false // Bail
         }
       } else {
         hasPkmn = false
@@ -99,11 +109,17 @@ export const addPokemon = (user: Users.Doc, pkmn: Badge, count = 1) => {
     console.info('Creating user.pokemon map')
     user.pokemon = {}
   }
-  const badge = pkmn.toString()
-  if (user.pokemon[badge] !== undefined) {
-    user.pokemon[badge]! += count
+  const [id, personality] = pkmn.fragments
+  if (user.pokemon[id]) {
+    if (user.pokemon[id][personality] !== undefined && user.pokemon[id][personality]! > 0) {
+      user.pokemon[id][personality]! += count
+    } else {
+      user.pokemon[id][personality]! = count
+    }
   } else {
-    user.pokemon[badge] = count
+    user.pokemon[pkmn.id] = {
+      [personality]: count
+    }
   }
 }
 
@@ -118,27 +134,17 @@ export const removePokemon = (user: Users.Doc, pkmn: Badge, count = 1) => {
     console.info('Creating user.pokemon map')
     user.pokemon = {}
   }
-  const badge = pkmn.toString()
-  if (badge in user.pokemon && user.pokemon[badge]! >= count) {
-    user.pokemon[badge]! -= count
-    if (user.pokemon[badge]! === 0) {
-      delete user.pokemon[badge]
-    }
-  } else if (user.currentBadges?.includes(pkmn.toLegacyString())) {
-    const legacy = pkmn.toLegacyString()
-    const howMany = user.currentBadges!.filter(x => x === legacy).length
-    if (howMany < count) {
-      throw new Error(`User ${user.ldap} does not have ${count} ${legacy}`)
-    }
-    for (let i = 0; i < count; i++) {
-      // Prune each one
-      const index = user.currentBadges!.indexOf(legacy)
-      if (index !== -1) { // <- This should never happen
-        user.currentBadges!.splice(index, 1)
-      }
-    }
-  } else {
-    throw new Error(`User ${user.ldap} does not have ${count} ${badge}`)
+  const [id, personality] = pkmn.fragments
+  
+  if (user.pokemon[id] === undefined) {
+    throw new Error(`User ${user.ldap} does not have ${count} ${pkmn.toString()}`)
+  }
+  if (user.pokemon[id][personality] === undefined) {
+    throw new Error(`User ${user.ldap} does not have ${count} ${pkmn.toString()}`)
+  }
+  user.pokemon[id][personality]! -= count
+  if (user.pokemon[id][personality] === 0) {
+    delete user.pokemon[id][personality]
   }
 }
 

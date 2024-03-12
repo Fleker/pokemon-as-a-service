@@ -29,6 +29,8 @@ import {PokeballId} from '../../shared/src/items-list';
 import * as A from './adventure-log'
 import { sendNotification } from './notifications';
 import isDemo from '../../shared/src/platform/isDemo'
+import { myPokemon } from '../../shared/src/badge-inflate'
+
 const db = salamander(admin.firestore())
 const FieldValue = admin.firestore.FieldValue;
 interface Egg {
@@ -49,7 +51,9 @@ export const hatch = functions.https.onCall(async (data: F.Hatch.Req, context): 
     }
     const user = userDoc.data()
     if (isDemo) {
-      const countUserCaughtPkmn = Object.values(user.pokemon).reduce((p, c) => p + c)
+      const countUserCaughtPkmn = [...myPokemon(user.pokemon)]
+        .map(([, v]) => v)
+        .reduce((p, c) => p + c)
       if (countUserCaughtPkmn > 250) {
         throw new functions.https.HttpsError('out-of-range',
           'You cannot hatch any more Pokemon in demo mode')
@@ -177,7 +181,9 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
         'You have caught so many Pokémon, we are worried about them becoming endangered!')
     }
     if (isDemo) {
-      const countUserCaughtPkmn = Object.values(user.pokemon).reduce((p, c) => p + c)
+      const countUserCaughtPkmn = [...myPokemon(user.pokemon)]
+        .map(([, v]) => v)
+        .reduce((p, c) => p + c)
       if (countUserCaughtPkmn > 250) {
         throw new functions.https.HttpsError('out-of-range',
           'You cannot catch any more Pokemon in demo mode')

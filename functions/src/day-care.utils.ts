@@ -208,7 +208,6 @@ export function daycareEvolution(parent: Badge, heldItem: ItemId, user: Users.Do
         console.log('Evolve Spewpa rarecandy at ' + user.location)
       }
       const evolution = useItem({
-        pokemon: user.pokemon || {},
         hours,
         item: 'rarecandy', // We already guarantee evo, so just go with it
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
