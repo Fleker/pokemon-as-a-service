@@ -1510,7 +1510,7 @@ export const Globe = {
   'US-DTW': assert<Location>({
     label:"Detroit", region:"North America", terrain:"Bay", flag: '🇺🇸', id: 121,
     hemiLat: 'North', hemiLong: 'West', timezone: 'America/Chicago', vivillon: 'polar',
-    latitude: 48.27, longitude: -83.28,
+    latitude: 42.34, longitude: -83.06,
     fact: "This city drove motown to prominence",
     weatherSpring:{Cloudy:0.2,Rain:0.15,Fog:0.1,Thunderstorm:0.1, Snow: 0.01},
     weatherSummer:{Fog:0.1,Rain:0.05,Thunderstorm:0.15,Cloudy:0.2,'Heat Wave':0.05},
