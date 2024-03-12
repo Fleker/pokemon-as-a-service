@@ -12,19 +12,19 @@ import * as P from '../gen/type-pokemon'
  * Simple badge IDs for the species that have a 4x shiny chance.
  */
 export const babyProduced: BadgeId[] = [
-  P.Oranguru,
+  P.Spiritomb,
 ]
 
 /**
  * For labeling purposes, the parents who may be bred together.
  * Note that this only is for labels, and has no pragmatic effect.
- * Winner: Oranguru¹, Oranguru², Oranguru³, Oranguru⁴  (Send: Oranguru³, Oranguru⁴, Oranguru², Oranguru¹)
+ * Winner: Spiritomb¹, Spiritomb², Spiritomb³, Spiritomb⁴  (Send: Spiritomb³, Spiritomb⁴, Spiritomb², Spiritomb¹)
  */
 export const parents: BadgeId[] = [
-  Potw(P.Oranguru, {var: 1}),
-  Potw(P.Oranguru, {var: 2}),
-  Potw(P.Oranguru, {var: 3}),
-  Potw(P.Oranguru, {var: 4}),
+  Potw(P.Spiritomb, {var: 1}),
+  Potw(P.Spiritomb, {var: 2}),
+  Potw(P.Spiritomb, {var: 3}),
+  Potw(P.Spiritomb, {var: 4}),
 ]
 
 export const history: BadgeId[] = [
@@ -427,4 +427,8 @@ export const history: BadgeId[] = [
   Potw(P.Komala, {var: 2}),
   Potw(P.Komala, {var: 3}),
   Potw(P.Komala, {var: 4}),
+  Potw(P.Oranguru, {var: 1}),
+  Potw(P.Oranguru, {var: 2}),
+  Potw(P.Oranguru, {var: 3}),
+  Potw(P.Oranguru, {var: 4}),
 ]
