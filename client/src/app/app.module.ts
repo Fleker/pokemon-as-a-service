@@ -112,6 +112,8 @@ import { TypeBoxComponent } from './ui/type-box/type-box.component';
 import { TypedDialogHeaderComponent } from './ui/typed-dialog-header/typed-dialog-header.component';
 import { VoyageHeaderComponent } from './ui/voyage-header/voyage-header.component';
 import { VoyagesMeterComponent } from './ui/voyages-meter/voyages-meter.component';
+import { TeraTypeBoxComponent } from './ui/tera-type-box/tera-type-box.component';
+import { PokeballSpinnerComponent } from './ui/pokeball-spinner/pokeball-spinner.component';
 
 @NgModule({
   declarations: [
@@ -193,6 +195,8 @@ import { VoyagesMeterComponent } from './ui/voyages-meter/voyages-meter.componen
     PageVoyageComponent,
     LottoDrawComponent,
     PageWondertradeComponent,
+    TeraTypeBoxComponent,
+    PokeballSpinnerComponent,
   ],
   imports: [
     BrowserModule,

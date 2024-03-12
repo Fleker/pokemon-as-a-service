@@ -1,34 +1,33 @@
-div.border {
-  border: solid 1px var(--app-text-color);
-  border-collapse: collapse;
-  border-radius: 100px;
-  height: 16px;
-  width: 160px;
-  background-color: var(--app-text-color);
-}
-
-div.border.check {
-  border-color: var(--type-fire);
-}
-
-span {
-  border-right: solid 1px var(--app-text-color);
-  border-collapse: collapse;
+div.outside {
   display: inline-block;
-  height: 16px;
-  width: 40px;
+  padding-left: 1px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  width: 26px;
+  height: 26px;
+  clip-path: polygon(46% 0, 90% 25%, 90% 75%, 46% 100%, 0 75%, 0 25%);
 }
 
-span.check {
-  border-color: var(--type-fire);
+div.inside {
+  display: inline-block;
+  padding-left: 1.4px;
+  padding-top: 1.7px;
+  padding-bottom: 2px;
+  width: 23.6px;
+  height: 22px;
+  clip-path: polygon(46% 0, 90% 25%, 90% 75%, 46% 100%, 0 75%, 0 25%);
 }
 
-div.infill {
-  height: 14px;
-  border-radius: 16px;
-  margin-top: -16px;
-  margin-left: 2px;
-  transition: all 0.25s;
+mat-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  opacity: 0.8;
+  transition: all 150ms;
+}
+
+div:hover mat-icon {
+  opacity: 1;
 }
 
 div.Bug {
@@ -102,3 +101,4 @@ div.Steel {
 div.Water {
   background-color: var(--type-water);
 }
+

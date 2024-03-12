@@ -6,10 +6,6 @@
   display: inline-block;
 }
 
-mat-spinner {
-  opacity: 0.5;
-}
-
 img {
   cursor: pointer;
   width: 40px;

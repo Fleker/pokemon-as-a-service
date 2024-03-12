@@ -15,7 +15,7 @@
 <collapsible-card>
   <span title><mat-icon>category</mat-icon> Crafting Bench</span>
   <small>Here is everything you can craft.</small>
-  <mat-spinner *ngIf="!processedRecipes"></mat-spinner>
+  <pokeball-spinner *ngIf="!processedRecipes"></pokeball-spinner>
   <ul>
     <button mat-button *ngFor="let recipe of availableRecipes.crafting" (click)="openCraftingDialog(recipe.output)">
       <sprite-item item="{{recipe.output}}" [class.unavailable]="!recipe.hasItems"></sprite-item>
@@ -36,7 +36,7 @@
 <collapsible-card>
   <span title><mat-icon>album</mat-icon> TM Machine</span>
   <br>
-  <mat-spinner *ngIf="!processedRecipes"></mat-spinner>
+  <pokeball-spinner *ngIf="!processedRecipes"></pokeball-spinner>
   <strong>Available TMs</strong>
   <ul>
     <button mat-button *ngFor="let recipe of availableRecipes.tmmachine" (click)="openCraftingDialog(recipe.output)">
@@ -59,7 +59,7 @@
   <span title><mat-icon>science</mat-icon> Bait</span>
   <small>Cooking is still in development and may change.</small>
   <br>
-  <mat-spinner *ngIf="!processedRecipes"></mat-spinner>
+  <pokeball-spinner *ngIf="!processedRecipes"></pokeball-spinner>
   <strong>Available Recipes (But Literally)</strong>
   <ul>
     <button mat-button *ngFor="let recipe of availableRecipes.bait" (click)="openCraftingDialog(recipe.output)">
@@ -120,7 +120,7 @@
 <dialog #animation>
   <sprite-crafting #animationcraft></sprite-crafting>
   <br>
-  <mat-spinner [diameter]="24"></mat-spinner>
+  <pokeball-spinner [diameter]="24"></pokeball-spinner>
 </dialog>
 
 <dialog #error>

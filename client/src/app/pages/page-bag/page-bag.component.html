@@ -18,7 +18,7 @@
     <table>
       <tr *ngFor="let item of bag[key]">
         <td class="icon">
-          <button mat-icon-button class="{{item.functional}}" (click)="useItem(item.key)">
+          <button mat-icon-button class="{{item.functional}}" (click)="useItem(item.key)" aria-label="Use this item">
             <sprite-item item="{{item.key}}" class="{{item.functional}}">
             </sprite-item>
           </button>
@@ -38,7 +38,7 @@
           </small>
         </td>
         <td *ngIf="key === 'tms' || key === 'trs'">
-          <button mat-icon-button (click)="openMoveDialog(item.key)">
+          <button mat-icon-button (click)="openMoveDialog(item.key)" aria-label="Open move dialog">
             <mat-icon>open_in_browser</mat-icon>
           </button>
         </td>

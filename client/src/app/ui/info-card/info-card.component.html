@@ -9,9 +9,13 @@
     <br>
     <small>
       <span *ngFor="let m of hover.type; last as isLast">
-        <img src="/images/sprites/icons/type-{{m}}.svg" class="icon" />
+        <mat-icon svgIcon="type-{{m}}"></mat-icon>
         {{m}}
         <span *ngIf="!isLast">/</span>
+      </span>
+      <tera-type-box [type]="hover.tera"></tera-type-box>
+      <span *ngIf="hover.gmax">
+        <mat-icon svgIcon="gmax"></mat-icon>
       </span>
     </small>
     <br>
@@ -26,17 +30,18 @@
     <br>
     <small id="moveset">
       <div *ngFor="let m of hover.moves">
-        <img src="/images/sprites/icons/type-{{m.type}}.svg" class="icon" />
+        <mat-icon svgIcon="type-{{m.type}}"></mat-icon>
         {{m.name}}
       </div>
     </small>
     <br>
     <small *ngIf="flagPickerPro">
-      {{hover.key}}
+      <em>{{hover.key}}</em>
       <br>
       {{hover.location}}
     </small>
     <small *ngIf="!duplicate">
+      <br>
       You have {{hover.dupCount}} of this Pokémon.
     </small>
   </div>

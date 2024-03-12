@@ -175,7 +175,7 @@ mat-drawer-content {
 
 mat-icon {
   vertical-align: middle; /* Unless overridden */
-  color: var(--app-text-color); /* Unless overridden */
+  color: black; /* Unless overridden */
 }
 
 body.dark mat-icon {

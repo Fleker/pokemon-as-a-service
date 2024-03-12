@@ -39,7 +39,7 @@ export class PageTrainerComponent implements OnInit, OnDestroy {
   }
   firebaseListener: any
   yir?: any;
-  enableYir = true
+  enableYir = false
 
   constructor(
     private firebase: FirebaseService,

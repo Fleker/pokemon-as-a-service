@@ -181,6 +181,8 @@ export class PickerPokemonComponent implements OnInit, OnDestroy {
       location: badge.personality.location,
       nature: badge.personality.nature,
       dupCount: this.dupCount(badge.toLabel()),
+      tera: this.user.items.teraorb > 0 ? badge.personality.teraType : 'Status',
+      gmax: badge.personality.gmax,
     }
     if (pokemon.type2) {
       this.hoverSelect.type[1] = pokemon.type2

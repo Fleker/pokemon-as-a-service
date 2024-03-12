@@ -7,7 +7,7 @@
   Run
 </button>
 <button *ngIf="useCel && exec.runCel" (click)="cancelCel()">
-  <mat-spinner diameter="13"></mat-spinner>
+  <pokeball-spinner [diameter]="13"></pokeball-spinner>
 </button>
 <button *ngIf="useCel && celError" (click)="clearCelError()" [title]="celError">
   ERR

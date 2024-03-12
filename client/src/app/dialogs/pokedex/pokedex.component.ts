@@ -74,6 +74,7 @@ export class PokedexDialog implements OnInit, OnDestroy {
     daycare: false,
     mega: false,
     gmax: false,
+    tera: false,
   }
   customTags: string[] = []
   tags: string[] = []
@@ -130,7 +131,8 @@ export class PokedexDialog implements OnInit, OnDestroy {
           forms: user.hiddenItemsFound.includes(CATCH_CHARM_DPPT),
           daycare: user.hiddenItemsFound.includes(CATCH_CHARM_BW),
           mega: user.items.megabracelet > 0,
-          gmax: user.ldap === "fleker", // FIXME
+          gmax: user.items.dynamaxband > 0,
+          tera: user.items.teraorb > 0,
         }
         this.customTags = user.customTags
       }

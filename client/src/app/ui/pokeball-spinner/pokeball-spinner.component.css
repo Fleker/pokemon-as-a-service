@@ -1,0 +1,22 @@
+:host {
+  display: block;
+}
+
+mat-icon {
+  animation: rotation 1.3s infinite linear;
+  color: var(--app-text-color);
+  opacity: 0.9;
+  vertical-align: middle;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

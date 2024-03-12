@@ -25,7 +25,7 @@
   <h2>Start a new voyage</h2>
   <strong>Eligible Voyages</strong>
   <br>
-  <mat-spinner *ngIf="!processedVoyages"></mat-spinner>
+  <pokeball-spinner *ngIf="!processedVoyages"></pokeball-spinner>
   <ul>
     <button mat-button *ngFor="let voyage of availableVoyages" (click)="openVoyageDialog(voyage)">
       <sprite-item item="{{voyage.rareitems[0][0]}}"></sprite-item>
@@ -34,7 +34,7 @@
   </ul>
   <strong>Ineligible Voyages</strong>
   <br>
-  <mat-spinner *ngIf="!processedVoyages"></mat-spinner>
+  <pokeball-spinner *ngIf="!processedVoyages"></pokeball-spinner>
   <ul>
     <button mat-button *ngFor="let voyage of unavailableVoyages" (click)="reportError(voyage)">
       <sprite-item item="{{voyage.rareitems[0][0]}}"></sprite-item>
@@ -48,7 +48,7 @@
     Players are reaching out to the public, including <em>you</em>, to join
     their voyage.
   </p>
-  <mat-spinner *ngIf="!processedPublicVoyages"></mat-spinner>
+  <pokeball-spinner *ngIf="!processedPublicVoyages"></pokeball-spinner>
   <ul>
     <p *ngFor="let voyage of publicVoyages">
       <a *ngIf="voyage.key"[routerLink]="['/multiplayer', 'voyages']" [queryParams]="routerQuery(voyage.key)">

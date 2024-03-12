@@ -7,6 +7,7 @@
 <div mat-dialog-content *ngIf="pokemon && uncaught !== true">
   <type-box [type]="pokemon.type1"></type-box>
   <type-box [type]="pokemon.type2"></type-box>
+  <tera-type-box *ngIf="unlocked.tera" [type]="badge.personality.teraType"></tera-type-box>
 
   <small>
     #{{natDexNo}}
@@ -23,6 +24,7 @@
 
   <mat-tab-group>
     <mat-tab label="Summary">
+      <mat-icon svgIcon="gmax" *ngIf="badge.personality.gmax"></mat-icon>
       <sprite-item class="caught" item="{{badge.personality.pokeball}}"></sprite-item>
       {{caughtLocation}}
       <div *ngIf="canTag">
@@ -87,7 +89,8 @@
       <br><br>
 
       <span *ngIf="badge?.personality" class="nature" title="{{natureDescription}}">
-        Has a <strong>{{badge?.personality?.nature}}</strong> Nature. <mat-icon>help</mat-icon>
+        Has a <strong>{{badge?.personality?.nature}}</strong> Nature.
+        <mat-icon>help</mat-icon>
       </span>
       <br><br>
 

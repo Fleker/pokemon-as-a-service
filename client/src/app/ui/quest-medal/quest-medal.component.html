@@ -1,4 +1,4 @@
-<mat-spinner *ngIf="!loaded" diameter="40"></mat-spinner>
+<pokeball-spinner *ngIf="!loaded" diameter="40"></pokeball-spinner>
 
 <span matBadge="!" [matBadgeHidden]="!questComplete" matBadgeOverlap="true" matBadgePosition="after">
   <img src="{{src}}" (click)="open()" class="{{classList}}" *ngIf="!gated && loaded"

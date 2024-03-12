@@ -843,6 +843,6 @@ export class PageRaidComponent implements OnDestroy, OnInit {
   }
 
   typeIcon(type: Type) {
-    return `/images/sprites/icons/type-${type}.svg`
+    return `type-${type}`
   }
 }

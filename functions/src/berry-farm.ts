@@ -181,7 +181,7 @@ export const berry_plant = functions.https.onCall(async (data: F.BerryPlant.Req,
     for (let i = 0; i < dataBerry.length; i++) {
       const db = dataBerry[i]
       const di = dataIndex[i]
-      if (data.index < 0) {
+      if ((data.index as number) < 0) {
         throw new functions.https.HttpsError('failed-precondition',
           `Cannot write to plot ${di}`)
       }

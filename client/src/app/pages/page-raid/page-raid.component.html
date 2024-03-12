@@ -196,54 +196,59 @@
 </collapsible-card>
 
 <mat-card *ngIf="raid && raid?.state === 0">
-  <table class="raid-header typebg {{types[0]}}">
-    <tr>
-      <td>
-        <sprite-pokemon class="classified" [badge]="boss"></sprite-pokemon>
-      </td>
-      <td>
-        <span class="type {{types[0]}}">{{types[0]}}</span>
-        <span *ngIf="types[1]">/</span>
-        <span *ngIf="types[1]" class="type {{types[1]}}">{{types[1]}}</span>
-        <br>
-        <span title="{{rating}}">{{stars}}</span>
-        <br><br>
-        <span>
-          <mat-icon title="{{weather}}">{{iconMap[weather]}}</mat-icon>
-          <span class="location">{{location}}</span>
-        </span>
-      </td>
-      <td>
-        <img class="icon" *ngIf="!types[1]" src="{{typeIcon(types[0])}}" />
-        <img class="icon icon2" *ngIf="types[1]" src="{{typeIcon(types[0])}}" />
-        <img class="icon" *ngIf="types[1]" src="{{typeIcon(types[1])}}" />
-        <small>Hosted by {{host}}@</small><br>
-        <!-- <small>
-          You are in <b>{{location}}</b>. The weather is <b>{{weather}}</b>.
-        </small> -->
-        <br>
-        <small>Expires at
-          <!-- <time class="underline" datetime="{{expireDateIso}}"> -->
-          <time class="underline">
-            {{expireDate}}
-          </time>
-        </small>
-        <br>
-        <small>
-          <mat-icon id="share" (click)="shareRaid()">share</mat-icon> Others can join at:
-        </small>
-        <small><a href="/raids?{{raidId}}">
-          pokemon-of-the-week.firebaseapp.com/raids?{{raidId}}
-        </a></small>
-        <br>
-        <small>
-          Join the
-          <a href="Config.RaidChat" target="_blank">
-            Raids Chat</a> to discuss strategies.
-        </small>
-      </td>
-    </tr>
-  </table>
+  <div class="raid-header-ctr">
+    <table class="raid-header typebg {{types[0]}}">
+      <tr>
+        <td>
+          <sprite-pokemon class="classified" [badge]="boss"></sprite-pokemon>
+        </td>
+        <td>
+          <span class="type {{types[0]}}">{{types[0]}}</span>
+          <span *ngIf="types[1]">/</span>
+          <span *ngIf="types[1]" class="type {{types[1]}}">{{types[1]}}</span>
+          <br>
+          <span title="{{rating}}">{{stars}}</span>
+          <br><br>
+          <span>
+            <mat-icon title="{{weather}}">{{iconMap[weather]}}</mat-icon>
+            <span class="location">{{location}}</span>
+          </span>
+        </td>
+        <td>
+          <mat-icon class="icon" *ngIf="!types[1]" svgIcon="{{typeIcon(types[0])}}"></mat-icon>
+          <!-- <img class="icon" *ngIf="!types[1]" src="{{typeIcon(types[0])}}" /> -->
+          <mat-icon class="icon icon2" *ngIf="types[1]" svgIcon="{{typeIcon(types[0])}}"></mat-icon>
+          <!-- <img class="icon icon2" *ngIf="types[1]" src="{{typeIcon(types[0])}}" /> -->
+          <mat-icon class="icon" *ngIf="types[1]" svgIcon="{{typeIcon(types[1])}}"></mat-icon>
+          <!-- <img class="icon" *ngIf="types[1]" src="{{typeIcon(types[1])}}" /> -->
+          <small>Hosted by {{host}}@</small><br>
+          <!-- <small>
+            You are in <b>{{location}}</b>. The weather is <b>{{weather}}</b>.
+          </small> -->
+          <br>
+          <small>Expires at
+            <!-- <time class="underline" datetime="{{expireDateIso}}"> -->
+            <time class="underline">
+              {{expireDate}}
+            </time>
+          </small>
+          <br>
+          <small>
+            <mat-icon id="share" (click)="shareRaid()">share</mat-icon> Others can join at:
+          </small>
+          <small><a href="/raids?{{raidId}}">
+            pokemon-of-the-week.firebaseapp.com/raids?{{raidId}}
+          </a></small>
+          <br>
+          <small>
+            Join the
+            <a href="Config.RaidChat" target="_blank">
+              Raids Chat</a> to discuss strategies.
+          </small>
+        </td>
+      </tr>
+    </table>
+  </div>
   <br>
   <br>
   A rare Pokémon has been found! Get ready for a raid battle!<br>

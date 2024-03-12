@@ -350,6 +350,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
       'type-Dark': 'images/sprites/icons/type-Dark.svg',
       'type-Steel': 'images/sprites/icons/type-Steel.svg',
       'type-Fairy': 'images/sprites/icons/type-Fairy.svg',
+      'gmax': 'images/sprites/icons/gmax.svg',
     }
     for (const [name, url] of Object.entries(icons)) {
       this.iconRegistry.addSvgIcon(name, this.domSanitizer.bypassSecurityTrustResourceUrl(url))

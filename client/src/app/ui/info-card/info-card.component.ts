@@ -24,6 +24,8 @@ export interface HoverSelection {
   ball: string
   location: string
   nature: Nature
+  tera: Type
+  gmax: boolean
 }
 
 @Component({
@@ -58,6 +60,8 @@ export class InfoCardComponent {
       ball: '',
       location: '',
       nature: 'Hardy',
+      tera: 'Status',
+      gmax: false,
     }
   }
 

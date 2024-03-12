@@ -1,6 +1,8 @@
 <mat-tab-group (selectedTabChange)="lazyLoad($event)">
   <mat-tab label="Registered">
-    <mat-spinner *ngIf="registered.length === 0"></mat-spinner>
+    <mat-card *ngIf="registered.length === 0">
+      <pokeball-spinner></pokeball-spinner>
+    </mat-card>
     <mat-card *ngFor="let r of registered">
       <span>
         <b>{{r.label}} Pokédex:</b>
@@ -20,7 +22,7 @@
   </mat-tab>
 
   <mat-tab label="Living">
-    <mat-spinner *ngIf="living.length === 0"></mat-spinner>
+    <pokeball-spinner *ngIf="living.length === 0"></pokeball-spinner>
     <mat-card *ngFor="let r of living">
       <span>
         <b>{{r.label}} Pokédex:</b>
@@ -28,7 +30,7 @@
         {{r.emoji}}
       </span>
       <br>
-      <mat-spinner *ngIf="r.sprites.length === 0"></mat-spinner>
+      <pokeball-spinner *ngIf="r.sprites.length === 0"></pokeball-spinner>
       <div>
         <span *ngFor="let sprite of r.sprites">
           <sprite-pokemon *ngIf="sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [held]="sprite.hold">
@@ -41,7 +43,7 @@
   </mat-tab>
 
   <mat-tab label="Shiny">
-    <mat-spinner *ngIf="shiny.length === 0"></mat-spinner>
+    <pokeball-spinner *ngIf="shiny.length === 0"></pokeball-spinner>
     <mat-card *ngFor="let r of shiny">
       <span>
         <b>{{r.label}} Pokédex:</b>
@@ -49,7 +51,7 @@
         {{r.emoji}}
       </span>
       <br>
-      <mat-spinner *ngIf="r.sprites.length === 0"></mat-spinner>
+      <pokeball-spinner *ngIf="r.sprites.length === 0"></pokeball-spinner>
       <div>
         <span *ngFor="let sprite of r.sprites">
           <sprite-pokemon *ngIf="sprite.registered" badge="{{sprite.badge}}" [dialog]="true" [held]="sprite.hold">
@@ -63,7 +65,7 @@
 
   <mat-tab label="Unown" *ngIf="unown.count">
     <mat-card>
-      <mat-spinner *ngIf="unown.sprites.length === 0"></mat-spinner>
+      <pokeball-spinner *ngIf="unown.sprites.length === 0"></pokeball-spinner>
       <span>
         <b>{{unown.label}} Pokédex</b>
         {{unown.count}}/{{unown.total}}
@@ -82,7 +84,7 @@
 
   <mat-tab label="Variants" *ngIf="variants.count">
     <mat-card>
-      <mat-spinner *ngIf="variants.sprites.length === 0"></mat-spinner>
+      <pokeball-spinner *ngIf="variants.sprites.length === 0"></pokeball-spinner>
       <span>
         <b>{{variants.label}} Pokédex</b>
         {{variants.count}}/{{variants.total}}
