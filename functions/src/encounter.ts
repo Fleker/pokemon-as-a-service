@@ -448,6 +448,10 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
 
   // Paldea
   list.push(...addIf(Potw(P.Wooper, {form: 'paldean'}), {gate: CATCH_CHARM_SWSH, item: ['teraorb'], location: 'ES-MAD'}, p))
+  list.push(...addIf(P.Sprigatito, {gate: CATCH_CHARM_SWSH, item: ['teragrass'], terrain: 'Forest', weather: 'Sunny'}, p))
+  list.push(...addIf(P.Fuecoco, {gate: CATCH_CHARM_SWSH, item: ['terafire'], terrain: 'Mountain', weather: 'Heat Wave'}, p))
+  list.push(...addIf(P.Quaxly, {gate: CATCH_CHARM_SWSH, item: ['terawater'], terrain: 'Bay', weather: 'Rain'}, p))
+
   // Swarms
   if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
     const swarmPokemon = Swarms[location.region || 'North America']
@@ -814,6 +818,12 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
     list.push(...addIf(Potw(P.Yamask, {form: 'galarian'}), {gate: CATCH_CHARM_SM, location, terrain: 'Grasslands', time: 'Night'}, p))
     list.push(...addIf(Potw(P.Stunfisk, {form: 'galarian'}), {gate: CATCH_CHARM_SM, location, terrain: 'Grasslands', weather: 'Thunderstorm'}, p))
   }
+
+  // Paldea
+  list.push(...addIf(P.Floragato, {gate: CATCH_CHARM_SWSH, item: ['teragrass'], terrain: 'Forest', weather: 'Sunny'}, p))
+  list.push(...addIf(P.Crocalor, {gate: CATCH_CHARM_SWSH, item: ['terafire'], terrain: 'Mountain', weather: 'Heat Wave'}, p))
+  list.push(...addIf(P.Quaxwell, {gate: CATCH_CHARM_SWSH, item: ['terawater'], terrain: 'Bay', weather: 'Rain'}, p))
+
   return {
     shinyMultipler: 1,
     list,
@@ -1052,10 +1062,13 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Drakloak, {gate: CATCH_CHARM_SM, weather: 'Fog'}, p))
   list.push(...addIf(Potw(P.Weezing, {form: 'galarian'}), {count: 10, event: 'MONTREAL_PROTOCOL'}, p))
 
+  // Paldea
   list.push(...addIf(Potw(P.Tauros, {form: 'combat_breed'}), {gate: CATCH_CHARM_SWSH, item: ['teraorb'], location: 'ES-MLG'}, p))
   list.push(...addIf(Potw(P.Tauros, {form: 'blaze_breed'}), {gate: CATCH_CHARM_SWSH, item: ['scarletbook'], location: 'ES-MLG'}, p))
   list.push(...addIf(Potw(P.Tauros, {form: 'aqua_breed'}), {gate: CATCH_CHARM_SWSH, item: ['violetbook'], location: 'ES-MLG'}, p))
-
+  list.push(...addIf(P.Meowscarada, {gate: CATCH_CHARM_SWSH, item: ['teragrass'], terrain: 'Forest', weather: 'Sunny'}, p))
+  list.push(...addIf(P.Skeledirge, {gate: CATCH_CHARM_SWSH, item: ['terafire'], terrain: 'Mountain', weather: 'Heat Wave'}, p))
+  list.push(...addIf(P.Quaquaval, {gate: CATCH_CHARM_SWSH, item: ['terawater'], terrain: 'Bay', weather: 'Rain'}, p))
   return {
     shinyMultipler: 1,
     list,
