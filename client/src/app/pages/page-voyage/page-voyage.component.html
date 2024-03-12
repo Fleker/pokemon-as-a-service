@@ -95,7 +95,7 @@
   </p>
   <voyages-meter [score]="score" [vid]="voyageDoc?.vid"></voyages-meter>
   <br>
-  <span *ngIf="!isHost">Hosted by {{voyageDoc?.players[voyageDoc?.host]?.ldap}}@</span>
+  <span *ngIf="!isHost">Hosted by {{voyageDoc?.players[voyageDoc?.host]?.ldap}}&#64;</span>
   <span *ngIf="isHost">You are the host!</span>
   <br>
   <table>
@@ -104,7 +104,7 @@
         <span *ngIf="item.ready">✔️</span>
       </td>
       <td>
-        <small class="uppercase">{{item.ldap}}@</small>
+        <small class="uppercase">{{item.ldap}}&#64;</small>
       </td>
       <td>
         <sprite-pokemon badge="{{item.species}}" [dialog]="true"></sprite-pokemon>
@@ -256,7 +256,7 @@
         <span *ngIf="item.ready">✔️</span>
       </td>
       <td>
-        <small class="uppercase">{{item.ldap}}@</small>
+        <small class="uppercase">{{item.ldap}}&#64;</small>
       </td>
       <td>
         <sprite-pokemon badge="{{item.species}}" [dialog]="true"></sprite-pokemon>

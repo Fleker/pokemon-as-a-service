@@ -5,7 +5,7 @@
   </p>
   <ul>
     <li *ngFor="let room of activeTradeRooms">
-      <a *ngIf="room[1].player" href="/multiplayer/trade?{{room[0]}}">Open trade with {{room[1].player.ldap}}@</a>
+      <a *ngIf="room[1].player" href="/multiplayer/trade?{{room[0]}}">Open trade with {{room[1].player.ldap}}&#64;</a>
       <a *ngIf="!room[1].player" href="/multiplayer/trade?{{room[0]}}">Open trade</a>
     </li>
   </ul>
@@ -73,7 +73,7 @@
 <mat-card *ngIf="roomId">
   <h2 *ngIf="!otherOffer?.ldap">Player Offer</h2>
   <h2 *ngIf="otherOffer?.ldap">
-    {{otherOffer?.ldap}}@ Offer
+    {{otherOffer?.ldap}}&#64; Offer
     <span class="fsc" title="Friend Safari character">[{{otherOffer?.id}}]</span>
   </h2>
   <div *ngIf="otherOffer">
@@ -90,7 +90,7 @@
     ✓ Confirmed
   </span>
   <br><br><br>
-  <small>{{otherOffer?.ldap}}@ Badges</small>
+  <small>{{otherOffer?.ldap}}&#64; Badges</small>
   <div class="hiddenitems">
     <a *ngFor="let h of validHiddenItems" href="/dowsing?{{h.id}}" target="_blank">
       <img src="/images/sprites/quests/{{h.badge}}.png" class="{{h.have}}" />

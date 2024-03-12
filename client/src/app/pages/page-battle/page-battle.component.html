@@ -103,7 +103,7 @@
       <tr *ngFor="let _ of leaderboardCurr?.topPokemon; index as i">
         <td>{{leaderboardCurr?.topPokemon[i]}}</td>
         <td>
-          {{leaderboardCurr?.topWinsWeekly[i].ldap}}@
+          {{leaderboardCurr?.topWinsWeekly[i].ldap}}&#64;
           ({{leaderboardCurr?.topWinsWeekly[i].wins}})
         </td>
       </tr>
@@ -111,11 +111,11 @@
     <tbody *ngIf="isLastLeaderboard">
       <tr *ngFor="let _ of leaderboardCurr?.topPokemon; index as i">
         <td>
-          {{leaderboardCurr?.topWins[i]?.ldap}}@
+          {{leaderboardCurr?.topWins[i]?.ldap}}&#64;
           ({{leaderboardCurr?.topWins[i]?.wins}})
         </td>
         <td>
-          {{leaderboardCurr?.topRatio[i].ldap}}@
+          {{leaderboardCurr?.topRatio[i].ldap}}&#64;
           ({{leaderboardCurr?.topRatio[i].roundPct}}%)
         </td>
       </tr>
