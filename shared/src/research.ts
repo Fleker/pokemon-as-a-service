@@ -1235,6 +1235,46 @@ export const QUEST_HISUI: Record<string, ResearchQuest> = {
   },
 }
 
+function teraQuest(item: ItemId, type: Type, steps = 9, active = true): ResearchQuest {
+  return {
+    title: `Catch ${steps} ${type}-Type Paldean Pokémon`,
+    steps,
+    icon: Sprite.item(item),
+    prize: [item],
+    level: LEVEL.L9,
+    active,
+    origin: 'gen9',
+    completedStep: ({capturedPokemon}) => {
+      if (!capturedPokemon) return false
+      const db = Pkmn.get(capturedPokemon)!
+      if (db.type1 !== type && db.type2 !== type) return false
+      return db.tiers?.includes('Terastallize Cup') || false
+    }
+  }
+}
+
+
+export const QUEST_TERA: Record<string, ResearchQuest> = {
+  TERA_NORMAL: teraQuest('teranormal', 'Normal', 9, false),
+  TERA_FIRE: teraQuest('terafire', 'Fire'),
+  TERA_GRASS: teraQuest('teragrass', 'Grass'),
+  TERA_WATER: teraQuest('terawater', 'Water'),
+  TERA_ICE: teraQuest('teraice', 'Ice', 9, false),
+  TERA_DARK: teraQuest('teradark', 'Dark', 9, false),
+  TERA_STEEL: teraQuest('terasteel', 'Steel', 9, false),
+  TERA_FAIRY: teraQuest('terafairy', 'Fairy', 9, false),
+  TERA_DRAGON: teraQuest('teradragon', 'Dragon', 9, false),
+  TERA_ROCK: teraQuest('terarock', 'Rock', 9, false),
+  TERA_GROUND: teraQuest('teraground', 'Ground', 9, false),
+  TERA_BUG: teraQuest('terabug', 'Bug', 9, false),
+  TERA_POISON: teraQuest('terapoison', 'Poison', 9, false),
+  TERA_GHOST: teraQuest('teraghost', 'Ghost', 9, false),
+  TERA_PSYCHIC: teraQuest('terapsychic', 'Psychic', 9, false),
+  TERA_ELECTRIC: teraQuest('teraelectric', 'Electric', 9, false),
+  TERA_FLYING: teraQuest('teraflying', 'Flying', 9, false),
+  TERA_FIGHTING: teraQuest('terafighting', 'Fighting', 9, false),
+}
+
 export const QUEST_TRAVEL: Record<string, ResearchQuest> = {
   CATCH_SNOW: {
     title: 'Catch 5 Pokémon in the snow',
@@ -1419,4 +1459,5 @@ export const ACTIVE_RESEARCH = {
   ...QUEST_TRAVEL,
   ...QUEST_ZCRYSTALS_MEMORIES,
   ...QUEST_GALAR,
+  ...QUEST_TERA,
 }
