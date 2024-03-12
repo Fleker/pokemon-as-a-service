@@ -660,3 +660,9 @@ test('Badge fragments', t => {
     'a', '3MfUg2'
   ])
 })
+
+test('Fifth Personality Byte Migration', t => {
+  const oldBulb = Badge.from2023('1#Yf_4')
+  const newBulb = oldBulb.toString()
+  t.is(newBulb, '1#3MfUhG')
+})

@@ -657,6 +657,103 @@ export class Badge {
   }
 
   /**
+   * For compatibility purposes, allows a `Badge` object to be bootstrapped
+   * using a deprecated ID.
+   * @param pokemonId A Pokemon ID from 2023 or earlier
+   * @deprecated You shouldn't use this function unless you are migrating data
+   */
+  static from2023(pokemonId: string) {
+    const badge = new Badge()
+    if (typeof pokemonId !== 'string') {
+      throw new Error('Cannot interpret non-string badge')
+    }
+    if (pokemonId === 'potw-000') {
+      throw new Error('Cannot interpret badge string potw-000')
+    }
+    badge.original = pokemonId
+    const [id, personality, tags] = pokemonId.split('#')
+    badge.id = toBase10(id)
+    if (personality) {
+      badge.personality = Badge.toPersonality2023(personality, badge.id)
+    }
+    if (tags) {
+      badge.defaultTags = toDefaultTags(tags)
+      badge.tags = toTags(tags)
+    }
+    return badge
+  }
+
+  /**
+   * @deprecated You shouldn't use this function unless you are migrating data
+   */
+  static toPersonality2023(personality64: string, id: number): Personality {
+    const pkmn = Pkmn.get(`potw-${id}`)
+    if (!pkmn) throw new Error(`No Pokemon exists potw-${id} w/${personality64}`)
+    const personality16 = toBase16(personality64).padStart(8, '0')
+    // Breaks up the personality into base16 strings, where every 2 characters is one byte
+    // Byte 1
+    const byte1 = personality16.substring(0, 2)
+    const number1 = parseInt(byte1, 16)
+    // | NATURE (3) | POKEBALL (5) |
+    const natureIndex = number1 >> 5 // Apply mask
+    const nature = NatureArr[natureIndex]
+    const pokeballIndex = number1 & 31 // Apply mask
+    const pokeball = PokeballArr[pokeballIndex]
+    // Byte 2
+    const byte2 = personality16.substring(2, 4)
+    const number2 = parseInt(byte2, 16)
+    // | VARIANT (4) | GENDER (2) | SHINY (1) | AFFECTIONATE (1) |
+    const variantId = (number2 & 240) >> 4 // Apply mask
+    const variant = (() => {
+      if (variantId === 15) return undefined
+      return variantId
+    })()
+    const genderId = (number2 & 12) >> 2 // Apply mask
+    const gender = (() => {
+      if (!pkmn.gender) return ''
+      if (genderId === 3) return 'female'
+      if (genderId === 2) return 'male'
+      return ''
+    })()
+    const shiny = (number2 & 2) >> 1 === 1
+    const affectionate = (number2 & 1) === 1
+    // Byte 3 - Form
+    const byte3 = personality16.substring(4, 6)
+    const number3 = parseInt(byte3, 16)
+    const formIndex = (() => {
+      if (number3 === 255) return undefined
+      return number3
+    })()
+    const form = (() => {
+      if (formIndex !== undefined) {
+        // Do datastore lookup to get forms on base
+        if (!pkmn.syncableForms) return undefined
+        return pkmn.syncableForms![formIndex]
+      }
+      return undefined
+    })()
+    // Byte 4 - Location
+    const byte4 = personality16.substring(6, 8)
+    const number4 = parseInt(byte4, 16)
+    const location = locationArray[number4] ?? 'Unknown'
+    return {
+      pokeball: pokeball as PokeballId,
+      nature: nature as Nature,
+      variant,
+      gender,
+      shiny,
+      affectionate,
+      form,
+      location: location as LocationId,
+      debug: {
+        byte1, byte2, byte3, byte4, byte5: '',
+        number1, number2, number3, number4, number5: -1,
+        formIndex, variantId,
+      }
+    }
+  }
+
+  /**
    * Generates a new _valid_ Pokemon from scratch.
    * This will make certain assumptions about the badge format
    * - Form if not provided and it needs one (`needForm`)
