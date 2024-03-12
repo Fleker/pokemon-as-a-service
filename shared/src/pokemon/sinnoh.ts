@@ -3141,6 +3141,8 @@ export const sinnohBuilder = {
     ],
     novelMoves: [['Scald', 'Ice Beam', 'Energy Ball', 'Tail Glow'],
       ['Hydro Pump', 'Mud-Slap', 'Blizzard', 'Tail Glow'],
+      ['Psychic', 'Grass Knot', 'Scald', 'Heart Swap'],
+      ['Liquidation', 'Signal Beam', 'Shadow Ball', 'Take Heart'],
     ]
   }),
   'potw-491': ensurePkmnBuilder({

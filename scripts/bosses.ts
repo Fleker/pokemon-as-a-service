@@ -47,6 +47,7 @@ const dates = [
   'Nov 23',
   'Dec 23',
   'Jan 24',
+  'Feb 24',
 ]
 
 export const bosses = [
@@ -2265,6 +2266,7 @@ export const bosses = [
     Potw(P.Altaria, {var:3}),
     Potw(P.Gourgeist, {var:2}),
     Potw(P.Gourgeist, {var:2, form: 'large'}),
+    Potw(P.Celebi, {var:2}),
   ],
   [
     // May 23
@@ -3449,6 +3451,7 @@ export const bosses = [
     Potw(P.Unfezant, {var: 2}),
   ],
   [
+    // Jan'24
     Potw(P.Typhlosion, {var: 2, form: 'hisuian'}),
     Potw(P.Samurott, {var: 2, form: 'hisuian'}),
     Potw(P.Decidueye, {var: 2, form: 'hisuian'}),
@@ -3522,6 +3525,7 @@ export const bosses = [
     Potw(P.Nihilego, {var:4}),
     Potw(P.Pheromosa, {var:4}),
     Potw(P.Buzzwole, {var:4}),
+    Potw(P.Xurkitree, {var:4}),
     Potw(P.Stakataka, {var:4}),
     Potw(P.Blacephalon, {var:4}),
     Potw(P.Guzzlord, {var:4}),
@@ -3554,6 +3558,7 @@ export const bosses = [
     Potw(P.Rapidash, {var:4, form: 'galarian'}),
     Potw(P.Pangoro, {var:2}),
     Potw(P.Eiscue, {var:2}),
+    Potw(P.Eiscue, {var:2, form: 'noice_face'}),
     Potw(P.Seaking, {var:1}),
     Potw(P.Sandslash, {var:4,form:'alolan'}),
     Potw(P.Hawlucha, {var:1}),

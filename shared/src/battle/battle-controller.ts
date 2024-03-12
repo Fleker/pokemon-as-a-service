@@ -983,7 +983,7 @@ export function turn(p: TurnParameters): TurnLog {
   })
 
   if (options?.pctLogs && options.pctLogs.length) {
-    const pctCondition = options.pctLogs[0][0]
+    const pctCondition = options.pctLogs[0][0] as number // FIXME
     const pctOppo = opponents[0].currentHp / opponents[0].totalHp
     if (opponents[0].currentHp > 0 && pctOppo < pctCondition) {
       log.add(options.pctLogs[0][1] as string)
