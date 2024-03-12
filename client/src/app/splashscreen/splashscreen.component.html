@@ -3,30 +3,31 @@
   <div class="sky">
     <h1>Pokémon of the Week</h1>
     <button mat-button id='btn-login' raised (click)="login()" *ngIf="needLogin">
+      <mat-icon>login</mat-icon>
       Login to Start
     </button>
-    <app-constellation></app-constellation>
+    <app-constellation uid="{{uid}}"></app-constellation>
     <br>
     <!-- <img class="sihouette" src='/images/sprites/pokemon/potw-898.png' /> -->
-    <img class="animate ice legend1" src='/images/sprites/pokemon/potw-896.png' />
-    <img class="animate ghost legend2" src='/images/sprites/pokemon/potw-897.png' />
+    <img class="animate fighting legend1" src='/images/sprites/pokemon/potw-1007.png' />
+    <img class="animate electric legend2" src='/images/sprites/pokemon/potw-1008.png' />
   </div>
   <div class="ground">
-    <img class="ambient steel" src='/images/sprites/pokemon/potw-875-ice_face.png'>
-    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-875-noice_face.png'>
-    <img class="ambient steel d2" src='/images/sprites/pokemon/potw-872.png'>
-    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-875-noice_face.png'>
-    <img class="ambient steel" src='/images/sprites/pokemon/potw-875-ice_face.png'>
+    <img class="ambient steel" src='/images/sprites/pokemon/potw-906.png'>
+    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-194-paldean.png'>
+    <img class="ambient steel d2" src='/images/sprites/pokemon/potw-909.png'>
+    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-194-paldean.png'>
+    <img class="ambient steel" src='/images/sprites/pokemon/potw-912.png'>
     <br>
-    <img class="animate-shake" src="/images/sprites/pokemon/potw-840.png" />
-    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-841.png" />
-    <img class="animate-shake d2" src="/images/sprites/pokemon/potw-615.png" />
-    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-842.png" />
-    <img class="animate-shake" src="/images/sprites/pokemon/potw-840.png" />
+    <img class="animate-shake" src="/images/sprites/pokemon/potw-915.png" />
+    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-916-female.png" />
+    <img class="animate-shake d2" src="/images/sprites/pokemon/potw-917.png" />
+    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-916-female.png" />
+    <img class="animate-shake" src="/images/sprites/pokemon/potw-915.png" />
     <br>
-    <img class='small' src='/images/sprites/items/potw-item-svcchilisauce.png'>
-    <img class='small' src='/images/sprites/items/potw-item-svccreamcheese.png'>
-    <img class='small' src='/images/sprites/items/potw-item-svccurrypowder.png'>
+    <img class='small' src='/images/sprites/items/potw-item-svibellpeppergreen.png'>
+    <img class='small' src='/images/sprites/items/potw-item-svibellpepperred.png'>
+    <img class='small' src='/images/sprites/items/potw-item-svibellpepperyellow.png'>
   </div>
   <br>
 
@@ -38,5 +39,5 @@
     <br>
     <span id="tip">{{selectedTip}}</span>
   </h3>
-  <mat-spinner [diameter]="64"></mat-spinner>
+  <pokeball-spinner [diameter]="64"></pokeball-spinner>
 </div>

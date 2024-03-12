@@ -57,7 +57,8 @@ export class SplashscreenComponent implements OnInit, AfterViewInit {
   @HostBinding('style.opacity') opacitySplash = '1'
   @HostBinding('style.display') showSplash = 'block'
   @ViewChild('droppings') droppings: ElementRef<HTMLImageElement>
-  appVersion: string = 'v2.8.30'
+  appVersion: string = 'v3.9.0'
+  uid?: string
   needLogin: boolean = false
   selectedTip: string = '...'
   isLoaded = false
@@ -68,6 +69,8 @@ export class SplashscreenComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.firebase.subscribeAuth().subscribe(res => {
       this.needLogin = !res || !res.user
+      // this.needLogin = true
+      this.uid = res.user.uid
       console.log(`Need login: ${this.needLogin}`)
       if (res.user) {
         setTimeout(() => {

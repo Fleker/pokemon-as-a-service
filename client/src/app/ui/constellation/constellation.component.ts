@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, ViewChild } from '@angular/core';
 
 const STAR_SMALL = 3
 const STAR_LARGE = 6
@@ -9,6 +9,7 @@ const STAR_LARGE = 6
   styleUrls: ['./constellation.component.css']
 })
 export class ConstellationComponent implements AfterViewInit, OnDestroy {
+  @Input('uid') uid?: string
   @ViewChild('canvas') canvas: ElementRef<HTMLCanvasElement>
   flicker?: any
 
@@ -16,6 +17,7 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
     let frame = 0
     this.flicker = setInterval(() => {
       this.drawConstellationCalyrex(++frame)
+      this.dotUserStars(this.uid)
     }, 150)
   }
 
@@ -40,6 +42,43 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
     ctx.ellipse(x, y, rad, rad, 0, 0, 360)
     ctx.closePath()
     ctx.fill()
+  }
+
+  /**
+   * Add stars in the background of the constellation based on the user ID.
+   * Every user will have a slightly different constellation.
+   */
+  dotUserStars(uid: string = '') {
+    let row = 0
+    let col = 0
+    // Firebase UIDs have 64 possibilities
+    const firebaseUids = 'abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ-_'
+    if (!this.canvas) return
+    const ctx = this.canvas!.nativeElement.getContext('2d')
+    if (ctx === null) return
+
+    for (const char of uid) {
+      // Iterate through each character
+      const offset = firebaseUids.indexOf(char)
+      const radius = offset % 3 + 1
+      ctx.fillStyle = '#ffffff99'
+      ctx.strokeStyle = '#ffffff99'
+      ctx.beginPath()
+      ctx.ellipse(Math.min(col * 64 + offset, 477), row * 120 + offset * 2, radius, radius, 0, 0, 360)
+      ctx.closePath()
+      ctx.fill()
+      // See 'veXJXuNwZ7RsUXV6tQqWjboQOy03'
+      //     ^--- 28 characters
+      //     4 rows of 7
+      //     480/7 ~= 64
+      //     480/4 = 120
+      if (col >= 7 /* 64 * 7 = 448 */) {
+        col = 0
+        row++
+      } else {
+        col++
+      }
+    }
   }
 
   drawConstellationCalyrex(frame: number) {
