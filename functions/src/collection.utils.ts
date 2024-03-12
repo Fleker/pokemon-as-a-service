@@ -5,6 +5,7 @@ import { Users } from "./db-types";
 import { awardItem, hasPokemon, hasPokemonFuzzy, removePokemon } from "./users.utils";
 import * as Pkmn from '../../shared/src/pokemon'
 
+/** @deprecated Use the v2 version of this method. */
 export function genReleaseItems(user: Users.Doc, pokemon: PokemonId[]): ItemId[] {
   const receivedItems: ItemId[] = []
   for (const badgeId of pokemon) {
@@ -34,7 +35,7 @@ export function v2Release(user: Users.Doc, pokemon: PokemonId, count: number): I
   if (badge.defaultTags?.includes('FAVORITE')) {
     throw new Error(`Cannot release favorite ${pokemon}`)
   }
-  removePokemon(user, new Badge(pokemon), count)
+  removePokemon(user, badge, count)
   const item = (() => {
     const datastore = Pkmn.get(badge.toLegacyString())!
     return datastore.release || 'pokeball'

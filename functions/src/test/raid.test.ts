@@ -1,7 +1,6 @@
 import test from 'ava'
-import { Pokemon, Badge } from '../../../shared/src/badge3';
+import { Pokemon, Badge, fromPersonality } from '../../../shared/src/badge3';
 import { BadgeId } from '../../../shared/src/pokemon/types';
-import { Bulbasaur } from '../../../shared/src/gen/type-pokemon-ids';
 import {violatesSpeciesClause, violatesRoomSize, raidSelectPreconditionCheck, CREATED} from '../battle-raid.utils'
 import { DbRaid, Users } from '../db-types'
 
@@ -68,7 +67,16 @@ const emptyUser = () => {
     },
     strikes: 0,
     pokemon: {
-      [Pokemon(Bulbasaur)]: 1,
+      // Basic forms of Bulbasaur, Charmander, Squirtle
+      '1': {
+        [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 1)]: 1
+      },
+      '4': {
+        [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 4)]: 1
+      },
+      '7': {
+        [fromPersonality({pokeball: 'pokeball', location: 'US-MTV', shiny: false, affectionate: false, gender: ''}, 7)]: 1
+      }
     }
   }
   return user

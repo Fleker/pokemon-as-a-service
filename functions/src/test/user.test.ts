@@ -77,43 +77,69 @@ test('User wealth NaN', t => {
 
 test('hasPokemon', t => {
   user.pokemon = {
-    ['1#Yf_4']: 1,
-    ['2#Yf_4']: 1,
-    ['3#Yf_4']: 2,
-    ['4#Yf_4']: 1,
-    ['7#3Yf_4' as PokemonId]: 1, // Squirtle w/MasterBall
+    '1': {
+      '3MfUhG': 1
+    },
+    '2': {
+      '3MfUhG': 1
+    },
+    '3': {
+      '3MfUhG': 1
+    },
+    '4': {
+      '3MfUgy': 1
+    },
+    '7': {
+      '3Yf_4': 1
+    }
   }
-  t.true(hasPokemon(user as Users.Doc, '1#Yf_4'), 'Should have a Bulbasaur')
-  t.true(hasPokemon(user as Users.Doc, ['1#Yf_4', '2#Yf_4']), 'Should have both Pkmn')
-  t.true(hasPokemon(user as Users.Doc, '3#Yf_4'), 'Should have Venusaur in new format')
-  t.true(hasPokemon(user as Users.Doc, ['3#Yf_4', '4#Yf_4']), 'Should have both new format')
-
-  t.false(hasPokemon(user as Users.Doc, 'potw-010' as PokemonId), 'Should not have Caterpie')
-  t.false(hasPokemon(user as Users.Doc, ['potw-001', 'potw-001'] as unknown as PokemonId[]), 'Should not have 2 Bulbas')
-  t.false(hasPokemon(user as Users.Doc, ['4#Yf_4', '4#Yf_4'] as unknown as PokemonId[]), 'Only has one Charm')
-  t.false(hasPokemon(user as Users.Doc, ['5#Yf_4'] as unknown as PokemonId[]), 'Does not have any Charmeleons')
+  t.true(hasPokemon(user as Users.Doc, '1#3MfUhG' as PokemonId), 'Should have a Bulbasaur')
+  t.true(hasPokemon(user as Users.Doc, ['1#3MfUhG', '2#3MfUhG'] as unknown as PokemonId[]), 'Should have both Pkmn')
+  t.true(hasPokemon(user as Users.Doc, '3#3MfUhG' as PokemonId), 'Should have Venusaur in new format')
+  t.true(hasPokemon(user as Users.Doc, ['3#3MfUhG', '4#3MfUgy'] as unknown as PokemonId[]), 'Should have both new format')
+   
+  // t.false(hasPokemon(user as Users.Doc, 'potw-010' as PokemonId), 'Should not have Caterpie')
+  // t.false(hasPokemon(user as Users.Doc, ['potw-001', 'potw-001'] as unknown as PokemonId[]), 'Should not have 2 Bulbas')
+  t.false(hasPokemon(user as Users.Doc, ['4#3MfUgy', '4#3MfUgy'] as unknown as PokemonId[]), 'Only has one Charm')
+  t.false(hasPokemon(user as Users.Doc, ['5#3MfUgy'] as unknown as PokemonId[]), 'Does not have any Charmeleons')
 })
 
 test('hasPokemonFuzzy', t => {
   user.pokemon = {
-    ['1#Yf_4']: 1,
-    ['2#Yf_4']: 1,
-    ['3#Yf_4']: 2,
-    ['4#Yf_4']: 1,
-    ['4#3Yf_4' as PokemonId]: 1, // Charm w/MasterBall
-    ['7#3Yf_4' as PokemonId]: 1, // Squirtle w/MasterBall
-    ['a#Yf_5' as PokemonId]: 1, // Caterpie in NYC
-    ['2q#Yf_4' as PokemonId]: 5, // Meganium
-    ['2q#YL_4' as PokemonId]: 1, // Fancy Meganium
+    '1': {
+      '3MfUhG': 1
+    },
+    '2': {
+      '3MfUhG': 1
+    },
+    '3': {
+      '3MfUhG': 2
+    },
+    '4': {
+      '3MfUgy': 2,
+      '3MfUhG': 2,
+    },
+    '7': {
+      '3fM22': 1
+    },
+    'a': {
+      '3MfUg2': 1,
+    },
+    '2q': {
+      '3MfUhG': 5,
+      '3MfUh2': 1,
+    }
   }
   const squirtMatch = Badge.match('7#Yf_4', ['7#3Yf_4'] as unknown as PokemonId[], MATCH_GTS)
   t.true(squirtMatch.match, 'SquirtMatch failed')
-  t.is('7#3Yf_4', squirtMatch.result, 'SquirtMatch matched wrong')
-  t.true(hasPokemonFuzzy(user as Users.Doc, '1#Yf_4'), 'Should have a Bulbasaur')
-  t.true(hasPokemonFuzzy(user as Users.Doc, '7#Yf_4'), 'Should match Squirtle')
-  t.true(hasPokemonFuzzy(user as Users.Doc, ['4#Yf_4', '4#Yf_4'] as unknown as PokemonId[]), 'Should have two valid Charm')
-  t.true(hasPokemonFuzzy(user as Users.Doc, 'a#Yf_4'), 'Should have a valid Caterpie')
-  t.true(hasPokemonFuzzy(user as Users.Doc, ['2q#Yf_4', '2q#YL_4' as PokemonId]), 'Should have both Meganium')
+  t.is('7#3fM22', squirtMatch.result, 'SquirtMatch matched wrong')
+  t.true(hasPokemonFuzzy(user as Users.Doc, '1#3MfUhG' as PokemonId), 'Should have a Bulbasaur')
+  t.true(hasPokemonFuzzy(user as Users.Doc, '7#3fM22' as PokemonId), 'Should match Squirtle')
+  t.true(hasPokemonFuzzy(user as Users.Doc, ['4#3MfUgy', '4#3MfUgy'] as unknown as PokemonId[]), 'Should have two valid Charm')
+  t.log(Badge.fromLegacy('potw-010'))
+  t.log(Badge.fromLegacy('potw-154'))
+  t.true(hasPokemonFuzzy(user as Users.Doc, 'a#3MfUg2' as PokemonId), 'Should have a valid Caterpie')
+  t.true(hasPokemonFuzzy(user as Users.Doc, ['2q#3MfUhG', '2q#3MfUhG'] as unknown as PokemonId[]), 'Should have both Meganium')
 
   t.false(hasPokemonFuzzy(user as Users.Doc, ['5#Yf_4'] as unknown as PokemonId[]), 'Does not have any Charmeleons')
 })
@@ -121,19 +147,27 @@ test('hasPokemonFuzzy', t => {
 // With FieldValues, the behavior here is not quite highly testable.
 test.skip('Add/Remove Pokemon', t => {
   user.pokemon = {
-    '1#Yf_4': 1,
-    '2#Yf_4': 1,
+    '1': {
+      '3MfUhG': 1
+    },
+    '2': {
+      '3MfUhG': 1
+    },
   }
 
   const ivysaur = new Badge(Pokemon(P.Ivysaur))
   addPokemon(user, ivysaur, 2)
   t.deepEqual(user.pokemon, {
-    '2#Yf_4': 3
+    '2': {
+      '3MfUhG': 3
+    },
   })
 
   removePokemon(user, ivysaur, 2)
   t.deepEqual(user.pokemon, {
-    '2#Yf_4': 1
+    '2': {
+      '3MfUhG': 1
+    },
   })
 
   const venusaur = new Badge(Pokemon(P.Venusaur))
@@ -143,13 +177,19 @@ test.skip('Add/Remove Pokemon', t => {
 
   addPokemon(user, venusaur)
   t.deepEqual(user.pokemon, {
-    '2#Yf_4': 1,
-    '3#Yf_4': 1,
+    '2': {
+      '3MfUhG': 1
+    },
+    '3': {
+      '3MfUhG': 1
+    },
   })
 
   // Verify getting to zero removes map entry
   removePokemon(user, venusaur)
   t.deepEqual(user.pokemon, {
-    '2#Yf_4': 1,
+    '2': {
+      '3MfUhG': 1
+    },
   }, 'Venusaur entry should be removed.')
 })

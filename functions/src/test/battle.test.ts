@@ -613,7 +613,7 @@ test('Test attack flow - Move effect', t => {
   t.is(pkmn[0].species, 'Electrode')
   t.is(pkmn[1].species, 'Cubone')
   const stringShot = {...Movepool['String Shot']}
- 
+  stringShot.accuracy = Infinity // Guarantee it hits
   const log = attack({
     caster: cubone, casters: [cubone], casterParty: [cubone],
     target: electrode, targets: [electrode], targetParty: [cubone],
@@ -1153,14 +1153,14 @@ test('Aoe - Damage calc', t => {
   const damage1 = electrode.totalHp - electrode.currentHp
   t.log('AOEDC', `dmg1 - ${damage1}`)
 
-  const move2 = {...Movepool['Judgment']}
+  const move2 = {...Movepool['Discharge']}
   move2.accuracy = Infinity
   move2.criticalHit = 0
   move2.power = 1.5
 
   log.push(attack({
     caster: magikarp, casters: [magikarp, golem], casterParty: [magikarp, golem],
-    target: electrode, targets: [electrode], targetParty: [electrode],
+    target: electrode, targets: [electrode, magikarp, golem], targetParty: [electrode, magikarp, golem],
     move: move2, field: FIELD_BAY, prefix: 'Your',
   }))
   t.log('AOEDC', electrode.currentHp)
@@ -1342,7 +1342,7 @@ test('Gengarite works', t => {
   gengar.heldItem = Inventory.gengarite
   gengar.spAttack = 130
   gengar.heldItemKey = 'gengarite'
-  const log = gengar.heldItem?.onBattleStart?.(gengar, golem, false)
+  const log = gengar.heldItem?.onEnterBattle!(gengar, golem, false)
   t.log(log)
   t.is(Math.round(gengar.spAttack), 170, 'Mega evo did not update stats')
 })
@@ -1354,7 +1354,7 @@ test('Gengarite fails on non-Gengar', t => {
   magikarp.heldItem = Inventory.gengarite
   magikarp.heldItemKey = 'gengarite'
   magikarp.spAttack = 130
-  magikarp.heldItem?.onBattleStart?.(magikarp, golem, false)
+  magikarp.heldItem?.onEnterBattle!(magikarp, golem, false)
   t.not(Math.round(magikarp.spAttack), 170, 'Mega evo should not update stats')
 })
 
@@ -1883,7 +1883,7 @@ test('Dynamax', t => {
   tyranitar.move = ['Stone Edge', 'Feint Attack']
   t.deepEqual(tyranitar.move, ['Stone Edge', 'Feint Attack'], 'Confirm initial moves')
 
-  const maxLog = tyranitar.heldItem!.onBattleStart!(tyranitar, tyranitar, false)
+  const maxLog = tyranitar.heldItem!.onEnterBattle!(tyranitar, tyranitar, false)
   t.true(maxLog.msg.includes("Tyranitar dynamaxed!"), 'Tyranitar should grow up')
   t.deepEqual(tyranitar.move, ['Max Rockfall', 'Max Darkness'], 'Confirm DMax moves')
   t.is(200, tyranitar.totalHp)
@@ -1906,7 +1906,7 @@ test('Gigantamax', t => {
   tyranitar.move = ['Stone Edge', 'Feint Attack']
   t.deepEqual(tyranitar.move, ['Stone Edge', 'Feint Attack'], 'Confirm initial moves')
 
-  const maxLog = tyranitar.heldItem!.onBattleStart!(tyranitar, tyranitar, false)
+  const maxLog = tyranitar.heldItem!.onEnterBattle!(tyranitar, tyranitar, false)
   t.log(maxLog)
   t.true(maxLog.msg.includes("Tyranitar does not like mushrooms"), 'Tyranitar has no GMax form')
 
@@ -1916,7 +1916,7 @@ test('Gigantamax', t => {
   lapras.heldItem = Inventory.maxmushroom
   t.deepEqual(lapras.move, ['Blizzard', 'Surf', 'Sing'], 'Confirm initial moves')
 
-  const gmaxLog = lapras.heldItem!.onBattleStart!(lapras, lapras, false)
+  const gmaxLog = lapras.heldItem!.onEnterBattle!(lapras, lapras, false)
   t.log(gmaxLog)
   t.log(lapras.movepool)
   t.true(gmaxLog.msg.includes("Lapras gigantamaxed!"), 'Lapras has a GMax form')
@@ -1987,7 +1987,7 @@ test('Terastallization - Stab', t => {
   removeCondition(aRaichu1, 'Terastallized')
   removeCondition(aRaichu1, 'Stab')  
   const teraPsychic = Inventory.terapsychic
-  const log = teraPsychic.onBattleStart!(aRaichu1, aRaichu1, false)
+  const log = teraPsychic.onEnterBattle!(aRaichu1, aRaichu1, false)
   t.log(log)
   const conditionTera = getCondition(aRaichu1, 'Terastallized')!
   const conditionsStab = aRaichu1.conditions.filter(c => c.name === 'Stab')
@@ -2008,7 +2008,7 @@ test('Terastallization - Third Type', t => {
   removeCondition(aRaichu1, 'Terastallized')
   removeCondition(aRaichu1, 'Stab')
   const teraWater = Inventory.terawater
-  const log = teraWater.onBattleStart!(aRaichu1, aRaichu1, false)
+  const log = teraWater.onEnterBattle!(aRaichu1, aRaichu1, false)
   t.log(log)
   const conditionTera = getCondition(aRaichu1, 'Terastallized')!
   const conditionsStab = aRaichu1.conditions.filter(c => c.name === 'Stab')

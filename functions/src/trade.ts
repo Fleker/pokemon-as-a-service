@@ -332,7 +332,7 @@ export const trade_close = functions.https.onCall(async (data: F.TradeClose.Req,
   }
 
   room.active = false
-  await roomDoc.ref.update(room)
+  await roomDoc.ref.update<DbTradeRoom>(room)
 
   return {
     roomId

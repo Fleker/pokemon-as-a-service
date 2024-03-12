@@ -3,6 +3,7 @@ import { Users } from "./db-types"
 import { ITEMS, ItemId } from "../../shared/src/items-list"
 import { PokemonId } from "../../shared/src/pokemon/types"
 import { Badge, MATCH_GTS } from "../../shared/src/badge3"
+import { myPokemon } from "../../shared/src/badge-inflate"
 
 export const hasItem = (user: Users.Doc, item: ItemId, count = 1) => {
   if (!ITEMS.hasOwnProperty(item)) {
@@ -31,8 +32,11 @@ export const hasPokemon = (user: Users.Doc, fnPkmn: PokemonId | PokemonId[]) => 
   let hasPkmn = false
   if (user.pokemon !== undefined) {
     hasPkmn = true
-    const pmap = {...user.pokemon}
+    const pmap = structuredClone(user.pokemon)
     for (const p of pkmn) {
+      if (p.startsWith('potw-')) {
+        throw new Error('Nope. That is badge format is deprecated.')
+      }
       const pbadge = new Badge(p)
       const [id, personality] = pbadge.fragments
       if (pmap[id]) {
@@ -61,8 +65,8 @@ export const hasPokemon = (user: Users.Doc, fnPkmn: PokemonId | PokemonId[]) => 
   let hasPkmn = false
   if (user.pokemon !== undefined) {
     hasPkmn = true
-    const pmap = {...user.pokemon}
-    let keys = Object.keys(pmap) as unknown as PokemonId[]
+    const pmap = structuredClone(user.pokemon)
+    let keys = [...myPokemon(pmap)].map(([k]) => k)
     for (const p of pkmn) {
       const matcher = Badge.match(p, keys, MATCH_GTS)
       if (matcher.match) {
@@ -81,7 +85,7 @@ export const hasPokemon = (user: Users.Doc, fnPkmn: PokemonId | PokemonId[]) => 
       } else {
         hasPkmn = false
       }
-      keys = Object.keys(pmap) as unknown as PokemonId[]
+      keys = [...myPokemon(pmap)].map(([k]) => k)
     }
   }
   return hasPkmn
@@ -117,7 +121,7 @@ export const addPokemon = (user: Users.Doc, pkmn: Badge, count = 1) => {
       user.pokemon[id][personality]! = count
     }
   } else {
-    user.pokemon[pkmn.id] = {
+    user.pokemon[id] = {
       [personality]: count
     }
   }
@@ -145,6 +149,9 @@ export const removePokemon = (user: Users.Doc, pkmn: Badge, count = 1) => {
   user.pokemon[id][personality]! -= count
   if (user.pokemon[id][personality] === 0) {
     delete user.pokemon[id][personality]
+  }
+  if (Object.keys(user.pokemon[id]).length === 0) {
+    delete user.pokemon[id]
   }
 }
 

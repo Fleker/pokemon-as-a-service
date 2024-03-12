@@ -15,7 +15,7 @@ import spacetime from 'spacetime'
 import { Swarms } from '../../shared/src/platform/swarms'
 import { SWARMS_UNLOCK } from '../../shared/src/quests'
 import { hasPokemonFuzzy } from './users.utils'
-import {getAllPokemon, TPokemon} from '../../shared/src/badge-inflate'
+import {getAllPokemon, myPokemon, TPokemon} from '../../shared/src/badge-inflate'
 import { Pokemon, Badge } from '../../shared/src/badge3'
 import { Azelf, Mesprit, Uxie } from '../../shared/src/gen/type-pokemon-ids'
 import { ITEMS } from '../../shared/src/items-list'
@@ -35,7 +35,7 @@ export function deduplicate(
 ) {
   if (duplicates) return encounters.list
   const badges: ReadonlySet<BadgeId> = new Set(
-    Object.keys(pokemon)!.map(p => {
+    [...myPokemon(pokemon)].map(([k]) => k).map(p => {
       const b = new Badge(p)
       if (isLure) {
         b.personality.variant = undefined

@@ -24,7 +24,7 @@ export interface RaidBattleSetting extends SharedRaidSetting {
   /**
    * Custom messages to give when the boss drops below a certain percentage at the end of a turn
    */
-  pctLogs: Array<Array<number | string>>
+  pctLogs: Array<[number, string]>
   /**
    * If true, players must manually claim prizes after raid.
    */

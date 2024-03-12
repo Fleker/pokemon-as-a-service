@@ -5,6 +5,7 @@ import { Users } from "./db-types"
 import { ItemId } from '../../shared/src/items-list'
 import { hasItem, awardItem, hasPokemon, removePokemon, addPokemon } from "./users.utils"
 import { BadgeId, PokemonId } from '../../shared/src/pokemon/types';
+import { myPokemon } from '../../shared/src/badge-inflate'
 
 export type ItemBasedFunction = (item?: ItemId) => string
 
@@ -297,7 +298,7 @@ export const tradeEvolution = (pkmn: BadgeId, item: ItemId = 'oran', other: Badg
 }
 
 export const trainerVerify = (user: Users.Doc, species: PokemonId, item?: ItemId) => {
-  const b3Pokemon = Object.keys(user.pokemon) as PokemonId[]
+  const b3Pokemon = [...myPokemon(user.pokemon)].map(([k]) => k)
   const searchBadge = new Badge(species)
   if (!Badge.match(searchBadge.toString(), b3Pokemon, MATCH_EXACT).match) {
     throw new Error(`[G-M] Trainer ${user.ldap} does not have exact Pokémon ${searchBadge.toSimple()}/${species}`)
@@ -352,6 +353,7 @@ export const swapNoCheck = (origin: Users.Doc, destination: Users.Doc, destinati
     item ? item : undefined,
     otherSwapBadge.toLegacyString()!
   )
+  swapBadge.personality.isOwner = false // Reset ownership during trade
   if (tradeEffects) {
     swapBadge.id = tradeEffects.badgeId
     addPokemon(destination, swapBadge)

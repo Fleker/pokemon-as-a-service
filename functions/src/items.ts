@@ -250,7 +250,7 @@ async function useItemTarget(data: F.UseItem.OnTarget, userId: string): Promise<
       console.log(res)
       if (res.consumedItem === true) {
         items[item]!-- // Remove item from your bag
-      } else if (res.consumedItem > 1) {
+      } else if ((res.consumedItem as number) > 1) {
         items[item]! -= (res.consumedItem as number)
       }
       removePokemon(user, targetBadge)

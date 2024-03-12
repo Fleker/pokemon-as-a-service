@@ -5,14 +5,15 @@ import { Globe, Location, timeOfDay } from '../../../shared/src/locations-list'
 import { CATCH_CHARM_GSC, CATCH_CHARM_RSE } from '../../../shared/src/quests'
 import { BadgeId, PokemonForm, PokemonGender, PokemonId } from '../../../shared/src/pokemon/types'
 import * as P from '../../../shared/src/gen/type-pokemon'
-import { Pokemon } from '../../../shared/src/badge3'
+import { fromPersonality } from '../../../shared/src/badge3'
 import { genReleaseItems, v2Release } from '../collection.utils'
 import * as I from '../../../shared/src/gen/type-pokemon-ids'
 import { CATCH_CHARM_DPPT } from '../../../shared/src/legendary-quests'
-import { inflate } from '../../../shared/src/badge-inflate'
-import { Badge } from '../../../shared/src/badge3'
+import { inflate, myPokemon } from '../../../shared/src/badge-inflate'
+import { Badge, MATCH_GTS } from '../../../shared/src/badge3'
 import * as Pkmn from '../../../shared/src/pokemon'
 import { TeamsBadge, Potw } from '../../../shared/src/badge2'
+import { toBase64 } from '../../../shared/src/baseconv'
 
 const defaultValues: Users.Doc = {
   location: 'US-MTV',
@@ -92,16 +93,32 @@ test('Duplicate behavior - Common', t => {
   const userDoc = {
     ...defaultValues,
     pokemon: {
-      [Pokemon(I.Caterpie)]: 1,
-      [Pokemon(I.Weedle)]: 1,
-      [Pokemon(I.Meowth)]: 1,
-      [Pokemon(I.Snorunt)]: 1,
-      [Pokemon(I.Snorunt, {gender: 'male'})]: 1,
-      [Pokemon(I.Rattata, {shiny: true})]: 1,
-      [Pokemon(I.Burmy, {form: 'trash'})]: 1,
-      [Pokemon(I.Ekans, {variant: 2})]: 1,
-      [Pokemon(I.Ralts, {gender: 'female'})]: 1,
-      [Pokemon(I.Ralts, {gender: 'male'})]: 1,
+      [toBase64(I.Caterpie)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Caterpie)]: 1
+      },
+      [toBase64(I.Weedle)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Weedle)]: 1
+      },
+      [toBase64(I.Meowth)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Meowth)]: 1
+      },
+      [toBase64(I.Snorunt)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Snorunt)]: 1,
+        [fromPersonality({pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false, location: 'US-MTV'}, I.Snorunt)]: 1,
+      },
+      [toBase64(I.Rattata)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: '', shiny: true, affectionate: false, location: 'US-MTV'}, I.Rattata)]: 1
+      },
+      [toBase64(I.Burmy)]: {
+        [fromPersonality({form: 'trash', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Burmy)]: 1
+      },
+      [toBase64(I.Ekans)]: {
+        [fromPersonality({variant: 2, pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Ekans)]: 1
+      },
+      [toBase64(I.Ralts)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: 'female', shiny: false, affectionate: false, location: 'US-MTV'}, I.Ralts)]: 1,
+        [fromPersonality({pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false, location: 'US-MTV'}, I.Ralts)]: 1,
+      },
     },
     eggs: [],
     hiddenItemsFound: [CATCH_CHARM_GSC],
@@ -142,9 +159,14 @@ test('Duplicate behavior - Uncommon', t => {
   const userDoc = {
     ...defaultValues,
     pokemon: {
-      [Pokemon(I.Basculin)]: 1,
-      [Pokemon(I.Basculin, {form: 'blue_stripe'})]: 1,
-      [Pokemon(I.Castform, {form: 'sunny'})]: 1, // No base
+      [toBase64(I.Basculin)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Basculin)]: 1,
+        [fromPersonality({form: 'blue_stripe', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Basculin)]: 1,
+      },
+      [toBase64(I.Castform)]: {
+        // No base
+        [fromPersonality({form: 'sunny', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Castform)]: 1
+      },
     },
     eggs: [],
     hiddenItemsFound: [CATCH_CHARM_GSC, CATCH_CHARM_RSE, CATCH_CHARM_DPPT],
@@ -202,10 +224,18 @@ test('Duplicate behavior in lures', t => {
   const userDoc = {
     ...defaultValues,
     pokemon: {
-      [Pokemon(I.Clefairy)]: 1,
-      [Pokemon(I.Jigglypuff)]: 1,
-      [Pokemon(I.Roselia, {variant: 1})]: 1,
-      [Pokemon(I.Staravia, {gender: 'male'})]: 1,
+      [toBase64(I.Clefairy)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Clefairy)]: 1
+      },
+      [toBase64(I.Jigglypuff)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Jigglypuff)]: 1
+      },
+      [toBase64(I.Roselia)]: {
+        [fromPersonality({variant: 1, pokeball: 'pokeball', gender: '', shiny: false, affectionate: false, location: 'US-MTV'}, I.Roselia)]: 1
+      },
+      [toBase64(I.Staravia)]: {
+        [fromPersonality({pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false, location: 'US-MTV'}, I.Staravia)]: 1
+      },
     },
     eggs: [],
     hiddenItemsFound: [CATCH_CHARM_GSC],
@@ -231,26 +261,18 @@ test('Duplicate checks - Combee', t => {
   const userDoc = {
     ...defaultValues,
     pokemon: {
-      // Timid male from Rio
-      '6v#1w_fYb': 1,
-      // Naught male from Chicago
-      '6v#30_fZN': 1,
-      // Bold male from San Jose
-      '6v#10_f_t': 1,
-      // Bold genderless from Colombia
-      '6V#11YfYl': 1,
-      // Jolly female from Frankfurt
-      '6v#3w-fYt': 1,
-      // Calm male from Kulua
-      '6v#2w_fZ3': 1,
-      // Hardy male from Shanghai
-      '6v#_fYo': 1,
-      // Hardy female from Bogota
-      '6v#-fYq': 1,
-      // Naughty female from Mountain View
-      '6v#30-f_4': 1,
-      // Modest male from San Jose
-      '6v#20_f_t': 1,
+      [toBase64(I.Combee)]: {
+        [fromPersonality({location: 'BR-RIO', nature: 'Timid', pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'US-CHI', nature: 'Naughty', pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'US-SJC', nature: 'Bold', pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'CL-SCL', nature: 'Bold', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'DE-FRA', nature: 'Jolly', pokeball: 'pokeball', gender: 'female', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'MY-KUL', nature: 'Calm', pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'CN-SHA', nature: 'Hardy', pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'CO-BOG', nature: 'Hardy', pokeball: 'pokeball', gender: 'female', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'US-MTV', nature: 'Naughty', pokeball: 'pokeball', gender: 'female', shiny: false, affectionate: false}, I.Combee)]: 1,
+        [fromPersonality({location: 'US-SJC', nature: 'Modest', pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false}, I.Combee)]: 1,
+      },
     },
     eggs: [],
     hiddenItemsFound: [CATCH_CHARM_RSE],
@@ -273,38 +295,22 @@ test('Duplicate checks - Darmanitan', t => {
   const userDoc = {
     ...defaultValues,
     pokemon: {
-      // Jolly Zen from Dubai
-      '8H#3O8041': 1,
-      // Calm Ordinary from Chandler
-      '8H#2yY01M': 1,
-      // Calm Ordinary from Tel Aviv
-      '8H#2yY00Q': 2,
-      // Hardy Ordinary from Dubai
-      '8H#2Y001': 2,
-      // Hardy Ordinary from Tel Aviv
-      '8H#2Y00Q': 3,
-      // Jolly Ordinary from Dubai
-      '8H#3yY001': 1,
-      // Modest Ordinary from Mexico City
-      '8H#22Y012': 2,
-      // Jolly Ordinary from Tel Aviv
-      '8H#3yY00Q': 2,
-      // Modest Ordinary from Tel Aviv
-      '8H#22Y00Q': 2,
-      // Naughty Ordinary from Tel Aviv
-      '8H#32Y00Q': 2,
-      // Adamant Ordinary from Mexico City
-      '8H#yY012': 1,
-      // Adamant Ordinary from Tel Aviv
-      '8H#yY00Q': 2,
-      // Adamant Zen from Dubai
-      '8H#yY041': 2,
-      // Timid Ordinary from Dubai
-      '8H#1yY001': 1,
-      // Timid Ordinary from Tel Aviv
-      '8H#1yY00Q': 4,
-      // Timid Ordinary from Mexico City
-      '8H#1yY012': 1,
+      [toBase64(I.Darmanitan)]: {
+        [fromPersonality({location: 'AE-DXB', nature: 'Jolly', form: 'zen', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 1,
+        [fromPersonality({location: 'US-CHD', nature: 'Calm', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 1,
+        [fromPersonality({location: 'AE-DXB', nature: 'Hardy', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'AE-DXB', nature: 'Adamant', form: 'zen', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'AE-DXB', nature: 'Timid', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'MX-MEX', nature: 'Modest', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'MX-MEX', nature: 'Timid', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'MX-MEX', nature: 'Adamant', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'IL-TLV', nature: 'Calm', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'IL-TLV', nature: 'Jolly', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'IL-TLV', nature: 'Modest', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 3,
+        [fromPersonality({location: 'IL-TLV', nature: 'Naughty', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'IL-TLV', nature: 'Adamant', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+        [fromPersonality({location: 'IL-TLV', nature: 'Timid', form: 'ordinary', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Darmanitan)]: 2,
+      },
     },
     eggs: [],
     hiddenItemsFound: [CATCH_CHARM_DPPT],
@@ -327,28 +333,19 @@ test.skip('Duplicate checks - White Basculin', t => {
   const userDoc = {
     ...defaultValues,
     pokemon: {
-      // Hardy Blue-Stripe var3 from Ann Arbor
-      '8C#ic05z': 1,
-      // Modest Red-Stripe from Pryor
-      '8C#2nY029': 1,
-      // Hardy Red-Stripe from Calgary
-      '8C#1Y00d': 1,
-      // Bold Blue-Stripe from Miami in a Cherish Ball
-      '8C#1nY061': 1,
-      // Jolly Blue-Stripe from Melbourne in a Cherish Ball
-      '8C#3TY044': 1,
-      // Hardy Red-Stripe from Taiwan
-      '8C#ic01p': 1,
-      // Calm Red-Stripe from London in a Cherish Ball
-      '8C#2TY01w': 1,
-      // Calm Blue-Stripe from US-BNA in a Cherish Ball
-      '8C#2TY05F': 1,
-      // Hardy Blue-Stripe from Instanbul in a Cherish Ball
-      '8C#nY05n': 1,
-      // Hardy Blue-Stripe from Kyiv in a Cherish Ball
-      '8C#nY05u': 1,
-      // Hardy Red-Stripe from Brazil in a Cherish Ball
-      '8C#nY008': 1,
+      [toBase64(I.Basculin)]: {
+        [fromPersonality({location: 'US-ARB', nature: 'Hardy', form: 'blue_stripe', variant: 3, pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'US-PRY', nature: 'Modest', form: 'red_stripe', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'CA-CAL', nature: 'Hardy', form: 'red_stripe', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'US-MIA', nature: 'Bold', form: 'blue_stripe', pokeball: 'cherishball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'AU-MEL', nature: 'Jolly', form: 'blue_stripe', pokeball: 'cherishball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'TW-CHG', nature: 'Hardy', form: 'red_stripe', pokeball: 'pokeball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'UK-LON', nature: 'Calm', form: 'red_stripe', pokeball: 'cherishball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'US-BNA', nature: 'Calm', form: 'blue_stripe', pokeball: 'cherishball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'TR-IST', nature: 'Hardy', form: 'blue_stripe', pokeball: 'cherishball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'UA-KIE', nature: 'Hardy', form: 'blue_stripe', pokeball: 'cherishball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+        [fromPersonality({location: 'BR-RIO', nature: 'Hardy', form: 'red_stripe', pokeball: 'cherishball', gender: '', shiny: false, affectionate: false}, I.Basculin)]: 1,
+      }
     },
     eggs: [],
     hiddenItemsFound: [CATCH_CHARM_RSE],
@@ -367,7 +364,7 @@ test.skip('Duplicate checks - White Basculin', t => {
   t.true(availableList.includes(Potw(P.Basculin, {form: 'white_stripe'})))
 
   // Add a White-Stripe
-  userDoc.pokemon['8C#Y0a4'] = 2
+  userDoc.pokemon[toBase64(I.Basculin)][fromPersonality({location: 'BR-RIO', nature: 'Hardy', form: 'white_stripe', pokeball: 'pokeball', gender: 'male', shiny: false, affectionate: false}, I.Basculin)] = 2
   const availableList2 = deduplicate(encounter, userDoc.pokemon, false, true)
   t.false(availableList2.includes(Potw(P.Basculin, {form: 'white_stripe'})))
 })
@@ -463,31 +460,58 @@ test('Release Pokemon', t => {
   const userDoc: Users.Doc = {
     ...defaultValues,
     pokemon: {
-      ['1#Yf_4' as BadgeId]: 3,
-      ['3#Yf_4' as BadgeId]: 3,
-      ['5#Yf_4' as BadgeId]: 3,
+      '1': {
+        '3MfUhG': 3,
+      },
+      '3': {
+        '3MfUhG': 3,
+      },
+      '5': {
+        '3MfUgy': 3,
+      },
     }
   }
 
   // Remove Bulb
+  const simpBulb = Badge.fromLegacy('potw-001')
+  t.log(simpBulb)
+  t.deepEqual(simpBulb.fragments, ['1', '3MfUhG'])
+  t.log([...myPokemon(userDoc.pokemon)].map(([k]) => k))
+  const matchRes = Badge.match('1#3MfUhG', ['1#3MfUhG' as PokemonId, '3#3MfUhG' as PokemonId, '5#3MfUgy' as PokemonId], MATCH_GTS)
+  t.log(matchRes)
+  t.true(matchRes.match, 'Badge matching should work')
   const items2 = genReleaseItems(userDoc, ['potw-001' as PokemonId])
   t.deepEqual(items2, ['pokeball'])
   t.deepEqual(userDoc.pokemon, {
-    ['1#Yf_4' as BadgeId]: 2,
-    ['3#Yf_4' as BadgeId]: 3,
-    ['5#Yf_4' as BadgeId]: 3,
+    '1': {
+      '3MfUhG': 2,
+    },
+    '3': {
+      '3MfUhG': 3,
+    },
+    '5': {
+      '3MfUgy': 3,
+    },
   })
   t.deepEqual(userDoc.items, {
     pokeball: 1,
   })
 
   // Remove Venus
-  const items3 = genReleaseItems(userDoc, ['3#Yf_4' as PokemonId, '3#Yf_4' as PokemonId])
+  const simpleVenu = Badge.fromLegacy('potw-003')
+  t.log(simpleVenu.original, simpleVenu.toString())
+  const items3 = genReleaseItems(userDoc, ['3#3MfUhG' as PokemonId, '3#3MfUhG' as PokemonId])
   t.deepEqual(items3, ['ultraball', 'ultraball'])
   t.deepEqual(userDoc.pokemon, {
-    ['1#Yf_4' as BadgeId]: 2,
-    ['3#Yf_4' as BadgeId]: 1,
-    ['5#Yf_4' as BadgeId]: 3,
+    '1': {
+      '3MfUhG': 2,
+    },
+    '3': {
+      '3MfUhG': 1,
+    },
+    '5': {
+      '3MfUgy': 3,
+    },
   })
   t.deepEqual(userDoc.items, {
     pokeball: 1,
@@ -499,32 +523,52 @@ test('Release Pokemon via BankOperation[]', t => {
   const userDoc: Users.Doc = {
     ...defaultValues,
     pokemon: {
-      ['1#Yf_4' as BadgeId]: 3,
-      ['3#Yf_4' as BadgeId]: 3,
-      ['5#Yf_4' as BadgeId]: 3,
+      '1': {
+        '3MfUhG': 3,
+      },
+      '3': {
+        '3MfUhG': 3,
+      },
+      '5': {
+        '3MfUgy': 3,
+      },
     },
     items: {},
   }
 
   // Remove Bulb
-  const items2 = v2Release(userDoc, '1#Yf_4', 1)
+  t.log(userDoc.pokemon, new Badge('1#3MfUhG'))
+  const items2 = v2Release(userDoc, '1#3MfUhG' as PokemonId, 1)
+  t.log(userDoc.pokemon, new Badge('1#3MfUhG'))
   t.deepEqual(items2, ['pokeball'])
   t.deepEqual(userDoc.pokemon, {
-    ['1#Yf_4' as BadgeId]: 2,
-    ['3#Yf_4' as BadgeId]: 3,
-    ['5#Yf_4' as BadgeId]: 3,
+    '1': {
+      '3MfUhG': 2,
+    },
+    '3': {
+      '3MfUhG': 3,
+    },
+    '5': {
+      '3MfUgy': 3,
+    },
   })
   t.deepEqual(userDoc.items, {
     pokeball: 1,
   })
 
   // Remove Venus
-  const items3 = v2Release(userDoc, '3#Yf_4', 2)
+  const items3 = v2Release(userDoc, '3#3MfUhG' as PokemonId, 2)
   t.deepEqual(items3, ['ultraball', 'ultraball'])
   t.deepEqual(userDoc.pokemon, {
-    ['1#Yf_4' as BadgeId]: 2,
-    ['3#Yf_4' as BadgeId]: 1,
-    ['5#Yf_4' as BadgeId]: 3,
+    '1': {
+      '3MfUhG': 2,
+    },
+    '3': {
+      '3MfUhG': 1,
+    },
+    '5': {
+      '3MfUgy': 3,
+    },
   })
   t.deepEqual(userDoc.items, {
     pokeball: 1,
