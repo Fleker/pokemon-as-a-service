@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
-  <path d="m236.51,452.77c-78.14,0 -140.96,-77.53 -142.15,-155.38l264.02,14.79c1.58,11.73 6.08,20.39 11.38,20.67c3.55,0.2 6.73,-3.39 8.93,-9.23c-6.89,72.47 -67.92,129.15 -142.18,129.15zm-141.33,-173.25c6.88,-72.47 66.25,-143.08 140.53,-143.08c68.2,0 122.98,31.04 137.17,94.97c-1.8,-2.74 -3.92,-4.38 -6.18,-4.51c-5.67,-0.3 -10.43,9.07 -11.67,21.93l-259.85,30.69z" fill="currentColor" id="svg_1" stroke="#fff" style="stroke-width: 3px;" transform="rotate(-45 236.526 285.771)"/>
+<svg viewBox="0 0 500 500" width="500" height="500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <radialGradient id="gradient-10-0" gradientUnits="userSpaceOnUse" cx="236.525" cy="294.605" r="142.165" xlink:href="#gradient-10"/>
+    <linearGradient id="gradient-10" bx:pinned="true">
+      <stop offset="0" style="stop-color: rgb(66, 133, 244);"/>
+      <stop offset="0.3" style="stop-color: rgb(0, 188, 212);"/>
+      <stop offset="0.6" style="stop-color: rgb(0, 188, 212);"/>
+      <stop offset="1" style="stop-color: rgb(66, 133, 244);"/>
+    </linearGradient>
+  </defs>
+  <path d="m236.51,452.77c-78.14,0 -140.96,-77.53 -142.15,-155.38l264.02,14.79c1.58,11.73 6.08,20.39 11.38,20.67c3.55,0.2 6.73,-3.39 8.93,-9.23c-6.89,72.47 -67.92,129.15 -142.18,129.15zm-141.33,-173.25c6.88,-72.47 66.25,-143.08 140.53,-143.08c68.2,0 122.98,31.04 137.17,94.97c-1.8,-2.74 -3.92,-4.38 -6.18,-4.51c-5.67,-0.3 -10.43,9.07 -11.67,21.93l-259.85,30.69z" id="svg_1" stroke="#fff" style="fill: url('#gradient-10-0'); stroke-width: 6px;" transform="matrix(0.7071067811865476, -0.7071067811865476, 0.7071067811865476, 0.7071067811865476, -132.79374744522585, 250.9495261068883)"/>
 </svg>
