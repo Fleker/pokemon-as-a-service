@@ -188,6 +188,13 @@ export const categoryAttributes: Record<Category, CategoryAttributes> = {
     categoryDescription: 'Items that a Pokémon can hold in battles to unleash an attack of devastating power.',
     categoryRoute: '/multiplayer/battle'
   },
+  terashard: {
+    label: 'Tera Shards',
+    icon: 'heart_broken',
+    active: true,
+    categoryDescription: 'Items that a Pokémon can hold in battles to trigger terrastalization.',
+    categoryRoute: '/multiplayer/battle'
+  },
   cooking: {
     label: 'Cooking Items',
     // icon: 'cooking',
@@ -202,13 +209,6 @@ export const categoryAttributes: Record<Category, CategoryAttributes> = {
     active: true,
     categoryDescription: 'Items that may be uesful in encountering rare Pokémon.',
     categoryRoute: '/pokemon/encounters'
-  },
-  terashard: {
-    label: 'Tera Shards',
-    icon: 'heart_broken',
-    active: false,
-    categoryDescription: 'Items that a Pokémon can hold in battles to trigger terrastalization.',
-    categoryRoute: '/multiplayer/battle'
   },
   clothing: {
     label: 'Fashion',
@@ -3021,20 +3021,6 @@ const ITEMS_TRS = {
   [TX('tr', 'Laser Focus')]: genTr(94, 'Laser Focus', {
     buy: 0, sell: 5,
   }),
-  /*
-  x : Cosmic Power
-  Destiny Bond
-  Follow Me
-  Rage Powder
-  Lock-On
-  Lucky Chant
-  Memento
-  x : Play Nice
-  x : Quash
-  Spotlight
-  Teeter Dance
-  Scary Face
-  */
   [TX('tr', 'Follow Me')]: genTr(95, 'Follow Me',{
     buy: 0, sell: 5,
   }),
@@ -3051,8 +3037,12 @@ const ITEMS_TRS = {
     buy: 0, sell: 7, functional: true,
   }),
   // Gen 8 moves
-  [TX('tr', 'Life Dew')]: genTr(99, 'Life Dew',{
+  [TX('tr', 'Life Dew')]: genTr(100, 'Life Dew',{
     buy: 0, sell: 5,
+  }),
+  // Gen 9 moves
+  [TX('tr', 'Dragon Cheer')]: genTr(101, 'Dragon Cheer',{
+    buy: 0, sell: 7,
   }),
 }
 const ITEMS_KEY = {
@@ -4019,17 +4009,17 @@ const ITEMS_INGREDIENTS = {
   svsudessert: PaldeaSandwich('Ultra Dessert Sandwich', { description: 'Move aside ice cream! This is the sweetest sandwich one can make!', sell: 30 }),
   // Sleep Ingredients
   sleepislowpoke: SleepIngredient('Slowpoke Tail', {}),
-  sleepifieryherb: SleepIngredient('Fiery Herb', {buy: 5, growTime: 24, yield: {min: 2, max: 3}}),
+  sleepifieryherb: SleepIngredient('Fiery Herb', {buy: 5, growTime: 32, yield: {min: 2, max: 3}}),
   sleepipureoil: SleepIngredient('Pure Oil', {buy: 3}),
-  sleepimushroom: SleepIngredient('Tasty Mushroom', {buy: 5, growTime: 24, yield: {min: 2, max: 3}}),
+  sleepimushroom: SleepIngredient('Tasty Mushroom', {buy: 5, growTime: 32, yield: {min: 2, max: 3}}),
   sleepitomato: SleepIngredient('Snoozy Tomato', {buy: 6, growTime: 96, yield: {min: 3, max: 5}}),
   sleepimilk: SleepIngredient('Moomoo Milk', {}),
   sleepibeansausage: SleepIngredient('Bean Sausage', {buy: 3}),
   sleepipotato: SleepIngredient('Soft Potato', {buy: 6, growTime: 96, yield: {min: 3, max: 5}}),
   // sleepiegg: SleepIngredient('Fancy Egg', {}), // <-- We have this from Galar (boiledegg)
   // sleepiapple: SleepIngredient('Fancy Apple', {}), // <-- We have this from Galar (fancyapple)
-  sleepisoybeans: SleepIngredient('Greengrass Soybeans', {buy: 5, growTime: 24, yield: {min: 2, max: 3}}),
-  sleepiginger: SleepIngredient('Warming Ginger', {buy: 5, growTime: 24, yield: {min: 2, max: 3}}),
+  sleepisoybeans: SleepIngredient('Greengrass Soybeans', {buy: 5, growTime: 32, yield: {min: 2, max: 3}}),
+  sleepiginger: SleepIngredient('Warming Ginger', {buy: 5, growTime: 32, yield: {min: 2, max: 3}}),
   sleepicacao: SleepIngredient('Soothing Cacao', {buy: 6, growTime: 96, yield: {min: 3, max: 5}}),
   // sleepileek: SleepIngredient('Large Leek', {}), // <-- Galar (largeleek)
   // Sleep Salads
