@@ -263,6 +263,24 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
       }
       badge.personality.pokeball = pokeball
       badge.personality.location = locationId || user.location
+      const hasWeatherMark = Math.random() < 0.02 // 1/50
+      if (hasWeatherMark) {
+        if (location.forecast === 'Cloudy') {
+          badge.ribbons = ['☁️']
+        } else if (location.forecast === 'Thunderstorm') {
+          badge.ribbons = ['🌩️']
+        }  else if (location.forecast === 'Rain') {
+          badge.ribbons = ['🌧️']
+        } else if (location.forecast === 'Snow') {
+          badge.ribbons = ['☃️']
+        } else if (location.forecast === 'Heat Wave') {
+          badge.ribbons = ['☀️']
+        } else if (location.forecast === 'Sandstorm') {
+          badge.ribbons = ['⏳']
+        } else if (location.forecast === 'Fog') {
+          badge.ribbons = ['🌫️']
+        }
+      }
       // Add to database
       selectedPokemon = badge.toLegacyString()
       console.log(`Adding ${selectedPokemon}`)
