@@ -4,6 +4,7 @@ import { salamander } from '@fleker/salamander'
 import { BadgeId, PokemonId } from '../../shared/src/pokemon/types';
 import * as B2 from '../../shared/src/badge2'
 import * as B3 from '../../shared/src/badge3'
+import {TPokemon, myPokemon} from '../../shared/src/badge-inflate'
 import { Users } from './db-types';
 import { addPokemon, hasPokemon, removePokemon } from './users.utils';
 import { get } from '../../shared/src/pokemon';
@@ -28,9 +29,7 @@ interface BankListParams {
   box?: number
 }
 
-type BankStructure = {
-  [badge in PokemonId]?: number;
-};
+type BankStructure = TPokemon
 export type BankOperation = [BadgeId | PokemonId, number]
 
 function isV1Format(badgeId: string) {
@@ -41,10 +40,15 @@ function isV1Format(badgeId: string) {
   return false
 }
 
+const migratedBoxes: (string | number | undefined)[] = [undefined, '']
+
 /**
  * Basic LIST/GET operation for system cold storage.
  */
 export const bank_list = functions.https.onCall(async (data: BankListParams, context) => {
+  if (!migratedBoxes.includes(data.box ?? '')) {
+    throw new functions.https.HttpsError('data-loss', `Box ${data.box} is not yet migrated`)
+  }
   const userId = context.auth!.uid
   // Go to /users/<user-id>/archive/pokemon
   const playerCollection = await db.collection('users')
@@ -58,12 +62,12 @@ export const bank_list = functions.https.onCall(async (data: BankListParams, con
       notices: ['Your collection is empty.']
     }
   }
-  const pokemon = playerCollection.data()
+  const pokemon = [...myPokemon(playerCollection.data())]
   const output = (() => {
     if (data?.tmp_display_fmt === 'V1') {
       // Convert everything
       const legacyArr: string[] = []
-      Object.entries(pokemon).forEach(([key, count]) => {
+      pokemon.forEach(([key, count]) => {
         const legacyBadge = new B3.Badge(key).toLegacyString()
         for (let i = 0; i < count; i++) {
           legacyArr.push(legacyBadge)
@@ -92,6 +96,9 @@ interface BankIOParams {
  * Write Pokemon into cold storage.
  */
 export const bank_deposit = functions.https.onCall(async (data: BankIOParams, context) => {
+  if (!migratedBoxes.includes(data.box ?? '')) {
+    throw new functions.https.HttpsError('data-loss', `Box ${data.box} is not yet migrated`)
+  }
   const userId = context.auth!.uid
   const notices: string[] = []
   await db.runTransaction(async t => {
@@ -147,11 +154,8 @@ export const bank_deposit = functions.https.onCall(async (data: BankIOParams, co
         continue;
       }
 
-      if (bstr in archive) {
-        archive[bstr]! += count
-      } else {
-        archive[bstr] = count
-      }
+      const bank = {pokemon: archive}
+      addPokemon(bank as Users.Doc, badge3, count)
       removePokemon(user, badge3, count)
       notices.push(`Deposited ${badge} as ${bstr}`)
     }
@@ -173,6 +177,9 @@ export const bank_deposit = functions.https.onCall(async (data: BankIOParams, co
  * Remove Pokemon into cold storage.
  */
  export const bank_withdraw = functions.https.onCall(async (data: BankIOParams, context) => {
+  if (!migratedBoxes.includes(data.box ?? '')) {
+    throw new functions.https.HttpsError('data-loss', `Box ${data.box} is not yet migrated`)
+  }
   const userId = context.auth!.uid
   const notices: string[] = []
   await db.runTransaction(async t => {
@@ -216,7 +223,8 @@ export const bank_deposit = functions.https.onCall(async (data: BankIOParams, co
         notices.push(`${badge}/${lookup} is not a valid badge`)
         continue;
       }
-      if (archive[badge] === undefined || archive[badge]! < count) {
+      const [id, personality] = badge3.fragments
+      if (archive[id] === undefined || archive[id][personality] === undefined || archive[id][personality] < count) {
         notices.push(`User does not have ${count} ${badge}`)
         continue;
       }
@@ -224,12 +232,8 @@ export const bank_deposit = functions.https.onCall(async (data: BankIOParams, co
         notices.push(`Cannot withdraw ${count} ${badge}`)
         continue;
       }
-      archive[badge]! -= count
-      if (archive[badge]! === 0) {
-        notices.push(`Clear entry archive['${badge}']`)
-        console.log(`Clear entry archive['${badge}']`)
-        delete archive[badge]
-      }
+      const bank = {pokemon: archive}
+      removePokemon(bank as Users.Doc, badge3, count)
       addPokemon(user, badge3, count)
       // const badge3 = badge2To3(new B2.Badge(badge))
       notices.push(`Withdrew ${badge} as ${badge}`)

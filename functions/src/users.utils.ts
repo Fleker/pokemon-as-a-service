@@ -147,6 +147,9 @@ export const removePokemon = (user: Users.Doc, pkmn: Badge, count = 1) => {
   if (user.pokemon[id][personality] === undefined) {
     throw new Error(`User ${user.ldap} does not have ${count} ${pkmn.toString()}`)
   }
+  if (user.pokemon[id][personality] < count) {
+    throw new Error(`User ${user.ldap} does not have ${count} ${pkmn.toString()}`)
+  }
   user.pokemon[id][personality]! -= count
   if (user.pokemon[id][personality] === 0) {
     delete user.pokemon[id][personality]
