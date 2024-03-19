@@ -247,7 +247,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
           // Living Dex+
           for (const [label, regionalForm] of Object.entries(regionalForms)) {
             const formSpritesSet = new Set<Sprite>()
-            const keys = [...myPokemon(this.userPokemon)].map(([k]) => k)
+            const keys = this.getKeys()
             for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
               const id = parseInt(badgeId.substring(5))
               let badge;
@@ -277,7 +277,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
 
           // All other possible forms
           const formSpritesSet = new Set<Sprite>()
-          const keys = Object.keys(this.userPokemon) as PokemonId[]
+          const keys = this.getKeys()
           for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
             const id = parseInt(badgeId.substring(5))
             let badge;
@@ -435,7 +435,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
           // Shiny Dex+
           for (const [label, regionalForm] of Object.entries(regionalForms)) {
             const formSpritesSet = new Set<Sprite>()
-            const keys = Object.keys(this.userPokemon) as PokemonId[]
+            const keys = this.getKeys()
             for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
               const id = parseInt(badgeId.substring(5))
               let badge;
@@ -464,7 +464,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
 
           // All other possible forms
           const formSpritesSet = new Set<Sprite>()
-          const keys = Object.keys(this.userPokemon) as PokemonId[]
+          const keys = this.getKeys()
           for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
             const id = parseInt(badgeId.substring(5))
             let badge;
@@ -671,7 +671,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
 
   getSprites(range: [number, number], filter: 'living' | 'shiny', pokemon: TPokemon) {
     const sprites: Sprite[] = []
-    const keys = Object.keys(pokemon) as PokemonId[]
+    const keys = this.getKeys(pokemon)
 
     for (let i = range[0]; i <= range[1]; i++) {
       let registered = false
@@ -692,7 +692,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
 
   getUnownSprites(pokemon: TPokemon) {
     const forms = Pkmn.get('potw-201')!.syncableForms!.slice(0, 28)
-    const keys = Object.keys(pokemon) as PokemonId[]
+    const keys = this.getKeys(pokemon)
     const sprites: Sprite[] = []
     forms!.forEach(form => {
       const badge = Pokemon(201, {form})
@@ -715,7 +715,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
 
   async getVariantSprites(pokemon: TPokemon) {
     const sprites: Set<Sprite> = new Set()
-    const keys = Object.keys(pokemon) as PokemonId[]
+    const keys = this.getKeys(pokemon)
 
     for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
       if (!pokemon.novelMoves || !pokemon.novelMoves.length) continue;
@@ -760,6 +760,10 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
     }
 
     return sprites
+  }
+
+  getKeys(pokemon: TPokemon = this.userPokemon) {
+    return [...myPokemon(pokemon)].map(([k]) => k) as PokemonId[]
   }
 
   hasMoves() {
