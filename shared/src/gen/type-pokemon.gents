@@ -42,7 +42,7 @@ const validBadges = [
     'potw-413-plant', 'potw-413-trash', 'potw-413-sandy',
     'potw-479-fan', 'potw-479-frost', 'potw-479-heat', 'potw-479-mow', 'potw-479-wash',
   ]
-  for (let i = 1; i <= 1017; i++) {
+  for (let i = 1; i <= 1025; i++) {
     validBadges.push(`potw-${i.toString().padStart(3, '0')}`)
   }
 

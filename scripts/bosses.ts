@@ -3703,7 +3703,7 @@ export const bosses = [
     Potw(P.Drampa, {var:1}),
     Potw(P.Arctozolt, {var:2}),
     Potw(P.Passimian, {var:1}),
-    // Potw(P.Archaludon, {var:2}), // FIXME!
+    Potw(P.Archaludon, {var:2}),
     Potw(P.Marowak, {var:4}),
     Potw(P.Boltund, {var:3}),
     Potw(P.Donphan, {var:4}),
@@ -3726,6 +3726,8 @@ export const bosses = [
 const formsToIgnore = [
   'ash', 'therian', 'attack', 'defense', 'speed',
   'sunny', 'rainy', 'snowy', 'zen', 'black', 'white',
+  'ten', 'fifty', 'complete', 'hangry', 'blade', 'shield',
+  'origin',
 ]
 
 function getEvolvedBossesOnly() {
