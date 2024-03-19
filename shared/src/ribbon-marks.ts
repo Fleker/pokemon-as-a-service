@@ -24,4 +24,11 @@ export const RibbonMarksTable: Record<string, RibbonMark> = {
     description: 'A mark given to a formidable Pokémon',
     conditions: 'Defeating a Pokémon in a six-star raid',
   },
+  '~': {
+    kind: 'ribbon',
+    name: 'Marine Ribbon',
+    icon: 'menu-raid',
+    description: 'A deprecated ribbon with no title',
+    conditions: 'You cannot obtain this ribbon',
+  }
 }

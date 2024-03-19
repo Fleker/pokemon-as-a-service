@@ -9,6 +9,7 @@ import { TeamsBadge } from './badge2'
 import {AbilityId} from './battle/ability'
 import {RibbonMarksTable} from './ribbon-marks'
 import randomItem from './random-item'
+import * as runes from 'runes'
 
 /**
  * All natures programmed in the main series. Plus Neutral for Pokémon without defined natures.
@@ -472,7 +473,7 @@ export class Badge {
       this.tags = toTags(tags)
     }
     if (ribbons) {
-      this.ribbons = ribbons.split('')
+      this.ribbons = runes(ribbons)
     }
   }
 
@@ -578,9 +579,14 @@ export class Badge {
       tags64 = fromTags(this.tags)
     }
     let out = `${id64}#${personality64}`
-    if (defaultTags64 === '0' && tags64 !== '') {
+    if (defaultTags64 !== '' && tags64 === '') {
+      out += `#${defaultTags64}`
+    } else if (defaultTags64 !== '' && tags64 !== '') {
       out += `#${defaultTags64}${tags64}`
+    } else if (defaultTags64 === '' && tags64 !== '') {
+      out += `#0${tags64}`
     }
+
     if (this.ribbons !== undefined) {
       out += `$${this.ribbons!.join('')}`
     }

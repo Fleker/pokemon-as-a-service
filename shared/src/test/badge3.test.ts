@@ -407,7 +407,7 @@ test('Badge: Falinks cannot Gigantamax', t => {
   t.is(B.fromPersonality(gmaxFalinks, 869), B.fromPersonality(nomaxFalinks, 869))
 })
 
-test('Default tags I/O', t => {
+test('Tags: Default I/O', t => {
   // K_64 -> 46_10
   t.deepEqual(B.toDefaultTags('K'), [
     'BREED', 'RELEASE', 'BATTLE', 'BUDDY'
@@ -417,17 +417,65 @@ test('Default tags I/O', t => {
   ]), 'K', 'Encode example 1')
 })
 
-test('Tags I/O', t => {
+test('Tags: I/O', t => {
   // Represents tag indicies only
   t.deepEqual(B.toTags('x2a_D'), [2, 10, 62, 39], 'Decode example 1')
   t.deepEqual(B.fromTags([2, 10, 62, 39]), /*x*/'2a_D', 'Encode example 1')
 })
 
-test('Tag string', t => {
-  const bulb = '1#Yf_4'
+test('Tag: Custom tags only', t => {
+  const bulb = '1#fM22'
   const badge = new Badge(bulb)
   badge.tags = [2, 10]
   t.is(badge.toString(), '1#fM22#02a')
+})
+
+test('Tags: Default tags only', t => {
+  const bulb = '1#fM22'
+  const badge = new Badge(bulb)
+  badge.defaultTags = ['BATTLE']
+  t.is(badge.toString(), '1#fM22#4')
+})
+
+test('Tags: Default and custom tags', t => {
+  const bulb = '1#fM22'
+  const badge = new Badge(bulb)
+  badge.defaultTags = ['BATTLE']
+  badge.tags = [2, 10]
+  t.is(badge.toString(), '1#fM22#42a')
+})
+
+test('Marks: Valid title', t => {
+  const bulb = '1#fM22'
+  const badge = new Badge(bulb)
+  badge.ribbons = ['👑']
+  t.is(badge.toString(), '1#fM22$👑')
+  // Ensure marks work with tags
+  badge.defaultTags = ['BATTLE']
+  badge.tags = [2, 10]
+  t.is(badge.toString(), '1#fM22#42a$👑')
+  t.is(badge.toLabel(), 'Bulbasaur⁰ the Unrivaled')
+  badge.ribbons = ['👑', '~']
+  t.is(badge.toString(), '1#fM22#42a$👑~')
+  t.is(badge.toLabel(), 'Bulbasaur⁰ the Unrivaled')
+})
+
+test('Marks: Decode', t => {
+  const bulb = '1#fM22$👑~'
+  const badge = new Badge(bulb)
+  t.deepEqual(badge.ribbons, ['👑', '~'])
+})
+
+test('Marks: No title', t => {
+  const bulb = '1#fM22'
+  const badge = new Badge(bulb)
+  badge.ribbons = ['~']
+  t.is(badge.toString(), '1#fM22$~')
+  // Ensure marks work with tags
+  badge.defaultTags = ['BATTLE']
+  badge.tags = [2, 10]
+  t.is(badge.toString(), '1#fM22#42a$~')
+  t.is(badge.toLabel(), 'Bulbasaur⁰')
 })
 
 test('toLabel', t => {
