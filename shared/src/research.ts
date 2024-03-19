@@ -1255,7 +1255,7 @@ function teraQuest(item: ItemId, type: Type, steps = 9, active = true): Research
 
 
 export const QUEST_TERA: Record<string, ResearchQuest> = {
-  TERA_NORMAL: teraQuest('teranormal', 'Normal', 9, false),
+  TERA_NORMAL: teraQuest('teranormal', 'Normal'),
   TERA_FIRE: teraQuest('terafire', 'Fire'),
   TERA_GRASS: teraQuest('teragrass', 'Grass'),
   TERA_WATER: teraQuest('terawater', 'Water'),
@@ -1266,7 +1266,7 @@ export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_DRAGON: teraQuest('teradragon', 'Dragon', 9, false),
   TERA_ROCK: teraQuest('terarock', 'Rock', 9, false),
   TERA_GROUND: teraQuest('teraground', 'Ground', 9, false),
-  TERA_BUG: teraQuest('terabug', 'Bug', 9, false),
+  TERA_BUG: teraQuest('terabug', 'Bug'),
   TERA_POISON: teraQuest('terapoison', 'Poison', 9, false),
   TERA_GHOST: teraQuest('teraghost', 'Ghost', 9, false),
   TERA_PSYCHIC: teraQuest('terapsychic', 'Psychic', 9, false),
