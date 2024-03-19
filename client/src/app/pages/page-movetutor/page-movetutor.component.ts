@@ -7,7 +7,7 @@ import { FirebaseService } from 'src/app/service/firebase.service';
 import { Badge, Nature, NatureDescription } from '../../../../../shared/src/badge3';
 import { ITEMS, ItemId } from '../../../../../shared/src/items-list';
 import { get } from '../../../../../shared/src/pokemon';
-import { PokemonId } from '../../../../../shared/src/pokemon/types';
+import { PokemonId, Type } from '../../../../../shared/src/pokemon/types';
 import {getEligiblePokemonForMove, getVariantForMove} from '../../../../../shared/src/items-availablity'
 import { MoveId } from '../../../../../shared/src/gen/type-move-meta';
 import { F } from '../../../../../shared/src/server-types';
@@ -21,6 +21,28 @@ enum Mode {
   Mushroom = 4,
   Honey = 5,
   Tutor6 = 6,
+  Tera = 7,
+}
+
+const teraShardTypes: Partial<Record<ItemId, Type>> = {
+  'teranormal': 'Normal',
+  'terafire': 'Fire',
+  'terawater': 'Water',
+  'teraelectric': 'Electric',
+  'teraground': 'Ground',
+  'terarock': 'Rock',
+  'teradragon': 'Dragon',
+  'teraflying': 'Flying',
+  'terafairy': 'Fairy',
+  'terabug': 'Bug',
+  'terapsychic': 'Psychic',
+  'teraghost': 'Ghost',
+  'terapoison': 'Poison',
+  'teragrass': 'Grass',
+  'teradark': 'Dark',
+  'terasteel': 'Steel',
+  'terafighting': 'Fighting',
+  'teraice': 'Ice',
 }
 
 @Component({
@@ -67,6 +89,7 @@ export class PageMovetutorComponent implements AfterViewInit, OnDestroy {
   newMoves?: string[]
   tm?: ItemId
   mint?: ItemId
+  teraShard?: ItemId
   mode: Mode = Mode.Tutor3
   exec = {
     confirm: false
@@ -209,6 +232,17 @@ export class PageMovetutorComponent implements AfterViewInit, OnDestroy {
     this.pokemon.open()
   }
 
+  useShard(item: ItemId) {
+    this.mode = Mode.Tera
+    this.teraShard = item
+    this.pokemon.usePredicate(x => {
+      const badge = new Badge(x)
+      const teraType = teraShardTypes[item]
+      return badge.personality.teraType !== teraType
+    })
+    this.pokemon.open()
+  }
+
   close() {
     this.dialog!.nativeElement.close()
   }
@@ -235,6 +269,9 @@ export class PageMovetutorComponent implements AfterViewInit, OnDestroy {
           } else if (this.mode === Mode.Honey) {
             await this.firebase.exec<F.TrainPokemon.Req, F.TrainPokemon.Res>('use_item', { species: this.selection, item: 'maxhoney' })
             this.snackbar.open(`${this.selectionLabel} consumed the max soup!`, '', {duration: 3000})
+          } else if (this.mode === Mode.Tera) {
+            await this.firebase.exec<F.TrainPokemon.Req, F.TrainPokemon.Res>('use_item', { species: this.selection, item: this.teraShard })
+            this.snackbar.open(`${this.selectionLabel} is changing tera type!`, '', {duration: 3000})
           }
           this.firebase.refreshUser()
         } catch (e: any) {

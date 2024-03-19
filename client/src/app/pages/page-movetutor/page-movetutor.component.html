@@ -99,22 +99,22 @@
     to update your Pokémon's Tera Type by using Tera Shards.
   </p>
   <table>
-    <div *ngFor="let mint of mints">
+    <div *ngFor="let shard of teraShards">
       <tr>
       <td class="item">
-        <sprite-item item="{{mint.key}}" *ngIf="mint.count > 0" (click)="useMint(mint.nature, mint.key)"></sprite-item>
-        <sprite-item item="{{mint.key}}" *ngIf="mint.count === 0"></sprite-item>
+        <sprite-item item="{{shard.key}}" *ngIf="shard.count > 0" (click)="useShard(shard.key)"></sprite-item>
+        <sprite-item item="{{shard.key}}" *ngIf="shard.count === 0"></sprite-item>
       </td>
       <td class="count">
-        <span>×{{mint.count}}</span>
+        <span>×{{shard.count}}</span>
       </td>
       <td class="label">
-        <strong class="label">{{mint.label}}</strong>
+        <strong class="label">{{shard.label}}</strong>
       </td>
       </tr>
       <tr>
       <td colspan="3">
-        <small>&emsp;{{mint.description}}</small>
+        <small>&emsp;{{shard.description}}</small>
       </td>
       </tr>
     </div>
