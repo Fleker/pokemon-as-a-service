@@ -30,22 +30,21 @@ export const hasItem = (user: Users.Doc, item: ItemId, count = 1) => {
 export const hasPokemon = (user: Users.Doc, fnPkmn: PokemonId | PokemonId[]) => {
   // Normalize to array
   const pkmn = Array.isArray(fnPkmn) ? fnPkmn : [fnPkmn]
+  const checked = new Map()
   let hasPkmn = false
   if (user.pokemon !== undefined) {
     hasPkmn = true
-    const pmap = structuredClone(user.pokemon)
+    const pmap = user.pokemon
     for (const p of pkmn) {
       if (p.startsWith('potw-')) {
         throw new Error('Nope. That is badge format is deprecated.')
       }
       const pbadge = new Badge(p)
       const [id, personality] = pbadge.fragments
-      if (pmap[id]) {
-        if (pmap[id][personality] !== undefined && pmap[id][personality]! > 0) {
-          pmap[id][personality]!--
-        } else {
-          return false
-        }
+      if (!checked.has(p)) checked.set(p, 0);
+      const checkedCount = checked.get(p)!;
+      if (pmap[id]?.[personality] !== undefined && pmap[id][personality] > checkedCount) {
+        checked.set(p, checkedCount + 1);
       } else {
         return false // Bail
       }
