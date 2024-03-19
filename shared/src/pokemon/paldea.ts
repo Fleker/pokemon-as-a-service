@@ -340,7 +340,7 @@ export const paldeaBuilder = {
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 6.5,
     eggBase: 'potw-921', eggGroup: ['Field'], eggCycles: 15,
-    evolveTo: ['potw-923'],
+    levelTo: ['potw-923'], levelAt: 1, // Special condition
     pokedex: `When its group is attacked, Pawmo is the first to leap into battle, defeating enemies with a fighting technique that utilizes electric shocks.`,
     hp: 60, attack: 75, defense: 40, spAttack: 50, spDefense: 40, speed: 85,
     move: ['Spark', 'Arm Thrust'],
@@ -745,7 +745,7 @@ export const paldeaBuilder = {
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 0.6,
     eggBase: 'potw-946', eggGroup: ['Grass'], eggCycles: 10,
-    evolveTo: ['potw-947'],
+    levelTo: ['potw-947'], levelAt: 1, // Special condition
     pokedex: `A soul unable to move on to the afterlife was blown around by the wind until it got tangled up with dried grass and became a Pokémon.`,
     hp: 40, attack: 65, defense: 30, spAttack: 45, spDefense: 35, speed: 60,
     move: ['Bullet Seed', 'Astonish'],
@@ -864,7 +864,7 @@ export const paldeaBuilder = {
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
     weight: 1,
     eggBase: 'potw-953', eggGroup: ['Bug'], eggCycles: 10,
-    evolveTo: ['potw-954'],
+    levelTo: ['potw-954'], levelAt: 1, // Special condition
     pokedex: `This Pokémon creates a mud ball by mixing sand and dirt with psychic energy. It treasures its mud ball more than its own life.`,
     hp: 41, attack: 50, defense: 60, spAttack: 31, spDefense: 58, speed: 30,
     move: ['Bug Bite'],
