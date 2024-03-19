@@ -23,6 +23,7 @@ export const alolaBuilder = {
       ['Assurance', 'Reversal', 'Focus Energy'],
       ['Fury Swipes', 'Dig', 'Laser Focus'],
       ['Zen Headbutt', 'Embargo'],
+      ['Snarl', 'Sludge Wave', 'Work Up'],
     ],
   }),
   'potw-020-alolan': ensurePkmnBuilder({
@@ -48,6 +49,7 @@ export const alolaBuilder = {
       ['Revenge', 'Focus Energy'],
       ['Stockpile', 'Spit Up', 'Swallow'],
       ['Zen Headbutt', 'Embargo'],
+      ['Snarl', 'Sludge Wave', 'Work Up'],
     ],
   }),
   'potw-020-totem': ensurePkmnBuilder({
@@ -1982,6 +1984,7 @@ export const alolaBuilder = {
       ['Iron Head', 'Stealth Rock'],
       ['U-turn', 'Cosmic Power'],
       ['Zen Headbutt', 'Shell Smash'],
+      ['Rock Slide', 'Dazzling Gleam', 'Gravity'],
     ],
   }),
   'potw-775': ensurePkmnBuilder({

@@ -51,138 +51,138 @@ export interface RaidBoss {
 export const regionBoss: {[key in RegionType]: {[rating: number]: RaidBoss[]}} = {
   'North America': {
     1: [{
-      species: Potw(P.Sandshrew, {var: 4, form: 'alolan'})
+      species: Potw(P.Minior, {var: 4, form: 'red_core'})
     }, {
-      species: Potw(P.Hawlucha, {var: 1})
+      species: Potw(P.Plusle, {var: 1})
     }],
     2: [{
-      species: Potw(P.Sandshrew, {var: 4, form: 'alolan'})
+      species: Potw(P.Minior, {var: 4, form: 'red_core'})
     }, {
-      species: Potw(P.Hawlucha, {var: 1})
+      species: Potw(P.Plusle, {var: 1})
     }],
     3: [{
-      species: Potw(P.Sandslash, {var: 4, form: 'alolan'})
+      species: Potw(P.Minior, {var: 4, form: 'red_core'})
     }, {
-      species: Potw(P.Hawlucha, {var: 1})
+      species: Potw(P.Plusle, {var: 1})
     }]
   },
   'South America': {
     1: [{
-      species: Potw(P.Darumaka, {var: 2, form: 'galarian'})
+      species: Potw(P.Minior, {var: 4, form: 'orange_core'})
     }, {
-      species: Potw(P.Venipede, {var: 3})
+      species: Potw(P.Minun, {var: 1})
     }],
     2: [{
-      species: Potw(P.Darumaka, {var: 2, form: 'galarian'})
+      species: Potw(P.Minior, {var: 4, form: 'orange_core'})
     }, {
-      species: Potw(P.Whirlipede, {var: 3})
+      species: Potw(P.Minun, {var: 1})
     }],
     3: [{
-      species: Potw(P.Darmanitan, {var: 2, form: 'galarian'})
+      species: Potw(P.Minior, {var: 4, form: 'orange_core'})
     }, {
-      species: Potw(P.Scolipede, {var: 3})
+      species: Potw(P.Minun, {var: 1})
     }]
   },
   'North Europe': {
     1: [{
-      species: Potw(P.Farfetchd, {var: 2, form: 'galarian'})
+      species: Potw(P.Minior, {var: 4, form: 'yellow_core'})
     }, {
-      species: Potw(P.Clauncher, {var: 2})
+      species: Potw(P.Sunkern, {var: 1})
     }],
     2: [{
-      species: Potw(P.Farfetchd, {var: 2, form: 'galarian'})
+      species: Potw(P.Minior, {var: 4, form: 'yellow_core'})
     }, {
-      species: Potw(P.Clauncher, {var: 2})
+      species: Potw(P.Sunkern, {var: 1})
     }],
     3: [{
-      species: Potw(P.Farfetchd, {var: 2, form: 'galarian'})
+      species: Potw(P.Minior, {var: 4, form: 'yellow_core'})
     }, {
-      species: Potw(P.Clawitzer, {var: 2})
+      species: Potw(P.Sunflora, {var: 1})
     }]
   },
   'Mediterranean': {
     1: [{
-      species: Potw(P.Geodude, {var: 4, form: 'alolan'})
+      species: Potw(P.Minior, {var: 4, form: 'green_core'})
     }, {
-      species: Potw(P.Azurill, {var:4})
+      species: Potw(P.Remoraid, {var:2})
     }],
     2: [{
-      species: Potw(P.Graveler, {var: 4, form: 'alolan'})
+      species: Potw(P.Minior, {var: 4, form: 'green_core'})
     }, {
-      species: Potw(P.Marill, {var:4})
+      species: Potw(P.Remoraid, {var:2})
     }],
     3: [{
-      species: Potw(P.Golem, {var: 4, form: 'alolan'})
+      species: Potw(P.Minior, {var: 4, form: 'green_core'})
     }, {
-      species: Potw(P.Azumarill, {var:4})
+      species: Potw(P.Octillery, {var:2})
     }]
   },
   'Africa / Middle East': {
     1: [{
-      species: Potw(P.Bergmite, {var: 2})
+      species: Potw(P.Minior, {var: 4, form: 'blue_core'})
     }, {
-      species: Potw(P.Bouffalant, {var: 2})
+      species: Potw(P.Cacnea, {var: 4})
     }],
     2: [{
-      species: Potw(P.Bergmite, {var: 2})
+      species: Potw(P.Minior, {var: 4, form: 'blue_core'})
     }, {
-      species: Potw(P.Bouffalant, {var: 2})
+      species: Potw(P.Cacnea, {var: 4})
     }],
     3: [{
-      species: Potw(P.Avalugg, {var: 2, form: 'hisuian'})
+      species: Potw(P.Minior, {var: 4, form: 'blue_core'})
     }, {
-      species: Potw(P.Bouffalant, {var: 2})
+      species: Potw(P.Cacturne, {var: 4})
     }]
   },
   'Asia': {
     1: [{
-      species: Potw(P.Meowth, {var: 4,form:'alolan'})
+      species: Potw(P.Minior, {var: 4, form:'indigo_core'})
     }, {
-      species: Potw(P.Skrelp, {var: 2})
+      species: Potw(P.Makuhita, {var: 3})
     }],
     2: [{
-      species: Potw(P.Meowth, {var: 4,form:'alolan'})
+      species: Potw(P.Minior, {var: 4, form:'indigo_core'})
     }, {
-      species: Potw(P.Skrelp, {var: 2})
+      species: Potw(P.Makuhita, {var: 3})
     }],
     3: [{
-      species: Potw(P.Persian, {var: 4, form: 'alolan'})
+      species: Potw(P.Minior, {var: 4, form: 'indigo_core'})
     }, {
-      species: Potw(P.Dragalge, {var: 2})
+      species: Potw(P.Hariyama, {var: 3})
     }]
   },
   'Pacific Islands': {
     1: [{
-      species: Potw(P.Vulpix, {var: 4, form:'alolan'})
+      species: Potw(P.Minior, {var: 4, form:'violet_core'})
     }, {
-      species: Potw(P.Horsea, {var:4})
+      species: Potw(P.Relicanth, {var:2})
     }],
     2: [{
-      species: Potw(P.Vulpix, {var: 4, form:'alolan'})
+      species: Potw(P.Minior, {var: 4, form:'violet_core'})
     }, {
-      species: Potw(P.Seadra, {var:4})
+      species: Potw(P.Relicanth, {var:2})
     }],
     3: [{
-      species: Potw(P.Ninetales, {var: 4,form:'alolan'})
+      species: Potw(P.Minior, {var: 4, form:'violet_core'})
     }, {
-      species: Potw(P.Kingdra, {var:4})
+      species: Potw(P.Relicanth, {var:2})
     }]
   },
   'Australia / New Zealand': {
     1: [{
-      species: Potw(P.Koffing, {var: 3})
+      species: Potw(P.Rattata, {var: 4, form: 'alolan'})
     }, {
-      species: Potw(P.Sandile, {var: 1})
+      species: Potw(P.Swablu, {var: 2})
     }],
     2: [{
-      species: Potw(P.Koffing, {var: 3})
+      species: Potw(P.Rattata, {var: 4, form: 'alolan'})
     }, {
-      species: Potw(P.Krokorok, {var: 1})
+      species: Potw(P.Swablu, {var: 2})
     }],
     3: [{
-      species: Potw(P.Weezing, {var: 3, form: 'galarian'})
+      species: Potw(P.Raticate, {var: 4, form: 'alolan'})
     }, {
-      species: Potw(P.Krookodile, {var: 1})
+      species: Potw(P.Altaria, {var: 2})
     }]
   },
 }
