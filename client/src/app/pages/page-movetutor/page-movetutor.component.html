@@ -47,10 +47,56 @@
   </ul>
 </collapsible-card>
 
-<collapsible-card>
+<collapsible-card [collapsed]="true">
   <span title>Use a Mint</span>
   <p>
     You can change a Pokémon's nature by feeding them a minty snack.
+  </p>
+  <table>
+    <div *ngFor="let mint of mints">
+      <tr>
+      <td class="item">
+        <sprite-item item="{{mint.key}}" *ngIf="mint.count > 0" (click)="useMint(mint.nature, mint.key)"></sprite-item>
+        <sprite-item item="{{mint.key}}" *ngIf="mint.count === 0"></sprite-item>
+      </td>
+      <td class="count">
+        <span>×{{mint.count}}</span>
+      </td>
+      <td class="label">
+        <strong class="label">{{mint.label}}</strong>
+      </td>
+      </tr>
+      <tr>
+      <td colspan="3">
+        <small>&emsp;{{mint.description}}</small>
+      </td>
+      </tr>
+    </div>
+  </table>
+</collapsible-card>
+
+<collapsible-card [collapsed]="true">
+  <span title>Feed Max Soup</span>
+  <p>
+    You can feed a Pokémon Max Soup to give it the Gigantamax factor. This
+    soup can also remove this factor. You currently have {{maxMushroom}} Max
+    Mushrooms <sprite-item item="maxmushroom"></sprite-item>
+    and {{maxHoney}} Max Honeycombs <sprite-item item="maxhoney"></sprite-item>.
+  </p>
+  <button mat-button (click)="useGMax('mushroom')">
+    Use a Max Mushroom
+  </button>
+
+  <button mat-button (click)="useGMax('honey')">
+    Use a Max Honeycomb
+  </button>
+</collapsible-card>
+
+<collapsible-card *ngIf="teraOrb" [collapsed]="true">
+  <span title>Change Tera Types</span>
+  <p>
+    Now that you have the ability to Terastallize your Pokémon, you are able
+    to update your Pokémon's Tera Type by using Tera Shards.
   </p>
   <table>
     <div *ngFor="let mint of mints">
@@ -81,10 +127,10 @@
   <sprite-pokemon badge="{{selection}}" *ngIf="!exec.confirm"></sprite-pokemon>
   <sprite-evolution #evo [from]="selection" *ngIf="exec.confirm"></sprite-evolution>
   <br>
-  <span *ngIf="selectionVar">
+  <span *ngIf="selectionVar && mode === 1">
     Teach moves to {{selectionLabel}}? It would become var{{selectionVar}}.
   </span>
-  <span *ngIf="!selectionVar">
+  <span *ngIf="!selectionVar && mode === 1">
     Actually, {{selectionLabel}} cannot be taught.
   </span>
 
