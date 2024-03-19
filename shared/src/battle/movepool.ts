@@ -4242,11 +4242,17 @@ export const Movepool: Movepool = {
       if ([target.type1, target.type2].includes('Water')) {
         // Will be an odd message for some combinations
         move.power *= 2
-        return new Log().add(`It's super-effective!`)
       }
       return new Log()
     },
-    onAfterMove: (inp) => Freeze(inp, 0.1),
+    onAfterMove: (inp) => {
+      const log = new Log()
+      if ([inp.target.type1, inp.target.type2].includes('Water')) {
+        log.add(`It's super-effective!`)
+      }
+      log.push(Freeze(inp, 0.1))
+      return log
+    },
   },
   'Freeze Shock': {
     name: 'Freeze Shock', type: 'Ice',

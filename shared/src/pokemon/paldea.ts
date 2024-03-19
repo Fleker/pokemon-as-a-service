@@ -2,6 +2,7 @@ import { ensurePkmnBuilder } from './types'
 import {kantoBuilder} from './kanto'
 import {johtoBuilder} from './johto'
 import {hisuiBuilder} from './hisui'
+
 export const paldeaBuilder = {
   'potw-128-combat_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting',
@@ -810,7 +811,7 @@ export const paldeaBuilder = {
   'potw-950': ensurePkmnBuilder({
     species: 'Klawf', type1: 'Rock', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 79,
+    weight: 79, syncableForms: ['titan'],
     eggBase: 'potw-950', eggGroup: ['Water 3'], eggCycles: 35,
     pokedex: `Klawf hangs upside-down from cliffs, waiting for prey. But Klawf can't remain in this position for long because its blood rushes to its head.`,
     hp: 70, attack: 100, defense: 115, spAttack: 35, spDefense: 55, speed: 75,
@@ -821,8 +822,10 @@ export const paldeaBuilder = {
       'Giga Impact', 'Mud Shot', 'Trailblaze', 'Rock Smash', 'Ancient Power', 
       'Protect', 'Swords Dance', 'Iron Defense', 'Sunny Day', 'Rain Dance', 
       'Sandstorm', 'Endeavor', 'Knock Off', 'Substitute', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['X-Scissor', 'Swords Dance'],
+    ],
   }),
   'potw-951': ensurePkmnBuilder({
     species: 'Capsakid', type1: 'Grass', 
@@ -1087,7 +1090,10 @@ export const paldeaBuilder = {
       'Bulldoze', 'Protect', 'Swagger', 'Self-Destruct', 'Iron Defense', 
       'Screech', 'Metal Sound', 'Sunny Day', 'Rain Dance', 'Sandstorm', 
       'Haze', 'Substitute', 'Endure', 'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Uproar', 'Taunt'],
+    ],
   }),
   'potw-966': ensurePkmnBuilder({
     species: 'Revavroom', type1: 'Steel', type2: 'Poison', 
@@ -1144,7 +1150,7 @@ export const paldeaBuilder = {
       'Substitute', 'Coil', 'Endure', 
     ],
     novelMoves: [[],
-      // ['Dig', 'Shed Tail']  
+      // ['Dig', 'Shed Tail']
     ],
   }),
   'potw-969': ensurePkmnBuilder({
@@ -1689,6 +1695,9 @@ export const paldeaBuilder = {
     hp: 45, attack: 30, defense: 70, spAttack: 75, spDefense: 70, speed: 10,
     move: ['Astonish'],
     moveTMs: [],
+    novelMoves: [[],
+      ['Tackle', 'Protect'],
+    ],
   }),
   'potw-999-roaming': ensurePkmnBuilder({
     species: 'Gimmighoul', type1: 'Ghost',
@@ -1699,6 +1708,9 @@ export const paldeaBuilder = {
     hp: 45, attack: 30, defense: 25, spAttack: 75, spDefense: 45, speed: 80,
     move: ['Astonish'],
     moveTMs: [],
+    novelMoves: [[],
+      ['Tackle', 'Confuse Ray']
+    ],
   }),
   'potw-1000': ensurePkmnBuilder({
     species: 'Gholdengo', type1: 'Steel', type2: 'Ghost', 
@@ -1712,8 +1724,10 @@ export const paldeaBuilder = {
       'Flash Cannon', 'Charge Beam', 'Psyshock', 'Giga Impact', 'Dazzling Gleam', 
       'Protect', 'Thunder Wave', 'Confuse Ray', 'Nasty Plot', 'Metal Sound', 
       'Sandstorm', 'Reflect', 'Light Screen', 'Substitute', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Power Gem', 'Nasty Plot'],
+    ],
   }),
   'potw-1001': ensurePkmnBuilder({
     species: 'Wo-Chien', type1: 'Dark', type2: 'Grass', 
@@ -2133,6 +2147,7 @@ export const paldeaBuilder = {
     ],
   }),
 }
+
 paldeaBuilder['potw-128-combat_breed'].moveTMs = kantoBuilder['potw-128'].moveTMs
 paldeaBuilder['potw-128-blaze_breed'].moveTMs = kantoBuilder['potw-128'].moveTMs
 paldeaBuilder['potw-128-aqua_breed'].moveTMs = kantoBuilder['potw-128'].moveTMs
@@ -2144,12 +2159,16 @@ paldeaBuilder['potw-999-chest'].moveTMs = paldeaBuilder['potw-999'].moveTMs
 paldeaBuilder['potw-999-roaming'].moveTMs = paldeaBuilder['potw-999'].moveTMs
 paldeaBuilder['potw-1024-terastal'].moveTMs = paldeaBuilder['potw-1024'].moveTMs
 paldeaBuilder['potw-1024-stellar'].moveTMs = paldeaBuilder['potw-1024'].moveTMs
+
 // Alternate forms are mostly clones of the original
 paldeaBuilder['potw-925-family_of_three'] = {...paldeaBuilder['potw-925']}
 paldeaBuilder['potw-925-family_of_three'].pokedex = `They build huge nests with many rooms that are used for different purposes, such as eating and sleeping.`
+
 paldeaBuilder['potw-982-three_segment'] = {...paldeaBuilder['potw-982']}
 paldeaBuilder['potw-982-three_segment'].pokedex = `The gentle Dudunsparce will put Pokémon that wander into its nest onto its back and carry them to the entrance.`
+
 paldeaBuilder['potw-1012-artisan'] = {...paldeaBuilder['potw-1012']}
 paldeaBuilder['potw-1012-artisan'].pokedex = `It sprinkles some of its powdery body onto food and drains the life-force from those who so much as lick it.`
+
 paldeaBuilder['potw-1013-masterpiece'] = {...paldeaBuilder['potw-1013']}
 paldeaBuilder['potw-1013-masterpiece'].pokedex = `It lives inside a superb teacup that was crafted by a potter of great renown. Collectors positively adore this Pokémon.`

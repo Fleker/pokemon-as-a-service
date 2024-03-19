@@ -22,6 +22,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Crunch', 'Howl'],
       ['Return', 'Stealth Rock'],
+      ['Outrage', 'Will-O-Wisp'],
     ],
   }),
   'potw-059-hisuian': ensurePkmnBuilder({
@@ -46,6 +47,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Reversal', 'Howl'],
       ['Extreme Speed', 'Stealth Rock'],
+      ['Outrage', 'Will-O-Wisp'],
     ],
   }),
   'potw-100-hisuian': ensurePkmnBuilder({
@@ -66,7 +68,8 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Ice Ball', 'Thunder Wave'],
-      ['Gyro Ball', 'Grassy Terrain']
+      ['Gyro Ball', 'Grassy Terrain'],
+      ['Electroweb', 'Signal Beam', 'Stun Spore'],
     ],
   }),
   'potw-101-hisuian': ensurePkmnBuilder({
@@ -87,7 +90,8 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Ice Ball', 'Thunder Wave'],
-      ['Gyro Ball', 'Grassy Terrain']
+      ['Gyro Ball', 'Grassy Terrain'],
+      ['Electroweb', 'Signal Beam', 'Stun Spore'],
     ],
   }),
   'potw-157-hisuian': ensurePkmnBuilder({
@@ -139,6 +143,7 @@ export const hisuiBuilder = {
       ['Aqua Tail', 'Spikes'],
       ['Ice Ball', 'Minimize'],
       ['Throat Chop', 'Gunk Shot', 'Acupressure'],
+      ['Sludge Wave', 'Surf', 'Haze'],
     ],
   }),
   'potw-215-hisuian': ensurePkmnBuilder({
@@ -165,6 +170,7 @@ export const hisuiBuilder = {
       ['Quick Attack', 'Swords Dance'],
       ['Shadow Claw', 'Focus Energy'],
       ['Vacuum Wave', 'Gunk Shot', 'Hone Claws'],
+      ['Rock Slide', 'Coaching'],
     ],
   }),
   'potw-503-hisuian': ensurePkmnBuilder({
@@ -254,6 +260,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Snarl', 'Nasty Plot'],
       ['Shadow Sneak', 'Foul Play', 'Curse'],
+      ['Throat Chop', 'Happy Hour'],
     ],
   }),
   'potw-571-hisuian': ensurePkmnBuilder({
@@ -276,6 +283,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Extrasensory', 'Nasty Plot'],
       ['Dark Pulse', 'Curse'],
+      ['Throat Chop', 'Snowscape'],
     ],
   }),
   'potw-628-hisuian': ensurePkmnBuilder({
@@ -537,6 +545,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Phantom Force', 'Crunch', 'Scary Face'],
       ['Psychic Fangs', 'Taunt'],
+      ['Liquidation', 'Head Smash', 'Pain Split'],
       /// Head Smash
       // Last Respects
     ],
@@ -558,6 +567,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Phantom Force', 'Crunch', 'Scary Face'],
       ['Psychic Fangs', 'Taunt'],
+      ['Liquidation', 'Head Smash', 'Pain Split'],
     ],
   }),
   'potw-902-female': ensurePkmnBuilder({
@@ -577,6 +587,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Phantom Force', 'Crunch', 'Scary Face'],
       ['Ice Fang', 'Taunt'],
+      ['Liquidation', 'Head Smash', 'Snowscape'],
     ],
   }),
   'potw-903': ensurePkmnBuilder({
@@ -600,6 +611,7 @@ export const hisuiBuilder = {
       ['Quick Attack', 'Swords Dance'],
       ['Shadow Claw', 'Focus Energy'],
       ['Vacuum Wave', 'Gunk Shot', 'Toxic Spikes'],
+      ['Rock Slide', 'Coaching'],
     ],
   }),
   'potw-904': ensurePkmnBuilder({
@@ -621,6 +633,7 @@ export const hisuiBuilder = {
       ['Aqua Tail', 'Toxic Spikes'],
       ['Ice Ball', 'Spikes'],
       ['Throat Chop', 'Gunk Shot', 'Acupressure'],
+      ['Sludge Wave', 'Surf', 'Haze'],
     ],
   }),
   'potw-905': ensurePkmnBuilder({
@@ -641,7 +654,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
-      ['Focus Blast', 'Earth Power', 'Tailwind'],
+      ['Focus Blast', 'Earth Power', 'Tailwind']
     ],
   }),
   'potw-905-incarnate': ensurePkmnBuilder({
@@ -661,7 +674,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
-      ['Focus Blast', 'Earth Power', 'Tailwind'],
+      ['Focus Blast', 'Earth Power', 'Tailwind']
     ],
   }),
   'potw-905-therian': ensurePkmnBuilder({
@@ -681,7 +694,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
-      ['Focus Blast', 'Earth Power', 'Tailwind'],
+      ['Focus Blast', 'Earth Power', 'Tailwind']
     ],
   }),
 }

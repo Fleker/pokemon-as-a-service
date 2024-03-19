@@ -301,7 +301,33 @@ export function terastallize(teraType: Type): Item {
       tera.p = { type: teraType }
       caster.heldItemConsumed = true
       caster.heldItemTotallyConsumed = true
-      return APPLY_TEMP_STATUS(caster, tera, '')
+      const log = APPLY_TEMP_STATUS(caster, tera, '')
+      if (caster.species === 'Revavroom' && getCondition(caster, 'Raid')) {
+        // Hidden feature for Revavroom bosses
+        log.add('Revavroom appears to be attached to a Starmobile')
+        if (teraType === 'Dark') {
+          caster.move.push('Wicked Torque')
+          caster.movepool.push({...Movepool['Wicked Torque']})
+          log.add('Giacomo took command of Revavroom!')
+        } else if (teraType === 'Fire') {
+          caster.move.push('Blazing Torque')
+          caster.movepool.push({...Movepool['Blazing Torque']})
+          log.add('Mela took command of Revavroom!')
+        } else if (teraType === 'Fighting') {
+          caster.move.push('Combat Torque')
+          caster.movepool.push({...Movepool['Combat Torque']})
+          log.add('Eri took command of Revavroom!')
+        } else if (teraType === 'Fairy') {
+          caster.move.push('Magical Torque')
+          caster.movepool.push({...Movepool['Magical Torque']})
+          log.add('Ortega took command of Revavroom!')
+        } else if (teraType === 'Poison') {
+          caster.move.push('Noxious Torque')
+          caster.movepool.push({...Movepool['Noxious Torque']})
+          log.add('Atticus took command of Revavroom!')
+        }
+      }
+      return log
     }
   }
 }
