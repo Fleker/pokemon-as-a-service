@@ -1262,7 +1262,7 @@ export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_ICE: teraQuest('teraice', 'Ice', 9, false),
   TERA_DARK: teraQuest('teradark', 'Dark', 9, false),
   TERA_STEEL: teraQuest('terasteel', 'Steel', 9, false),
-  TERA_FAIRY: teraQuest('terafairy', 'Fairy', 9, false),
+  TERA_FAIRY: teraQuest('terafairy', 'Fairy'),
   TERA_DRAGON: teraQuest('teradragon', 'Dragon', 9, false),
   TERA_ROCK: teraQuest('terarock', 'Rock', 9, false),
   TERA_GROUND: teraQuest('teraground', 'Ground', 9, false),
@@ -1270,7 +1270,7 @@ export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_POISON: teraQuest('terapoison', 'Poison', 9, false),
   TERA_GHOST: teraQuest('teraghost', 'Ghost', 9, false),
   TERA_PSYCHIC: teraQuest('terapsychic', 'Psychic', 9, false),
-  TERA_ELECTRIC: teraQuest('teraelectric', 'Electric', 9, false),
+  TERA_ELECTRIC: teraQuest('teraelectric', 'Electric'),
   TERA_FLYING: teraQuest('teraflying', 'Flying', 9, false),
   TERA_FIGHTING: teraQuest('terafighting', 'Fighting', 9, false),
 }

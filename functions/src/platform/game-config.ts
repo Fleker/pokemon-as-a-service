@@ -8,11 +8,12 @@ export const MAIL_BADGES = {
   'potw-286': 'Breloom',
   'potw-287': 'Slakoth',
   'potw-288': 'Vigoroth',
+  'potw-289': 'Slaking',
 }
 
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Mud Shot',
-  tr: 'tr-Tailwind',
+  tm: 'tm-Beat Up',
+  tr: 'tr-Wish',
 }
 
 export const adminIds = [
