@@ -309,7 +309,7 @@ export class AchievementsService {
       const [id, personality] = badge.fragments
       const db = get(badge.toLegacyString())
       if (!db) continue
-      if (this.currentPokemon[id] !== undefined) {
+      if (this.currentPokemon[id] === undefined) {
         events.push({ pokemon: key as PokemonId, label: badge.toLabel(), description: 'Added to your Pokédex', new: true})
       } else if (this.currentPokemon[id][personality] === undefined) {
         events.push({ pokemon: key as PokemonId, label: badge.toLabel(), description: 'Sent to your boxes', new: true})

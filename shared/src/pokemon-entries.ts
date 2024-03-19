@@ -1,6 +1,10 @@
 import { Badge } from "./badge3"
+import {myPokemon} from './badge-inflate'
+import { PokemonId } from "./pokemon/types"
 
-function pkmnSort(a: Badge, b: Badge) {
+function pkmnSort(p1: [Badge, number], p2: [Badge, number]) {
+  const a = p1[0]
+  const b = p2[0]
   if (a.id < b.id) return -1
   if (a.id > b.id) return 1
   const aForm = a.personality.form || ''
@@ -25,11 +29,10 @@ function pkmnSort(a: Badge, b: Badge) {
  * @param obj Object in key-value pairs
  * @returns Entries in a sorted order
  */
- export function PokemonEntries(obj) {
-  const sortedKeys = Object.keys(obj)
-    .map(x => new Badge(x))
-    .sort(pkmnSort)
-    .map(badge => badge.toString())
-  console.log(obj, sortedKeys[0], obj[sortedKeys[0]])
-  return sortedKeys.map(key => [key, obj[key]])
+export function PokemonEntries(obj): [PokemonId, number][] {
+  const sorted = [...myPokemon(obj)]
+    .map(([key, val]) => [new Badge(key), val])
+    .sort(pkmnSort) as [Badge, number][]
+  console.debug(sorted[0][0], sorted[0][1])
+  return sorted.map(([badge, val]) => [badge.toString(), val])
 }

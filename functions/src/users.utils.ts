@@ -4,6 +4,7 @@ import { ITEMS, ItemId } from "../../shared/src/items-list"
 import { PokemonId } from "../../shared/src/pokemon/types"
 import { Badge, MATCH_GTS } from "../../shared/src/badge3"
 import { myPokemon } from "../../shared/src/badge-inflate"
+import structuredClone from '@ungap/structured-clone';
 
 export const hasItem = (user: Users.Doc, item: ItemId, count = 1) => {
   if (!ITEMS.hasOwnProperty(item)) {

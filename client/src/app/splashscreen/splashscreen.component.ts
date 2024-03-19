@@ -70,7 +70,7 @@ export class SplashscreenComponent implements OnInit, AfterViewInit {
     this.firebase.subscribeAuth().subscribe(res => {
       this.needLogin = !res || !res.user
       // this.needLogin = true
-      this.uid = res.user.uid
+      this.uid = res?.user?.uid
       console.log(`Need login: ${this.needLogin}`)
       if (res.user) {
         setTimeout(() => {

@@ -9,6 +9,7 @@ import { TagComponent } from 'src/app/dialogs/tag/tag.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { F } from '../../../../../shared/src/server-types';
 import { LinksService } from 'src/app/links.service';
+import { myPokemon } from '../../../../../shared/src/badge-inflate';
 
 @Component({
   selector: 'page-pokemon',
@@ -54,7 +55,7 @@ export class PagePokemonComponent implements OnDestroy {
         // For Map view
         this.pokemon = PokemonEntries(user.pokemon) as [PokemonId, number][]
         this.abnormalBadges = []
-        for (const k of Object.keys(user.pokemon)) {
+        for (const [k] of myPokemon(user.pokemon)) {
           const b = new Badge(k)
           if (b.isAbnormal) {
             this.abnormalBadges.push(b)

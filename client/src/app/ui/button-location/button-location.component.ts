@@ -19,6 +19,7 @@ import { PokeballArr } from '../../../../../shared/src/gen/type-item';
 import { PokearthComponent } from '../pokearth/pokearth.component';
 import { EngagementService } from '../../engagement.service';
 import { CATCH_CHARM_XY } from '../../../../../shared/src/legendary-quests';
+import { myPokemon } from '../../../../../shared/src/badge-inflate';
 
 declare var window: any
 
@@ -225,7 +226,7 @@ export class ButtonLocationComponent implements OnInit {
       this.vivillon = {
         sprite: VivillonMap[this.current.vivillon],
         caught: (() => {
-          for (const [k, v] of Object.entries(this.user.pokemon)) {
+          for (const [k, v] of myPokemon(this.user.pokemon)) {
             const badge = new Badge(k)
             if (badge.id !== 666) continue;
             if (badge.personality.form === this.current.vivillon) {

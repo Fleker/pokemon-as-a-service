@@ -71,6 +71,7 @@ export function toPersonality(personality64: string, id: number): Personality {
   const pkmn = Pkmn.get(`potw-${id}`)
   if (!pkmn) throw new Error(`No Pokemon exists potw-${id} w/${personality64}`)
 
+  if (!personality) throw new Error(`No personality exists potw-${id}`)
   // Pad the start in the case of Hardy PokeBall
   const personality16 = toBase16(personality64).padStart(10, '0')
   // Breaks up the personality into base16 strings, where every 2 characters is one byte

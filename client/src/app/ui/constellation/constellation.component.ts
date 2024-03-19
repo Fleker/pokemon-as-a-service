@@ -16,7 +16,7 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     let frame = 0
     this.flicker = setInterval(() => {
-      this.drawConstellationCalyrex(++frame)
+      this.drawConstellationLuvdisc(++frame)
       this.dotUserStars(this.uid)
     }, 150)
   }
@@ -79,6 +79,70 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
         col++
       }
     }
+  }
+
+  drawConstellationLuvdisc(frame: number) {
+    if (!this.canvas) return
+    const ctx = this.canvas!.nativeElement.getContext('2d')
+    if (ctx === null) return    
+
+    ctx.clearRect(0, 0, 480, 480)
+    ctx.strokeStyle = '#ffffff'
+    ctx.fillStyle = '#ffffff'
+    ctx.beginPath()
+
+    ctx.moveTo(289, 9)
+    ctx.lineTo(219, 53)
+    ctx.lineTo(167, 165)
+    ctx.lineTo(146, 224)
+    ctx.lineTo(118, 255)
+    ctx.lineTo(151, 250)
+    ctx.lineTo(118, 255)
+    ctx.lineTo(143, 296)
+    ctx.lineTo(171, 354)
+    ctx.lineTo(223, 452)
+    ctx.lineTo(283, 472)
+    ctx.lineTo(346, 421)
+    ctx.lineTo(350, 312)
+    ctx.lineTo(337, 247)
+    ctx.lineTo(353, 196)
+    ctx.lineTo(363, 79)
+    ctx.lineTo(289, 9)
+
+    // Mouth
+    ctx.moveTo(118, 255)
+    ctx.lineTo(151, 250)
+    ctx.moveTo(118, 255)
+    ctx.lineTo(146, 224)
+    ctx.lineTo(190, 255)
+    ctx.lineTo(143, 296)
+
+    // Eye
+    ctx.moveTo(237, 187)
+    ctx.lineTo(255, 215)
+    ctx.lineTo(237, 250)
+    ctx.lineTo(218, 215)
+    ctx.lineTo(237, 187)
+    ctx.stroke()
+    ctx.closePath()
+
+    // Lil dot
+    this.star(ctx, 263, 263, 1, frame)
+    this.star(ctx, 289, 9, 3, frame)
+    this.star(ctx, 219, 53, 5, frame)
+    this.star(ctx, 167, 165, 7, frame)
+    this.star(ctx, 146, 224, 9, frame)
+    this.star(ctx, 118, 255, 2, frame)
+    this.star(ctx, 151, 250, 4, frame)
+    this.star(ctx, 143, 296, 6, frame)
+    this.star(ctx, 171, 354, 8, frame)
+    this.star(ctx, 223, 452, 1, frame)
+    this.star(ctx, 283, 472, 3, frame)
+    this.star(ctx, 346, 421, 5, frame)
+    this.star(ctx, 350, 312, 7, frame)
+    this.star(ctx, 337, 247, 9, frame)
+    this.star(ctx, 353, 196, 2, frame)
+    this.star(ctx, 363, 79, 4, frame)
   }
 
   drawConstellationCalyrex(frame: number) {

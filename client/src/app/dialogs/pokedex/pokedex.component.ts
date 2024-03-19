@@ -20,7 +20,7 @@ import { ItemAvailability } from '../../../../../shared/src/items-availablity';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { F } from '../../../../../shared/src/server-types';
 import { BATTLE_TIERS } from '../../../../../shared/src/battle-tiers';
-
+import { myPokemon } from '../../../../../shared/src/badge-inflate';
 
 export interface PokedexData {
   badge: PokemonId
@@ -238,7 +238,7 @@ export class PokedexDialog implements OnInit, OnDestroy {
     }
 
     const {pokemon} = this.user
-    const badgeSet: Set<PokemonId> = new Set(Object.keys(pokemon) as PokemonId[])
+    const badgeSet: Set<PokemonId> = new Set([...myPokemon(pokemon)].map(([k]) => k) as PokemonId[])
     const allCaughtForms = []
     // Need to find the simplest form, but then reconvert that to a canonical badge
     const simple = Badge.fromLegacy(this.badge.toSimple()).toString()

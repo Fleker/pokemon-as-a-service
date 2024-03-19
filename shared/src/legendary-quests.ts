@@ -365,7 +365,7 @@ export function registerShinyRegion(region: Region): (req: Requirements) => numb
   return (req: Requirements) => {
     const badgeMap = new Map()
     if (!req.pokemon) return 0
-    for (const key of Object.keys(req.pokemon)) {
+    for (const [key] of myPokemon(req.pokemon)) {
       const badge = new Badge(key)
       if (badge.personality.shiny) {
         const {id} = badge
