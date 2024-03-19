@@ -168,6 +168,7 @@ export const Events = {
     isActive: (user) => {
       const date = getLocalTime(user)
       // Officially on the 10th but celebrations start on Friday.
+      // February 10 2024
       return date.month() === 1 && date.date() <= 10 && date.date() >= 9
     }
   }),
@@ -243,7 +244,22 @@ export const Events = {
     shinyRate: 1,
     isActive: (user) => {
       const date = getLocalTime(user)
+      // February 21 2024
       return date.month() === 1 && date.date() === 21
+    }
+  }),
+  'PIDAY': assert<Event>({
+    title: 'Pi Day',
+    description: 'Chill with a slice of pie.',
+    frequentSpecies: [P.Applin],
+    encounterHoldItems: ['tartapple'],
+    other: [
+      'Appletun can be caught in Ultra Balls'
+    ],
+    shinyRate: 1,
+    isActive: (user) => {
+      const date = getLocalTime(user)
+      return date.month() === 2 && date.date() === 14
     }
   }),
   'APRIL_FOOLS': assert<Event>({
