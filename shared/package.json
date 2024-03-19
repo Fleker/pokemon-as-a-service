@@ -8,6 +8,7 @@
   "version": "2023.10.11",
   "dependencies": {
     "@fleker/gents": "^1.1.0",
+    "runes": "^0.4.3",
     "suncalc": "^1.8.0"
   },
   "private": true,
