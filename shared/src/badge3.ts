@@ -462,8 +462,8 @@ export class Badge {
       }
     }
     this.original = badgeString
-    const [id, personality, tags] = badgeString.split('#')
-    const [, ribbons] = badgeString.split('$')
+    const [badgeCore, ribbons] = badgeString.split('$')
+    const [id, personality, tags] = badgeCore.split('#')
     this.id = toBase10(id)
     if (personality) {
       this.personality = toPersonality(personality, this.id)

@@ -445,6 +445,20 @@ test('Tags: Default and custom tags', t => {
   t.is(badge.toString(), '1#fM22#42a')
 })
 
+test('Marks: Parsing', t => {
+  const castformId = '5v#67M0o0b$🌩️'
+  const castform = new Badge(castformId)
+  t.is(castform.toString(), castform.original)
+  t.false(castform.isAbnormal)
+  t.deepEqual(castform.ribbons, ['🌩️'])
+  t.is(castform.personality.variant, undefined)
+
+  const basculinId = '8C#a7M0zFz$🌩️'
+  const basculin = new Badge(basculinId)
+  t.not(basculin.personality.variant, 7, 'Incorrectly parsed as var7')
+  t.is(basculin.personality.form, 'white_stripe', 'Incorrectly parsed as Red Stripe')
+})
+
 test('Marks: Valid title', t => {
   const bulb = '1#fM22'
   const badge = new Badge(bulb)
