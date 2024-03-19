@@ -2814,7 +2814,7 @@ interface DirectUsage {
 
 interface DirectUsageRes {
   items: Partial<Record<ItemId, number>>
-  badge: Badge
+  badge?: Badge
 }
 
 function getRestoredFossil(species: BadgeId) {
@@ -2906,4 +2906,14 @@ export const DirectMap: Partial<Record<ItemId, DirectUsage>> = {
   slategroudon: slateUsage,
   slaterayquaza: slateUsage,
   slategiratina: slateUsage,
+  gimmighoulbill: {
+    isValid: () => true,
+    exchange: (user) => {
+      if (user.items.gimmighoulcoin) {
+        user.items.gimmighoulcoin = 0
+      }
+      user.items.gimmighoulcoin! += 100
+      return {items: user.items}
+    }
+  }
 }

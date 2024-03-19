@@ -444,41 +444,59 @@ async function useItemDirect(data: F.UseItem.Directly, userId: string): Promise<
     }
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const {items, badge} = directUsage.exchange(user as any)
-    const dbpk = Pkmn.get(badge.toLegacyString())!
-    if (dbpk.shiny === 'WILD') {
-      const isShiny = Math.random() < shinyRate('dowsing', user.hiddenItemsFound)
-      if (isShiny) {
-        badge.personality.shiny = true
+    if (badge) {
+      const dbpk = Pkmn.get(badge.toLegacyString())!
+      if (dbpk.shiny === 'WILD') {
+        const isShiny = Math.random() < shinyRate('dowsing', user.hiddenItemsFound)
+        if (isShiny) {
+          badge.personality.shiny = true
+        }
       }
+      // Add other properties
+      badge.personality.pokeball = 'pokeball'
+      badge.personality.location = 'Restored'
+      addPokemon(user, badge)
     }
-    // Add other properties
-    badge.personality.pokeball = 'pokeball'
-    badge.personality.location = 'Restored'
-    addPokemon(user, badge)
 
-    const researchCurrent = (await accomodateResearch(user, badge.toLegacyString(), 'pokeball')).researchCurrent
-    const restorationCount = (() => {
-      if (user.restorationCount) return ++user.restorationCount
-      return 1
-    })()
-    t.update<Users.Doc>(ref, {
-      pokemon: user.pokemon,
-      items,
-      researchCurrent,
-      restorationCount,
-    })
-    return {badge}
+    if (badge) {
+      const researchCurrent = (await accomodateResearch(user, badge.toLegacyString(), 'pokeball')).researchCurrent
+      const restorationCount = (() => {
+        if (user.restorationCount) return ++user.restorationCount
+        return 1
+      })()
+      t.update<Users.Doc>(ref, {
+        pokemon: user.pokemon,
+        items,
+        researchCurrent,
+        restorationCount,
+      })
+      return {badge}
+    } else {
+      return null
+    }
   })
   // Mirror the same API as above.
   // Note that the client will need to handle the new `changeType` in a special way.
-  return {
-    target: badge.toString(),
-    transform: badge.toLegacyString(),
-    species: badge.toString(),
-    name1: badge.toLabel(),
-    name2: badge.toLabel(),
-    changeType: 'RESTORED',
-    raidId,
+  if (badge) {
+    return {
+      target: badge.toString(),
+      transform: badge.toLegacyString(),
+      species: badge.toString(),
+      name1: badge.toLabel(),
+      name2: badge.toLabel(),
+      changeType: 'RESTORED',
+      raidId,
+    }
+  } else {
+    const def = new Badge(P.Gimmighoul)
+    return {
+      target: def.toString(),
+      transform: def.toLegacyString(),
+      species: def.toString(),
+      name1: def.toLabel(),
+      name2: def.toLabel()!,
+      changeType: 'RESTORED',
+    }
   }
 }
 

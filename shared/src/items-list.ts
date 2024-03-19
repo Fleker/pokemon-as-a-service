@@ -599,6 +599,11 @@ const ITEMS_TREASURE = {
     description: 'A strange coin dropped by a small Pokémon. What currency is this used for?',
     buy: 0, sell: 0, isSouvenir: true, functional: true,
   }),
+  gimmighoulbill: assert<Item>({
+    label: 'Gimmighoul Bill', category: 'treasure',
+    description: 'A bag of coins dropped by a small Pokémon. What currency is this used for?',
+    buy: 0, sell: 5, direct: true,
+  }),
   mysteriousshards: Treasure({
     label: 'Mysterious Shard (Small)',
     description: 'A small mysterious shard with a faint glow.',

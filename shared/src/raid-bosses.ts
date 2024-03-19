@@ -2064,9 +2064,10 @@ export const bossPrizes: Partial<Record<BadgeId, ItemId[]>> = {
   [P.Bombirdier]: ['tmm_bombirdier'],
   [P.Tatsugiri]: ['tmm_tatsugiri', 'svirice'],
   [P.Dondozo]: ['tmm_dondozo'],
-  [P.Annihilape]: ['tm-Rage Fist'],
+  [P.Annihilape]: ['tm-Rage Fist', 'punchingglove'],
   [P.Frigibax]: ['tmm_frigibax'],
   [P.Arctibax]: ['tmm_frigibax'],
   [P.Baxcalibur]: ['tmm_frigibax'],
+  [P.Gimmighoul]: ['gimmighoulcoin', 'gimmighoulbill'],
   [P.Poltchageist]: ['teacupunremarkable'],
 }
