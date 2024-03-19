@@ -2583,7 +2583,7 @@ export const TapuX: LegendaryQuest = {
     completed: (r) => r.location.terrain === 'Tropical',
     msg: 'Alola is a Tropical location.'
   }, {
-    completed: (r) => Object.entries(r.pokemon) 
+    completed: (r) => [...myPokemon(r.pokemon)]
       .filter(([key]) => ['totem', 'alpha', 'noble', 'titan'].includes(new Badge(key).personality.form ?? ''))
       .map(([, count]) => count)
       .length > 0,
@@ -2831,7 +2831,7 @@ export const MagearnaPokeball: LegendaryQuest = {
   }, {
     completed: (r) => {
       // FIXME use countFor method
-      const valid = Object.entries(r.pokemon) 
+      const valid = [...myPokemon(r.pokemon)] 
         .filter(([key]) => new Badge(key).personality.shiny)
         .map(([, count]) => count)
       return valid.length > 81
@@ -2839,7 +2839,7 @@ export const MagearnaPokeball: LegendaryQuest = {
     msg: 'Some Pokémon have alternate colors. Try finding more of them.'
   }, {
     completed: (r) => {
-      const valid = Object.entries(r.pokemon) 
+      const valid = [...myPokemon(r.pokemon)] 
         .filter(([key]) => new Badge(key).personality.gender)
         .map(([, count]) => count)
       return valid.length > 81
@@ -2847,7 +2847,7 @@ export const MagearnaPokeball: LegendaryQuest = {
     msg: 'Some Pokémon have distinct genders. Try finding more of them.'
   }, {
     completed: (r) => {
-      const valid = Object.entries(r.pokemon) 
+      const valid = [...myPokemon(r.pokemon)] 
         .filter(([key]) => new Badge(key).personality.form)
         .map(([, count]) => count)
       return valid.length > 81
