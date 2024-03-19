@@ -216,18 +216,11 @@
         </td>
         <td>
           <mat-icon class="icon" *ngIf="!types[1]" svgIcon="{{typeIcon(types[0])}}"></mat-icon>
-          <!-- <img class="icon" *ngIf="!types[1]" src="{{typeIcon(types[0])}}" /> -->
           <mat-icon class="icon icon2" *ngIf="types[1]" svgIcon="{{typeIcon(types[0])}}"></mat-icon>
-          <!-- <img class="icon icon2" *ngIf="types[1]" src="{{typeIcon(types[0])}}" /> -->
           <mat-icon class="icon" *ngIf="types[1]" svgIcon="{{typeIcon(types[1])}}"></mat-icon>
-          <!-- <img class="icon" *ngIf="types[1]" src="{{typeIcon(types[1])}}" /> -->
           <small>Hosted by {{host}}&#64;</small><br>
-          <!-- <small>
-            You are in <b>{{location}}</b>. The weather is <b>{{weather}}</b>.
-          </small> -->
           <br>
           <small>Expires at
-            <!-- <time class="underline" datetime="{{expireDateIso}}"> -->
             <time class="underline">
               {{expireDate}}
             </time>
