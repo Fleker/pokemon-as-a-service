@@ -7330,7 +7330,7 @@ export const Movepool: Movepool = {
     hide: true,
   },
   'Noxious Torque': {
-    name: 'Noxious Torque', type: 'Dark',
+    name: 'Noxious Torque', type: 'Poison',
     attackKey: 'attack', defenseKey: 'defense',
     accuracy: 1, criticalHit: 1, power: 1.2,
     flavor: 'The user rushes forward into the target, which may leave them poisoned.',
@@ -11180,7 +11180,7 @@ export const Movepool: Movepool = {
     }
   },
   'Thousand Arrows': {
-    name: 'Thousand Arrows', type: 'Ground',
+    name: 'Thousand Arrows', type: 'Status',
     attackKey: 'attack', defenseKey: 'defense',
     accuracy: 1, power: 1.1, criticalHit: 1,
     flavor: 'Dirt arrows rise from the ground to strike the target. Even Pokémon in the air are vulnerable.',
@@ -11194,6 +11194,8 @@ export const Movepool: Movepool = {
         ) {
         inp.move.type = 'Status'
         return APPLY_TEMP_STATUS(inp.target, ConditionMap.Grounded, `${inp.target} fell to the ground`)
+      } else {
+        inp.move.type = 'Ground'
       }
       return new Log()
     },
