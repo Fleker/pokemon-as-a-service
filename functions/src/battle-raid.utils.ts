@@ -287,7 +287,7 @@ export async function raidSelectPreconditionCheck(raid: DbRaid, user: Users.Doc,
       }
 
       if (violatesSpeciesClause(raid, userId, species)) {
-        throw new Error(`You cannot select species ${species} for this raid (Species Clause)`)
+        throw new Error(`You selected ${species} but the Species Clause allows only one of them. Try selecting a different Pokémon.`)
       }
       return species
     }
