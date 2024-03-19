@@ -45,6 +45,7 @@ import * as BTypes from '../../../../shared/src/battle/types'
 import { raidBattleSettings } from '../../../../shared/src/raid-settings'
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from "@angular/platform-browser";
+import { myPokemon } from '../../../../shared/src/badge-inflate';
 declare var window: any;
 
 interface Gate {
@@ -178,6 +179,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
       types: BTypes,
       raids: raidBattleSettings,
     }
+    window['myPokemon'] = myPokemon
     this.firebase.init()
     this.firebaseListener = this.firebase.subscribeUser(async user => {
       if (user) {

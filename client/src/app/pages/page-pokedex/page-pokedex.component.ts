@@ -5,7 +5,7 @@ import {Pokemon, Badge, MATCH_REQS, Personality} from '../../../../../shared/src
 import { PokemonForm, PokemonGender, PokemonId } from '../../../../../shared/src/pokemon/types';
 import { F } from '../../../../../shared/src/server-types';
 import * as Pkmn from '../../../../../shared/src/pokemon';
-import {TPokemon} from '../../../../../shared/src/badge-inflate';
+import {TPokemon, myPokemon} from '../../../../../shared/src/badge-inflate';
 import {ObjectEntries} from '../../../../../shared/src/object-entries';
 import { LinksService } from 'src/app/links.service';
 import { MoveId, MoveTypeMap } from '../../../../../shared/src/gen/type-move-meta';
@@ -247,7 +247,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
           // Living Dex+
           for (const [label, regionalForm] of Object.entries(regionalForms)) {
             const formSpritesSet = new Set<Sprite>()
-            const keys = Object.keys(this.userPokemon) as PokemonId[]
+            const keys = [...myPokemon(this.userPokemon)].map(([k]) => k)
             for (const [badgeId, pokemon] of ObjectEntries(Pkmn.datastore)) {
               const id = parseInt(badgeId.substring(5))
               let badge;
