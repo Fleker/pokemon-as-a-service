@@ -686,6 +686,7 @@ export const use_tmtr = functions.https.onCall(async (data: F.UseTmTr.Req, conte
   }
 })
 
+
 export const craft_item = functions.https.onCall(async (data: F.CraftItem.Req, context): Promise<F.CraftItem.Res> => {
   const {craft} = data
   const {uid} = context.auth!
@@ -752,5 +753,80 @@ export const craft_item = functions.https.onCall(async (data: F.CraftItem.Req, c
     t.update(ref, { items: user.items, itemsCrafted: user.itemsCrafted })
 
     return res
+  })
+})
+
+export const train_pokemon = functions.https.onCall(async (data: F.TrainPokemon.Req, context): Promise<F.TrainPokemon.Res> => {
+  const {uid} = context.auth!
+  const {item} = data
+  const itemDb = ITEMS[item]
+  if (itemDb === undefined) {
+    throw new functions.https.HttpsError('failed-precondition',
+      `${item} is not an item`)
+  }
+
+  return db.runTransaction(async (t) => {
+    const ref = db.collection('users').doc(uid)
+    const userDoc = await t.get<Users.Doc>(ref)
+    const user = userDoc.data()
+    const species = data.species.startsWith('potw-') ?
+      Badge.fromLegacy(data.species) : new Badge(data.species)
+    if (!hasPokemon(user, species.toOriginalString())) {
+      throw new functions.https.HttpsError('failed-precondition',
+        `User does not have Pokemon ${species.toString()}.`)
+    }
+
+    const dbPkmn = Pkmn.get(species.toLegacyString())
+    if (item === 'maxmushroom' || item === 'maxhoney') {
+      if (dbPkmn.gmax === undefined) {
+        throw new functions.https.HttpsError('failed-precondition', 'Your Pokḿeon cannot gigantamax!')
+      }
+      removePokemon(user, species.toOriginalString())
+      species.personality.gmax = !species.personality.gmax
+      addPokemon(user, species.toString())
+      user.items[item]!-- // Deduct
+      t.update(ref, {
+        items: user.items,
+        pokemon: user.pokemon
+      })
+      return {item, species: species.toString()}
+    }
+
+    const teraTypes: Partial<Record<ItemId, Type>> = {
+      teranormal: 'Normal',
+      terafighting: 'Fighting',
+      teraflying: 'Flying',
+      terapoison: 'Poison',
+      teraground: 'Ground',
+      terarock: 'Rock',
+      terabug: 'Bug',
+      teraghost: 'Ghost',
+      terasteel: 'Steel',
+      terafire: 'Fire',
+      terawater: 'Water',
+      teragrass: 'Grass',
+      teraelectric: 'Electric',
+      terapsychic: 'Psychic',
+      teraice: 'Ice',
+      teradragon: 'Dragon',
+      terafairy: 'Fairy',
+      teradark: 'Dark',
+      terastellar: 'Status',
+    }
+    if (teraTypes[item] !== undefined) {
+      const newType = teraTypes[item]
+      if (species.personality.teraType === newType) {
+        throw new functions.https.HttpsError('failed-precondition', 'This Pokémon already is that tera type')
+      }
+      removePokemon(user, species.toOriginalString())
+      species.personality.teraType = newType
+      addPokemon(user, species.toString())
+      user.items[item]!-- // Deduct
+      t.update(ref, {
+        items: user.items,
+        pokemon: user.pokemon
+      })
+      return {item, species: species.toString()}
+    }
   })
 })

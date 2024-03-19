@@ -58,6 +58,7 @@ export const move_tutor = items.move_tutor
 export const move_deleter = items.move_deleter
 export const use_tmtr = items.use_tmtr
 export const craft_item = items.craft_item
+export const train_pokemon = items.train_pokemon
 
 const location = require('./location')
 // Modifies `location` doc
