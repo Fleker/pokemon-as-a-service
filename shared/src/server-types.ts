@@ -820,6 +820,62 @@ export namespace F {
     export type Res = string
   }
 
+  export namespace Throw {
+    export interface Req {
+      pokeball: PokeballId
+      duplicates: boolean
+      /**
+       * Location ID to move locations in the throw script
+       */
+      locationId?: LocationId
+      /**
+       * The encounter pool you are throwing into.
+       */
+      lure?: LureId
+      /**
+       * If lure == 'friendsafaripass', then the safaris being used correspond to
+       * valid friendSafari field in user doc.
+       */
+      friendSafari?: string
+      /**
+       * A specific item that can be used as a 'bait' to help catch additional
+       * Pokémon.
+       * @see [Bait doc](https://docs.google.com/document/d/1aQ1lccf9nZpnP2sO_eoTfm7RAVX_AURX34QTgyr176M/edit)
+       */
+      bait?: ItemId
+    }
+
+    export interface Res {
+      /**
+       * @deprecated
+       */
+      html: string
+      /**
+       * @deprecated
+       */
+      pokedex: string
+      selectedPokemon: BadgeId
+      duplicates: boolean
+      holdItem?: ItemId
+      badge: PokemonId
+      /* Not the same Pkmn for UI effect */
+      ditto?: PokemonId
+      zorua?: PokemonId
+      zoroark?: PokemonId
+      /** Quantity of existing balls remaining */
+      balls: number
+      /** user.lastLocations as of last throw */
+      lastLocations: LocationId[]
+      /** Bait object if used in request */
+      bait?: {
+        item: ItemId
+        /** If less than what client has, note this in UI */
+        remaining: number
+      }
+      debug: any
+    }
+  }
+
   export namespace TradeClose {
     export interface Req {
       roomId: string
@@ -879,59 +935,15 @@ export namespace F {
     }
   }
 
-  export namespace Throw {
+  export namespace TrainPokemon {
     export interface Req {
-      pokeball: PokeballId
-      duplicates: boolean
-      /**
-       * Location ID to move locations in the throw script
-       */
-      locationId?: LocationId
-      /**
-       * The encounter pool you are throwing into.
-       */
-      lure?: LureId
-      /**
-       * If lure == 'friendsafaripass', then the safaris being used correspond to
-       * valid friendSafari field in user doc.
-       */
-      friendSafari?: string
-      /**
-       * A specific item that can be used as a 'bait' to help catch additional
-       * Pokémon.
-       * @see [Bait doc](https://docs.google.com/document/d/1aQ1lccf9nZpnP2sO_eoTfm7RAVX_AURX34QTgyr176M/edit)
-       */
-      bait?: ItemId
+      species: PokemonId
+      item: ItemId
     }
 
     export interface Res {
-      /**
-       * @deprecated
-       */
-      html: string
-      /**
-       * @deprecated
-       */
-      pokedex: string
-      selectedPokemon: BadgeId
-      duplicates: boolean
-      holdItem?: ItemId
-      badge: PokemonId
-      /* Not the same Pkmn for UI effect */
-      ditto?: PokemonId
-      zorua?: PokemonId
-      zoroark?: PokemonId
-      /** Quantity of existing balls remaining */
-      balls: number
-      /** user.lastLocations as of last throw */
-      lastLocations: LocationId[]
-      /** Bait object if used in request */
-      bait?: {
-        item: ItemId
-        /** If less than what client has, note this in UI */
-        remaining: number
-      }
-      debug: any
+      species: PokemonId
+      item: ItemId
     }
   }
 

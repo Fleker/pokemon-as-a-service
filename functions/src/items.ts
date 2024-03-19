@@ -16,7 +16,7 @@ import * as P from '../../shared/src/gen/type-pokemon'
 import { Recipes } from '../../shared/src/crafting';
 import { toRequirements } from './users';
 import { getLocation } from './location';
-import { BadgeId, PokemonId } from '../../shared/src/pokemon/types';
+import { BadgeId, PokemonId, Type } from '../../shared/src/pokemon/types';
 import * as A from './adventure-log'
 import randomItem from '../../shared/src/random-item';
 import { SHINY_CHARM } from '../../shared/src/quests';
@@ -776,14 +776,14 @@ export const train_pokemon = functions.https.onCall(async (data: F.TrainPokemon.
         `User does not have Pokemon ${species.toString()}.`)
     }
 
-    const dbPkmn = Pkmn.get(species.toLegacyString())
+    const dbPkmn = Pkmn.get(species.toLegacyString())!
     if (item === 'maxmushroom' || item === 'maxhoney') {
       if (dbPkmn.gmax === undefined) {
         throw new functions.https.HttpsError('failed-precondition', 'Your Pokḿeon cannot gigantamax!')
       }
-      removePokemon(user, species.toOriginalString())
+      removePokemon(user, species)
       species.personality.gmax = !species.personality.gmax
-      addPokemon(user, species.toString())
+      addPokemon(user, species)
       user.items[item]!-- // Deduct
       t.update(ref, {
         items: user.items,
@@ -818,9 +818,9 @@ export const train_pokemon = functions.https.onCall(async (data: F.TrainPokemon.
       if (species.personality.teraType === newType) {
         throw new functions.https.HttpsError('failed-precondition', 'This Pokémon already is that tera type')
       }
-      removePokemon(user, species.toOriginalString())
+      removePokemon(user, species)
       species.personality.teraType = newType
-      addPokemon(user, species.toString())
+      addPokemon(user, species)
       user.items[item]!-- // Deduct
       t.update(ref, {
         items: user.items,
@@ -828,5 +828,6 @@ export const train_pokemon = functions.https.onCall(async (data: F.TrainPokemon.
       })
       return {item, species: species.toString()}
     }
+    throw new functions.https.HttpsError('failed-precondition', `No handler found for item ${item}`)
   })
 })
