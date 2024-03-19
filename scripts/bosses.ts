@@ -3741,6 +3741,24 @@ export const bosses = [
     Potw(P.Relicanth, {var:2}),
     Potw(P.Altaria, {var:2}),
     Potw(P.Raticate, {var:4, form: 'alolan'}),
+    Potw(P.Crobat, {var:2}),
+    Potw(P.Castform, {var:4}),
+    Potw(P.Castform, {var:4, form: 'sunny'}),
+    Potw(P.Castform, {var:4, form: 'rainy'}),
+    Potw(P.Castform, {var:4, form: 'snowy'}),
+    Potw(P.Chimecho, {var:3}),
+    Potw(P.Oranguru, {var:1}),
+    Potw(P.Exeggutor, {var:3, form: 'alolan'}),
+    Potw(P.Goodra, {var:3, form: 'hisuian'}),
+    Potw(P.Ursaluna, {var:3}),
+    Potw(P.Aggron, {var:4}),
+    Potw(P.Cryogonal, {var:1}),
+    Potw(P.Electivire, {var:2}),
+    Potw(P.Accelgor, {var:3}),
+    Potw(P.Cherrim, {var:4}),
+    Potw(P.Audino, {var:4}),
+    Potw(P.Salamence, {var:4}),
+    Potw(P.Staraptor, {var:4}),
   ],
 ]
 
@@ -3751,7 +3769,8 @@ const formsToIgnore = [
   'ash', 'therian', 'attack', 'defense', 'speed',
   'sunny', 'rainy', 'snowy', 'zen', 'black', 'white',
   'ten', 'fifty', 'complete', 'hangry', 'blade', 'shield',
-  'origin',
+  'origin', 'sunshine', 'gulping', 'gorging', 'antique', 'phony',
+  'altered',
 ]
 
 function getEvolvedBossesOnly() {

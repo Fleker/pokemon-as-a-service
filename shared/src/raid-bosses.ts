@@ -342,7 +342,7 @@ export const standardBosses: RaidBoss[][] = [
   }, {
     species: Potw(P.Milcery, {var:2}),
   }, {
-    species: Potw(P.Sinistea, {var:2}),
+    species: Potw(P.Sinistea, {var:3}),
   }, {
     species: Potw(P.Morelull, {var:1}),
   }, {
@@ -1146,122 +1146,122 @@ export const timeBoss: {'Day': {[rating: number]: RaidBoss[]}, 'Night': {[rating
 export const forecastBoss: {[key in WeatherType]: {[rating: number]: RaidBoss[]}} = {
   Cloudy: {
     3: [{
-     species: Potw(P.Oricorio, {var: 4, form: 'sensu'}),
+     species: Potw(P.Golbat, {var: 2}),
     }, {
-     species: Potw(P.Deino, {var: 2}),
+     species: Potw(P.Castform, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Oricorio, {var: 4, form: 'sensu'}),
+      species: Potw(P.Crobat, {var: 2}),
     }, {
-      species: Potw(P.Zweilous, {var: 2}),
+      species: Potw(P.Castform, {var: 4}),
     }]
   },
   Fog: {
     3: [{
-     species: Potw(P.Dreepy, {var: 2}),
+     species: Potw(P.Chimecho, {var: 3}),
     }, {
-     species: Potw(P.Axew, {var: 2}),
+     species: Potw(P.Oranguru, {var: 1}),
     }],
     4: [{
-      species: Potw(P.Drakloak, {var:2}),
+      species: Potw(P.Chimecho, {var:3}),
     }, {
-      species: Potw(P.Fraxure, {var: 2}),
+      species: Potw(P.Oranguru, {var: 1}),
     }]
   },
   'Heat Wave': {
     3: [{
-      species: Potw(P.Oricorio, {var:4, form: 'baile'})
+      species: Potw(P.Exeggcute, {var:3})
     }, {
-      species: Potw(P.Fletchinder, {var: 2})
+      species: Potw(P.Castform, {var: 4, form: 'sunny'})
     }],
     4: [{
-      species: Potw(P.Oricorio, {var:4, form: 'baile'})
+      species: Potw(P.Exeggutor, {var:3, form: 'alolan'})
     }, {
-      species: Potw(P.Talonflame, {var: 2})
+      species: Potw(P.Castform, {var: 4, form: 'sunny'})
     }]
   },
   Rain: {
     3: [{
-      species: Potw(P.Clobbopus, {var: 2}),
+      species: Potw(P.Sliggoo, {var: 3, form: 'hisuian'}),
     }, {
-      species: Potw(P.Staryu, {var: 2}),
+      species: Potw(P.Castform, {var: 4, form: 'rainy'}),
     }],
     4: [{
-      species: Potw(P.Grapploct, {var: 2}),
+      species: Potw(P.Sliggoo, {var: 3, form: 'hisuian'}),
     }, {
-      species: Potw(P.Starmie, {var: 2}),
+      species: Potw(P.Castform, {var: 4, form: 'rainy'}),
     }]
   },
   Sandstorm: {
     3: [{
-      species: Potw(P.Growlithe, {var: 2, form: 'hisuian'}),
+      species: Potw(P.Teddiursa, {var: 3}),
     }, {
-      species: Potw(P.Boldore, {var: 3}),
+      species: Potw(P.Lairon, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Arcanine, {var: 2, form: 'hisuian'}),
+      species: Potw(P.Ursaring, {var: 3}),
     }, {
-      species: Potw(P.Gigalith, {var: 3}),
+      species: Potw(P.Aggron, {var: 4}),
     }],
   },
   'Diamond Dust': {
     3: [{
-      species: Potw(P.Mr_Mime, {var: 3, form: 'galarian'}),
+      species: Potw(P.Castform, {var: 4, form: 'snowy'}),
     }, {
-      species: Potw(P.Swirlix, {var: 1})
+      species: Potw(P.Cryogonal, {var: 1}),
     }],
     4: [{
-      species: Potw(P.Mr_Rime, {var: 3}),
+      species: Potw(P.Castform, {var: 4, form: 'snowy'}),
     }, {
-      species: Potw(P.Slurpuff, {var: 1})
+      species: Potw(P.Cryogonal, {var: 1}),
     }],
   },
   Snow: {
     3: [{
-      species: Potw(P.Mr_Mime, {var: 3, form: 'galarian'}),
+      species: Potw(P.Castform, {var: 3, form: 'snowy'}),
     }, {
-      species: Potw(P.Swirlix, {var: 1})
+      species: Potw(P.Cryogonal, {var: 1})
     }],
     4: [{
-      species: Potw(P.Mr_Rime, {var: 3}),
+      species: Potw(P.Castform, {var: 3, form: 'snowy'}),
     }, {
-      species: Potw(P.Slurpuff, {var: 1})
+      species: Potw(P.Cryogonal, {var: 1})
     }],
   },
   Thunderstorm: {
     3: [{
-      species: Potw(P.Oricorio, {var:4,form:'pom_pom'}),
+      species: Potw(P.Electabuzz, {var:2}),
     }, {
-      species: Potw(P.Klang, {var: 3}),
+      species: Potw(P.Karrablast, {var: 3}),
     }],
     4: [{
-      species: Potw(P.Oricorio, {var:4,form:'pom_pom'}),
+      species: Potw(P.Electivire, {var:2}),
     }, {
-      species: Potw(P.Klinklang, {var: 3}),
+      species: Potw(P.Accelgor, {var: 3}),
     }]
   },
   Sunny: {
     3: [{
-      species: Potw(P.Petilil, {var: 2}),
+      species: Potw(P.Cherubi, {var: 4}),
     }, {
-      species: Potw(P.Pinsir, {var: 3}),
+      species: Potw(P.Audino, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Lilligant, {var: 2, form: 'hisuian'}),
+      species: Potw(P.Cherrim, {var: 4}),
     }, {
-      species: Potw(P.Pinsir, {var: 3}),
+      species: Potw(P.Audino, {var: 4}),
     }]
   },
   Windy: {
     3: [{
-      species: Potw(P.Oricorio, {var:4,form:'pau'}),
+      species: Potw(P.Bagon, {var:4}),
     }, {
-      species: Potw(P.Emolga, {var: 4}),
+      species: Potw(P.Staravia, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Oricorio, {var:4,form:'pau'}),
+      species: Potw(P.Shelgon, {var:4}),
     }, {
-      species: Potw(P.Emolga, {var: 4}),
+      species: Potw(P.Staraptor, {var: 4}),
     }]
   },
 }

@@ -518,7 +518,7 @@ export const kalosBuilder = {
       ['Magical Leaf', 'Aromatherapy'],
       ['Hidden Power_Psychic', 'Wish'],
       ['Seed Bomb', 'Flower Shield'],
-      ['Razor Leaf', 'Heal Bell']
+      ['Razor Leaf', 'Heal Bell'],
     ],
   }),
   'potw-670': ensurePkmnBuilder({
