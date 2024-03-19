@@ -1395,15 +1395,15 @@ export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
 
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
-  return legendaryDate.getUTCMonth() === 0 && // January (0)
-    legendaryDate.getUTCDate() <= 18 // January 18th
+  return legendaryDate.getUTCMonth() === 1 && // February (1)
+    legendaryDate.getUTCDate() <= 29 // February 29th
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  // docId: 'available',
-  docId: 'unavailable',
+  docId: 'available',
+  // docId: 'unavailable',
   dbKey: 'shinyManaphy2',
-  badge: 'potw-491-shiny',
+  badge: 'potw-490-shiny',
   boss: Potw(P.Manaphy, {shiny: true, var: 2}),
   title: 'Shiny Manaphy Raids',
   count: 1_000_000,
