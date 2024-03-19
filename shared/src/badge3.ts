@@ -7,9 +7,9 @@ import { LocationId } from './locations-list'
 import { locationArray } from './gen/type-location'
 import { TeamsBadge } from './badge2'
 import {AbilityId} from './battle/ability'
-import {RibbonMarksTable} from './ribbon-marks'
+import {RibbonMarksTable, RibbonMarks} from './ribbon-marks'
 import randomItem from './random-item'
-import * as runes from 'runes'
+import runes from 'runes2'
 
 /**
  * All natures programmed in the main series. Plus Neutral for Pokémon without defined natures.
@@ -446,7 +446,7 @@ export class Badge {
   // Tags
   defaultTags?: Tag[]
   tags?: number[] /* Tag indicies */
-  ribbons?: string[] /* Ribbon and mark lookup indicies */
+  ribbons?: RibbonMarks[] /* Ribbon and mark lookup indicies */
 
   constructor(badgeString?: string) {
     if (typeof badgeString !== 'string') return

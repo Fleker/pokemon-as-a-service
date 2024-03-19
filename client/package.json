@@ -29,6 +29,7 @@
     "firebase": "^9.8.2",
     "marked": "^9.0.0",
     "ngx-markdown": "^17.1.1",
+    "runes2": "^1.1.4",
     "rxjs": "~7.4.0",
     "spacetime": "^7.1.0",
     "tslib": "^2.3.0",
