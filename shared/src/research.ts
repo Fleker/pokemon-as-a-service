@@ -1268,7 +1268,7 @@ export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_GROUND: teraQuest('teraground', 'Ground', 9, false),
   TERA_BUG: teraQuest('terabug', 'Bug'),
   TERA_POISON: teraQuest('terapoison', 'Poison'),
-  TERA_GHOST: teraQuest('teraghost', 'Ghost', 9, false),
+  TERA_GHOST: teraQuest('teraghost', 'Ghost'),
   TERA_PSYCHIC: teraQuest('terapsychic', 'Psychic'),
   TERA_ELECTRIC: teraQuest('teraelectric', 'Electric'),
   TERA_FLYING: teraQuest('teraflying', 'Flying'),
