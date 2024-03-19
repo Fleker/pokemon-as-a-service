@@ -16,9 +16,9 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     let frame = 0
     this.flicker = setInterval(() => {
-      this.drawConstellationLuvdisc(++frame)
+      this.drawConstellationPidgey(++frame)
       this.dotUserStars(this.uid)
-    }, 150)
+    }, 140)
   }
 
   ngOnDestroy(): void {
@@ -79,6 +79,88 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
         col++
       }
     }
+  }
+
+  drawConstellationPidgey(frame: number) {
+    if (!this.canvas) return
+    const ctx = this.canvas!.nativeElement.getContext('2d')
+    if (ctx === null) return
+
+    ctx.clearRect(0, 0, 480, 480)
+    ctx.strokeStyle = '#ffffff'
+    ctx.fillStyle = '#ffffff'
+    ctx.beginPath()
+
+    ctx.moveTo(161, 3)
+    ctx.lineTo(100, 43)
+    ctx.lineTo(103, 24)
+    ctx.lineTo(82, 49)
+    ctx.lineTo(84, 30)
+    ctx.lineTo(63, 89)
+    ctx.lineTo(28, 109)
+    ctx.lineTo(63, 139)
+    ctx.lineTo(47, 164)
+    ctx.lineTo(69, 171)
+    ctx.lineTo(37, 261)
+    ctx.lineTo(44, 317)
+    ctx.lineTo(153, 388)
+    ctx.lineTo(115, 404)
+    ctx.lineTo(55, 432)
+    ctx.lineTo(90, 441)
+    ctx.lineTo(94, 442)
+    ctx.lineTo(136, 429)
+    ctx.lineTo(120, 465)
+    ctx.lineTo(156, 448)
+    ctx.lineTo(154, 475)
+    ctx.lineTo(210, 459)
+    ctx.lineTo(232, 438)
+    ctx.lineTo(287, 441)
+    ctx.lineTo(238, 412)
+    ctx.lineTo(237, 399)
+    ctx.lineTo(283, 378)
+    ctx.lineTo(345, 402)
+    ctx.lineTo(353, 367)
+    ctx.lineTo(347, 313)
+    ctx.lineTo(467, 291)
+    ctx.lineTo(454, 266)
+    ctx.lineTo(473, 265)
+    ctx.lineTo(394, 228)
+    ctx.lineTo(361, 255)
+    ctx.lineTo(331, 262)
+    ctx.lineTo(310, 230)
+    ctx.lineTo(231, 175)
+    ctx.lineTo(203, 92)
+    ctx.lineTo(232, 95)
+    ctx.lineTo(194, 61)
+    ctx.lineTo(204, 49)
+    ctx.lineTo(172, 47)
+    ctx.lineTo(190, 22)
+    ctx.lineTo(150, 28)
+    ctx.lineTo(161, 3)
+    ctx.stroke()
+    ctx.closePath()
+
+    this.star(ctx, 106, 92, 1, frame)
+    this.star(ctx, 161, 3, 3, frame)
+    this.star(ctx, 63, 89, 5, frame)
+    this.star(ctx, 28, 109, 7, frame)
+    this.star(ctx, 63, 139, 2, frame)
+    this.star(ctx, 44, 317, 4, frame)
+    this.star(ctx, 47, 164, 9, frame)
+    this.star(ctx, 153, 388, 6, frame)
+    this.star(ctx, 115, 404, 8, frame)
+    this.star(ctx, 94, 442, 1, frame)
+    this.star(ctx, 120, 465, 3, frame)
+    this.star(ctx, 154, 475, 5, frame)
+    this.star(ctx, 287, 441, 7, frame)
+    this.star(ctx, 283, 378, 9, frame)
+    this.star(ctx, 345, 402, 2, frame)
+    this.star(ctx, 347, 313, 4, frame)
+    this.star(ctx, 454, 266, 6, frame)
+    this.star(ctx, 394, 228, 8, frame)
+    this.star(ctx, 232, 95, 1, frame)
+    this.star(ctx, 194, 61, 3, frame)
+    this.star(ctx, 190, 22, 5, frame)
   }
 
   drawConstellationLuvdisc(frame: number) {
