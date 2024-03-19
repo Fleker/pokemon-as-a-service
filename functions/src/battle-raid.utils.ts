@@ -2,6 +2,7 @@ import { Badge } from "../../shared/src/badge3"
 import { DbRaid, Users } from './db-types'
 import { isQuestComplete } from "../../shared/src/quests"
 import { ItemId, ITEMS } from "../../shared/src/items-list"
+import { myPokemon } from "../../shared/src/badge-inflate"
 import { calculateNetWorth, hasItem, hasPokemonFuzzy } from "./users.utils"
 import { standardBosses } from "../../shared/src/raid-bosses"
 import { getLocation } from "./location"
@@ -246,7 +247,7 @@ export async function raidSelectPreconditionCheck(raid: DbRaid, user: Users.Doc,
   const speciesToJoin: PokemonId = (() => {
     if (species === 'first') {
       // Select a canonically-valid pkmn
-      let filterBadges = Object.keys(user.pokemon)
+      let filterBadges = [...myPokemon(user.pokemon)].map(([k]) => k)
         .filter(b => {
           const badge = new Badge(b)
           return badge.toString() === b && !violatesSpeciesClause(raid, userId, b)

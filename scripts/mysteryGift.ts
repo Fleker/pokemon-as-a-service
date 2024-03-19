@@ -1,8 +1,9 @@
 // node mysteryGift.js [dry]
-const species = 285
+const species = 288
 ///
 const admin = require('firebase-admin');
 import {Badge, Pokemon} from '../shared/src/badge3'
+import {Users} from '../shared/src/server-types'
 const pkmn = Pokemon(species)
 const badge = new Badge(pkmn)
 const bstr = badge.toString()
@@ -36,16 +37,23 @@ db.settings(settings);
       continue;
     }
     // doc.data() is never undefined for query doc snapshots
-    const {ldap, settings, hiddenItemsFound} = doc.data();
-    let {pokemon} = doc.data()
+    const {ldap, settings, hiddenItemsFound} = doc.data() as Users.Doc;
+    let {pokemon} = doc.data() as Users.Doc
+    const [id, personality] = badge.fragments
     if (settings && settings.union) {
-      if (pokemon && pokemon[bstr]) {
-        pokemon[bstr]++
+      if (pokemon && pokemon[id] && pokemon[id][personality]) {
+        pokemon[id][personality]++
+      } else if (pokemon && pokemon[id]) {
+        pokemon[id][personality] = 1
       } else if (pokemon) {
-        pokemon[bstr] = 1
+        pokemon[id] = {
+          [personality]: 1
+        }
       } else {
         pokemon = {
-          [bstr]: 1
+          [id]: {
+            [personality]: 1
+          }
         }
       }
       hiddenItemsFound.push(hiddenItemId);

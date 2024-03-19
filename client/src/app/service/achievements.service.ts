@@ -185,6 +185,7 @@ export class AchievementsService {
         }
         this.currentStats[lquest.badge] = stats.steps
         if (stats.completed) {
+          console.info(`User has completed unclaimed quest`, lquest.title)
           this.completedUnclaimedQuests++
         }
       }))
@@ -206,6 +207,7 @@ export class AchievementsService {
         }
         this.currentStats[lquest.badge] = stats.steps
         if (stats.completed) {
+          console.info(`User has completed unclaimed quest`, lquest.title)
           this.completedUnclaimedQuests++
         }
       }))

@@ -373,7 +373,7 @@ test('AddIf', t => {
   const userDoc = {
     ...defaultValues,
     eggs: [],
-    hiddenItemsFound: [],
+    hiddenItemsFound: ['SWARM'],
     items: {},
     lastPokeball: 0,
     ldap: 'nobody',
@@ -387,6 +387,15 @@ test('AddIf', t => {
   t.deepEqual(addIf(P.Pidgey, {terrain: 'Mountain', region: 'South America'}, p), [])
   t.deepEqual(addIf(P.Pidgey, {others: [true]}, p), [P.Pidgey, P.Pidgey])
   t.deepEqual(addIf(P.Pidgey, {other: true, count: 3}, p), [P.Pidgey, P.Pidgey, P.Pidgey])
+
+  const list: string[] = []
+  if (userDoc.hiddenItemsFound.includes('SWARM')) {
+    const swarmPokemon = P.Spinda
+    // ~9-10% chance of a Swarm Pokemon.
+    // (Keeping in mind that list + list/11 does increase the list size)
+    list.push(...addIf(swarmPokemon, {count: 11}, p))
+  }
+  t.true(list.includes(P.Spinda))
 })
 
 test('Unova', t => {
