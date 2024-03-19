@@ -6,7 +6,7 @@ firebase deploy --only functions:battle_stadium,functions:battle_stadium_history
 firebase deploy --only functions:dowse,functions:quest_donate
 firebase deploy --only functions:draw_lotto,functions:draw_lotto_debug,functions:radio_quiz
 firebase deploy --only functions:gts_query,functions:gts_history,functions:gts_upload,functions:gts_trade,functions:gts_prune_stale_cron,functions:gts_cancel,functions:gts_virtual_cron
-firebase deploy --only functions:use_item,functions:move_tutor,functions:move_deleter,functions:use_tmtr,functions:craft_item
+firebase deploy --only functions:use_item,functions:move_tutor,functions:move_deleter,functions:use_tmtr,functions:craft_item,functions:train_pokemon
 firebase deploy --only functions:location_cron,functions:location_list
 firebase deploy --only functions:exchange,functions:exchange_bazaar,functions:exchange_inverse
 firebase deploy --only functions:hatch,functions:throw,functions:release,functions:swarm_vote,functions:swarm_notify,functions:tag,functions:tag_manage
