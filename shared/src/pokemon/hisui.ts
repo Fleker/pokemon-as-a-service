@@ -297,7 +297,8 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Air Slash', 'Twister', 'Roost'],
-      ['Snarl', 'Psychic Terrain']
+      ['Snarl', 'Psychic Terrain'],
+      ['Vacuum Wave', 'Rain Dance'],
     ],
   }),
   'potw-705-hisuian': ensurePkmnBuilder({
@@ -640,6 +641,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
+      ['Focus Blast', 'Earth Power', 'Tailwind'],
     ],
   }),
   'potw-905-incarnate': ensurePkmnBuilder({
@@ -659,6 +661,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
+      ['Focus Blast', 'Earth Power', 'Tailwind'],
     ],
   }),
   'potw-905-therian': ensurePkmnBuilder({
@@ -678,6 +681,7 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
+      ['Focus Blast', 'Earth Power', 'Tailwind'],
     ],
   }),
 }

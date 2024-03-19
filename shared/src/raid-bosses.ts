@@ -13,11 +13,11 @@ import {KUBFU} from './legendary-quests'
 
 // Mark species as 4x likely to be shiny
 export const BOOSTED_SHINY: BadgeId[] = [
-  P.Stantler,
+  P.Mantine,
 ]
 
 export const MONTH_THEME = {
-  label: "Psychic & Fairies Month",
+  label: "Early Bird Month",
 }
 
 /** These show up as specially marked in the Public Raids section. */
@@ -35,10 +35,10 @@ export const specialRaids: BadgeId[] = [
   Potw(P.Pikachu, {var: 1, form: 'alolan'}),
   Potw(P.Pikachu, {var: 1, form: 'galarian'}),
   /* Boosted shiny of the month */
-  Potw(P.Stantler, {var: 1}),
-  Potw(P.Stantler, {var: 2}),
-  Potw(P.Stantler, {var: 3}),
-  Potw(P.Stantler, {var: 4}),
+  Potw(P.Mantine, {var: 1}),
+  Potw(P.Mantine, {var: 2}),
+  Potw(P.Mantine, {var: 3}),
+  Potw(P.Mantine, {var: 4}),
 ]
 
 export interface RaidBoss {
@@ -283,15 +283,14 @@ const sinnohEgg2 = [{
   species: Potw(P.Chingling, {var: 1}),
 }]
 
-
-const spindaOfTheMonth = Potw(P.Spinda, {var: 4, form: 'e'})
-const pumpkabooForm = Potw(P.Pumpkaboo, {var:1, form: 'average'})
-const pikachuForm = Potw(P.Pikachu, {var: 4, form: 'belle'})
-const vivillonForm = Potw(P.Vivillon, {var: 1, form: 'tundra'})
-// Y -> R -> O -> B -> W
-const florgesForm = Potw(P.Florges, {var: 3, form: 'blue'})
-const starterBossVar = 3
-const grandUndergroundVar = 3
+const spindaOfTheMonth = Potw(P.Spinda, {var: 4, form: 'f'})
+const pumpkabooForm = Potw(P.Pumpkaboo, {var:1, form: 'small'})
+const pikachuForm = Potw(P.Pikachu, {var:4, form: 'libre'})
+const vivillonForm = Potw(P.Vivillon, {var: 2, form: 'archipelago'})
+ // Y -> R -> O -> B -> W
+const florgesForm = Potw(P.Florges, {var:4, form: 'white'})
+const starterBossVar = 4
+const grandUndergroundVar = 4
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const fossils12 = [{
   species: Potw(P.Kabuto, {var: 4})
@@ -315,20 +314,20 @@ export const standardBosses: RaidBoss[][] = [
   }, {
     species: Potw(P.Oshawott, {var: starterBossVar})
   }, {
-    species: Potw(P.Swirlix, {var:2})
-  }, {
-    species: Potw(P.Spritzee, {var: 2})
-  }, {
-    species: Potw(P.Spoink, {var: 2})
-  }, {
-    species: Potw(P.Drowzee, {var: 2})
-  }, {
-    species: Potw(P.Bronzor, {var: 2})
-  }, {
-    species: Potw(P.Scatterbug, {var: 3})
-  }, {
-    species: Potw(P.Marowak, {var: 3, form: 'alolan'})
-  },
+    species: Potw(P.Sizzlipede, {var:4})
+   }, {
+    species: Potw(P.Wooloo, {var:4})
+   }, {
+    species: Potw(P.Corsola, {var:4, form: 'galarian'})
+   }, {
+    species: Potw(P.Pansage, {var:3})
+   }, {
+    species: Potw(P.Pansear, {var:3})
+   }, {
+    species: Potw(P.Panpour, {var:3})
+   }, {
+    species: Potw(P.Darumaka, {var:3, form: 'galarian'})
+       },
   ],
   /* 2-Star */
   [{
@@ -338,16 +337,16 @@ export const standardBosses: RaidBoss[][] = [
   }, {
     species: Potw(P.Dewott, {var: starterBossVar})
   }, {
-    species: Potw(P.Zigzagoon, {var:3, form: 'galarian'}),
-  }, {
-    species: Potw(P.Milcery, {var:2}),
-  }, {
-    species: Potw(P.Sinistea, {var:3}),
-  }, {
-    species: Potw(P.Morelull, {var:1}),
-  }, {
-    species: Potw(P.Clefairy, {var:4}),
-},  {
+    species: Potw(P.Pachirisu, {var:4}),
+   }, {
+    species: Potw(P.Shellos, {var:1}),
+   }, {
+    species: Potw(P.Shinx, {var:2}),
+   }, {
+    species: Potw(P.Duskull, {var:4}),
+   }, {
+    species: Potw(P.Trubbish, {var:2}),
+ },  {
     species: spindaOfTheMonth
   }, {
     species: pumpkabooForm
@@ -361,15 +360,15 @@ export const standardBosses: RaidBoss[][] = [
   }, {
     species: Potw(P.Samurott, {var: starterBossVar, form: 'hisuian'})
   }, {
-    species: Potw(P.Carkol, {var:3})
-  }, {
-    species: Potw(P.Hattrem, {var:3})
-  }, {
-    species: Potw(P.Morgrem, {var:3})
-  }, {
-    species: Potw(P.Beedrill, {var:1})
-  }, {
-    species: Potw(P.Venomoth, {var:4}),
+    species: Potw(P.Farfetchd, {var:3, form: 'galarian'})
+   }, {
+    species: Potw(P.Gossifleur, {var:4})
+   }, {
+    species: Potw(P.Cufant, {var:3})
+   }, {
+    species: Potw(P.Lickitung, {var:1})
+   }, {
+    species: Potw(P.Tangela, {var:1}),
   }, {
     species: spindaOfTheMonth
   }, {
@@ -378,44 +377,44 @@ export const standardBosses: RaidBoss[][] = [
   ],
   /* 4-Star */
   [{
-    species: Potw(P.Luvdisc, {var:1}),
-  }, {
-    species: Potw(P.Swoobat, {var:4})
-  }, {
-    species: Potw(P.Indeedee, {var:3})
-  }, {
-    species: Potw(P.Pincurchin, {var:3})
-  }, {
-    species: Potw(P.Falinks, {var:3})
-  }, {
-    species: Potw(P.Barraskewda, {var:3})
-  }, {
-    species: Potw(P.Sandaconda, {var:3})
-  }, {
-    species: Potw(P.Starmie, {var:2}),
-  }, {
-    species: Potw(P.Torkoal, {var:4}),
+    species: Potw(P.Cramorant, {var:4}),
+   }, {
+    species: Potw(P.Weezing, {var:4, form: 'galarian'})
+   }, {
+    species: Potw(P.Braviary, {var:3, form: 'hisuian'})
+   }, {
+    species: Potw(P.Corviknight, {var:4})
+   }, {
+    species: Potw(P.Togekiss, {var:1})
+   }, {
+    species: Potw(P.Yanmega, {var:4})
+   }, {
+    species: Potw(P.Beautifly, {var:1})
+   }, {
+    species: Potw(P.Mothim, {var:4}),
+   }, {
+    species: Potw(P.Chatot, {var:2}),
   }, {
     species: vivillonForm
   }],
   /* 5-Star */
   [{
-    species: Potw(P.Alomomola, {var: 3}),
-  }, {
-    species: Potw(P.Jynx, {var:2}),
-  }, {
-    species: Potw(P.Raichu, {var:4, form: 'alolaan'}),
-  }, {
-    species: Potw(P.Lycanroc, {var:4, form: 'dusk'}),
-  }, {
-    species: Potw(P.Morpeko, {var:3}),
-  }, {
-    species: Potw(P.Dialga, {var:2, form: 'origin'}),
-  }, {
-    species: Potw(P.Palkia, {var:2, form: 'origin'}),
-  }, {
-    species: Potw(P.Giratina, {var:2, form: 'origin'}),
-  }, {
+    species: Potw(P.Mantine, {var:4}),
+   }, {
+    species: Potw(P.Drifblim, {var:2}),
+   }, {
+    species: Potw(P.Vespiquen, {var:2}),
+   }, {
+    species: Potw(P.Gliscor, {var:4}),
+   }, {
+    species: Potw(P.Enamorus, {var:2}),
+   }, {
+    species: Potw(P.Articuno, {var:2, form: 'galarian'}),
+   }, {
+    species: Potw(P.Zapdos, {var:2, form: 'galarian'}),
+   }, {
+    species: Potw(P.Moltres, {var:2, form: 'galarian'}),
+       }, {
     species: florgesForm,
   }, /* {
     species: Potw(P.Mewtwo, {var: 1}),
@@ -487,67 +486,59 @@ export const standardBosses: RaidBoss[][] = [
     species: Q.GLOBAL_QUESTS[0].boss,
   }],
   /* 7-Star */
-  [...tinyWater, ...johtoEgg1, {
-    species: Potw(P.Pichu, {var: 1, form: 'spiky'})
-  }, {
-    species: Potw(P.Pawniard, {var: 2})
-  }, {
-    species: Potw(P.NidoranM, {var: 2})
-  }, {
-    species: Potw(P.NidoranF, {var: 2})
-  }, {
-    species: Potw(P.Smoochum, {var: 1})
+  [...tinyGrass, ...johtoEgg2, {
+    species: Potw(P.Pichu, {var: 2, form: 'spiky'})
+   }, {
+    species: Potw(P.Pawniard, {var:3})
+   }, {
+    species: Potw(P.Swirlix, {var:2})
+   }, {
+    species: Potw(P.Spritzee, {var:2})
+   }, {
+    species: Potw(P.Spoink, {var:2})
   }],
   /* 8-Star */
   [
     {
       // Mega
-      species: Potw(P.Steelix, {var: 1}),
-      heldItem: 'steelixite',
-    },
-    {
-      species: Potw(P.Sableye, {var:3}),
-      heldItem: 'sableyeite',
-    },
-    {
-      species: Potw(P.Beedrill, {var:1}),
-      heldItem: 'beedrillite',
-    },
-    {
-      species: Potw(P.Glalie, {var:2}),
-      heldItem: 'glalieite',
+      species: Potw(P.Audino, {var:1}),
+      heldItem: 'audinoite',
+     },
+     {
+      species: Potw(P.Gallade, {var:3}),
+      heldItem: 'galladeite',
     },
     {
       // Z-Electric
       // see https://serebii.net/sunmoon/alolapokedex.shtml
-      species: Potw(P.Ninetales, {var: 1, form: 'alolan'}),
-      heldItem: 'zicium',
+      species: Potw(P.Dhelmise, {var:1}),
+      heldItem: 'zghostium',
     },
     {
       // Special Z-Move
-      species: Potw(P.Pikachu, {var: 4}),
-      heldItem: 'zpikanium',
+      species: Potw(P.Snorlax, {var:4}),
+      heldItem: 'zsnorlium',
     },
     {
       // Totem
       // see https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon
-      species: Potw(P.Togedemaru, {var: 1, form: 'totem'})
+      species: Potw(P.Mimikyu, {var: 1, form: 'totem'})
     },
     {
       // GMax
       // see https://bulbapedia.bulbagarden.net/wiki/Gigantamax
-      species: Potw(P.Meowth, {var: 1}),
+      species: Potw(P.Pikachu, {var: 2}),
       heldItem: 'maxmushroom',
     },
     {
       // Alphas
       // see https://www.serebii.net/legendsarceus/alphapokemon.shtml
-      species: Potw(P.Scyther, {var: 1, form: 'alpha'})
+      species: Potw(P.Gyarados, {var: 1, form: 'alpha'})
     },
     {
       // Nobles
       // see https://www.serebii.net/legendsarceus/noblepokemon.shtml
-      species: Potw(P.Kleavor, {var: 2, form: 'noble'})
+      species: Potw(P.Lilligant, {var:2, form: 'noble'})
     },
     ...Object.values(regionBoss)[0][3],
     ...Object.values(regionBoss)[1][3],
@@ -898,7 +889,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tapu_Koko, {var: 2}),
+    species: Potw(P.Tapu_Koko, {var: 3}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Tropical',
@@ -906,7 +897,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tapu_Bulu, {var: 2}),
+    species: Potw(P.Tapu_Bulu, {var: 3}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Tropical',
@@ -914,7 +905,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tapu_Fini, {var: 2}),
+    species: Potw(P.Tapu_Fini, {var: 3}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Tropical',
@@ -922,7 +913,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tapu_Lele, {var: 2}),
+    species: Potw(P.Tapu_Lele, {var: 3}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Tropical',
@@ -1010,7 +1001,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Cosmog, {var: 2}),
+    species: Potw(P.Cosmog, {var: 3}),
     condition: {
       hints: [{
         completed: L.requireItem('zsolganium'),
@@ -1021,7 +1012,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Necrozma, {var: 2}),
+    species: Potw(P.Necrozma, {var: 3}),
     condition: {
       hints: [{
         completed: L.requireItem('zultranecrozium'),
@@ -1029,7 +1020,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Type_Null, {var: 2}),
+    species: Potw(P.Type_Null, {var: 3}),
     condition: {
       hints: [{
         completed: L.requireItem('zultranecrozium'),
@@ -1037,7 +1028,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Meltan, {var: 2}),
+    species: Potw(P.Meltan, {var: 3}),
     condition: {
       hints: [{
         completed: L.requireItem('meltanbox'),
@@ -1126,18 +1117,18 @@ export const standardBosses: RaidBoss[][] = [
 export const timeBoss: {'Day': {[rating: number]: RaidBoss[]}, 'Night': {[rating: number]: RaidBoss[]}} = {
   'Day': {
     1: [{
-      species: Potw(P.Skowvet, {var:3})
+      species: Potw(P.Croagunk, {var:3})
     }],
     2: [{
-      species: Potw(P.Skowvet, {var:3})
+      species: Potw(P.Croagunk, {var:3})
     }]
   },
   'Night': {
     1: [{
-      species: Potw(P.Nickit, {var:3})
+      species: Potw(P.Skorupi, {var:3})
     }],
     2: [{
-      species: Potw(P.Nickit, {var:3})
+      species: Potw(P.Skorupi, {var:3})
     }]
   }
 }
