@@ -20,6 +20,7 @@ import { get } from '../../shared/src/pokemon'
 import { sendNotification } from './notifications'
 import { pkmn } from '../../shared/src/sprites'
 import * as I from '../../shared/src/gen/type-pokemon-ids'
+import { myPokemon } from '../../shared/src/badge-inflate'
 
 const db = salamander(admin.firestore())
 const FieldValue = admin.firestore.FieldValue
@@ -139,7 +140,12 @@ export async function voyageSelectPreconditionCheck(voyage: Doc, user: Users.Doc
 
   const speciesToJoin: PokemonId = (() => {
     if (species === 'first') {
-      const filterBadges = Object.keys(user.pokemon) as PokemonId[]
+      const filterBadges = [...myPokemon(user.pokemon)].map(([k]) => k)
+        .filter(b => {
+          const badge = new Badge(b)
+          return badge.toString() === b && !violatesSpeciesClause(voyage, userId, b)
+        }) as PokemonId[]
+
       // Join raid quickly
       const buddy = (() => {
         for (const b of filterBadges) {
