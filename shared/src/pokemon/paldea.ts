@@ -2003,6 +2003,10 @@ export const paldeaBuilder = {
       'Metal Sound', 'Reflect', 'Light Screen', 'Substitute', 'Hone Claws', 
       'Endure', 
     ],
+    novelMoves: [[],
+      ['Flash Cannon', 'Iron Defense'],
+      ['Steel Beam', 'Metal Sound'],
+    ],
   }),
   'potw-1019': ensurePkmnBuilder({
     species: 'Hydrapple', type1: 'Grass', type2: 'Dragon',
