@@ -1253,6 +1253,23 @@ function teraQuest(item: ItemId, type: Type, steps = 9, active = true): Research
   }
 }
 
+function cadetQuest(item: ItemId, type: Type): ResearchQuest {
+  return {
+    title: `Catch 18 ${type}-Type or Fire-type Paldean Pokémon`,
+    steps: 18,
+    icon: Sprite.item(item),
+    prize: [item],
+    level: LEVEL.L9,
+    active: true,
+    origin: 'gen9',
+    completedStep: ({capturedPokemon}) => {
+      if (!capturedPokemon) return false
+      const db = Pkmn.get(capturedPokemon)!
+      if (db.type1 !== type && db.type2 !== type && db.type1 !== 'Fire' && db.type2 !== 'Fire') return false
+      return db.tiers?.includes('Terastallize Cup') || false
+    }
+  }
+}
 
 export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_NORMAL: teraQuest('teranormal', 'Normal'),
@@ -1263,7 +1280,7 @@ export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_DARK: teraQuest('teradark', 'Dark'),
   TERA_STEEL: teraQuest('terasteel', 'Steel'),
   TERA_FAIRY: teraQuest('terafairy', 'Fairy'),
-  TERA_DRAGON: teraQuest('teradragon', 'Dragon', 9, false),
+  TERA_DRAGON: teraQuest('teradragon', 'Dragon'),
   TERA_ROCK: teraQuest('terarock', 'Rock'),
   TERA_GROUND: teraQuest('teraground', 'Ground', 9, false),
   TERA_BUG: teraQuest('terabug', 'Bug'),
@@ -1273,6 +1290,8 @@ export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_ELECTRIC: teraQuest('teraelectric', 'Electric'),
   TERA_FLYING: teraQuest('teraflying', 'Flying'),
   TERA_FIGHTING: teraQuest('terafighting', 'Fighting'),
+  ARMAROUGE: cadetQuest('auspiciousarmor', 'Psychic'),
+  CERULEDGE: cadetQuest('maliciousarmor', 'Ghost'),
 }
 
 export const QUEST_TRAVEL: Record<string, ResearchQuest> = {

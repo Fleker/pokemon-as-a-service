@@ -493,6 +493,7 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
       B2.Potw(P.Growlithe, {form: 'hisuian'}),
       B2.Potw(P.Eevee),
       B2.Potw(P.Pansear),
+      B2.Potw(P.Capsakid),
     ],
     pokemon: {
       [B2.Potw(P.Vulpix)]: {
@@ -509,6 +510,9 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
       },
       [B2.Potw(P.Pansear)]: {
         badge: B2.Potw(P.Simisear),
+      },
+      [B2.Potw(P.Capsakid)]: {
+        badge: B2.Potw(P.Scovillain),
       },
     },
     usable: () => true,
@@ -551,6 +555,7 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
       B2.Potw(P.Pikachu),
       B2.Potw(P.Eevee),
       B2.Potw(P.Eelektrik),
+      B2.Potw(P.Tadbulb),
     ],
     pokemon: {
       [B2.Potw(P.Pikachu)]: {
@@ -561,6 +566,9 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
       },
       [B2.Potw(P.Eelektrik)]: {
         badge: B2.Potw(P.Eelektross),
+      },
+      [B2.Potw(P.Tadbulb)]: {
+        badge: B2.Potw(P.Bellibolt),
       },
     },
     usable: () => true,

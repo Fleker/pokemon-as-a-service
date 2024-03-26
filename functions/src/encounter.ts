@@ -513,6 +513,9 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Tinkatink, {gate: CATCH_CHARM_SWSH, item: ['terafairy'], terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Finizen, {gate: CATCH_CHARM_SWSH, item: ['terawater'], terrain: 'Oceanic'}, p))
   list.push(...addIf(P.Flamigo, {gate: CATCH_CHARM_SWSH, item: ['terafighting'], terrain: 'Bay', weather: 'Windy'}, p))
+  list.push(...addIf(P.Charcadet, {gate: CATCH_CHARM_SWSH, item: ['terafire'], terrain: 'Rainforest', weather: 'Heat Wave'}, p))
+  list.push(...addIf(P.Tadbulb, {gate: CATCH_CHARM_SWSH, item: ['teraelectric'], terrain: 'Bay', weather: 'Thunderstorm'}, p))
+  list.push(...addIf(P.Capsakid, {gate: CATCH_CHARM_SWSH, item: ['teragrass'], terrain: 'Desert', weather: 'Heat Wave'}, p))
 
   // Swarms
   if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
@@ -909,6 +912,7 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Orthworm, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], terrain: 'Desert', weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Orthworm, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], terrain: 'Mountain', weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Squawkabilly, {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', time: 'Day'}, p))
+  list.push(...addIf(P.Cyclizar, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], weather: 'Sunny', terrain: 'Grasslands'}, p))
 
   return {
     shinyMultipler: 1,
