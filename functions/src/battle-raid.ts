@@ -1290,7 +1290,7 @@ export const raid_claim = functions.https.onCall(async (data, context) => {
     }
     console.log('Player', userId, 'claims', prizesToAllocate, raidId)
     // Player then captures the Pokémon
-    const claimedBoss = claimRaidBoss(boss as BadgeId, location, raidDoc, bossHeldItem)
+    const claimedBoss = claimRaidBoss(boss as BadgeId, location, raidDoc.data(), bossHeldItem)
     if (isDemo) {
       const countUserCaughtPkmn = [...myPokemon(user.pokemon)]
         .map(([, v]) => v)

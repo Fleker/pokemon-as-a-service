@@ -265,7 +265,7 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
       }
       badge.personality.pokeball = pokeball
       badge.personality.location = locationId || user.location
-      badge.ribbons = assignMarks(location, 'wild')
+      badge.ribbons = assignMarks({forecast: location.forecast!, timezone: location.timezone}, 'wild')
       // Add to database
       selectedPokemon = badge.toLegacyString()
       console.log(`Adding ${selectedPokemon}`)

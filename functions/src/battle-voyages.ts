@@ -21,6 +21,7 @@ import { sendNotification } from './notifications'
 import { pkmn } from '../../shared/src/sprites'
 import * as I from '../../shared/src/gen/type-pokemon-ids'
 import { myPokemon } from '../../shared/src/badge-inflate'
+import {assignMarks} from '../../shared/src/ribbon-marks'
 
 const db = salamander(admin.firestore())
 const FieldValue = admin.firestore.FieldValue
