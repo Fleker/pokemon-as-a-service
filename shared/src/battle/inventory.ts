@@ -1914,6 +1914,10 @@ export const Inventory: Inventory = {
       if (caster.heldItemConsumed) {
         return new Log().add('Dynamax is not supported in this format.')
       }
+      if (caster.badge.personality.gmax) {
+        // We can actually gigantamax here
+        return Inventory.maxmushroom!.onEnterBattle!(caster)
+      }
       const log = new Log()
       log.add(`Come back for a minute, ${caster.species}`)
       log.add(`${caster.species} consumed Dynamax Candy`)
