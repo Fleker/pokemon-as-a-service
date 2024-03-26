@@ -42,6 +42,7 @@ import { typePrizes } from '../../shared/src/raid-prizes'
 import {BattleOptions, execute, ExecuteLog} from '../../shared/src/battle/battle-controller'
 import isDemo from '../../shared/src/platform/isDemo'
 import { myPokemon } from '../../shared/src/badge-inflate'
+import { assignMarks } from '../../shared/src/ribbon-marks'
 
 const _db = admin.firestore()
 const db = salamander(_db)
@@ -86,7 +87,7 @@ const teraShardTypes: Partial<Record<ItemId, Type>> = {
   'teraice': 'Ice',
 }
 
-const claimRaidBoss = (species: BadgeId, location: LocationId, holding: ItemId = 'lum') => {
+const claimRaidBoss = (species: BadgeId, location: LocationId, raid: DbRaid, holding: ItemId = 'lum') => {
   const badge = Badge.create(species)
   badge.personality.pokeball = 'premierball'
   badge.personality.location = location
@@ -97,6 +98,11 @@ const claimRaidBoss = (species: BadgeId, location: LocationId, holding: ItemId =
     badge.personality.teraType = teraShardTypes[holding]
   }
   badge.personality.isOwner = true
+  // Timezone doesn't matter
+  badge.ribbons = assignMarks({forecast: raid.locationWeather, timezone: 'Africa/Accra'}, 'raid')
+  if (raid.rating === 6) {
+    badge.ribbons.push('👑') // Mightiest
+  }
   return badge
 }
 
@@ -852,7 +858,7 @@ function prizesPromise(raidId: string, raid: DbRaid, prizesMap: Record<any, any>
     console.log('Player', userId, 'gets', prizesMap[userId], raidId, raid.rating)
 
     // Player then captures the Pokémon
-    const claimedBoss = claimRaidBoss(raid.boss, raid.location, raid.bossHeldItem)
+    const claimedBoss = claimRaidBoss(raid.boss, raid.location, raid, raid.bossHeldItem)
     if (isDemo) {
       const countUserCaughtPkmn = [...myPokemon(user.pokemon)]
         .map(([, v]) => v)
@@ -1284,7 +1290,7 @@ export const raid_claim = functions.https.onCall(async (data, context) => {
     }
     console.log('Player', userId, 'claims', prizesToAllocate, raidId)
     // Player then captures the Pokémon
-    const claimedBoss = claimRaidBoss(boss as BadgeId, location, bossHeldItem)
+    const claimedBoss = claimRaidBoss(boss as BadgeId, location, raidDoc, bossHeldItem)
     if (isDemo) {
       const countUserCaughtPkmn = [...myPokemon(user.pokemon)]
         .map(([, v]) => v)

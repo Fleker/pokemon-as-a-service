@@ -31,6 +31,7 @@ import { sendNotification } from './notifications';
 import isDemo from '../../shared/src/platform/isDemo'
 import { myPokemon } from '../../shared/src/badge-inflate'
 import spacetime from 'spacetime'
+import {assignMarks} from '../../shared/src/ribbon-marks'
 
 const db = salamander(admin.firestore())
 const FieldValue = admin.firestore.FieldValue;
@@ -264,55 +265,7 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
       }
       badge.personality.pokeball = pokeball
       badge.personality.location = locationId || user.location
-      const hasWeatherMark = Math.random() < 0.02 // 1/50
-      if (hasWeatherMark) {
-        if (location.forecast === 'Cloudy') {
-          badge.ribbons = ['☁️']
-        } else if (location.forecast === 'Thunderstorm') {
-          badge.ribbons = ['🌩️']
-        }  else if (location.forecast === 'Rain') {
-          badge.ribbons = ['🌧️']
-        } else if (location.forecast === 'Snow') {
-          badge.ribbons = ['☃️']
-        } else if (location.forecast === 'Heat Wave') {
-          badge.ribbons = ['☀️']
-        } else if (location.forecast === 'Sandstorm') {
-          badge.ribbons = ['⏳']
-        } else if (location.forecast === 'Fog') {
-          badge.ribbons = ['🌫️']
-        }
-      } else {
-        const hasToDMark = Math.random() < 0.19 // ~1/52
-        if (hasToDMark) {
-          const date = spacetime(new Date(), location.timezone)
-          if (date.hour() < 6) {
-            badge.ribbons = ['💤']
-          } else if (date.hour() < 12) {
-            badge.ribbons = ['🌅']
-          } else if (date.hour() < 19) {
-            badge.ribbons = ['🍴']
-          } else if (date.hour() < 20) {
-            badge.ribbons = ['🌇']
-          } else {
-            badge.ribbons = ['💤']
-          }
-        } else {
-          const p = Math.random()
-          const hasWildMark = p < 0.00035 // ~1/2800
-          if (hasWildMark) {
-            badge.ribbons = [randomItem([
-              '💫',
-              '💢',
-              '😢',
-              '🤕',
-            ])]
-          } else if (p < 0.001) {
-            badge.ribbons = ['‼️']
-          } else if (p < 0.02) {
-            badge.ribbons = ['❗']
-          }
-        }
-      }
+      badge.ribbons = assignMarks(location, 'wild')
       // Add to database
       selectedPokemon = badge.toLegacyString()
       console.log(`Adding ${selectedPokemon}`)

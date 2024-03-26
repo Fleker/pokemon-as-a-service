@@ -11,6 +11,8 @@ import { shinyRate } from './platform/game-config'
 import { F, BerryPlot } from '../../shared/src/server-types'
 import { accomodateResearch } from './research-quests'
 import { FOSSILS } from '../../shared/src/prizes'
+import { assignMarks } from '../../shared/src/ribbon-marks'
+import { getForecast } from './location'
 
 const db = salamander(admin.firestore())
 const FieldValue = admin.firestore.FieldValue;
@@ -276,6 +278,10 @@ export const berry_harvest = functions.https.onCall(async (data: F.BerryHarvest.
               console.log('Is shiny', badge)
             }
             badge.personality.location = user.location
+            badge.personality.isOwner = true
+            // Timezone doesn't matter
+            const forecast = await getForecast(user.location)
+            badge.ribbons = assignMarks({forecast, timezone: 'Africa/Accra'}, 'farm')
             addPokemon(user, badge)
             researchCurrent = (await accomodateResearch(user, badge.toLegacyString(), 'pokeball')).researchCurrent
           }

@@ -27,6 +27,9 @@
       <mat-icon svgIcon="gmax" *ngIf="badge.personality.gmax"></mat-icon>
       <sprite-item class="caught" item="{{badge.personality.pokeball}}"></sprite-item>
       {{caughtLocation}}
+      <span *ngFor="let r of badge.ribbons" title="{{RibbonsMarksTable[r].name}}: {{RibbonsMarksTable[r].description}}">
+        {{r}}
+      </span>
       <div *ngIf="canTag">
         <mat-chip *ngFor="let tag of tags" class="tag" (removed)="removeTag(tag)">
           <mat-icon>label</mat-icon>

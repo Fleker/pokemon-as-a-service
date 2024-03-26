@@ -20,7 +20,7 @@ import { ItemAvailability } from '../../../../../shared/src/items-availablity';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { F } from '../../../../../shared/src/server-types';
 import { BATTLE_TIERS } from '../../../../../shared/src/battle-tiers';
-import { myPokemon } from '../../../../../shared/src/badge-inflate';
+import { RibbonMarksTable } from '../../../../../shared/src/ribbon-marks';
 
 export interface PokedexData {
   badge: PokemonId
@@ -89,6 +89,7 @@ export class PokedexDialog implements OnInit, OnDestroy {
     exec: false,
     useItem: [],
   }
+  RibbonsMarksTable = RibbonMarksTable
 
   get caughtLocation() {
     const location = this.badge.personality.location

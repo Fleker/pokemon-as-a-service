@@ -456,6 +456,9 @@ async function runVoyage(voyageId: string): Promise<F.VoyageStart.Res> {
           if (Math.random() < shinyRate('dowsing', host.hiddenItemsFound)) {
             badge.personality.shiny = true
           }
+          badge.personality.isOwner = true
+          // Timezone doesn't matter
+          badge.ribbons = assignMarks({forecast: voyage.weather, timezone: 'Africa/Accra'}, 'voyage')
           return badge.toString()
         })
       voyage.prizes.push({

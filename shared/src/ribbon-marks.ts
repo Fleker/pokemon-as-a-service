@@ -3,13 +3,16 @@
  * @see Ribbons on Bulbapedia - https://bulbapedia.bulbagarden.net/wiki/List_of_Ribbons_in_the_games
  * @see Marks on Bulbapedia - https://bulbapedia.bulbagarden.net/wiki/Mark#List_of_marks
  */
+import { Location, WeatherType, Timezone } from "./locations-list"
+import spacetime from 'spacetime'
+import randomItem from '../../shared/src/random-item';
 
 type Kind = 'ribbon' | 'mark'
 
 interface RibbonMark {
   kind: Kind
   name: string
-  icon: string
+  icon?: string
   title?: string
   description: string
   conditions: string
@@ -112,12 +115,68 @@ export const RibbonMarksTable: Record<string, RibbonMark> = {
     description: 'A mark for a dozy Pokémon',
     conditions: 'Found on a Pokémon during the evening',
   },
+  '😍': {
+    kind: 'mark',
+    name: 'Rowdy Mark',
+    title: 'the Rowdy',
+    description: 'A mark for a rowdy Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
   '💫': {
     kind: 'mark',
     name: 'Absent-Minded Mark',
     icon: 'menu-raid',
     title: 'the Spacey',
     description: 'A mark for a spacey Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😬': {
+    kind: 'mark',
+    name: 'Jittery Mark',
+    title: 'the Anxious',
+    description: 'A mark for an anxious Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😂': {
+    kind: 'mark',
+    name: 'Excited Mark',
+    title: 'the Giddy',
+    description: 'A mark for a giddy Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😇': {
+    kind: 'mark',
+    name: 'Charismatic Mark',
+    title: 'the Radiant',
+    description: 'A mark for a radiant Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😌': {
+    kind: 'mark',
+    name: 'Calmness Mark',
+    title: 'the Serene',
+    description: 'A mark for a serene Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🤪': {
+    kind: 'mark',
+    name: 'Intense Mark',
+    title: 'the Feisty',
+    description: 'A mark for a feisty Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🥱': {
+    kind: 'mark',
+    name: 'Zoned-Out Mark',
+    title: 'the Daydreamer',
+    description: 'A mark for a daydreaming Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🥰': {
+    kind: 'mark',
+    name: 'Joyful Mark',
+    title: 'the Joyful',
+    description: 'A mark for a joyful Pokémon',
     conditions: 'Found on a Pokémon in the wild',
   },
   '💢': {
@@ -128,12 +187,124 @@ export const RibbonMarksTable: Record<string, RibbonMark> = {
     description: 'A mark for a furious Pokémon',
     conditions: 'Found on a Pokémon in the wild',
   },
+  '😄': {
+    kind: 'mark',
+    name: 'Smiley Mark',
+    title: 'the Beaming',
+    description: 'A mark for a smiley Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
   '😢': {
     kind: 'mark',
     name: 'Teary Mark',
     icon: 'menu-raid',
     title: 'the Teary-Eyed',
     description: 'A mark for a sad Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😁': {
+    kind: 'mark',
+    name: 'Upbeat Mark',
+    title: 'the Chipper',
+    description: 'A mark for a chipper Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😖': {
+    kind: 'mark',
+    name: 'Peeved Mark',
+    title: 'the Grumpy',
+    description: 'A mark for a grumpy Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🤓': {
+    kind: 'mark',
+    name: 'Intellectual Mark',
+    title: 'the Scholar',
+    description: 'A mark for a scholarly Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🤬': {
+    kind: 'mark',
+    name: 'Ferocious Mark',
+    title: 'the Rampaging',
+    description: 'A mark for a rampaging Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🥸': {
+    kind: 'mark',
+    name: 'Crafty Mark',
+    title: 'the Opportunist',
+    description: 'A mark for an opportunistic Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😡': {
+    kind: 'mark',
+    name: 'Scowling Mark',
+    title: 'the Stern',
+    description: 'A mark for a stern Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🫡': {
+    kind: 'mark',
+    name: 'Kindly Mark',
+    title: 'the Kindhearted',
+    description: 'A mark for a kindhearted Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🫨': {
+    kind: 'mark',
+    name: 'Flustered Mark',
+    title: 'the Easily Flustered',
+    description: 'A mark for an easily flustered Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😤': {
+    kind: 'mark',
+    name: 'Pumped-Up Mark',
+    title: 'the Driven',
+    description: 'A mark for a driven Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😑': {
+    kind: 'mark',
+    name: 'Zero Energy Mark',
+    title: 'the Apathetic',
+    description: 'A mark for an apathetic Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🤗': {
+    kind: 'mark',
+    name: 'Prideful Mark',
+    title: 'the Arrogant',
+    description: 'A mark for an arrogant Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '😨': {
+    kind: 'mark',
+    name: 'Unsure Mark',
+    title: 'the Reluctant',
+    description: 'A mark for an unsure Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '💬': {
+    kind: 'mark',
+    name: 'Hmuble Mark',
+    title: 'the Humble',
+    description: 'A mark for a humble Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '🌹': {
+    kind: 'mark',
+    name: 'Thorny Mark',
+    title: 'the Pompous',
+    description: 'A mark for a pompous Pokémon',
+    conditions: 'Found on a Pokémon in the wild',
+  },
+  '💪': {
+    kind: 'mark',
+    name: 'Vigor Mark',
+    title: 'the Lively',
+    description: 'A mark for a lively Pokémon',
     conditions: 'Found on a Pokémon in the wild',
   },
   '🤕': {
@@ -170,3 +341,83 @@ export const RibbonMarksTable: Record<string, RibbonMark> = {
 }
 
 export type RibbonMarks = keyof typeof RibbonMarksTable
+
+export type EncounterMethod = 'wild' | 'hatch' | 'raid' | 'voyage' | 'dowsing' | 'quest' | 'farm'
+
+export function assignMarks(location: {forecast: WeatherType, timezone: Timezone}, encounterMethod: EncounterMethod) {
+  const ribbons: RibbonMarks[] = []
+  const hasWeatherMark = Math.random() < 0.02 // 1/50
+  if (hasWeatherMark) {
+    if (location.forecast === 'Cloudy') {
+      ribbons.push('☁️')
+    } else if (location.forecast === 'Thunderstorm') {
+      ribbons.push('🌩️')
+    }  else if (location.forecast === 'Rain') {
+      ribbons.push('🌧️')
+    } else if (location.forecast === 'Snow') {
+      ribbons.push('☃️')
+    } else if (location.forecast === 'Heat Wave') {
+      ribbons.push('☀️')
+    } else if (location.forecast === 'Sandstorm') {
+      ribbons.push('⏳')
+    } else if (location.forecast === 'Fog') {
+      ribbons.push('🌫️')
+    }
+  } else {
+    const hasToDMark = Math.random() < 0.19 && encounterMethod === 'wild' // ~1/52
+    if (hasToDMark) {
+      const date = spacetime(new Date(), location.timezone)
+      if (date.hour() < 6) {
+        ribbons.push('💤')
+      } else if (date.hour() < 12) {
+        ribbons.push('🌅')
+      } else if (date.hour() < 19) {
+        ribbons.push('🍴')
+      } else if (date.hour() < 20) {
+        ribbons.push('🌇')
+      } else {
+        ribbons.push('💤')
+      }
+    } else {
+      const p = Math.random()
+      const hasWildMark = p < 0.00035 && encounterMethod === 'wild' // ~1/2800
+      if (hasWildMark) {
+        ribbons.push(randomItem([
+          '💫',
+          '💢',
+          '😢',
+          '🤕',
+          '🌹',
+          '💪',
+          '💬',
+          '😨',
+          '😤',
+          '😑',
+          '🤗',
+          '😁',
+          '😡',
+          '🤓',
+          '🤬',
+          '🥸',
+          '🫡',
+          '🫨',
+          '😖',
+          '😄',
+          '😍',
+          '😂',
+          '😇',
+          '😬',
+          '🤪',
+          '😌',
+          '🥱',
+          '🥰',
+        ]))
+      } else if (p < 0.001) {
+        ribbons.push('‼️')
+      } else if (p < 0.02) {
+        ribbons.push('❗')
+      }
+    }
+  }
+  return ribbons
+}
