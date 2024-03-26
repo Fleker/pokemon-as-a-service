@@ -7,6 +7,7 @@ import { PokemonId } from '../pokemon/types'
 import { LocationId } from '../locations-list'
 import { get } from '../pokemon'
 import { types } from '../pokemon/types'
+import { assignMarks } from '../ribbon-marks'
 import * as P from '../gen/type-pokemon'
 
 const BASCULIN = 550
@@ -457,6 +458,12 @@ test('Marks: Parsing', t => {
   const basculin = new Badge(basculinId)
   t.not(basculin.personality.variant, 7, 'Incorrectly parsed as var7')
   t.is(basculin.personality.form, 'white_stripe', 'Incorrectly parsed as Red Stripe')
+
+  const charm = new Badge('4#fM22')
+  charm.ribbons = assignMarks({forecast: 'Sunny', timezone: 'Africa/Accra'}, 'hatch')
+  t.deepEqual(charm.ribbons, [])
+  t.is(charm.toString(), '4#fM22')
+  t.is(charm.toString(), charm.toOriginalString())  
 })
 
 test('Marks: Valid title', t => {

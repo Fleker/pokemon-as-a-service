@@ -587,7 +587,7 @@ export class Badge {
       out += `#0${tags64}`
     }
 
-    if (this.ribbons !== undefined) {
+    if (this.ribbons !== undefined && this.ribbons.length > 0) {
       out += `$${this.ribbons!.join('')}`
     }
     return out as unknown as PokemonId
