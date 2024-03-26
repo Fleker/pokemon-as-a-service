@@ -283,11 +283,12 @@ const sinnohEgg2 = [{
   species: Potw(P.Chingling, {var: 1}),
 }]
 
+
 const spindaOfTheMonth = Potw(P.Spinda, {var: 4, form: 'f'})
 const pumpkabooForm = Potw(P.Pumpkaboo, {var:1, form: 'small'})
 const pikachuForm = Potw(P.Pikachu, {var:4, form: 'libre'})
 const vivillonForm = Potw(P.Vivillon, {var: 2, form: 'archipelago'})
- // Y -> R -> O -> B -> W
+// Y -> R -> O -> B -> W
 const florgesForm = Potw(P.Florges, {var:4, form: 'white'})
 const starterBossVar = 4
 const grandUndergroundVar = 4
@@ -315,19 +316,19 @@ export const standardBosses: RaidBoss[][] = [
     species: Potw(P.Oshawott, {var: starterBossVar})
   }, {
     species: Potw(P.Sizzlipede, {var:4})
-   }, {
+  }, {
     species: Potw(P.Wooloo, {var:4})
-   }, {
+  }, {
     species: Potw(P.Corsola, {var:4, form: 'galarian'})
-   }, {
+  }, {
     species: Potw(P.Pansage, {var:3})
-   }, {
+  }, {
     species: Potw(P.Pansear, {var:3})
-   }, {
+  }, {
     species: Potw(P.Panpour, {var:3})
-   }, {
+  }, {
     species: Potw(P.Darumaka, {var:3, form: 'galarian'})
-       },
+  },
   ],
   /* 2-Star */
   [{
@@ -338,15 +339,15 @@ export const standardBosses: RaidBoss[][] = [
     species: Potw(P.Dewott, {var: starterBossVar})
   }, {
     species: Potw(P.Pachirisu, {var:4}),
-   }, {
+  }, {
     species: Potw(P.Shellos, {var:1}),
-   }, {
+  }, {
     species: Potw(P.Shinx, {var:2}),
-   }, {
+  }, {
     species: Potw(P.Duskull, {var:4}),
-   }, {
+  }, {
     species: Potw(P.Trubbish, {var:2}),
- },  {
+},  {
     species: spindaOfTheMonth
   }, {
     species: pumpkabooForm
@@ -361,13 +362,13 @@ export const standardBosses: RaidBoss[][] = [
     species: Potw(P.Samurott, {var: starterBossVar, form: 'hisuian'})
   }, {
     species: Potw(P.Farfetchd, {var:3, form: 'galarian'})
-   }, {
+  }, {
     species: Potw(P.Gossifleur, {var:4})
-   }, {
+  }, {
     species: Potw(P.Cufant, {var:3})
-   }, {
+  }, {
     species: Potw(P.Lickitung, {var:1})
-   }, {
+  }, {
     species: Potw(P.Tangela, {var:1}),
   }, {
     species: spindaOfTheMonth
@@ -378,21 +379,21 @@ export const standardBosses: RaidBoss[][] = [
   /* 4-Star */
   [{
     species: Potw(P.Cramorant, {var:4}),
-   }, {
+  }, {
     species: Potw(P.Weezing, {var:4, form: 'galarian'})
-   }, {
+  }, {
     species: Potw(P.Braviary, {var:3, form: 'hisuian'})
-   }, {
+  }, {
     species: Potw(P.Corviknight, {var:4})
-   }, {
+  }, {
     species: Potw(P.Togekiss, {var:1})
-   }, {
+  }, {
     species: Potw(P.Yanmega, {var:4})
-   }, {
+  }, {
     species: Potw(P.Beautifly, {var:1})
-   }, {
+  }, {
     species: Potw(P.Mothim, {var:4}),
-   }, {
+  }, {
     species: Potw(P.Chatot, {var:2}),
   }, {
     species: vivillonForm
@@ -400,87 +401,88 @@ export const standardBosses: RaidBoss[][] = [
   /* 5-Star */
   [{
     species: Potw(P.Mantine, {var:4}),
-   }, {
+  }, {
     species: Potw(P.Drifblim, {var:2}),
-   }, {
+  }, {
     species: Potw(P.Vespiquen, {var:2}),
-   }, {
+  }, {
     species: Potw(P.Gliscor, {var:4}),
-   }, {
+  }, {
     species: Potw(P.Enamorus, {var:2}),
-   }, {
+  }, {
     species: Potw(P.Articuno, {var:2, form: 'galarian'}),
-   }, {
+  }, {
     species: Potw(P.Zapdos, {var:2, form: 'galarian'}),
-   }, {
+  }, {
     species: Potw(P.Moltres, {var:2, form: 'galarian'}),
-       }, {
+  }, {
     species: florgesForm,
-  }, /* {
+  }, {
     species: Potw(P.Mewtwo, {var: 1}),
     condition: {
       hints: [{
-        completed: (r) => Events['MEWTWO_BIRTHDAY'].isActive(r as unknown as Users.Doc),
+        // completed: (r) => Events['MEWTWO_BIRTHDAY'].isActive(r as unknown as Users.Doc),
+        completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
         msg: 'This raid cannot be created today'
       }]
     }
   }, {
-    // species: Potw(P.Pikachu, {var: 1, form: 'kantonian'}),
-    // condition: {
-    //   hints: [{
-    //     completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
-    //     msg: 'This raid cannot be created today'
-    //   }]
-    // }
+    species: Potw(P.Pikachu, {var: 1, form: 'kantonian'}),
+    condition: {
+      hints: [{
+        completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
+        msg: 'This raid cannot be created today'
+      }]
+    }
   }, {
-    // species: Potw(P.Pikachu, {var: 1, form: 'hoennian'}),
-    // condition: {
-    //   hints: [{
-    //     completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
-    //     msg: 'This raid cannot be created today'
-    //   }]
-    // }
+    species: Potw(P.Pikachu, {var: 1, form: 'hoennian'}),
+    condition: {
+      hints: [{
+        completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
+        msg: 'This raid cannot be created today'
+      }]
+    }
   }, {
-    // species: Potw(P.Pikachu, {var: 1, form: 'sinnohian'}),
-    // condition: {
-    //   hints: [{
-    //     completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
-    //     msg: 'This raid cannot be created today'
-    //   }]
-    // }
+    species: Potw(P.Pikachu, {var: 1, form: 'sinnohian'}),
+    condition: {
+      hints: [{
+        completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
+        msg: 'This raid cannot be created today'
+      }]
+    }
   }, {
-    // species: Potw(P.Pikachu, {var: 1, form: 'unovan'}),
-    // condition: {
-    //   hints: [{
-    //     completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
-    //     msg: 'This raid cannot be created today'
-    //   }]
-    // }
+    species: Potw(P.Pikachu, {var: 1, form: 'unovan'}),
+    condition: {
+      hints: [{
+        completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
+        msg: 'This raid cannot be created today'
+      }]
+    }
   }, {
-    // species: Potw(P.Pikachu, {var: 1, form: 'kalosian'}),
-    // condition: {
-    //   hints: [{
-    //     completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
-    //     msg: 'This raid cannot be created today'
-    //   }]
-    // }
+    species: Potw(P.Pikachu, {var: 1, form: 'kalosian'}),
+    condition: {
+      hints: [{
+        completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
+        msg: 'This raid cannot be created today'
+      }]
+    }
   }, {
-    // species: Potw(P.Pikachu, {var: 1, form: 'alolan'}),
-    // condition: {
-    //   hints: [{
-    //     completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
-    //     msg: 'This raid cannot be created today'
-    //   }]
-    // }
+    species: Potw(P.Pikachu, {var: 1, form: 'alolan'}),
+    condition: {
+      hints: [{
+        completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
+        msg: 'This raid cannot be created today'
+      }]
+    }
   }, {
-    // species: Potw(P.Pikachu, {var: 1, form: 'galarian'}),
-    // condition: {
-    //   hints: [{
-    //     completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
-    //     msg: 'This raid cannot be created today'
-    //   }]
-    // }
-  },*/],
+    species: Potw(P.Pikachu, {var: 1, form: 'galarian'}),
+    condition: {
+      hints: [{
+        completed: (r) => Events['POKEMON_DAY'].isActive(r as unknown as Users.Doc),
+        msg: 'This raid cannot be created today'
+      }]
+    }
+  }],
   /* 6-Star */
   [{
     species: Q.GLOBAL_QUESTS[0].boss,
@@ -488,13 +490,13 @@ export const standardBosses: RaidBoss[][] = [
   /* 7-Star */
   [...tinyGrass, ...johtoEgg2, {
     species: Potw(P.Pichu, {var: 2, form: 'spiky'})
-   }, {
+  }, {
     species: Potw(P.Pawniard, {var:3})
-   }, {
+  }, {
     species: Potw(P.Swirlix, {var:2})
-   }, {
+  }, {
     species: Potw(P.Spritzee, {var:2})
-   }, {
+  }, {
     species: Potw(P.Spoink, {var:2})
   }, {
     species: Potw(P.Gimmighoul, {var:1, form: 'roaming'})
@@ -507,8 +509,8 @@ export const standardBosses: RaidBoss[][] = [
       // Mega
       species: Potw(P.Audino, {var:1}),
       heldItem: 'audinoite',
-     },
-     {
+    },
+    {
       species: Potw(P.Gallade, {var:3}),
       heldItem: 'galladeite',
     },
@@ -531,7 +533,7 @@ export const standardBosses: RaidBoss[][] = [
     {
       // GMax
       // see https://bulbapedia.bulbagarden.net/wiki/Gigantamax
-      species: Potw(P.Pikachu, {var: 2}),
+      species: Potw(P.Pikachu, {var:2}),
       heldItem: 'maxmushroom',
     },
     {
@@ -787,7 +789,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Mesprit, {var: 1}),
+    species: Potw(P.Mesprit, {var:1}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain == 'Bay',
@@ -795,7 +797,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Uxie, {var: 1}),
+    species: Potw(P.Uxie, {var:1}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain == 'Bay',
@@ -803,7 +805,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Giratina, {var: 1}),
+    species: Potw(P.Giratina, {var:1}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain == 'Mountain' && timeOfDay(r.location) === 'Night',
@@ -811,7 +813,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Thundurus, {var: 1}),
+    species: Potw(P.Thundurus, {var:1}),
     condition: {
       hints: [{
         completed: (r) => r.location.forecast === 'Windy',
@@ -819,7 +821,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tornadus, {var: 1}),
+    species: Potw(P.Tornadus, {var:1}),
     condition: {
       hints: [{
         completed: (r) => r.location.forecast === 'Windy',
@@ -827,7 +829,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Landorus, {var: 1}),
+    species: Potw(P.Landorus, {var:1}),
     condition: {
       hints: [{
         completed: (r) => r.location.forecast === 'Windy',
@@ -835,7 +837,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Virizion, {var: 4}),
+    species: Potw(P.Virizion, {var:4}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Forest',
@@ -843,7 +845,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Terrakion, {var: 4}),
+    species: Potw(P.Terrakion, {var:4}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Rural',
@@ -851,7 +853,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Cobalion, {var: 4}),
+    species: Potw(P.Cobalion, {var:4}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Mountain',
@@ -907,7 +909,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tapu_Koko, {var: 3}),
+    species: Potw(P.Tapu_Koko, {var:3}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Tropical',
@@ -915,7 +917,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tapu_Bulu, {var: 3}),
+    species: Potw(P.Tapu_Bulu, {var:3}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Tropical',
@@ -923,7 +925,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tapu_Fini, {var: 3}),
+    species: Potw(P.Tapu_Fini, {var:3}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Tropical',
@@ -931,7 +933,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Tapu_Lele, {var: 3}),
+    species: Potw(P.Tapu_Lele, {var:3}),
     condition: {
       hints: [{
         completed: (r) => r.location.terrain === 'Tropical',
@@ -1019,7 +1021,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Cosmog, {var: 3}),
+    species: Potw(P.Cosmog, {var:3}),
     condition: {
       hints: [{
         completed: L.requireItem('zsolganium'),
@@ -1030,7 +1032,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Necrozma, {var: 3}),
+    species: Potw(P.Necrozma, {var:3}),
     condition: {
       hints: [{
         completed: L.requireItem('zultranecrozium'),
@@ -1038,7 +1040,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Type_Null, {var: 3}),
+    species: Potw(P.Type_Null, {var:3}),
     condition: {
       hints: [{
         completed: L.requireItem('zultranecrozium'),
@@ -1046,7 +1048,7 @@ export const standardBosses: RaidBoss[][] = [
       }]
     },
   }, {
-    species: Potw(P.Meltan, {var: 3}),
+    species: Potw(P.Meltan, {var:3}),
     condition: {
       hints: [{
         completed: L.requireItem('meltanbox'),
@@ -1155,122 +1157,122 @@ export const timeBoss: {'Day': {[rating: number]: RaidBoss[]}, 'Night': {[rating
 export const forecastBoss: {[key in WeatherType]: {[rating: number]: RaidBoss[]}} = {
   Cloudy: {
     3: [{
-     species: Potw(P.Golbat, {var: 2}),
+     species: Potw(P.Sinistea, {var: 3}),
     }, {
-     species: Potw(P.Castform, {var: 4}),
+     species: Potw(P.Eevee, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Crobat, {var: 2}),
+      species: Potw(P.Polteageist, {var: 3}),
     }, {
-      species: Potw(P.Castform, {var: 4}),
+      species: Potw(P.Umbreon, {var: 4}),
     }]
   },
   Fog: {
     3: [{
-     species: Potw(P.Chimecho, {var: 3}),
+     species: Potw(P.Misdreavus, {var: 3}),
     }, {
-     species: Potw(P.Oranguru, {var: 1}),
+     species: Potw(P.Eevee, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Chimecho, {var:3}),
+      species: Potw(P.Mismagius, {var:3}),
     }, {
-      species: Potw(P.Oranguru, {var: 1}),
+      species: Potw(P.Espeon, {var: 4}),
     }]
   },
   'Heat Wave': {
     3: [{
-      species: Potw(P.Exeggcute, {var:3})
+      species: Potw(P.Petilil, {var:3})
     }, {
-      species: Potw(P.Castform, {var: 4, form: 'sunny'})
+      species: Potw(P.Eevee, {var: 4})
     }],
     4: [{
-      species: Potw(P.Exeggutor, {var:3, form: 'alolan'})
+      species: Potw(P.Lilligant, {var:3, form: 'hisuian'})
     }, {
-      species: Potw(P.Castform, {var: 4, form: 'sunny'})
+      species: Potw(P.Flareon, {var: 4})
     }]
   },
   Rain: {
     3: [{
-      species: Potw(P.Sliggoo, {var: 3, form: 'hisuian'}),
+      species: Potw(P.Psyduck, {var:4}),
     }, {
-      species: Potw(P.Castform, {var: 4, form: 'rainy'}),
+      species: Potw(P.Eevee, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Sliggoo, {var: 3, form: 'hisuian'}),
+      species: Potw(P.Golduck, {var:4}),
     }, {
-      species: Potw(P.Castform, {var: 4, form: 'rainy'}),
+      species: Potw(P.Vaporeon, {var: 4}),
     }]
   },
   Sandstorm: {
     3: [{
-      species: Potw(P.Teddiursa, {var: 3}),
+      species: Potw(P.Bergmite, {var: 3}),
     }, {
-      species: Potw(P.Lairon, {var: 4}),
+      species: Potw(P.Sudowoodo, {var: 2}),
     }],
     4: [{
-      species: Potw(P.Ursaring, {var: 3}),
+      species: Potw(P.Avalugg, {var: 3, form: 'hisuian'}),
     }, {
-      species: Potw(P.Aggron, {var: 4}),
+      species: Potw(P.Sudowoodo, {var: 2}),
     }],
   },
   'Diamond Dust': {
     3: [{
-      species: Potw(P.Castform, {var: 4, form: 'snowy'}),
+      species: Potw(P.Eiscue, {var: 3}),
     }, {
-      species: Potw(P.Cryogonal, {var: 1}),
+      species: Potw(P.Eevee, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Castform, {var: 4, form: 'snowy'}),
+      species: Potw(P.Eiscue, {var: 3}),
     }, {
-      species: Potw(P.Cryogonal, {var: 1}),
+      species: Potw(P.Glaceon, {var: 4}),
     }],
   },
   Snow: {
     3: [{
-      species: Potw(P.Castform, {var: 3, form: 'snowy'}),
+      species: Potw(P.Eiscue, {var: 3}),
     }, {
-      species: Potw(P.Cryogonal, {var: 1})
+      species: Potw(P.Eevee, {var: 4})
     }],
     4: [{
-      species: Potw(P.Castform, {var: 3, form: 'snowy'}),
+      species: Potw(P.Eiscue, {var: 3}),
     }, {
-      species: Potw(P.Cryogonal, {var: 1})
+      species: Potw(P.Glaceon, {var: 4})
     }],
   },
   Thunderstorm: {
     3: [{
-      species: Potw(P.Electabuzz, {var:2}),
+      species: Potw(P.Basculin, {var:3, form: 'white_stripe'}),
     }, {
-      species: Potw(P.Karrablast, {var: 3}),
+      species: Potw(P.Eevee, {var:4}),
     }],
     4: [{
-      species: Potw(P.Electivire, {var:2}),
+      species: Potw(P.Basculegion, {var:3}),
     }, {
-      species: Potw(P.Accelgor, {var: 3}),
+      species: Potw(P.Jolteon, {var:4}),
     }]
   },
   Sunny: {
     3: [{
-      species: Potw(P.Cherubi, {var: 4}),
+      species: Potw(P.Applin, {var: 3}),
     }, {
-      species: Potw(P.Audino, {var: 4}),
+      species: Potw(P.Eevee, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Cherrim, {var: 4}),
+      species: Potw(P.Appletun, {var:3}),
     }, {
-      species: Potw(P.Audino, {var: 4}),
+      species: Potw(P.Leafeon, {var: 4}),
     }]
   },
   Windy: {
     3: [{
-      species: Potw(P.Bagon, {var:4}),
+      species: Potw(P.Applin, {var:3}),
     }, {
-      species: Potw(P.Staravia, {var: 4}),
+      species: Potw(P.Eevee, {var: 4}),
     }],
     4: [{
-      species: Potw(P.Shelgon, {var:4}),
+      species: Potw(P.Flapple, {var:3}),
     }, {
-      species: Potw(P.Staraptor, {var: 4}),
+      species: Potw(P.Sylveon, {var: 4}),
     }]
   },
 }

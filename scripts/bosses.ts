@@ -2910,7 +2910,7 @@ export const bosses = [
     Potw(P.Hypno, {var: 1}),
     Potw(P.Mimikyu, {var: 4}),
     Potw(P.Garbodor, {var: 4}),
-    Potw(P.Marowak, {var: 1, form: 'totem'}),
+    Potw(P.Marowak, {var:1, form:'totem'}),
     Potw(P.Crobat, {var: 1, form: 'alpha'}),
     Potw(P.Entei, {var: 4}),
     Potw(P.Raikou, {var: 4}),
@@ -3122,6 +3122,7 @@ export const bosses = [
     Potw(P.Coalossal, {var: 1}),
     Potw(P.Pyroar, {var: 1}),
     Potw(P.Polteageist, {var: 1}),
+    Potw(P.Polteageist, {var: 1, form: 'antique'}),
     Potw(P.Qwilfish, {var: 4}),
     Potw(P.Sandaconda, {var: 1}),
     Potw(P.Sigilyph, {var: 2}),
@@ -3407,6 +3408,7 @@ export const bosses = [
     Potw(P.Falinks, {var: 2}),
     Potw(P.Blaziken, {var: 2}),
     Potw(P.Polteageist, {var: 2}),
+    Potw(P.Polteageist, {var: 2, form: 'antique'}),
     Potw(P.Serperior, {var: 3}),
     Potw(P.Corviknight, {var: 2}),
     Potw(P.Emboar, {var: 3}),
@@ -3625,7 +3627,7 @@ export const bosses = [
     Potw(P.Regieleki, {var:3}),
     Potw(P.Regidrago, {var:3}),
     Potw(P.Eternatus, {var:2}),
-    Potw(P.Eternatus, {var:2, form: 'eternamax'}),
+    Potw(P.Eternatus, {var:2, form:'eternamax'}),
     Potw(P.Glastrier, {var:2}),
     Potw(P.Spectrier, {var:2}),
     Potw(P.Decidueye, {var:3, form: 'hisuian'}),
@@ -3641,7 +3643,7 @@ export const bosses = [
     Potw(P.Obstagoon, {var:3}),
     Potw(P.Alcremie, {var:2}),
     Potw(P.Polteageist, {var:2}),
-    Potw(P.Polteageist, {var:2, form: 'antique'}),
+    Potw(P.Polteageist, {var:2, form:'antique'}),
     Potw(P.Shiinotic, {var:1}),
     Potw(P.Clefable, {var:4}),
     Potw(P.Coalossal, {var:3}),
@@ -3885,6 +3887,7 @@ export const bosses = [
     Potw(P.Glaceon, {var:4}),
     Potw(P.Mismagius, {var:3}),
     Potw(P.Golduck, {var:4}),
+    Potw(P.Lilligant, {var:3, form: 'hisuian'}),
     Potw(P.Avalugg, {var:3, form: 'hisuian'}),
     Potw(P.Sudowoodo, {var:2}),
     Potw(P.Eiscue, {var:3}),
@@ -3893,7 +3896,9 @@ export const bosses = [
     Potw(P.Basculegion, {var:3, gender:'female'}),
     Potw(P.Appletun, {var:3}),
     Potw(P.Flapple, {var:3}),
-  ],
+    Potw(P.Toxicroak, {var:3}),
+    Potw(P.Drapion, {var:3}),
+  ]
 ]
 
 /**
@@ -3905,7 +3910,7 @@ const formsToIgnore = [
   'ten', 'fifty', 'complete', 'hangry', 'blade', 'shield',
   'origin', 'sunshine', 'gulping', 'gorging', 'antique', 'phony',
   'altered', 'incarnate', 'dusk_mane', 'dawn_wings', 'ultra_burst',
-  'eternal', 'page', 'brin',
+  'eternal', 'page', 'brin', 'noice_face',
 ]
 
 function getEvolvedBossesOnly() {

@@ -74,6 +74,8 @@ export const alolaBuilder = {
     novelMoves: [[],
       ['Revenge', 'Focus Energy'],
       ['Stockpile', 'Spit Up', 'Swallow'],
+      ['Zen Headbutt', 'Embargo'],
+      ['Snarl', 'Sludge Wave', 'Work Up'],
     ],
   }),
   'potw-026-alolan': ensurePkmnBuilder({
