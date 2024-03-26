@@ -35,6 +35,7 @@ if (new Date().getDate() <= 1) {
   for (const [key, value] of Object.entries(datastore)) {
     if (pkmnToDexit.includes(key as BadgeId)) {
       value.pokedex = 'This Pokémon will be removed in a future update.'
+      value.tiers = []
     }
   }
 }
