@@ -285,13 +285,13 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
         const hasToDMark = Math.random() < 0.19 // ~1/52
         if (hasToDMark) {
           const date = spacetime(new Date(), location.timezone)
-          if (date.hours() < 6) {
+          if (date.hour() < 6) {
             badge.ribbons = ['💤']
-          } else if (date.hours() < 12) {
+          } else if (date.hour() < 12) {
             badge.ribbons = ['🌅']
-          } else if (date.hours() < 19) {
+          } else if (date.hour() < 19) {
             badge.ribbons = ['🍴']
-          } else if (date.hours() < 20) {
+          } else if (date.hour() < 20) {
             badge.ribbons = ['🌇']
           } else {
             badge.ribbons = ['💤']
