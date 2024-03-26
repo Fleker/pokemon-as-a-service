@@ -1234,6 +1234,8 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Rollout', 'Withdraw'],
       ['Growth'],
+      ['Sucker Punch', 'Defense Curl'],
+      ['Pounce', 'Recycle'],
     ],
   }),
   'potw-841': ensurePkmnBuilder({
@@ -1255,6 +1257,8 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Wing Attack', 'Dragon Dance'],
       ['Sucker Punch', 'Growth'],
+      ['Outrage', 'U-turn', 'Leech Seed'],
+      ['Recycle'],
     ],
     gmax: {
       gmaxMove: 'G-Max Tartness',
@@ -1281,6 +1285,8 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Headbutt', 'Curse'],
       ['Draco Meteor', 'High Horsepower', 'Growth'],
+      ['Seed Bomb', 'Iron Head', 'Grassy Terrain'],
+      ['Recycle'],
     ],
     gmax: {
       gmaxMove: 'G-Max Sweetness',
@@ -2040,6 +2046,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Mega Kick', 'Stealth Rock'],
       ['Heat Crash', 'Gravity'],
+      ['Earth Power', 'Sandstorm'],
     ],
   }),
   'potw-875': ensurePkmnBuilder({
@@ -2063,6 +2070,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Surf', 'Amnesia'],
       ['Avalanche', 'Body Slam', 'Aurora Veil'],
+      ['Iron Head', 'Feather Dance'],
     ],
   }),
   'potw-875-noice_face': ensurePkmnBuilder({
@@ -2084,6 +2092,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Surf', 'Amnesia'],
       ['Avalanche', 'Body Slam', 'Hail'],
+      ['Iron Head', 'Belly Drum'],
     ],
   }),
   'potw-876': ensurePkmnBuilder({
@@ -2377,6 +2386,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Quick Attack', 'Helping Hand'],
       ['Sucker Punch', 'Curse'],
+      ['Infestation', 'Double Team'],
     ],
   }),
   'potw-886': ensurePkmnBuilder({
@@ -2400,6 +2410,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Double-Edge', 'Helping Hand'],
       ['Sucker Punch', 'Curse'],
+      ['Outrage', 'U-turn', 'Grudge'],
     ],
   }),
   'potw-887': ensurePkmnBuilder({
@@ -2423,6 +2434,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Draco Meteor', 'Sucker Punch', 'Helping Hand'],
       ['Psychic Fangs', 'Curse'],
+      ['Outrage', 'U-turn', 'Grudge'],
     ],
   }),
   'potw-888': ensurePkmnBuilder({
