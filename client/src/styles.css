@@ -128,6 +128,10 @@ body.dark button[mat-icon-button][disabled] .mat-mdc-paginator-icon {
   opacity: 0.5;
 }
 
+body.dark .mat-mdc-standard-chip:not(.mdc-evolution-chip--disabled) {
+  background-color: #323232;
+}
+
 mat-paginator {
   background-color: var(--card-background-color) !important;
   color: var(--app-text-color) !important;
