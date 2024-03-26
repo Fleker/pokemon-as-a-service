@@ -111,14 +111,10 @@ export function forEachBadgeId(pokemon: TPokemon, callback: ([BadgeId, number]) 
  * Generates a custom iterator for reconstructed BadgeIDs and counts
  * @param pokemon Your nested database collection of Pokémon
  */
-export function myPokemon(pokemon: TPokemon): IterableIterator<[PokemonId, number]> {
-  const entries: [PokemonId, number][] = []
+export function* myPokemon(pokemon: TPokemon): IterableIterator<[PokemonId, number]> {
   for (const [dexId, badgeIds] of Object.entries(pokemon)) {
     for (const [badgeId, value] of Object.entries(badgeIds)) {
-      entries.push([`${dexId}#${badgeId}` as PokemonId, value])
+      yield [`${dexId}#${badgeId}` as PokemonId, value]
     }
   }
-  
-  return entries[Symbol.iterator]()
 }
-
