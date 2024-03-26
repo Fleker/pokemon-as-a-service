@@ -262,6 +262,20 @@ export const Events = {
       return date.month() === 2 && date.date() === 14
     }
   }),
+  'TRANSDAY': assert<Event>({
+    title: 'Trans Day of Visibility',
+    description: 'Celebrate and see people around you for who they are.',
+    frequentSpecies: [],
+    encounterHoldItems: [],
+    other: [
+      'Sylveon can be caught in Ultra Balls'
+    ],
+    shinyRate: 1,
+    isActive: (user) => {
+      const date = getLocalTime(user)
+      return date.month() === 2 && date.date() === 31
+    }
+  }),
   'APRIL_FOOLS': assert<Event>({
     title: 'April Fools',
     description: 'Trololol',
