@@ -288,7 +288,20 @@ export const berry_harvest = functions.https.onCall(async (data: F.BerryHarvest.
         }
       }
       // Update bag
-      const berryYield = getYield(berryMeta, fertilizer)
+      const berryYield = (() => {
+        const baseYield = getYield(berryMeta, fertilizer)
+        const p = Math.random()
+        if (!user.berryGrown) return baseYield
+        // As your farming skill improves, so does your yield
+        if (user.berryGrown! > 2000 && p < 0.2) {
+          return baseYield + 1
+        } else if (user.berryGrown! > 1000 && p < 0.15) {
+          return baseYield + 1
+        } else if (user.berryGrown! > 200 && p < 0.1) {
+          return baseYield + 1 
+        }
+        return baseYield
+      })()
       awardItem(user, berry, berryYield)
       let weed
       if (Math.random() < EXTRA_ITEM_ODDS) {
