@@ -910,7 +910,7 @@ export const Globe = {
   'KR-ICN': assert<Location>({
     label:"Anyang-Si", region:"Asia", terrain:"Beach", flag: '🇰🇷', id: 63,
     hemiLat: 'North', hemiLong: 'East', timezone: 'Asia/Seoul', vivillon: 'continental',
-    latitude: 39.92, longitude: 113.55,
+    latitude: 37.4, longitude: 126.93,
     fact: "This city is livable, something that makes its citizens proud",
     weatherSpring:{Cloudy:0.175,Snow:0.025,Fog:0.1,Rain:0.175,Thunderstorm:0.05, Sandstorm: 0.025},
     weatherSummer:{Cloudy:0.15,Thunderstorm:0.125,Rain:0.1,Fog:0.075,'Heat Wave':0.05, Sandstorm: 0.025},
