@@ -1,4 +1,4 @@
-<table>
+<table [style.height]="height">
   <tr>
     <td class="left">
       <div *ngFor="let specie of players; index as i">
@@ -14,7 +14,7 @@
       <img src="/images/sprites/icons/menu-pokeball.svg" />
       <hr [style.width]="barwidth" [style.marginLeft]="marginleft">
     </td>
-    <td class="right">
+    <td class="right" [style.paddingLeft]="rightSidePadding">
       <div *ngFor="let specie of opponents; index as i">
         <hp-bar [hp]="opponentHps[i]"></hp-bar>
         <br>

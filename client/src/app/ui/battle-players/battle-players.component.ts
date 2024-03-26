@@ -25,13 +25,33 @@ export class BattlePlayersComponent implements OnInit, OnChanges {
   get barwidth() {
     if (!this.tier) return '0px'
     const slots = BATTLE_TIERS[this.tier].rules.partySize
-    return `${slots*80}px`
+    return `${[
+      0, 86, 158, 238, 318
+    ][slots]}px`
   }
   
   get marginleft() {
     if (!this.tier) return '0px'
     const slots = BATTLE_TIERS[this.tier].rules.partySize
-    return `${(slots-1)*-40}px`
+    return `${[
+      0, -2, -38, -78, -118
+    ][slots]}px`
+  }
+
+  get height() {
+    if (!this.tier) return '0px'
+    const slots = BATTLE_TIERS[this.tier].rules.partySize
+    return `${[
+      0, 80, 160, 240, 320
+    ][slots]}px`
+  }
+
+  get rightSidePadding() {
+    if (!this.tier) return '0px'
+    const slots = BATTLE_TIERS[this.tier].rules.partySize
+    return `${[
+      0, 152, 116, 76, 36
+    ][slots]}px`
   }
 
   ngOnInit(): void {
