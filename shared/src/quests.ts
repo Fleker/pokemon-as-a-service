@@ -1400,14 +1400,14 @@ export const GLOBAL_QUEST_DATE: () => boolean = (() => {
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  docId: 'available',
-  // docId: 'unavailable',
-  dbKey: 'shinyManaphy2',
-  badge: 'potw-490-shiny',
-  boss: Potw(P.Manaphy, {shiny: true, var: 2}),
-  title: 'Shiny Manaphy Raids',
+  // docId: 'available',
+  docId: 'unavailable',
+  dbKey: 'shinyDeoxys2',
+  badge: 'potw-386-shiny',
+  boss: Potw(P.Deoxys, {shiny: true, var: 2}),
+  title: 'Mightiest Shiny Deoxys Raids',
   count: 1_000_000,
-  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Manaphy raids.']
+  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Deoxys raids.']
 }]
 
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{
