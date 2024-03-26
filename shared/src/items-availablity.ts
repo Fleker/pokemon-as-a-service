@@ -2228,6 +2228,26 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: () => true,
     consumes: () => true,
   },
+  'auspiciousarmor': {
+    filter: [P.Charcadet],
+    pokemon: {
+      [P.Charcadet]: {
+        badge: P.Armarouge,
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
+  'maliciousarmor': {
+    filter: [P.Charcadet],
+    pokemon: {
+      [P.Charcadet]: {
+        badge: P.Charcadet,
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
   'leaderscrest': {
     filter: [P.Bisharp],
     pokemon: {
@@ -2709,10 +2729,10 @@ export function useItem(params: ItemUsageParams): UseItemOutput {
     // Make sure we cannot evolve the Spiky-Eared Pichu.
     throw new Error(`Pichu cannot be evolved.`)
   }
+
   if (badge.personality.gmax && [PI.Pikachu, PI.Eevee, PI.Meowth].includes(badge.id)) {
     throw new Error(`This special Pokémon cannot be evolved.`)
   }
-
 
   let transform: EvolutionEntry;
   if (typeof availability.pokemon[target] === 'object') {
