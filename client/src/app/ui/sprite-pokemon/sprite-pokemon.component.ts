@@ -10,6 +10,7 @@ import { PokedexDialog } from 'src/app/dialogs/pokedex/pokedex.component';
 import { ManagerService } from 'src/app/dialogs/manager.service';
 import { ElementRef } from '@angular/core';
 import { ITEMS, ItemId } from '../../../../../shared/src/items-list';
+import { pkmnToDexit } from '../../../../../shared/src/dexit';
 
 /**
  * A canonical list of all mega sprites I've added into the game.
@@ -164,6 +165,13 @@ export class SpritePokemonComponent implements OnChanges {
       }
       if (newv !== undefined && newv !== "") {
         const pkmnBadge = new Badge(newv)
+        // April Fools!
+        if (new Date().getDate() <= 1) {
+          if (pkmnToDexit.includes(pkmnBadge.toSimple())) {
+            this.src = '/images/null.png'
+            return
+          }
+        }
         const megaPath = this.isMegaEvolution()
         const gmaxPath = this.isGmax()
         if (megaPath) {
