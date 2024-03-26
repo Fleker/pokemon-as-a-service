@@ -384,7 +384,7 @@ export const hisuiBuilder = {
     species: 'Decidueye', type1: 'Grass', type2: 'Fighting', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
     weight: 37, release: 'ultraball',
-    eggBase: 'potw-723', eggGroup: ['Flying'], eggCycles: 20,
+    eggBase: 'potw-722', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `The air stored inside the rachises of Decidueye’s feathers insulates the Pokémon against Hisui’s extreme cold. This is firm proof that evolution can be influenced by environment.`,
     hp: 88, attack: 112, defense: 80, spAttack: 95, spDefense: 95, speed: 60,
     move: ['Leaf Blade', 'Triple Arrows'],

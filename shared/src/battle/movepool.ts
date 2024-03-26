@@ -11766,7 +11766,7 @@ export const Movepool: Movepool = {
     attackKey: 'spAttack',
     defenseKey: 'spDefense',
     criticalHit: 1,
-    power: 0.5,
+    power: 1.1,
     type: 'Normal',
     sound: true,
     flavor: 'The user screeches so loud that even those sleeping awaken. Their special attack raises with each use.',

@@ -1337,6 +1337,9 @@ export const paldeaBuilder = {
     ],
     novelMoves: [[],
       ['Outrage', 'Swagger'],
+      ['Close Combat', 'Thunder Punch', 'Bulk Up'],
+      ['Gunk Shot', 'Screech'],
+      ['Rock Slide', 'Taunt'],
     ],
   }),
   'potw-980': ensurePkmnBuilder({
@@ -1356,7 +1359,7 @@ export const paldeaBuilder = {
       'Haze', 'Substitute', 'Endure', 'Mist', 
     ],
     novelMoves: [[],
-      ['Megahorn', 'Amnesia']
+      ['Megahorn', 'Amnesia'],
     ],
   }),
   'potw-981': ensurePkmnBuilder({
@@ -1366,7 +1369,7 @@ export const paldeaBuilder = {
     eggBase: 'potw-203', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Now that the brain waves from the head and tail are synced up, the psychic power of this Pokémon is 10 times stronger than Girafarig's.`,
     hp: 120, attack: 90, defense: 70, spAttack: 110, spDefense: 70, speed: 60,
-    move: ['Stomp', 'Twin Beam'],
+    move: ['Double Hit', 'Twin Beam'],
     moveTMs: [
       'Hyper Beam', 'Double-Edge', 'Thunderbolt', 'Earthquake', 'Shadow Ball', 
       'Swift', 'Facade', 'Charge Beam', 'Hyper Voice', 'Bulldoze', 
@@ -1376,7 +1379,13 @@ export const paldeaBuilder = {
       'Sunny Day', 'Rain Dance', 'Reflect', 'Light Screen', 'Power Swap', 
       'Guard Swap', 'Trick Room', 'Wish', 'Endeavor', 'Substitute', 
       'Endure', 'Imprison', 'Psychic Terrain', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Energy Ball', 'Nasty Plot'],
+      ['Crunch', 'Wish'],
+      ['Signal Beam', 'Gravity'],
+      ['Dazzling Gleam', 'Uproar', 'Recycle'],
+    ],
   }),
   'potw-982': ensurePkmnBuilder({
     species: 'Dudunsparce', type1: 'Normal', 
@@ -1418,7 +1427,13 @@ export const paldeaBuilder = {
       'Dark Pulse', 'Protect', 'Thunder Wave', 'Swords Dance', 'Iron Defense', 
       'Metal Sound', 'Rain Dance', 'Sandstorm', 'Substitute', 'Quick Guard', 
       'Endure', 'Taunt', 
-    ]
+    ],
+      novelMoves: [[],
+      ['Metal Burst', 'Psycho Cut', 'Swords Dance'],
+      ['Sucker Punch', 'X-Scissor', 'Embargo'],
+      ['Throat Chop', 'Metal Sound'],
+      ['Snarl', 'Outrage', 'Thunder Wave'],
+    ],
   }),
   'potw-984': ensurePkmnBuilder({
     species: 'Great Tusk', type1: 'Ground', type2: 'Fighting', 
