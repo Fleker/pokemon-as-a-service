@@ -72,7 +72,7 @@ export const bank_list = functions.https.onCall(async (data: BankListParams, con
         legacy: legacyArr,
       }
     } else {
-      return pokemon
+      return playerCollection.data()
     }
   })()
 
