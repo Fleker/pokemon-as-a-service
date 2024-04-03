@@ -40,15 +40,10 @@ function isV1Format(badgeId: string) {
   return false
 }
 
-const migratedBoxes: (string | number | undefined)[] = [undefined, '']
-
 /**
  * Basic LIST/GET operation for system cold storage.
  */
 export const bank_list = functions.https.onCall(async (data: BankListParams, context) => {
-  if (!migratedBoxes.includes(data.box ?? '')) {
-    throw new functions.https.HttpsError('data-loss', `Box ${data.box} is not yet migrated`)
-  }
   const userId = context.auth!.uid
   // Go to /users/<user-id>/archive/pokemon
   const playerCollection = await db.collection('users')
@@ -96,9 +91,6 @@ interface BankIOParams {
  * Write Pokemon into cold storage.
  */
 export const bank_deposit = functions.https.onCall(async (data: BankIOParams, context) => {
-  if (!migratedBoxes.includes(data.box ?? '')) {
-    throw new functions.https.HttpsError('data-loss', `Box ${data.box} is not yet migrated`)
-  }
   const userId = context.auth!.uid
   const notices: string[] = []
   await db.runTransaction(async t => {
@@ -177,9 +169,6 @@ export const bank_deposit = functions.https.onCall(async (data: BankIOParams, co
  * Remove Pokemon into cold storage.
  */
  export const bank_withdraw = functions.https.onCall(async (data: BankIOParams, context) => {
-  if (!migratedBoxes.includes(data.box ?? '')) {
-    throw new functions.https.HttpsError('data-loss', `Box ${data.box} is not yet migrated`)
-  }
   const userId = context.auth!.uid
   const notices: string[] = []
   await db.runTransaction(async t => {
