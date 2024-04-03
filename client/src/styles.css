@@ -62,6 +62,7 @@ body.dark {
   --link-color: #09f;
   --white-high-opacity: rgba(0, 0, 0, .7);
   --button-bg-secondary: #212121;
+  --mdc-chip-label-text-color: #ccc;
 
   /* Type Colors */
   --type-fighting: #a1887f;
