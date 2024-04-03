@@ -2242,7 +2242,7 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     filter: [P.Charcadet],
     pokemon: {
       [P.Charcadet]: {
-        badge: P.Charcadet,
+        badge: P.Ceruledge,
       }
     },
     usable: () => true,
