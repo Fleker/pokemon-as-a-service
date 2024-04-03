@@ -6,12 +6,15 @@ import {hisuiBuilder} from './hisui'
 export const paldeaBuilder = {
   'potw-128-combat_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting',
-    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 115, eggBase: 'potw-128-combat_breed', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `This Pokémon has a muscular body and excels at close-quarters combat. It uses its short horns to strike the opponent’s weak spots.`,
     hp: 75, attack: 110, defense: 105, spAttack: 30, spDefense: 70, speed: 100,
     move: ['Raging Bull'],
     moveTMs: [],
+    novelMoves: [[],
+      ['Zen Headbutt', 'Swagger'],
+    ],
   }),
   'potw-128-blaze_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting', type2: 'Fire',
@@ -69,7 +72,7 @@ export const paldeaBuilder = {
   }),
   'potw-906': ensurePkmnBuilder({
     species: 'Sprigatito', type1: 'Grass', 
-    tiers: ['Tiny Cup', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Tiny Cup', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 4.1,
     eggBase: 'potw-906', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 16, levelTo: 'potw-907',
@@ -82,11 +85,14 @@ export const paldeaBuilder = {
       'Protect', 'Nasty Plot', 'Agility', 'Quick Attack', 'Charm', 
       'Substitute', 'Leech Seed', 'Hone Claws', 'Endure', 'Grassy Terrain', 
       'Taunt', 'Fake Tears', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Slash', 'Hone Claws']
+    ],
   }),
   'potw-907': ensurePkmnBuilder({
     species: 'Floragato', type1: 'Grass', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 12.2,
     eggBase: 'potw-906', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 36, levelTo: 'potw-908',
@@ -99,11 +105,14 @@ export const paldeaBuilder = {
       'Leafage', 'Trailblaze', 'Protect', 'Nasty Plot', 'Agility', 
       'Quick Attack', 'Charm', 'Substitute', 'Leech Seed', 'Hone Claws', 
       'Endure', 'Grassy Terrain', 'Taunt', 'Fake Tears', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Slash', 'Hone Claws']
+    ],
   }),
   'potw-908': ensurePkmnBuilder({
     species: 'Meowscarada', type1: 'Grass', type2: 'Dark', 
-    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 31.2,
     eggBase: 'potw-906', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `This Pokémon uses the reflective fur lining its cape to camouflage the stem of its flower, creating the illusion that the flower is floating.`,
@@ -117,11 +126,14 @@ export const paldeaBuilder = {
       'Agility', 'Quick Attack', 'Charm', 'Trick Room', 'Knock Off', 
       'Substitute', 'Leech Seed', 'Hone Claws', 'Endure', 'Grassy Terrain', 
       'Taunt', 'Fake Tears', 'Double Team', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Play Rough', 'Grassy Terrain']
+    ],
   }),
   'potw-909': ensurePkmnBuilder({
     species: 'Fuecoco', type1: 'Fire', 
-    tiers: ['Tiny Cup', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Tiny Cup', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 9.8,
     eggBase: 'potw-909', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 16, levelTo: 'potw-910',
@@ -132,11 +144,14 @@ export const paldeaBuilder = {
       'Dig', 'Fire Blast', 'Mud-Slap', 'Overheat', 'Facade', 
       'Hyper Voice', 'Fire Spin', 'Protect', 'Will-O-Wisp', 'Sunny Day', 
       'Substitute', 'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Snarl', 'Yawn'],
+    ],
   }),
   'potw-910': ensurePkmnBuilder({
     species: 'Crocalor', type1: 'Fire', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 30.7,
     eggBase: 'potw-909', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 36, levelTo: 'potw-911',
@@ -147,11 +162,14 @@ export const paldeaBuilder = {
       'Dig', 'Fire Blast', 'Mud-Slap', 'Overheat', 'Facade', 
       'Hyper Voice', 'Fire Spin', 'Protect', 'Will-O-Wisp', 'Sunny Day', 
       'Substitute', 'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Snarl', 'Roar'],
+    ],
   }),
   'potw-911': ensurePkmnBuilder({
     species: 'Skeledirge', type1: 'Fire', type2: 'Ghost', 
-    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 326.5,
     eggBase: 'potw-909', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `The fiery bird changes shape when Skeledirge sings. Rumor has it that the bird was born when the fireball on Skeledirge's head gained a soul.`,
@@ -162,12 +180,14 @@ export const paldeaBuilder = {
       'Mud-Slap', 'Shadow Ball', 'Overheat', 'Facade', 'Shadow Claw', 
       'Hyper Voice', 'Giga Impact', 'Fire Spin', 'Protect', 'Will-O-Wisp', 
       'Blast Burn', 'Sunny Day', 'Substitute', 'Endure', 'Imprison', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Snarl', 'Will-O-Wisp'],
+    ],
   }),
   'potw-912': ensurePkmnBuilder({
     species: 'Quaxly', type1: 'Water', 
-    tiers: ['Tiny Cup', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Tiny Cup', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 6.1,
     eggBase: 'potw-912', eggGroup: ['Flying', 'Water 1'], eggCycles: 10,
     levelAt: 16, levelTo: 'potw-913',
@@ -178,11 +198,14 @@ export const paldeaBuilder = {
       'Swift', 'Facade', 'Aerial Ace', 'Double Hit', 'Liquidation', 
       'Chilling Water', 'Surf', 'Whirlpool', 'Protect', 'Rain Dance', 
       'Substitute', 'Work Up', 'Endure', 'Misty Terrain', 'Roost', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Wing Attack', 'Work Up'],
+    ],
   }),
   'potw-913': ensurePkmnBuilder({
     species: 'Quaxwell', type1: 'Water', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 21.5,
     eggBase: 'potw-912', eggGroup: ['Flying', 'Water 1'], eggCycles: 10,
     levelAt: 36, levelTo: 'potw-914',
@@ -194,11 +217,14 @@ export const paldeaBuilder = {
       'Liquidation', 'Chilling Water', 'Surf', 'Whirlpool', 'Protect', 
       'Feather Dance', 'Rain Dance', 'Substitute', 'Work Up', 'Endure', 
       'Misty Terrain', 'Roost', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Acrobatics', 'Work Up'],
+    ],
   }),
   'potw-914': ensurePkmnBuilder({
     species: 'Quaquaval', type1: 'Water', type2: 'Fighting', 
-    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 61.9,
     eggBase: 'potw-912', eggGroup: ['Flying', 'Water 1'], eggCycles: 10,
     pokedex: `A single kick from a Quaquaval can send a truck rolling. This Pokémon uses its powerful legs to perform striking dances from far-off lands.`,
@@ -211,7 +237,10 @@ export const paldeaBuilder = {
       'Bulk Up', 'Hydro Cannon', 'Swords Dance', 'Agility', 'Feather Dance', 
       'Rain Dance', 'Endeavor', 'Knock Off', 'Substitute', 'Work Up', 
       'Endure', 'Misty Terrain', 'Taunt', 'Roost', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Acrobatics', 'Feather Dance'],
+    ],
   }),
   'potw-915': ensurePkmnBuilder({
     species: 'Lechonk', type1: 'Normal', 
@@ -1712,6 +1741,7 @@ export const paldeaBuilder = {
     moveTMs: [],
     novelMoves: [[],
       ['Tackle', 'Protect'],
+      ['Thief', 'Reflect'],
     ],
   }),
   'potw-999-roaming': ensurePkmnBuilder({
@@ -1724,7 +1754,8 @@ export const paldeaBuilder = {
     move: ['Astonish'],
     moveTMs: [],
     novelMoves: [[],
-      ['Tackle', 'Confuse Ray']
+      ['Tackle', 'Confuse Ray'],
+      ['Thief', 'Reflect'],
     ],
   }),
   'potw-1000': ensurePkmnBuilder({
@@ -1742,6 +1773,7 @@ export const paldeaBuilder = {
     ],
     novelMoves: [[],
       ['Power Gem', 'Nasty Plot'],
+      ['Hex', 'Focus Blast', 'Thunder Wave'],
     ],
   }),
   'potw-1001': ensurePkmnBuilder({

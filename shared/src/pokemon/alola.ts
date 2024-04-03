@@ -1940,6 +1940,7 @@ export const alolaBuilder = {
       ['Tri Attack', 'X-Scissor', 'Metal Sound'],
       ['Flame Charge', 'Dragon Claw', 'Swords Dance'],
       ['Iron Head', 'Signal Beam', 'Heal Block'],
+      ['Snarl', 'Rock Slide', 'Parting Shot'],
     ],
   }),
   'potw-773': ensurePkmnBuilder({
@@ -1963,6 +1964,7 @@ export const alolaBuilder = {
       ['Crunch', 'X-Scissor', 'Metal Sound'],
       ['Grass Pledge', 'Fire Pledge', 'Water Pledge'],
       ['Iron Head', 'Signal Beam', 'Double Team'],
+      ['Snarl', 'Rock Slide', 'Roar'],
     ],
   }),
   'potw-774': ensurePkmnBuilder({
@@ -2351,6 +2353,7 @@ export const alolaBuilder = {
       ['Teleport'],
       ['Teleport'],
       ['Teleport'],
+      ['Teleport'],
     ]
   }),
   'potw-790': ensurePkmnBuilder({
@@ -2364,6 +2367,7 @@ export const alolaBuilder = {
       
     ],
     novelMoves: [[],
+      ['Teleport'],
       ['Teleport'],
       ['Teleport'],
       ['Teleport'],
@@ -2390,6 +2394,7 @@ export const alolaBuilder = {
       ['Flare Blitz', 'Morning Sun'],
       ['Psychic Fangs', 'Helping Hand'],
       ['Outrage', 'Noble Roar'],
+      ['Snarl', 'Wide Guard'],
     ],
   }),
   'potw-792': ensurePkmnBuilder({
@@ -2414,6 +2419,7 @@ export const alolaBuilder = {
       ['Moonblast', 'Moonlight'],
       ['Night Daze', 'Helping Hand'],
       ['Heat Wave', 'Trick'],
+      ['Blizzard', 'Magic Room']
     ],
   }),
   'potw-793': ensurePkmnBuilder({
@@ -2586,6 +2592,7 @@ export const alolaBuilder = {
       ['Power Gem', 'Charge Beam', 'Stealth Rock'],
       ['Mirror Shot', 'Cosmic Power'],
       ['Outrage', 'Dragon Dance'],
+      ['Breaking Swipe', 'Recycle'],
     ],
   }),
   'potw-800-dusk_mane': ensurePkmnBuilder({
@@ -2609,6 +2616,7 @@ export const alolaBuilder = {
       ['Power Gem', 'Stealth Rock'],
       ['Mirror Shot', 'Morning Sun'],
       ['Outrage', 'Dragon Dance'],
+      ['Breaking Swipe', 'Recycle'],
     ],
   }),
   'potw-800-dawn_wings': ensurePkmnBuilder({
@@ -2632,6 +2640,7 @@ export const alolaBuilder = {
       ['Power Gem', 'Stealth Rock'],
       ['Mirror Shot', 'Moonlight'],
       ['Outrage', 'Dragon Dance'],
+      ['Breaking Swipe', 'Recycle'],
     ],
   }),
   'potw-800-ultra_burst': ensurePkmnBuilder({
@@ -2655,6 +2664,7 @@ export const alolaBuilder = {
       ['Power Gem', 'Stealth Rock'],
       ['Mirror Shot', 'Dragon Dance'],
       ['Outrage', 'Swords Dance'],
+      ['Brutal Swing', 'Recycle'],
     ],
   }),
   'potw-801': ensurePkmnBuilder({
@@ -2818,6 +2828,7 @@ export const alolaBuilder = {
       ['Headbutt', 'Acid Armor'],
       ['Gyro Ball', 'Tail Whip'],
       ['Facade', 'Thunder Wave'],
+      ['Round', 'Rest'],
     ],
   }),
   'potw-809': ensurePkmnBuilder({
@@ -2837,6 +2848,7 @@ export const alolaBuilder = {
       ['Thunder Punch', 'Dynamic Punch', 'Acid Armor'],
       ['Body Press', 'Fire Punch', 'Electric Terrain'],
       ['Ice Punch', 'High Horsepower', 'Thunder Wave'],
+      ['Brutal Swing', 'Rock Slide', 'Rest'],
     ],
     gmax: {
       gmaxMove: 'G-Max Meltdown',
