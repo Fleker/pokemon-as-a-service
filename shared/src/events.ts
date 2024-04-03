@@ -30,7 +30,7 @@ export const calculateNetWorth = (user: Users.Doc) => {
     if (!count) {
       continue
     }
-    if (ITEMS[item] && !isNaN(count!)) {
+    if (ITEMS[item] && Number.isInteger(count!)) {
       const itemEntry = ITEMS[item]
       netWorth += itemEntry.sell * (count as number)
     }
