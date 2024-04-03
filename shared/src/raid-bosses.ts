@@ -417,7 +417,7 @@ export const standardBosses: RaidBoss[][] = [
     species: Potw(P.Spectrier, {var:3}),
   }, {
     species: florgesForm,
-  }, {
+  }, /*{
     species: Potw(P.Mewtwo, {var: 1}),
     condition: {
       hints: [{
@@ -482,7 +482,7 @@ export const standardBosses: RaidBoss[][] = [
         msg: 'This raid cannot be created today'
       }]
     }
-  }],
+  }*/],
   /* 6-Star */
   [{
     species: Q.GLOBAL_QUESTS[0].boss,
@@ -533,6 +533,11 @@ export const standardBosses: RaidBoss[][] = [
       // Totem
       // see https://bulbapedia.bulbagarden.net/wiki/Totem_Pok%C3%A9mon
       species: Potw(P.Ribombee, {var: 1, form: 'totem'})
+    },
+    {
+      // DMax
+      species: Potw(P.Sirfetchd, {var:1}),
+      heldItem: 'dynamaxcandy',
     },
     {
       // GMax

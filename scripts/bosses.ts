@@ -3938,6 +3938,8 @@ export const bosses = [
     Potw(P.Zamazenta, {var:3}),
     Potw(P.Eternatus, {var:3}),
     Potw(P.Urshifu, {var:3}),
+    Potw(P.Urshifu, {var:3, form: 'single_strike'}),
+    Potw(P.Urshifu, {var:3, form: 'rapid_strike'}),
     Potw(P.Regieleki, {var:4}),
     Potw(P.Regidrago, {var:4}),
     Potw(P.Glastrier, {var:3}),
@@ -3993,6 +3995,7 @@ export const bosses = [
     Potw(P.Bombirdier, {var:1, form: 'titan'}),
     Potw(P.Blaziken, {var:1}),
     Potw(P.Swampert, {var:1}),
+    Potw(P.Sirfetchd, {var:1}),
   ]
 ]
 
@@ -4005,7 +4008,8 @@ const formsToIgnore = [
   'ten', 'fifty', 'complete', 'hangry', 'blade', 'shield',
   'origin', 'sunshine', 'gulping', 'gorging', 'antique', 'phony',
   'altered', 'incarnate', 'dusk_mane', 'dawn_wings', 'ultra_burst',
-  'eternal', 'page', 'brin', 'noice_face',
+  'eternal', 'page', 'brin', 'noice_face', 'three_segment',
+  'crowned_sword', 'crowned_shield', 'eternamax',
 ]
 
 function getEvolvedBossesOnly() {
