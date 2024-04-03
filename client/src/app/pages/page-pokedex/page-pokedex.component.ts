@@ -769,7 +769,7 @@ export class PagePokedexComponent implements OnInit, OnDestroy {
   hasMoves() {
     if (!this.userPokemon) return
     const moveBool: Partial<Record<MoveId, boolean>> = {}
-    for (const [key] of Object.entries(this.userPokemon)) {
+    for (const [key] of [...myPokemon(this.userPokemon)]) {
       const badge = new Badge(key)
       const pkmn = Pkmn.get(badge.toLegacyString())
       pkmn.move.forEach(m => moveBool[m] = true)
