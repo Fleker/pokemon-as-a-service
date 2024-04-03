@@ -3,7 +3,6 @@ import { Users } from "./db-types"
 import { ITEMS, ItemId } from "../../shared/src/items-list"
 import { PokemonId } from "../../shared/src/pokemon/types"
 import { Badge, MATCH_GTS } from "../../shared/src/badge3"
-import { myPokemon } from "../../shared/src/badge-inflate"
 import structuredClone from '@ungap/structured-clone';
 
 export const hasItem = (user: Users.Doc, item: ItemId, count = 1) => {
@@ -59,36 +58,31 @@ export const hasPokemon = (user: Users.Doc, fnPkmn: PokemonId | PokemonId[]) => 
  * it will check against every single Pokemon without replacement.
  */
  export const hasPokemonFuzzy = (user: Users.Doc, fnPkmn: PokemonId | PokemonId[]) => {
+  if (user.pokemon === undefined) {
+    return false
+  }
   // Normalize to array
   const pkmn = Array.isArray(fnPkmn) ? fnPkmn : [fnPkmn]
-  // Try mapping first
-  let hasPkmn = false
-  if (user.pokemon !== undefined) {
-    hasPkmn = true
-    const pmap = structuredClone(user.pokemon)
-    let keys = [...myPokemon(pmap)].map(([k]) => k)
-    for (const p of pkmn) {
-      const matcher = Badge.match(p, keys, MATCH_GTS)
-      if (matcher.match) {
-        const pk = matcher.result!
-        const pbadge = new Badge(pk)
-        const [id, personality] = pbadge.fragments
-        if (pmap[id]) {
-          if (pmap[id][personality] !== undefined && pmap[id][personality]! > 0) {
-            pmap[id][personality]!--
-          } else {
-            return false
-          }
-        } else {
-          return false // Bail
-        }
-      } else {
-        hasPkmn = false
-      }
-      keys = [...myPokemon(pmap)].map(([k]) => k)
+  const pmap = structuredClone(user.pokemon)
+  for (const p of pkmn) {
+    const id = new Badge(p).fragments[0]
+    if (pmap[id] === undefined) {
+      return false
+    }
+    const keys = Object.keys(pmap[id]).map(p => `${id}#${p}` as PokemonId)
+    const matcher = Badge.match(p, keys, MATCH_GTS)
+    if (!matcher.match) {
+      return false
+    }
+    const personality = new Badge(matcher.result!).fragments[1]
+    if (pmap[id][personality] === undefined || pmap[id][personality]! < 1) {
+      return false
+    }
+    if (--pmap[id][personality]! < 1) {
+      delete pmap[id][personality]
     }
   }
-  return hasPkmn
+  return true
 }
 
 /**
