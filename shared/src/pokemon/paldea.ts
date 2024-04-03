@@ -1058,7 +1058,10 @@ export const paldeaBuilder = {
       'Nasty Plot', 'Feather Dance', 'Sunny Day', 'Rain Dance', 'Sandstorm', 
       'Tailwind', 'Endeavor', 'Knock Off', 'Substitute', 'Hone Claws', 
       'Endure', 'Taunt', 'Roost', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Rock Slide', 'Whirlwind'],
+    ],
   }),
   'potw-963': ensurePkmnBuilder({
     species: 'Finizen', type1: 'Water', 

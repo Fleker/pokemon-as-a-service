@@ -516,6 +516,7 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Charcadet, {gate: CATCH_CHARM_SWSH, item: ['terafire'], terrain: 'Rainforest', weather: 'Heat Wave'}, p))
   list.push(...addIf(P.Tadbulb, {gate: CATCH_CHARM_SWSH, item: ['teraelectric'], terrain: 'Bay', weather: 'Thunderstorm'}, p))
   list.push(...addIf(P.Capsakid, {gate: CATCH_CHARM_SWSH, item: ['teragrass'], terrain: 'Desert', weather: 'Heat Wave'}, p))
+  list.push(...addIf(P.Cetoddle, {gate: CATCH_CHARM_SWSH, item: ['teraice'], terrain: 'Mountain', weather: 'Snow'}, p))
 
   // Swarms
   if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
@@ -913,6 +914,10 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Orthworm, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], terrain: 'Mountain', weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Squawkabilly, {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', time: 'Day'}, p))
   list.push(...addIf(P.Cyclizar, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], weather: 'Sunny', terrain: 'Grasslands'}, p))
+  list.push(...addIf(P.Glimmet, {gate: CATCH_CHARM_SWSH, item: ['terarock'], weather: 'Cloudy', terrain: 'Mountain'}, p))
+  list.push(...addIf(P.Varoom, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], weather: 'Fog', terrain: 'Mountain'}, p))
+  list.push(...addIf(P.Bombirdier, {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', terrain: 'Rural'}, p))
+  list.push(...addIf(Potw(P.Gimmighoul, {form: 'roaming'}), {gate: CATCH_CHARM_SWSH, item: ['itemfinder'], others: [p.user.lastLocations?.includes(p.user.location) ?? true]}, p))
 
   return {
     shinyMultipler: 1,
@@ -1178,6 +1183,8 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Wugtrio, {gate: CATCH_CHARM_SWSH, item: ['terawater'], terrain: 'Beach', time: 'Day', weather: 'Sunny'}, p))
   list.push(...addIf(P.Tinkaton, {gate: CATCH_CHARM_SWSH, item: ['terafairy'], terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Houndstone, {gate: CATCH_CHARM_SWSH, item: ['teraghost'], terrain: 'Mountain', time: 'Night'}, p))
+  list.push(...addIf(P.Glimmora, {gate: CATCH_CHARM_SWSH, item: ['terarock'], weather: 'Cloudy', terrain: 'Mountain'}, p))
+  list.push(...addIf(P.Revavroom, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], weather: 'Fog', terrain: 'Mountain'}, p))
 
   return {
     shinyMultipler: 1,

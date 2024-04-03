@@ -1276,7 +1276,7 @@ export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_FIRE: teraQuest('terafire', 'Fire'),
   TERA_GRASS: teraQuest('teragrass', 'Grass'),
   TERA_WATER: teraQuest('terawater', 'Water'),
-  TERA_ICE: teraQuest('teraice', 'Ice', 9, false),
+  TERA_ICE: teraQuest('teraice', 'Ice'),
   TERA_DARK: teraQuest('teradark', 'Dark'),
   TERA_STEEL: teraQuest('terasteel', 'Steel'),
   TERA_FAIRY: teraQuest('terafairy', 'Fairy'),
