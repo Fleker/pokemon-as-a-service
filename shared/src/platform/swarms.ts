@@ -6,24 +6,24 @@ import * as P from '../gen/type-pokemon'
 
 /**
  * ```@markdown
-potw-077-galarian Ponyta (4)
-potw-025 Pikachu (3)
-potw-133 Eevee (2)
-potw-024 Arbok (2)
-potw-001 Bulbasaur (2)
-potw-037-alolan Vulpix (1)
-potw-866 Mr. Rime (1)
-potw-050 Diglett (1)
-36 votes in total
+ * potw-025 Pikachu (6)
+ * potw-001 Bulbasaur (6)
+ * potw-039 Jigglypuff (4)
+ * potw-010 Caterpie (2)
+ * potw-175 Togepi (2)
+ * potw-092 Gastly (1)
+ * potw-209 Snubbull (1)
+ * potw-129-orange_and_white_calico Magikarp (1)
+ * 50 votes in total
  * ```
  */
 export const Swarms: Record<RegionType, BadgeId> = {
-  'Africa / Middle East': P.Bulbasaur,
-  'Asia': P.Pikachu,
-  'Australia / New Zealand': P.Ekans,
-  'Mediterranean': P.Eevee,
-  'North America': P.Mime_Jr,
-  "North Europe": Potw(P.Ponyta, {form: 'galarian'}),
-  "Pacific Islands": Potw(P.Vulpix, {form: 'alolan'}),
-  "South America": P.Diglett,
+  'Africa / Middle East': P.Snubbull,
+  'Asia': P.Bulbasaur,
+  'Australia / New Zealand': P.Pikachu,
+  'Mediterranean': P.Caterpie,
+  'North America': P.Togepi,
+  "North Europe": P.Jigglypuff,
+  "Pacific Islands": Potw(P.Magikarp, {form: 'orange_and_white_calico'}),
+  "South America": P.Gastly,
 }
