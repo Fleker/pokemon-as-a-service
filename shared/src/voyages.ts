@@ -185,9 +185,9 @@ const areaZeroMap: Map = {
       new MapPoint(Leg.CAVERN, []),
     ]),
     new MapPoint(Leg.ITEM, [
-      new MapPoint(Leg. ITEM, []),
-      new MapPoint(Leg. FIELDS, []),
-      new MapPoint(Leg. WATERFALL, [])
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.FIELDS, []),
+      new MapPoint(Leg.WATERFALL, [])
     ])
   ],
   [Leg.CLIFFS]: [

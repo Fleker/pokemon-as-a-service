@@ -259,7 +259,7 @@ export function toRequirements(user: Users.Doc, location: Location): Requirement
     pokemonKeys,
     pokemon: user.pokemon!,
     hiddenItemsFound: user.hiddenItemsFound,
-    id: '', // Don't need this
+    id: user.ldap, // Don't need this*
     items: user.items,
     location,
     raidRecord: user.raidRecord,

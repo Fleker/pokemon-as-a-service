@@ -14,7 +14,7 @@ import { PokemonId } from '../../../../shared/src/pokemon/types';
 import { CATCH_CHARM_DPPT, CATCH_CHARM_GSC, CATCH_CHARM_RBY, CATCH_CHARM_RSE, CATCH_CHARM_XY, COMMUNITY_ACHIEVEMENTS, LEGENDARY_ITEM_QUESTS, ONEP_ACHIEVEMENTS, POKEDOLL } from '../../../../shared/src/quests';
 import { ACTIVE_RESEARCH } from '../../../../shared/src/research';
 import { Users } from '../../../../shared/src/server-types';
-import { Swarms } from '../../../../shared/src/platform/swarms';
+import { MassiveOutbreaks, Swarms } from '../../../../shared/src/platform/swarms';
 import { ManagerService } from '../dialogs/manager.service';
 import { FirebaseService } from '../service/firebase.service';
 import { forecastBoss, regionBoss, standardBosses, terrainBoss, timeBoss } from '../../../../shared/src/raid-bosses';
@@ -140,6 +140,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
     window['badge'] = Badge
     window['Badge'] = Badge
     window['Swarms'] = Swarms
+    window['MassiveOutbreaks'] = MassiveOutbreaks
     window['babyProduced'] = babyProduced
     window['ACTIVE_RESEARCH'] = ACTIVE_RESEARCH
     window['datastore'] = datastore

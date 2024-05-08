@@ -4052,7 +4052,7 @@ const formsToIgnore = [
   'origin', 'sunshine', 'gulping', 'gorging', 'antique', 'phony',
   'altered', 'incarnate', 'dusk_mane', 'dawn_wings', 'ultra_burst',
   'eternal', 'page', 'brin', 'noice_face', 'three_segment',
-  'crowned_sword', 'crowned_shield', 'eternamax',
+  'crowned_sword', 'crowned_shield', 'eternamax', 'hangry',
 ]
 
 function getEvolvedBossesOnly() {
