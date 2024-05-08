@@ -1209,6 +1209,17 @@ export const Globe = {
     weatherAutumn:{Fog:0.075,Cloudy:0.2,Rain:0.1,Snow:0.025, Windy: 0.025},
     weatherWinter:{Rain:0.1,Cloudy:0.2,Fog:0.125,"Diamond Dust":0.003,Snow:0.175, Windy: 0.025},
   }),
+  'SV-SAL': assert<Location>({
+    label: 'San Salvador', region: 'South America', terrain: 'Rainforest', flag: '🇸🇻', id: 160,
+    // 13.6913228,-89.2414301,
+    hemiLat: 'South', hemiLong: 'West', timezone: 'America/Chicago', vivillon: 'sun',
+    latitude: 13.69, longitude: -89.24,
+    fact: 'This city is in the center of the central.',
+    weatherSpring: {'Heat Wave': 0.1,Thunderstorm:0.2,Cloudy:0.05,Rain:0.1,Fog:0.01,Windy:0.01},
+    weatherSummer: {'Heat Wave': 0.2,Thunderstorm:0.25,Cloudy:0.05,Rain:0.025,Fog:0.01,Windy:0.01},
+    weatherAutumn: {'Heat Wave': 0.1,Thunderstorm:0.1,Cloudy:0.075,Rain:0.125,Fog:0.025,Windy:0.025},
+    weatherWinter: {'Heat Wave': 0.05,Thunderstorm:0.1,Cloudy:0.1,Rain:0.15,Fog:0.025,Windy:0.025},
+  }),
   'TH-BKK': assert<Location>({
     label:"Bangkok", region:"Asia", terrain:"Grasslands", flag: '🇹🇭', id: 86,
     hemiLat: 'North', hemiLong: 'East', timezone: 'Asia/Bangkok', vivillon: 'sun',

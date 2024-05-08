@@ -16,7 +16,8 @@ export const PLACEHOLDER_SANDSTORM: Location = {
   weatherWinter: {},
   vivillon: 'sandstorm',
   id: -1,
-  fact: 'Did you know that this place is not a real place?'
+  fact: 'Did you know that this place is not a real place?',
+  latitude: -1, longitude: 1,
 }
 
 test('Placeholder', t => {
