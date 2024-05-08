@@ -743,6 +743,7 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
       B2.Potw(P.Sandshrew, {form: 'alolan'}),
       B2.Potw(P.Vulpix, {form: 'alolan'}),
       B2.Potw(P.Darumaka, {form: 'galarian'}),
+      P.Cetoddle,
     ],
     pokemon: {
       [B2.Potw(P.Sandshrew, {form: 'alolan'})]: {
@@ -754,6 +755,9 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
       [B2.Potw(P.Darumaka, {form: 'galarian'})]: {
         badge: B2.Potw(P.Darmanitan, {form: 'galarian'})
       },
+      [B2.Potw(P.Cetoddle)]: {
+        badge: B2.Potw(P.Cetitan),
+      }
     },
     usable: () => true,
     consumes: () => true,
