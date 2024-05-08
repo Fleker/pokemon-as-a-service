@@ -500,7 +500,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
     window.requestAnimationFrame(() => {
       this.omniRes = allSearchOptions.filter(x =>
           x.label.toLowerCase().includes(this.omniSearch.toLowerCase()))
-          .slice(0, 5)
+          .slice(0, 20)
     })
   }
 

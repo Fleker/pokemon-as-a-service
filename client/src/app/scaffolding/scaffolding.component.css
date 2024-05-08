@@ -271,3 +271,37 @@ hr {
   }
 }
 
+dialog.omnisearch {
+  background-color: initial;
+  width: 40em;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  padding-top: 32px;
+}
+
+@media (min-width: 800px) {
+  dialog.omnisearch {
+    width: calc(100vw - 36px);
+    margin-left: 8px;
+  }
+}
+
+dialog.omnisearch input {
+  font-size: 18pt;
+  width: 80%;
+  margin-left: 10%;
+  padding: 8px 4px;
+}
+
+dialog.omnisearch ul {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 8px 4px;
+  margin-left: 20%;
+  width: 60%;
+  font-size: 14pt;
+}
+
+dialog.omnisearch a {
+  color: #efefef;
+}
