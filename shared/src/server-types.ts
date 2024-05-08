@@ -774,13 +774,13 @@ export namespace F {
     export interface Req {
       species: BadgeId
       /* The specific doc to request. Formats are same. */
-      position: 'swarm' | 'raid'
+      position: 'swarm' | 'raid' | 'daycare'
     }
 
     export interface Res {
       species: BadgeId
       /* The specific doc to request. Formats are same. */
-      position: 'swarm' | 'raid'
+      position: 'swarm' | 'raid' | 'daycare'
     }
   }
 
@@ -858,6 +858,7 @@ export namespace F {
       selectedPokemon: BadgeId
       duplicates: boolean
       holdItem?: ItemId
+      holdItemQuantity?: number
       badge: PokemonId
       /* Not the same Pkmn for UI effect */
       ditto?: PokemonId

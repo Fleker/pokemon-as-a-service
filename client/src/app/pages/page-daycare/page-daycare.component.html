@@ -8,7 +8,20 @@
     The <b>Day Care breeding club</b> currently is accepting:
       <li *ngFor="let p of parents">{{p}}</li>
   </p>
-  <button mat-button raised (click)="openBreedingClub()">Select Club</button>
+  <button mat-button raised (click)="openBreedingClub()">
+    <mat-icon>launch</mat-icon>
+    Select Club Pokémon
+  </button>
+
+  <br><br>
+
+  <strong>Vote for the next Pokémon</strong>
+  <br>
+  <pokemon-datalist filter="daycare" #voter></pokemon-datalist>
+  <button mat-button raised (click)="clubVote()" [disabled]="exec.clubVote">
+    <mat-icon>how_to_vote</mat-icon>
+    Cast Vote
+  </button>
 </collapsible-card>
 
 <mat-card id="my-collection">
@@ -18,7 +31,8 @@
   <br>
   <div>
     <button mat-button (click)="openPkmn()">
-      <mat-icon>launch</mat-icon>Select Pokémon
+      <mat-icon>launch</mat-icon>
+      Select Pokémon
     </button>
     <pokemon-dialog #pokemon [max]="maxItems" show="false"></pokemon-dialog>
     <button mat-button raised (click)="openItems()"><mat-icon>business_center</mat-icon>Select Item</button>

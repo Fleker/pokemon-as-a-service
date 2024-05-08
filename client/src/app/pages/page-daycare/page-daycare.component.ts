@@ -8,8 +8,9 @@ import { TeamsBadge } from '../../../../../shared/src/badge2';
 import { Badge, MATCH_FILTER, MATCH_REQS } from '../../../../../shared/src/badge3';
 import * as Club from '../../../../../shared/src/platform/breeding-club'
 import {F} from '../../../../../shared/src/server-types'
-import { PokemonId } from '../../../../../shared/src/pokemon/types';
 import { get } from '../../../../../shared/src/pokemon';
+import { PokemonDatalistComponent } from 'src/app/ui/pokemon-datalist/pokemon-datalist.component';
+import { BadgeId, PokemonId, Type } from '../../../../../shared/src/pokemon/types';
 
 @Component({
   selector: 'app-page-daycare',
@@ -19,13 +20,15 @@ import { get } from '../../../../../shared/src/pokemon';
 export class PageDaycareComponent implements AfterViewInit {
   @ViewChild('pokemon') pokemon?: PokemonDialogComponent
   @ViewChild('items') items?: DialogItemsComponent
+  @ViewChild('voter') voter?: PokemonDatalistComponent
   isPrivate: boolean = false
   parents: string[]
   _selection: PokemonId[] = []
   selection?: string
   heldItem?: string
   exec = {
-    send: false
+    send: false,
+    clubVote: false,
   }
   res?: F.Daycare.Res
 
@@ -93,6 +96,23 @@ export class PageDaycareComponent implements AfterViewInit {
     const subscription = this.pokemon.events.subscribe(ev => {
       if (ev === 'CLOSE') {
         this.pokemon.usePredicate(x => true)
+      }
+    })
+  }
+
+  async clubVote() {
+    this.exec.clubVote = true
+    window.requestAnimationFrame(async () => {
+      try {
+        await this.firebase.exec<F.SwarmVote.Req, F.SwarmVote.Res>('swarm_vote', {
+          species: this.voter._value as BadgeId,
+          position: 'daycare',
+        })
+        this.snackbar.open('Thanks for voting!', '', {duration: 3000})
+      } catch (e: any) {
+        this.snackbar.open(e.message, '', {duration: 5000})
+      } finally {
+        this.exec.clubVote = false
       }
     })
   }
