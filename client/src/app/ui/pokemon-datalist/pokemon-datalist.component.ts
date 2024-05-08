@@ -4,6 +4,7 @@ import { TeamsBadge } from '../../../../../shared/src/badge2';
 import { Badge } from '../../../../../shared/src/badge3';
 import * as Pkmn from '../../../../../shared/src/pokemon'
 import { PokemonId } from '../../../../../shared/src/pokemon/types';
+import * as P from '../../../../../shared/src/gen/type-pokemon';
 
 /**
  * A filter will produce a subset of all Pokémon IDs
@@ -16,7 +17,28 @@ type Filter =
   /** Only fully-evolved Pokémon */
   'evolved' |
   /** Only Pokémon with base IDs */
-  'simple'
+  'simple' |
+  /** Via recommended-options.tsv */
+  'daycare'
+
+// FIXME: Replace in the future with direct file read
+const recommendedOptionsTmp: string[] = [
+  P.Voltorb,
+  P.Horsea,
+  P.Mantine,
+  P.Heatmor,
+  P.Chimecho,
+  P.Goldeen,
+  P.Kabuto,
+  P.Shinx,
+  P.Inkay,
+  P.Mankey,
+  P.Shellos,
+  P.Solosis,
+  P.Mareanie,
+  P.Salandit,
+  P.Girafarig
+]
 
 interface Listener {
   id: PokemonId
@@ -57,6 +79,9 @@ export class PokemonDatalistComponent implements OnInit {
       }
       if (this.filter === 'simple') {
         return allEntries.filter(x => x[0].length === 8) // potw-XXX
+      }
+      if (this.filter === 'daycare') {
+        return allEntries.filter(x => recommendedOptionsTmp.includes(x[0]))
       }
       return allEntries
     })()
