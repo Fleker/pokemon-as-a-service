@@ -1918,6 +1918,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Magical Leaf', 'Aromatic Mist'],
       ['Mystical Fire', 'Sweet Kiss'],
+      ['Signal Beam', 'Baby-Doll Eyes'],
     ],
   }),
   'potw-869': ensurePkmnBuilder({
@@ -1950,6 +1951,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Magical Leaf', 'Decorate'],
       ['Mystical Fire', 'Sweet Kiss'],
+      ['Signal Beam', 'Baby-Doll Eyes'],
     ],
     gmax: {
       gmaxMove: 'G-Max Finale',
@@ -1999,6 +2001,7 @@ export const galarBuilder = {
       ['Poison Jab', 'Acupressure'],
       ['Pin Missile', 'Toxic Spikes'],
       ['Liquidation', 'Spikes'],
+      ['Discharge', 'Muddy Water', 'Recover'],
     ],
   }),
   'potw-872': ensurePkmnBuilder({
@@ -2202,6 +2205,7 @@ export const galarBuilder = {
       ['Bullet Seed', 'Flatter'],
       ['Ice Fang', 'Electric Terrain'],
       ['Outrage', 'Tickle'],
+      ['Snarl', 'Uproar', 'Tail Whip'],
     ],
   }),
   'potw-877-hangry': ensurePkmnBuilder({
@@ -2223,6 +2227,7 @@ export const galarBuilder = {
       ['Bullet Seed', 'Flatter'],
       ['Ice Fang', 'Electric Terrain'],
       ['Outrage', 'Parting Shot'],
+      ['Snarl', 'Uproar', 'Leer'],
     ],
   }),
   'potw-878': ensurePkmnBuilder({
@@ -2380,6 +2385,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Flash Cannon', 'Body Press', 'Iron Defense'],
       ['Steel Beam', 'Thunderbolt', 'Metal Sound'],
+      ['Iron Head', 'Dark Pulse', 'Stealth Rock'],
     ],
     gmax: {
       gmaxMove: 'G-Max Depletion',

@@ -2058,7 +2058,7 @@ export const paldeaBuilder = {
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `It gathers static electricity from its surroundings. The beams it launches when down on all fours are tremendously powerful.`,
     hp: 90, attack: 105, defense: 130, spAttack: 125, spDefense: 65, speed: 85,
-    move: ['Metal Burst', 'Dragon Claw', 'Electro Shot'],
+    move: ['Metal Burst', 'Dragon Claw'],
     moveTMs: [
       'Hyper Beam', 'Solar Beam', 'Double-Edge', 'Thunderbolt', 'Earthquake', 
       'Rock Tomb', 'Facade', 'Rock Slide', 'Stone Edge', 'Flash Cannon', 
@@ -2068,8 +2068,9 @@ export const paldeaBuilder = {
       'Endure', 
     ],
     novelMoves: [[],
-      ['Flash Cannon', 'Iron Defense'],
-      ['Steel Beam', 'Metal Sound'],
+      ['Flash Cannon', 'Electro Shot', 'Iron Defense'],
+      ['Steel Beam', 'Electro Shot', 'Metal Sound'],
+      ['Iron Head', 'Dark Pulse', 'Dragon Cheer'],
     ],
   }),
   'potw-1019': ensurePkmnBuilder({
