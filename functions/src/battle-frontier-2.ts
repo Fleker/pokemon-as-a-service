@@ -622,14 +622,15 @@ export const battle_stadium_leaderboard_cron = functions.runWith(battleStadiumLe
       yield* [...this.entries()].sort((a, b) => b[1] - a[1]);
     }
 
-    const topPokemon = [...usage]
+    const topPokemonIds = [...usage]
       .slice(0, 5)
       .map(entry => entry[0])
 
-    console.log('Top Pkmn', topPokemon)
+    console.log('Top Pkmn', topPokemonIds)
+    const topPokemon = []
 
-    for (let i = 0; i < topPokemon.length; i++) {
-      const species = new TeamsBadge(topPokemon[i]).toLabel()
+    for (let i = 0; i < topPokemonIds.length; i++) {
+      const species = new TeamsBadge(topPokemonIds[i]).toLabel()
       topPokemon[i] = species
     }
 
@@ -683,6 +684,7 @@ export const battle_stadium_leaderboard_cron = functions.runWith(battleStadiumLe
     // Save
     leaderboard[tier] = {
       topPokemon,
+      topPokemonIds,
       topWinsWeekly,
     }
   }

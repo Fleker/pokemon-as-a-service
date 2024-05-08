@@ -719,23 +719,29 @@ async function generateLeaderboard() {
     .get()
   const simplePokemonTrades = {}
   const canonicalTrades = {}
+  const simpleOffers = {}
+  const canonicalOffers = {}
+  const updateMap = (id: string, map: Record<string, number>) => {
+    if (map[id]) {
+      map[id]++
+    } else {
+      map[id] = 1
+    }
+  }
   for (const doc of successGtsDocs.docs) {
-    const {lookingForId} = doc.data()
-    const simple = new Badge(lookingForId).toSimple()
-    if (simplePokemonTrades[simple]) {
-      simplePokemonTrades[simple]++
-    } else {
-      simplePokemonTrades[simple] = 1
-    }
-    if (canonicalTrades[lookingForId]) {
-      canonicalTrades[lookingForId]++
-    } else {
-      canonicalTrades[lookingForId] = 1
-    }
+    const {lookingForId, speciesId} = doc.data()
+    const simpleLF = new Badge(lookingForId).toSimple()
+    updateMap(simpleLF, simplePokemonTrades)
+    updateMap(lookingForId, canonicalTrades)
+    const simpleOffer = new Badge(speciesId).toSimple()
+    updateMap(simpleOffer, simpleOffers)
+    updateMap(speciesId, canonicalOffers)
   }
   await db.collection('gts').doc('leaderboard').set({
     simplePokemonTrades,
     canonicalTrades,
+    simpleOffers,
+    canonicalOffers,
   })
 }
 
