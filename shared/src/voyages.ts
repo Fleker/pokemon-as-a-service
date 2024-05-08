@@ -1,7 +1,7 @@
 import { assert } from '@fleker/gents'
 import { Potw } from "./badge2";
 import { Badge } from "./badge3";
-import { CATCH_CHARM_SM, CATCH_CHARM_SWSH, LegendaryQuest, requireItem, requireMove, simpleRequirePotw, simpleRequirePotwArr } from "./legendary-quests";
+import { CATCH_CHARM_SM, CATCH_CHARM_SV, CATCH_CHARM_SWSH, LegendaryQuest, requireItem, requireMove, simpleRequirePotw, simpleRequirePotwArr } from "./legendary-quests";
 import { WeatherType } from "./locations-list";
 import { get } from "./pokemon";
 import { BadgeId, PokemonForm, PokemonId, Type } from "./pokemon/types";
@@ -1715,15 +1715,12 @@ export const Voyages = {
       [P.Raikou, P.Entei, P.Suicune],
     ],
     unlocked: {
-      hints: [/*{
-        completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+      hints: [{
+        completed: simpleRequirePotwArr([P.Sprigatito, P.Fuecoco, P.Quaxly]),
         msg: 'Are you familiar with the starter Pokémon of Paldea?'
       }, {
-        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
         msg: 'Become an expert on the Pokémon of Paldea.'
-      }*/{
-        completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
-        msg: 'In testing.'
       }]
     }
   }),

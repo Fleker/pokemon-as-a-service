@@ -105,4 +105,23 @@ export const Souvenirs: Record<SouvenirContainerId, Souvenir> = {
       return 1
     },
   },
+  teraorb: {
+    item: (location) => {
+      const globe = Globe[location]
+      if (globe.hemiLat === 'North') {
+        if (globe.hemiLong === 'West') {
+          return 'ruinousstakenw'
+        } else {
+          return 'ruinousstakene'
+        }
+      } else {
+        if (globe.hemiLong === 'West') {
+          return 'ruinousstakesw'
+        } else {
+          return 'ruinousstakese'
+        }
+      }
+    },
+    quantity: () => 1,
+  },
 }

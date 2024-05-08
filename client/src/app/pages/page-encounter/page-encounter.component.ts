@@ -50,7 +50,8 @@ export class PageEncounterComponent implements OnInit, OnDestroy, AfterViewInit 
   @ViewChild('dzygarde') dialogZygarde: ElementRef
   @ViewChild('dforage') dialogForage: ElementRef
   @ViewChild('ditemfinder') dialogItemFinder: ElementRef
-  @ViewChild('dmeltanox') dialogMeltanBox: ElementRef
+  @ViewChild('dmeltanbox') dialogMeltanBox: ElementRef
+  @ViewChild('dteraorb') dialogTeraOrb: ElementRef
   @ViewChild('dbait') dialogBait: ElementRef
   @ViewChild('tutorial') tutorial: ElementRef
   @ViewChild('binoculars') binoculars?: BinocularsComponent
@@ -84,6 +85,7 @@ export class PageEncounterComponent implements OnInit, OnDestroy, AfterViewInit 
         shiny: false, swarm: false, campinggear: false,
         backlot: false, friendsafari: false,
         sootsack: false, unownreport: false, oddkeystone: false, zygardecube: false, meltanbox: false,
+        teraorb: false,
       }
     }
     return {
@@ -109,7 +111,8 @@ export class PageEncounterComponent implements OnInit, OnDestroy, AfterViewInit 
       foragebag: this.user.items.foragebag > 0,
       itemfinder: this.user.items.itemfinder > 0,
       meltanbox: this.user.items.meltanbox > 0,
-      campinggear: this.user.items.campinggear > 0 || this.user.ldap === 'fleker',
+      campinggear: this.user.items.campinggear > 0,
+      teraorb: this.user.items.teraorb > 0,
     }
   }
 
@@ -217,6 +220,7 @@ export class PageEncounterComponent implements OnInit, OnDestroy, AfterViewInit 
       'itemfinder': this.dialogItemFinder,
       'meltanbox': this.dialogMeltanBox,
       'bait': this.dialogBait,
+      'teraorb': this.dialogTeraOrb,
     }
   }
 

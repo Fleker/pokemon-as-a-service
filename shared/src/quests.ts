@@ -1384,6 +1384,14 @@ const CATCH_QUESTS: PokedexQuest[] = [{
   hint: ['Professor Magnolia will award you this charm when you catch 36 or more Pokémon from Galar.'],
   sprite: 'catchingcharm-swsh',
   modes: ['New Voyages', 'New Bazaar stalls'],
+}, {
+  docId: CATCH_CHARM_SV,
+  badge: 'potw-item-catchingcharm-sv',
+  title: 'Paldea Catching Charm',
+  count: 48, region: 'paldea', shorthand: 'sv',
+  hint: ['Professor Sada will award you this charm when you catch 48 or more Pokémon from Paldea.'],
+  sprite: 'catchingcharm-sv',
+  modes: ['New Voyages'],
 }]
 
 export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
@@ -1395,7 +1403,7 @@ export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
 
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
-  return legendaryDate.getUTCMonth() === 1 && // April (3)
+  return legendaryDate.getUTCMonth() === 3 && // April (3)
     legendaryDate.getUTCDate() <= 12 // April 12th
 })
 

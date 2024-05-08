@@ -62,6 +62,9 @@
       <sprite-item item="meltanbox" *ngIf="charms.meltanbox" class="{{souvenirClass}}"
         (click)="openDialog('meltanbox')" role="button">
       </sprite-item>
+      <sprite-item item="teraorb" *ngIf="charms.teraorb" class="{{souvenirClass}}"
+        (click)="openDialog('teraorb')" role="button">
+      </sprite-item>
 
       <div>
         You are currently in <strong>{{location.label}}</strong>.
@@ -501,6 +504,39 @@
   </p>
   <p *ngIf="souvenirClass === 'disabled'">
     All of the Meltan has been collected from this area. Try traveling to someplace new.
+  </p>
+  <button mat-button (click)="closeHelp()">Close</button>
+</dialog>
+
+<dialog #dteraorb>
+  <h1>Tera Orb</h1>
+  <p>
+    Your Tera Orb reacts to things in the environment, causing them to glow.
+    You may find stakes in the ground that you can withdraw.
+  </p>
+  <p>
+    Right now you have found:
+  </p>
+  <ul>
+    <li>
+      <sprite-item item="ruinousstakenw"></sprite-item>
+      {{user?.items.ruinousstakenw}} Northwest Ruinous Stakes
+    </li>
+    <li>
+      <sprite-item item="ruinousstakene"></sprite-item>
+      {{user?.items.ruinousstakene}} Northeast Ruinous Stakes
+    </li>
+    <li>
+      <sprite-item item="ruinousstakesw"></sprite-item>
+      {{user?.items.ruinousstakesw}} Southwest Ruinous Stakes
+    </li>
+    <li>
+      <sprite-item item="ruinousstakese"></sprite-item>
+      {{user?.items.ruinousstakese}} Southeast Ruinous Stakes
+    </li>
+  </ul>
+  <p *ngIf="souvenirClass === 'disabled'">
+    Nothing is glowing nearby. Try traveling to someplace new.
   </p>
   <button mat-button (click)="closeHelp()">Close</button>
 </dialog>
