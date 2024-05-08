@@ -417,6 +417,7 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
         selectedPokemon: badge.toLegacyString(),
         badge,
         holdItem,
+        holdItemQuantity,
         userWorth,
         ditto: badge.id === 132 ? Badge.fromLegacy(randomItem(encounter.list)).toString() : undefined,
         zorua: badge.id === 570 ? Badge.fromLegacy(randomItem(encounter.list)).toString() : undefined,

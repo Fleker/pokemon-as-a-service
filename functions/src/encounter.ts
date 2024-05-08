@@ -32,6 +32,12 @@ function setGender(id: BadgeId, gender: PokemonGender) {
   return badge.toString();
 }
 
+function setForm(id: BadgeId, form: PokemonForm) {
+  const badge = new TeamsBadge(id);
+  badge.form = form;
+  return badge.toString();
+}
+
 export function deduplicate(
   encounters: Encounter, pokemon: TPokemon, duplicates: boolean, isLure = false
 ) {
@@ -54,6 +60,14 @@ export function deduplicate(
       return genders.some((gender) => !badges.has(setGender(id, gender)))
     }
     // No point in waiting for a formless Basculin since it cannot exist
+    // if (db?.needForm) {
+    //   for (const f of db!.syncableForms!) {
+    //     if (badges.has(setForm(id, f))) {
+    //       return false
+    //     } else {
+    //       return true
+    //     }
+    //   }
     if (!db?.needForm && !badges.has(badge.toString())) {
         return true;
     }
@@ -484,7 +498,8 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Applin, {gate: CATCH_CHARM_SM, terrain: 'Rainforest', weather: 'Heat Wave'}, p))
   list.push(...addIf(P.Toxel, {gate: CATCH_CHARM_SM, weather: 'Thunderstorm', time: 'Night'}, p))
   list.push(...addIf(P.Silicobra, {gate: CATCH_CHARM_SM, terrain: 'Desert'}, p))
-  list.push(...addIf(P.Sinistea, {gate: CATCH_CHARM_SM, terrain: 'Urban', weather: 'Fog', time: 'Night'}, p))
+  list.push(...addIf(Potw(P.Sinistea, {form: 'phony'}), {gate: CATCH_CHARM_SM, terrain: 'Urban', weather: 'Fog', time: 'Night', count: 9}, p))
+  list.push(...addIf(Potw(P.Sinistea, {form: 'antique'}), {gate: CATCH_CHARM_SM, terrain: 'Urban', weather: 'Fog', time: 'Night', count: 1}, p))
   list.push(...addIf(P.Milcery, {gate: CATCH_CHARM_SM, terrain: 'Urban', weather: 'Sunny', time: 'Day'}, p))
   list.push(...addIf(P.Applin, {event: 'PIDAY', count: 20}, p))
   // IOA
@@ -922,7 +937,10 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Greavard, {gate: CATCH_CHARM_SWSH, item: ['teraghost'], terrain: 'Mountain', time: 'Night'}, p))
   list.push(...addIf(P.Orthworm, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], terrain: 'Desert', weather: 'Sandstorm'}, p))
   list.push(...addIf(P.Orthworm, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], terrain: 'Mountain', weather: 'Sandstorm'}, p))
-  list.push(...addIf(P.Squawkabilly, {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', time: 'Day'}, p))
+  list.push(...addIf(Potw(P.Squawkabilly, {form: 'yellow_plumage'}), {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', time: 'Day'}, p))
+  list.push(...addIf(Potw(P.Squawkabilly, {form: 'green_plumage'}), {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', time: 'Day'}, p))
+  list.push(...addIf(Potw(P.Squawkabilly, {form: 'blue_plumage'}), {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', time: 'Day'}, p))
+  list.push(...addIf(Potw(P.Squawkabilly, {form: 'white_plumage'}), {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', time: 'Day'}, p))
   list.push(...addIf(P.Cyclizar, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], weather: 'Sunny', terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Glimmet, {gate: CATCH_CHARM_SWSH, item: ['terarock'], weather: 'Cloudy', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Varoom, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], weather: 'Fog', terrain: 'Mountain'}, p))
@@ -930,7 +948,9 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(Potw(P.Gimmighoul, {form: 'roaming'}), {gate: CATCH_CHARM_SWSH, item: ['itemfinder'], others: [p.user.lastLocations?.includes(p.user.location) ?? true]}, p))
   list.push(...addIf(P.Toedscool, {gate: CATCH_CHARM_SWSH, item: ['teraground'], weather: 'Heat Wave', terrain: 'Forest'}, p))
   list.push(...addIf(P.Veluza, {gate: CATCH_CHARM_SWSH, item: ['terapsychic'], weather: 'Rain', terrain: 'Oceanic'}, p))
-  list.push(...addIf(P.Tatsugiri, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], terrain: 'Bay'}, p))
+  list.push(...addIf(Potw(P.Tatsugiri, {form:'droopy'}), {gate: CATCH_CHARM_SWSH, item: ['teradragon'], terrain: 'Bay'}, p))
+  list.push(...addIf(Potw(P.Tatsugiri, {form:'curly'}), {gate: CATCH_CHARM_SWSH, item: ['teradragon'], terrain: 'Bay'}, p))
+  list.push(...addIf(Potw(P.Tatsugiri, {form:'stretchy'}), {gate: CATCH_CHARM_SWSH, item: ['teradragon'], terrain: 'Bay'}, p))
   list.push(...addIf(P.Frigibax, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], weather: 'Snow'}, p))
 
   return {
@@ -2267,8 +2287,8 @@ const ENCOUNTERS_AREAZERO = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Scream_Tail, {count: 3, terrain: 'Grasslands', item: ['scarletbook']}, p))
   list.push(...addIf(P.Brute_Bonnet, {count: 3, terrain: 'Rural', item: ['scarletbook']}, p))
   list.push(...addIf(P.Flutter_Mane, {count: 3, time: 'Night', item: ['scarletbook']}, p))
-  // list.push(...addIf(P.Slither_Wing, {count: 3, terrain: 'Rural', item: ['scarletbook']}, p))
-  // list.push(...addIf(P.Sandy_Shocks, {count: 3, terrain: 'Mountain', item: ['scarletbook']}, p))
+  list.push(...addIf(P.Slither_Wing, {count: 3, terrain: 'Rural', item: ['scarletbook']}, p))
+  list.push(...addIf(P.Sandy_Shocks, {count: 3, terrain: 'Mountain', item: ['scarletbook']}, p))
   // list.push(...addIf(P.Roaring_Moon, {count: 1, terrain: 'Mountain', item: ['scarletbook']}, p))
   // const walking = hasPokemonFuzzy(user, Pokemon(P.Walking_Wake))
   // list.push(...addIf(P.Walking_Wake, {count: 1, item: ['scarletbook'], other: [walking]}, p))
@@ -2277,8 +2297,8 @@ const ENCOUNTERS_AREAZERO = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Iron_Bundle, {count: 3, terrain: 'Grasslands', item: ['violetbook']}, p))
   list.push(...addIf(P.Iron_Hands, {count: 3, terrain: 'Rural', item: ['violetbook']}, p))
   list.push(...addIf(P.Iron_Jugulis, {count: 3, time: 'Night', item: ['violetbook']}, p))
-  // list.push(...addIf(P.Iron_Moth, {count: 3, terrain: 'Rural', item: ['violetbook']}, p))
-  // list.push(...addIf(P.Iron_Thorns, {count: 3, terrain: 'Mountain', item: ['violetbook']}, p))
+  list.push(...addIf(P.Iron_Moth, {count: 3, terrain: 'Rural', item: ['violetbook']}, p))
+  list.push(...addIf(P.Iron_Thorns, {count: 3, terrain: 'Mountain', item: ['violetbook']}, p))
   // list.push(...addIf(P.Iron_Valiant, {count: 1, terrain: 'Mountain', item: ['violetbook']}, p))
   // const leaves = hasPokemonFuzzy(user, Pokemon(P.Iron_Leaves))
   // list.push(...addIf(P.Iron_Leaves, {count: 1, item: ['violetbook'], other: [leaves]}, p))
