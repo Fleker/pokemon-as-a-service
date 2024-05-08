@@ -187,7 +187,9 @@
       </tr>
       <tr>
         <td colspan="3">
-          A raid battle awaits you at the end of this voyage
+          <mat-icon svgIcon="menu-raids"></mat-icon>
+          A <em>raid battle</em> awaits you at the end of this voyage
+          <pokeball-spinner [diameter]="18" *ngIf="exec.updatePath"></pokeball-spinner>
         </td>
       </tr>
       <tr *ngIf="voyage.map === undefined">
@@ -272,7 +274,8 @@
       </tr>
     </table>
   </div>
-  <button mat-button *ngIf="isHost" (click)="startVoyage()" [disabled]="exec.startVoyage">
+  <button mat-button *ngIf="isHost" (click)="startVoyage()" [disabled]="exec.startVoyage || exec.updatePath">
+    <mat-icon svgIcon="menu-voyages"></mat-icon>
     Let's go!
   </button>
 </collapsible-card>

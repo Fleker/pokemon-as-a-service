@@ -62,6 +62,7 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     joinVoyage: false,
     leaveVoyage: false,
     publishVoyage: false,
+    updatePath: false,
   }
   playerIsReady = false
   LegLabels = LegLabels
@@ -264,6 +265,7 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     })
   }
   updatePath(legIndex: number, legType: number) {
+    this.exec.updatePath = true
     if (typeof legType !== 'number') {
       legType = parseInt(legType)
     }
@@ -280,6 +282,8 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
         })
       } catch (e) {
         this.snackbar.open(e, '', { duration: 5000 })
+      } finally {
+        this.exec.updatePath = false
       }
     })
   }
