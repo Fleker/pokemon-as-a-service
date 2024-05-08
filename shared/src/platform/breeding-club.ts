@@ -12,23 +12,18 @@ import * as P from '../gen/type-pokemon'
  * Simple badge IDs for the species that have a 4x shiny chance.
  */
 export const babyProduced: BadgeId[] = [
-  P.Amaura,
+  P.Salandit,
 ]
 
 /**
  * For labeling purposes, the parents who may be bred together.
  * Note that this only is for labels, and has no pragmatic effect.
- * Winner: Amaura¹, Amaura², Amaura³, Amaura⁴  (Send: Aurorus², Aurorus³, Amaura⁴, Amaura¹, Amaura³, Aurorus¹, Amaura², Aurorus⁴)
  */
 export const parents: BadgeId[] = [
-  Potw(P.Amaura, {var: 1}),
-  Potw(P.Amaura, {var: 2}),
-  Potw(P.Amaura, {var: 3}),
-  Potw(P.Amaura, {var: 4}),
-  Potw(P.Aurorus, {var: 1}),
-  Potw(P.Aurorus, {var: 2}),
-  Potw(P.Aurorus, {var: 3}),
-  Potw(P.Aurorus, {var: 4}),
+  Potw(P.Salandit, {var: 1}),
+  Potw(P.Salandit, {var: 2}),
+  Potw(P.Salandit, {var: 3}),
+  Potw(P.Salandit, {var: 4}),
 ]
 
 export const history: BadgeId[] = [
@@ -447,4 +442,12 @@ export const history: BadgeId[] = [
   Potw(P.Trevenant, {var: 2}),
   Potw(P.Trevenant, {var: 3}),
   Potw(P.Trevenant, {var: 4}),
+  Potw(P.Amaura, {var: 1}),
+  Potw(P.Amaura, {var: 2}),
+  Potw(P.Amaura, {var: 3}),
+  Potw(P.Amaura, {var: 4}),
+  Potw(P.Aurorus, {var: 1}),
+  Potw(P.Aurorus, {var: 2}),
+  Potw(P.Aurorus, {var: 3}),
+  Potw(P.Aurorus, {var: 4}),
 ]
