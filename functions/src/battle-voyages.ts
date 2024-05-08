@@ -50,6 +50,9 @@ export const voyage_create = functions.https.onCall(async (data: F.VoyageCreate.
 
     // 2. Construct voyage object.
     const filterBadges = inflate(user.pokemon)!
+    const leg0 = Object.keys(selectedVoyage.map)[0]
+    const leg1 = selectedVoyage.map[leg0].next[0].leg
+    const leg2 = selectedVoyage.map[leg0].next[0].next[0].leg
     const voyage: Doc = {
       vid: data.voyage,
       host: uid,
@@ -63,7 +66,7 @@ export const voyage_create = functions.https.onCall(async (data: F.VoyageCreate.
         }
       },
       playerList: [uid],
-      legs: [Leg.ITEM, Leg.ITEM, Leg.ITEM], // Host must select legs
+      legs: [leg0, leg1, leg2], // Host must select legs
       created: Date.now(),
       started: -1,
       state: State.CREATED,
@@ -397,6 +400,16 @@ export const voyage_path = functions.https.onCall(async (data: F.VoyagePath.Req,
   })
 })
 
+function pushCustomPokemon(leg: Leg, voyageDb: Voyage, weather: WeatherType, caught: BadgeId[]) {
+  const pool = [...(voyageDb.legPokemon![leg] ?? voyageDb.pokemon[0])]
+  pool.push(...voyageDb.weatherPokemon[weather])
+  caught.push(randomItem(pool))
+}
+
+function pushCustomItems(leg: Leg, voyageDb: Voyage, prizes: ItemId[]) {
+  prizes.push(randomItem(voyageDb.legItems![leg] ?? voyageDb.rareitems[0]))
+}
+
 function executeLeg(leg: Leg, voyageDb: Voyage, weather: WeatherType, bucket: number) {
   const prizes: ItemId[] = []
   const caught: BadgeId[] = []
@@ -415,50 +428,18 @@ function executeLeg(leg: Leg, voyageDb: Voyage, weather: WeatherType, bucket: nu
     const pool = [...voyageDb.pokemon[bucket]]
     pool.push(...voyageDb.weatherPokemon[weather])
     caught.push(randomItem(pool))
-  } else if (leg === Leg.FISHING) {
-    const pool = [...voyageDb.legPokemon[Leg.FISHING]]
-    pool.push(...voyageDb.weatherPokemon[weather])
-    caught.push(randomItem(pool))
-  } else if (leg === Leg.SAND) {
-    const pool = [...voyageDb.legPokemon[Leg.SAND]]
-    pool.push(...voyageDb.weatherPokemon[weather])
-    caught.push(randomItem(pool))
-  } else if (leg === Leg.KITE) {
-    const pool = [...voyageDb.legPokemon[Leg.KITE]]
-    pool.push(...voyageDb.weatherPokemon[weather])
-    caught.push(randomItem(pool))
-  } else if (leg === Leg.GREENGRASS) {
-    const pool = [...voyageDb.legPokemon[Leg.GREENGRASS]]
-    pool.push(...voyageDb.weatherPokemon[weather])
-    caught.push(randomItem(pool))
-  } else if (leg === Leg.CYANBEACH) {
-    const pool = [...voyageDb.legPokemon[Leg.CYANBEACH]]
-    pool.push(...voyageDb.weatherPokemon[weather])
-    caught.push(randomItem(pool))
-  } else if (leg === Leg.TAUPEHOLLOW) {
-    const pool = [...voyageDb.legPokemon[Leg.TAUPEHOLLOW]]
-    pool.push(...voyageDb.weatherPokemon[weather])
-    caught.push(randomItem(pool))
-  } else if (leg === Leg.SNOWDROP) {
-    const pool = [...voyageDb.legPokemon[Leg.SNOWDROP]]
-    pool.push(...voyageDb.weatherPokemon[weather])
-    caught.push(randomItem(pool))
-  } else if (leg === Leg.LAPIS) {
-    const pool = [...voyageDb.legPokemon[Leg.LAPIS]]
-    pool.push(...voyageDb.weatherPokemon[weather])
-    caught.push(randomItem(pool))
-  } else if (leg === Leg.DIVE) {
-    for (let i = 0; i < 3; i++) {
-      prizes.push(randomItem(voyageDb.legItems[Leg.DIVE]))
-    }
-  } else if (leg === Leg.METALCHECK) {
-    for (let i = 0; i < 3; i++) {
-      prizes.push(randomItem(voyageDb.legItems[Leg.METALCHECK]))
-    }
-  } else if (leg === Leg.GREENGRASSBERRY) {
-    for (let i = 0; i < 3; i++) {
-      prizes.push(randomItem(voyageDb.legItems[Leg.GREENGRASSBERRY]))
-    }
+  } else if ([
+    Leg.FISHING, Leg.SAND, Leg.KITE,
+    Leg.GREENGRASS, Leg.CYANBEACH, Leg.TAUPEHOLLOW, Leg.SNOWDROP, Leg.LAPIS,
+    Leg.CAVERN, Leg.CLIFFS, Leg.FIELDS, Leg.WATERFALL,
+    Leg.RICEFIELD, Leg.APPLEFIELD, Leg.CRYSTALLAKE, Leg.TIMELESSFOREST,
+    Leg.BIOMECANYON, Leg.BIOMECOASTAL, Leg.BIOMESAVANNA, Leg.BIOMEPOLAR,
+  ].includes(leg)) {
+    pushCustomPokemon(leg, voyageDb, weather, caught)
+  } else if ([
+    Leg.GREENGRASSBERRY, Leg.METALCHECK, Leg.DIVE
+  ].includes(leg)) {
+    pushCustomItems(leg, voyageDb, prizes)
   } else {
     // Not implemented
   }

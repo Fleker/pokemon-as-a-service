@@ -5,7 +5,7 @@ import { CATCH_CHARM_SM, CATCH_CHARM_SWSH, LegendaryQuest, requireItem, requireM
 import { WeatherType } from "./locations-list";
 import { get } from "./pokemon";
 import { BadgeId, PokemonForm, PokemonId, Type } from "./pokemon/types";
-import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, BOTTLECAPS, SWEETS, GALAR_INGREDIENTS } from "./prizes";
+import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, BOTTLECAPS, SWEETS, GALAR_INGREDIENTS, TERA_SHARDS } from "./prizes";
 import { ItemId } from "./items-list";
 import * as P from './gen/type-pokemon'
 import { Users } from './server-types'
@@ -156,6 +156,168 @@ const coralBeachMap: Map = {
       new MapPoint(Leg.KITE, []),
       new MapPoint(Leg.SAND, []),
     ]),
+  ],
+}
+
+const areaZeroMap: Map = {
+  [Leg.ITEM]: [
+    new MapPoint(Leg.FIELDS, [
+      new MapPoint(Leg.ITEM, []), 
+      new MapPoint(Leg.CLIFFS, []),
+      new MapPoint(Leg.WATERFALL, [])
+    ]),
+    new MapPoint(Leg.WATERFALL, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.CLIFFS, []),
+      new MapPoint(Leg.CAVERN, []),
+    ]),
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg. ITEM, []),
+      new MapPoint(Leg. FIELDS, []),
+      new MapPoint(Leg. WATERFALL, [])
+    ])
+  ],
+  [Leg.CLIFFS]: [
+    new MapPoint(Leg.FIELDS, [
+      new MapPoint(Leg.ITEM, []), 
+      new MapPoint(Leg.CLIFFS, []),
+      new MapPoint(Leg.WATERFALL, [])
+    ]),
+    new MapPoint(Leg.WATERFALL, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.CLIFFS, []),
+      new MapPoint(Leg.CAVERN, []),
+    ]),
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.FIELDS, []),
+      new MapPoint(Leg.WATERFALL, [])
+    ])
+  ],
+  [Leg.FIELDS]: [
+    new MapPoint(Leg.CLIFFS, [
+      new MapPoint(Leg.ITEM, []), 
+      new MapPoint(Leg.CLIFFS, []),
+      new MapPoint(Leg.WATERFALL, [])
+    ]),
+    new MapPoint(Leg.WATERFALL, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.CLIFFS, []),
+      new MapPoint(Leg.CAVERN, []),
+    ]),
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.FIELDS, []),
+      new MapPoint(Leg.WATERFALL, [])
+    ])
+  ],
+}
+
+const kitakamiMap: Map = {
+  [Leg.ITEM]: [
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.RICEFIELD, []),
+      new MapPoint(Leg.APPLEFIELD, []),
+    ]),
+    new MapPoint(Leg.RICEFIELD, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.APPLEFIELD, []),
+      new MapPoint(Leg.CRYSTALLAKE, []),
+    ]),
+    new MapPoint(Leg.APPLEFIELD, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.CRYSTALLAKE, []),
+      new MapPoint(Leg.TIMELESSFOREST, []),
+    ])
+  ],
+  [Leg.RICEFIELD]: [
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.APPLEFIELD, []),
+      new MapPoint(Leg.CRYSTALLAKE, []),
+    ]),
+    new MapPoint(Leg.APPLEFIELD, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.CRYSTALLAKE, []),
+      new MapPoint(Leg.TIMELESSFOREST, []),
+    ]),
+    new MapPoint(Leg.CRYSTALLAKE, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.APPLEFIELD, []),
+      new MapPoint(Leg.TIMELESSFOREST, []),
+    ])
+  ],
+  [Leg.APPLEFIELD]: [
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.RICEFIELD, []),
+      new MapPoint(Leg.CRYSTALLAKE, []),
+    ]),
+    new MapPoint(Leg.RICEFIELD, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.CRYSTALLAKE, []),
+      new MapPoint(Leg.TIMELESSFOREST, []),
+    ]),
+    new MapPoint(Leg.CRYSTALLAKE, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.RICEFIELD, []),
+      new MapPoint(Leg.TIMELESSFOREST, []),
+    ])
+  ],
+}
+
+const terrariumMap: Map = {
+  [Leg.ITEM]: [
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMESAVANNA, []),
+      new MapPoint(Leg.BIOMECOASTAL, []),
+    ]),
+    new MapPoint(Leg.BIOMESAVANNA, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMECOASTAL, []),
+      new MapPoint(Leg.BIOMECANYON, []),
+    ]),
+    new MapPoint(Leg.BIOMECOASTAL, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMESAVANNA, []),
+      new MapPoint(Leg.BIOMEPOLAR, []),
+    ])
+  ],
+  [Leg.BIOMESAVANNA]: [
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMECOASTAL, []),
+      new MapPoint(Leg.BIOMECANYON, []),
+    ]),
+    new MapPoint(Leg.BIOMECOASTAL, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMEPOLAR, []),
+      new MapPoint(Leg.BIOMECANYON, []),
+    ]),
+    new MapPoint(Leg.BIOMECANYON, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMEPOLAR, []),
+      new MapPoint(Leg.BIOMECOASTAL, []),
+    ])
+  ],
+  [Leg.BIOMECOASTAL]: [
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMESAVANNA, []),
+      new MapPoint(Leg.BIOMEPOLAR, []),
+    ]),
+    new MapPoint(Leg.BIOMEPOLAR, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMESAVANNA, []),
+      new MapPoint(Leg.BIOMECANYON, []),
+    ]),
+    new MapPoint(Leg.BIOMECANYON, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.BIOMESAVANNA, []),
+      new MapPoint(Leg.BIOMEPOLAR, []),
+    ])
   ],
 }
 
@@ -1293,21 +1455,150 @@ export const Voyages = {
       }]
     }
   }),
-  // AREAZERO: assert<Voyage>({
-  //   label: 'Area Zero',
-  //   description: "You are standing inside Paldea's large crater, in a strange ethereal world",
-  //   // typePrimary: 'Dragon', typeSecondary: ['Electric', 'Fighting'], scoreStat: 'hp',
-  // }),
-  // RICEFIELDS: assert<Voyage>({
-    // label: 'Kitakami Rice Fields',
-    // description: 'You find yourself amidst farmland sprawling in every direction.',
-    // typePrimary: 'Grass', typeSecondary: ['Flying', 'Ground'], scoreStat: 'attack',
-  // }),
-  // TERRARIUM: assert<Voyage>({
-  //   label: "Blueberry Academy's Terrarium",
-  //   description: 'You are in a large terrarium below the seas of Unova.',
-  //   typePrimary: 'Dragon', typeSecondary: ['Normal', 'Fire'], scoreStat: 'speed',
-  // }),
+  AREAZERO: assert<Voyage>({
+    label: 'Area Zero',
+    description: "You are standing inside Paldea's large crater, in a strange ethereal world.",
+    typePrimary: 'Dragon', typeSecondary: ['Electric', 'Fighting'], scoreStat: 'hp',
+    buckets: [0, 194, 393, 588], map: areaZeroMap,
+    items: [
+      [...MINTS, 'expcandyxs', 'expcandys'],
+      [...MINTS, 'expcandyxs', 'expcandys', 'expcandym', ...TERA_SHARDS],
+      [...MINTS, 'expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'nugget', ...TERA_SHARDS],
+      [...MINTS, 'expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'rarebone', ...TERA_SHARDS],
+    ],
+    rareitems: [['violetbook'],['violetbook'],['violetbook'],['violetbook']],
+    pokemon: [[], [], [], []],
+    weatherPokemon: {
+      Cloudy: [],
+      'Diamond Dust': [],
+      Fog: [],
+      'Heat Wave': [],
+      Rain: [],
+      Sandstorm: [],
+      Snow: [],
+      Sunny: [],
+      Thunderstorm: [],
+      Windy: [],
+    },
+    legPokemon: {
+      [Leg.CAVERN]: [P.Hypno, P.Dunsparce, P.Meditite, P.Sneasel, P.Gible, P.Pawniard, P.Deino, P.Salandit, P.Glimmet],
+      [Leg.CLIFFS]: [P.Raichu, P.Dugtrio, P.Numel, P.Phanpy, P.Cufant, P.Dreepy, P.Nacli],
+      [Leg.FIELDS]: [P.Venomoth, P.Chansey, P.Jumpluff, P.Girafarig, P.Swablu, P.Rufflet, P.Larvesta, P.Rookidee, P.Pawmi, P.Espathra, P.Flamigo],
+      [Leg.WATERFALL]: [P.Golduck, P.Buizel, P.Tadbulb],
+    },
+    bosses: [
+      [P.Great_Tusk, P.Scream_Tail, P.Brute_Bonnet, P.Flutter_Mane, P.Sandy_Shocks, P.Iron_Treads, P.Iron_Bundle, P.Iron_Hands, P.Iron_Jugulis, P.Iron_Thorns],
+      [P.Slither_Wing, P.Roaring_Moon, P.Iron_Valiant, P.Iron_Moth, P.Walking_Wake, P.Iron_Leaves],
+    ],
+    unlocked: {
+      hints: [/*{
+        completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+        msg: 'Are you familiar with the starter Pokémon of Paldea?'
+      }, {
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+        msg: 'Become an expert on the Pokémon of Paldea.'
+      }*/{
+        completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        msg: 'In testing.'
+      }]
+    }
+  }),
+  RICEFIELDS: assert<Voyage>({
+    label: 'Kitakami Rice Fields',
+    description: 'You find yourself amidst farmland sprawling in every direction.',
+    typePrimary: 'Grass', typeSecondary: ['Flying', 'Ground'], scoreStat: 'attack',
+    buckets: [0, 190, 385, 576], map: kitakamiMap,
+    items: [
+      ['expcandyxs', 'expcandys', 'tartapple', 'sweetapple', 'energyroot'],
+      ['expcandyxs', 'expcandys', 'expcandym', 'teacupunremarkable', 'syrupyapple'],
+      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'rarebone', 'teacupunremarkable', 'syrupyapple', 'leaderscrest'],
+      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'rarebone', 'teacupmasterpiece', 'syrupyapple', 'leaderscrest'],
+    ],
+    rareitems: [['teacupmasterpiece'],['teacupmasterpiece'],['teacupmasterpiece'],['teacupmasterpiece']],
+    pokemon: [[], [], [], []],
+    weatherPokemon: {
+      Cloudy: [P.Houndour],
+      'Diamond Dust': [P.Swinub],
+      Fog: [P.Ralts],
+      'Heat Wave': [P.Petilil],
+      Rain: [P.Poliwag],
+      Sandstorm: [P.Bonsly],
+      Snow: [P.Swinub],
+      Sunny: [P.Tandemaus],
+      Thunderstorm: [P.Shinx],
+      Windy: [P.Noibat],
+    },
+    legPokemon: {
+      [Leg.RICEFIELD]: [P.Yanma, P.Spinarak, P.Wooper, P.Poochyena, P.Corphish, P.Sewaddle, P.Cutiefly, P.Poltchageist],
+      [Leg.APPLEFIELD]: [P.Applin, P.Ekans, P.Bellsprout, P.Sentret, P.Pichu, P.Starly, P.Fomantis, P.Poltchageist],
+      [Leg.CRYSTALLAKE]: [P.Koffing, P.Clefairy, P.Cleffa, P.Slugma, P.Duskull, P.Chimecho, P.Broznor, P.Litwick, P.Glimmet, P.Arrokuda],
+      [Leg.TIMELESSFOREST]: [P.Phantump, P.Pikachu, P.Vulpix, P.Hoothoot, P.Stantler, P.Lotad, P.Seedot, P.Pachirisu, Potw(P.Basculin, {form: 'white_stripe'}), P.Tynamo, P.Pawniard, P.Grubbin, P.Mimikyu, P.Skwovet, P.Chewtle, P.Hatenna, P.Impidimp, P.Indeedee, P.Toedscool],
+    },
+    bosses: [
+      [P.Poltchageist, P.Trevenant, P.Orthworm, P.Chandelure, P.Sandslash, P.Gengar, P.Arbok],
+      [Potw(P.Ursaluna, {form: 'blood_moon'}), P.Conkeldurr, P.Dusknoir, P.Kommo_o, P.Leavanny, P.Vikavolt],
+    ],
+    unlocked: {
+      hints: [/*{
+        completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+        msg: 'Are you familiar with the starter Pokémon of Paldea?'
+      }, {
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+        msg: 'Become an expert on the Pokémon of Paldea.'
+      }*/{
+        completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        msg: 'In testing.'
+      }]
+    }
+  }),
+  TERRARIUM: assert<Voyage>({
+    label: "Blueberry Academy's Terrarium",
+    description: 'You are in a large terrarium below the seas of Unova.',
+    typePrimary: 'Dragon', typeSecondary: ['Normal', 'Fire'], scoreStat: 'speed',
+    buckets: [0, 176, 359, 536], map: terrariumMap,
+    items: [
+      ['expcandyxs', 'expcandys', ...TERA_SHARDS],
+      ['expcandyxs', 'expcandys', 'expcandym', ...TERA_SHARDS],
+      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', ...TERA_SHARDS, 'electirizer', 'magmarizer', 'metalalloy'],
+      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'electirizer', 'magmarizer', 'metalalloy', ...TERA_SHARDS, 'terastellar'],
+    ],
+    rareitems: [['terastellar'],['terastellar'],['terastellar'],['terastellar']],
+    pokemon: [[], [], [], []],
+    weatherPokemon: {
+      Cloudy: [P.Scraggy],
+      'Diamond Dust': [P.Snover],
+      Fog: [P.Girafarig],
+      'Heat Wave': [P.Litten],
+      Rain: [P.Popplio],
+      Sandstorm: [P.Sandile],
+      Snow: [P.Snover],
+      Sunny: [P.Rowlet],
+      Thunderstorm: [P.Blitzle],
+      Windy: [P.Vullaby],
+    },
+    legPokemon: {
+      [Leg.BIOMESAVANNA]: [P.Doduo, P.Exeggcute, P.Rhyhorn, P.Smeargle, P.Trapinch, P.Deerling, P.Litleo, P.Tauros],
+      [Leg.BIOMECOASTAL]: [Potw(P.Grimer, {form: 'alolan'}), P.Slakoth, P.Torkoal, P.Zangoose, P.Seviper, P.Fletchling, P.Espurr, P.Inkay, P.Pikipek, P.Dewpider, P.Comfey],
+      [Leg.BIOMECANYON]: [Potw(P.Geodude, {form: 'alolan'}), P.Horsea, P.Chinchou, P.Skarmory, P.Tyrogue, P.Swablu, P.Rotom, P.Drilbur, P.Minccino, P.Alomomola, P.Axew],
+      [Leg.BIOMEPOLAR]: [P.Seel, P.Lapras, P.Porygon, P.Qwilfish, P.Finneon, P.Solosis, P.Cubchoo, P.Milcery, P.Snubbull, P.Beldum, P.Golett, P.Minior, P.Duraludon],
+    },
+    bosses: [
+      [P.Crabominable, P.Electivire, P.Magmortar, P.Eelektross, P.Magnezone, P.Hitmontop, P.Rhyperior, P.Rabsca, P.Kingdra, P.Bruxish],
+      [P.Duraludon, P.Dewgong, P.Haxorus, P.Lanturn, P.Lapras, P.Araquanid, P.Krookodile, P.Flygon],
+    ],
+    unlocked: {
+      hints: [/*{
+        completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+        msg: 'Are you familiar with the starter Pokémon of Paldea?'
+      }, {
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+        msg: 'Become an expert on the Pokémon of Paldea.'
+      }*/{
+        completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        msg: 'In testing.'
+      }]
+    }
+  }),
   SLEEPCRUISE: assert<Voyage>({
     label: 'Snoozy Archipelago',
     description: 'You are on a cruise to several islands in the great archipelago',
