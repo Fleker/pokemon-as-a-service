@@ -364,7 +364,7 @@ export function assignMarks(location: {forecast: WeatherType, timezone: Timezone
       ribbons.push('🌫️')
     }
   } else {
-    const hasToDMark = Math.random() < 0.19 && encounterMethod === 'wild' // ~1/52
+    const hasToDMark = Math.random() < 0.01 && encounterMethod === 'wild' // ~1/100
     if (hasToDMark) {
       const date = spacetime(new Date(), location.timezone)
       if (date.hour() < 6) {
