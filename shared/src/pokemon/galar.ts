@@ -1079,6 +1079,7 @@ export const galarBuilder = {
       ['Jaw Lock', 'Protect'],
       ['Revenge', 'Rain Dance'],
       ['Throat Chop', 'Shell Smash'],
+      ['Muddy Water', 'Super Fang', 'Scary Face'],
     ],
   }),
   'potw-834': ensurePkmnBuilder({
@@ -1103,6 +1104,7 @@ export const galarBuilder = {
       ['Head Smash', 'Jaw Lock', 'Protect'],
       ['Revenge', 'Stealth Rock'],
       ['Throat Chop', 'Shell Smash'],
+      ['Earthquake', 'Rock Slide', 'Rest'],
     ],
     gmax: {
       gmaxMove: 'G-Max Stonesurge',
@@ -1128,6 +1130,7 @@ export const galarBuilder = {
       ['Bite', 'Charge'],
       ['Thunder Fang', 'Fire Fang', 'Roar'],
       ['Throat Chop', 'Sand Attack'],
+      ['Discharge', 'Snarl', 'Round', 'Tail Whip'],
     ],
   }),
   'potw-836': ensurePkmnBuilder({
@@ -1149,6 +1152,7 @@ export const galarBuilder = {
       ['Crunch', 'Electrify'],
       ['Electro Ball', 'Fire Fang', 'Roar'],
       ['Throat Chop', 'Electric Terrain'],
+      ['Discharge', 'Snarl', 'Hyper Voice', 'Howl'],
     ],
   }),
   'potw-837': ensurePkmnBuilder({
@@ -1171,6 +1175,7 @@ export const galarBuilder = {
       ['Rapid Spin', 'Smokescreen'],
       ['Heavy Slam', 'Harden'],
       ['Earth Power', 'Stealth Rock'],
+      ['Heat Wave', 'Bulldoze', 'Spikes'],
     ],
   }),
   'potw-838': ensurePkmnBuilder({
@@ -1194,6 +1199,7 @@ export const galarBuilder = {
       ['Rapid Spin', 'Smokescreen'],
       ['Heavy Slam', 'Iron Defense'],
       ['Earth Power', 'Stealth Rock'],
+      ['Heat Wave', 'Earthquake', 'Spikes'],
     ],
   }),
   'potw-839': ensurePkmnBuilder({
@@ -1217,6 +1223,7 @@ export const galarBuilder = {
       ['Rapid Spin', 'Tar Shot'],
       ['Heavy Slam', 'Iron Defense'],
       ['Power Gem', 'Earth Power', 'Stealth Rock'],
+      ['Heat Wave', 'Rock Slide', 'Explosion', 'Spikes'],
     ],
     gmax: {
       gmaxMove: 'G-Max Volcalith',
@@ -1432,6 +1439,7 @@ export const galarBuilder = {
       ['Flail', 'Tearful Look'],
       ['Belch', 'Round', 'Growl'],
       ['Throat Chop', 'Venom Drench'],
+      ['Discharge', 'Uproar', 'Noble Roar'],
     ],
   }),
   'potw-849': ensurePkmnBuilder({
@@ -1456,6 +1464,7 @@ export const galarBuilder = {
       ['Boomburst', 'Shift Gear'],
       ['Snarl', 'Metal Sound'],
       ['Throat Chop', 'Venom Drench'],
+      ['Acid', 'Hyper Voice', 'Noble Roar'],
     ],
     gmax: {
       gmaxMove: 'G-Max Stun Shock',

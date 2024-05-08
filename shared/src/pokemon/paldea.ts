@@ -256,7 +256,10 @@ export const paldeaBuilder = {
       'Bulldoze', 'Play Rough', 'Mud Shot', 'Trailblaze', 'Chilling Water', 
       'Protect', 'Sunny Day', 'Rain Dance', 'Endeavor', 'Substitute', 
       'Work Up', 'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Disarming Voice', 'Covet'],
+    ],
   }),
   // https://serebii.net/pokedex-sv/oinkologne/
   'potw-916': ensurePkmnBuilder({
@@ -272,8 +275,10 @@ export const paldeaBuilder = {
       'Hyper Voice', 'Bulldoze', 'Play Rough', 'Giga Impact', 'Body Press', 
       'Mud Shot', 'Trailblaze', 'Chilling Water', 'Protect', 'Sunny Day', 
       'Rain Dance', 'Endeavor', 'Substitute', 'Work Up', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Dig', 'Work Up'],
+    ],
   }),
   'potw-916-female': ensurePkmnBuilder({
     species: 'Oinkologne', type1: 'Normal', 
@@ -283,7 +288,10 @@ export const paldeaBuilder = {
     pokedex: `This Pokémon sends a flowerlike scent wafting about. Well-developed muscles in its legs allow it to leap more than 16 feet with no trouble at all.`,
     hp: 115, attack: 90, defense: 70, spAttack: 59, spDefense: 90, speed: 65,
     move: ['Double-Edge'],
-    moveTMs: []
+    moveTMs: [],
+    novelMoves: [[],
+      ['Dig', 'Work Up'],
+    ],
   }),
   'potw-917': ensurePkmnBuilder({
     species: 'Tarountula', type1: 'Bug', 
@@ -298,7 +306,10 @@ export const paldeaBuilder = {
       'Facade', 'Shadow Claw', 'Pounce', 'Trailblaze', 'String Shot', 
       'Protect', 'Sunny Day', 'Rain Dance', 'Knock Off', 'Substitute', 
       'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Circle Throw', 'String Shot'],
+    ],
   }),
   'potw-918': ensurePkmnBuilder({
     species: 'Spidops', type1: 'Bug', 
@@ -313,7 +324,10 @@ export const paldeaBuilder = {
       'Giga Impact', 'Pounce', 'Trailblaze', 'String Shot', 'Protect', 
       'Sunny Day', 'Rain Dance', 'Knock Off', 'Substitute', 'Endure', 
       'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Circle Throw', 'Silk Trap'],
+    ],
   }),
   'potw-919': ensurePkmnBuilder({
     species: 'Nymble', type1: 'Bug', 
@@ -327,8 +341,10 @@ export const paldeaBuilder = {
     moveTMs: [
       'Facade', 'Pounce', 'Trailblaze', 'Protect', 'Agility', 
       'Screech', 'Sunny Day', 'Rain Dance', 'Substitute', 'Endure', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Astonish', 'Leer'],
+    ],
   }),
   'potw-920': ensurePkmnBuilder({
     species: 'Lokix', type1: 'Bug', type2: 'Dark', 

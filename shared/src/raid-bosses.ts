@@ -51,138 +51,138 @@ export interface RaidBoss {
 export const regionBoss: {[key in RegionType]: {[rating: number]: RaidBoss[]}} = {
   'North America': {
     1: [{
-      species: Potw(P.Buizel, {var: 1})
+      species: Potw(P.Rolycoly, {var: 4})
     }, {
-      species: Potw(P.Pikachu, {var: 1, form: 'unovan'})
+      species: Potw(P.NidoranF, {var: 3})
     }],
     2: [{
-      species: Potw(P.Buizel, {var: 1})
+      species: Potw(P.Carkol, {var: 4})
     }, {
-      species: Potw(P.Pikachu, {var: 1, form: 'unovan'})
+      species: Potw(P.Nidorina, {var: 3})
     }],
     3: [{
-      species: Potw(P.Floatzel, {var: 1})
+      species: Potw(P.Coalossal, {var: 4})
     }, {
-      species: Potw(P.Pikachu, {var: 1, form: 'unovan'})
+      species: Potw(P.Nidoqueen, {var: 3})
     }]
   },
   'South America': {
     1: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'hoennian'})
+      species: Potw(P.Chewtle, {var: 4})
     }, {
-      species: Potw(P.Stunky, {var: 1})
+      species: Potw(P.NidoranM, {var: 3})
     }],
     2: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'hoennian'})
+      species: Potw(P.Chewtle, {var: 4})
     }, {
-      species: Potw(P.Stunky, {var: 1})
+      species: Potw(P.Nidorino, {var: 3})
     }],
     3: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'hoennian'})
+      species: Potw(P.Drednaw, {var: 4})
     }, {
-      species: Potw(P.Skuntank, {var: 1})
+      species: Potw(P.Nidoking, {var: 3})
     }]
   },
   'North Europe': {
     1: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'galarian'})
+      species: Potw(P.Yamper, {var: 4})
     }, {
-      species: Potw(P.Dreepy, {var: 3})
+      species: Potw(P.Geodude, {var: 1})
     }],
     2: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'galarian'})
+      species: Potw(P.Yamper, {var: 4})
     }, {
-      species: Potw(P.Dreepy, {var: 3})
+      species: Potw(P.Graveler, {var: 1})
     }],
     3: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'galarian'})
+      species: Potw(P.Boltund, {var: 4})
     }, {
-      species: Potw(P.Drakloak, {var: 3})
+      species: Potw(P.Golem, {var: 1})
     }]
   },
   'Mediterranean': {
     1: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'kalosian'})
+      species: Potw(P.Lechonk, {var: 1})
     }, {
-      species: Potw(P.Stonjourner, {var:3})
+      species: Potw(P.Sandile, {var:4})
     }],
     2: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'kalosian'})
+      species: Potw(P.Lechonk, {var: 1})
     }, {
-      species: Potw(P.Stonjourner, {var:3})
+      species: Potw(P.Krokorok, {var:4})
     }],
     3: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'kalosian'})
+      species: Potw(P.Oinkologne, {var: 1})
     }, {
-      species: Potw(P.Stonjourner, {var:3})
+      species: Potw(P.Krookodile, {var:4})
     }]
   },
   'Africa / Middle East': {
     1: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'sinnohian'})
+      species: Potw(P.Nymble, {var: 1})
     }, {
-      species: Potw(P.Stunfisk, {var: 4, form: 'galarian'})
+      species: Potw(P.Sandshrew, {var: 4})
     }],
     2: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'sinnohian'})
+      species: Potw(P.Nymble, {var: 1})
     }, {
-      species: Potw(P.Stunfisk, {var: 4, form: 'galarian'})
+      species: Potw(P.Sandshrew, {var: 4})
     }],
     3: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'sinnohian'})
+      species: Potw(P.Lokix, {var: 1})
     }, {
-      species: Potw(P.Stunfisk, {var: 4, form: 'galarian'})
+      species: Potw(P.Sandslash, {var: 4})
     }]
   },
   'Asia': {
     1: [{
-      species: Potw(P.Pikachu, {var: 1, form:'kantonian'})
+      species: Potw(P.Toxel, {var: 4})
     }, {
-      species: Potw(P.Snorunt, {var: 1})
+      species: Potw(P.Scraggy, {var: 1})
     }],
     2: [{
-      species: Potw(P.Pikachu, {var: 1, form:'kantonian'})
+      species: Potw(P.Toxel, {var: 4})
     }, {
-      species: Potw(P.Snorunt, {var: 1})
+      species: Potw(P.Scraggy, {var: 1})
     }],
     3: [{
-      species: Potw(P.Pikachu, {var: 1, form: 'kantonian'})
+      species: Potw(P.Toxtricity, {var: 4})
     }, {
-      species: Potw(P.Froslass, {var: 1})
+      species: Potw(P.Scrafty, {var: 1})
     }]
   },
   'Pacific Islands': {
     1: [{
-      species: Potw(P.Pikachu, {var: 1, form:'alolan'})
+      species: Potw(P.Exeggcute, {var: 4})
     }, {
-      species: Potw(P.Qwilfish, {var:4, form:'hisuian'})
+      species: Potw(P.Sewaddle, {var:1})
     }],
     2: [{
-      species: Potw(P.Pikachu, {var: 1, form:'alolan'})
+      species: Potw(P.Exeggcute, {var: 4})
     }, {
-      species: Potw(P.Qwilfish, {var:4, form:'hisuian'})
+      species: Potw(P.Swadloon, {var:1})
     }],
     3: [{
-      species: Potw(P.Pikachu, {var: 1, form:'alolan'})
+      species: Potw(P.Exeggutor, {var: 4, form:'alolan'})
     }, {
-      species: Potw(P.Overqwil, {var:4})
+      species: Potw(P.Leavanny, {var:1})
     }]
   },
   'Australia / New Zealand': {
     1: [{
-      species: Potw(P.Magikarp, {var: 1, form: 'skelly'})
+      species: Potw(P.Tarountula, {var: 1})
     }, {
-      species: Potw(P.Sneasel, {var: 4, form: 'hisuian'})
+      species: Potw(P.Bunnelby, {var: 2})
     }],
     2: [{
-      species: Potw(P.Magikarp, {var: 1, form: 'skelly'})
+      species: Potw(P.Tarountula, {var: 1})
     }, {
-      species: Potw(P.Sneasel, {var: 4, form: 'hisuian'})
+      species: Potw(P.Bunnelby, {var: 2})
     }],
     3: [{
-      species: Potw(P.Magikarp, {var: 1, form: 'skelly'})
+      species: Potw(P.Spidops, {var: 1})
     }, {
-      species: Potw(P.Sneasler, {var: 4})
+      species: Potw(P.Diggersby, {var: 2})
     }]
   },
 }
