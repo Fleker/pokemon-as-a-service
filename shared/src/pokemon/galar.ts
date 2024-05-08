@@ -1486,7 +1486,7 @@ export const galarBuilder = {
   'potw-851': ensurePkmnBuilder({
     species: 'Centiskorch', type1: 'Fire', type2: 'Bug', 
     tiers: ['Traditional', 'GigantaCup', 'Crown Cup'], shiny: 'WILD',
-    weight: 120,
+    weight: 120, release: 'greatball',
     eggBase: 'potw-850', eggGroup: ['Bug'], eggCycles: 20,
     pokedex: `When it heats up, its body temperature reaches about 1,500 degrees Fahrenheit. It lashes its body like a whip and launches itself at enemies.`,
     hp: 100, attack: 115, defense: 65, spAttack: 90, spDefense: 90, speed: 65,
@@ -1830,7 +1830,7 @@ export const galarBuilder = {
   'potw-865': ensurePkmnBuilder({
     species: "Sirfetch'd", type1: 'Fighting', 
     tiers: ['Traditional', 'GigantaCup', 'Crown Cup'], shiny: 'SYNCABLE',
-    weight: 117,
+    weight: 117, release: 'greatball',
     eggBase: 'potw-083-galarian', eggGroup: ['Flying', 'Field'], eggCycles: 20,
     pokedex: `Only Farfetch'd that have survived many battles can attain this evolution. When this Pokémon's leek withers, it will retire from combat.`,
     hp: 62, attack: 135, defense: 95, spAttack: 68, spDefense: 82, speed: 65,

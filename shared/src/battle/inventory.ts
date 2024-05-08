@@ -1937,6 +1937,7 @@ export const Inventory: Inventory = {
         mp.power = powers[i]
         return mp
       })
+      log.add(`${caster.species} learned ${caster.move.join(', ')}`)
       caster.heldItemConsumed = true
       caster.heldItemTotallyConsumed = true
       caster.currentHp *= 2
