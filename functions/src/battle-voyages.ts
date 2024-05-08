@@ -54,9 +54,11 @@ export const voyage_create = functions.https.onCall(async (data: F.VoyageCreate.
     let leg1 = Leg.ITEM
     let leg2 = Leg.ITEM
     if (selectedVoyage.map) {
-      leg0 = Object.keys(selectedVoyage.map!)[0] as Leg
-      leg1 = selectedVoyage.map![leg0].next![0].leg
-      leg2 = selectedVoyage.map![leg0].next![0].next![0].leg
+      leg0 = Object.keys(selectedVoyage.map!)[0]! as unknown as Leg
+      const part1 = selectedVoyage.map![leg0]!
+      leg1 = part1[0].leg
+      const part2 = part1[0].next[0]!
+      leg2 = part2.leg
     }
     const voyage: Doc = {
       vid: data.voyage,
@@ -470,7 +472,14 @@ async function runVoyage(voyageId: string): Promise<F.VoyageStart.Res> {
     const party = Object.values(voyage.players).map(player => player.species)
     const voyageScore = getScore(voyage.vid, party)
     const voyageDb = Voyages[voyage.vid]
-    const bucket = getBucket(voyageDb, voyageScore)
+    const bucket = (() => {
+      try {
+        return getBucket(voyageDb, voyageScore)
+      } catch (e) {
+        console.error('Cannot get bucket number', e)
+        return 0
+      }
+    })()
     console.log(`Voyage ${voyageId} gets bucket ${bucket} with score ${voyageScore} for party ${party}`)
 
     // Execute every leg
@@ -499,7 +508,7 @@ async function runVoyage(voyageId: string): Promise<F.VoyageStart.Res> {
         caught: [...caught],
       })
     }
-    console.log(`Voyage ${voyageId} - All prizes: ${voyage.prizes.join(', ')}`)
+    console.log(`Voyage ${voyageId} - All prizes: ${voyage.prizes.map(p => JSON.stringify(p)).join(', ')}`)
 
 
     // Create a raid at the end
@@ -508,6 +517,14 @@ async function runVoyage(voyageId: string): Promise<F.VoyageStart.Res> {
         // Create a raid based on common pool
         const pool = [...voyageDb.pokemon[bucket]]
         pool.push(...voyageDb.weatherPokemon[voyage.weather])
+        // Or also include any Pokemon from any leg
+        if (voyageDb.legPokemon) {
+          Object.values(voyageDb.legPokemon ?? [[]]).forEach(l => {
+            l.forEach(p => {
+              pool.push(p)
+            })
+          })
+        }
         return pool
       } else if (bucket === 1 || bucket === 2) {
         // Create a raid based on common boss pool
@@ -662,7 +679,7 @@ export const voyage_completion_cron = functions.pubsub.schedule('30 * * * *').on
     .where('created', '<', expireMin)
     .where('state', '==', 0) /* Created */
     .get<Doc>()
-  console.log(`Found ${voyagesToExpire.docs.length} voyages to expire complete`)
+  console.log(`Found ${voyagesToExpire.docs.length} voyages to expire`)
   for (const voyage of voyagesToExpire.docs) {
     if (voyage.data().playerList.length === 0) continue // Skip no-player voyages
     await runVoyage(voyage.id)
