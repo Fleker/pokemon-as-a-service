@@ -1,6 +1,7 @@
 const {ENCOUNTERS, HOLD_ITEMS_5, HOLD_ITEMS_15, HOLD_ITEMS_50} = require('../../../functions/lib/functions/src/encounter')
 const { Globe } = require('../../../functions/lib/shared/src/locations-list')
 const { ITEMS } = require('../../../functions/lib/shared/src/items-list')
+const { Voyages } = require('../../../functions/lib/shared/src/voyages')
 const { fertilizerPokemon } = require('../../../functions/lib/shared/src/farming')
 
 const pokemonMap = {}
@@ -50,6 +51,69 @@ for (const [fertilizer, parr] of Object.entries(fertilizerPokemon)) {
     } else {
       pokemonMap[pokemon] = [encounter]
     }
+  }
+}
+
+for (const [vid, voyage] of Object.entries(Voyages)) {
+  for (const parr of voyage.pokemon) {
+    for (const pokemon of parr) {
+      const encounter = {
+        pokemon,
+        rarity: 1,
+        method: [`On the ${voyage.label} Voyage`],
+        item: 'voyagepass'
+      }
+      if (pokemon in pokemonMap) {
+        pokemonMap[pokemon].push(encounter)
+      } else {
+        pokemonMap[pokemon] = [encounter]
+      }
+    }
+  }
+  for (const parr of voyage.bosses) {
+    for (const pokemon of parr) {
+      const encounter = {
+        pokemon,
+        rarity: 1,
+        method: [`As a boss on the ${voyage.label} Voyage`],
+        item: 'voyagepass'
+      }
+      if (pokemon in pokemonMap) {
+        pokemonMap[pokemon].push(encounter)
+      } else {
+        pokemonMap[pokemon] = [encounter]
+      }
+    }
+  }
+  for (const parr of Object.values(voyage.weatherPokemon)) {
+    for (const pokemon of parr) {
+      const encounter = {
+        pokemon,
+        rarity: 1,
+        method: [`During weather on the ${voyage.label} Voyage`],
+        item: 'voyagepass'
+      }
+      if (pokemon in pokemonMap) {
+        pokemonMap[pokemon].push(encounter)
+      } else {
+        pokemonMap[pokemon] = [encounter]
+      }
+    } 
+  }
+  for (const parr of Object.values(voyage.legPokemon || [[]])) {
+    for (const pokemon of parr) {
+      const encounter = {
+        pokemon,
+        rarity: 1,
+        method: [`Specific path on the ${voyage.label} Voyage`],
+        item: 'voyagepass'
+      }
+      if (pokemon in pokemonMap) {
+        pokemonMap[pokemon].push(encounter)
+      } else {
+        pokemonMap[pokemon] = [encounter]
+      }
+    } 
   }
 }
 
