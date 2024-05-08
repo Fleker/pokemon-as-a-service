@@ -83,6 +83,20 @@ export const RibbonMarksTable: Record<string, RibbonMark> = {
     description: 'A mark for for a mist-drifting Pokémon',
     conditions: 'Found on a Pokémon in the mist',
   },
+  '🌪️': {
+    kind: 'mark',
+    name: 'Windy Mark',
+    title: 'the Wind-Swept',
+    description: 'A mark for a wind-swept Pokémon',
+    conditions: 'Found on a Pokémon during heavy wind',
+  },
+  '🥶': {
+    kind: 'mark',
+    name: 'Ice Mark',
+    title: 'the Chill',
+    description: 'A mark for a diamond in the rough Pokémon',
+    conditions: 'Found on a Pokémon in diamond dust',
+  },
   '🍴': {
     kind: 'mark',
     name: 'Lunchtime Mark',
@@ -356,6 +370,10 @@ export function assignMarks(location: {forecast: WeatherType, timezone: Timezone
       ribbons.push('🌧️')
     } else if (location.forecast === 'Snow') {
       ribbons.push('☃️')
+    } else if (location.forecast === 'Diamond Dust') {
+      ribbons.push('🥶')
+    } else if (location.forecast === 'Windy') {
+      ribbons.push('🌪️')
     } else if (location.forecast === 'Heat Wave') {
       ribbons.push('☀️')
     } else if (location.forecast === 'Sandstorm') {
