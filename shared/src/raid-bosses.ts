@@ -361,11 +361,11 @@ export const standardBosses: RaidBoss[][] = [
   }, {
     species: Potw(P.Quaquaval, {var: starterBossVar})
   }, {
-    species: Potw(P.Girafarig, {var:2})
+    species: Potw(P.Girafarig, {var:3})
   }, {
     species: Potw(P.Dunsparce, {var:2})
   }, {
-    species: Potw(P.Glimmet, {var:2})
+    species: Potw(P.Glimmet, {var:1})
   }, {
     species: Potw(P.Omastar, {var:4})
   }, {

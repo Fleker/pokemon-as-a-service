@@ -11,6 +11,9 @@ function haveNovelMoves(t: ExecutionContext, pkmn: BadgeId): string | undefined 
     return `${pkmn} should not be a var0`
   }
   if (badge.variant !== undefined) {
+    if (!pokemon.novelMoves) {
+      return `${pkmn} has no novel moves at all`
+    }
     const variantSize = pokemon.novelMoves?.length
     if (variantSize! <= badge.variant) {
       return `${pkmn} has no novel moves`

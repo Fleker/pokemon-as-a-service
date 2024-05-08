@@ -435,7 +435,7 @@ export const paldeaBuilder = {
   }),
   'potw-924': ensurePkmnBuilder({
     species: 'Tandemaus', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 1.8,
     eggBase: 'potw-924', eggGroup: ['Field'], eggCycles: 5,
     levelAt: 25, levelTo: 'potw-925',
@@ -448,12 +448,14 @@ export const paldeaBuilder = {
       'Play Rough', 'Mud Shot', 'Beat Up', 'Protect', 'Thunder Wave', 
       'Agility', 'Sunny Day', 'Rain Dance', 'Tickle', 'Charm', 
       'Switcheroo', 'Substitute', 'Endure', 'Taunt', 'Fake Tears', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Super Fang', 'Bullet Seed', 'Baby-Doll Eyes']
+    ],
   }),
   'potw-925': ensurePkmnBuilder({
     species: 'Maushold', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 2.8, syncableForms: ['family_of_four', 'family_of_three'], needForm: true,
     eggBase: 'potw-924', eggGroup: ['Field'], eggCycles: 5,
     pokedex: `The two little ones just appeared one day. The group might be a family of related Pokémon, but nobody knows for sure.`,
@@ -466,8 +468,10 @@ export const paldeaBuilder = {
       'Trailblaze', 'Chilling Water', 'Protect', 'Thunder Wave', 'Agility', 
       'Sunny Day', 'Rain Dance', 'Tickle', 'Charm', 'Switcheroo', 
       'Substitute', 'Endure', 'Taunt', 'Fake Tears', 'Follow Me', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Beat Up', 'Charm'],
+    ],
   }),
   'potw-926': ensurePkmnBuilder({
     species: 'Fidough', type1: 'Fairy', 
@@ -504,56 +508,67 @@ export const paldeaBuilder = {
   }),
   'potw-928': ensurePkmnBuilder({
     species: 'Smoliv', type1: 'Grass', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 6.5,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     levelAt: 25, levelTo: 'potw-929',
     pokedex: `It protects itself from enemies by emitting oil from the fruit on its head. This oil is bitter and astringent enough to make someone flinch.`,
     hp: 41, attack: 35, defense: 45, spAttack: 58, spDefense: 51, speed: 30,
-    move: ['Absorb'],
+    move: ['Absorb', 'Tackle'],
     moveTMs: [
       'Solar Beam', 'Mega Drain', 'Swift', 'Facade', 'Leaf Storm', 
       'Solar Blade', 'Trailblaze', 'Weather Ball', 'Protect', 'Sunny Day', 
       'Charm', 'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 
       'Sweet Scent', 
+    ],
+    novelMoves: [[],
+      ['Growth'],
     ]
   }),
   'potw-929': ensurePkmnBuilder({
     species: 'Dolliv', type1: 'Grass', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 11.9,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     levelAt: 35, levelTo: 'potw-930',
     pokedex: `Dolliv shares its tasty, fresh-scented oil with others. This species has coexisted with humans since times long gone.`,
     hp: 52, attack: 53, defense: 60, spAttack: 78, spDefense: 78, speed: 33,
-    move: ['Mega Drain'],
+    move: ['Mega Drain', 'Flail'],
     moveTMs: [
       'Solar Beam', 'Mega Drain', 'Swift', 'Facade', 'Leaf Storm', 
       'Solar Blade', 'Trailblaze', 'Weather Ball', 'Protect', 'Sunny Day', 
       'Charm', 'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 
       'Sweet Scent', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Growth'],
+    ],
   }),
   'potw-930': ensurePkmnBuilder({
     species: 'Arboliva', type1: 'Grass', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 48.2,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     pokedex: `This calm Pokémon is very compassionate. It will share its delicious, nutrient-rich oil with weakened Pokémon.`,
     hp: 78, attack: 69, defense: 90, spAttack: 125, spDefense: 109, speed: 39,
-    move: ['Petal Dance'],
+    move: ['Petal Dance', 'Terrain Pulse'],
     moveTMs: [
       'Hyper Beam', 'Solar Beam', 'Mega Drain', 'Swift', 'Facade', 
       'Leaf Storm', 'Hyper Voice', 'Petal Blizzard', 'Giga Impact', 'Solar Blade', 
       'Dazzling Gleam', 'Trailblaze', 'Weather Ball', 'Protect', 'Metronome', 
       'Sunny Day', 'Reflect', 'Light Screen', 'Safeguard', 'Charm', 
       'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 'Sweet Scent', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Pollen Puff_Damage', 'Growth'],
+      // ...
+      // earth power
+      // dazzling gleam
+    ],
   }),
   'potw-931': ensurePkmnBuilder({
     species: 'Squawkabilly', type1: 'Normal', type2: 'Flying', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     syncableForms: ['green_plumage', 'white_plumage', 'blue_plumage', 'yellow_plumage'], needForm: true,
     weight: 2.4,
     eggBase: 'potw-931', eggGroup: ['Flying'], eggCycles: 15,
@@ -566,11 +581,14 @@ export const paldeaBuilder = {
       'Flatter', 'Mimic', 'Feather Dance', 'Sunny Day', 'Quick Attack', 
       'Tailwind', 'Endeavor', 'Substitute', 'Endure', 'Taunt', 
       'Roost', 'Fake Tears', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Reversal', 'Swagger'],
+    ],
   }),
   'potw-932': ensurePkmnBuilder({
     species: 'Nacli', type1: 'Rock', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 16,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     levelAt: 24, levelTo: 'potw-933',
@@ -582,11 +600,14 @@ export const paldeaBuilder = {
       'Flash Cannon', 'Bulldoze', 'Mud Shot', 'Ancient Power', 'Protect', 
       'Iron Defense', 'Sunny Day', 'Rain Dance', 'Sandstorm', 'Rock Polish', 
       'Substitute', 'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Mud Shot', 'Harden'],
+    ],
   }),
   'potw-933': ensurePkmnBuilder({
     species: 'Naclstack', type1: 'Rock', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 105,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     levelAt: 38, levelTo: 'potw-934',
@@ -599,11 +620,14 @@ export const paldeaBuilder = {
       'Body Press', 'Mud Shot', 'Ancient Power', 'Protect', 'Iron Defense', 
       'Sunny Day', 'Rain Dance', 'Sandstorm', 'Rock Polish', 'Substitute', 
       'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Salt Cure', 'Mud Shot', 'Iron Defense'],
+    ],
   }),
   'potw-934': ensurePkmnBuilder({
     species: 'Garganacl', type1: 'Rock', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 240,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     pokedex: `Garganacl will rub its fingertips together and sprinkle injured Pokémon with salt. Even severe wounds will promptly heal afterward.`,
@@ -616,7 +640,10 @@ export const paldeaBuilder = {
       'Giga Impact', 'Body Press', 'Mud Shot', 'Ancient Power', 'Protect', 
       'Iron Defense', 'Sunny Day', 'Rain Dance', 'Sandstorm', 'Rock Polish', 
       'Substitute', 'Wide Guard', 'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Salt Cure', 'Hammer Arm', 'Iron Defense'],
+    ],
   }),
   'potw-935': ensurePkmnBuilder({
     species: 'Charcadet', type1: 'Fire', 
@@ -767,7 +794,7 @@ export const paldeaBuilder = {
   }),
   'potw-944': ensurePkmnBuilder({
     species: 'Shroodle', type1: 'Poison', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 0.7,
     eggBase: 'potw-944', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 28, levelTo: 'potw-945',
@@ -780,11 +807,14 @@ export const paldeaBuilder = {
       'Flatter', 'Metronome', 'Swords Dance', 'Nasty Plot', 'Sunny Day', 
       'Rain Dance', 'Switcheroo', 'Endeavor', 'Knock Off', 'Substitute', 
       'Endure', 'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Bite', 'Switcheroo'],
+    ],
   }),
   'potw-945': ensurePkmnBuilder({
     species: 'Grafaiai', type1: 'Poison', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 27.2,
     eggBase: 'potw-944', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `The color of the poisonous saliva depends on what the Pokémon eats. Grafaiai covers its fingers in its saliva and draws patterns on trees in forests.`,
@@ -796,7 +826,10 @@ export const paldeaBuilder = {
       'Protect', 'Swagger', 'Flatter', 'Metronome', 'Swords Dance', 
       'Nasty Plot', 'Sunny Day', 'Rain Dance', 'Switcheroo', 'Endeavor', 
       'Knock Off', 'Substitute', 'Endure', 'Taunt', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Knock Off', 'Flatter'],
+    ],
   }),
   'potw-946': ensurePkmnBuilder({
     species: 'Bramblin', type1: 'Grass', type2: 'Ghost', 
@@ -867,7 +900,7 @@ export const paldeaBuilder = {
   }),
   'potw-950': ensurePkmnBuilder({
     species: 'Klawf', type1: 'Rock', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 79, syncableForms: ['titan'],
     eggBase: 'potw-950', eggGroup: ['Water 3'], eggCycles: 35,
     pokedex: `Klawf hangs upside-down from cliffs, waiting for prey. But Klawf can't remain in this position for long because its blood rushes to its head.`,
@@ -1215,7 +1248,7 @@ export const paldeaBuilder = {
   }),
   'potw-969': ensurePkmnBuilder({
     species: 'Glimmet', type1: 'Rock', type2: 'Poison', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 8,
     eggBase: 'potw-969', eggGroup: ['Mineral'], eggCycles: 15,
     levelAt: 35, levelTo: 'potw-970',
@@ -1228,11 +1261,14 @@ export const paldeaBuilder = {
       'Protect', 'Self-Destruct', 'Confuse Ray', 'Iron Defense', 'Sunny Day', 
       'Rain Dance', 'Sandstorm', 'Reflect', 'Light Screen', 'Rock Polish', 
       'Substitute', 'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Self-Destruct', 'Spikes'],
+    ],
   }),
   'potw-970': ensurePkmnBuilder({
     species: 'Glimmora', type1: 'Rock', type2: 'Poison', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 45,
     eggBase: 'potw-969', eggGroup: ['Mineral'], eggCycles: 15,
     pokedex: `When this Pokémon detects danger, it will open up its crystalline petals and fire beams from its conical body.`,
@@ -1245,7 +1281,10 @@ export const paldeaBuilder = {
       'Self-Destruct', 'Confuse Ray', 'Iron Defense', 'Sunny Day', 'Rain Dance', 
       'Sandstorm', 'Reflect', 'Light Screen', 'Rock Polish', 'Substitute', 
       'Endure', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Self-Destruct', 'Toxic Spikes'],
+    ],
   }),
   'potw-971': ensurePkmnBuilder({
     species: 'Greavard', type1: 'Ghost', 
@@ -1380,7 +1419,7 @@ export const paldeaBuilder = {
   }),
   'potw-979': ensurePkmnBuilder({
     species: 'Annihilape', type1: 'Fighting', type2: 'Ghost', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 56,
     eggBase: 'potw-056', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `When its anger rose beyond a critical point, this Pokémon gained power that is unfettered by the limits of its physical body.`,
@@ -1424,7 +1463,7 @@ export const paldeaBuilder = {
   }),
   'potw-981': ensurePkmnBuilder({
     species: 'Farigiraf', type1: 'Normal', type2: 'Psychic', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 160,
     eggBase: 'potw-203', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Now that the brain waves from the head and tail are synced up, the psychic power of this Pokémon is 10 times stronger than Girafarig's.`,
@@ -1449,7 +1488,7 @@ export const paldeaBuilder = {
   }),
   'potw-982': ensurePkmnBuilder({
     species: 'Dudunsparce', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     syncableForms: ['two_segment', 'three_segment'], needForm: true,
     weight: 47.4,
     eggBase: 'potw-206', eggGroup: ['Field'], eggCycles: 20,
@@ -1475,7 +1514,7 @@ export const paldeaBuilder = {
   }),
   'potw-983': ensurePkmnBuilder({
     species: 'Kingambit', type1: 'Dark', type2: 'Steel', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 120,
     eggBase: 'potw-624', eggGroup: ['Human-Like'], eggCycles: 10,
     pokedex: `Only a Bisharp that stands above all others in its vast army can evolve into Kingambit.`,
@@ -1510,8 +1549,10 @@ export const paldeaBuilder = {
       'Psyshock', 'Giga Impact', 'Body Press', 'Mud Shot', 'Ice Spinner', 
       'Protect', 'Defense Curl', 'Bulk Up', 'Sunny Day', 'Sandstorm', 
       'Endeavor', 'Knock Off', 'Substitute', 'Endure', 'Taunt', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Megahorn', 'Sunny Day']
+    ],
   }),
   'potw-985': ensurePkmnBuilder({
     species: 'Scream Tail', type1: 'Fairy', type2: 'Psychic', 
@@ -1612,8 +1653,10 @@ export const paldeaBuilder = {
       'Bulldoze', 'Giga Impact', 'Body Press', 'Mud Shot', 'Volt Switch', 
       'Ice Spinner', 'Protect', 'Defense Curl', 'Iron Defense', 'Metal Sound', 
       'Sandstorm', 'Endeavor', 'Knock Off', 'Substitute', 'Electric Terrain', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Megahorn', 'Electric Terrain'],
+    ],
   }),
   'potw-991': ensurePkmnBuilder({
     species: 'Iron Bundle', type1: 'Ice', type2: 'Water', 
