@@ -526,7 +526,7 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
     // (Keeping in mind that list + list/11 does increase the list size)
     list.push(...addIf(swarmPokemon, {count: Math.floor(list.length / 11)}, p))
     if (isLocationMassiveOutbreak(location)) {
-      const massPokemon = MassiveOutbreaks[location.forecast]
+      const massPokemon = MassiveOutbreaks[location.forecast!]
       list.push(...addIf(massPokemon, {count: Math.floor(list.length / 6)}, p))
     }
     if (isEclipse(location)) {
@@ -929,7 +929,8 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Toedscool, {gate: CATCH_CHARM_SWSH, item: ['teraground'], weather: 'Heat Wave', terrain: 'Forest'}, p))
   list.push(...addIf(P.Veluza, {gate: CATCH_CHARM_SWSH, item: ['terapsychic'], weather: 'Rain', terrain: 'Oceanic'}, p))
   list.push(...addIf(P.Tatsugiri, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], terrain: 'Bay'}, p))
-  
+  list.push(...addIf(P.Frigibax, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], weather: 'Snow'}, p))
+
   return {
     shinyMultipler: 1,
     list,
@@ -1198,7 +1199,8 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Glimmora, {gate: CATCH_CHARM_SWSH, item: ['terarock'], weather: 'Cloudy', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Revavroom, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], weather: 'Fog', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Toedscruel, {gate: CATCH_CHARM_SWSH, item: ['teraground'], weather: 'Heat Wave', terrain: 'Forest'}, p))
-  list.push(...addIf(P.Dondozo, {gate: CATCH_CHARM_SWSH, item: ['terawater'], terrain: 'Bay', other: [hasTatsugiri]}, p))
+  list.push(...addIf(P.Dondozo, {gate: CATCH_CHARM_SWSH, item: ['terawater'], terrain: 'Bay', other: hasTatsugiri}, p))
+  list.push(...addIf(P.Arctibax, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], weather: 'Snow'}, p))
 
   if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
     if (isEclipse(location)) {
@@ -1266,6 +1268,9 @@ function ENCOUNTERS_LEGENDARY(user: Users.Doc, now, location, format: EncounterP
   list.push(...addIf(Potw(P.Articuno, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
   list.push(...addIf(Potw(P.Zapdos, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
   list.push(...addIf(Potw(P.Moltres, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
+
+  // Paldea
+  list.push(...addIf(P.Baxcalibur, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], weather: 'Snow'}, p))
 
   if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
     if (isEclipse(location)) {
