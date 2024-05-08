@@ -249,6 +249,8 @@ export function toRequirements(user: Users.Doc, location: Location): Requirement
   const pokemonKeys = [...myPokemon(user.pokemon)]
     .filter(([, v]) => v > 0).map(([k]) => k) as PokemonId[]
   const pokemonBadges = [...myPokemon(user.pokemon)]
+    .filter(([, v]) => v > 0)
+    .map(([k, v]) => [new Badge(k), v]) as [Badge, number][]
   const teamsBadges = pokemonBadges
     .map(([k, v]) => [new TeamsBadge(k.toLegacyString()), v]) as [TeamsBadge, number][]
   const badgeKeys = teamsBadges.map(([k]) => k.toString())
@@ -633,9 +635,9 @@ export const fcm_manage = functions.https.onCall(async (data: F.FcmManage.Req, c
 
 const userHistory = {
   timeoutSeconds: 540,
-  memory: '1GB'
+  memory: '2GB'
 } as RuntimeOptions
-export const user_history = functions.runWith(userHistory).https.onCall(async (data: F.UserHistory.Req, context): Promise<F.UserHistory.Res> => {  
+export const user_history = functions.runWith(userHistory).https.onCall(async (data: F.UserHistory.Req, context): Promise<F.UserHistory.Res> => {
   const userId = context.auth!.uid
   const oneWeek = 1000 * 60 * 60 * 24 * 7
 
@@ -643,7 +645,7 @@ export const user_history = functions.runWith(userHistory).https.onCall(async (d
     const ref = db.collection('users').doc(userId)
     const userDoc = await t.get<Users.Doc>(ref)
     const user = userDoc.data()
-    if (user.lastHistoryRequest && user.lastHistoryRequest > Date.now() - oneWeek) {
+    if (user.lastHistoryRequest && user.lastHistoryRequest > (Date.now() - oneWeek)) {
       throw new functions.https.HttpsError('out-of-range',
         'Please wait longer to request history again. This operation is expensive in the backend.')
     }
@@ -723,7 +725,7 @@ export const user_history = functions.runWith(userHistory).https.onCall(async (d
       return stadiumSnapshot.docs.map(doc => doc.data())
     })()
 
-    return assert<F.UserHistory.Res>({
+    const data = assert<F.UserHistory.Res>({
       lastHistory,
       user,
       historyBattleBox,
@@ -734,6 +736,18 @@ export const user_history = functions.runWith(userHistory).https.onCall(async (d
       historyItemUsage,
       historyDaycare,
     })
+    console.log(`Found ${JSON.stringify(data).length} bytes`)
+
+    // Save a file
+    const bucket = admin.storage().bucket()
+    const filename = `userrequests/${userId}-${Date.now()}-${Math.random()}`
+    await bucket.file(filename).save(JSON.stringify(data), {})
+    // Available for the next 15m
+    const [url] = await bucket.file(filename).getSignedUrl({version: 'v4', action: 'read', expires: Date.now() + 1000 * 60 * 15})
+    return {
+      lastHistory,
+      downloadUrl: url,
+    }
   })
 })
 
