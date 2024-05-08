@@ -43,7 +43,10 @@ export const paldeaBuilder = {
     pokedex: `After losing a territorial struggle, Wooper began living on land. The Pokémon changed over time, developing a poisonous film to protect its body.`,
     hp: 55, attack: 45, defense: 45, spAttack: 25, spDefense: 25, speed: 15,
     move: ['Poison Tail', 'Mud Shot'],
-    moveTMs: []
+    moveTMs: [],
+    novelMoves: [[],
+      ['Poison Jab', 'Slam', 'Yawn'],
+    ],
   }),
   'potw-901-blood_moon': ensurePkmnBuilder({
     species: 'Ursaluna', type1: 'Ground', type2: 'Normal', 
@@ -1747,6 +1750,10 @@ export const paldeaBuilder = {
     moveTMs: [
       'Shadow Ball', 'Protect', 'Confuse Ray', 'Nasty Plot', 'Reflect', 
       'Light Screen', 'Substitute', 'Endure', 
+    ],
+    novelMoves: [[],
+      ['Tackle', 'Protect'],
+      ['Thief', 'Reflect'],
     ],
   }),
   'potw-999-chest': ensurePkmnBuilder({

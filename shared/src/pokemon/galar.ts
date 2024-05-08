@@ -877,7 +877,8 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Supersonic'],
       ['Sticky Web'],
-      ['Infestation']
+      ['Infestation'],
+      ['Recover'],
     ],
   }),
   'potw-825': ensurePkmnBuilder({
@@ -900,6 +901,7 @@ export const galarBuilder = {
       ['Energy Ball', 'Supersonic'],
       ['Shadow Ball', 'Sticky Web'],
       ['Signal Beam', 'Solar Beam', 'Psychic Terrain'],
+      ['Round', 'Recover'],
     ],
   }),
   'potw-826': ensurePkmnBuilder({
@@ -922,6 +924,7 @@ export const galarBuilder = {
       ['Giga Drain', 'Confuse Ray'],
       ['Shadow Ball', 'Sticky Web'],
       ['Signal Beam', 'Solar Beam', 'Psychic Terrain'],
+      ['Future Sight', 'Hyper Beam', 'Recover'],
     ],
     gmax: {
       gmaxMove: 'G-Max Gravitas',
@@ -2145,6 +2148,7 @@ export const galarBuilder = {
       ['Magical Leaf', 'Calm Mind'],
       ['Mystical Fire', 'Ally Switch'],
       ['Signal Beam', 'Psychic Terrain'],
+      ['Hyper Voice', 'Dazzling Gleam', 'Heal Pulse'],
     ],
   }),
   'potw-876-male': ensurePkmnBuilder({
@@ -2168,6 +2172,7 @@ export const galarBuilder = {
       ['Magical Leaf', 'Calm Mind'],
       ['Mystical Fire', 'Ally Switch'],
       ['Signal Beam', 'Psychic Terrain'],
+      ['Hyper Voice', 'Dazzling Gleam', 'Heal Pulse'],
     ],
   }),
   'potw-876-female': ensurePkmnBuilder({
@@ -2191,6 +2196,7 @@ export const galarBuilder = {
       ['Magical Leaf', 'Calm Mind'],
       ['Mystical Fire', 'Trick Room'],
       ['Signal Beam', 'Play Nice'],
+      ['Hyper Voice', 'Disarming Voice', 'Heal Pulse'],
     ],
   }),
   'potw-877': ensurePkmnBuilder({
@@ -2310,6 +2316,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Aerial Ace', 'Charge'],
       ['Fire Fang', 'Thunder Wave'],
+      ['Outrage', 'Sunny Day'],
     ],
   }),
   'potw-881': ensurePkmnBuilder({
@@ -2331,6 +2338,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Icicle Crash', 'Pluck', 'Charge'],
       ['Ice Fang', 'Thunder Wave'],
+      ['Iron Head', 'Sunny Day'],
     ],
   }),
   'potw-882': ensurePkmnBuilder({
@@ -2352,6 +2360,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Super Fang', 'Protect'],
       ['Psychic Fangs', 'Rain Dance'],
+      ['Outrage', 'Rest'],
     ],
   }),
   'potw-883': ensurePkmnBuilder({
@@ -2373,6 +2382,7 @@ export const galarBuilder = {
     novelMoves: [[],
       ['Icicle Crash', 'Super Fang', 'Protect'],
       ['Psychic Fangs', 'Rain Dance'],
+      ['Iron Head', 'Rest'],
     ],
   }),
   'potw-884': ensurePkmnBuilder({

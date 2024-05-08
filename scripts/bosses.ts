@@ -4039,6 +4039,26 @@ export const bosses = [
     Potw(P.Spidops, {var:1}),
     Potw(P.Diggersby, {var:2}),
     Potw(P.Deoxys, {var:2}),
+    Potw(P.Steelix, {var:2}),
+    Potw(P.Pangoro, {var:3}),
+    Potw(P.Orbeetle, {var:4}),
+    Potw(P.Kommo_o, {var:3}),
+    Potw(P.Indeedee, {var:4}),
+    Potw(P.Indeedee, {var:4,gender:'male'}),
+    Potw(P.Indeedee, {var:4,gender:'female'}),
+    Potw(P.Shiftry, {var:1}),
+    Potw(P.Dracovish, {var:3}),
+    Potw(P.Ludicolo, {var:4}),
+    Potw(P.Clodsire, {var:1}),
+    Potw(P.Excadrill, {var:4}),
+    Potw(P.Arctovish, {var:3}),
+    Potw(P.Vanilluxe, {var:4}),
+    Potw(P.Dracozolt, {var:3}),
+    Potw(P.Ampharos, {var:3}),
+    Potw(P.Arctozolt, {var:3}),
+    Potw(P.Mightyena, {var:4}),
+    Potw(P.Noctowl, {var:4}),
+    Potw(P.Hawlucha, {var:2}),
   ]
 ]
 
@@ -4073,12 +4093,12 @@ if (pid === 'never') {
   const bossSet = new Set()
   for (const month of bosses) {
     for (const p of month) {
-      bossSet.add(new TeamsBadge(p).toSimple())
+      bossSet.add(new TeamsBadge(p).toSprite())
     }
   }
   for (const boss of allBosses) {
     if (!bossSet.has(boss)) {
-      if (boss === new TeamsBadge(boss).toSimple()) {
+      if (boss === new TeamsBadge(boss).toSprite()) {
         const db = get(boss)!
         console.log(`${db.species} (${db.type1}/${db.type2})`)
       }
@@ -4164,17 +4184,35 @@ if (pid === 'never') {
   for (let i = 0; i < bosses.length; i++) {
     const month = bosses[i]
     for (const p of month) {
-      const bstr = new TeamsBadge(p).toSimple()
+      const bstr = new TeamsBadge(p).toSprite()
       bossMap[bstr] = dates[i]
     }
   }
+
+  const skipSpecies = [
+    'Shinx', 'Bidoof', 'Porygon2', 'Onix', 'Fraxure',
+    'Deino', 'Murkrow', 'Spearow', 'Scraggy', 'Pawniard',
+    'Rhydon', 'Croagunk', 'Skorupi', 'Magmar', 'Lampent',
+    'Pidgeotto', 'Metapod', 'Kakuna', 'Igglybuff', 'Cleffa',
+    'Togepi', 'Lickitung', 'Tyrogue', 'Elekid', 'Magby',
+    'Smoochum', 'Scyther', 'Bulbasaur', 'Chikorita', 'Treecko',
+    'Turtwig', 'Snivy', 'Happiny', 'Bonsly', 'Mime Jr.',
+    'Munchlax', 'Chespin', 'Sunkern', 'Seedot', 'Budew',
+    'Charmander', 'Torchic', 'Cyndaquil', 'Chimchar', 'Tepig',
+    'Mantyke', 'Chingling', 'Riolu', 'Fennekin', 'Unown',
+    'Squirtle', 'Totodile', 'Mudkip', 'Piplup', 'Wynaut',
+    'Azurill', 'Oshawott', 'Froakie', 'Combee', 'Drowzee',
+    'Dunsparce', 'Girafarig', 'Duraludon', 'Ursaring', 'Stantler',
+    'Pichu',
+  ]
 
   const getFor = (month) => {
     console.log(`~~ ${month} ~~`)
     for (const [key, value] of Object.entries(bossMap)) {
       if (value === month) {
         const db = get(key)!
-        console.log(`${db.species} (${db.type1}/${db.type2})`)
+        if (skipSpecies.includes(db.species)) continue
+        console.log(`${db.species} (${db.type1}/${db.type2}) [${key}]`)
       }
     }
     console.log('')
