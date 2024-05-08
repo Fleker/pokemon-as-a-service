@@ -9358,6 +9358,36 @@ export const Movepool: Movepool = {
     onBeforeMove: noop,
     onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'attack', 1)
   },
+  'Shed Tail': {
+    name: 'Shed Tail', type: 'Normal',
+    attackKey: 'attack', defenseKey: 'defense',
+    accuracy: Infinity, criticalHit: 0, power: 0,
+    flavor: 'The user creates a placeholder that can take damage before switching out.',
+    aoe: 'Self', zMoveFx: 'ResetStat',
+    onBeforeMove: ({caster, casters, move}) => {
+      const log = new Log()
+      if (caster.currentHp <= caster.totalHp / 4) {
+        log.add('The user is too weak...')
+        move.failed = true
+      }
+      const eligiblePartners = casters.filter(p => !p.fainted && !getCondition(p, 'OnField'))
+      if (eligiblePartners.length === 0) {
+        log.add('The user cannot tap out...')
+        move.failed = true
+      }
+      return log
+    },
+    onAfterMove: ({caster, casters}) => {
+      const log = new Log()
+      log.push(logDamage(caster, caster.totalHp / 4))
+      log.push(APPLY_TEMP_STATUS(caster, {...ConditionMap['SwitchOut']},
+      `${caster.species} is high-tailing out of there!`))
+      const eligiblePartners = casters.filter(p => !p.fainted && !getCondition(p, 'OnField'))
+      log.push(APPLY_TEMP_STATUS(eligiblePartners[0], ConditionMap.Substituting,
+        `${caster.species} stepped back and put in a substitute for ${eligiblePartners[0].species}.`))
+      return log
+    },
+  },
   'Sheer Cold': {
     name: 'Sheer Cold', type: 'Ice',
     attackKey: 'spAttack', defenseKey: 'spDefense',

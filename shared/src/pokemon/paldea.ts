@@ -1210,8 +1210,7 @@ export const paldeaBuilder = {
       'Substitute', 'Coil', 'Endure', 
     ],
     novelMoves: [[],
-    ['Dig'],
-      // ['Dig', 'Shed Tail']
+      ['Dig', 'Shed Tail']
     ],
   }),
   'potw-969': ensurePkmnBuilder({
