@@ -960,17 +960,15 @@ export const Movepool: Movepool = {
     type: 'Ice',
     flavor: 'The user creates a beautiful aurora backdropped by the snow, protecting its side of the field.',
     aoe: 'Self', zMoveFx: 'SpdBuff1',
-    onBeforeMove: ({move, field}) => {
-      if (field.weather.weatherBall !== 'Ice') {
-        move.failed = true
-      }
-      return new Log()
-    },
     onAfterMove: ({caster, field, prefix}) => {
+      const log = new Log()
+      if (field.weather.weatherBall !== 'Ice') {
+        log.add('It failed...')
+        return log
+      }
       const turns = caster.heldItemKey === 'lightclay' ? 8 : 5
       field.sides[prefix].reflect = turns
       field.sides[prefix].lightscreen = turns
-      const log = new Log()
       log.add('A colorful veil surrounded the Pokémon and its allies')
       return log
     }
