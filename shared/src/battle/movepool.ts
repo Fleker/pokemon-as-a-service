@@ -12968,72 +12968,132 @@ export const Movepool: Movepool = {
   'Max Strike': {
     name: 'Max Strike', type: 'Normal',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents', // FIXME
+    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'Single Opponent',
     flavor: 'The user unleashes a Damaging max move. This causes opponent speeds to fall.',
-    onAfterMove: (inp) => BUFF_STAT(inp.target, inp, 'speed', -1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.targets.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'speed', -1))
+      })
+      return log
+    }
   },
   'Max Airstream': {
     name: 'Max Airstream', type: 'Flying',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
+    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'Single Opponent',
     flavor: 'The user unleashes a Windy max move. This causes ally speeds to rise.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'speed', 1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.casters.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'speed', 1))
+      })
+      return log
+    }
   },
   'Max Knuckle': {
     name: 'Max Knuckle', type: 'Fighting',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
+    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'Single Opponent',
     flavor: 'The user unleashes a Punchy max move. This causes ally attack to rise.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'attack', 1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.casters.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'attack', 1))
+      })
+      return log
+    }
   },
   'Max Wyrmwind': {
     name: 'Max Wyrmwind', type: 'Dragon',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
+    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'Single Opponent',
     flavor: 'The user unleashes a Draconic max move. This causes opponent attacks to fall.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'attack', -1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.targets.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'attack', -1))
+      })
+      return log
+    }
   },
   'Max Steelspike': {
     name: 'Max Steelspike', type: 'Steel',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
+    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'Single Opponent',
     flavor: 'The user unleashes a Sharp max move. This causes ally defenses to rise.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'defense', 1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.casters.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'defense', 1))
+      })
+      return log
+    }
   },
   'Max Phantasm': {
     name: 'Max Phantasm', type: 'Ghost',
     attackKey: 'attack', defenseKey: 'defense',
-    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
+    power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'Single Opponent',
     flavor: 'The user unleashes a Ghastly max move. This causes opponent defenses to fall.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'defense', -1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.targets.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'defense', -1))
+      })
+      return log
+    }
   },
   'Max Ooze': {
     name: 'Max Ooze', type: 'Poison',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
     flavor: 'The user unleashes a Toxic max move. This causes ally special attack to rise.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'spAttack', 1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.casters.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'spAttack', 1))
+      })
+      return log
+    }
   },
   'Max Flutterby': {
     name: 'Max Flutterby', type: 'Bug',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
     flavor: 'The user unleashes a Buggy max move. This causes opponent special attacks to fall.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'spAttack', -1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.targets.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'spAttack', -1))
+      })
+      return log
+    }
   },
   'Max Quake': {
     name: 'Max Quake', type: 'Ground',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
     flavor: 'The user unleashes an Earthy max move. This causes ally special defenses to rise.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'spDefense', 1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.casters.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'spDefense', 1))
+      })
+      return log
+    }
   },
   'Max Darkness': {
     name: 'Max Darkness', type: 'Dark',
     attackKey: 'attack', defenseKey: 'defense',
     power: 0, accuracy: Infinity, criticalHit: 0, aoe: 'All Opponents',
     flavor: 'The user unleashes a Dark max move. This causes opponent special defenses to fall.',
-    onAfterMove: (inp) => BUFF_STAT(inp.caster, inp, 'spDefense', -1)
+    onAfterMove: (inp) => {
+      const log = new Log()
+      inp.targets.filter(t => getCondition(t, 'OnField')).forEach(t => {
+        log.push(BUFF_STAT(t, inp, 'spDefense', -1))
+      })
+      return log
+    }
   },
   /* G-Max Moves Listings */
   'G-Max Vine Lash': {
