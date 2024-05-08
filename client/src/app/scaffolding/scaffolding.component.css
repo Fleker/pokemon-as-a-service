@@ -291,7 +291,24 @@ dialog.omnisearch input {
   font-size: 18pt;
   width: 80%;
   margin-left: 10%;
-  padding: 8px 4px;
+  padding: 8px 16px;
+  transform: translateY(-60px);
+}
+
+dialog[open].omnisearch input {
+  animation: dropdown 100ms ease-in;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  /* transform: translateY(0px); */
+}
+
+@keyframes dropdown {
+  0% {
+    transform: translateY(-60px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 dialog.omnisearch ul {
@@ -300,6 +317,20 @@ dialog.omnisearch ul {
   margin-left: 20%;
   width: 60%;
   font-size: 14pt;
+  margin-left: calc(20% - 8px);
+}
+
+dialog.omnisearch li {
+  transition: all 200ms;
+  list-style-type: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+}
+
+dialog.omnisearch li:hover {
+  background-color: rgba(0, 128, 255, 0.4);
+  padding-left: 12px;
 }
 
 dialog.omnisearch a {

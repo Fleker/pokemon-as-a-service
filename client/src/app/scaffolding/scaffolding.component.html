@@ -120,8 +120,8 @@
         </span>
     </a>
       <a routerLink="/base/achievements" routerLinkActive="activebutton">
-          <mat-icon svgIcon="menu-achievements"></mat-icon>
-          <span class="label">{{questLabel}}</span>
+        <mat-icon svgIcon="menu-achievements"></mat-icon>
+        <span class="label">{{questLabel}}</span>
       </a>
       <a routerLink="/base/research" routerLinkActive="activebutton">
         <span *ngIf="!completedUnclaimedResearch" matBadge="·" [matBadgeHidden]="engagement.timeUntil.research > 0" matBadgeOverlap="true" matBadgePosition="after" matBadgeSize="small">
@@ -201,7 +201,7 @@
     <input type="search" [(ngModel)]="omniSearch"
         (input)="omniFilter()" placeholder="Search for anything" />
     <ul>
-      <li *ngFor="let res of omniRes">
+      <li *ngFor="let res of omniRes" routerLink="{{res.url}}" (click)="omniNavigate()">
         <a routerLink="{{res.url}}">
           {{res.label}}
         </a>
