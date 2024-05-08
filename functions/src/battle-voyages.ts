@@ -415,6 +415,50 @@ function executeLeg(leg: Leg, voyageDb: Voyage, weather: WeatherType, bucket: nu
     const pool = [...voyageDb.pokemon[bucket]]
     pool.push(...voyageDb.weatherPokemon[weather])
     caught.push(randomItem(pool))
+  } else if (leg === Leg.FISHING) {
+    const pool = [...voyageDb.legPokemon[Leg.FISHING]]
+    pool.push(...voyageDb.weatherPokemon[weather])
+    caught.push(randomItem(pool))
+  } else if (leg === Leg.SAND) {
+    const pool = [...voyageDb.legPokemon[Leg.SAND]]
+    pool.push(...voyageDb.weatherPokemon[weather])
+    caught.push(randomItem(pool))
+  } else if (leg === Leg.KITE) {
+    const pool = [...voyageDb.legPokemon[Leg.KITE]]
+    pool.push(...voyageDb.weatherPokemon[weather])
+    caught.push(randomItem(pool))
+  } else if (leg === Leg.GREENGRASS) {
+    const pool = [...voyageDb.legPokemon[Leg.GREENGRASS]]
+    pool.push(...voyageDb.weatherPokemon[weather])
+    caught.push(randomItem(pool))
+  } else if (leg === Leg.CYANBEACH) {
+    const pool = [...voyageDb.legPokemon[Leg.CYANBEACH]]
+    pool.push(...voyageDb.weatherPokemon[weather])
+    caught.push(randomItem(pool))
+  } else if (leg === Leg.TAUPEHOLLOW) {
+    const pool = [...voyageDb.legPokemon[Leg.TAUPEHOLLOW]]
+    pool.push(...voyageDb.weatherPokemon[weather])
+    caught.push(randomItem(pool))
+  } else if (leg === Leg.SNOWDROP) {
+    const pool = [...voyageDb.legPokemon[Leg.SNOWDROP]]
+    pool.push(...voyageDb.weatherPokemon[weather])
+    caught.push(randomItem(pool))
+  } else if (leg === Leg.LAPIS) {
+    const pool = [...voyageDb.legPokemon[Leg.LAPIS]]
+    pool.push(...voyageDb.weatherPokemon[weather])
+    caught.push(randomItem(pool))
+  } else if (leg === Leg.DIVE) {
+    for (let i = 0; i < 3; i++) {
+      prizes.push(randomItem(voyageDb.legItems[Leg.DIVE]))
+    }
+  } else if (leg === Leg.METALCHECK) {
+    for (let i = 0; i < 3; i++) {
+      prizes.push(randomItem(voyageDb.legItems[Leg.METALCHECK]))
+    }
+  } else if (leg === Leg.GREENGRASSBERRY) {
+    for (let i = 0; i < 3; i++) {
+      prizes.push(randomItem(voyageDb.legItems[Leg.GREENGRASSBERRY]))
+    }
   } else {
     // Not implemented
   }

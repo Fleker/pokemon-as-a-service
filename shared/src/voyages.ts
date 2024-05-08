@@ -25,6 +25,28 @@ export enum Leg {
   SAND = 13,
   KITE = 14,
   METALCHECK = 15,
+  /** For Sleep Cruise */
+  GREENGRASS = 21,
+  GREENGRASSBERRY = 22,
+  CYANBEACH = 23,
+  TAUPEHOLLOW = 24,
+  SNOWDROP = 25,
+  LAPIS = 26,
+  /** For Area Zero */
+  CAVERN = 31,
+  CLIFFS = 32,
+  FIELDS = 33,
+  WATERFALL = 34,
+  /** For Kitakami */
+  RICEFIELD = 41,
+  APPLEFIELD = 42,
+  CRYSTALLAKE = 43,
+  TIMELESSFOREST = 44,
+  /** For Terrarium */
+  BIOMECANYON = 51,
+  BIOMECOASTAL = 52,
+  BIOMESAVANNA = 53,
+  BIOMEPOLAR = 54,
 }
 export const LegLabels: Record<Leg, string> = {
   [Leg.NOTHING]: '',
@@ -37,6 +59,24 @@ export const LegLabels: Record<Leg, string> = {
   [Leg.SAND]: 'Play in the sand',
   [Leg.KITE]: 'Play with a kite',
   [Leg.METALCHECK]: 'Scan the sand for treasure',
+  [Leg.GREENGRASS]: 'Visit Greengrass Isle',
+  [Leg.GREENGRASSBERRY]: 'Collect Ingredients',
+  [Leg.CYANBEACH]: 'Visit Cyan Beach',
+  [Leg.TAUPEHOLLOW]: 'Visit Taupe Hollow',
+  [Leg.SNOWDROP]: 'Visit Snowdrop Tundra',
+  [Leg.LAPIS]: 'Visit Lapis Lakeside',
+  [Leg.CAVERN]: 'Check Deep Cavern',
+  [Leg.CLIFFS]: 'Check Tall Cliffs',
+  [Leg.FIELDS]: 'Check Grassy Fields',
+  [Leg.WATERFALL]: 'Check at Waterfall',
+  [Leg.RICEFIELD]: 'Catch at Rice Fields',
+  [Leg.APPLEFIELD]: 'Catch at Apple Fields',
+  [Leg.CRYSTALLAKE]: 'Catch at Crystal Pool',
+  [Leg.TIMELESSFOREST]: 'Catch in Timeless Forest',
+  [Leg.BIOMECANYON]: 'Catch in Canyon Biome',
+  [Leg.BIOMECOASTAL]: 'Catch in Coastal Biome',
+  [Leg.BIOMESAVANNA]: 'Catch in Savanna Biome',
+  [Leg.BIOMEPOLAR]: 'Catch in Polar Biome',
 }
 
 export enum State {
@@ -115,6 +155,45 @@ const coralBeachMap: Map = {
     new MapPoint(Leg.METALCHECK, [
       new MapPoint(Leg.KITE, []),
       new MapPoint(Leg.SAND, []),
+    ]),
+  ],
+}
+
+const sleepCruiseMap: Map = {
+  [Leg.GREENGRASS]: [
+    new MapPoint(Leg.GREENGRASSBERRY, [
+      new MapPoint(Leg.GREENGRASSBERRY, []),
+      new MapPoint(Leg.CYANBEACH, []),
+      new MapPoint(Leg.TAUPEHOLLOW, []),
+    ]),
+    new MapPoint(Leg.CYANBEACH, [
+      new MapPoint(Leg.GREENGRASSBERRY, []),
+      new MapPoint(Leg.TAUPEHOLLOW, []),
+      new MapPoint(Leg.SNOWDROP, []),
+    ]),
+  ],
+  [Leg.CYANBEACH]: [
+    new MapPoint(Leg.GREENGRASSBERRY, [
+      new MapPoint(Leg.GREENGRASSBERRY, []),
+      new MapPoint(Leg.TAUPEHOLLOW, []),
+      new MapPoint(Leg.SNOWDROP, []),
+    ]),
+    new MapPoint(Leg.TAUPEHOLLOW, [
+      new MapPoint(Leg.GREENGRASSBERRY, []),
+      new MapPoint(Leg.SNOWDROP, []),
+      new MapPoint(Leg.LAPIS, []),
+    ]),
+  ],
+  [Leg.TAUPEHOLLOW]: [
+    new MapPoint(Leg.GREENGRASSBERRY, [
+      new MapPoint(Leg.GREENGRASSBERRY, []),
+      new MapPoint(Leg.SNOWDROP, []),
+      new MapPoint(Leg.LAPIS, []),
+    ]),
+    new MapPoint(Leg.SNOWDROP, [
+      new MapPoint(Leg.GREENGRASSBERRY, []),
+      new MapPoint(Leg.LAPIS, []),
+      // We can put a sixth one here
     ]),
   ],
 }
@@ -1222,21 +1301,90 @@ export const Voyages = {
   // RICEFIELDS: assert<Voyage>({
     // label: 'Kitakami Rice Fields',
     // description: 'You find yourself amidst farmland sprawling in every direction.',
-    // typePrimary
+    // typePrimary: 'Grass', typeSecondary: ['Flying', 'Ground'], scoreStat: 'attack',
   // }),
   // TERRARIUM: assert<Voyage>({
   //   label: "Blueberry Academy's Terrarium",
   //   description: 'You are in a large terrarium below the seas of Unova.',
+  //   typePrimary: 'Dragon', typeSecondary: ['Normal', 'Fire'], scoreStat: 'speed',
   // }),
-  // SLEEPCRUISE: assert<Voyage>({
-  //   label: 'Snoozy Archipelago',
-  //   description: 'You are on a cruise to several islands in the great archipelago',
-  // }),
+  SLEEPCRUISE: assert<Voyage>({
+    label: 'Snoozy Archipelago',
+    description: 'You are on a cruise to several islands in the great archipelago',
+    typePrimary: 'Normal', typeSecondary: ['Psychic', 'Dark'], scoreStat: 'spDefense',
+    buckets: [0, 176, 358, 535], map: sleepCruiseMap,
+    items: [[], [], [], []],
+    rareitems: [['sleepicacao'], ['sleepicacao'], ['sleepicacao'], ['sleepicacao']],
+    pokemon: [[], [], [], []],
+    weatherPokemon: {
+      Cloudy: [],
+      'Diamond Dust': [],
+      Fog: [],
+      'Heat Wave': [],
+      Rain: [],
+      Sandstorm: [],
+      Snow: [],
+      Sunny: [],
+      Thunderstorm: [],
+      Windy: [],
+    },
+    legItems: {
+      [Leg.GREENGRASSBERRY]: [
+        'oran', 'sitrus', 'cheri', 'belue', 'bluk', 'chesto', 'durin', 'leppa',
+        'sleepislowpoke', 'sleepifieryherb', 'sleepipureoil', 'sleepimushroom',
+        'sleepitomato', 'sleepimilk', 'sleepibeansausage', 'sleepipotato',
+        'boiledegg', 'fancyapple', 'sleepisoybeans', 'sleepiginger', 'sleepicacao',
+        'largeleek',
+      ]
+    },
+    legPokemon: {
+      [Leg.GREENGRASS]: [
+        P.Bulbasaur, P.Slakoth, P.Pikachu, P.Meowth, P.Slowpoke,
+        P.Kangaskhan, P.Ditto, P.Eevee, P.Cyndaquil, P.Togepi, P.Mareep,
+        P.Magnemite, P.Doduo, P.Swablu,
+      ],
+      [Leg.CYANBEACH]: [
+        P.Caterpie, P.Ekans, P.Psyduck, P.Mankey, P.Pinsir,
+        P.Chikorita, P.Heracross, P.Pichu,
+        P.Cleffa, P.Igglybuff, P.Growlithe, P.Slowpoke, P.Mr_Mime,
+        P.Ditto, P.Eevee, P.Squirtle, P.Totodile, P.Bonsly, P.Spheal,
+      ],
+      [Leg.TAUPEHOLLOW]: [
+        P.Ekans, P.Gastly, P.Houndour, P.Sableye, P.Gulpin, P.Shuppet,
+        P.Croagunk, P.Charmander, P.Rattata, P.Clefairy, P.Jigglypuff,
+        P.Diglett, P.Ditto, P.Eevee, P.Wynaut, P.Geodude, P.Cubone,
+        P.Onix, P.Larvitar,
+      ],
+      [Leg.SNOWDROP]: [
+        P.Bellsprout, P.Delibird, P.Absol, P.Snover, P.Riolu
+      ],
+      [Leg.LAPIS]: [
+        P.Mankey, P.Dratini, P.Chikorita, P.Ralts, P.Dedenne,
+        P.Stufful,
+      ]
+    },
+    bosses: [
+      [P.Snorlax, P.Dedenne],
+      [P.Raikou, P.Entei, P.Suicune],
+    ],
+    unlocked: {
+      hints: [/*{
+        completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+        msg: 'Are you familiar with the starter Pokémon of Paldea?'
+      }, {
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+        msg: 'Become an expert on the Pokémon of Paldea.'
+      }*/{
+        completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        msg: 'In testing.'
+      }]
+    }
+  }),
   CORALBEACH: assert<Voyage>({
       label: 'Coral Pebble Beach',
       description: 'The sun beats down on your face as you venture out across the colorful sand.',
       typePrimary: 'Rock', typeSecondary: ['Ground', 'Water'], scoreStat: 'defense',
-      buckets: [0, 0, 0, 0], map: coralBeachMap,
+      buckets: [0, 271, 550, 822], map: coralBeachMap,
       items: [[], [], [], []],
       rareitems: [['prismscale'], ['prismscale'], ['prismscale'], ['prismscale']],
       // TODO Update the binoculars
@@ -1297,7 +1445,7 @@ export const Voyages = {
   // URBANPLAZA: assert<Voyage>({
   //   label: 'Lumiose City',
   //   description: 'You have arrived in a grand city, with energetic Pokémon around every corner.',
-  //   typePrimary: 'Electric', typeSecondary: ['Flying', 'Fire'],
+  //   typePrimary: 'Electric', typeSecondary: ['Flying', 'Fire'], scoreStat: 'spAttack',
   // }),
   /**
   // Desert/Rural area?
