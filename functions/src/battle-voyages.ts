@@ -443,10 +443,11 @@ function executeLeg(leg: Leg, voyageDb: Voyage, weather: WeatherType, bucket: nu
     Leg.CAVERN, Leg.CLIFFS, Leg.FIELDS, Leg.WATERFALL,
     Leg.RICEFIELD, Leg.APPLEFIELD, Leg.CRYSTALLAKE, Leg.TIMELESSFOREST,
     Leg.BIOMECANYON, Leg.BIOMECOASTAL, Leg.BIOMESAVANNA, Leg.BIOMEPOLAR,
+    Leg.PLAZAVERT, Leg.PLAZABLEU, Leg.PLAZAMAGENTA, Leg.PLAZAROUGE, Leg.PLAZAJAUNE,
   ].includes(leg)) {
     pushCustomPokemon(leg, voyageDb, weather, caught)
   } else if ([
-    Leg.GREENGRASSBERRY, Leg.METALCHECK, Leg.DIVE
+    Leg.GREENGRASSBERRY, Leg.METALCHECK, Leg.DIVE, Leg.PLAZACENTR,
   ].includes(leg)) {
     pushCustomItems(leg, voyageDb, prizes)
   } else {
