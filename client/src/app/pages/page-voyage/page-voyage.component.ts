@@ -273,6 +273,8 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     if (legType === Leg.RARE_ITEM) {
       // Disable the second leg.
       this.voyageDoc.legs[1] = Leg.NOTHING
+    } else if (this.voyageDoc.legs[1] === Leg.NOTHING && legType !== Leg.RARE_ITEM) {
+      this.voyageDoc.legs[1] = Leg.ITEM
     }
     window.requestAnimationFrame(async () => {
       try {
@@ -284,6 +286,9 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
         this.snackbar.open(e, '', { duration: 5000 })
       } finally {
         this.exec.updatePath = false
+        // Update map options
+        this._legs1 = this.legs(this.voyage.map, [this.voyageDoc.legs[0]])
+        this._legs2 = this.legs(this.voyage.map, [this.voyageDoc.legs[0], this.voyageDoc.legs[1]])
       }
     })
   }

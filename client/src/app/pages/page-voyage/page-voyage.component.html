@@ -157,29 +157,33 @@
           <mat-icon *ngIf="voyageDoc.legs[0] < voyageDoc.legs[1]">south_east</mat-icon>
         </td>
       </tr>
-      <td *ngFor="let pt of _legs1">
-        <button mat-button *ngIf="pt.leg == voyageDoc.legs[1]">
-          {{LegLabels[pt.leg]}}
-        </button>
-        <button mat-button secondary *ngIf="pt.leg != voyageDoc.legs[1]" (click)="updatePath(1, pt.leg)">
-          {{LegLabels[pt.leg]}}
-        </button>
-      </td>
-      <tr>
+      <tr *ngIf="voyageDoc.legs[1] > 0">
+        <td *ngFor="let pt of _legs1">
+          <button mat-button *ngIf="pt.leg == voyageDoc.legs[1]">
+            {{LegLabels[pt.leg]}}
+          </button>
+          <button mat-button secondary *ngIf="pt.leg != voyageDoc.legs[1]" (click)="updatePath(1, pt.leg)">
+            {{LegLabels[pt.leg]}}
+          </button>
+        </td>
+      </tr>
+      <tr *ngIf="voyageDoc.legs[1] > 0">
         <td colspan="3">
           <mat-icon *ngIf="voyageDoc.legs[1] > voyageDoc.legs[2]">south_west</mat-icon>
           <mat-icon *ngIf="voyageDoc.legs[1] == voyageDoc.legs[2]">south</mat-icon>
           <mat-icon *ngIf="voyageDoc.legs[1] < voyageDoc.legs[2]">south_east</mat-icon>
         </td>
       </tr>
-      <td *ngFor="let pt of _legs2">
-        <button mat-button *ngIf="pt.leg == voyageDoc.legs[2]">
-          {{LegLabels[pt.leg]}}
-        </button>
-        <button mat-button secondary *ngIf="pt.leg != voyageDoc.legs[2]" (click)="updatePath(2, pt.leg)">
-          {{LegLabels[pt.leg]}}
-        </button>
-      </td>
+      <tr>
+        <td *ngFor="let pt of _legs2">
+          <button mat-button *ngIf="pt.leg == voyageDoc.legs[2]">
+            {{LegLabels[pt.leg]}}
+          </button>
+          <button mat-button secondary *ngIf="pt.leg != voyageDoc.legs[2]" (click)="updatePath(2, pt.leg)">
+            {{LegLabels[pt.leg]}}
+          </button>
+        </td>
+      </tr>
       <tr>
         <td colspan="3">
           <mat-icon>south</mat-icon>
