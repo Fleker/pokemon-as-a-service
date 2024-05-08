@@ -164,6 +164,11 @@
     </mat-slide-toggle>
 
     <br><br>
+    <mat-slide-toggle [(ngModel)]="settings.flagKeyboard" (click)="updateSetting('flagKeyboard')">
+      Keyboard Shortcuts
+    </mat-slide-toggle>
+
+    <br><br>
     <mat-slide-toggle [(ngModel)]="settings.flagSchedulerYield" (click)="updateSetting('flagSchedulerYield')">
       Use scheduler.yield for long-running tasks
     </mat-slide-toggle>

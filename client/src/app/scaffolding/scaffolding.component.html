@@ -197,6 +197,18 @@
   <!-- Here is our page content -->
   <router-outlet></router-outlet>
   <!-- Here are our dialogs -->
+  <dialog #omnisearch class="omnisearch">
+    <input type="search" [(ngModel)]="omniSearch"
+        (input)="omniFilter()" placeholder="Search for anything" />
+    <ul>
+      <li *ngFor="let res of omniRes">
+        <a routerLink="{{res.url}}">
+          {{res.label}}
+        </a>
+      </li>
+    </ul>
+  </dialog>
+
   <dialog #dialog>
     <dialog-pokedex #ddex></dialog-pokedex>
   </dialog>

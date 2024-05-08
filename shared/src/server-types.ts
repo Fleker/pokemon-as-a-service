@@ -33,6 +33,7 @@ export const settingKeys = asLiterals([
   'flagPickerPro',
   'notification',
   'flagSelectList',
+  'flagKeyboard',
 ])
 
 export type SettingKey = keyof {[K in (typeof settingKeys)[number]]: string}

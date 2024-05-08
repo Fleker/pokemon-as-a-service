@@ -28,6 +28,7 @@ import { Voyages } from '../../../../shared/src/voyages';
 import { Recipes } from '../../../../shared/src/crafting';
 import { EngagementService } from '../engagement.service';
 import { LocationService } from '../service/location.service';
+import { KeyboardService } from '../service/keyboard.service';
 import { MoveTypeMap, SupportMoves } from '../../../../shared/src/gen/type-move-meta';
 import randomItem from '../../../../shared/src/random-item';
 import { FeedbackService } from '../service/feedback-service.service';
@@ -62,6 +63,11 @@ interface Gate {
   voyages: boolean
 }
 
+interface OmniRes {
+  url: string
+  label: string
+}
+
 @Component({
   selector: 'app-scaffolding',
   templateUrl: './scaffolding.component.html',
@@ -74,6 +80,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('ddex') ddex?: ElementRef
   @ViewChild('movedialog') movedialog?: ElementRef
   @ViewChild('dmove') dmove?: ElementRef
+  @ViewChild('omnisearch') omni?: ElementRef
   @ViewChild('atoast') atoast?: ElementRef<HTMLDivElement>
   firestoreManual: boolean = false
   buddy?: PokemonId
@@ -105,6 +112,8 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
   locationForecast: string = 'wb_sunny'
   completedUnclaimedRaids = 0
   completedUnclaimedVoyages = 0
+  omniSearch = ''
+  omniRes: OmniRes[] = []
 
   get questLabel() {
     const d = new Date()
@@ -129,6 +138,7 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
     private feedback: FeedbackService,
     private iconRegistry: MatIconRegistry,
     private domSanitizer: DomSanitizer,
+    private keyboard: KeyboardService,
   ) {
     this.engagement = engagement
     this.loadCustomIcons()
@@ -208,6 +218,13 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
           user.notifications.filter(n => n.cat === 'VOYAGE_COMPLETE').length
           : 0
         this.updateTheme(user)
+        if (user.settings.flagKeyboard || this.engagement.isNextUi) {
+          this.keyboard.init()
+          this.keyboard.omniSearchListener.subscribe(shouldOpen => {
+            if (!shouldOpen) return
+            this.omni.nativeElement!.showModal()
+          })
+        }
       } else {
         this.firestoreManual = false
       }
@@ -361,6 +378,131 @@ export class ScaffoldingComponent implements OnInit, OnDestroy, AfterViewInit {
     console.debug('Icon Registry is configured')
   }
 
+  omniFilter() {
+    // Here's our initial collection of search results
+    // Notes to change in the future:
+    //  Consolidate 'label' entries
+    //  Add a keywords feature
+    //  Move into keyboard.service
+    //  Add sprite/icon
+    //  Improve UI, remove the dialog background, make input bigger
+    //  Improve dynamism. Put all bazaar labels into Bazaar keywords
+    //  Add a subtitle for things like Pokemon IDs
+    //  Use keyboard to navigate results
+    //  Add a keyboard option to navigation to quick-jump to pages
+    //  When result is clicked, close dialog
+    const allSearchOptions: OmniRes[] = [{
+      label: 'Pokémon',
+      url: '/pokemon/collection',
+    }, {
+      label: 'Pokemon',
+      url: '/pokemon/collection'
+    }, {
+      label: 'Eggs',
+      url: '/pokemon/eggs'
+    }, {
+      label: 'Hatch',
+      url: '/pokemon/eggs'
+    }, {
+      label: 'Bank',
+      url: '/pokemon/bank'
+    }, {
+      label: 'Cold Storage',
+      url: '/pokemon/bank'
+    }, {
+      label: 'Release',
+      url: '/pokemon/release'
+    }, {
+      label: 'Pokédex',
+      url: '/pokemon/pokedex'
+    }, {
+      label: 'Pokedex',
+      url: '/pokemon/pokedex'
+    }, {
+      label: 'Catch',
+      url: '/pokemon/catch'
+    }, {
+      label: 'Move Deleter',
+      url: '/pokemon/deleter'
+    }, {
+      label: 'Move Tutor',
+      url: '/pokemon/tutor'
+    }, {
+      label: 'Bag',
+      url: '/items/bag'
+    }, {
+      label: 'Mart',
+      url: '/items/mart'
+    }, {
+      label: 'Bazaar',
+      url: '/items/bazaar'
+    }, {
+      label: 'Craft',
+      url: '/items/crafting'
+    }, {
+      label: 'Day Care',
+      url: '/multiplayer/nursery'
+    }, {
+      label: 'Global Trade System',
+      url: '/multiplayer/gts'
+    }, {
+      label: 'Wonder Trade',
+      url: '/multiplayer/wonder'
+    }, {
+      label: 'Private Trade',
+      url: '/multiplayer/trade'
+    }, {
+      label: 'Battle Stadium',
+      url: '/multiplayer/battle'
+    }, {
+      label: 'Raids',
+      url: '/multiplayer/raids'
+    }, {
+      label: 'Voyages',
+      url: '/multiplayer/voyages'
+    }, {
+      label: 'Game Corner',
+      url: '/base/gamecorner'
+    }, {
+      label: 'Berry Farm',
+      url: '/base/farm'
+    }, {
+      label: 'Quests',
+      url: '/base/quests'
+    }, {
+      label: 'Achievements',
+      url: '/base/achievements'
+    }, {
+      label: 'Research',
+      url: '/base/research'
+    }, {
+      label: 'Trainer Card',
+      url: '/profile/trainer'
+    }, {
+      label: 'Close Account',
+      url: '/profile/trainer'
+    }, {
+      label: 'Delete Account',
+      url: '/profile/trainer'
+    }, {
+      label: 'Help',
+      url: '/help'
+    }, {
+      label: 'Chat',
+      url: '/chat'
+    }, {
+      label: 'PokéGear',
+      url: '/chat'
+    }, {
+      label: 'Professor Oak',
+      url: '/chat'
+    }]
+    window.requestAnimationFrame(() => {
+      this.omniRes = allSearchOptions.filter(x =>
+          x.label.toLowerCase().includes(this.omniSearch.toLowerCase()))
+          .slice(0, 5)
+    })
+  }
 
   updateTheme(user: Users.Doc) {
     if (user.settings!.theme === 'dark') {
