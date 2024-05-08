@@ -30,12 +30,12 @@ export const pkmnToDexit: BadgeId[] = [
 ]
 
 // April Fools!
-if (new Date().getDate() <= 1) {
-  // Perform dexit
-  for (const [key, value] of Object.entries(datastore)) {
-    if (pkmnToDexit.includes(key as BadgeId)) {
-      value.pokedex = 'This Pokémon will be removed in a future update.'
-      value.tiers = []
-    }
-  }
-}
+// if (new Date().getDate() <= 1) {
+//   // Perform dexit
+//   for (const [key, value] of Object.entries(datastore)) {
+//     if (pkmnToDexit.includes(key as BadgeId)) {
+//       value.pokedex = 'This Pokémon will be removed in a future update.'
+//       value.tiers = []
+//     }
+//   }
+// }

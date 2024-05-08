@@ -166,12 +166,12 @@ export class SpritePokemonComponent implements OnChanges {
       if (newv !== undefined && newv !== "") {
         const pkmnBadge = new Badge(newv)
         // April Fools!
-        if (new Date().getDate() <= 1) {
-          if (pkmnToDexit.includes(pkmnBadge.toSimple())) {
-            this.src = '/images/null.png'
-            return
-          }
-        }
+        // if (new Date().getDate() <= 1) {
+        //   if (pkmnToDexit.includes(pkmnBadge.toSimple())) {
+        //     this.src = '/images/null.png'
+        //     return
+        //   }
+        // }
         const megaPath = this.isMegaEvolution()
         const gmaxPath = this.isGmax()
         if (megaPath) {
