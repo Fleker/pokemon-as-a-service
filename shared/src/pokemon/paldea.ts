@@ -90,7 +90,8 @@ export const paldeaBuilder = {
       'Taunt', 'Fake Tears', 
     ],
     novelMoves: [[],
-      ['Slash', 'Hone Claws']
+      ['Slash', 'Hone Claws'],
+      ['Sucker Punch', 'Helping Hand'],
     ],
   }),
   'potw-907': ensurePkmnBuilder({
@@ -110,7 +111,8 @@ export const paldeaBuilder = {
       'Endure', 'Grassy Terrain', 'Taunt', 'Fake Tears', 
     ],
     novelMoves: [[],
-      ['Slash', 'Hone Claws']
+      ['Slash', 'Hone Claws'],
+      ['Sucker Punch', 'Leech Seed'],
     ],
   }),
   'potw-908': ensurePkmnBuilder({
@@ -131,7 +133,8 @@ export const paldeaBuilder = {
       'Taunt', 'Fake Tears', 'Double Team', 
     ],
     novelMoves: [[],
-      ['Play Rough', 'Grassy Terrain']
+      ['Play Rough', 'Grassy Terrain'],
+      ['Low Sweep', 'Trick'],
     ],
   }),
   'potw-909': ensurePkmnBuilder({
@@ -150,6 +153,7 @@ export const paldeaBuilder = {
     ],
     novelMoves: [[],
       ['Snarl', 'Yawn'],
+      ['Disarming Voice', 'Helping Hand'],
     ],
   }),
   'potw-910': ensurePkmnBuilder({
@@ -168,6 +172,7 @@ export const paldeaBuilder = {
     ],
     novelMoves: [[],
       ['Snarl', 'Roar'],
+      ['Belch', 'Curse'],
     ],
   }),
   'potw-911': ensurePkmnBuilder({
@@ -186,6 +191,7 @@ export const paldeaBuilder = {
     ],
     novelMoves: [[],
       ['Snarl', 'Will-O-Wisp'],
+      ['Belch', 'Curse'],
     ],
   }),
   'potw-912': ensurePkmnBuilder({
@@ -204,6 +210,7 @@ export const paldeaBuilder = {
     ],
     novelMoves: [[],
       ['Wing Attack', 'Work Up'],
+      ['Rapid Spin', 'Helping Hand'],
     ],
   }),
   'potw-913': ensurePkmnBuilder({
@@ -223,6 +230,7 @@ export const paldeaBuilder = {
     ],
     novelMoves: [[],
       ['Acrobatics', 'Work Up'],
+      ['Low Sweep', 'Misty Terrain'],
     ],
   }),
   'potw-914': ensurePkmnBuilder({
@@ -243,6 +251,7 @@ export const paldeaBuilder = {
     ],
     novelMoves: [[],
       ['Acrobatics', 'Feather Dance'],
+      ['U-turn', 'Misty Terrain'],
     ],
   }),
   'potw-915': ensurePkmnBuilder({
@@ -1201,6 +1210,7 @@ export const paldeaBuilder = {
       'Substitute', 'Coil', 'Endure', 
     ],
     novelMoves: [[],
+    ['Dig'],
       // ['Dig', 'Shed Tail']
     ],
   }),
@@ -1754,6 +1764,7 @@ export const paldeaBuilder = {
     novelMoves: [[],
       ['Tackle', 'Protect'],
       ['Thief', 'Reflect'],
+      ['Power Gem', 'Nasty Plot'],
     ],
   }),
   'potw-999-chest': ensurePkmnBuilder({
@@ -1768,6 +1779,7 @@ export const paldeaBuilder = {
     novelMoves: [[],
       ['Tackle', 'Protect'],
       ['Thief', 'Reflect'],
+      ['Power Gem', 'Nasty Plot'],
     ],
   }),
   'potw-999-roaming': ensurePkmnBuilder({
@@ -1782,6 +1794,7 @@ export const paldeaBuilder = {
     novelMoves: [[],
       ['Tackle', 'Confuse Ray'],
       ['Thief', 'Reflect'],
+      ['Power Gem', 'Nasty Plot'],
     ],
   }),
   'potw-1000': ensurePkmnBuilder({
@@ -1800,6 +1813,7 @@ export const paldeaBuilder = {
     novelMoves: [[],
       ['Power Gem', 'Nasty Plot'],
       ['Hex', 'Focus Blast', 'Thunder Wave'],
+      ['Iron Head', 'Electro Ball', 'Light Screen'],
     ],
   }),
   'potw-1001': ensurePkmnBuilder({

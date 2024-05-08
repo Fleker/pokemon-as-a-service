@@ -261,6 +261,7 @@ export const hisuiBuilder = {
       ['Snarl', 'Nasty Plot'],
       ['Shadow Sneak', 'Foul Play', 'Curse'],
       ['Throat Chop', 'Happy Hour'],
+      ['Uproar', 'Icy Wind', 'Pain Split'],
     ],
   }),
   'potw-571-hisuian': ensurePkmnBuilder({
@@ -284,6 +285,7 @@ export const hisuiBuilder = {
       ['Extrasensory', 'Nasty Plot'],
       ['Dark Pulse', 'Curse'],
       ['Throat Chop', 'Snowscape'],
+      ['Hyper Voice', 'Icy Wind', 'Pain Split'],
     ],
   }),
   'potw-628-hisuian': ensurePkmnBuilder({

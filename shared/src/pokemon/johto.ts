@@ -2257,7 +2257,9 @@ export const johtoBuilder = {
       attack: 185, defense: 115, spAttack: 40, spDefense: 105, speed: 75, weight: 62.5,
       move: ['Megahorn', 'Reversal'],
       pokedex: `It can grip things with its two horns and lift 500 times its own body weight.`,
-    }
+    },
+    needForm: false,
+    syncableForms: ['alpha'],
   }),
   "potw-215": ensurePkmnBuilder({
     "move": ["Feint Attack", "Ice Punch"],

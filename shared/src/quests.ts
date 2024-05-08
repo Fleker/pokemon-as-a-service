@@ -1413,13 +1413,13 @@ export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
 
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
-  return legendaryDate.getUTCMonth() === 3 && // April (3)
-    legendaryDate.getUTCDate() <= 12 // April 12th
+  return legendaryDate.getUTCMonth() === 4 && // May (4)
+    legendaryDate.getUTCDate() <= 2 // May 2nd
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  // docId: 'available',
-  docId: 'unavailable',
+  docId: 'available',
+  // docId: 'unavailable',
   dbKey: 'shinyDarkai2',
   badge: 'potw-491-shiny',
   boss: Potw(P.Darkrai, {shiny: true, var: 2}),

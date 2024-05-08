@@ -157,6 +157,7 @@ export const galarBuilder = {
       ['Leaf Blade', 'Detect'],
       ['Steel Wing', 'Sand Attack'],
       ['Throat Chop', 'Coaching'],
+      ['Brutal Swing', 'Defog'],
     ],
   }),
   'potw-110-galarian': ensurePkmnBuilder({
@@ -763,6 +764,7 @@ export const galarBuilder = {
       ['Bullet Seed', 'Stuff Cheeks'],
       ['Tail Slap', 'Gyro Ball', 'Defense Curl'],
       ['Seed Bomb', 'Tail Whip'],
+      ['Brutal Swing', 'Uproar', 'Rest'],
     ],
   }),
   'potw-820': ensurePkmnBuilder({
@@ -785,6 +787,7 @@ export const galarBuilder = {
       ['Bullet Seed', 'Covet'],
       ['Super Fang', 'Gyro Ball', 'Belly Drum'],
       ['Seed Bomb', 'Stuff Cheeks'],
+      ['Earthquake', 'Hyper Voice', 'Rest'],
     ],
   }),
   'potw-821': ensurePkmnBuilder({
@@ -1858,6 +1861,7 @@ export const galarBuilder = {
       ['Leaf Blade', 'Brave Bird', 'Iron Defense'],
       ['Steel Wing', 'Sand Attack'],
       ['Throat Chop', 'Swords Dance'],
+      ['Brutal Swing', 'Defog'],
     ],
   }),
   'potw-866': ensurePkmnBuilder({
@@ -2079,6 +2083,7 @@ export const galarBuilder = {
       ['Mega Kick', 'Stealth Rock'],
       ['Heat Crash', 'Gravity'],
       ['Earth Power', 'Sandstorm'],
+      ['Earthquake', 'Brutal Swing', 'Wide Guard'],
     ],
   }),
   'potw-875': ensurePkmnBuilder({
