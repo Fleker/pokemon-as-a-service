@@ -19,6 +19,12 @@ export enum Leg {
    */
   KEY_ITEM = 3,
   POKEMON = 4,
+  /** For Coral Beach */
+  FISHING = 11,
+  DIVE = 12,
+  SAND = 13,
+  KITE = 14,
+  METALCHECK = 15,
 }
 export const LegLabels: Record<Leg, string> = {
   [Leg.NOTHING]: '',
@@ -26,6 +32,11 @@ export const LegLabels: Record<Leg, string> = {
   [Leg.RARE_ITEM]: 'Collect Rare Items',
   [Leg.KEY_ITEM]: 'Find Key Item',
   [Leg.POKEMON]: 'Catch Pokémon',
+  [Leg.FISHING]: 'Fish for Pokémon',
+  [Leg.DIVE]: 'Dive for treasure',
+  [Leg.SAND]: 'Play in the sand',
+  [Leg.KITE]: 'Play with a kite',
+  [Leg.METALCHECK]: 'Scan the sand for treasure',
 }
 
 export enum State {
@@ -74,6 +85,37 @@ const stdMap: Map = {
   [Leg.RARE_ITEM]: [
     new MapPoint(Leg.ITEM, []),
     new MapPoint(Leg.POKEMON, []),
+  ],
+}
+
+const coralBeachMap: Map = {
+  [Leg.FISHING]: [
+    new MapPoint(Leg.SAND, [
+      new MapPoint(Leg.KITE, []),
+      new MapPoint(Leg.METALCHECK, []),
+    ]),
+    new MapPoint(Leg.KITE, [
+      new MapPoint(Leg.SAND, []),
+      new MapPoint(Leg.METALCHECK, []),
+    ]),
+    new MapPoint(Leg.METALCHECK, [
+      new MapPoint(Leg.KITE, []),
+      new MapPoint(Leg.SAND, []),
+    ]),
+  ],
+  [Leg.DIVE]: [
+    new MapPoint(Leg.SAND, [
+      new MapPoint(Leg.KITE, []),
+      new MapPoint(Leg.METALCHECK, []),
+    ]),
+    new MapPoint(Leg.KITE, [
+      new MapPoint(Leg.SAND, []),
+      new MapPoint(Leg.METALCHECK, []),
+    ]),
+    new MapPoint(Leg.METALCHECK, [
+      new MapPoint(Leg.KITE, []),
+      new MapPoint(Leg.SAND, []),
+    ]),
   ],
 }
 
@@ -126,8 +168,10 @@ export interface Voyage {
   description: string
   items: VoyageItems
   rareitems: VoyageItems
+  legItems?: Partial<Record<Leg, ItemId[]>>
   pokemon: VoyagePkmn
   weatherPokemon: VoyageWeatherPkmn
+  legPokemon?: Partial<Record<Leg, BadgeId[]>>
   bosses: VoyageRaidBosses
   unlocked: LegendaryQuest
   typePrimary: Type
@@ -1188,13 +1232,70 @@ export const Voyages = {
   //   label: 'Snoozy Archipelago',
   //   description: 'You are on a cruise to several islands in the great archipelago',
   // }),
-  // CORALBEACH: assert<Voyage>({
-      // label: 'Coral Pebble Beach',
-      // description: 'The sun beats down on your face as you venture out across the colorful sand.',
-      // typePrimary: 'Rock', typeSecondary: ['Ground', 'Water'], scoreStat: 'defense',
-  // }).
+  CORALBEACH: assert<Voyage>({
+      label: 'Coral Pebble Beach',
+      description: 'The sun beats down on your face as you venture out across the colorful sand.',
+      typePrimary: 'Rock', typeSecondary: ['Ground', 'Water'], scoreStat: 'defense',
+      buckets: [0, 0, 0, 0], map: coralBeachMap,
+      items: [[], [], [], []],
+      rareitems: [['prismscale'], ['prismscale'], ['prismscale'], ['prismscale']],
+      // TODO Update the binoculars
+      pokemon: [[], [], [], []],
+      weatherPokemon: {
+        Cloudy: [P.Tentacool],
+        'Diamond Dust': [P.Seel],
+        Fog: [P.Frillish],
+        'Heat Wave': [P.Slugma],
+        Rain: [P.Buizel],
+        Sandstorm: [P.Barboach],
+        Snow: [P.Seel],
+        Sunny: [P.Lotad],
+        Thunderstorm: [P.Emolga],
+        Windy: [P.Cramorant],
+      },
+      legItems: {
+        [Leg.DIVE]: [
+          'pearl', 'pearl', 'pearl', 'bigpearl', 'yellowshard', 'redshard',
+          'blueshard', 'greenshard', 'starpiece', 'dragonscale', 'heartscale',
+          'prismscale',
+        ],
+        [Leg.METALCHECK]: [
+          'meltancandy', 'gimmighoulcoin', 'nugget', ...BOTTLECAPS, 'softsand',
+          'metalcoat',
+        ]
+      },
+      legPokemon: {
+        [Leg.FISHING]: [
+          P.Magikarp, P.Slowpoke, P.Staryu, P.Luvdisc, P.Bruxish, P.Dhelmise,
+          P.Arrokuda, P.Clamperl, P.Corsola,
+        ],
+        [Leg.SAND]: [
+          P.Sandygast, P.Shuckle, P.Shellos, P.Mareanie,
+          P.Wimpod, P.Pyukumuku, P.Binacle, Potw(P.Oricorio, {form:'pau'}),
+        ],
+        [Leg.KITE]: [
+          P.Wattrel, P.Pidove, P.Wingull, P.Pikipek, P.Ducklett,
+        ]
+      },
+      bosses: [
+        [P.Pelipper, P.Palossand, P.Pincurchin],
+        [P.Starmie, P.Slowbro, P.Gastrodon, P.Lapras, P.Cursola],
+      ],
+      unlocked: {
+        hints: [/*{
+          completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+          msg: 'Are you familiar with the starter Pokémon of Paldea?'
+        }, {
+          completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+          msg: 'Become an expert on the Pokémon of Paldea.'
+        }*/{
+          completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+          msg: 'In testing.'
+        }]
+      }
+  }),
   // URBANPLAZA: assert<Voyage>({
-  //   label: 'Castelia City',
+  //   label: 'Lumiose City',
   //   description: 'You have arrived in a grand city, with energetic Pokémon around every corner.',
   //   typePrimary: 'Electric', typeSecondary: ['Flying', 'Fire'],
   // }),

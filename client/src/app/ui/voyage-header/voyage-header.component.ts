@@ -49,6 +49,13 @@ export class VoyageHeaderComponent implements AfterViewInit {
         regularMap[Badge.fromLegacy(p).toString()] = randomItem(binocularAnimations)
       })
     })
+    if (this.voyage.legPokemon) {
+      Object.values(this.voyage.legPokemon).forEach(l => {
+        l.forEach(p => {
+          regularMap[Badge.fromLegacy(p).toString()] = randomItem(binocularAnimations)
+        })
+      })
+    }
 
     const weatherMap: Partial<Record<PokemonId, string>> = {}
     Object.values(this.voyage.weatherPokemon).forEach(arr => {
@@ -79,6 +86,11 @@ export class VoyageHeaderComponent implements AfterViewInit {
     if (!this.voyage) return []
     const s = new Set()
     Object.values(this.voyage.items).forEach(arr => {
+      arr.forEach(i => {
+        s.add(i)
+      })
+    })
+    Object.values(this.voyage.legItems).forEach(arr => {
       arr.forEach(i => {
         s.add(i)
       })
