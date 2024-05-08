@@ -70,6 +70,7 @@ export const hisuiBuilder = {
       ['Ice Ball', 'Thunder Wave'],
       ['Gyro Ball', 'Grassy Terrain'],
       ['Electroweb', 'Signal Beam', 'Stun Spore'],
+      ['Discharge', 'Round', 'Recycle'],
     ],
   }),
   'potw-101-hisuian': ensurePkmnBuilder({
@@ -92,6 +93,7 @@ export const hisuiBuilder = {
       ['Ice Ball', 'Thunder Wave'],
       ['Gyro Ball', 'Grassy Terrain'],
       ['Electroweb', 'Signal Beam', 'Stun Spore'],
+      ['Discharge', 'Explosion', 'Recycle'],
     ],
   }),
   'potw-157-hisuian': ensurePkmnBuilder({
@@ -217,6 +219,7 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Drain Punch', 'Aerial Ace', 'Victory Dance'],
       ['Axe Kick', 'Poison Jab', 'Sleep Powder'],
+      ['Vacuum Wave', 'Acrobatics', 'Sunny Day'],
     ],
   }),
   'potw-550-white_stripe': ensurePkmnBuilder({
@@ -239,6 +242,8 @@ export const hisuiBuilder = {
     novelMoves: [[],
       ['Wave Crash', 'Scary Face'],
       ['Assurance', 'Taunt'],
+      ['Liquidation', 'Head Smash', 'Rain Dance'],
+      ['Uproar', 'Muddy Water', 'Tail Whip'],
     ],
   }),
   'potw-570-hisuian': ensurePkmnBuilder({
@@ -309,6 +314,7 @@ export const hisuiBuilder = {
       ['Air Slash', 'Twister', 'Roost'],
       ['Snarl', 'Psychic Terrain'],
       ['Vacuum Wave', 'Rain Dance'],
+      ['Psychic Noise', 'Heat Wave', 'Roost'],
     ],
   }),
   'potw-705-hisuian': ensurePkmnBuilder({
@@ -463,6 +469,7 @@ export const hisuiBuilder = {
     species: 'Wyrdeer', type1: 'Normal', type2: 'Psychic', 
     tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
     weight: 95.1, release: 'greatball',
+    needForm: false, syncableForms: ['alpha'],
     eggBase: 'potw-234', eggGroup: [], eggCycles: -1,
     pokedex: `The black orbs shine with an uncanny light when the Pokémon is erecting invisible barriers. The fur shed from its beard retains heat well and is a highly useful material for winter clothing.`,
     hp: 103, attack: 105, defense: 72, spAttack: 105, spDefense: 75, speed: 65,
@@ -548,7 +555,7 @@ export const hisuiBuilder = {
       ['Phantom Force', 'Crunch', 'Scary Face'],
       ['Psychic Fangs', 'Taunt'],
       ['Liquidation', 'Head Smash', 'Pain Split'],
-      /// Head Smash
+      ['Outrage', 'Muddy Water', 'Calm Mind'],
       // Last Respects
     ],
   }),
@@ -570,6 +577,7 @@ export const hisuiBuilder = {
       ['Phantom Force', 'Crunch', 'Scary Face'],
       ['Psychic Fangs', 'Taunt'],
       ['Liquidation', 'Head Smash', 'Pain Split'],
+      ['Outrage', 'Muddy Water', 'Calm Mind'],
     ],
   }),
   'potw-902-female': ensurePkmnBuilder({
@@ -590,6 +598,7 @@ export const hisuiBuilder = {
       ['Phantom Force', 'Crunch', 'Scary Face'],
       ['Ice Fang', 'Taunt'],
       ['Liquidation', 'Head Smash', 'Snowscape'],
+      ['Outrage', 'Muddy Water', 'Calm Mind'],
     ],
   }),
   'potw-903': ensurePkmnBuilder({

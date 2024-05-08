@@ -24,6 +24,9 @@ export const paldeaBuilder = {
     hp: 75, attack: 110, defense: 105, spAttack: 30, spDefense: 70, speed: 100,
     move: ['Raging Bull', 'Double Kick'],
     moveTMs: [],
+    novelMoves: [[],
+      ['Close Combat', 'Trailblaze', 'Work Up'],
+    ],
   }),
   'potw-128-aqua_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting', type2: 'Water',
@@ -33,6 +36,9 @@ export const paldeaBuilder = {
     hp: 75, attack: 110, defense: 105, spAttack: 30, spDefense: 70, speed: 100,
     move: ['Raging Bull', 'Double Kick'],
     moveTMs: [],
+    novelMoves: [[],
+      ['Close Combat', 'Trailblaze', 'Work Up'],
+    ],
   }),
   'potw-194-paldean': ensurePkmnBuilder({
     species: 'Wooper', type1: 'Poison', type2: 'Ground', 
@@ -708,7 +714,10 @@ export const paldeaBuilder = {
       'Volt Switch', 'Chilling Water', 'Weather Ball', 'Protect', 'Thunder Wave', 
       'Confuse Ray', 'Rain Dance', 'Reflect', 'Light Screen', 'Substitute', 
       'Soak', 'Endure', 'Electric Terrain', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Mud Shot', 'Charge'],
+    ],
   }),
   'potw-939': ensurePkmnBuilder({
     species: 'Bellibolt', type1: 'Electric', 
@@ -724,8 +733,10 @@ export const paldeaBuilder = {
       'Giga Impact', 'Mud Shot', 'Volt Switch', 'Chilling Water', 'Weather Ball', 
       'Protect', 'Thunder Wave', 'Confuse Ray', 'Rain Dance', 'Reflect', 
       'Light Screen', 'Substitute', 'Soak', 'Endure', 'Electric Terrain', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Sucker Punch', 'Charge'],
+    ],
   }),
   'potw-940': ensurePkmnBuilder({
     species: 'Wattrel', type1: 'Electric', type2: 'Flying', 
@@ -845,7 +856,10 @@ export const paldeaBuilder = {
       'Leaf Storm', 'Infestation', 'Phantom Force', 'Beat Up', 'Pounce', 
       'Trailblaze', 'Protect', 'Defense Curl', 'Confuse Ray', 'Substitute', 
       'Leech Seed', 'Endure', 'Grassy Terrain', 
-    ]
+    ],
+    novelMoves: [[],
+      ['Rollout', 'Defense Curl'],
+    ],
   }),
   'potw-947': ensurePkmnBuilder({
     species: 'Brambleghast', type1: 'Grass', type2: 'Ghost', 
@@ -860,8 +874,10 @@ export const paldeaBuilder = {
       'Facade', 'Leaf Storm', 'Infestation', 'Giga Impact', 'Phantom Force', 
       'Beat Up', 'Pounce', 'Trailblaze', 'Protect', 'Defense Curl', 
       'Confuse Ray', 'Substitute', 'Leech Seed', 'Endure', 'Grassy Terrain', 
-      
-    ]
+    ],
+    novelMoves: [[],
+      ['Rollout', 'Curse'],
+    ],
   }),
   'potw-948': ensurePkmnBuilder({
     species: 'Toedscool', type1: 'Ground', type2: 'Grass', 
@@ -901,7 +917,7 @@ export const paldeaBuilder = {
   'potw-950': ensurePkmnBuilder({
     species: 'Klawf', type1: 'Rock', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
-    weight: 79, syncableForms: ['titan'],
+    weight: 79, syncableForms: ['titan'], needForm: false,
     eggBase: 'potw-950', eggGroup: ['Water 3'], eggCycles: 35,
     pokedex: `Klawf hangs upside-down from cliffs, waiting for prey. But Klawf can't remain in this position for long because its blood rushes to its head.`,
     hp: 70, attack: 100, defense: 115, spAttack: 35, spDefense: 55, speed: 75,
@@ -1230,7 +1246,7 @@ export const paldeaBuilder = {
   'potw-968': ensurePkmnBuilder({
     species: 'Orthworm', type1: 'Steel', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 310,
+    weight: 310, needForm: false, syncableForms: ['titan'],
     eggBase: 'potw-968', eggGroup: ['Field'], eggCycles: 35,
     pokedex: `When attacked, this Pokémon will wield the tendrils on its body like fists and pelt the opponent with a storm of punches.`,
     hp: 70, attack: 85, defense: 145, spAttack: 60, spDefense: 55, speed: 65,
@@ -1389,7 +1405,7 @@ export const paldeaBuilder = {
   'potw-977': ensurePkmnBuilder({
     species: 'Dondozo', type1: 'Water', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 220,
+    weight: 220, syncableForms: ['titan'], needForm: false,
     eggBase: 'potw-977', eggGroup: ['Water 2'], eggCycles: 20,
     pokedex: `This Pokémon is a glutton, but it's bad at getting food. It teams up with a Tatsugiri to catch prey.`,
     hp: 150, attack: 100, defense: 115, spAttack: 65, spDefense: 65, speed: 35,

@@ -954,6 +954,7 @@ export const galarBuilder = {
       ['Tail Slap', 'Tail Whip'],
       ['Mud Shot', 'Howl'],
       ['Throat Chop', 'Taunt'],
+      ['Beat Up', 'Round', 'Fake Tears'],
     ],
   }),
   'potw-828': ensurePkmnBuilder({
@@ -976,6 +977,7 @@ export const galarBuilder = {
       ['Tail Slap', 'Parting Shot'],
       ['Mud Shot', 'Howl'],
       ['Throat Chop', 'Taunt'],
+      ['Snarl', 'Round', 'Fake Tears']
     ],
   }),
   'potw-829': ensurePkmnBuilder({
@@ -1404,6 +1406,7 @@ export const galarBuilder = {
       ['Peck', 'Laser Focus'],
       ['Drill Run', 'Acupressure'],
       ['Throat Chop', 'Rain Dance'],
+      ['Surf', 'Psychic Fangs', 'Focus Energy'],
     ],
   }),
   'potw-847': ensurePkmnBuilder({
@@ -1425,6 +1428,7 @@ export const galarBuilder = {
       ['Crunch', 'Laser Focus'],
       ['Drill Run', 'Acupressure'],
       ['Throat Chop', 'Rain Dance'],
+      ['Surf', 'Psychic Fangs', 'Focus Energy'],
     ],
   }),
   'potw-848': ensurePkmnBuilder({
@@ -1544,6 +1548,7 @@ export const galarBuilder = {
       ['Octazooka', 'Taunt'],
       ['Dig', 'Topsy-Turvy'],
       ['Ice Punch', 'Work Up'],
+      ['Muddy Water', 'Pain Split'],
     ],
   }),
   'potw-853': ensurePkmnBuilder({
@@ -1566,6 +1571,7 @@ export const galarBuilder = {
       ['Octazooka', 'Octolock'],
       ['Stomping Tantrum', 'Topsy-Turvy'],
       ['Ice Punch', 'Coaching'],
+      ['Muddy Water', 'Pain Split'],
     ],
   }),
   'potw-854': ensurePkmnBuilder({
@@ -1588,6 +1594,7 @@ export const galarBuilder = {
       ['Mega Drain', 'Withdraw'],
       ['Dark Pulse', 'Strength Sap'],
       ['Signal Beam', 'Trick'],
+      ['Night Shade', 'Psybeam', 'Aromatic Mist'],
     ],
   }),
   'potw-855': ensurePkmnBuilder({
@@ -1610,6 +1617,7 @@ export const galarBuilder = {
       ['Giga Drain', 'Shell Smash'],
       ['Dark Pulse', 'Strength Sap'],
       ['Signal Beam', 'Trick'],
+      ['Psyshock', 'Aromatic Mist'],
     ],
   }),
   'potw-856': ensurePkmnBuilder({
@@ -2434,6 +2442,7 @@ export const galarBuilder = {
       ['Quick Attack', 'Helping Hand'],
       ['Sucker Punch', 'Curse'],
       ['Infestation', 'Double Team'],
+      ['Swift', 'Helping Hand'],
     ],
   }),
   'potw-886': ensurePkmnBuilder({
@@ -2458,6 +2467,7 @@ export const galarBuilder = {
       ['Double-Edge', 'Helping Hand'],
       ['Sucker Punch', 'Curse'],
       ['Outrage', 'U-turn', 'Grudge'],
+      ['Breaking Swipe', 'Beat Up', 'Dragon Cheer'],
     ],
   }),
   'potw-887': ensurePkmnBuilder({
@@ -2482,6 +2492,7 @@ export const galarBuilder = {
       ['Draco Meteor', 'Sucker Punch', 'Helping Hand'],
       ['Psychic Fangs', 'Curse'],
       ['Outrage', 'U-turn', 'Grudge'],
+      ['Breaking Swipe', 'Beat Up', 'Dragon Cheer'],
     ],
   }),
   'potw-888': ensurePkmnBuilder({
