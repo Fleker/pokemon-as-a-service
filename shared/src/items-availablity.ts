@@ -2941,7 +2941,7 @@ export const DirectMap: Partial<Record<ItemId, DirectUsage>> = {
   gimmighoulbill: {
     isValid: () => true,
     exchange: (user) => {
-      if (user.items.gimmighoulcoin) {
+      if (!user.items.gimmighoulcoin) {
         user.items.gimmighoulcoin = 0
       }
       user.items.gimmighoulcoin! += 100
