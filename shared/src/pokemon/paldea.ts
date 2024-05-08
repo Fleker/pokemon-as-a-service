@@ -1046,7 +1046,7 @@ export const paldeaBuilder = {
   'potw-962': ensurePkmnBuilder({
     species: 'Bombirdier', type1: 'Flying', type2: 'Dark', 
     tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
-    weight: 42.9,
+    weight: 42.9, syncableForms: ['titan'], needForm: false,
     eggBase: 'potw-962', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `It gathers things up in an apron made from shed feathers added to the Pokémon's chest feathers, then drops those things from high places for fun.`,
     hp: 70, attack: 103, defense: 85, spAttack: 60, spDefense: 85, speed: 82,

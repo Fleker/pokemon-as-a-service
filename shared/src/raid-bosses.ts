@@ -355,11 +355,11 @@ export const standardBosses: RaidBoss[][] = [
   ],
   /* 3-Star */
   [{
-    species: Potw(P.Meowscarada, {var: starterBossVar, form: 'hisuian'})
+    species: Potw(P.Meowscarada, {var: starterBossVar})
   }, {
-    species: Potw(P.Skeledirge, {var: starterBossVar, form: 'hisuian'})
+    species: Potw(P.Skeledirge, {var: starterBossVar})
   }, {
-    species: Potw(P.Quaquaval, {var: starterBossVar, form: 'hisuian'})
+    species: Potw(P.Quaquaval, {var: starterBossVar})
   }, {
     species: Potw(P.Throh, {var:2})
   }, {
