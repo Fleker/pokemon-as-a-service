@@ -1,5 +1,5 @@
 import * as P from '../gen/type-pokemon'
 import * as I from '../gen/type-pokemon-ids'
 
-export const weekly = P.Azurill
-export const weeklyId = I.Azurill
+export const weekly = P.Nosepass
+export const weeklyId = I.Nosepass
