@@ -18,6 +18,7 @@ import { assert } from '@fleker/gents';
 import { Badge, fromPersonality } from '../../shared/src/badge3';
 import { PokemonId } from '../../shared/src/pokemon/types';
 import { obtainUsernameFromEmail, verifyUserEmail } from './vendor/example-tasks'
+import { RuntimeOptions } from 'firebase-functions';
 
 const db = salamander(admin.firestore())
 const auth = admin.auth()
@@ -630,7 +631,11 @@ export const fcm_manage = functions.https.onCall(async (data: F.FcmManage.Req, c
   return 'OK'
 })
 
-export const user_history = functions.https.onCall(async (data: F.UserHistory.Req, context): Promise<F.UserHistory.Res> => {
+const userHistory = {
+  timeoutSeconds: 540,
+  memory: '1GB'
+} as RuntimeOptions
+export const user_history = functions.runWith(userHistory).https.onCall(async (data: F.UserHistory.Req, context): Promise<F.UserHistory.Res> => {  
   const userId = context.auth!.uid
   const oneWeek = 1000 * 60 * 60 * 24 * 7
 
