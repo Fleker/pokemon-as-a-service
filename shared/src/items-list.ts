@@ -606,7 +606,7 @@ const ITEMS_TREASURE = {
   yellownectar: assert<Souvenir>({
     label: 'Yellow Nectar', category: 'treasure',
     description: 'The pollen from a yellow flower that a Pokémon loves. It smells citrusy.',
-      buy: 0, sell: 0, isSouvenir: true, functional: true,
+    buy: 0, sell: 0, isSouvenir: true, functional: true,
   }),
   meltancandy:{
     label: 'Meltan Candy', category: 'treasure',
@@ -705,21 +705,25 @@ const ITEMS_TREASURE = {
     label: 'Dynite Ore',
     description: 'Ore that comes from the southern region of Galar. Some collectors will pay a lot for it.'
   }),
-  ruinousstakenw: Treasure({
+  ruinousstakenw: assert<Souvenir>({
     label: 'Northwestern Ruinous Stake',
-    description: 'A strange stake found buried in the earth. It has an eerie green glow.'
+    description: 'A strange stake found buried in the earth. It has an eerie green glow.',
+    category: 'treasure', buy: 0, sell: 1, isSouvenir: true,
   }),
-  ruinousstakene: Treasure({
+  ruinousstakene: assert<Souvenir>({
     label: 'Northeastern Ruinous Stake',
-    description: 'A strange stake found buried in the earth. It has a sinister blue glow.'
+    description: 'A strange stake found buried in the earth. It has a sinister blue glow.',
+    category: 'treasure', buy: 0, sell: 1, isSouvenir: true,
   }),
-  ruinousstakese: Treasure({
+  ruinousstakese: assert<Souvenir>({
     label: 'Southeastern Ruinous Stake',
-    description: 'A strange stake found buried in the earth. It has a foreboding purple glow.'
+    description: 'A strange stake found buried in the earth. It has a foreboding purple glow.',
+    category: 'treasure', buy: 0, sell: 1, isSouvenir: true,
   }),
-  ruinousstakesw: Treasure({
+  ruinousstakesw: assert<Souvenir>({
     label: 'Southwestern Ruinous Stake',
-    description: 'A strange stake found buried in the earth. It has a sickly orange glow.'
+    description: 'A strange stake found buried in the earth. It has a sickly orange glow.',
+    category: 'treasure', buy: 0, sell: 1, isSouvenir: true,
   }),
 }
 
@@ -3416,10 +3420,11 @@ const ITEMS_KEY = {
     description: 'A hidden treasure uncovered in the depths of a voyage. It marks your expertise and serves as an indication you can handle more.',
     buy: 0, sell: 0,
   }),
-  teraorb: assert<Item>({
+  teraorb: assert<SouvenirContainer>({
     label: 'Tera Orb', category: 'key',
     description: 'An orb that contains power from an unknown source. When paired with a Tera Crystal, your Pokémon will terastalize.',
     buy: 0, sell: 0, battle: true,
+    isSouvenirContainer: true,
   }),
   scarletbook: assert<Item>({
     label: 'Scarlet Book', category: 'key',
