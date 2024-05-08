@@ -2,8 +2,8 @@ import { AfterViewInit, Component, ElementRef, OnInit, OnDestroy, ViewChild } fr
 import { FirebaseService } from 'src/app/service/firebase.service';
 import { LocationService } from 'src/app/service/location.service';
 import { ITEMS, ItemId, PokeballId } from '../../../../../shared/src/items-list';
-import { Swarms } from '../../../../../shared/src/platform/swarms';
-import { Globe, WeatherType, iconMap } from '../../../../../shared/src/locations-list';
+import { Swarms, MassiveOutbreaks } from '../../../../../shared/src/platform/swarms';
+import { Globe, WeatherType, iconMap, isLocationMassiveOutbreak } from '../../../../../shared/src/locations-list';
 import { ENCOUNTER_CONDITION} from '../../../../../shared/src/gen/encounter-map';
 import { get } from '../../../../../shared/src/pokemon';
 import { F } from '../../../../../shared/src/server-types';
@@ -118,6 +118,15 @@ export class PageEncounterComponent implements OnInit, OnDestroy, AfterViewInit 
     if (!this.user.location) return ''
     const swarm = Swarms[Globe[this.user.location].region]
     if (!swarm) return ''
+    return get(swarm).species
+  }
+
+  get mmo() {
+    if (!this.user) return undefined
+    if (!this.user.location) return undefined
+    const swarm = MassiveOutbreaks[this.forecast]
+    if (!swarm) return undefined
+    if (!isLocationMassiveOutbreak(this.location, this.forecast)) return undefined
     return get(swarm).species
   }
 

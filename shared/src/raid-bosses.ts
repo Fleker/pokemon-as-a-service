@@ -482,7 +482,15 @@ export const standardBosses: RaidBoss[][] = [
         msg: 'This raid cannot be created today'
       }]
     }
-  }*/],
+  },*/ {
+    species: Potw(P.Necrozma, {var: 1}),
+    condition: {
+      hints: [{
+        completed: (r) => Events['SOLAR_ECLIPSE'].isActive(r as unknown as Users.Doc),
+        msg: 'This raid can only be created during an Eclipse'
+      }]
+    }
+  }],
   /* 6-Star */
   [{
     species: Q.GLOBAL_QUESTS[0].boss,
@@ -548,7 +556,8 @@ export const standardBosses: RaidBoss[][] = [
     {
       // Alphas
       // see https://www.serebii.net/legendsarceus/alphapokemon.shtml
-      species: Potw(P.Snorlax, {var: 1, form: 'alpha'})
+      species: Potw(P.Snorlax, {var: 1, form: 'alpha'}),
+      heldItem: 'toxicorb',
     },
     {
       // Nobles

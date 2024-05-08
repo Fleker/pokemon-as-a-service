@@ -36,8 +36,8 @@ export interface Location {
   hemiLat: 'North' | 'South'
   hemiLong: 'West' | 'East'
   timezone: Timezone
-  latitude?: number
-  longitude?: number
+  latitude: number
+  longitude: number
   /**
    * Emoji flag.
    */
@@ -285,6 +285,57 @@ export function getTidesByLocation(location?: Location): Tides {
     return 'Low Tide'
   }
   return 'High Tide'
+}
+
+export function isLocationMassiveOutbreak(location: Location, forecast?: WeatherType): boolean {
+  if (forecast) {
+    location.forecast = forecast
+  }
+  if (location.forecast === undefined || location.forecast === 'Sunny') return false
+  let st = spacetime()
+  st = st.goto(location.timezone)
+  const hours = st.hour()
+  const minutes = st.minute()
+  if (minutes < 25 || minutes > 35) return false
+  const lonDecade = Math.floor(location.latitude / 10)
+  // Corresponds the longitude decade to the time-of-day hour where that longitude operates
+  const hourLatArray = [
+    -13, // longitude -130 to -120.01
+    -12, -11, -10, -9, -8,    // 6 hours
+    -6, -5, -1, 0, 1, 2,      // 12 hours
+    3, 5, 7, 10, 11, 12,      // 18 hours
+    13, 14, 15, 17,           // 22 hours
+    0, -1,                    // Overlap
+  ]
+  return lonDecade === hourLatArray[hours]
+}
+
+/**
+ * In this game, a solar eclipse will occur every full moon but in different
+ * locations. Technically this isn't how it happens in real life, but can lead
+ * to different and interesting gameplay.
+ * 
+ * When there is a full moon, then the latitude also needs to be computed. The
+ * latitude decade combined with a synthetic timing metric determines if the
+ * eclipse can be spotted in that location.
+ *
+ * As there are huge gaps in land, like the oceans, it's possible eclipses may
+ * not occur in any given month. In PotW, latitudes techincally just go between
+ * -41 and 61 (decades -5 to 6).
+ * 
+ * Also, an eclipse needs to happen during the day or you wouldn't notice it
+ * in the first place lol.
+ */
+export function isEclipse(location: Location): boolean {
+  if (timeOfDay(location) !== 'Day') return false
+  const lonDecade = Math.floor(location.longitude / 10)
+  let st = spacetime()
+  st = st.goto(location.timezone)
+  const year = st.year()
+  const month = st.month()
+  const eclipsePeriod = (year - 1) * 12 + month
+  const eclipseOverflow = eclipsePeriod % 36 // Divided into 36 longitude decades
+  return lonDecade === eclipseOverflow
 }
 
 export const Globe = {
@@ -661,6 +712,7 @@ export const Globe = {
   'ES-REMOTE-GEN': assert<Location>({
     label:"Spain (Remote)", region:"North Europe", terrain:"Grasslands", flag: '🇪🇸', id: 38,
     hemiLat: 'North', hemiLong: 'East', timezone: 'Europe/Vienna', vivillon: 'meadow',
+    latitude: 36.55, longitude: -4.99,
     fact: "For those who live in autonomous regions, their office is also autonomous",
     weatherSpring:{Cloudy:0.15,Thunderstorm:0.05,Rain:0.15,Fog:0.1},
     weatherSummer:{Rain:0.1,Cloudy:0.15,'Heat Wave':0.05,Thunderstorm:0.15,Fog:0.1},

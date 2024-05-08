@@ -1,6 +1,6 @@
 import { Users } from './db-types'
 import { TeamsBadge, MATCH_REQS, Potw } from '../../shared/src/badge2'
-import { season, Location, WeatherType, TerrainType, RegionType, TimeOfDay, timeOfDay, isDusk, Tides, LocationId, Globe, getTidesByLocation } from '../../shared/src/locations-list'
+import { season, Location, WeatherType, TerrainType, RegionType, TimeOfDay, timeOfDay, isDusk, Tides, LocationId, Globe, getTidesByLocation, isLocationMassiveOutbreak, isEclipse } from '../../shared/src/locations-list'
 import * as Pkmn from '../../shared/src/pokemon'
 import { BadgeId, PokemonDoc, PokemonForm, PokemonGender } from '../../shared/src/pokemon/types'
 import { CLEAR_BELL, CATCH_CHARM_RBY, CATCH_CHARM_GSC, CATCH_CHARM_RSE, CATCH_CHARM_DPPT, CATCH_CHARM_BW, CATCH_CHARM_SM } from '../../shared/src/quests'
@@ -12,7 +12,7 @@ import * as P from '../../shared/src/gen/type-pokemon'
 import {Events, EventId} from '../../shared/src/events'
 import * as S from '../../shared/src/server-types'
 import spacetime from 'spacetime'
-import { Swarms } from '../../shared/src/platform/swarms'
+import { Swarms, MassiveOutbreaks } from '../../shared/src/platform/swarms'
 import { SWARMS_UNLOCK } from '../../shared/src/quests'
 import { hasPokemonFuzzy } from './users.utils'
 import {getAllPokemon, myPokemon, TPokemon} from '../../shared/src/badge-inflate'
@@ -524,6 +524,13 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
     // ~9-10% chance of a Swarm Pokemon.
     // (Keeping in mind that list + list/11 does increase the list size)
     list.push(...addIf(swarmPokemon, {count: Math.floor(list.length / 11)}, p))
+    if (isLocationMassiveOutbreak(location)) {
+      const massPokemon = MassiveOutbreaks[location.forecast]
+      list.push(...addIf(massPokemon, {count: Math.floor(list.length / 6)}, p))
+    }
+    if (isEclipse(location)) {
+      list.push(...addIf(P.Lunatone, {count: 7}, p))
+    }
   }
 
   return {
@@ -1186,6 +1193,12 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Glimmora, {gate: CATCH_CHARM_SWSH, item: ['terarock'], weather: 'Cloudy', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Revavroom, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], weather: 'Fog', terrain: 'Mountain'}, p))
 
+  if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
+    if (isEclipse(location)) {
+      list.push(...addIf(Potw(P.Lycanroc, {form: 'midnight'}), {count: 4}, p))
+    }
+  }
+
   return {
     shinyMultipler: 1,
     list,
@@ -1246,6 +1259,12 @@ function ENCOUNTERS_LEGENDARY(user: Users.Doc, now, location, format: EncounterP
   list.push(...addIf(Potw(P.Articuno, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
   list.push(...addIf(Potw(P.Zapdos, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
   list.push(...addIf(Potw(P.Moltres, {form: 'galarian'}), {gate: CATCH_CHARM_SM, other: galarianBirds}, p))
+
+  if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
+    if (isEclipse(location)) {
+      list.push(...addIf(Potw(P.Necrozma, {}), {count: 1}, p))
+    }
+  }
 
   return {
     shinyMultipler: 1,

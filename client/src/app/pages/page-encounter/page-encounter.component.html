@@ -71,6 +71,9 @@
         <p *ngIf="charms.swarm">
           There is a mass outbreak of {{currentSwarming}} around.
         </p>
+        <p *ngIf="charms.swarm && mmo">
+          A sudden outbreak of {{mmo}} has appeared! They won't be around for long.
+        </p>
       </div>
 
       <div>

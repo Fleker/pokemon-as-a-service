@@ -2,7 +2,7 @@ import { assert } from '@fleker/gents'
 import { BadgeId } from "./pokemon/types";
 import { Users } from "./server-types";
 import * as P from './gen/type-pokemon'
-import { getLocalTime, getMoonPhase } from "./locations-list";
+import { Globe, getLocalTime, getMoonPhase, isEclipse } from "./locations-list";
 import { ITEMS, ItemId } from "./items-list";
 
 export interface Event {
@@ -72,6 +72,21 @@ export const Events = {
     shinyRate: 1,
     isActive: () => {
       return getMoonPhase() === 'Full Moon'
+    }
+  }),
+  'SOLAR_ECLIPSE': assert<Event>({
+    title: 'Solar Eclipse',
+    description: 'The moon is in charge now.',
+    encounterHoldItems: ['starpiece'],
+    frequentSpecies: [P.Lunatone],
+    other: [
+      'Lycanroc may appear in Ultra Balls',
+      'A legendary Pokémon may be found in the wild!',
+    ],
+    shinyRate: 1,
+    isActive: (user) => {
+      const {location} = user
+      return isEclipse(Globe[location])
     }
   }),
   'BUG_CATCHING': assert<Event>({
