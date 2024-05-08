@@ -244,7 +244,7 @@ export const paldeaBuilder = {
   }),
   'potw-915': ensurePkmnBuilder({
     species: 'Lechonk', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 10.2, gender: ['male', 'female'],
     eggBase: 'potw-915', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 18, levelTo: 'potw-916',
@@ -264,7 +264,7 @@ export const paldeaBuilder = {
   // https://serebii.net/pokedex-sv/oinkologne/
   'potw-916': ensurePkmnBuilder({
     species: 'Oinkologne', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 120, gender: ['male', 'female'],
     eggBase: 'potw-915', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `Oinkologne is proud of its fine, glossy skin. It emits a concentrated scent from the tip of its tail.`,
@@ -282,7 +282,7 @@ export const paldeaBuilder = {
   }),
   'potw-916-female': ensurePkmnBuilder({
     species: 'Oinkologne', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 120,
     eggBase: 'potw-915', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `This Pokémon sends a flowerlike scent wafting about. Well-developed muscles in its legs allow it to leap more than 16 feet with no trouble at all.`,
@@ -295,7 +295,7 @@ export const paldeaBuilder = {
   }),
   'potw-917': ensurePkmnBuilder({
     species: 'Tarountula', type1: 'Bug', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 4,
     eggBase: 'potw-917', eggGroup: ['Bug'], eggCycles: 10,
     levelAt: 15, levelTo: 'potw-918',
@@ -313,7 +313,7 @@ export const paldeaBuilder = {
   }),
   'potw-918': ensurePkmnBuilder({
     species: 'Spidops', type1: 'Bug', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 16.5,
     eggBase: 'potw-917', eggGroup: ['Bug'], eggCycles: 10,
     pokedex: `It clings to branches and ceilings using its threads and moves without a sound. It takes out its prey before the prey even notices it.`,
@@ -331,7 +331,7 @@ export const paldeaBuilder = {
   }),
   'potw-919': ensurePkmnBuilder({
     species: 'Nymble', type1: 'Bug', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 1,
     eggBase: 'potw-919', eggGroup: ['Bug'], eggCycles: 10,
     levelAt: 24, levelTo: 'potw-920',
@@ -348,7 +348,7 @@ export const paldeaBuilder = {
   }),
   'potw-920': ensurePkmnBuilder({
     species: 'Lokix', type1: 'Bug', type2: 'Dark', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'FALSE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
     weight: 17.5,
     eggBase: 'potw-919', eggGroup: ['Bug'], eggCycles: 10,
     pokedex: `When it decides to fight all out, it stands on its previously folded legs to enter Showdown Mode. It neutralizes its enemies in short order.`,
