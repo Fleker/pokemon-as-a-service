@@ -1,5 +1,5 @@
 <div *ngFor="let letter of safari?.split('')" class="safaribox {{friendSafariClass(letter)}}" (click)="handleClick(letter)">
-  <img src="{{safariIcon(letter)}}" class="icon" />
+  <mat-icon [svgIcon]="safariIcon(letter)"></mat-icon>
   <br>
   <sprite-pokemon *ngFor="let badge of friendSafariPkmn(letter)" badge="{{badge}}"></sprite-pokemon>
   <br><br>

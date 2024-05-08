@@ -51,6 +51,6 @@ export class FriendSafariComponent implements OnInit {
   }
 
   safariIcon(char: string) {
-    return `/images/sprites/icons/type-${FriendSafariTypes[char]}.svg`
+    return `type-${FriendSafariTypes[char]}`
   }
 }
