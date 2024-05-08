@@ -16,7 +16,7 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     let frame = 0
     this.flicker = setInterval(() => {
-      this.drawConstellationHeracross(++frame)
+      this.drawConstellationTyranitar(++frame)
       this.dotUserStars(this.uid)
     }, 140)
   }
@@ -79,6 +79,87 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
         col++
       }
     }
+  }
+
+  drawConstellationTyranitar(frame: number) {
+    if (!this.canvas) return
+    const ctx = this.canvas!.nativeElement.getContext('2d')
+    if (ctx === null) return
+
+    ctx.clearRect(0, 0, 480, 480)
+    ctx.strokeStyle = '#ffffff'
+    ctx.fillStyle = '#ffffff'
+    ctx.beginPath()
+    
+    ctx.moveTo(71, 43)
+    ctx.lineTo(102,105)
+    ctx.lineTo(122,126)
+    ctx.lineTo(116,171)
+    ctx.lineTo(42,216)
+    ctx.lineTo(26,225)
+    ctx.lineTo(35, 233)
+    ctx.lineTo(33,244)
+    ctx.lineTo(45,241)
+    ctx.lineTo(109,235)
+    ctx.lineTo(108,329)
+    ctx.lineTo(103,367)
+    ctx.lineTo(144,416)
+    ctx.lineTo(176,435)
+    ctx.lineTo(142,452)
+    ctx.lineTo(149,460)
+    ctx.lineTo(176,458)
+    ctx.lineTo(177, 469)
+    ctx.lineTo(218,468)
+    ctx.lineTo(220,474)
+    ctx.lineTo(247,469)
+    ctx.lineTo(289,464)
+    ctx.lineTo(268,441)
+    ctx.lineTo(268,428)
+    ctx.lineTo(368,437)
+    ctx.lineTo(415,453)
+    ctx.lineTo(403,432)
+    ctx.lineTo(441,408)
+    ctx.lineTo(450,390)
+    ctx.lineTo(407,385)
+    ctx.lineTo(414,368)
+    ctx.lineTo(377,383)
+    ctx.lineTo(318,349)
+    ctx.lineTo(290,271)
+    ctx.lineTo(278,221)
+    ctx.lineTo(292,207)
+    ctx.lineTo(292,186)
+    ctx.lineTo(313,169)
+    ctx.lineTo(281,167)
+    ctx.lineTo(330,124)
+    ctx.lineTo(260,137)
+    ctx.lineTo(282,100)
+    ctx.lineTo(232,117)
+    ctx.lineTo(300,113)
+    ctx.lineTo(209,79)
+    ctx.lineTo(270,76)
+    ctx.lineTo(185,46)
+    ctx.lineTo(180,39)
+    ctx.lineTo(217,21)
+    ctx.lineTo(71,43)
+
+    ctx.moveTo(109,235)
+    ctx.lineTo(134,182)
+    ctx.lineTo(187,247)
+    ctx.lineTo(137,336)
+    ctx.lineTo(109,235)
+    ctx.stroke()
+    ctx.closePath()
+
+    this.star(ctx, 115, 46, 1, frame)
+    this.star(ctx, 26, 225, 1, frame)
+    this.star(ctx, 35, 233, 1, frame)
+    this.star(ctx, 140, 452, 1, frame)
+    this.star(ctx, 150, 460, 1, frame)
+    this.star(ctx, 170, 462, 1, frame)
+    this.star(ctx, 177, 473, 1, frame)
+    this.star(ctx, 219, 475, 1, frame)
+    // this.star(ctx, , 1, frame)
+    // this.star(ctx, 115, 46, 1, frame)
   }
 
   drawConstellationHeracross(frame: number) {
