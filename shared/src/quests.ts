@@ -1418,14 +1418,14 @@ export const GLOBAL_QUEST_DATE: () => boolean = (() => {
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  docId: 'available',
-  // docId: 'unavailable',
-  dbKey: 'shinyDarkai2',
-  badge: 'potw-491-shiny',
-  boss: Potw(P.Darkrai, {shiny: true, var: 2}),
-  title: 'Mightiest Shiny Darkrai Raids',
-  count: 1_000_000,
-  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Darkrai raids.']
+    // docId: 'available',
+    docId: 'unavailable',
+    dbKey: 'shinyShaymin2',
+    badge: 'potw-492-shiny',
+    boss: Potw(P.Shaymin, {shiny: true, var: 2}),
+    title: 'Mightiest Shiny Shaymin Raids',
+     count: 1_000_000,
+    hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Shaymin raids.']
 }]
 
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{

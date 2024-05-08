@@ -57,7 +57,8 @@ export class SplashscreenComponent implements OnInit, AfterViewInit {
   @HostBinding('style.opacity') opacitySplash = '1'
   @HostBinding('style.display') showSplash = 'block'
   @ViewChild('droppings') droppings: ElementRef<HTMLImageElement>
-  appVersion: string = 'v3.9.11'
+  appVersion: string = 'v3.9.12'
+  appPubDate: string = '2024-05-07'
   uid?: string
   needLogin: boolean = false
   selectedTip: string = '...'

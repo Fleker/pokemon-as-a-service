@@ -14,11 +14,12 @@ export const MAIL_BADGES = {
   'potw-297': 'Hariyama',
   'potw-298': 'Azurill',
   'potw-299': 'Nosepass',
+  'potw-300': 'Skitty',
 }
 
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Twin Beam',
-  tr: 'tr-Power Split',
+  tm: 'tm-Ice Spinner',
+  tr: 'tr-Guard Split',
 }
 
 export const adminIds = [
