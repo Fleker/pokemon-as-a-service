@@ -366,14 +366,15 @@ export const Events = {
   }),
   'GOOGLE_IO': assert<Event>({
     title: 'Google I/O Developer Conference',
-    description: "Learn about the latest news from Google. Keep this tab open, just listen to the audio.",
+    description: "Learn about the latest news from Google. Stream the sessions in the background while you keep playing.",
     frequentSpecies: [],
     encounterHoldItems: ['cellbattery'],
     other: [],
     shinyRate: 1.25,
     isActive: (user) => {
       const date = getLocalTime(user)
-      return date.month() === 4 && date.date() >= 10 && date.date() <= 11
+      // May 14-16 2024
+      return date.month() === 4 && date.date() >= 14 && date.date() <= 16
     }
   }),
   'MOTHERS_DAY': assert<Event>({
