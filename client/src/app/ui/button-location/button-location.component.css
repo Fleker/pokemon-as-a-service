@@ -28,7 +28,7 @@ widget-pokearth, widget-binoculars {
 mat-tab-group {
   display: inline-block;
   width: calc(100% - 300px);
-  margin-top: -83px;
+  margin-top: -48px;
   float: right;
 }
 
