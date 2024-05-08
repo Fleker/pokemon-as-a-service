@@ -9,6 +9,8 @@ import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, BOTTLECAPS, SWEETS,
 import { ItemId } from "./items-list";
 import * as P from './gen/type-pokemon'
 import { Users } from './server-types'
+import { GLIMMERINGCHARM } from './quests';
+
 export enum Leg {
   NOTHING = 0,
   ITEM = 1,
@@ -1549,15 +1551,15 @@ export const Voyages = {
       [P.Slither_Wing, P.Roaring_Moon, P.Iron_Valiant, P.Iron_Moth, P.Walking_Wake, P.Iron_Leaves],
     ],
     unlocked: {
-      hints: [/*{
-        completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
-        msg: 'Are you familiar with the starter Pokémon of Paldea?'
+      hints: [{
+        completed: simpleRequirePotwArr([P.Sprigatito, P.Fuecoco, P.Quaxly]),
+         msg: 'Are you familiar with the starter Pokémon of Paldea?'
+       }, {
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+         msg: 'Become an expert on the Pokémon of Paldea.'
       }, {
-        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
-        msg: 'Become an expert on the Pokémon of Paldea.'
-      }*/{
-        completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
-        msg: 'In testing.'
+        completed: (r) => r.hiddenItemsFound.includes(GLIMMERINGCHARM),
+        msg: 'Gain the ability to explore Area Zero.'
       }]
     }
   }),
@@ -1688,19 +1690,20 @@ export const Voyages = {
       [Leg.GREENGRASS]: [
         P.Bulbasaur, P.Slakoth, P.Pikachu, P.Meowth, P.Slowpoke,
         P.Kangaskhan, P.Ditto, P.Eevee, P.Cyndaquil, P.Togepi, P.Mareep,
-        P.Magnemite, P.Doduo, P.Swablu,
+        P.Magnemite, P.Doduo, P.Swablu, P.Vulpix,
       ],
       [Leg.CYANBEACH]: [
         P.Caterpie, P.Ekans, P.Psyduck, P.Mankey, P.Pinsir,
         P.Chikorita, P.Heracross, P.Pichu,
         P.Cleffa, P.Igglybuff, P.Growlithe, P.Slowpoke, P.Mr_Mime,
         P.Ditto, P.Eevee, P.Squirtle, P.Totodile, P.Bonsly, P.Spheal,
+        P.Comfey,
       ],
       [Leg.TAUPEHOLLOW]: [
         P.Ekans, P.Gastly, P.Houndour, P.Sableye, P.Gulpin, P.Shuppet,
         P.Croagunk, P.Charmander, P.Rattata, P.Clefairy, P.Jigglypuff,
         P.Diglett, P.Ditto, P.Eevee, P.Wynaut, P.Geodude, P.Cubone,
-        P.Onix, P.Larvitar,
+        P.Onix, P.Larvitar, P.Vulpix,
       ],
       [Leg.SNOWDROP]: [
         P.Bellsprout, P.Delibird, P.Absol, P.Snover, P.Riolu
@@ -1774,15 +1777,12 @@ export const Voyages = {
         [P.Starmie, P.Slowbro, P.Gastrodon, P.Lapras, P.Cursola],
       ],
       unlocked: {
-        hints: [/*{
-          completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+        hints: [{
+          completed: simpleRequirePotwArr([P.Sprigatito, P.Fuecoco, P.Quaxly]),
           msg: 'Are you familiar with the starter Pokémon of Paldea?'
         }, {
-          completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+          completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
           msg: 'Become an expert on the Pokémon of Paldea.'
-        }*/{
-          completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
-          msg: 'In testing.'
         }]
       }
   }),

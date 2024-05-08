@@ -2266,10 +2266,22 @@ const ENCOUNTERS_AREAZERO = (user: Users.Doc, now: Date, location: Location, for
   list.push(...addIf(P.Great_Tusk, {count: 3, terrain: 'Desert', item: ['scarletbook']}, p))
   list.push(...addIf(P.Scream_Tail, {count: 3, terrain: 'Grasslands', item: ['scarletbook']}, p))
   list.push(...addIf(P.Brute_Bonnet, {count: 3, terrain: 'Rural', item: ['scarletbook']}, p))
-
+  list.push(...addIf(P.Flutter_Mane, {count: 3, time: 'Night', item: ['scarletbook']}, p))
+  // list.push(...addIf(P.Slither_Wing, {count: 3, terrain: 'Rural', item: ['scarletbook']}, p))
+  // list.push(...addIf(P.Sandy_Shocks, {count: 3, terrain: 'Mountain', item: ['scarletbook']}, p))
+  // list.push(...addIf(P.Roaring_Moon, {count: 1, terrain: 'Mountain', item: ['scarletbook']}, p))
+  // const walking = hasPokemonFuzzy(user, Pokemon(P.Walking_Wake))
+  // list.push(...addIf(P.Walking_Wake, {count: 1, item: ['scarletbook'], other: [walking]}, p))
+   
   list.push(...addIf(P.Iron_Treads, {count: 3, terrain: 'Desert', item: ['violetbook']}, p))
   list.push(...addIf(P.Iron_Bundle, {count: 3, terrain: 'Grasslands', item: ['violetbook']}, p))
   list.push(...addIf(P.Iron_Hands, {count: 3, terrain: 'Rural', item: ['violetbook']}, p))
+  list.push(...addIf(P.Iron_Jugulis, {count: 3, time: 'Night', item: ['violetbook']}, p))
+  // list.push(...addIf(P.Iron_Moth, {count: 3, terrain: 'Rural', item: ['violetbook']}, p))
+  // list.push(...addIf(P.Iron_Thorns, {count: 3, terrain: 'Mountain', item: ['violetbook']}, p))
+  // list.push(...addIf(P.Iron_Valiant, {count: 1, terrain: 'Mountain', item: ['violetbook']}, p))
+  // const leaves = hasPokemonFuzzy(user, Pokemon(P.Iron_Leaves))
+  // list.push(...addIf(P.Iron_Leaves, {count: 1, item: ['violetbook'], other: [leaves]}, p))
 
   return {
     list,
@@ -4923,7 +4935,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
       },
       greatball: {
         [CATCH_CHARM_RBY]: [
-          P.Charmeleon, P.Growlithe,
+          P.Charmeleon, P.Growlithe, P.Vulpix,
         ],
         [CATCH_CHARM_GSC]: [
           P.Quilava,
