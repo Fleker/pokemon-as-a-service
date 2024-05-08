@@ -20,6 +20,14 @@ export enum Leg {
   KEY_ITEM = 3,
   POKEMON = 4,
 }
+export const LegLabels: Record<Leg, string> = {
+  [Leg.NOTHING]: '',
+  [Leg.ITEM]: 'Find Items',
+  [Leg.RARE_ITEM]: 'Collect Rare Items',
+  [Leg.KEY_ITEM]: 'Find Key Item',
+  [Leg.POKEMON]: 'Catch Pokémon',
+}
+
 export enum State {
   CREATED = 0,
   STARTED = 1,
@@ -31,6 +39,44 @@ export interface Prize {
   items: ItemId[]
   caught: PokemonId[]
 }
+export class MapPoint {
+  leg: Leg
+  next: MapPoint[]
+  constructor(point: Leg, nextPoints: MapPoint[]) {
+    this.leg = point
+    this.next = nextPoints
+  }
+}
+
+export type Map = Partial<Record<Leg, MapPoint[]>>
+
+const stdMap: Map = {
+  [Leg.ITEM]: [
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.POKEMON, []),
+    ]),
+    new MapPoint(Leg.POKEMON, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.POKEMON, [])
+    ])
+  ],
+  [Leg.POKEMON]: [
+    new MapPoint(Leg.ITEM, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.POKEMON, []),
+    ]),
+    new MapPoint(Leg.POKEMON, [
+      new MapPoint(Leg.ITEM, []),
+      new MapPoint(Leg.POKEMON, [])
+    ])
+  ],
+  [Leg.RARE_ITEM]: [
+    new MapPoint(Leg.ITEM, []),
+    new MapPoint(Leg.POKEMON, []),
+  ],
+}
+
 export interface Doc {
   /** The type of Voyage */
   vid: VoyageId
@@ -89,6 +135,8 @@ export interface Voyage {
   scoreStat: Stat
   /** Quartiles to set the voyage's bucket ⅓,⅔, max */
   buckets: [0, number, number, number]
+  /** A sprawled out map of what steps a voyage host is able to select. */
+  map?: Map
 }
 export const getMaxVoyages = (user: Users.Doc) => {
   if (user.items['voyagecharm'] && user.items['voyagecharm'] > 0) {
@@ -137,7 +185,7 @@ export const Voyages = {
     label: 'Vast Ocean',
     description: 'The midst of a chilly ocean, where you can see icebergs and seaweed surrounding you.',
     typePrimary: 'Water', typeSecondary: ['Ice', 'Flying'], scoreStat: 'hp',
-    buckets: [0, 216, 438, 655],
+    buckets: [0, 216, 438, 655], map: stdMap,
     items: [
       ['prismscale', ...RAIDS_1],
       ['prismscale', 'heartscale', ...RAIDS_1, 'floatstone'],
@@ -657,7 +705,7 @@ export const Voyages = {
     label: 'Cumulus Clouds',
     description: 'You find yourself soaring high in the sky.',
     typePrimary: 'Flying', typeSecondary: ['Dragon', 'Ghost'], scoreStat: 'speed',
-    buckets: [0, 199, 406, 606],
+    buckets: [0, 199, 406, 606], map: stdMap,
     items: [
       ['healthwing', 'swiftwing', 'musclewing', 'resistwing', 'geniuswing', 'cleverwing', 'prettywing', 'sharpbeak', 'softsand'],
       ['healthwing', 'swiftwing', 'musclewing', 'resistwing', 'geniuswing', 'cleverwing', 'prettywing', 'sharpbeak', 'softsand'],
@@ -964,7 +1012,7 @@ export const Voyages = {
     label: 'Misty Woods',
     description: 'Evergreens tower overhead as you make your way towards a great lake. Yet why is this fog growing thicker with each passing step?',
     typePrimary: 'Normal', typeSecondary: ['Psychic', 'Fairy'], scoreStat: 'spAttack',
-    buckets: [0, 180, 367, 548],
+    buckets: [0, 180, 367, 548], map: stdMap,
     items: [
       ['luminousmoss', ...SEEDS, 'tartapple', 'sweetapple', 'galaricatwig'],
       ['luminousmoss', ...SEEDS, 'tartapple', 'sweetapple', 'galaricatwig'],
@@ -1017,7 +1065,7 @@ export const Voyages = {
     label: 'Space-Time Distortion',
     description: 'As you walk along, you are suddenly enveloped in a dome of growing energy. What will happen once the energy reaches its peak?',
     typePrimary: 'Dark', typeSecondary: ['Fighting', 'Electric'], scoreStat: 'spDefense',
-    buckets: [0, 169, 343, 513],
+    buckets: [0, 169, 343, 513], map: stdMap,
     items: [
       ['redshard', 'blueshard', 'greenshard', 'stardust', 'heartygrains', 'hopo', 'razz', 'casterfern', 'direshroom', 'swordcap'],
       ['redshard', 'blueshard', 'greenshard', 'stardust', 'heartygrains', 'hopo', 'razz', 'casterfern', 'direshroom', 'swordcap'],
@@ -1122,6 +1170,34 @@ export const Voyages = {
       }]
     }
   }),
+  // AREAZERO: assert<Voyage>({
+  //   label: 'Area Zero',
+  //   description: "You are standing inside Paldea's large crater, in a strange ethereal world",
+  //   // typePrimary: 'Dragon', typeSecondary: ['Electric', 'Fighting'], scoreStat: 'hp',
+  // }),
+  // RICEFIELDS: assert<Voyage>({
+    // label: 'Kitakami Rice Fields',
+    // description: 'You find yourself amidst farmland sprawling in every direction.',
+    // typePrimary
+  // }),
+  // TERRARIUM: assert<Voyage>({
+  //   label: "Blueberry Academy's Terrarium",
+  //   description: 'You are in a large terrarium below the seas of Unova.',
+  // }),
+  // SLEEPCRUISE: assert<Voyage>({
+  //   label: 'Snoozy Archipelago',
+  //   description: 'You are on a cruise to several islands in the great archipelago',
+  // }),
+  // CORALBEACH: assert<Voyage>({
+      // label: 'Coral Pebble Beach',
+      // description: 'The sun beats down on your face as you venture out across the colorful sand.',
+      // typePrimary: 'Rock', typeSecondary: ['Ground', 'Water'], scoreStat: 'defense',
+  // }).
+  // URBANPLAZA: assert<Voyage>({
+  //   label: 'Castelia City',
+  //   description: 'You have arrived in a grand city, with energetic Pokémon around every corner.',
+  //   typePrimary: 'Electric', typeSecondary: ['Flying', 'Fire'],
+  // }),
   /**
   // Desert/Rural area?
   - Sandshrew, Cyndaquil, Phanpy, Electrike, Trapinch, Cacnea, Zangoose, Gible, Hippopotas, Skorupi, Maractus, Dwebble, Vullaby,
@@ -1152,5 +1228,28 @@ export const Voyages = {
   - Fennekin, Froakie, Scatterbug, Spritzee, Swirlix,
   - Oricorio, Jangmo-o
   */
+
+  /**
+   * For balance (as of Gen 8):
+   * 
+   * | Bug      | 2 | 2 | (6) |
+   * | Normal   | 1 | 1 | (3) |
+   * | Fighting | 1 | 3 | (5) |
+   * | Flying   | 1 | 1 | (3) |
+   * | Fire     | 1 | 1 | (3) |
+   * | Poison   | 1 | 2 | (4) |
+   * | Fairy    | 2 | 2 | (6) |
+   * | Ghost    | 1 | 3 | (5) |
+   * | Psychic  | 1 | 2 | (4) |
+   * | Dark     | 1 | 3 | (5) |
+   * | Dragon   | 0 | 2 | (2) |*
+   * | Steel    | 1 | 3 | (5) |
+   * | Water    | 2 | 2 | (6) |
+   * | Grass    | 1 | 3 | (5) |
+   * | Ice      | 1 | 2 | (4) |
+   * | Electric | 0 | 2 | (2) |*
+   * | Ground   | 1 | 2 | (4) |
+   * | Rock     | 1 | 2 | (4) | 
+   */
 }
 export type VoyageId = keyof typeof Voyages

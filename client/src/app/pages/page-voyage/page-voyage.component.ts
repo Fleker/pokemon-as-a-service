@@ -11,7 +11,7 @@ import { Requirements } from '../../../../../shared/src/legendary-quests';
 import { ObjectEntries } from '../../../../../shared/src/object-entries';
 import { PokemonId } from '../../../../../shared/src/pokemon/types';
 import { Users, F } from '../../../../../shared/src/server-types';
-import { Doc, Voyage, Voyages, VoyageId, Leg, getScore, getBucket } from '../../../../../shared/src/voyages';
+import { Doc, Voyage, Voyages, VoyageId, Leg, getScore, getBucket, LegLabels, MapPoint } from '../../../../../shared/src/voyages';
 import { Event, NavigationEnd, Router } from '@angular/router';
 interface Participant {
   key: string
@@ -64,6 +64,11 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     publishVoyage: false,
   }
   playerIsReady = false
+  LegLabels = LegLabels
+  _entries: [Leg, MapPoint[]][] = []
+  _legs1: MapPoint[] = []
+  _legs2: MapPoint[] = []
+
   constructor(
     readonly firebase: FirebaseService,
     private snackbar: MatSnackBar,
@@ -140,6 +145,29 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     if (!this.user.items.voyagecharm) return 'three'
     return 'six'
   }
+
+  entries(obj?: Partial<Record<Leg, MapPoint[]>>) {
+    if (obj === undefined) {
+    // console.error('obj is undefined')
+      return []
+    }
+    return Object.entries(obj) as unknown as [Leg, MapPoint[]][]
+    // return Object.entries(obj) as any
+  }
+
+  legs(obj: Partial<Record<Leg, MapPoint[]>>, legs: Leg[]): MapPoint[] {
+    if (obj === undefined) return []
+    let leaf = obj[legs[0]]
+    legs.slice(1).forEach(l => {
+      const newLeaf = leaf.find(point => point.leg === l)
+      if (newLeaf) {
+        leaf = newLeaf!.next
+      }
+    })
+    return leaf
+  }
+
+
   /** Obtains query object for routerLink */
   routerQuery(id: string) {
     return { [id]: '' }
@@ -191,6 +219,9 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
       }
       this.voyageDoc = doc.data() as Doc
       this.voyage = Voyages[this.voyageDoc.vid]
+      this._entries = this.entries(this.voyage.map)
+      this._legs1 = this.legs(this.voyage.map, [this.voyageDoc.legs[0]])
+      this._legs2 = this.legs(this.voyage.map, [this.voyageDoc.legs[0], this.voyageDoc.legs[1]])
       this.playerArray = ObjectEntries(this.voyageDoc.players).map(([key, player]) => ({
         ...player,
         key,
@@ -233,6 +264,9 @@ export class PageVoyageComponent implements OnInit, OnDestroy {
     })
   }
   updatePath(legIndex: number, legType: number) {
+    if (typeof legType !== 'number') {
+      legType = parseInt(legType)
+    }
     this.voyageDoc.legs[legIndex] = legType
     if (legType === Leg.RARE_ITEM) {
       // Disable the second leg.

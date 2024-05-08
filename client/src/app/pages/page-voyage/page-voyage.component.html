@@ -142,6 +142,55 @@
     </span>
     <table class="legs">
       <tr>
+        <td *ngFor="let entry of _entries">
+          <button mat-button *ngIf="entry[0] == voyageDoc.legs[0]">
+            {{LegLabels[entry[0]]}}
+          </button>
+          <button mat-button secondary *ngIf="entry[0] != voyageDoc.legs[0]" (click)="updatePath(0, entry[0])">
+            {{LegLabels[entry[0]]}}
+          </button>
+        </td>
+      <tr>
+        <td colspan="3">
+          <mat-icon *ngIf="voyageDoc.legs[0] > voyageDoc.legs[1]">south_west</mat-icon>
+          <mat-icon *ngIf="voyageDoc.legs[0] == voyageDoc.legs[1]">south</mat-icon>
+          <mat-icon *ngIf="voyageDoc.legs[0] < voyageDoc.legs[1]">south_east</mat-icon>
+        </td>
+      </tr>
+      <td *ngFor="let pt of _legs1">
+        <button mat-button *ngIf="pt.leg == voyageDoc.legs[1]">
+          {{LegLabels[pt.leg]}}
+        </button>
+        <button mat-button secondary *ngIf="pt.leg != voyageDoc.legs[1]" (click)="updatePath(1, pt.leg)">
+          {{LegLabels[pt.leg]}}
+        </button>
+      </td>
+      <tr>
+        <td colspan="3">
+          <mat-icon *ngIf="voyageDoc.legs[1] > voyageDoc.legs[2]">south_west</mat-icon>
+          <mat-icon *ngIf="voyageDoc.legs[1] == voyageDoc.legs[2]">south</mat-icon>
+          <mat-icon *ngIf="voyageDoc.legs[1] < voyageDoc.legs[2]">south_east</mat-icon>
+        </td>
+      </tr>
+      <td *ngFor="let pt of _legs2">
+        <button mat-button *ngIf="pt.leg == voyageDoc.legs[2]">
+          {{LegLabels[pt.leg]}}
+        </button>
+        <button mat-button secondary *ngIf="pt.leg != voyageDoc.legs[2]" (click)="updatePath(2, pt.leg)">
+          {{LegLabels[pt.leg]}}
+        </button>
+      </td>
+      <tr>
+        <td colspan="3">
+          <mat-icon>south</mat-icon>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">
+          A raid battle awaits you at the end of this voyage
+        </td>
+      </tr>
+      <tr *ngIf="voyage.map === undefined">
         <td *ngIf="voyageDoc.legs[0] === 1">
           <strong>Find Items</strong>
           <mat-icon *ngIf="voyageDoc.legs[1] === 1">east</mat-icon>
@@ -173,7 +222,7 @@
         </td>
         <td></td>
       </tr>
-      <tr>
+      <tr *ngIf="voyage.map === undefined">
         <td *ngIf="voyageDoc.legs[0] === 4">
           <strong>Catch Pokémon</strong>
           <mat-icon *ngIf="voyageDoc.legs[1] === 4">east</mat-icon>
@@ -207,7 +256,7 @@
           <strong>Raid Battle</strong>
         </td>
       </tr>
-      <tr>
+      <tr *ngIf="voyage.map === undefined">
         <td *ngIf="voyageDoc.legs[0] === 2">
           <strong>Discover Rare Items</strong>
           <mat-icon>north_east</mat-icon>
