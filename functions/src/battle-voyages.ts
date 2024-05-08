@@ -50,9 +50,14 @@ export const voyage_create = functions.https.onCall(async (data: F.VoyageCreate.
 
     // 2. Construct voyage object.
     const filterBadges = inflate(user.pokemon)!
-    const leg0 = Object.keys(selectedVoyage.map)[0]
-    const leg1 = selectedVoyage.map[leg0].next[0].leg
-    const leg2 = selectedVoyage.map[leg0].next[0].next[0].leg
+    let leg0 = Leg.ITEM
+    let leg1 = Leg.ITEM
+    let leg2 = Leg.ITEM
+    if (selectedVoyage.map) {
+      leg0 = Object.keys(selectedVoyage.map!)[0] as Leg
+      leg1 = selectedVoyage.map![leg0].next![0].leg
+      leg2 = selectedVoyage.map![leg0].next![0].next![0].leg
+    }
     const voyage: Doc = {
       vid: data.voyage,
       host: uid,
@@ -407,7 +412,9 @@ function pushCustomPokemon(leg: Leg, voyageDb: Voyage, weather: WeatherType, cau
 }
 
 function pushCustomItems(leg: Leg, voyageDb: Voyage, prizes: ItemId[]) {
-  prizes.push(randomItem(voyageDb.legItems![leg] ?? voyageDb.rareitems[0]))
+  for (let i = 0; i < 2; i++) {
+    prizes.push(randomItem(voyageDb.legItems![leg] ?? voyageDb.rareitems[0]))
+  }
 }
 
 function executeLeg(leg: Leg, voyageDb: Voyage, weather: WeatherType, bucket: number) {

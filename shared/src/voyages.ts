@@ -5,7 +5,7 @@ import { CATCH_CHARM_SM, CATCH_CHARM_SWSH, LegendaryQuest, requireItem, requireM
 import { WeatherType } from "./locations-list";
 import { get } from "./pokemon";
 import { BadgeId, PokemonForm, PokemonId, Type } from "./pokemon/types";
-import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, BOTTLECAPS, SWEETS, GALAR_INGREDIENTS, TERA_SHARDS } from "./prizes";
+import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, BOTTLECAPS, SWEETS, GALAR_INGREDIENTS, TERA_SHARDS, TYPE_XY_ITEMS } from "./prizes";
 import { ItemId } from "./items-list";
 import * as P from './gen/type-pokemon'
 import { Users } from './server-types'
@@ -47,6 +47,13 @@ export enum Leg {
   BIOMECOASTAL = 52,
   BIOMESAVANNA = 53,
   BIOMEPOLAR = 54,
+  /* For Lumiose City */
+  PLAZAVERT = 61,
+  PLAZABLEU = 62,
+  PLAZAMAGENTA = 63,
+  PLAZAROUGE = 64,
+  PLAZAJAUNE = 65,
+  PLAZACENTR = 66,
 }
 export const LegLabels: Record<Leg, string> = {
   [Leg.NOTHING]: '',
@@ -77,6 +84,12 @@ export const LegLabels: Record<Leg, string> = {
   [Leg.BIOMECOASTAL]: 'Catch in Coastal Biome',
   [Leg.BIOMESAVANNA]: 'Catch in Savanna Biome',
   [Leg.BIOMEPOLAR]: 'Catch in Polar Biome',
+  [Leg.PLAZAVERT]: 'Catch in Vert Plaza',
+  [Leg.PLAZABLEU]: 'Catch in Bleu Plaza',
+  [Leg.PLAZAMAGENTA]: 'Catch in Magenta Plaza',
+  [Leg.PLAZAROUGE]: 'Catch in Rouge Plaza',
+  [Leg.PLAZAJAUNE]: 'Catch in Jaune Plaza',
+  [Leg.PLAZACENTR]: 'Search in Centrico Plaza',
 }
 
 export enum State {
@@ -356,6 +369,51 @@ const sleepCruiseMap: Map = {
       new MapPoint(Leg.GREENGRASSBERRY, []),
       new MapPoint(Leg.LAPIS, []),
       // We can put a sixth one here
+    ]),
+  ],
+}
+
+const lumioseMap: Map = {
+  [Leg.PLAZAVERT]: [
+    new MapPoint(Leg.PLAZACENTR, [
+      new MapPoint(Leg.PLAZAMAGENTA, []),
+      new MapPoint(Leg.PLAZAROUGE, []),
+    ]),
+    new MapPoint(Leg.PLAZABLEU, [
+      new MapPoint(Leg.PLAZACENTR, []),
+      new MapPoint(Leg.PLAZAMAGENTA, []),
+    ]),
+    new MapPoint(Leg.PLAZAJAUNE, [
+      new MapPoint(Leg.PLAZACENTR, []),
+      new MapPoint(Leg.PLAZAROUGE, []),
+    ]),
+  ],
+  [Leg.PLAZABLEU]: [
+    new MapPoint(Leg.PLAZACENTR, [
+      new MapPoint(Leg.PLAZAROUGE, []),
+      new MapPoint(Leg.PLAZAJAUNE, []),
+    ]),
+    new MapPoint(Leg.PLAZAMAGENTA, [
+      new MapPoint(Leg.PLAZACENTR, []),
+      new MapPoint(Leg.PLAZAROUGE, []),
+    ]),
+    new MapPoint(Leg.PLAZAVERT, [
+      new MapPoint(Leg.PLAZACENTR, []),
+      new MapPoint(Leg.PLAZAJAUNE, []),
+    ]),
+  ],
+  [Leg.PLAZAROUGE]: [
+    new MapPoint(Leg.PLAZACENTR, [
+      new MapPoint(Leg.PLAZABLEU, []),
+      new MapPoint(Leg.PLAZAVERT, []),
+    ]),
+    new MapPoint(Leg.PLAZAJAUNE, [
+      new MapPoint(Leg.PLAZACENTR, []),
+      new MapPoint(Leg.PLAZAVERT, []),
+    ]),
+    new MapPoint(Leg.PLAZAMAGENTA, [
+      new MapPoint(Leg.PLAZACENTR, []),
+      new MapPoint(Leg.PLAZABLEU, []),
     ]),
   ],
 }
@@ -1498,7 +1556,7 @@ export const Voyages = {
         completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
         msg: 'Become an expert on the Pokémon of Paldea.'
       }*/{
-        completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
         msg: 'In testing.'
       }]
     }
@@ -1508,12 +1566,10 @@ export const Voyages = {
     description: 'You find yourself amidst farmland sprawling in every direction.',
     typePrimary: 'Grass', typeSecondary: ['Flying', 'Ground'], scoreStat: 'attack',
     buckets: [0, 190, 385, 576], map: kitakamiMap,
-    items: [
-      ['expcandyxs', 'expcandys', 'tartapple', 'sweetapple', 'energyroot'],
-      ['expcandyxs', 'expcandys', 'expcandym', 'teacupunremarkable', 'syrupyapple'],
-      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'rarebone', 'teacupunremarkable', 'syrupyapple', 'leaderscrest'],
-      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'rarebone', 'teacupmasterpiece', 'syrupyapple', 'leaderscrest'],
-    ],
+    [...TERA_SHARDS, 'expcandyxs', 'expcandys', 'tartapple', 'sweetapple', 'energyroot'],
+    [...TERA_SHARDS, 'expcandyxs', 'expcandys', 'expcandym', 'tartapple', 'sweetapple', 'teacupunremarkable', 'syrupyapple'],
+    [...TERA_SHARDS, 'expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'tartapple', 'sweetapple', 'rarebone', 'teacupunremarkable', 'syrupyapple', 'leaderscrest'],
+    [...TERA_SHARDS, 'expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'rarebone', 'teacupmasterpiece', 'syrupyapple', 'leaderscrest'],
     rareitems: [['teacupmasterpiece'],['teacupmasterpiece'],['teacupmasterpiece'],['teacupmasterpiece']],
     pokemon: [[], [], [], []],
     weatherPokemon: {
@@ -1531,12 +1587,12 @@ export const Voyages = {
     legPokemon: {
       [Leg.RICEFIELD]: [P.Yanma, P.Spinarak, P.Wooper, P.Poochyena, P.Corphish, P.Sewaddle, P.Cutiefly, P.Poltchageist],
       [Leg.APPLEFIELD]: [P.Applin, P.Ekans, P.Bellsprout, P.Sentret, P.Pichu, P.Starly, P.Fomantis, P.Poltchageist],
-      [Leg.CRYSTALLAKE]: [P.Koffing, P.Clefairy, P.Cleffa, P.Slugma, P.Duskull, P.Chimecho, P.Broznor, P.Litwick, P.Glimmet, P.Arrokuda],
+      [Leg.CRYSTALLAKE]: [P.Koffing, P.Clefairy, P.Cleffa, P.Slugma, P.Duskull, P.Chimecho, P.Bronzor, P.Litwick, P.Glimmet, P.Arrokuda],
       [Leg.TIMELESSFOREST]: [P.Phantump, P.Pikachu, P.Vulpix, P.Hoothoot, P.Stantler, P.Lotad, P.Seedot, P.Pachirisu, Potw(P.Basculin, {form: 'white_stripe'}), P.Tynamo, P.Pawniard, P.Grubbin, P.Mimikyu, P.Skwovet, P.Chewtle, P.Hatenna, P.Impidimp, P.Indeedee, P.Toedscool],
     },
     bosses: [
       [P.Poltchageist, P.Trevenant, P.Orthworm, P.Chandelure, P.Sandslash, P.Gengar, P.Arbok],
-      [Potw(P.Ursaluna, {form: 'blood_moon'}), P.Conkeldurr, P.Dusknoir, P.Kommo_o, P.Leavanny, P.Vikavolt],
+      [Potw(P.Ursaluna, {form: 'blood_moon'}), P.Conkeldurr, P.Dusknoir, P.Kommo_o, P.Leavanny, P.Vikavolt, P.Basculegion],
     ],
     unlocked: {
       hints: [/*{
@@ -1546,7 +1602,7 @@ export const Voyages = {
         completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
         msg: 'Become an expert on the Pokémon of Paldea.'
       }*/{
-        completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
         msg: 'In testing.'
       }]
     }
@@ -1557,10 +1613,10 @@ export const Voyages = {
     typePrimary: 'Dragon', typeSecondary: ['Normal', 'Fire'], scoreStat: 'speed',
     buckets: [0, 176, 359, 536], map: terrariumMap,
     items: [
-      ['expcandyxs', 'expcandys', ...TERA_SHARDS],
-      ['expcandyxs', 'expcandys', 'expcandym', ...TERA_SHARDS],
-      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', ...TERA_SHARDS, 'electirizer', 'magmarizer', 'metalalloy'],
-      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'electirizer', 'magmarizer', 'metalalloy', ...TERA_SHARDS, 'terastellar'],
+      ['expcandyxs', 'expcandys', ...TERA_SHARDS, ...SWEETS],
+      ['expcandyxs', 'expcandys', 'expcandym', ...TERA_SHARDS, ...SWEETS],
+      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', ...TERA_SHARDS, ...SWEETS, 'electirizer', 'magmarizer', 'protector', 'metalalloy'],
+      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'electirizer', 'magmarizer', 'protector', 'metalalloy', 'blackaugurite', ...TERA_SHARDS, ...SWEETS, 'terastellar'],      
     ],
     rareitems: [['terastellar'],['terastellar'],['terastellar'],['terastellar']],
     pokemon: [[], [], [], []],
@@ -1584,7 +1640,7 @@ export const Voyages = {
     },
     bosses: [
       [P.Crabominable, P.Electivire, P.Magmortar, P.Eelektross, P.Magnezone, P.Hitmontop, P.Rhyperior, P.Rabsca, P.Kingdra, P.Bruxish],
-      [P.Duraludon, P.Dewgong, P.Haxorus, P.Lanturn, P.Lapras, P.Araquanid, P.Krookodile, P.Flygon],
+      [P.Duraludon, P.Dewgong, P.Haxorus, P.Lanturn, P.Lapras, P.Araquanid, P.Krookodile, P.Flygon, P.Overqwil, P.Kleavor],
     ],
     unlocked: {
       hints: [/*{
@@ -1594,7 +1650,7 @@ export const Voyages = {
         completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
         msg: 'Become an expert on the Pokémon of Paldea.'
       }*/{
-        completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
         msg: 'In testing.'
       }]
     }
@@ -1666,7 +1722,7 @@ export const Voyages = {
         completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
         msg: 'Become an expert on the Pokémon of Paldea.'
       }*/{
-        completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
         msg: 'In testing.'
       }]
     }
@@ -1700,7 +1756,7 @@ export const Voyages = {
         ],
         [Leg.METALCHECK]: [
           'meltancandy', 'gimmighoulcoin', 'nugget', ...BOTTLECAPS, 'softsand',
-          'metalcoat',
+          'metalcoat', 'maliciousarmor', 'auspiciousarmor',
         ]
       },
       legPokemon: {
@@ -1728,16 +1784,58 @@ export const Voyages = {
           completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
           msg: 'Become an expert on the Pokémon of Paldea.'
         }*/{
-          completed: (r) => r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+          completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
           msg: 'In testing.'
         }]
       }
   }),
-  // URBANPLAZA: assert<Voyage>({
-  //   label: 'Lumiose City',
-  //   description: 'You have arrived in a grand city, with energetic Pokémon around every corner.',
-  //   typePrimary: 'Electric', typeSecondary: ['Flying', 'Fire'], scoreStat: 'spAttack',
-  // }),
+  URBANPLAZA: assert<Voyage>({
+    label: 'Lumiose City',
+    description: 'You have arrived in a grand city, with energetic Pokémon around every corner.',
+    typePrimary: 'Electric', typeSecondary: ['Flying', 'Fire'], scoreStat: 'spAttack',
+    buckets: [0, 188, 381, 570], map: lumioseMap,
+    items: [[], [], [], []],
+    rareitems: [['shaloursable'],['shaloursable'],['shaloursable'],['shaloursable']],
+    pokemon: [[], [], [], []],
+    weatherPokemon: {
+      Cloudy: [P.Pancham],
+      'Diamond Dust': [],
+      Fog: [P.Espurr],
+      'Heat Wave': [P.Skiddo],
+      Rain: [P.Skrelp],
+      Sandstorm: [P.Sandile],
+      Snow: [],
+      Sunny: [P.Litleo],
+      Thunderstorm: [P.Emolga],
+      Windy: [],
+    },
+    legItems: {
+      [Leg.PLAZACENTR]: ['zygardecell', ...TYPE_XY_ITEMS],
+    },
+    legPokemon: {
+      [Leg.PLAZAVERT]: [P.Ekans, P.Absol, P.Hippopotas],
+      [Leg.PLAZABLEU]: [P.Pikachu, P.Magikarp, P.Ralts],
+      [Leg.PLAZAMAGENTA]: [P.Bellsprout, P.Eevee],
+      [Leg.PLAZAROUGE]: [P.Onix, P.Dratini],
+      [Leg.PLAZAJAUNE]: [P.Staryu, P.Spinarak, P.Fletchling],
+    },
+    bosses: [
+      [P.Pinsir, P.Heracross],
+      [P.Goodra, P.Noivern, P.Florges],
+    ],
+    unlocked: {
+      hints: [/*{
+        completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+        msg: 'Are you familiar with the starter Pokémon of Paldea?'
+      }, {
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+        msg: 'Become an expert on the Pokémon of Paldea.'
+      }*/{
+        completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
+        msg: 'In testing.'
+      }]
+    }
+  }),
   /**
   // Desert/Rural area?
   - Sandshrew, Cyndaquil, Phanpy, Electrike, Trapinch, Cacnea, Zangoose, Gible, Hippopotas, Skorupi, Maractus, Dwebble, Vullaby,

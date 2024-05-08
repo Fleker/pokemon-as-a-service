@@ -50,7 +50,7 @@ export class VoyageHeaderComponent implements AfterViewInit {
       })
     })
     if (this.voyage.legPokemon) {
-      Object.values(this.voyage.legPokemon).forEach(l => {
+      Object.values(this.voyage.legPokemon ?? [[]]).forEach(l => {
         l.forEach(p => {
           regularMap[Badge.fromLegacy(p).toString()] = randomItem(binocularAnimations)
         })
@@ -90,7 +90,7 @@ export class VoyageHeaderComponent implements AfterViewInit {
         s.add(i)
       })
     })
-    Object.values(this.voyage.legItems).forEach(arr => {
+    Object.values(this.voyage.legItems ?? [[]]).forEach(arr => {
       arr.forEach(i => {
         s.add(i)
       })
@@ -119,6 +119,6 @@ export class VoyageHeaderComponent implements AfterViewInit {
   }
 
   typeIcon(type: Type) {
-    return `/images/sprites/icons/type-${type}.svg`
+    return `type-${type}`
   }
 }

@@ -1,4 +1,8 @@
-img.icon {
+sprite-item {
+  vertical-align: middle;
+}
+
+mat-icon.icon {
   position: absolute;
   right: 100px;
   top: 40px;
@@ -12,20 +16,20 @@ sprite-item {
   vertical-align: middle;
 }
 
-img.icon2 {
+mat-icon.icon2 {
   right: 20px;
   width: 75px;
   height: 75px;
 }
 
-img.icon3 {
+mat-icon.icon3 {
   right: 20px;
   width: 75px;
   height: 75px;
   top: 105px;
 }
 
-img.icon:hover {
+mat-icon.icon:hover {
   opacity: 0.4;
 }
 

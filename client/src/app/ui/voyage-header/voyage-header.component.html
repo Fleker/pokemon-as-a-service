@@ -5,9 +5,9 @@
       {{voyage?.label}}
     </h1>
     <span>{{voyage?.description}}</span>
-    <img class="icon" src="{{typeIcon(voyage?.typePrimary)}}" />
-    <img class="icon icon2" src="{{typeIcon(voyage?.typeSecondary[0])}}" />
-    <img class="icon icon3" src="{{typeIcon(voyage?.typeSecondary[1])}}" />
+    <mat-icon class="icon"  svgIcon="{{typeIcon(voyage?.typePrimary)}}"></mat-icon>
+    <mat-icon class="icon icon2" svgIcon="{{typeIcon(voyage?.typeSecondary[0])}}"></mat-icon>
+    <mat-icon class="icon icon3" svgIcon="{{typeIcon(voyage?.typeSecondary[1])}}"></mat-icon>
     <br><br><br>
   
     <strong>Preferred Types</strong>
