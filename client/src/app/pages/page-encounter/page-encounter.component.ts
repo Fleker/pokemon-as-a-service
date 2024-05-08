@@ -105,6 +105,7 @@ export class PageEncounterComponent implements OnInit, OnDestroy, AfterViewInit 
       sootsack: this.user.items.sootsack > 0,
       sos: this.user.items.adrenalineorb > 0,
       wildarea: this.user.items.rotombike > 0,
+      areazero: this.user.items.glimmeringcharm > 0,
       unownreport: this.user.items.unownreport > 0,
       oddkeystone: this.user.items.oddkeystone > 0,
       zygardecube: this.user.items.zygardecube > 0,
@@ -313,6 +314,7 @@ export class PageEncounterComponent implements OnInit, OnDestroy, AfterViewInit 
       'Hidden Grotto': 'colressmchn' as LureId,
       'SOS Encounters': 'adrenalineorb' as LureId,
       'Wild Area': 'rotombike' as LureId,
+      'Area Zero': 'glimmeringcharm' as LureId,
     }[event.tab.textLabel] || undefined
     console.debug(`Move to ${this.selectedLure}`)
   }

@@ -45,6 +45,7 @@ export const ROTOMBIKE = 'SPARKLINGWHITETURBOBIKE'
 export const TERAORB = 'PKMNCHAMPIONNEMONA'
 export const SCARLETBOOK = 'PROFESSORSADARESEARCH'
 export const VIOLETBOOK = 'PROFESSORTURORESEARCH'
+export const GLIMMERINGCHARM = 'ENTERAREAZERO'
  
 export const SHINY_CHARM = '93Nj1QmwJlx8eGW9Vq18'
 export const CATCH_CHARM_RBY = 'yuQPa32crRiPBJvi9HU9'
@@ -431,6 +432,15 @@ export const KEY_ITEM_QUESTS: Quest[] = [{
   hint: [`Many years later, you hear of a book that was sought after by Professor Turo.`],
   quest: L.VioletBook,
   item: 'violetbook',
+  recyclable: true,
+}, {
+  docId: GLIMMERINGCHARM,
+  badge: 'potw-item-glimmeringcharm',
+  title: "The hunt for treasure continues",
+  gate: CATCH_CHARM_SV,
+  hint: [`Your treasure hunt takes you to the depths of Paldea's large crater.`],
+  quest: L.GlimmeringCharm,
+  item: 'glimmeringcharm',
   recyclable: true,
 }]
 export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
@@ -1408,14 +1418,14 @@ export const GLOBAL_QUEST_DATE: () => boolean = (() => {
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-  docId: 'available',
-  // docId: 'unavailable',
-  dbKey: 'shinyDeoxys2',
-  badge: 'potw-386-shiny',
-  boss: Potw(P.Deoxys, {shiny: true, var: 2}),
-  title: 'Mightiest Shiny Deoxys Raids',
+  // docId: 'available',
+  docId: 'unavailable',
+  dbKey: 'shinyDarkai2',
+  badge: 'potw-491-shiny',
+  boss: Potw(P.Darkrai, {shiny: true, var: 2}),
+  title: 'Mightiest Shiny Darkrai Raids',
   count: 1_000_000,
-  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Deoxys raids.']
+  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Darkrai raids.']
 }]
 
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{

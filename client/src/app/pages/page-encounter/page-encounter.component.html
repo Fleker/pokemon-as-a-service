@@ -273,6 +273,32 @@
       <br>
       <small *ngIf="selected">You have {{selectionCount}}.</small>
     </mat-tab>
+    <mat-tab label="Area Zero" *ngIf="charms.areazero">
+      <p>
+        As you venture down into the Great Crater of Paldea, your <strong>Glimmering Charm</strong>
+        will help guide your way so you can find and catch strong Pokémon.
+      </p>
+
+      <sprite-item item="dreamball" (click)="select('dreamball')"></sprite-item>
+      <br><br>
+
+      <mat-slide-toggle [(ngModel)]="duplicates">
+        Catch Pokémon you already have
+      </mat-slide-toggle>
+      <br>
+      <small><em>
+        Note: If you haven't caught both male/female of a species, you will
+        continue to catch them even with this option turned off.
+      </em></small>
+      <br>
+
+      <button mat-button raised *ngIf="selected" (click)="throw()" [disabled]="exec.throw">
+        Throw
+        <sprite-item item="{{selected}}"></sprite-item>
+      </button>
+      <br>
+      <small *ngIf="selected">You have {{selectionCount}}.</small>
+    </mat-tab>
   </mat-tab-group>
 </mat-card>
 

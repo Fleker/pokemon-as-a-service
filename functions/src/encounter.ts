@@ -24,7 +24,7 @@ import { randomVariant } from '../../shared/src/farming'
 import { get } from '../../shared/src/pokemon'
 import randomItem from '../../shared/src/random-item'
 import { CATCH_CHARM_XY } from '../../shared/src/legendary-quests'
-import { NECTARS } from '../../shared/src/prizes'
+import { NECTARS, SV_INGREDIENTS, TERA_SHARDS } from '../../shared/src/prizes'
 
 function setGender(id: BadgeId, gender: PokemonGender) {
   const badge = new TeamsBadge(id);
@@ -2259,6 +2259,34 @@ const ENCOUNTERS_WILDAREA = (user: Users.Doc, now: Date, location: Location, for
   }
 }
 
+const ENCOUNTERS_AREAZERO = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
+  const p: EncounterParams = {user: user as Users.Doc, location, format}
+  const list: BadgeId[] = []
+
+  list.push(...addIf(P.Great_Tusk, {count: 3, terrain: 'Desert', item: ['scarletbook']}, p))
+  list.push(...addIf(P.Scream_Tail, {count: 3, terrain: 'Grasslands', item: ['scarletbook']}, p))
+  list.push(...addIf(P.Brute_Bonnet, {count: 3, terrain: 'Rural', item: ['scarletbook']}, p))
+
+  list.push(...addIf(P.Iron_Treads, {count: 3, terrain: 'Desert', item: ['violetbook']}, p))
+  list.push(...addIf(P.Iron_Bundle, {count: 3, terrain: 'Grasslands', item: ['violetbook']}, p))
+  list.push(...addIf(P.Iron_Hands, {count: 3, terrain: 'Rural', item: ['violetbook']}, p))
+
+  return {
+    list,
+    shinyMultipler: 3,
+    guaranteedItem: () => {
+      const p = Math.random()
+      if (p < 0.01) {
+        return 'boosterenergy'
+      } else if (p < 0.05) {
+        return randomItem([...TERA_SHARDS])
+      } else if (p < 0.35) {
+        return randomItem([...SV_INGREDIENTS])
+      }
+      return ''
+    },
+  }
+}
 
 const ENCOUNTERS_FEATHERBALL = (user: Users.Doc, now: Date, location: Location, format: EncounterParamFormat = 'List') => {
   const p: EncounterParams = {user: user as Users.Doc, location, format}
@@ -5141,6 +5169,7 @@ export const ENCOUNTERS: EncounterTable = {
   adrenalineorb: ENCOUNTERS_ADRENALINE,
   campinggear: ENCOUNTERS_BAIT,
   rotombike: ENCOUNTERS_WILDAREA,
+  glimmeringcharm: ENCOUNTERS_AREAZERO,
 }
 
 type HoldItemTable = Partial<Record<BadgeId, ItemId[]>>

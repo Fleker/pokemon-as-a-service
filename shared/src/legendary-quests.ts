@@ -1108,6 +1108,26 @@ export const VioletBook: LegendaryQuest = {
   }]
 }
 
+export const GlimmeringCharm: LegendaryQuest = {
+  hints: [{
+    completed: requireItem(['teraorb']),
+    msg: 'First you must obtain the Tera Orb.'
+  }, {
+    completed: requireItem(['scarletbook']),
+    msg: 'You must uncover the mysteries of the Scarlet Book.'
+  }, {
+    completed: requireItem(['violetbook']),
+    msg: 'You must uncover the mysteries of the Violet Book.'
+  }, {
+    completed: simpleRequirePotwArr([P.Meowscarada, P.Skeledirge, P.Quaquaval]),
+    msg: 'Have you gone on an adventure with your Paldean Pokémon?'
+  }, {
+    completed: requireItem(['terabug', 'teragrass', 'teraelectric', 'terawater',
+      'teranormal', 'teraghost', 'terapsychic', 'teraice']),
+    msg: 'Have you met the gym leaders of Paldea? Each of them specializes in a particular tera type.'
+  }]
+}
+
 export const RuinousTreasures: Task[] = [{
   completed: simpleRequirePotw(P.Gholdengo),
   msg: 'Are you familiar with the Pokémon of pure treasure?'

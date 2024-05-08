@@ -111,6 +111,7 @@ const lureBallMapping: Record<LureId, PokeballId[]> = {
   colressmchn: ['ultraball'],
   adrenalineorb: ['quickball'],
   rotombike: ['duskball'],
+  glimmeringcharm: ['dreamball'],
 }
 exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promise<F.Throw.Res> => {
   if (!context.auth) {
