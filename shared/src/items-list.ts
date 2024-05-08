@@ -3436,6 +3436,11 @@ const ITEMS_KEY = {
     description: 'A book covered in violet letting. It appears to document predictions of the future.',
     buy: 0, sell: 0,
   }),
+  glimmeringcharm: assert<Lure>({
+    label: 'Glimmering Charm', category: 'key',
+    description: 'A charm that hangs from your neck. It is made from the same material as tera crystals.',
+    buy: 0, sell: 0, isLure: true,
+  }),
   maskteal: {
     label: 'Teal Mask', category: 'key',
     description: 'A mask which may be held by Ogerpon during fights. Nothing changes when held.',
