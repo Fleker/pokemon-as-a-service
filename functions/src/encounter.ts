@@ -48,11 +48,13 @@ export function deduplicate(
   )
   return encounters.list.filter((id) => {
     const badge = new TeamsBadge(id);
-    const genders = Pkmn.get(id)?.gender
+    const db = Pkmn.get(id)
+    const genders = db?.gender
     if (genders?.length) {
       return genders.some((gender) => !badges.has(setGender(id, gender)))
     }
-    if (!badges.has(badge.toString())) {
+    // No point in waiting for a formless Basculin since it cannot exist
+    if (!db?.needForm && !badges.has(badge.toString())) {
         return true;
     }
     return false;
@@ -63,7 +65,7 @@ const nop = () => ''
 
 type Gate = 'yuQPa32crRiPBJvi9HU9' | 'LcyYjBeK4KAq1BkYgzlx' |
 'vJHZReab8dpsCgz6ixJy' | 'drIVxbAeXnuVuWCYWTf5' |
-'JUNIPER' | 'SYCAMORE' | 'KUKUI' | 'MAGNOLIA'
+'JUNIPER' | 'SYCAMORE' | 'KUKUI' | 'MAGNOLIA' | 'SADATURO'
 
 interface EncounterRule {
   /**
@@ -3643,7 +3645,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Indeedee,
         ],
         [CATCH_CHARM_SV]: [
-          P.Oinkolonge, P.Dolliv, P.Squawkabilly, P.Grafaiai, P.Cyclizar,
+          P.Oinkologne, P.Dolliv, P.Squawkabilly, P.Grafaiai, P.Cyclizar,
         ]
       },
       ultraball: {
@@ -3765,7 +3767,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Toxtricity,
         ],
         [CATCH_CHARM_SV]: [
-          P.Revaroom, P.Glimmora,
+          P.Revavroom, P.Glimmora,
         ]
       }
     },
@@ -3804,7 +3806,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Gastly, P.Shuppet, P.Sandygast, P.Sinistea,
         ],
         [CATCH_CHARM_SV]: [
-          P.Grievard, P.Bramblin,
+          P.Greavard, P.Bramblin,
         ]
       },
       greatball: {
@@ -4155,7 +4157,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Trumbeak,
         ],
         [CATCH_CHARM_SV]: [
-          P.Oinkolonge, P.Doliv, P.Squawkabilly, P.Grafaiai, P.Cyclizar,
+          P.Oinkologne, P.Dolliv, P.Squawkabilly, P.Grafaiai, P.Cyclizar,
         ]
       },
       ultraball: {
@@ -4285,7 +4287,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Arbok,
         ],
         [CATCH_CHARM_SV]: [
-          P.Revaroom, P.Glimmora,
+          P.Revavroom, P.Glimmora,
         ]
       }
     },
@@ -4326,7 +4328,7 @@ const ENCOUNTERS_BAIT = (user, now, location, format, params) => {
           P.Gastly, P.Shuppet, P.Sandygast, P.Sinistea, P.Duskull,
         ],
         [CATCH_CHARM_SV]: [
-          P.Grievard, P.Bramblin,
+          P.Greavard, P.Bramblin,
         ]
       },
       greatball: {
@@ -5566,7 +5568,7 @@ export const HOLD_ITEMS_15: HoldItemTable = {
   [P.Shiinotic]: ['tinymushroom'],
   [P.Tsareena]: ['grassyseed'],
   [P.Kommo_o]: ['razorclaw'],
-  // [P.Toedscreul]: ['tinymushroom'],
+  [P.Toedscruel]: ['tinymushroom'],
 }
 
 /** 50% chance of finding an item. These items are common and normally materials. */
