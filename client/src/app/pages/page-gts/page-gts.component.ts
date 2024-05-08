@@ -88,6 +88,7 @@ export class PageGtsComponent implements OnInit, OnDestroy {
   }
   gtsLeaderboard = {
     simplePokemonTrades: [],
+    simplePokemonOffers: [],
   }
   flagPickerPro = false
   pkmn: PokemonId[] = []
@@ -295,11 +296,17 @@ export class PageGtsComponent implements OnInit, OnDestroy {
   async fetchGtsLeaderboard() {
     try {
       const dbData = await this.firebase.dbGet(['gts', 'leaderboard'])
-      const simples = dbData.simplePokemonTrades
-      console.log('simples', simples)
-      const sortedSimples = Object.entries(simples)
+      const {simplePokemonTrades, simpleOffers} = dbData
+      const sortedSimplePokemonTrades = Object.entries(simplePokemonTrades)
         .sort((a, b) => (b[1] as number) - (a[1] as number))
-      this.gtsLeaderboard.simplePokemonTrades = [...sortedSimples]
+      const sortedSimplePokemonOffers = Object.entries(simpleOffers)
+        .sort((a, b) => (b[1] as number) - (a[1] as number))
+
+      this.gtsLeaderboard.simplePokemonTrades = [...sortedSimplePokemonTrades]
+        .map(([bid, c]) => [new TeamsBadge(bid).toLabel(), Badge.fromLegacy(bid).toString(), c])
+        .filter(x => x[0]) // Needs to be valid
+        .slice(0, 10)
+      this.gtsLeaderboard.simplePokemonOffers = [...sortedSimplePokemonOffers]
         .map(([bid, c]) => [new TeamsBadge(bid).toLabel(), Badge.fromLegacy(bid).toString(), c])
         .filter(x => x[0]) // Needs to be valid
         .slice(0, 10)

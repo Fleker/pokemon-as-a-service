@@ -12,17 +12,39 @@
 
 <collapsible-card *ngIf="gtsLeaderboard.simplePokemonTrades.length">
   <span title>GTS Leaderboard</span>
-  <small>Top trades made in the last week</small>
   <table>
-    <tr *ngFor="let item of gtsLeaderboard.simplePokemonTrades">
+    <tr>
       <td>
-        <sprite-pokemon class="small" badge="{{item[1]}}"></sprite-pokemon>
+        <small>Top trades made in the last week</small>
+        <table>
+          <tr *ngFor="let item of gtsLeaderboard.simplePokemonTrades">
+            <td>
+              <sprite-pokemon class="small" badge="{{item[1]}}"></sprite-pokemon>
+            </td>
+            <td>
+              {{item[0]}}
+            </td>
+            <td>
+              ×{{item[2]}}
+            </td>
+          </tr>
+        </table>
       </td>
       <td>
-        {{item[0]}}
-      </td>
-      <td>
-        ×{{item[2]}}
+        <small>Top trades offered in the last week</small>
+        <table>
+          <tr *ngFor="let item of gtsLeaderboard.simplePokemonOffers">
+            <td>
+              <sprite-pokemon class="small" badge="{{item[1]}}"></sprite-pokemon>
+            </td>
+            <td>
+              {{item[0]}}
+            </td>
+            <td>
+              ×{{item[2]}}
+            </td>
+          </tr>
+        </table>
       </td>
     </tr>
   </table>
