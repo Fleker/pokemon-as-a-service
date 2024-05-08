@@ -315,6 +315,19 @@ export const Events = {
       return date.month() === 3 && date.date() === 9
     }
   }),
+  'CLOUD_NEXT': assert<Event>({
+    title: 'Cloud Next Week',
+    description: 'Look up to the sky. You see the Clouds? Some of those are Google Clouds.',
+    frequentSpecies: [P.Swablu],
+    encounterHoldItems: ['prettywing'],
+    other: [],
+    shinyRate: 1,
+    isActive: (user) => {
+      const date = getLocalTime(user)
+      // April 9-12 2024
+      return date.month() === 3 && (date.date() >= 9 && date.date() <= 12)
+    }
+  }),
   'EARTH_DAY': assert<Event>({
     title: 'Earth Day',
     description: 'Today let us celebrate the planet and all it has given us, for life has no Ctrl-Z.',

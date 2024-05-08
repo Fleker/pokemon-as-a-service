@@ -17,7 +17,7 @@ import { SWARMS_UNLOCK } from '../../shared/src/quests'
 import { hasPokemonFuzzy } from './users.utils'
 import {getAllPokemon, myPokemon, TPokemon} from '../../shared/src/badge-inflate'
 import { Pokemon, Badge } from '../../shared/src/badge3'
-import { Azelf, Mesprit, Uxie } from '../../shared/src/gen/type-pokemon-ids'
+import { Azelf, Mesprit, Uxie, Tatsugiri } from '../../shared/src/gen/type-pokemon-ids'
 import { ITEMS } from '../../shared/src/items-list'
 import { FriendSafariMap } from '../../shared/src/friend-safari'
 import { randomVariant } from '../../shared/src/farming'
@@ -373,6 +373,7 @@ const ENCOUNTERS_COMMON = (user: Users.Doc, now: Date, location: Location, forma
   list.push(...addIf(P.Spheal, {gate: CATCH_CHARM_GSC, terrain: 'Bay'}, p))
   list.push(...addIf(P.Spheal, {gate: CATCH_CHARM_GSC, terrain: 'Beach'}, p))
   list.push(...addIf(P.Azurill, {event: 'INTERN_DAY', count: 20}, p))
+  list.push(...addIf(P.Swablu, {event: 'CLOUD_NEXT', count: 20}, p))
 
   // Sinnoh
   list.push(...addIf(P.Turtwig, {gate: CATCH_CHARM_RSE, other: p.location.mossyRock === true}, p))
@@ -925,7 +926,10 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Varoom, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], weather: 'Fog', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Bombirdier, {gate: CATCH_CHARM_SWSH, item: ['teraflying'], weather: 'Windy', terrain: 'Rural'}, p))
   list.push(...addIf(Potw(P.Gimmighoul, {form: 'roaming'}), {gate: CATCH_CHARM_SWSH, item: ['itemfinder'], others: [p.user.lastLocations?.includes(p.user.location) ?? true]}, p))
-
+  list.push(...addIf(P.Toedscool, {gate: CATCH_CHARM_SWSH, item: ['teraground'], weather: 'Heat Wave', terrain: 'Forest'}, p))
+  list.push(...addIf(P.Veluza, {gate: CATCH_CHARM_SWSH, item: ['terapsychic'], weather: 'Rain', terrain: 'Oceanic'}, p))
+  list.push(...addIf(P.Tatsugiri, {gate: CATCH_CHARM_SWSH, item: ['teradragon'], terrain: 'Bay'}, p))
+  
   return {
     shinyMultipler: 1,
     list,
@@ -1176,6 +1180,7 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Appletun, {event: 'PIDAY'}, p))
   
   // Paldea
+  const hasTatsugiri = hasPokemonFuzzy(user, Pokemon(Tatsugiri))
   list.push(...addIf(Potw(P.Tauros, {form: 'combat_breed'}), {gate: CATCH_CHARM_SWSH, item: ['teraorb'], location: 'ES-MLG'}, p))
   list.push(...addIf(Potw(P.Tauros, {form: 'blaze_breed'}), {gate: CATCH_CHARM_SWSH, item: ['scarletbook'], location: 'ES-MLG'}, p))
   list.push(...addIf(Potw(P.Tauros, {form: 'aqua_breed'}), {gate: CATCH_CHARM_SWSH, item: ['violetbook'], location: 'ES-MLG'}, p))
@@ -1192,6 +1197,8 @@ const ENCOUNTERS_RARE = (user: Users.Doc, now: Date, location: Location, format:
   list.push(...addIf(P.Houndstone, {gate: CATCH_CHARM_SWSH, item: ['teraghost'], terrain: 'Mountain', time: 'Night'}, p))
   list.push(...addIf(P.Glimmora, {gate: CATCH_CHARM_SWSH, item: ['terarock'], weather: 'Cloudy', terrain: 'Mountain'}, p))
   list.push(...addIf(P.Revavroom, {gate: CATCH_CHARM_SWSH, item: ['terasteel'], weather: 'Fog', terrain: 'Mountain'}, p))
+  list.push(...addIf(P.Toedscruel, {gate: CATCH_CHARM_SWSH, item: ['teraground'], weather: 'Heat Wave', terrain: 'Forest'}, p))
+  list.push(...addIf(P.Dondozo, {gate: CATCH_CHARM_SWSH, item: ['terawater'], terrain: 'Bay', other: [hasTatsugiri]}, p))
 
   if (user.hiddenItemsFound.includes(SWARMS_UNLOCK)) {
     if (isEclipse(location)) {
