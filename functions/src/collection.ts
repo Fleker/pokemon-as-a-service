@@ -437,7 +437,7 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
       throw new functions.https.HttpsError('failed-precondition', `Cannot use ${pokeball}: ${e}`)
     }
   })
-  const {selectedPokemon, badge, holdItem, availablePokemon, balls, lastLocations} = txnRes
+  const {selectedPokemon, badge, holdItem, holdItemQuantity, availablePokemon, balls, lastLocations} = txnRes
   const url = Sprite.pkmn(selectedPokemon)
   const details = await Utils.getPokemonDetails(selectedPokemon)
   let html = `<img src="${url}" /><br>
@@ -459,7 +459,8 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
     // to allow database events elsewhere to proceed.
   // }
   return {
-    html, pokedex, selectedPokemon, duplicates, holdItem, badge: badge.toString(),
+    html, pokedex, selectedPokemon, duplicates, holdItem, holdItemQuantity,
+    badge: badge.toString(),
     balls, lastLocations, bait: txnRes.bait,
     debug: {
       availablePokemon,
