@@ -4182,6 +4182,9 @@ export const bosses = [
     Potw(P.Flapple, {var:4}),
     Potw(P.Kilowattrel, {var:1}),
     Potw(P.Pidgeot, {var:3}),
+    Potw(P.Shaymin, {var:2}),
+    Potw(P.Shaymin, {var:2, form:'land'}),
+    Potw(P.Shaymin, {var:2, form:'sky'}),
   ]
 ]
 
