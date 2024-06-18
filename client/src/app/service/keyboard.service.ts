@@ -38,6 +38,46 @@ export class KeyboardService {
     document.addEventListener('keyup', (e: KeyboardEvent) => {
       const {code} = e
       console.debug('keyvent', e.code, e.shiftKey, e.ctrlKey, e)
+      if (e.target['className'].includes('omnisearchinput')) {
+        if (e.code === 'ArrowDown') {
+          console.log(document.querySelector('#omnisearchres li'))
+          document.querySelector('#omnisearchres li')['focus']()
+        }
+        // FIXME: This is the wrong list
+        //    also: does not close
+        if (e.key === '1' && e.ctrlKey) {
+          this.router.navigate([this.allSearchOptions[0].url])
+        }
+        if (e.key === '2' && e.ctrlKey) {
+          this.router.navigate([this.allSearchOptions[1].url])
+        }
+        if (e.key === '3' && e.ctrlKey) {
+          this.router.navigate([this.allSearchOptions[2].url])
+        }
+        if (e.key === '4' && e.ctrlKey) {
+          this.router.navigate([this.allSearchOptions[3].url])
+        }
+        if (e.key === '5' && e.ctrlKey) {
+          this.router.navigate([this.allSearchOptions[4].url])
+        }
+        e.preventDefault()
+        return null;
+      }
+      if (e.target['className'].includes('omnisearchli')) {
+        if (e.code === 'Enter') {
+          e.target['click']()
+          e.preventDefault()
+        } else {
+          document.querySelector('.omnisearchinput')['focus']()
+          // document.querySelector('.omnisearchinput')['dispatchEvent'](new KeyboardEvent('keyup', {
+          //   code: e.code,
+          //   key: e.key,
+          //   shiftKey: e.shiftKey,
+          //   ctrlKey: e.ctrlKey,
+          // }))
+          document.querySelector('.omnisearchinput')['value'] += e.key
+        }
+      }
       if (e.target['nodeName'] === 'INPUT') return null;
       // Ctrl+G opens the OmniSearch
       if (code == 'KeyG' && e.shiftKey && this.enableOmniSearch) {
@@ -79,7 +119,6 @@ export class KeyboardService {
 
   // Notes to change in the future:
   //  Add sprite/icon
-  //  Improve dynamism. Put all bazaar labels into Bazaar keywords
   //  Add a subtitle for things like Pokemon IDs
   //  Use keyboard to navigate results
   //  Add a keyboard option to navigation to quick-jump to pages
@@ -257,7 +296,7 @@ export class KeyboardService {
       allSearchOptions.push({
         label: stall.name,
         url: '/items/bazaar',
-        keywords: [...stall.name.split(' '), 'bazaar', stall.currency],
+        keywords: [...stall.name.toLowerCase().split(' '), 'bazaar', stall.currency],
         icon: stall.icon,
         sublabel: 'Bazaar Stall',
       })

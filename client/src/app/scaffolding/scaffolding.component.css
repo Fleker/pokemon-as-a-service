@@ -328,7 +328,7 @@ dialog.omnisearch li {
   padding-left: 8px;
 }
 
-dialog.omnisearch li:hover {
+dialog.omnisearch li:hover, dialog.omnisearch li:focus, dialog.omnisearch li:active {
   background-color: rgba(0, 128, 255, 0.4);
   padding-left: 12px;
 }

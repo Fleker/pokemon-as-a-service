@@ -198,10 +198,10 @@
   <router-outlet></router-outlet>
   <!-- Here are our dialogs -->
   <dialog #omnisearch class="omnisearch">
-    <input type="search" [(ngModel)]="omniSearch"
+    <input type="search" [(ngModel)]="omniSearch" class="omnisearchinput"
         (input)="omniFilter()" placeholder="Search for anything" />
-    <ul>
-      <li *ngFor="let res of omniRes" routerLink="{{res.url}}" (click)="omniNavigate()">
+    <ul id="omnisearchres">
+      <li class="omnisearchli" *ngFor="let res of omniRes" routerLink="{{res.url}}" (click)="omniNavigate()">
         <mat-icon *ngIf="res.svgIcon" [svgIcon]="res.svgIcon"></mat-icon>
         <mat-icon *ngIf="res.icon">{{res.icon}}</mat-icon>
         <a routerLink="{{res.url}}">
