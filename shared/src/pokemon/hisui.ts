@@ -3,7 +3,7 @@ import { ensurePkmnBuilder } from './types'
 export const hisuiBuilder = {
   'potw-058-hisuian': ensurePkmnBuilder({
     species: 'Growlithe', type1: 'Fire', type2: 'Rock', 
-    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 22.7,
     eggBase: 'potw-058-hisuian', eggGroup: ['Field'], eggCycles: 20,
     evolveTo: ['potw-059-hisuian'],
@@ -23,11 +23,12 @@ export const hisuiBuilder = {
       ['Crunch', 'Howl'],
       ['Return', 'Stealth Rock'],
       ['Outrage', 'Will-O-Wisp'],
+      ['Snarl', 'Morning Sun'],
     ],
   }),
   'potw-059-hisuian': ensurePkmnBuilder({
     species: 'Arcanine', type1: 'Fire', type2: 'Rock', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 168, release: 'greatball',
     eggBase: 'potw-058-hisuian', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Snaps at its foes with fangs cloaked in blazing flame. Despite its bulk, it deftly feints every which way, leading opponents on a deceptively merry chase as it all but dances around them.`,
@@ -48,11 +49,12 @@ export const hisuiBuilder = {
       ['Reversal', 'Howl'],
       ['Extreme Speed', 'Stealth Rock'],
       ['Outrage', 'Will-O-Wisp'],
+      ['Snarl', 'Heat Wave', 'Morning Sun'],
     ],
   }),
   'potw-100-hisuian': ensurePkmnBuilder({
     species: 'Voltorb', type1: 'Electric', type2: 'Grass', 
-    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 13, evolveTo: ['potw-101-hisuian'],
     eggBase: 'potw-100-hisuian', eggGroup: ['Mineral'], eggCycles: 20,
     pokedex: `An enigmatic Pokémon that happens to bear a resemblance to a Poké Ball. When excited, it discharges the electric current it has stored in its belly, then lets out a great, uproarious laugh.`,
@@ -75,7 +77,7 @@ export const hisuiBuilder = {
   }),
   'potw-101-hisuian': ensurePkmnBuilder({
     species: 'Electrode', type1: 'Electric', type2: 'Grass', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD', release: 'greatball',
     weight: 71,
     eggBase: 'potw-100-hisuian', eggGroup: ['Mineral'], eggCycles: 20,
     pokedex: `The tissue on the surface of its body is curiously similar in composition to an Apricorn. When irritated, this Pokémon lets loose an electric current equal to 20 lightning bolts.`,
@@ -98,7 +100,7 @@ export const hisuiBuilder = {
   }),
   'potw-157-hisuian': ensurePkmnBuilder({
     species: 'Typhlosion', type1: 'Fire', type2: 'Ghost', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 69.8, release: 'ultraball',
     eggBase: 'potw-155', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Said to purify lost, forsaken souls with its flames and guide them to the afterlife. I believe its form has been influenced by the energy of the sacred mountain towering at Hisui’s center.`,
@@ -125,7 +127,7 @@ export const hisuiBuilder = {
   }),
   'potw-211-hisuian': ensurePkmnBuilder({
     species: 'Qwilfish', type1: 'Dark', type2: 'Poison', 
-    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 3.9,
     eggBase: 'potw-211-hisuian', eggGroup: ['Water 2'], eggCycles: 20,
     evolveTo: ['potw-904'],
@@ -150,7 +152,7 @@ export const hisuiBuilder = {
   }),
   'potw-215-hisuian': ensurePkmnBuilder({
     species: 'Sneasel', type1: 'Fighting', type2: 'Poison', 
-    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 27, evolveTo: ['potw-903'],
     eggBase: 'potw-215-hisuian', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Its sturdy, curved claws are ideal for traversing precipitous cliffs. From the tips of these claws drips a venom that infiltrates the nerves of any prey caught in Sneasel’s grasp.`,
@@ -220,11 +222,12 @@ export const hisuiBuilder = {
       ['Drain Punch', 'Aerial Ace', 'Victory Dance'],
       ['Axe Kick', 'Poison Jab', 'Sleep Powder'],
       ['Vacuum Wave', 'Acrobatics', 'Sunny Day'],
+      ['Petal Blizzard', 'Metronome', 'Aromatherapy'],
     ],
   }),
   'potw-550-white_stripe': ensurePkmnBuilder({
     species: 'Basculin', type1: 'Water',
-    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], gender: ['male', 'female'],
+    tiers: ['Arceus Cup', 'Treasure Cup'], gender: ['male', 'female'],
     shiny: 'WILD', weight: 18,
     evolveTo: ['potw-902'],
     eggBase: 'potw-550', eggGroup: ['Water 2'], eggCycles: 40,
@@ -248,7 +251,7 @@ export const hisuiBuilder = {
   }),
   'potw-570-hisuian': ensurePkmnBuilder({
     species: 'Zorua', type1: 'Normal', type2: 'Ghost', 
-    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 12.5, levelAt: 30, levelTo: 'potw-571-hisuian',
     eggBase: 'potw-570-hisuian', eggGroup: ['Field'], eggCycles: 25,
     pokedex: `A once-departed soul, returned to life in Hisui. Derives power from resentment, which rises as energy atop its head and takes on the forms of foes. In this way, Zorua vents lingering malice.`,
@@ -271,7 +274,7 @@ export const hisuiBuilder = {
   }),
   'potw-571-hisuian': ensurePkmnBuilder({
     species: 'Zoroark', type1: 'Normal', type2: 'Ghost', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 73, release: 'greatball',
     eggBase: 'potw-570-hisuian', eggGroup: ['Field'], eggCycles: 25,
     pokedex: `With its disheveled white fur, it looks like an embodiment of death. Heedless of its own safety, Zoroark attacks its nemeses with a bitter energy so intense, it lacerates Zoroark’s own body.`,
@@ -295,7 +298,7 @@ export const hisuiBuilder = {
   }),
   'potw-628-hisuian': ensurePkmnBuilder({
     species: 'Braviary', type1: 'Psychic', type2: 'Flying', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 43.4, release: 'greatball',
     eggBase: 'potw-627', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `Screaming a bloodcurdling battle cry, this huge and ferocious bird Pokémon goes out on the hunt. It blasts lakes with shock waves, then scoops up any prey that float to the water’s surface.`,
@@ -319,7 +322,7 @@ export const hisuiBuilder = {
   }),
   'potw-705-hisuian': ensurePkmnBuilder({
     species: 'Sliggoo', type1: 'Steel', type2: 'Dragon', 
-    tiers: ['Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball',
+    tiers: ['Arceus Cup', 'Treasure Cup'], shiny: 'WILD', release: 'greatball',
     weight: 68.5, levelAt: 50, levelTo: ['potw-706-hisuian'],
     eggBase: 'potw-704', eggGroup: ['Dragon'], eggCycles: 40,
     pokedex: `A creature given to melancholy. I suspect its metallic shell developed as a result of the mucus on its skin reacting with the iron in Hisui’s water.`,
@@ -341,7 +344,7 @@ export const hisuiBuilder = {
   }),
   'potw-706-hisuian': ensurePkmnBuilder({
     species: 'Goodra', type1: 'Steel', type2: 'Dragon', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'ultraball',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD', release: 'ultraball',
     weight: 334.1,
     eggBase: 'potw-704', eggGroup: ['Dragon'], eggCycles: 40,
     pokedex: `Able to freely control the hardness of its metallic shell. It loathes solitude and is extremely clingy—it will fume and run riot if those dearest to it ever leave its side.`,
@@ -366,7 +369,7 @@ export const hisuiBuilder = {
   }),
   'potw-713-hisuian': ensurePkmnBuilder({
     species: 'Avalugg', type1: 'Ice', type2: 'Rock', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 262.4, release: 'greatball',
     eggBase: 'potw-712', eggGroup: ['Monster', 'Mineral'], eggCycles: 20,
     pokedex: `The armor of ice covering its lower jaw puts steel to shame and can shatter rocks with ease. This Pokémon barrels along steep mountain paths, cleaving through the deep snow.`,
@@ -390,7 +393,7 @@ export const hisuiBuilder = {
   }),
   'potw-724-hisuian': ensurePkmnBuilder({
     species: 'Decidueye', type1: 'Grass', type2: 'Fighting', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 37, release: 'ultraball',
     eggBase: 'potw-722', eggGroup: ['Flying'], eggCycles: 20,
     pokedex: `The air stored inside the rachises of Decidueye’s feathers insulates the Pokémon against Hisui’s extreme cold. This is firm proof that evolution can be influenced by environment.`,
@@ -414,7 +417,7 @@ export const hisuiBuilder = {
   }),
   'potw-483-origin': ensurePkmnBuilder({
     species: 'Dialga', type1: 'Steel', type2: 'Dragon',
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY', release: 'ultraball',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'SYNCABLE', rarity: 'LEGENDARY', release: 'ultraball',
     weight: 850,
     eggGroup: [], eggCycles: -1,
     pokedex: `Radiant light caused Dialga to take on a form bearing a striking resemblance to the creator Pokémon. Dialga now wields such colossal strength that one must conclude this is its true form.`,
@@ -440,7 +443,7 @@ export const hisuiBuilder = {
   }),
   'potw-484-origin': ensurePkmnBuilder({
     species: 'Palkia', type1: 'Water', type2: 'Dragon', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY', release: 'ultraball',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'SYNCABLE', rarity: 'LEGENDARY', release: 'ultraball',
     weight: 660,
     eggGroup: [], eggCycles: -1,
     pokedex: `It soars across the sky in a form that greatly resembles the creator of all things. Perhaps this imitation of appearance is Palkia’s strategy for gaining Arceus’s powers.`,
@@ -467,7 +470,7 @@ export const hisuiBuilder = {
   }),
   'potw-899': ensurePkmnBuilder({
     species: 'Wyrdeer', type1: 'Normal', type2: 'Psychic', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 95.1, release: 'greatball',
     needForm: false, syncableForms: ['alpha'],
     eggBase: 'potw-234', eggGroup: [], eggCycles: -1,
@@ -491,7 +494,7 @@ export const hisuiBuilder = {
   }),
   'potw-900': ensurePkmnBuilder({
     species: 'Kleavor', type1: 'Bug', type2: 'Rock', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD', release: 'greatball',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD', release: 'greatball',
     weight: 89, syncableForms: ['noble', 'alpha'], needForm: false,
     eggBase: 'potw-123', eggGroup: [], eggCycles: -1,
     pokedex: `A violent creature that fells towering trees with its crude axes and shields itself with hard stone. If one should chance upon this Pokémon in the wilds, one's only recourse is to flee.`,
@@ -513,7 +516,7 @@ export const hisuiBuilder = {
   }),
   'potw-901': ensurePkmnBuilder({
     species: 'Ursaluna', type1: 'Ground', type2: 'Normal', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     syncableForms: ['blood_moon'], needForm: false,
     weight: 290, release: 'ultraball',
     eggBase: 'potw-216', eggGroup: ['Field'], eggCycles: 20,
@@ -561,7 +564,7 @@ export const hisuiBuilder = {
   }),
   'potw-902-male': ensurePkmnBuilder({
     species: 'Basculegion', type1: 'Water', type2: 'Ghost', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 110, release: 'greatball',
     eggBase: 'potw-550-white_stripe', eggGroup: [], eggCycles: -1,
     pokedex: `Clads itself in the souls of comrades that perished before fulfilling their goals of journeying upstream. No other species throughout all Hisui's rivers is Basculegion's equal.`,
@@ -582,7 +585,7 @@ export const hisuiBuilder = {
   }),
   'potw-902-female': ensurePkmnBuilder({
     species: 'Basculegion', type1: 'Water', type2: 'Ghost', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 110, release: 'greatball',
     eggBase: 'potw-550-white_stripe', eggGroup: [], eggCycles: -1,
     pokedex: `Clads itself in the souls of comrades that perished before fulfilling their goals of journeying upstream. No other species throughout all Hisui's rivers is Basculegion's equal.`,
@@ -603,7 +606,7 @@ export const hisuiBuilder = {
   }),
   'potw-903': ensurePkmnBuilder({
     species: 'Sneasler', type1: 'Fighting', type2: 'Poison', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 43, release: 'greatball',
     eggBase: 'potw-215-hisuian', eggGroup: [], eggCycles: -1,
     pokedex: `Because of Sneasler's virulent poison and daunting physical prowess, no other species could hope to best it on the frozen highlands. Preferring solitude, this species does not form packs.`,
@@ -627,7 +630,7 @@ export const hisuiBuilder = {
   }),
   'potw-904': ensurePkmnBuilder({
     species: 'Overqwil', type1: 'Dark', type2: 'Poison', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'WILD',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'WILD',
     weight: 60.5, release: 'greatball',
     eggBase: 'potw-211-hisuian', eggGroup: [], eggCycles: -1,
     pokedex: `Its lancelike spikes and savage temperament have earned it the nickname "sea fiend." It slurps up poison to nourish itself.`,
@@ -665,12 +668,13 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
-      ['Focus Blast', 'Earth Power', 'Tailwind']
+      ['Focus Blast', 'Earth Power', 'Tailwind'],
+      ['Weather Ball', 'Hurricane', 'Rain Dance'],
     ],
   }),
   'potw-905-incarnate': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
     weight: 48, release: 'ultraball',
     eggGroup: [], eggCycles: -1,
     pokedex: `When it flies to this land from across the sea, the bitter winter comes to an end. According to legend, this Pokémon's love gives rise to the budding of fresh life across Hisui.`,
@@ -685,12 +689,13 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
-      ['Focus Blast', 'Earth Power', 'Tailwind']
+      ['Focus Blast', 'Earth Power', 'Tailwind'],
+      ['Weather Ball', 'Hurricane', 'Rain Dance'],
     ],
   }),
   'potw-905-therian': ensurePkmnBuilder({
     species: 'Enamorus', type1: 'Fairy', type2: 'Flying', 
-    tiers: ['Traditional', 'Arceus Cup'/*, 'SV DLC Cup'*/], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
+    tiers: ['Traditional', 'Arceus Cup', 'Treasure Cup'], shiny: 'SYNCABLE', rarity: 'LEGENDARY',
     weight: 48, release: 'ultraball',
     eggGroup: [], eggCycles: -1,
     pokedex: `When it flies to this land from across the sea, the bitter winter comes to an end. According to legend, this Pokémon's love gives rise to the budding of fresh life across Hisui.`,
@@ -705,7 +710,8 @@ export const hisuiBuilder = {
     ],
     novelMoves: [[],
       ['Extrasensory', 'Calm Mind'],
-      ['Focus Blast', 'Earth Power', 'Tailwind']
+      ['Focus Blast', 'Earth Power', 'Tailwind'],
+      ['Weather Ball', 'Hurricane', 'Rain Dance'],
     ],
   }),
 }

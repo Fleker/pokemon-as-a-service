@@ -136,7 +136,7 @@ export const johtoBuilder = {
       ['Heat Wave', 'Nature Power', 'Captivate'],
       ['Swift', 'Double Team'],
     ],
-    tiers: ['Tiny Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Tiny Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 7.9,
   }),
   "potw-156": ensurePkmnBuilder({
@@ -172,7 +172,7 @@ export const johtoBuilder = {
     ],
     release: 'greatball',
     shiny: 'WILD', weight: 19,
-    tiers: [/*, 'SV DLC Cup'*/],
+    tiers: ['Treasure Cup'],
   }),
   "potw-157": ensurePkmnBuilder({
     "eggBase": "potw-155", eggCycles: 20,
@@ -207,7 +207,7 @@ export const johtoBuilder = {
       ['Eruption', 'Earthquake', 'Double Team'],
     ],
     release: 'ultraball',
-    tiers: ['Traditional', 'Arceus Cup', 'Crystal Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Traditional', 'Arceus Cup', 'Crystal Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 79.5,
     syncableForms: ['hisuian'], needForm: false,
   }),
@@ -355,7 +355,7 @@ export const johtoBuilder = {
       ['Ice Punch', 'Defense Curl'],
       ['Uproar', 'Surf', 'Follow Me'],
     ],
-    tiers: ['Tiny Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Tiny Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 6,
   }),
   "potw-162": ensurePkmnBuilder({
@@ -390,7 +390,7 @@ export const johtoBuilder = {
       ['Ice Punch', 'Knock Off', 'Defense Curl'],
       ['Hyper Voice', 'Surf', 'Follow Me'],
     ],
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 32.5,
   }),
   "potw-163": ensurePkmnBuilder({
@@ -425,7 +425,7 @@ export const johtoBuilder = {
     "eggBase": "potw-163", eggCycles: 15,
     eggGroup: ['Flying'],
     "type2": "Flying",
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 21.1,
   }),
   "potw-164": ensurePkmnBuilder({
@@ -459,7 +459,7 @@ export const johtoBuilder = {
     "attack": 50,
     "defense": 50,
     "type1": "Normal",
-    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Sky Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 40.8,
   }),
   "potw-165": ensurePkmnBuilder({
@@ -561,7 +561,7 @@ export const johtoBuilder = {
     "defense": 40,
     "type1": "Bug",
     "levelTo": "potw-168",
-    tiers: ['Tiny Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 8.5,
   }),
   "potw-168": ensurePkmnBuilder({
@@ -593,7 +593,7 @@ export const johtoBuilder = {
       ['Electroweb', 'Screech'],
       ['Acid', 'X-Scissor', 'Shadow Sneak', 'Toxic'],
     ],
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 33.5,
   }),
   "potw-169": ensurePkmnBuilder({
@@ -731,7 +731,7 @@ export const johtoBuilder = {
     "attack": 40,
     "defense": 15,
     "type1": "Electric",
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], levelTo: 'potw-025',
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'], levelTo: 'potw-025',
     shiny: 'WILD', weight: 2, eggCycles: 10,
     needForm: false, syncableForms: ['spiky'],
   }),
@@ -795,7 +795,7 @@ export const johtoBuilder = {
       ['Signal Beam', 'Cosmic Power'],
       ['Bubble', 'Heal Pulse'],
     ],
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], levelTo: 'potw-035',
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Treasure Cup'], levelTo: 'potw-035',
     shiny: 'WILD', weight: 3, eggCycles: 10,
   }),
   "potw-174": ensurePkmnBuilder({
@@ -827,7 +827,7 @@ export const johtoBuilder = {
     "hp": 90,
     "attack": 30,
     "defense": 15,
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'], levelTo: 'potw-039',
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'], levelTo: 'potw-039',
     shiny: 'WILD', weight: 1, eggCycles: 10,
   }),
   "potw-175": ensurePkmnBuilder({
@@ -1005,7 +1005,7 @@ export const johtoBuilder = {
     "pokedex": "It stores lots of air in its soft fur, allowing it to stay cool in summer and warm in winter.",
     "speed": 35,
     "eggBase": "potw-179", eggCycles: 20,
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 7.8,
   }),
   "potw-180": ensurePkmnBuilder({
@@ -1043,7 +1043,7 @@ export const johtoBuilder = {
     "eggBase": "potw-179", eggCycles: 20,
     release: 'greatball',
     shiny: 'WILD', weight: 13.3,
-    tiers: ['Ultra Cup', 'Terastallize Cup'],
+    tiers: ['Ultra Cup', 'Terastallize Cup', 'Treasure Cup'],
   }),
   "potw-181": ensurePkmnBuilder({
     "defense": 85,
@@ -1078,7 +1078,7 @@ export const johtoBuilder = {
     "hp": 90,
     "attack": 75,
     release: 'ultraball',
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Ultra Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Ultra Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 61.5,
     mega: {
       type2: 'Dragon',
@@ -1156,7 +1156,7 @@ export const johtoBuilder = {
     ],
     "spDefense": 50,
     "spAttack": 20,
-    tiers: ['Crown Cup', 'Terastallize Cup'],
+    tiers: ['Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 8.5,
   }),
   "potw-184": ensurePkmnBuilder({
@@ -1193,7 +1193,7 @@ export const johtoBuilder = {
     "defense": 80,
     "type1": "Water",
     "species": "Azumarill",
-    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 28.5,
   }),
   "potw-185": ensurePkmnBuilder({
@@ -1222,7 +1222,7 @@ export const johtoBuilder = {
       ['Rock Slide', 'Earthquake', 'Fake Tears'],
     ],
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 38,
   }),
   "potw-186": ensurePkmnBuilder({
@@ -1257,7 +1257,7 @@ export const johtoBuilder = {
     ],
     "speed": 70,
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 33.9,
   }),
   "potw-187": ensurePkmnBuilder({
@@ -1292,7 +1292,7 @@ export const johtoBuilder = {
     "eggBase": "potw-187", eggCycles: 20,
     "eggGroup": ["Fairy", "Grass"],
     "type2": "Flying",
-    tiers: ['Tiny Cup', 'Sky Cup', 'Terastallize Cup'],
+    tiers: ['Tiny Cup', 'Sky Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 0.5,
   }),
   "potw-188": ensurePkmnBuilder({
@@ -1327,7 +1327,7 @@ export const johtoBuilder = {
     "eggBase": "potw-187", eggCycles: 20,
     "eggGroup": ["Fairy", "Grass"],
     "type2": "Flying",
-    release: 'greatball', tiers: ['Sky Cup', 'Terastallize Cup'],
+    release: 'greatball', tiers: ['Sky Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 1,
   }),
   "potw-189": ensurePkmnBuilder({
@@ -1362,7 +1362,7 @@ export const johtoBuilder = {
     "speed": 110,
     "eggBase": "potw-187", eggCycles: 20,
     release: 'ultraball',
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Sky Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Sky Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 3,
   }),
   "potw-190": ensurePkmnBuilder({
@@ -1397,7 +1397,7 @@ export const johtoBuilder = {
       ['Gunk Shot', 'Tail Slap', 'Screech'],
       ['Swift', 'Low Sweep', 'Confide'],
     ],
-    tiers: ['Traditional', 'Crystal Cup', 'Ultra Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Traditional', 'Crystal Cup', 'Ultra Cup', 'Treasure Cup'],
     levelTo: 'potw-424',
     shiny: 'WILD', weight: 11.5,
     "pokedex": "It uses its tail to hang on to tree branches. It uses its momentum to swing from one branch to another."
@@ -1430,7 +1430,7 @@ export const johtoBuilder = {
     "species": "Sunkern",
     "pokedex": "It is very weak. Its only means of defense is to shake its leaves desperately at its attacker.",
     "speed": 30,
-    tiers: ['Tiny Cup', 'Terastallize Cup'], levelTo: 'potw-192',
+    tiers: ['Tiny Cup', 'Terastallize Cup', 'Treasure Cup'], levelTo: 'potw-192',
     shiny: 'WILD', weight: 1.8,
   }),
   "potw-192": ensurePkmnBuilder({
@@ -1463,7 +1463,7 @@ export const johtoBuilder = {
     "speed": 30,
     "eggBase": "potw-191", eggCycles: 20,
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 8.5,
   }),
   "potw-193": ensurePkmnBuilder({
@@ -1496,7 +1496,7 @@ export const johtoBuilder = {
     "spAttack": 75,
     "spDefense": 45,
     levelTo: 'potw-469',
-    tiers: ['Tiny Cup', 'Crystal Cup', 'Sky Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Tiny Cup', 'Crystal Cup', 'Sky Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 38,
   }),
   "potw-194": ensurePkmnBuilder({
@@ -1608,7 +1608,7 @@ export const johtoBuilder = {
     "eggBase": "potw-133", eggCycles: 20,
     eggGroup: ['Field'],
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 26.5,
   }),
   "potw-197": ensurePkmnBuilder({
@@ -1643,7 +1643,7 @@ export const johtoBuilder = {
     "hp": 95,
     "attack": 65,
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 27,
   }),
   "potw-198": ensurePkmnBuilder({
@@ -1677,7 +1677,7 @@ export const johtoBuilder = {
     ],
     "spAttack": 85,
     "spDefense": 42,
-    tiers: ['Traditional', 'Tiny Cup', 'Ultra Cup', 'Terastallize Cup'], levelTo: 'potw-430',
+    tiers: ['Traditional', 'Tiny Cup', 'Ultra Cup', 'Terastallize Cup', 'Treasure Cup'], levelTo: 'potw-430',
     shiny: 'WILD', weight: 2.1,
   }),
   "potw-199": ensurePkmnBuilder({
@@ -1718,7 +1718,7 @@ export const johtoBuilder = {
     "defense": 80,
     "type1": "Water",
     release: 'ultraball',
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 79.5,
     needForm: false, syncableForms: ['galarian'],
   }),
@@ -1754,7 +1754,7 @@ export const johtoBuilder = {
     "speed": 85,
     "eggBase": "potw-200", eggCycles: 25,
     eggGroup: ['Amorphous'], levelTo: 'potw-429',
-    tiers: ['Traditional', 'Crystal Cup', 'Sky Cup', 'Ultra Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Sky Cup', 'Ultra Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 1,
   }),
   "potw-201": ensurePkmnBuilder({
@@ -1843,7 +1843,7 @@ export const johtoBuilder = {
     "defense": 65,
     "type1": "Normal",
     "species": "Girafarig",
-    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 41.5,
     "pokedex": "When it is in danger, its tail uses some sort of mysterious powers to drive away the enemy.",
     evolveTo: ['potw-981'],
@@ -1880,7 +1880,7 @@ export const johtoBuilder = {
     "spAttack": 35,
     "hp": 50,
     "attack": 65,
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 7.2,
   }),
   "potw-205": ensurePkmnBuilder({
@@ -1917,7 +1917,7 @@ export const johtoBuilder = {
       ['Earthquake', 'Gravity'],
     ],
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Ultra Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Ultra Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 125.8,
   }),
   "potw-206": ensurePkmnBuilder({
@@ -1953,7 +1953,7 @@ export const johtoBuilder = {
     "speed": 45,
     "eggBase": "potw-206", eggCycles: 20,
     eggGroup: ['Field'],
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 14, evolveTo: ['potw-982'],
   }),
   "potw-207": ensurePkmnBuilder({
@@ -1988,7 +1988,7 @@ export const johtoBuilder = {
     "eggBase": "potw-207", eggCycles: 20,
     eggGroup: ['Bug'],
     "type2": "Flying",
-    tiers: ['Traditional', 'Crystal Cup'/*, 'SV DLC Cup'*/], levelTo: 'potw-472',
+    tiers: ['Traditional', 'Crystal Cup', 'Treasure Cup'], levelTo: 'potw-472',
     shiny: 'WILD', weight: 64.8,
   }),
   "potw-208": ensurePkmnBuilder({
@@ -2139,7 +2139,7 @@ export const johtoBuilder = {
     "attack": 95,
     "defense": 85,
     "type1": "Water",
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     syncableForms: ['hisuian'], needForm: false,
     shiny: 'WILD', weight: 3.9,
   }),
@@ -2176,7 +2176,7 @@ export const johtoBuilder = {
     "eggBase": "potw-123", eggCycles: 25,
     eggGroup: ['Bug'],
     release: 'ultraball',
-    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 118,
     mega: {
       attack: 150, defense: 140, spAttack: 65, spDefense: 100, speed: 75, weight: 125,
@@ -2250,7 +2250,7 @@ export const johtoBuilder = {
     "defense": 75,
     "type1": "Bug",
     "species": "Heracross",
-    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Platinum Cup', 'Kalos Cup', 'Arceus Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 54,
     "pokedex": "With its Herculean powers, it can easily throw around an object that is 100 times its own weight.",
     mega: {
@@ -2297,7 +2297,7 @@ export const johtoBuilder = {
     "eggBase": "potw-215", eggCycles: 20,
     eggGroup: ['Field'],
     "type2": "Ice",
-    tiers: ['Traditional', 'Crystal Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'], levelTo: 'potw-461',
+    tiers: ['Traditional', 'Crystal Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'], levelTo: 'potw-461',
     syncableForms: ['hisuian'], needForm: false,
     shiny: 'WILD', weight: 28,
   }),
@@ -2335,7 +2335,7 @@ export const johtoBuilder = {
     "pokedex": "It always licks honey. Its palm tastes sweet because of all the honey it has absorbed.",
     "speed": 40,
     "eggBase": "potw-216", eggCycles: 20,
-    tiers: ['Tiny Cup', 'Terastallize Cup'],
+    tiers: ['Tiny Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 8.8,
   }),
   "potw-217": ensurePkmnBuilder({
@@ -2371,7 +2371,7 @@ export const johtoBuilder = {
     "type1": "Normal",
     "species": "Ursaring",
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Arceus Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Arceus Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 125.8,
     "pokedex": "Although it has a large body, it is quite skilled at climbing trees. It eats and sleeps in the treetops."
   }),
@@ -2406,7 +2406,7 @@ export const johtoBuilder = {
     "pokedex": "These group together in areas that are hotter than normal. If it cools off, its skin hardens.",
     "speed": 20,
     "eggBase": "potw-218", eggCycles: 20,
-    tiers: ['Tiny Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Tiny Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 35,
   }),
   "potw-219": ensurePkmnBuilder({
@@ -2441,7 +2441,7 @@ export const johtoBuilder = {
     "defense": 120,
     "type1": "Fire",
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Kalos Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Kalos Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 55,
   }),
   "potw-220": ensurePkmnBuilder({
@@ -2477,7 +2477,7 @@ export const johtoBuilder = {
     ],
     "spDefense": 30,
     "spAttack": 30,
-    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/],
+    tiers: ['Tiny Cup', 'GigantaCup', 'Crown Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 6.5,
   }),
   "potw-221": ensurePkmnBuilder({
@@ -2512,7 +2512,7 @@ export const johtoBuilder = {
     "attack": 100,
     "defense": 80,
     "type1": "Ice",
-    tiers: ['Traditional', 'Crystal Cup', 'GigantaCup', 'Crown Cup'/*, 'SV DLC Cup'*/], levelTo: 'potw-473',
+    tiers: ['Traditional', 'Crystal Cup', 'GigantaCup', 'Crown Cup', 'Treasure Cup'], levelTo: 'potw-473',
     shiny: 'WILD', weight: 55.8,
   }),
   "potw-222": ensurePkmnBuilder({
@@ -2648,7 +2648,7 @@ export const johtoBuilder = {
     "defense": 45,
     "type1": "Ice",
     "species": "Delibird",
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Alolan Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 16,
     "pokedex": "It always carries its food with it, wherever it goes. If attacked, it throws its food at the opponent."
   }),
@@ -2753,7 +2753,7 @@ export const johtoBuilder = {
     "pokedex": "Around dawn, its ominous howl echoes through the area to announce that this is its territory.",
     "speed": 65,
     "eggBase": "potw-228", eggCycles: 20,
-    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup'],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 10.8,
   }),
   "potw-229": ensurePkmnBuilder({
@@ -2788,7 +2788,7 @@ export const johtoBuilder = {
     eggGroup: ['Field'],
     "type2": "Fire",
     release: 'greatball',
-    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Ultra Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Kalos Cup', 'Ultra Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 35,
     mega: {
       attack: 90, defense: 90, spAttack: 140, spDefense: 90, speed: 115, weight: 49.5,
@@ -2862,7 +2862,7 @@ export const johtoBuilder = {
     "speed": 40,
     "eggBase": "potw-231", eggCycles: 20,
     eggGroup: ['Field'],
-    tiers: ['Tiny Cup', 'Terastallize Cup'],
+    tiers: ['Tiny Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 33.5,
   }),
   "potw-232": ensurePkmnBuilder({
@@ -2896,7 +2896,7 @@ export const johtoBuilder = {
     "defense": 120,
     "type1": "Ground",
     "species": "Donphan",
-    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Emerald Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 120,
   }),
   "potw-233": ensurePkmnBuilder({
@@ -3029,8 +3029,9 @@ export const johtoBuilder = {
     "species": "Stantler",
     "pokedex": "The round balls found on the fallen antlers can be ground into a powder that aids in sleeping.",
     "speed": 85,
-    tiers: ['Traditional', 'Crystal Cup', 'Arceus Cup','Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Arceus Cup','Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 71.2,
+    needForm: false, syncableForms: ['alpha'],
   }),
   "potw-235": ensurePkmnBuilder({
     "hp": 55,
@@ -3288,8 +3289,9 @@ export const johtoBuilder = {
     "eggBase": "potw-113", eggCycles: 40,
     eggGroup: ['Fairy'],
     release: 'ultraball',
-    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Platinum Cup', 'Arceus Cup', 'Alolan Cup', 'Ultra Cup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 46.8,
+    needForm: false, syncableForms: ['alpha'],
   }),
   "potw-243": ensurePkmnBuilder({
     "species": "Raikou", release: 'ultraball',
@@ -3418,7 +3420,7 @@ export const johtoBuilder = {
       ['Rock Slide', 'Outrage', 'Dragon Dance'],
     ],
     "speed": 41,
-    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Tiny Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 72,
   }),
   "potw-247": ensurePkmnBuilder({
@@ -3455,7 +3457,7 @@ export const johtoBuilder = {
     "type1": "Rock",
     "levelTo": "potw-248",
     shiny: 'WILD', weight: 152,
-    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
   }),
   "potw-248": ensurePkmnBuilder({
     "species": "Tyranitar", release: 'ultraball',
@@ -3493,7 +3495,7 @@ export const johtoBuilder = {
       ['Crunch', 'Iron Head', 'Sandstorm'],
       ['Rock Slide', 'Snarl', 'Outrage', 'Dragon Dance'],
     ],
-    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup'],
+    tiers: ['Traditional', 'Crystal Cup', 'Kalos Cup', 'Ultra Cup', 'GigantaCup', 'Crown Cup', 'Terastallize Cup', 'Treasure Cup'],
     shiny: 'WILD', weight: 202,
     mega: {
       attack: 164, defense: 150, spAttack: 95, spDefense: 120, speed: 71, weight: 255,
