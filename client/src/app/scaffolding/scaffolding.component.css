@@ -336,3 +336,11 @@ dialog.omnisearch li:hover {
 dialog.omnisearch a {
   color: #efefef;
 }
+
+.omnisearch-sublabel {
+  opacity:0.8;
+  display:inline-block;
+  float:right;
+  padding-right:16px;
+  font-size: small;
+}
