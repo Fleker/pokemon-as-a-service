@@ -683,7 +683,11 @@ export const voyage_completion_cron = functions.pubsub.schedule('30 * * * *').on
   console.log(`Found ${voyagesToExpire.docs.length} voyages to expire`)
   for (const voyage of voyagesToExpire.docs) {
     if (voyage.data().playerList.length === 0) continue // Skip no-player voyages
-    await runVoyage(voyage.id)
+    try {
+      await runVoyage(voyage.id)
+    } catch (e) {
+      console.error(`error with expired voyage ${voyage.id}: ${e}`)
+    }
   }
   console.log(`Finished running ${voyagesToExpire.docs.length} expired voyages`)
 
