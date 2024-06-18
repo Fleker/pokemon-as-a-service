@@ -54,7 +54,7 @@ export const voyage_create = functions.https.onCall(async (data: F.VoyageCreate.
     let leg1 = Leg.ITEM
     let leg2 = Leg.ITEM
     if (selectedVoyage.map) {
-      leg0 = Object.keys(selectedVoyage.map!)[0]! as unknown as Leg
+      leg0 = parseInt(Object.keys(selectedVoyage.map!)[0]!) as unknown as Leg
       const part1 = selectedVoyage.map![leg0]!
       leg1 = part1[0].leg
       const part2 = part1[0].next[0]!
