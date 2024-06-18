@@ -49,140 +49,140 @@ export interface RaidBoss {
 
 // 1-3*
 export const regionBoss: {[key in RegionType]: {[rating: number]: RaidBoss[]}} = {
-  'North America': {
-    1: [{
-      species: Potw(P.Rolycoly, {var: 4})
-    }, {
-      species: Potw(P.NidoranF, {var: 3})
-    }],
-    2: [{
-      species: Potw(P.Carkol, {var: 4})
-    }, {
-      species: Potw(P.Nidorina, {var: 3})
-    }],
-    3: [{
-      species: Potw(P.Coalossal, {var: 4})
-    }, {
-      species: Potw(P.Nidoqueen, {var: 3})
-    }]
-  },
-  'South America': {
-    1: [{
-      species: Potw(P.Chewtle, {var: 4})
-    }, {
-      species: Potw(P.NidoranM, {var: 3})
-    }],
-    2: [{
-      species: Potw(P.Chewtle, {var: 4})
-    }, {
-      species: Potw(P.Nidorino, {var: 3})
-    }],
-    3: [{
-      species: Potw(P.Drednaw, {var: 4})
-    }, {
-      species: Potw(P.Nidoking, {var: 3})
-    }]
-  },
-  'North Europe': {
-    1: [{
-      species: Potw(P.Yamper, {var: 4})
-    }, {
-      species: Potw(P.Geodude, {var: 1})
-    }],
-    2: [{
-      species: Potw(P.Yamper, {var: 4})
-    }, {
-      species: Potw(P.Graveler, {var: 1})
-    }],
-    3: [{
-      species: Potw(P.Boltund, {var: 4})
-    }, {
-      species: Potw(P.Golem, {var: 1})
-    }]
-  },
-  'Mediterranean': {
-    1: [{
-      species: Potw(P.Lechonk, {var: 1})
-    }, {
-      species: Potw(P.Sandile, {var:4})
-    }],
-    2: [{
-      species: Potw(P.Lechonk, {var: 1})
-    }, {
-      species: Potw(P.Krokorok, {var:4})
-    }],
-    3: [{
-      species: Potw(P.Oinkologne, {var: 1})
-    }, {
-      species: Potw(P.Krookodile, {var:4})
-    }]
-  },
-  'Africa / Middle East': {
-    1: [{
-      species: Potw(P.Nymble, {var: 1})
-    }, {
-      species: Potw(P.Sandshrew, {var: 4})
-    }],
-    2: [{
-      species: Potw(P.Nymble, {var: 1})
-    }, {
-      species: Potw(P.Sandshrew, {var: 4})
-    }],
-    3: [{
-      species: Potw(P.Lokix, {var: 1})
-    }, {
-      species: Potw(P.Sandslash, {var: 4})
-    }]
-  },
-  'Asia': {
-    1: [{
-      species: Potw(P.Toxel, {var: 4})
-    }, {
-      species: Potw(P.Scraggy, {var: 1})
-    }],
-    2: [{
-      species: Potw(P.Toxel, {var: 4})
-    }, {
-      species: Potw(P.Scraggy, {var: 1})
-    }],
-    3: [{
-      species: Potw(P.Toxtricity, {var: 4})
-    }, {
-      species: Potw(P.Scrafty, {var: 1})
-    }]
-  },
-  'Pacific Islands': {
-    1: [{
-      species: Potw(P.Exeggcute, {var: 4})
-    }, {
-      species: Potw(P.Sewaddle, {var:1})
-    }],
-    2: [{
-      species: Potw(P.Exeggcute, {var: 4})
-    }, {
-      species: Potw(P.Swadloon, {var:1})
-    }],
-    3: [{
-      species: Potw(P.Exeggutor, {var: 4, form:'alolan'})
-    }, {
-      species: Potw(P.Leavanny, {var:1})
-    }]
-  },
-  'Australia / New Zealand': {
-    1: [{
-      species: Potw(P.Tarountula, {var: 1})
-    }, {
-      species: Potw(P.Bunnelby, {var: 2})
-    }],
-    2: [{
-      species: Potw(P.Tarountula, {var: 1})
-    }, {
-      species: Potw(P.Bunnelby, {var: 2})
-    }],
-    3: [{
-      species: Potw(P.Spidops, {var: 1})
-    }, {
-      species: Potw(P.Diggersby, {var: 2})
+ 'North America': {
+   1: [{
+      species: Potw(P.Toedscool, {var: 1})
+   }, {
+      species: Potw(P.Pidove, {var: 3})
+   }],
+   2: [{
+      species: Potw(P.Toedscool, {var: 1})
+   }, {
+      species: Potw(P.Tranquill, {var: 3})
+   }],
+   3: [{
+      species: Potw(P.Toedscruel, {var: 1})
+   }, {
+      species: Potw(P.Unfezant, {var: 3})
+   }]
+ },
+ 'South America': {
+   1: [{
+      species: Potw(P.Eiscue, {var: 4})
+   }, {
+      species: Potw(P.Dwebble, {var: 4})
+   }],
+   2: [{
+      species: Potw(P.Eiscue, {var: 4})
+   }, {
+      species: Potw(P.Dwebble, {var: 4})
+   }],
+   3: [{
+      species: Potw(P.Eiscue, {var: 4})
+   }, {
+      species: Potw(P.Crustle, {var: 4})
+   }]
+ },
+ 'North Europe': {
+   1: [{
+      species: Potw(P.Maschiff, {var: 1})
+   }, {
+      species: Potw(P.Minccino, {var: 4})
+   }],
+   2: [{
+      species: Potw(P.Maschiff, {var: 1})
+   }, {
+      species: Potw(P.Minccino, {var: 4})
+   }],
+   3: [{
+      species: Potw(P.Mabosstiff, {var: 1})
+   }, {
+      species: Potw(P.Cinccino, {var: 4})
+   }]
+ },
+ 'Mediterranean': {
+   1: [{
+      species: Potw(P.Wiglett, {var: 1})
+   }, {
+      species: Potw(P.Shuckle, {var:1})
+   }],
+   2: [{
+      species: Potw(P.Wiglett, {var: 1})
+   }, {
+      species: Potw(P.Shuckle, {var:1})
+   }],
+   3: [{
+      species: Potw(P.Wugtrio, {var: 1})
+   }, {
+      species: Potw(P.Shuckle, {var:1})
+   }]
+ },
+ 'Africa / Middle East': {
+   1: [{
+      species: Potw(P.Greavard, {var: 1})
+   }, {
+      species: Potw(P.Zangoose, {var: 4})
+   }],
+   2: [{
+      species: Potw(P.Greavard, {var: 1})
+   }, {
+      species: Potw(P.Zangoose, {var: 4})
+   }],
+   3: [{
+      species: Potw(P.Houndstone, {var: 1})
+   }, {
+      species: Potw(P.Zangoose, {var: 4})
+   }]
+ },
+ 'Asia': {
+   1: [{
+      species: Potw(P.Cufant, {var: 4})
+   }, {
+      species: Potw(P.Buneary, {var: 4})
+   }],
+   2: [{
+      species: Potw(P.Cufant, {var: 4})
+   }, {
+      species: Potw(P.Buneary, {var: 4})
+   }],
+   3: [{
+      species: Potw(P.Copperajah, {var: 4})
+   }, {
+      species: Potw(P.Lopunny, {var: 4})
+   }]
+ },
+ 'Pacific Islands': {
+   1: [{
+      species: Potw(P.Flamigo, {var: 1})
+   }, {
+      species: Potw(P.Corsola, {var:3})
+   }],
+   2: [{
+      species: Potw(P.Flamigo, {var: 1})
+   }, {
+      species: Potw(P.Corsola, {var:3})
+   }],
+   3: [{
+      species: Potw(P.Flamigo, {var: 1})
+   }, {
+      species: Potw(P.Corsola, {var:3})
+   }]
+ },
+ 'Australia / New Zealand': {
+   1: [{
+      species: Potw(P.Flittle, {var: 1})
+   }, {
+      species: Potw(P.Binacle, {var:3})
+   }],
+   2: [{
+      species: Potw(P.Flittle, {var: 1})
+   }, {
+      species: Potw(P.Binacle, {var:3})
+   }],
+   3: [{
+      species: Potw(P.Espathra, {var: 1})
+   }, {
+      species: Potw(P.Barbaracle, {var: 3})
     }]
   },
 }
@@ -482,7 +482,7 @@ export const standardBosses: RaidBoss[][] = [
         msg: 'This raid cannot be created today'
       }]
     }
-  },*/ {
+  }, {
     species: Potw(P.Necrozma, {var: 1}),
     condition: {
       hints: [{
@@ -490,7 +490,7 @@ export const standardBosses: RaidBoss[][] = [
         msg: 'This raid can only be created during an Eclipse'
       }]
     }
-  }],
+  }*/],
   /* 6-Star */
   [{
     species: Q.GLOBAL_QUESTS[0].boss,
