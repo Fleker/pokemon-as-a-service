@@ -23,21 +23,26 @@ type Filter =
 
 // FIXME: Replace in the future with direct file read
 const recommendedOptionsTmp: string[] = [
-  P.Voltorb,
-  P.Horsea,
-  P.Mantine,
-  P.Heatmor,
-  P.Chimecho,
-  P.Goldeen,
-  P.Kabuto,
-  P.Shinx,
-  P.Inkay,
-  P.Mankey,
-  P.Shellos,
-  P.Solosis,
+  P.Oranguru,
+  new TeamsBadge('potw-100-hisuian').toString(),
+  P.Starly,
+  P.Phantump,
+  P.Weedle,
+  P.Bidoof,
+  P.Arrokuda,
+  P.Houndour,
+  P.Swablu,
+  P.Shelmet,
+  P.Stunfisk,
+  P.Comfey,
+  P.Croagunk,
+  P.Mareep,
+  P.Wailmer,
+  P.Deino,
+  P.Pansear,
+  P.Archen,
   P.Mareanie,
-  P.Salandit,
-  P.Girafarig
+  P.Komala,
 ]
 
 interface Listener {

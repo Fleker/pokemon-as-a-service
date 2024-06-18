@@ -12,18 +12,33 @@ import * as P from '../gen/type-pokemon'
  * Simple badge IDs for the species that have a 4x shiny chance.
  */
 export const babyProduced: BadgeId[] = [
-  P.Salandit,
+  P.Girafarig,
 ]
 
 /**
  * For labeling purposes, the parents who may be bred together.
  * Note that this only is for labels, and has no pragmatic effect.
+ *
+ * potw-203 Girafarig (4)
+ * potw-631 Heatmor (1)
+ * potw-194-paldean Wooper (1)
+ * potw-422 Shellos (1)
+ * potw-590 Foongus (1)
+ * potw-757 Salandit (1)
+ * potw-226 Mantine (1)
+ * potw-686 Inkay (1)
+ * potw-747 Mareanie (1)
+ * 12 votes in total
  */
 export const parents: BadgeId[] = [
-  Potw(P.Salandit, {var: 1}),
-  Potw(P.Salandit, {var: 2}),
-  Potw(P.Salandit, {var: 3}),
-  Potw(P.Salandit, {var: 4}),
+  Potw(P.Girafarig, {var: 1}),
+  Potw(P.Girafarig, {var: 2}),
+  Potw(P.Girafarig, {var: 3}),
+  Potw(P.Girafarig, {var: 4}),
+  Potw(P.Farigiraf, {var: 1}),
+  Potw(P.Farigiraf, {var: 2}),
+  Potw(P.Farigiraf, {var: 3}),
+  Potw(P.Farigiraf, {var: 4}),
 ]
 
 export const history: BadgeId[] = [
@@ -450,4 +465,8 @@ export const history: BadgeId[] = [
   Potw(P.Aurorus, {var: 2}),
   Potw(P.Aurorus, {var: 3}),
   Potw(P.Aurorus, {var: 4}),
+  Potw(P.Salandit, {var: 1}),
+  Potw(P.Salandit, {var: 2}),
+  Potw(P.Salandit, {var: 3}),
+  Potw(P.Salandit, {var: 4}),
 ]
