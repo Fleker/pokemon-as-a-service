@@ -481,7 +481,7 @@ export interface Voyage {
   /** Quartiles to set the voyage's bucket ⅓,⅔, max */
   buckets: [0, number, number, number]
   /** A sprawled out map of what steps a voyage host is able to select. */
-  map?: Map
+  map: Map
 }
 export const getMaxVoyages = (user: Users.Doc) => {
   if (user.items['voyagecharm'] && user.items['voyagecharm'] > 0) {
@@ -582,7 +582,7 @@ export const Voyages = {
     label: 'Dynamic Volcano',
     description: 'Your adventure takes you to a boiling trail to the top of an active volcano.',
     typePrimary: 'Fire', typeSecondary: ['Dragon', 'Steel'], scoreStat: 'hp',
-    buckets: [0, 156, 318, 475],
+    buckets: [0, 156, 318, 475], map: stdMap,
     items: [
       ['lavacookie', ...RAIDS_1, 'tumblestone', 'hardstone', 'charcoal', 'ironchunk', 'soot'],
       ['lavacookie', ...RAIDS_1, 'tumblestone', 'blacktumblestone', 'skytumblestone', 'hardstone', 'charcoal', 'ironchunk', 'soot'],
@@ -634,7 +634,7 @@ export const Voyages = {
     label: 'Gargantuan Mountain',
     description: 'You are at the base of a tall mountain. Its peak scratches the clouds above.',
     typePrimary: 'Fighting', typeSecondary: ['Rock', 'Ice'], scoreStat: 'attack',
-    buckets: [0, 195, 396, 592],
+    buckets: [0, 195, 396, 592], map: stdMap,
     items: [
       ['tumblestone', 'ironchunk', 'starpiece', 'blacktumblestone', 'skytumblestone', 'swordcap', 'springymushroom', 'sandradish', 'crunchysalt'],
       ['tumblestone', 'ironchunk', 'starpiece', 'blacktumblestone', 'skytumblestone', 'swordcap', 'springymushroom', 'sandradish', 'crunchysalt'],
@@ -686,7 +686,7 @@ export const Voyages = {
     label: 'Grand Underground',
     description: 'A vast series of tunnels underneath the Sinnoh region.',
     typePrimary: 'Ground', typeSecondary: ['Normal', 'Fire'], scoreStat: 'attack',
-    buckets: [0, 196, 398, 595],
+    buckets: [0, 196, 398, 595], map: stdMap,
     items: [
       ['thickclub', 'tumblestone', 'ironchunk', 'blacktumblestone', 'skytumblestone', 'crunchysalt'],
       ['thickclub', 'tumblestone', 'blacktumblestone', 'skytumblestone', 'ironchunk', 'skullfossil', 'armorfossil', 'crunchysalt'],
@@ -738,7 +738,7 @@ export const Voyages = {
     label: 'Iron Mines',
     description: 'You find yourself in mines. Carts of ore sit all around.',
     typePrimary: 'Steel', typeSecondary: ['Electric', 'Fighting'], scoreStat: 'defense',
-    buckets: [0, 250, 507, 758],
+    buckets: [0, 250, 507, 758], map: stdMap,
     items: [
       ['ironchunk', 'stardust', 'redshard', 'blueshard', 'greenshard', 'yellowshard', 'metalpowder', 'cellbattery', 'quickpowder', 'crunchysalt'],
       ['ironchunk', 'stardust', 'redshard', 'blueshard', 'greenshard', 'yellowshard', 'metalpowder', 'cellbattery', 'quickpowder', 'crunchysalt'],
@@ -790,7 +790,7 @@ export const Voyages = {
     label: 'Abandoned Tunnel',
     description: 'You find yourself venturing deeper into this cave.',
     typePrimary: 'Rock', typeSecondary: ['Ghost', 'Dark'], scoreStat: 'defense',
-    buckets: [0, 263, 534, 798],
+    buckets: [0, 263, 534, 798], map: stdMap,
     items: [
       ['hardstone', 'tumblestone', 'redshard', 'greenshard', 'blueshard', 'yellowshard', 'tinymushroom', 'crunchysalt'],
       ['hardstone', 'tumblestone', 'redshard', 'greenshard', 'blueshard', 'yellowshard', 'tinymushroom', 'crunchysalt'],
@@ -842,7 +842,7 @@ export const Voyages = {
     label: 'Lush Island',
     description: 'You find yourself on a small tropical island teeming with life.',
     typePrimary: 'Grass', typeSecondary: ['Bug', 'Poison'], scoreStat: 'spAttack',
-    buckets: [0, 181, 368, 550],
+    buckets: [0, 181, 368, 550], map: stdMap,
     items: [
       ['stickybarb', ...APRICORNS, 'tinymushroom', 'bigmushroom', 'oran', 'luminousmoss', 'plumpbeans', 'sootfootroot', 'direshroom', 'energyroot'],
       ['stickybarb', ...APRICORNS, 'tinymushroom', 'bigmushroom', 'oran', 'luminousmoss', 'plumpbeans', 'sootfootroot', 'direshroom', 'energyroot'],
@@ -894,7 +894,7 @@ export const Voyages = {
     label: 'Frozen Falls',
     description: 'You find yourself at the base of a waterfall in a frozen tundra',
     typePrimary: 'Ice', typeSecondary: ['Water', 'Ground'], scoreStat: 'spAttack',
-    buckets: [0, 171, 348, 520],
+    buckets: [0, 171, 348, 520], map: stdMap,
     items: [
       ['nevermeltice', 'snowball', 'ironchunk', 'swordcap', 'sandradish', 'crunchysalt'],
       ['nevermeltice', 'snowball', 'ironchunk', 'swordcap', 'sandradish', 'crunchysalt'],
@@ -946,7 +946,7 @@ export const Voyages = {
     label: 'Underwater Trench',
     description: 'You find yourself at the deepest part of the ocean.',
     typePrimary: 'Water', typeSecondary: ['Dark', 'Grass'], scoreStat: 'spDefense',
-    buckets: [0, 200, 408, 609],
+    buckets: [0, 200, 408, 609], map: stdMap,
     items: [
       ['deepseatooth', 'deepseascale', 'pearl', 'yellowshard', 'blueshard', 'redshard', 'greenshard', 'shoalshell', 'shoalsalt'],
       ['deepseatooth', 'deepseascale', 'pearl', 'yellowshard', 'blueshard', 'redshard', 'greenshard', 'shoalshell', 'shoalsalt'],
@@ -998,7 +998,7 @@ export const Voyages = {
     label: 'Eerie Graveyard',
     description: 'You find yourself in a ghastly graveyard at midnight.',
     typePrimary: 'Ghost', typeSecondary: ['Fairy', 'Psychic'], scoreStat: 'spDefense',
-    buckets: [0, 206, 418, 625],
+    buckets: [0, 206, 418, 625], map: stdMap,
     items: [
       ['spelltag', 'wisp', 'direshroom', 'swordcap', 'springymushroom'],
       ['reliccopper', 'spelltag', 'wisp', 'direshroom', 'swordcap', 'springymushroom'],
@@ -1102,7 +1102,7 @@ export const Voyages = {
     label: 'Dense Rainforest',
     description: 'You find yourself hiding under the canopy of a giant tree.',
     typePrimary: 'Bug', typeSecondary: ['Poison', 'Grass'], scoreStat: 'speed',
-    buckets: [0, 198, 402, 601],
+    buckets: [0, 198, 402, 601], map: stdMap,
     items: [
       [...APRICORNS, 'oran', 'wood', 'casterfern', 'whiteherb', 'powerherb', 'mentalherb', 'bigroot', 'direshroom', 'energyroot'],
       [...APRICORNS, 'apricorn', 'sitrus', 'wood', 'casterfern', 'whiteherb', 'powerherb', 'mentalherb', 'direshroom', 'energyroot'],
@@ -1154,7 +1154,7 @@ export const Voyages = {
     label: 'Ultra Wormhole',
     description: 'You see a giant portal in front of you. What happens when you step through?',
     typePrimary: 'Bug', typeSecondary: ['Steel', 'Ghost'], scoreStat: 'attack',
-    buckets: [0, 189, 385, 575],
+    buckets: [0, 189, 385, 575], map: stdMap,
     items: [
       ['strangesouvenir', 'pokebeans', ...SEEDS],
       ['strangesouvenir', 'pokebeans', ...NECTARS],
@@ -1203,7 +1203,7 @@ export const Voyages = {
     label: 'Butterfly Gardens',
     description: 'You are immersed in the bright, colorful flowers of the botanical gardens. What kinds of things can you smell?',
     typePrimary: 'Fairy', typeSecondary: ['Bug', 'Grass'], scoreStat: 'hp',
-    buckets: [0, 170, 345, 516],
+    buckets: [0, 170, 345, 516], map: stdMap,
     items: [
       [...SEEDS, ...NECTARS, 'silverpowder', 'miracleseed', 'honey', 'sweetapple', 'tartapple', 'galaricatwig', /* ...SWEETS*/],
       [...SEEDS, ...NECTARS, 'silverpowder', 'miracleseed', 'honey', 'sweetapple', 'tartapple', 'galaricatwig', /* ...SWEETS*/],
@@ -1256,7 +1256,7 @@ export const Voyages = {
     label: 'Peat Swamp',
     description: 'Wade through a thick muck as you venture deeper into the bog. What might be lurking around your feet?',
     typePrimary: 'Poison', typeSecondary: ['Ground', 'Water'], scoreStat: 'attack',
-    buckets: [0, 158, 322, 481],
+    buckets: [0, 158, 322, 481], map: stdMap,
     items: [
       ['poisonbarb', 'stickybarb'],
       ['poisonbarb', 'stickybarb'],
@@ -1308,7 +1308,7 @@ export const Voyages = {
     label: 'Carbon Observatory',
     description: 'In an isolated region of black mountains, you walk up the trail to a scientific laboratory. What things can you spot through the telescope?',
     typePrimary: 'Psychic', typeSecondary: ['Dark', 'Rock'], scoreStat: 'defense',
-    buckets: [0, 171, 349, 521],
+    buckets: [0, 171, 349, 521], map: stdMap,
     items: [
       ['ironchunk', 'stardust', 'soot', 'hardstone'],
       ['ironchunk', 'stardust', 'soot', 'hardstone'],
@@ -1470,7 +1470,7 @@ export const Voyages = {
     label: 'Galarian Crossings',
     description: 'You find yourself staring out at the horizon of the vast Wild Area. Where will you go first?',
     typePrimary: 'Fairy', typeSecondary: ['Steel', 'Fighting'], scoreStat: 'speed',
-    buckets: [0, 168, 341, 510],
+    buckets: [0, 168, 341, 510], map: stdMap,
     items: [
       ['tartapple', 'sweetapple', ...GALAR_INGREDIENTS, ...SWEETS],
       ['tartapple', 'sweetapple', ...GALAR_INGREDIENTS, ...SWEETS],
