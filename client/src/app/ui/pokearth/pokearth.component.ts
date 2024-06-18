@@ -1,17 +1,17 @@
 import { Component, ElementRef, OnInit, AfterViewInit, ViewChild } from '@angular/core';
-import { getMoonPhase, getTides, Globe, Location, MoonPhase, season, LocationId, Tides, WeatherType, iconMap, RegionType } from '../../../../../shared/src/locations-list';
+import { getMoonPhase, getTides, Globe, Location, MoonPhase, season, LocationId, Tides, WeatherType, iconMap, TerrainType, RegionType } from '../../../../../shared/src/locations-list';
 import { BadgeId, PokemonForm, PokemonId } from '../../../../../shared/src/pokemon/types';
 import spacetime, { Spacetime } from 'spacetime';
 import { pkmn } from '../../../../../shared/src/sprites';
 import { get } from '../../../../../shared/src/pokemon';
-import { Swarms } from '../../../../../shared/src/platform/swarms';
+import { regionBoss, terrainBoss, forecastBoss } from '../../../../../shared/src/raid-bosses';
+import { Swarms, MassiveOutbreaks } from '../../../../../shared/src/platform/swarms';
 import { LocationService } from 'src/app/service/location.service';
 
+// eslint-disable-next-line no-var
 declare var window: {
   L: any
   travelQueue: string[]
-  requestAnimationFrame: Function
-  setTimeout: Function
 }
 
 const timeOfDay = (localDate: Spacetime) => {
@@ -42,10 +42,10 @@ export class PokearthComponent {
     // if (this.hasLoaded) return;
     const {L} = window
     window.travelQueue = []
-    window.setTimeout(async () => {
+    setTimeout(async () => {
       console.log('load')
       // Define base layer
-      const base = window.L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      const base = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 17,
           attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       })
@@ -122,18 +122,63 @@ export class PokearthComponent {
         SwarmIcons[r] = new PngLeafIcon({iconUrl: pkmn(pk)})
         SwarmLabels[r] = get(pk).species
       }
+      const MmoIcons: Partial<Record<WeatherType, any>> = {}
+      const MmoLabels: Partial<Record<WeatherType, string>> = {}
+      for (const [r, pk] of Object.entries(MassiveOutbreaks)) {
+        MmoIcons[r] = new PngLeafIcon({iconUrl: pkmn(pk)})
+        MmoLabels[r] = get(pk).species
+      }
+      const BossRegionIcons: Partial<Record<RegionType, any>> = {}
+      const BossRegionLabels: Partial<Record<RegionType, string>> = {}
+      for (const [r, arr] of Object.entries(regionBoss)) {
+        const pk0 = arr[3][0].species
+        const pk1 = arr[3][1].species
+        BossRegionIcons[r] = [new PngLeafIcon({iconUrl: pkmn(pk0)}), new PngLeafIcon({iconUrl: pkmn(pk1)})];
+        BossRegionLabels[r] = [get(pk0).species, get(pk1).species];
+      }
+      const BossTerrainIcons: Partial<Record<TerrainType, any>> = {}
+      const BossTerrainLabels: Partial<Record<TerrainType, string>> = {}
+      for (const [r, arr] of Object.entries(terrainBoss)) {
+        const pk0 = arr[4][0].species
+        const pk1 = arr[4][1].species
+        BossTerrainIcons[r] = [new PngLeafIcon({iconUrl: pkmn(pk0)}), new PngLeafIcon({iconUrl: pkmn(pk1)})];
+        BossTerrainLabels[r] = [get(pk0).species, get(pk1).species];
+      }
+      const BossWeatherIcons: Partial<Record<WeatherType, any>> = {}
+      const BossWeatherLabels: Partial<Record<WeatherType, string>> = {}
+      for (const [r, arr] of Object.entries(forecastBoss)) {
+        const pk0 = arr[4][0].species
+        const pk1 = arr[4][1].species
+        BossWeatherIcons[r] = [new PngLeafIcon({iconUrl: pkmn(pk0)}), new PngLeafIcon({iconUrl: pkmn(pk1)})];
+        BossWeatherLabels[r] = [get(pk0).species, get(pk1).species];
+      }
+      // const BossTerrainIcons: Partial<Record<TerrainType, any>> = {}
+      // const BossTerrainLabels: Partial<Record<TerrainType, string>> = {}
+      // for (const [r, pk] of Object.entries(MassiveOutbreaks)) {
+      //   BossTerrainIcons[r] = new PngLeafIcon({iconUrl: pkmn(pk)})
+      //   BossTerrainLabels[r] = get(pk).species
+      // }
+      // const BossForecastIcons: Partial<Record<WeatherType, any>> = {}
+      // const BossForecastLabels: Partial<Record<WeatherType, string>> = {}
+      // for (const [r, pk] of Object.entries(MassiveOutbreaks)) {
+      //   BossForecastIcons[r] = new PngLeafIcon({iconUrl: pkmn(pk)})
+      //   BossForecastLabels[r] = get(pk).species
+      // }
       // Load our layers: https://leafletjs.com/examples/layers-control/
       const locations = await this.locations.getAllForecasts()
       console.debug(locations)
       const citiesLayerGroup = []
       const vivillonLayerGroup = []
       const swarmsLayerGroup = []
+      const mmosLayerGroup = []
       const worldFeaturesLayerGroup = []
       const clockLayerGroup = []
       const tidesLayerGroup = []
+      const bossesLayerGroup = []
       const secretsLayerGroup = []
       let loc = spacetime()
 
+      const raidOffset = 0.06
       for (const [key, value] of Object.entries(locations)) {
         const entry = Globe[key] as Location
         if (entry.latitude) {
@@ -152,6 +197,26 @@ export class PokearthComponent {
           const swarm = L.marker([entry.latitude, entry.longitude], {icon: SwarmIcons[entry.region]})
             .bindPopup(`${popupLabel}<br><br>There is a mass outbreak of ${SwarmLabels[entry.region]}!<br><br>${popupBtn}`)
           swarmsLayerGroup.push(swarm)
+
+          if (value.forecast !== 'Sunny') {
+            const mmo = L.marker([entry.latitude, entry.longitude], {icon: MmoIcons[value.forecast]})
+              .bindPopup(`${popupLabel}<br><br>There is a mass outbreak of ${MmoLabels[value.forecast]}!<br><br>${popupBtn}`)
+            mmosLayerGroup.push(mmo)
+          }
+
+          const br0 = L.marker([entry.latitude - raidOffset, entry.longitude - raidOffset], {icon: BossRegionIcons[entry.region][0]})
+            .bindPopup(`${popupLabel}<br><br>Formidable ${BossRegionLabels[entry.region][0]} are appearing in raids!<br><br>${popupBtn}`)
+          const br1 = L.marker([entry.latitude - raidOffset, entry.longitude + raidOffset], {icon: BossRegionIcons[entry.region][1]})
+            .bindPopup(`${popupLabel}<br><br>Formidable ${BossRegionLabels[entry.region][1]} are appearing in raids!<br><br>${popupBtn}`)
+          const br2 = L.marker([entry.latitude, entry.longitude - raidOffset], {icon: BossTerrainIcons[entry.terrain][0]})
+            .bindPopup(`${popupLabel}<br><br>Formidable ${BossTerrainLabels[entry.terrain][0]} are appearing in raids!<br><br>${popupBtn}`)
+          const br3 = L.marker([entry.latitude, entry.longitude + raidOffset], {icon: BossTerrainIcons[entry.terrain][1]})
+            .bindPopup(`${popupLabel}<br><br>Formidable ${BossTerrainLabels[entry.terrain][1]} are appearing in raids!<br><br>${popupBtn}`)
+          const br4 = L.marker([entry.latitude + raidOffset, entry.longitude - raidOffset], {icon: BossWeatherIcons[value.forecast][0]})
+            .bindPopup(`${popupLabel}<br><br>Formidable ${BossWeatherLabels[value.forecast][0]} are appearing in raids!<br><br>${popupBtn}`)
+          const br5 = L.marker([entry.latitude + raidOffset, entry.longitude + raidOffset], {icon: BossWeatherIcons[value.forecast][1]})
+            .bindPopup(`${popupLabel}<br><br>Formidable ${BossWeatherLabels[value.forecast][1]} are appearing in raids!<br><br>${popupBtn}`)
+          bossesLayerGroup.push(br0, br1, br2, br3, br4, br5)
 
           loc = loc.goto(entry.timezone)
           const todStr = (() => {
@@ -224,13 +289,15 @@ export class PokearthComponent {
       const cities = window.L.layerGroup(citiesLayerGroup)
       const vivillon = window.L.layerGroup(vivillonLayerGroup)
       const swarms = window.L.layerGroup(swarmsLayerGroup)
+      const mmos = window.L.layerGroup(mmosLayerGroup)
       const clock = window.L.layerGroup(clockLayerGroup)
       const tides = window.L.layerGroup(tidesLayerGroup)
       const worldFeatures = window.L.layerGroup(worldFeaturesLayerGroup)
+      const bosses = window.L.layerGroup(bossesLayerGroup)
       const secrets = window.L.layerGroup(secretsLayerGroup)
   
       // Load map with default layers
-      var map = window.L.map(this.earth!.nativeElement, {layers: [base, cities]})
+      const map = window.L.map(this.earth!.nativeElement, {layers: [base, cities]})
         .setView([51.505, -0.09], 3);
       map.on('click', (e) => {
         console.debug('leaflett', e)
@@ -241,8 +308,10 @@ export class PokearthComponent {
         "Weather": cities,
         'Vivillon': vivillon,
         'Mass Outbreaks': swarms,
+        'Massive Mass Outbreaks': mmos,
         'World Clock': clock,
         'Tides': tides,
+        'Raid Bosses': bosses,
         // 'Mirages': secrets,
         'Landmarks': worldFeatures,
       })
