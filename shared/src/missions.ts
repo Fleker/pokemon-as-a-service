@@ -135,6 +135,8 @@ export const questOrder = [
   L.TINGLU,
   L.CHIYU,
   Q.GLIMMERINGCHARM,
+  L.KORAIDON,
+  L.MIRAIDON,
 ]
 
 export const pokedexOrder = [

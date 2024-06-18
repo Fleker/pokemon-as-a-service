@@ -161,6 +161,8 @@ export const MUNKIDORI = 'THERETAINEROFWISTFUL'
 export const FEZANDIPITI = 'THERETAINEROFONIMOUNTAIN'
 export const TERAPAGOS = 'TERASTALLIZINGTURTLE'
 export const PECHARUNT = 'MOCHIMOCHIMOCHIMOCHI'
+export const KORAIDON = 'WINGEDKING'
+export const MIRAIDON = 'IRONSERPENT'
 
 const oneDayAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 1).getTime()
 const oneWeekAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).getTime()
@@ -3754,5 +3756,91 @@ export const LegendsPlate: LegendaryQuest = {
   }, {
     completed: (r) => r.raidRecord[1] >= 250 && r.battleStadiumRecord[1] >= 250,
     msg: 'The mythical Pokémon Arceus shall not appear until you prove yourself in battle.'
+  }]
+}
+
+export const Koraidon: LegendaryQuest = {
+  hints: [{
+    completed:
+      simpleRequirePotwArr([
+        P.Great_Tusk,
+        P.Scream_Tail,
+        P.Brute_Bonnet,
+        P.Flutter_Mane,
+        P.Slither_Wing,
+        P.Sandy_Shocks,
+        P.Roaring_Moon,
+      ]),
+    msg: 'A wicked beast has escaped from the past. What ancient Pokémon lurk in Area Zero?',
+  }, {
+    completed: simpleRequirePotw(P.Armarouge),
+    msg: 'Have you caught this Pokémon? It shoots flames out of a cannon on its arm!',
+  }, {
+    completed: simpleRequirePotw(P.Rabsca),
+    msg: 'Have you caught this Pokémon? It uses its psychic powers to levitate a ball.'
+  }, {
+    completed: simpleRequirePotw(P.Pawmot),
+    msg: 'Have you caught this Pokémon? It fights at lightning speed.'
+  }, {
+    completed: simpleRequirePotw(P.Brambleghast),
+    msg: 'Have you caught this Pokémon? It rambles across deserts and absorbs energy with its branches.',
+  }, {
+    completed: simpleRequirePotw(P.Maushold),
+    msg: 'Have you caught this Pokémon? There are actually four of them! Or rarely three.'
+  }, {
+    completed: complexRequirePotw(P.Tauros, {form: 'blaze_breed'}),
+    msg: 'Have you caught this Pokémon? Its fiery rage is dangerous.',
+  }, {
+    completed: simpleRequirePotwArr([P.Meowscarada, P.Skeledirge, P.Quaquaval]),
+    msg: 'On your journey through Paldea, you may want to be accompanied by a starter Pokémon.'
+  }, {
+    completed: requireItem('terafighting', 10),
+    msg: 'Have you found these tera shards? They are brown.'
+  }, {
+    completed: (r) => r.itemsCrafted > 10,
+    msg: 'Have you considered crafting a sandwich?'
+  }]
+}
+
+export const Miraridon: LegendaryQuest = {
+  hints: [{
+    completed:
+      simpleRequirePotwArr([
+        P.Iron_Treads,
+        P.Iron_Bundle,
+        P.Iron_Hands,
+        P.Iron_Jugulis,
+        P.Iron_Moth,
+        P.Iron_Thorns,
+        P.Iron_Valiant,
+      ]),
+    msg: 'An iron serpent has escaped from the future. What futuristic Pokémon lurk in Area Zero?',
+  }, {
+    completed: simpleRequirePotw(P.Ceruledge),
+    msg: 'Have you caught this Pokémon? It slices ghastly things using the blades on its arms!',
+  }, {
+    completed: simpleRequirePotw(P.Annihilape),
+    msg: 'Have you caught this Pokémon? It got so angry that it is now dead.'
+  }, {
+    completed: simpleRequirePotw(P.Farigiraf),
+    msg: 'Have you caught this Pokémon? It has two heads.'
+  }, {
+    completed: simpleRequirePotw(P.Dudunsparce),
+    msg: 'Have you caught this Pokémon? It has two segments! Or rarely three.',
+  }, {
+    completed: simpleRequirePotw(P.Palafin),
+    msg: 'Have you caught this Pokémon? It has a heart on its chest.'
+  }, {
+    completed: complexRequirePotw(P.Tauros, {form: 'aqua_breed'}),
+    msg: 'Have you caught this Pokémon? Its high-pressure is dangerous.',
+  }, {
+    completed: simpleRequirePotwArr([P.Meowscarada, P.Skeledirge, P.Quaquaval]),
+    msg: 'On your journey through Paldea, you may want to be accompanied by a starter Pokémon.'
+  }, {
+    completed: requireItem('teraelectric', 10),
+    msg: 'Have you found these tera shards? They are yellow.'
+  }, {
+    completed: (r) => r.itemsCrafted > 10,
+    msg: 'Have you considered crafting a sandwich?'
   }]
 }

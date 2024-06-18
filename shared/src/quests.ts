@@ -1328,6 +1328,24 @@ export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   hint: ['Your history teacher tells you a story about a greedy king who receives beads.'],
   encounter: Potw(P.Chi_Yu),
   recyclable: true,
+}, {
+  docId: L.KORAIDON,
+  quest: L.Koraidon,
+  badge: 'potw-1007',
+  title: 'The Winged King',
+  gate: CATCH_CHARM_SV,
+  hint: ['A large scarlet reptile is laying on the beach in a bad state.'],
+  encounter: Potw(P.Koraidon),
+  recyclable: true,
+}, {
+  docId: L.MIRAIDON,
+  quest: L.Miraridon,
+  badge: 'potw-1008',
+  title: 'The Iron Serpent',
+  gate: CATCH_CHARM_SV,
+  hint: ['A large violet reptile is laying on the beach in a weakened state.'],
+  encounter: Potw(P.Miraidon),
+  recyclable: true,
 }, ]
 
 export const CATCH_QUESTS: PokedexQuest[] = [{
