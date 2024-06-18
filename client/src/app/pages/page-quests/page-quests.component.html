@@ -3,6 +3,36 @@
   <p>
     All your completed and incompleted quests will show up here.
   </p>
+  <p>
+    <strong>Next Goals</strong>
+  </p>
+  <div *ngIf="missions?.nextQuest" class="mission">
+    <img src="/images/sprites/quests/{{missions?.nextQuest?.q?.badge}}.png" />
+    {{missions?.nextQuest?.q?.title}}
+    <br>
+    <small>
+      {{missions?.nextQuest?.step}}
+    </small>
+    <mat-progress-bar mode="determinate" value="{{missions?.nextQuest?.progress}}"></mat-progress-bar>
+  </div>
+  <div *ngIf="missions?.nextCatch" class="mission">
+    <img src="/images/sprites/quests/{{missions?.nextCatch?.q?.badge}}.png" />
+    {{missions?.nextCatch?.q?.title}}
+    <br>
+    <small>
+      {{missions?.nextCatch?.progress}}/{{missions?.nextCatch?.q?.count}}
+    </small>
+    <mat-progress-bar mode="determinate" value="{{missions?.nextCatch?.progress}}"></mat-progress-bar>
+  </div>
+  <div *ngIf="missions?.research" class="mission">
+    <img src="{{missions?.research?.r?.icon}}" />
+    {{missions?.research?.r?.title}}
+    <br>
+    <small>
+      {{missions?.research?.step}}/{{missions?.research?.r?.steps}}
+    </small>
+    <mat-progress-bar mode="determinate" value="{{missions?.research?.progress}}"></mat-progress-bar>
+  </div>
 </mat-card>
 
 <mat-card>

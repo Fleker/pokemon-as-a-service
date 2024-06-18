@@ -54,3 +54,20 @@ button[mat-icon-button] {
 dialog {
   max-width: 40em;
 }
+
+div.mission {
+  margin-bottom: 8px;
+}
+
+div.mission small {
+  display: block;
+  margin-bottom: 2px;
+}
+
+div.mission img {
+  vertical-align: middle;
+}
+
+div.mission mat-progress-bar {
+  width: 40em;
+}

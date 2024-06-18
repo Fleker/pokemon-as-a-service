@@ -466,7 +466,7 @@ export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   badge: 'potw-item-clearbell',
   title: 'Collect the Clear Bell',
   gate: CATCH_CHARM_RBY,
-  hint: ['Try your luck at trivia knowledge on the radio.']
+  hint: ['You can obtain the Clear Bell after getting a correct answer in the radio quiz.']
 }, {
   docId: L.GYARADOS,
   quest: L.captureGyarados,
@@ -1330,7 +1330,7 @@ export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   recyclable: true,
 }, ]
 
-const CATCH_QUESTS: PokedexQuest[] = [{
+export const CATCH_QUESTS: PokedexQuest[] = [{
   docId: CATCH_CHARM_RBY,
   badge: 'potw-item-catchingcharm-rby',
   title: 'Kanto Catching Charm',
