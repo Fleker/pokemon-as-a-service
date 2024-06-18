@@ -30,9 +30,10 @@
       <div id="grid-inner">
         <span *ngFor="let entry of filterPageBadges">
           <sprite-pokemon *ngFor="let i of array(entry[1]); index as n"
+            draggable="false"
             (click)="handle(entry[0], n)"
             badge="{{entry[0]}}" class="{{spriteClass(entry[0], n)}}"
-            (mouseover)="hover(entry[0])">
+            (mouseover)="mouseOver($event, entry[0], n)">
           </sprite-pokemon>
         </span>
       </div>

@@ -155,6 +155,14 @@ export class PickerPokemonComponent implements OnInit, OnDestroy {
     }
   }
 
+  mouseOver(event: MouseEvent, species: PokemonId, index: number) {
+    if (this.selectAll) {
+      this.dragSelect(event, species, index)
+    } else {
+      this.hover(species)
+    }
+  }
+
   hover(id: string) {
     const badge = new Badge(id)
     const pokemon = Pkmn.get(badge.toLegacyString())!
@@ -188,6 +196,13 @@ export class PickerPokemonComponent implements OnInit, OnDestroy {
       this.hoverSelect.type[1] = pokemon.type2
     }
     this.peek.emit(this.hoverSelect)
+  }
+
+  dragSelect(event: MouseEvent, species: PokemonId, index: number) {
+    if (!this.multiple) return
+    if (event.buttons === 1) {
+      this.handle(species, index)
+    }
   }
 
   unhover() {
@@ -427,14 +442,11 @@ export class PickerPokemonComponent implements OnInit, OnDestroy {
   }
 
   performSelectAll() {
-    const canonicalPage = []
     for (const entry of this.filterPageBadges) {
       const inflatedEntry = this.array(entry[1])
-      for (const segment of inflatedEntry) {
-        canonicalPage.push(segment[0])
+      for (let i = 0; i < inflatedEntry.length; i++) {
+        this.handle(entry[0], i)
       }
     }
-    this._selection = canonicalPage.slice(0, this.pageSize).map((species, index) => ({ species, index }))
-    this.selection.next(this._selection.map(v => v.species))
   }
 }
