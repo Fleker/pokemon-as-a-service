@@ -691,23 +691,27 @@ export const swarm_vote = functions.https.onCall(async (data: F.SwarmVote.Req, c
       throw new functions.https.HttpsError('already-exists',
         `You already voted this cycle. Your vote was for ${swarmCurrent.users[uid]}.`)
     }
-    const datastore = Pkmn.get(species)
-    if (datastore === undefined) {
-      throw new functions.https.HttpsError('not-found',
-        `${species} is not a real thing.`)
+
+    if (position !== 'daycare') {
+      const datastore = Pkmn.get(species)
+      if (datastore === undefined) {
+        throw new functions.https.HttpsError('not-found',
+          `${species} is not a real thing.`)
+      }
+      if (Badge.fromLegacy(species).personality.shiny) {
+        throw new functions.https.HttpsError('not-found',
+          `${species} is too shiny.`)
+      }
+      if (position === 'swarm' && datastore.release === 'greatball') {
+        throw new functions.https.HttpsError('not-found',
+          `${species} is too great.`)
+      }
+      if (position === 'swarm' && datastore.release === 'ultraball') {
+        throw new functions.https.HttpsError('not-found',
+          `${species} is much too great.`)
+      }
     }
-    if (Badge.fromLegacy(species).personality.shiny) {
-      throw new functions.https.HttpsError('not-found',
-        `${species} is too shiny.`)
-    }
-    if (position === 'swarm' && datastore.release === 'greatball') {
-      throw new functions.https.HttpsError('not-found',
-        `${species} is too great.`)
-    }
-    if (position === 'swarm' && datastore.release === 'ultraball') {
-      throw new functions.https.HttpsError('not-found',
-        `${species} is much too great.`)
-    }
+
     if (swarmCurrentDoc.exists) {
       await t.update<Swarm.Doc>(ref, {
         [`votes.${species}`]: FieldValue.increment(1),
@@ -736,6 +740,29 @@ export const swarm_notify = functions.firestore.document('test/swarm').onUpdate(
         title: 'Mass Outbreaks of Pokémon have changed!',
         body: `Pokémon migrations have changed. Explore the world to see what's new.`,
         link: '/pokemon/catch',
+        icon: Sprite.item('pokeball'),
+      })
+      await userRef.update({
+        notifications: user.notifications
+      })
+    }
+  }
+})
+export const daycare_notify = functions.firestore.document('test/daycare').onUpdate(async (change) => {
+  const {before, after} = change
+  if (Object.keys(after.data().users).length === 0) {
+    // Reset
+    const users = Object.keys(before.data().users)
+    for (const u of users) {
+      const userRef = db.collection('users').doc(u)
+      const userDoc = await userRef.get<Users.Doc>()
+      const user = userDoc.data()
+      if (!user.notifications) continue
+      sendNotification(user, {
+        category: 'GAME_EVENT',
+        title: 'Daycare Club selection has changed!',
+        body: `The voters have decided. Check out the Day Care to see what's new.`,
+        link: '/multiplayer/daycare',
         icon: Sprite.item('pokeball'),
       })
       await userRef.update({

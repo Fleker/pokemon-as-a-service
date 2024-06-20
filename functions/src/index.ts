@@ -76,6 +76,7 @@ exports.throw = pokemon.throw
 export const release = pokemon.release
 export const swarm_vote = pokemon.swarm_vote
 export const swarm_notify = pokemon.swarm_notify
+export const daycare_notify = pokemon.daycare_notify
 export const tag = pokemon.tag
 export const tag_manage = pokemon.tag_manage
 

@@ -5,6 +5,7 @@ import { Badge } from '../../../../../shared/src/badge3';
 import * as Pkmn from '../../../../../shared/src/pokemon'
 import { PokemonId } from '../../../../../shared/src/pokemon/types';
 import * as P from '../../../../../shared/src/gen/type-pokemon';
+import daycare from '../../../../../shared/src/platform/recommended-options.json'
 
 /**
  * A filter will produce a subset of all Pokémon IDs
@@ -21,29 +22,7 @@ type Filter =
   /** Via recommended-options.tsv */
   'daycare'
 
-// FIXME: Replace in the future with direct file read
-const recommendedOptionsTmp: string[] = [
-  P.Oranguru,
-  new TeamsBadge('potw-100-hisuian').toString(),
-  P.Starly,
-  P.Phantump,
-  P.Weedle,
-  P.Bidoof,
-  P.Arrokuda,
-  P.Houndour,
-  P.Swablu,
-  P.Shelmet,
-  P.Stunfisk,
-  P.Comfey,
-  P.Croagunk,
-  P.Mareep,
-  P.Wailmer,
-  P.Deino,
-  P.Pansear,
-  P.Archen,
-  P.Mareanie,
-  P.Komala,
-]
+const recommendedOptionsTmp: string[] = daycare.map(x => x.pollText)
 
 interface Listener {
   id: PokemonId
@@ -73,6 +52,10 @@ export class PokemonDatalistComponent implements OnInit {
 
   ngOnInit(): void {
     const listobj = []
+    if (this.filter === 'daycare') {
+      this.availablePokemonList = recommendedOptionsTmp.map(x => ({ id: x, label: x }))
+      return
+    }
     const entries = (() => {
       const allEntries = Object.entries(Pkmn.datastore)
       if (this.filter === 'common') {
@@ -84,9 +67,6 @@ export class PokemonDatalistComponent implements OnInit {
       }
       if (this.filter === 'simple') {
         return allEntries.filter(x => x[0].length === 8) // potw-XXX
-      }
-      if (this.filter === 'daycare') {
-        return allEntries.filter(x => recommendedOptionsTmp.includes(x[0]))
       }
       return allEntries
     })()

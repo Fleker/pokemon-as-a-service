@@ -19,26 +19,24 @@ export const babyProduced: BadgeId[] = [
  * For labeling purposes, the parents who may be bred together.
  * Note that this only is for labels, and has no pragmatic effect.
  *
- * potw-203 Girafarig (4)
- * potw-631 Heatmor (1)
- * potw-194-paldean Wooper (1)
- * potw-422 Shellos (1)
- * potw-590 Foongus (1)
- * potw-757 Salandit (1)
- * potw-226 Mantine (1)
- * potw-686 Inkay (1)
- * potw-747 Mareanie (1)
- * 12 votes in total
+ * potw-100-hisuian Voltorb (3)
+ * potw-765 Oranguru (2)
+ * potw-228 Houndour (1)
+ * potw-399 Bidoof (1)
+ * potw-321 Wailord (1)
+ * potw-708 Phantump (1)
+ * ---
+ * 9 votes in total
  */
 export const parents: BadgeId[] = [
-  Potw(P.Girafarig, {var: 1}),
-  Potw(P.Girafarig, {var: 2}),
-  Potw(P.Girafarig, {var: 3}),
-  Potw(P.Girafarig, {var: 4}),
-  Potw(P.Farigiraf, {var: 1}),
-  Potw(P.Farigiraf, {var: 2}),
-  Potw(P.Farigiraf, {var: 3}),
-  Potw(P.Farigiraf, {var: 4}),
+  Potw(P.Voltorb, {var: 1, form: 'hisuian'}),
+  Potw(P.Voltorb, {var: 2, form: 'hisuian'}),
+  Potw(P.Voltorb, {var: 3, form: 'hisuian'}),
+  Potw(P.Voltorb, {var: 4, form: 'hisuian'}),
+  Potw(P.Electrode, {var: 1, form: 'hisuian'}),
+  Potw(P.Electrode, {var: 2, form: 'hisuian'}),
+  Potw(P.Electrode, {var: 3, form: 'hisuian'}),
+  Potw(P.Electrode, {var: 4, form: 'hisuian'}),
 ]
 
 export const history: BadgeId[] = [
@@ -469,4 +467,12 @@ export const history: BadgeId[] = [
   Potw(P.Salandit, {var: 2}),
   Potw(P.Salandit, {var: 3}),
   Potw(P.Salandit, {var: 4}),
+  Potw(P.Girafarig, {var: 1}),
+  Potw(P.Girafarig, {var: 2}),
+  Potw(P.Girafarig, {var: 3}),
+  Potw(P.Girafarig, {var: 4}),
+  Potw(P.Farigiraf, {var: 1}),
+  Potw(P.Farigiraf, {var: 2}),
+  Potw(P.Farigiraf, {var: 3}),
+  Potw(P.Farigiraf, {var: 4}),
 ]
