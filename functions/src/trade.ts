@@ -76,7 +76,7 @@ export const trade_room_join = functions.https.onCall(async (data: F.TradeRoomJo
     offerSpecies: null,
   }
 
-  await roomDoc.ref.update(room)
+  await roomDoc.ref.update<DbTradeRoom>(room)
   return {
     roomId,
     joined: true,
@@ -151,7 +151,7 @@ export const trade_offer = functions.https.onCall(async (data: F.TradeOffer.Req,
     throw new functions.https.HttpsError('failed-precondition', 'Who are you?')
   }
 
-  await roomDoc.ref.update(room)
+  await roomDoc.ref.update<DbTradeRoom>(room)
 
   return {
     roomId
@@ -267,7 +267,7 @@ export const trade_confirm = functions.https.onCall(async (data: F.TradeConfirm.
 
   if (room.host.id === userId) {
     room.host.offerConfirmed = confirmed
-    await roomDoc.ref.update(room)
+    await roomDoc.ref.update<DbTradeRoom>(room)
     if (room.player?.offerConfirmed) {
       try {
         const swap = await performSwap(room)
