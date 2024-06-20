@@ -459,7 +459,8 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
     // to allow database events elsewhere to proceed.
   // }
   return {
-    html, pokedex, selectedPokemon, duplicates, holdItem, holdItemQuantity,
+    html, pokedex, selectedPokemon, duplicates, holdItem,
+    holdItemQuantity: holdItem ? holdItemQuantity : undefined,
     badge: badge.toString(),
     balls, lastLocations, bait: txnRes.bait,
     debug: {
