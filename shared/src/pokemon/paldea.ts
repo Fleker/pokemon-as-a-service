@@ -6,7 +6,7 @@ import {hisuiBuilder} from './hisui'
 export const paldeaBuilder = {
   'potw-128-combat_breed': ensurePkmnBuilder({
     species: 'Tauros', type1: 'Fighting',
-    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Traditional', 'Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 115, eggBase: 'potw-128-combat_breed', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `This Pokémon has a muscular body and excels at close-quarters combat. It uses its short horns to strike the opponent’s weak spots.`,
     hp: 75, attack: 110, defense: 105, spAttack: 30, spDefense: 70, speed: 100,
@@ -441,7 +441,7 @@ export const paldeaBuilder = {
   }),
   'potw-924': ensurePkmnBuilder({
     species: 'Tandemaus', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 1.8,
     eggBase: 'potw-924', eggGroup: ['Field'], eggCycles: 5,
     levelAt: 25, levelTo: 'potw-925',
@@ -461,7 +461,7 @@ export const paldeaBuilder = {
   }),
   'potw-925': ensurePkmnBuilder({
     species: 'Maushold', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 2.8, syncableForms: ['family_of_four', 'family_of_three'], needForm: true,
     eggBase: 'potw-924', eggGroup: ['Field'], eggCycles: 5,
     pokedex: `The two little ones just appeared one day. The group might be a family of related Pokémon, but nobody knows for sure.`,
@@ -514,7 +514,7 @@ export const paldeaBuilder = {
   }),
   'potw-928': ensurePkmnBuilder({
     species: 'Smoliv', type1: 'Grass', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 6.5,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     levelAt: 25, levelTo: 'potw-929',
@@ -533,7 +533,7 @@ export const paldeaBuilder = {
   }),
   'potw-929': ensurePkmnBuilder({
     species: 'Dolliv', type1: 'Grass', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 11.9,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     levelAt: 35, levelTo: 'potw-930',
@@ -552,7 +552,7 @@ export const paldeaBuilder = {
   }),
   'potw-930': ensurePkmnBuilder({
     species: 'Arboliva', type1: 'Grass', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 48.2,
     eggBase: 'potw-928', eggGroup: ['Grass'], eggCycles: 10,
     pokedex: `This calm Pokémon is very compassionate. It will share its delicious, nutrient-rich oil with weakened Pokémon.`,
@@ -574,7 +574,7 @@ export const paldeaBuilder = {
   }),
   'potw-931': ensurePkmnBuilder({
     species: 'Squawkabilly', type1: 'Normal', type2: 'Flying', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     syncableForms: ['green_plumage', 'white_plumage', 'blue_plumage', 'yellow_plumage'], needForm: true,
     weight: 2.4,
     eggBase: 'potw-931', eggGroup: ['Flying'], eggCycles: 15,
@@ -594,7 +594,7 @@ export const paldeaBuilder = {
   }),
   'potw-932': ensurePkmnBuilder({
     species: 'Nacli', type1: 'Rock', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 16,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     levelAt: 24, levelTo: 'potw-933',
@@ -613,7 +613,7 @@ export const paldeaBuilder = {
   }),
   'potw-933': ensurePkmnBuilder({
     species: 'Naclstack', type1: 'Rock', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 105,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     levelAt: 38, levelTo: 'potw-934',
@@ -633,7 +633,7 @@ export const paldeaBuilder = {
   }),
   'potw-934': ensurePkmnBuilder({
     species: 'Garganacl', type1: 'Rock', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 240,
     eggBase: 'potw-932', eggGroup: ['Mineral'], eggCycles: 10,
     pokedex: `Garganacl will rub its fingertips together and sprinkle injured Pokémon with salt. Even severe wounds will promptly heal afterward.`,
@@ -805,7 +805,7 @@ export const paldeaBuilder = {
   }),
   'potw-944': ensurePkmnBuilder({
     species: 'Shroodle', type1: 'Poison', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 0.7,
     eggBase: 'potw-944', eggGroup: ['Field'], eggCycles: 10,
     levelAt: 28, levelTo: 'potw-945',
@@ -825,7 +825,7 @@ export const paldeaBuilder = {
   }),
   'potw-945': ensurePkmnBuilder({
     species: 'Grafaiai', type1: 'Poison', type2: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 27.2,
     eggBase: 'potw-944', eggGroup: ['Field'], eggCycles: 10,
     pokedex: `The color of the poisonous saliva depends on what the Pokémon eats. Grafaiai covers its fingers in its saliva and draws patterns on trees in forests.`,
@@ -916,7 +916,7 @@ export const paldeaBuilder = {
   }),
   'potw-950': ensurePkmnBuilder({
     species: 'Klawf', type1: 'Rock', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 79, syncableForms: ['titan'], needForm: false,
     eggBase: 'potw-950', eggGroup: ['Water 3'], eggCycles: 35,
     pokedex: `Klawf hangs upside-down from cliffs, waiting for prey. But Klawf can't remain in this position for long because its blood rushes to its head.`,
@@ -1264,7 +1264,7 @@ export const paldeaBuilder = {
   }),
   'potw-969': ensurePkmnBuilder({
     species: 'Glimmet', type1: 'Rock', type2: 'Poison', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 8,
     eggBase: 'potw-969', eggGroup: ['Mineral'], eggCycles: 15,
     levelAt: 35, levelTo: 'potw-970',
@@ -1284,7 +1284,7 @@ export const paldeaBuilder = {
   }),
   'potw-970': ensurePkmnBuilder({
     species: 'Glimmora', type1: 'Rock', type2: 'Poison', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 45,
     eggBase: 'potw-969', eggGroup: ['Mineral'], eggCycles: 15,
     pokedex: `When this Pokémon detects danger, it will open up its crystalline petals and fire beams from its conical body.`,
@@ -1435,7 +1435,7 @@ export const paldeaBuilder = {
   }),
   'potw-979': ensurePkmnBuilder({
     species: 'Annihilape', type1: 'Fighting', type2: 'Ghost', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 56,
     eggBase: 'potw-056', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `When its anger rose beyond a critical point, this Pokémon gained power that is unfettered by the limits of its physical body.`,
@@ -1479,7 +1479,7 @@ export const paldeaBuilder = {
   }),
   'potw-981': ensurePkmnBuilder({
     species: 'Farigiraf', type1: 'Normal', type2: 'Psychic', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 160,
     eggBase: 'potw-203', eggGroup: ['Field'], eggCycles: 20,
     pokedex: `Now that the brain waves from the head and tail are synced up, the psychic power of this Pokémon is 10 times stronger than Girafarig's.`,
@@ -1504,7 +1504,7 @@ export const paldeaBuilder = {
   }),
   'potw-982': ensurePkmnBuilder({
     species: 'Dudunsparce', type1: 'Normal', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     syncableForms: ['two_segment', 'three_segment'], needForm: true,
     weight: 47.4,
     eggBase: 'potw-206', eggGroup: ['Field'], eggCycles: 20,
@@ -1530,7 +1530,7 @@ export const paldeaBuilder = {
   }),
   'potw-983': ensurePkmnBuilder({
     species: 'Kingambit', type1: 'Dark', type2: 'Steel', 
-    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'SYNCABLE',
+    tiers: ['Terastallize Cup' /*, 'SV DLC Cup' */], shiny: 'WILD',
     weight: 120,
     eggBase: 'potw-624', eggGroup: ['Human-Like'], eggCycles: 10,
     pokedex: `Only a Bisharp that stands above all others in its vast army can evolve into Kingambit.`,
@@ -2011,7 +2011,7 @@ export const paldeaBuilder = {
   }),
   'potw-1009': ensurePkmnBuilder({
     species: 'Walking Wake', type1: 'Water', type2: 'Dragon',
-    shiny: 'SYNCABLE', weight: 280, eggCycles: 40, release: 'ultraball',
+    shiny: 'WILD', weight: 280, eggCycles: 40, release: 'ultraball',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `This ferocious creature is shrouded in mystery. It’s named after an aquatic monster mentioned in an old expedition journal.`,
     hp: 99, attack: 83, defense: 91, spAttack: 125, spDefense: 83, speed: 109,
@@ -2027,7 +2027,7 @@ export const paldeaBuilder = {
   }),
   'potw-1010': ensurePkmnBuilder({
     species: 'Iron Leaves', type1: 'Grass', type2: 'Psychic',
-    shiny: 'SYNCABLE', weight: 125, eggCycles: 40, release: 'ultraball',
+    shiny: 'WILD', weight: 125, eggCycles: 40, release: 'ultraball',
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `Many of its physical characteristics match those of a Virizion from the future that was covered in a paranormal magazine.`,
     hp: 90, attack: 130, defense: 88, spAttack: 70, spDefense: 108, speed: 104,
@@ -2043,7 +2043,7 @@ export const paldeaBuilder = {
   }),
   'potw-1011': ensurePkmnBuilder({
     species: 'Dipplin', type1: 'Grass', type2: 'Dragon',
-    shiny: 'SYNCABLE', weight: 4.4, eggCycles: 20, eggBase: 'potw-840', eggGroup: ['Grass', 'Dragon'],
+    shiny: 'WILD', weight: 4.4, eggCycles: 20, eggBase: 'potw-840', eggGroup: ['Grass', 'Dragon'],
     tiers: [/* 'SV DLC Cup' */],
     pokedex: `Dipplin is two creatures in one Pokémon. Its evolution was triggered by a special apple grown only in one place.`,
     hp: 80, attack: 80, defense: 110, spAttack: 95, spDefense: 80, speed: 40,
