@@ -1,7 +1,7 @@
 import { assert } from '@fleker/gents'
 import { Badge } from "./badge3"
 import { calculateNetWorth } from "./events"
-import { CATCH_CHARM_DPPT, CATCH_CHARM_SWSH, CATCH_CHARM_XY, LegendaryQuest, requireItem, requireType, simpleRequirePotw, simpleRequirePotwArr } from "./legendary-quests"
+import { CATCH_CHARM_DPPT, CATCH_CHARM_SWSH, CATCH_CHARM_XY, CATCH_CHARM_SV, LegendaryQuest, requireItem, requireType, simpleRequirePotw, simpleRequirePotwArr } from "./legendary-quests"
 import { Users } from "./server-types"
 import { Item, ItemId } from "./items-list"
 import * as P from './gen/type-pokemon'
@@ -206,8 +206,8 @@ function craftPaldeanSandwich(ingredients: ItemId[], output: ItemId): Recipe {
     output,
     unlocked: {
       hints: [{
-        completed: (r) => false,
-        msg: 'Requires TODO SV Catching Charm.'
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+        msg: 'Professor Sada may help you understand the art of the sandwich.'
       }]
     }
   }
