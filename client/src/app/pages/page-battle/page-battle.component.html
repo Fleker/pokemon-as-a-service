@@ -101,7 +101,11 @@
     </thead>
     <tbody *ngIf="!isLastLeaderboard">
       <tr *ngFor="let _ of leaderboardCurr?.topPokemon; index as i">
-        <td>{{leaderboardCurr?.topPokemon[i]}}</td>
+        <td>
+          <sprite-pokemon class="small" [badge]="pokemonId(leaderboardCurr?.topPokemonIds[i])">
+          </sprite-pokemon>
+          {{leaderboardCurr?.topPokemon[i]}}
+        </td>
         <td>
           {{leaderboardCurr?.topWinsWeekly[i].ldap}}&#64;
           ({{leaderboardCurr?.topWinsWeekly[i].wins}})

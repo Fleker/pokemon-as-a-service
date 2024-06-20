@@ -31,6 +31,7 @@ interface TierData {
   label: string
   icon: string
   topPokemon: string[]
+  topPokemonIds: BadgeId[]
   topWins: LeaderboardUser[]
   topWinsWeekly: LeaderboardUser[]
   topRatio: LeaderboardRatio[]
@@ -178,6 +179,10 @@ export class PageBattleComponent implements OnInit, OnDestroy, AfterViewInit {
     this.leaderboardCurr.topRatio = this.leaderboardCurr.topRatio
       .map(x => ({...x, roundPct: Math.floor(x.percent * 10000) / 100}))
     this.leaderboardCurr.label = tier
+  }
+
+  pokemonId(badge: BadgeId) {
+    return Badge.fromLegacy(badge).toString()
   }
 
   openItems() {
