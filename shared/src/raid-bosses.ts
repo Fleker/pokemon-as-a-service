@@ -24,6 +24,9 @@ export const MONTH_THEME = {
 export const specialRaids: BadgeId[] = [
   /* 6-Star mythical shiny boss */
   Q.GLOBAL_QUESTS[0].boss,
+  Potw(P.Okidogi, {var:1}),
+  Potw(P.Munkidori, {var:1}),
+  Potw(P.Fezandipiti, {var:1}),
   /* 5-Star event boss */
   Potw(P.Mewtwo, {var: 1}),
   /* 5-Star event boss */
@@ -492,8 +495,14 @@ export const standardBosses: RaidBoss[][] = [
     }
   }*/],
   /* 6-Star */
-  [{
+  [/*{
     species: Q.GLOBAL_QUESTS[0].boss,
+    },*/ {
+        species: Potw(P.Okidogi, {var: 1}),
+      }, {
+        species: Potw(P.Munkidori, {var: 1}),
+      }, {
+        species: Potw(P.Fezandipiti, {var: 1}),
   }],
   /* 7-Star */
   [...tinyWater, ...sinnohEgg1, {

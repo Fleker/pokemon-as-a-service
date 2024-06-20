@@ -2100,6 +2100,9 @@ export const paldeaBuilder = {
       'Protect', 'Bulk Up', 'Knock Off', 'Substitute', 'Endure', 
       'Taunt', 
     ],
+    novelMoves: [[],
+      ['Crunch', 'Howl'],
+    ],
   }),
   'potw-1015': ensurePkmnBuilder({
     species: 'Munkidori', type1: 'Poison', type2: 'Psychic',
@@ -2114,6 +2117,9 @@ export const paldeaBuilder = {
       'Protect', 'Flatter', 'Metronome', 'Confuse Ray', 'Calm Mind', 
       'Nasty Plot', 'Light Screen', 'Fake Out', 'Substitute', 'Endure', 
       'Imprison', 'Psychic Terrain', 'Taunt', 
+    ],
+    novelMoves: [[],
+      ['Shadow Ball', 'Nasty Plot'],
     ],
   }),
   'potw-1016': ensurePkmnBuilder({
@@ -2131,6 +2137,9 @@ export const paldeaBuilder = {
       'Light Screen', 'Quick Attack', 'Charm', 'Tailwind', 'Attract', 
       'Substitute', 'Endure', 'Taunt', 'Roost', 
     ],
+    novelMoves: [[],
+      ['Wing Attack', 'Flatter'],
+    ],
   }),
   'potw-1017': ensurePkmnBuilder({
     species: 'Ogerpon', type1: 'Grass',
@@ -2145,6 +2154,9 @@ export const paldeaBuilder = {
       'Swords Dance', 'Sunny Day', 'Rain Dance', 'Sandstorm', 'Quick Attack', 
       'Charm', 'Knock Off', 'Substitute', 'Leech Seed', 'Endure', 
       'Grassy Terrain', 'Taunt', 'Follow Me', 
+    ],
+    novelMoves: [[],
+      ['Superpower', 'Slam', 'Leech Seed'],
     ],
   }),
   'potw-1018': ensurePkmnBuilder({

@@ -1522,12 +1522,12 @@ export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
   return legendaryDate.getUTCMonth() === 4 && // May (4)
-    legendaryDate.getUTCDate() <= 2 // May 2nd
+    legendaryDate.getUTCDate() <= 22 // May 22nd
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-    // docId: 'available',
-    docId: 'unavailable',
+    docId: 'available',
+    // docId: 'unavailable',
   dbKey: 'lousyThree',
   badge: 'lousy-three',
   boss: Potw(P.Okidogi, {shiny: false, var: 1}),
