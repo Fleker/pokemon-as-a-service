@@ -1346,6 +1346,24 @@ export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   hint: ['A large violet reptile is laying on the beach in a weakened state.'],
   encounter: Potw(P.Miraidon),
   recyclable: true,
+}, {
+  docId: L.WALKINGWAKE,
+  quest: L.WalkingWake,
+  badge: 'potw-1009',
+  title: 'The Aquatic Monster',
+  gate: CATCH_CHARM_SV,
+  hint: ['You hear about a paranormal Pokémon vaguely resembling Suicune.'],
+  encounter: Potw(P.Walking_Wake),
+  recyclable: true,
+}, {
+  docId: L.IRONLEAVES,
+  quest: L.IronLeaves,
+  badge: 'potw-1010',
+  title: 'The Shining Blades',
+  gate: CATCH_CHARM_SV,
+  hint: ['You hear of a paranormal Pokémon vaguely resembling Virizion.'],
+  encounter: Potw(P.Iron_Leaves),
+  recyclable: true,
 }, ]
 
 export const CATCH_QUESTS: PokedexQuest[] = [{
@@ -1438,13 +1456,13 @@ export const GLOBAL_QUEST_DATE: () => boolean = (() => {
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
     // docId: 'available',
     docId: 'unavailable',
-    dbKey: 'shinyShaymin2',
-    badge: 'potw-492-shiny',
-    boss: Potw(P.Shaymin, {shiny: true, var: 2}),
-    title: 'Mightiest Shiny Shaymin Raids',
-     count: 1_000_000,
-    hint: ['A global pot of 1,000,000 Poké Balls will unlock a day of shiny Shaymin raids.']
-}]
+  dbKey: 'lousyThree',
+  badge: 'lousy-three',
+  boss: Potw(P.Okidogi, {shiny: false, var: 1}),
+  title: 'Mightiest Lousy Three Raids',
+   count: 1_000_000,
+  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day where you battle in raids against the Lousy Three. Normal shiny rates apply.']
+ }]
 
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{
   badge: 'potw-dex-kanto',

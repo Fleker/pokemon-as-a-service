@@ -163,6 +163,8 @@ export const TERAPAGOS = 'TERASTALLIZINGTURTLE'
 export const PECHARUNT = 'MOCHIMOCHIMOCHIMOCHI'
 export const KORAIDON = 'WINGEDKING'
 export const MIRAIDON = 'IRONSERPENT'
+export const WALKINGWAKE = 'PARADOXSUICUNE'
+export const IRONLEAVES = 'PARADOXVIRIZION'
 
 const oneDayAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 1).getTime()
 const oneWeekAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).getTime()
@@ -3860,5 +3862,37 @@ export const Miraridon: LegendaryQuest = {
   }, {
     completed: (r) => r.itemsCrafted > 10,
     msg: 'Have you considered crafting a sandwich?'
+  }]
+}
+
+export const WalkingWake: LegendaryQuest = {
+  hints: [{
+    completed: requireItem([
+      'tm-Pounce', 'tm-Trailblaze', 'tm-Volt Switch', 'tm-Chilling Water',
+      'tm-Hyper Drill', 'tm-Rage Fist', 'tm-Twin Beam', 'tm-Ice Spinner',
+    ]),
+    msg: 'Before you seek out this draconic beast, seek out the Paldean gym leaders.'
+  }, {
+    completed: simpleRequirePotw(P.Koraidon),
+    msg: 'Have you caught the winged king of Area Zero?'
+  }, {
+    completed: requireItem('terawater', 20),
+    msg: 'This illusive Pokémon is said to be surrounded by crystals of seafoam blue.'
+  }]
+}
+
+export const IronLeaves: LegendaryQuest = {
+  hints: [{
+    completed: requireItem([
+      'tm-Pounce', 'tm-Trailblaze', 'tm-Volt Switch', 'tm-Chilling Water',
+      'tm-Hyper Drill', 'tm-Rage Fist', 'tm-Twin Beam', 'tm-Ice Spinner',
+    ]),
+    msg: 'Before you seek out this leafy walker, seek out the Paldean gym leaders.'
+  }, {
+    completed: simpleRequirePotw(P.Miraidon),
+    msg: 'Have you caught the iron serpent of Area Zero?'
+  }, {
+    completed: requireItem('terapsychic', 20),
+    msg: 'This illusive Pokémon is said to be surrounded by crystals of mindful purple.'
   }]
 }

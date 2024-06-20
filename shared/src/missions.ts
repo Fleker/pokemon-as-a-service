@@ -137,6 +137,8 @@ export const questOrder = [
   Q.GLIMMERINGCHARM,
   L.KORAIDON,
   L.MIRAIDON,
+  L.WALKINGWAKE,
+  L.IRONLEAVES,
 ]
 
 export const pokedexOrder = [
