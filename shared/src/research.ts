@@ -1292,6 +1292,20 @@ export const QUEST_TERA: Record<string, ResearchQuest> = {
   TERA_FIGHTING: teraQuest('terafighting', 'Fighting'),
   ARMAROUGE: cadetQuest('auspiciousarmor', 'Psychic'),
   CERULEDGE: cadetQuest('maliciousarmor', 'Ghost'),
+  TERA_STELLAR: {
+    title: `Catch 18 Treasure Pokémon`,
+    steps: 18,
+    icon: Sprite.item('terastellar'),
+    prize: ['terastellar'],
+    level: LEVEL.L9,
+    active: true,
+    origin: 'gen9',
+    completedStep: ({capturedPokemon}) => {
+      if (!capturedPokemon) return false
+      const db = Pkmn.get(capturedPokemon)!
+      return db.tiers?.includes('Treasure Cup') || false
+    }
+  }
 }
 
 export const QUEST_TRAVEL: Record<string, ResearchQuest> = {

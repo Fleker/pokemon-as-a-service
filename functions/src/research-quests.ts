@@ -17,7 +17,13 @@ const db = salamander(admin.firestore())
 
 function maxQuests(researchCompleted = 0) {
   // As your level increases, you can take on more tasks in parallel
-  if (researchCompleted > 720) {
+  if (researchCompleted > 5760) {
+    return 12
+  } else if (researchCompleted > 2880) {
+    return 11
+  } else if (researchCompleted > 1440) {
+    return 10
+  } else if (researchCompleted > 720) {
     return 9
   } else if (researchCompleted > 360) {
     return 8
