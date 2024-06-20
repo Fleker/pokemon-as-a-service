@@ -12,3 +12,25 @@
 .radio-option {
   padding-right: 16px;
 }
+
+sprite-pokemon.animate {
+  animation: jump 0.4s 2 linear;
+}
+
+@media (prefers-reduced-motion) {
+  sprite-pokemon.animate {
+    animation: none;
+  }
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
