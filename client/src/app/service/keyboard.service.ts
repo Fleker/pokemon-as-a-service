@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
-import { BAZAAR } from '../../../../shared/src/items-list'
+import { BAZAAR, ITEMS, ItemId } from '../../../../shared/src/items-list'
+import { FirebaseService } from './firebase.service';
+import { Users } from '../../../../shared/src/server-types';
+import { pkmn, item } from '../../../../shared/src/sprites';
+import { Badge } from '../../../../shared/src/badge3';
+import { myPokemon } from '../../../../shared/src/badge-inflate';
 
 export interface OmniRes {
   url: string
@@ -27,14 +32,16 @@ export class KeyboardService {
   allSearchOptions: OmniRes[] = []
 
   constructor(
-    private router: Router
+    private router: Router,
+    private firebase: FirebaseService,
   ) {}
 
   init() {
-    setTimeout(() => {
-      // Async operation
-      this.generateSearchOptions()
-    }, 0)
+    this.firebase.subscribeUser(user => {
+      if (user) {
+        this.generateSearchOptions(user)
+      }
+    })
     document.addEventListener('keyup', (e: KeyboardEvent) => {
       const {code} = e
       console.debug('keyvent', e.code, e.shiftKey, e.ctrlKey, e)
@@ -64,7 +71,7 @@ export class KeyboardService {
         return null;
       }
       if (e.target['className'].includes('omnisearchli')) {
-        if (e.code === 'Enter') {
+        if (e.key === 'Enter') {
           e.target['click']()
           e.preventDefault()
         } else {
@@ -122,7 +129,7 @@ export class KeyboardService {
   //  Add a subtitle for things like Pokemon IDs
   //  Use keyboard to navigate results
   //  Add a keyboard option to navigation to quick-jump to pages
-  generateSearchOptions() {
+  generateSearchOptions(user: Users.Doc) {
     const allSearchOptions: OmniRes[] = [{
       label: 'Pokémon',
       url: '/pokemon/collection',
@@ -301,6 +308,37 @@ export class KeyboardService {
         sublabel: 'Bazaar Stall',
       })
     }
+    setTimeout(() => {
+      for (const [key, value] of myPokemon(user.pokemon)) {
+        try {
+          const badge = new Badge(key)
+          allSearchOptions.push({
+            label: `${badge.toLabel()} x${value}`,
+            url: '/pokemon/collection',
+            keywords: [badge.toLabel().toLowerCase(), 'pokemon', badge.toString()],
+            sprite: pkmn(badge.toSprite()),
+            sublabel: key,
+          })
+        } catch (e) {
+          console.error(`Cannot generate search option for ${key}: ${e}`)
+        }
+      }
+      for (const [key, value] of Object.entries(user.items)) {
+        try {
+          const itemDb = ITEMS[key]
+          allSearchOptions.push({
+            label: `${itemDb.label} x${value}`,
+            url: '/items/bag',
+            keywords: [itemDb.label.toLowerCase().split(' '), itemDb.label.toLowerCase(), itemDb.category, 'item', 'inventory', key],
+            sprite: item(key as ItemId),
+            sublabel: key,
+          })
+        } catch (e) {
+          console.error(`Cannot generate search option for ${key}: ${e}`)
+        }
+      }
+      this.allSearchOptions = allSearchOptions
+    }, 17)
   }
 
   runSearch(query: string) {

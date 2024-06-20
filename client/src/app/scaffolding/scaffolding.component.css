@@ -337,6 +337,11 @@ dialog.omnisearch a {
   color: #efefef;
 }
 
+dialog.omnisearch img {
+  width: 24px;
+  height: 24px;
+}
+
 .omnisearch-sublabel {
   opacity:0.8;
   display:inline-block;
