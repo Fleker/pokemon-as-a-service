@@ -17,7 +17,7 @@ export type Tier =
   'Crown Cup' |
   'Arceus Cup' |
   'Terastallize Cup' |
-  // 'Treasure Cup' |
+  'Treasure Cup' |
   'Beginners Cup'
 export interface Rules {
   /**
@@ -701,6 +701,18 @@ const TerastallizeCup: BattleTier = {
   },
   prizes: TeraCupPrizeList,
 }
+const TreasureCup: BattleTier = {
+  label: 'Treasure Cup',
+  icon: 'battle-paldeadlc',
+  rules: {
+    fieldSize: 2,
+    partySize: 4,
+    mega: false, zmoves: false,
+    maxWins: 0, tera: true,
+  },
+  prizes: TeraDlcCupPrizeList,
+}
+
 const TinyCup: BattleTier = {
   label: 'Tiny Cup',
   icon: 'battle-tiny',
@@ -742,6 +754,7 @@ export const BATTLE_TIERS: Record<Tier, BattleTier> = {
   'Crown Cup': GalarDlcCup,
   'Arceus Cup': ArceusCup,
   'Terastallize Cup': TerastallizeCup,
+  'Treasure Cup': TreasureCup,
   'Tiny Cup': TinyCup,
   'Beginners Cup': BeginnersCup,
 }
