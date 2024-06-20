@@ -6,12 +6,13 @@ export const GROUP_BADGE_ID = weeklyId
 export const MAIL_BADGES = {
   'potw-299': 'Nosepass',
   'potw-300': 'Skitty',
-  'potw-301': 'Delcatty'
+  'potw-301': 'Delcatty',
+  'potw-302': 'Sableye',
 }
 
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Pounce',
-  tr: 'tr-Switcheroo',
+  tm: 'tm-Trailblaze',
+  tr: 'tr-Trick Room',
 }
 
 export const adminIds = [
