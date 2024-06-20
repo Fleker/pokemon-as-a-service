@@ -2275,6 +2275,46 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: ({quantity}) => quantity >= 999,
     consumes: () => 999,
   },
+  'syrupyapple': {
+    filter: [P.Applin],
+    pokemon: {
+      [P.Applin]: {
+        badge: P.Dipplin,
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
+  teacupunremarkable: {
+    filter: [B2.Potw(P.Poltchageist, {form: 'counterfeit'})],
+    pokemon: {
+      [B2.Potw(P.Poltchageist, {form: 'counterfeit'})]: {
+        badge: B2.Potw(P.Sinistcha, {form: 'unremarkable'}),
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
+  teacupmasterpiece: {
+    filter: [B2.Potw(P.Poltchageist, {form: 'artisan'})],
+    pokemon: {
+      [B2.Potw(P.Poltchageist, {form: 'artisan'})]: {
+        badge: B2.Potw(P.Sinistcha, {form: 'masterpiece'}),
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
+  'metalalloy': {
+    filter: [P.Duraludon],
+    pokemon: {
+      [P.Duraludon]: {
+        badge: P.Archaludon,
+      }
+    },
+    usable: () => false, // TODO
+    consumes: () => true,
+  },
   expcandyxs: {
     // 4/(x * .75) <= 1/2, x ~ 12
     filter: getPokemonLevel(12),
