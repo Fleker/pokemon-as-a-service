@@ -15,7 +15,7 @@ interface Chat {
 
 interface Persona {
   context: string
-  examples: {
+  examples?: {
     prompt: string
     response: string
   }[]
@@ -124,17 +124,32 @@ const OAK: Persona = {
 // In our RAG system, we do not need to provide any data but we'll do it here
 // to work with the UI.
 const OAKRAG: Persona = {
-  context: 'RAGoak',
-  examples: [],
+  context: 'RAGoak2',
 }
-
+const ELM: Persona = {
+  context: 'RAGelm',
+}
+const BIRCH: Persona = {
+  context: 'RAGbirch',
+}
+const ROWAN: Persona = {
+  context: 'RAGrowan',
+}
+const JUNIPER: Persona = {
+  context: 'RAGjuniper',
+}
+const SYCAMORE: Persona = {
+  context: 'RAGsycamore',
+}
+const KUKUI: Persona = {
+  context: 'RAGkukui',
+}
 const MAGNOLIA: Persona = {
-  context: `RAGmagnolia`,
-  examples: [],
+  context: `RAGmagnolia2`,
 }
 
 // In tab order
-const PERSONAS = [OAK, OAKRAG, MAGNOLIA]
+const PERSONAS = [OAKRAG, ELM, BIRCH, ROWAN, JUNIPER, SYCAMORE, KUKUI, MAGNOLIA]
 
 @Component({
   selector: 'app-page-chatbot',
@@ -147,7 +162,7 @@ export class PageChatbotComponent implements OnInit {
   prompt?: string
   chats: Chat[]
   chatId?: string
-  selectedPersona?: Persona = OAK
+  selectedPersona?: Persona = OAKRAG
   engagement: EngagementService
 
   get last() {
@@ -171,7 +186,7 @@ export class PageChatbotComponent implements OnInit {
 
   updatePrompt(event: MatTabChangeEvent) {
     this.selectedPersona = PERSONAS[event.index]
-    // TODO: Reset chat
+    this.chats = []
   }
 
   sendPrompt() {
@@ -282,5 +297,20 @@ export class PageChatbotComponent implements OnInit {
         this.prompt = ''
       }
     })
+  }
+
+  async report(chat: Chat) {
+    try {
+      await this.firebase.exec<F.ChatbotReport.Req, F.ChatbotReport.Res>('chatbot_report', {
+        contact: chat.who,
+        contactMsg: chat.msg,
+        userMsg: chat.msg,
+      })
+    } catch (e) {
+      this.snackbar.open(e, '', { duration: 5000 })
+    } finally {
+      this.prompt = ''
+      this.snackbar.open(`Thanks for the report!`, '', { duration: 3000 })
+    }
   }
 }

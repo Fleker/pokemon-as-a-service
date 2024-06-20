@@ -144,3 +144,7 @@ export const voyage_publicize = voyages.voyage_publicize
 import * as wonderTrade from './wonder-trade'
 export const wonder_trade_upload = wonderTrade.wonder_trade_upload
 export const wonder_trade_cron = wonderTrade.wonder_trade_cron
+
+import * as assistant from './assistant'
+export const chatbot2 = assistant.chatbot
+export const chatbot_report = assistant.chatbot_report

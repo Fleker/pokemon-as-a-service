@@ -498,6 +498,18 @@ export namespace F {
     }
   }
 
+  export namespace ChatbotReport {
+    export interface Req {
+      contact: string
+      userMsg: string
+      contactMsg: string
+    }
+
+    export interface Res {
+      contact: string
+    }
+  }
+
   export namespace CraftItem {
     export interface Req {
       craft: {

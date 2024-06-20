@@ -1,35 +1,70 @@
 <mat-card *ngIf="chatEnabled">
   <mat-tab-group (selectedTabChange)="updatePrompt($event)">
-    <mat-tab label="Oak (PaLM)">
+    <mat-tab label="Oak">
       <h1 class="centered">
         <img src="/images/sprites/quests/oak.png" />
         Professor Oak
       </h1>
-      <em>An expert on Kanto. Powered directly through PaLM.</em>
+      <em>An expert from Kanto. Ask him about Pokémon.</em>
     </mat-tab>
-    <mat-tab label="Oak (RAG)">
+    <mat-tab label="Elm">
       <h1 class="centered">
-        <img src="/images/sprites/quests/oak.png" />
-        Professor Oak
+        <img src="/images/sprites/quests/elm.png" />
+        Professor Elm
       </h1>
-      <em>An expert on Kanto. Powered through Retrieval Augmented Generation.</em>
+      <em>An expert from Johto. Ask him about breeding.</em>
     </mat-tab>
-    <mat-tab label="Magnolia (RAG)">
+    <mat-tab label="Birch">
+      <h1 class="centered">
+        <img src="/images/sprites/quests/birch3.png" />
+        Professor Birch
+      </h1>
+      <em>An expert from Hoenn. Ask him about finding wild Pokémon.</em>
+    </mat-tab>
+    <mat-tab label="Rowan">
+      <h1 class="centered">
+        <img src="/images/sprites/quests/rowan4.png" />
+        Professor Rowan
+      </h1>
+      <em>An expert from Sinnoh. Ask him about evolutions and form changes.</em>
+    </mat-tab>
+    <mat-tab label="Juniper">
+      <h1 class="centered">
+        <img src="/images/sprites/quests/juniper5.png" />
+        Professor Juniper
+      </h1>
+      <em>An expert from Unova. Ask her about items in and out of battle.</em>
+    </mat-tab>
+    <mat-tab label="Sycamore">
+      <h1 class="centered">
+        <img src="/images/sprites/quests/sycamore6.png" />
+        Professor Sycamore
+      </h1>
+      <em>An expert from Kalos. Ask him about mega evolutions.</em>
+    </mat-tab>
+    <mat-tab label="Kukui">
+      <h1 class="centered">
+        <img src="/images/sprites/quests/kukui7.png" />
+        Professor Kukui
+      </h1>
+      <em>An expert from Alola. Ask him about Pokémon moves.</em>
+    </mat-tab>
+    <mat-tab label="Magnolia">
       <h1 class="centered">
         <img src="/images/sprites/quests/magnolia8.png" />
         Professor Magnolia
       </h1>
-      <em>An expert on Galar. Powered through Retrieval Augmented Generation.</em>
+      <em>An expert from Galar. Ask her about quests.</em>
     </mat-tab>
   </mat-tab-group>
-  <small>
-    This is an experimental chatbot using PaLM. Responses may not be canonical or trustworthy. Chats get cleared when this page refreshes.
-  </small>
   <div *ngFor="let chat of chats" class="chats">
     <markdown ngPreserveWhitespaces [data]="chat.msg" *ngIf="chat.state === 'done'" [class]="chat.who">
     </markdown>
+    <button mat-icon-button (click)="report(chat)" *ngIf="chat.state === 'done' && chat.who === 'chat'">
+      <mat-icon>thumb_down</mat-icon>
+    </button>
     <p *ngIf="chat.state === 'pending'" [class]="chat.who">
-      <mat-icon>cloud_upload</mat-icon>
+      <text-indicator></text-indicator>
     </p>
     <p *ngIf="chat.state === 'texting'" [class]="chat.who">
       <mat-icon>pending</mat-icon>
@@ -42,4 +77,7 @@
       <mat-icon>send</mat-icon>
     </button>
   </div>
+  <small>
+    This is an experimental chatbot using Gemini Flash. Responses may not be canonical or trustworthy. Chats get cleared when this page changes.
+  </small>
 </mat-card>
