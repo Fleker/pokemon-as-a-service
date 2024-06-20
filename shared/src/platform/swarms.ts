@@ -6,36 +6,39 @@ import * as P from '../gen/type-pokemon'
 
 /**
  * ```@markdown
-potw-859 Impidimp (2)
-potw-029 Nidoran♀ (1)
-potw-349 Feebas (1)
-potw-175 Togepi (1)
-potw-092 Gastly (1)
-potw-734 Yungoos (1)
-potw-258 Mudkip (1)
-potw-133 Eevee (1)
+potw-885 Dreepy (2)
+potw-935 Charcadet (1)
+potw-194-paldean Wooper (1)
+potw-019-alolan Rattata (1)
+potw-213 Shuckle (1)
+potw-767 Wimpod (1)
+potw-023 Ekans (1)
+potw-531 Audino (1)
 ---
-potw-757-female Salandit (1)
-potw-443 Gible (1)
-potw-025 Pikachu (1)
-potw-622 Golett (1)
-potw-948 Toedscool (1)
-potw-304 Aron (1)
-potw-088-alolan Grimer (1)
-potw-778 Mimikyu (1)
+potw-867 Runerigus (1)
+potw-855 Polteageist (1)
+potw-077 Ponyta (1)
+potw-024 Arbok (1)
 potw-117 Seadra (1)
- * 18 votes in total
+potw-116 Horsea (1)
+potw-058 Growlithe (1)
+potw-206 Dunsparce (1)
+potw-418 Buizel (1)
+potw-179 Mareep (1)
+potw-129-apricot_stripes Magikarp (1)
+potw-327 Spinda (1)
+potw-447 Riolu (1)
  * ```
  */
 export const Swarms: Record<RegionType, BadgeId> = {
-  'Africa / Middle East': P.Togepi,
-  'Asia': P.Eevee,
-  'Australia / New Zealand': P.Gastly,
-  'Mediterranean': P.Feebas,
-  'North America': P.Toedscool,
-  "North Europe": P.Impidimp,
-  "Pacific Islands": P.Yungoos,
-  "South America": P.NidoranF,
+  'Africa / Middle East': P.Dreepy,
+  'Asia': Potw(P.Rattata, {form: 'alolan'}),
+  'Australia / New Zealand': Potw(P.Wooper, {form: 'paldean'}),
+  'Mediterranean': P.Shuckle,
+  'North America': P.Charcadet,
+  "North Europe": P.Ekans,
+  "Pacific Islands": P.Wimpod,
+  "South America": P.Audino,
 }
 
 /**
@@ -51,14 +54,14 @@ export const Swarms: Record<RegionType, BadgeId> = {
  * minutes before and after half-past a particular hour.
  */
 export const MassiveOutbreaks: Record<WeatherType, BadgeId> = {
-  Cloudy: P.Gible,
-  'Diamond Dust': P.Horsea,
-  Snow: P.Horsea,
-  Fog: P.Mimikyu,
-  'Heat Wave': P.Salandit,
-  Rain: P.Mudkip,
-  Sandstorm: P.Aron,
-  Thunderstorm: P.Pikachu,
-  Windy: Potw(P.Grimer, {form: 'alolan'}),
+  Cloudy: P.Spinda,
+  'Diamond Dust': P.Polteageist,
+  Snow: P.Polteageist,
+  Fog: P.Horsea,
+  'Heat Wave': P.Growlithe,
+  Rain: Potw(P.Magikarp, {form: 'apricot_stripes'}),
+  Sandstorm: Potw(P.Yamask, {form: 'galarian'}),
+  Thunderstorm: P.Mareep,
+  Windy: P.Dunsparce,
   Sunny: P.Ditto // No-op
 }
