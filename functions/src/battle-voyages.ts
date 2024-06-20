@@ -777,12 +777,17 @@ export const voyage_claim = functions.https.onCall(async (data: F.VoyageClaim.Re
       const playerSelectedPokemon = new Badge(voyage.players[userId].species)
       if (playerSelectedPokemon.id === I.Finizen) {
         // Evolve!
-        removePokemon(user, playerSelectedPokemon)
-        playerSelectedPokemon.id = I.Palafin
-        playerSelectedPokemon.personality.form = 'zero'
-        addPokemon(user, playerSelectedPokemon)
-        // Update this in our database
-        voyage.players[userId].species = playerSelectedPokemon.toString()
+        try {
+          removePokemon(user, playerSelectedPokemon)
+          playerSelectedPokemon.id = I.Palafin
+          playerSelectedPokemon.personality.form = 'zero'
+          addPokemon(user, playerSelectedPokemon)
+          // Update this in our database
+          voyage.players[userId].species = playerSelectedPokemon.toString()
+        } catch (e) {
+          // Uh-oh. Is the Finizen lost?
+          console.error(e)
+        }
       }
     }
 
