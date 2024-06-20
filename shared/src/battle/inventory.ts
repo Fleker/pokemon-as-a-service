@@ -2145,6 +2145,10 @@ export const Inventory: Inventory = {
         return new Log()
       }
       const log = new Log()
+      if (!getCondition(caster, 'Raid')) {
+        log.add('The berserk gene had no effect...')
+        return log
+      }
       log.add('Eternatus has starting growing')
       log.add('and growing')
       log.add('and growing')
