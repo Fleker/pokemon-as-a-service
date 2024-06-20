@@ -1597,15 +1597,15 @@ export const Voyages = {
       [Potw(P.Ursaluna, {form: 'blood_moon'}), P.Conkeldurr, P.Dusknoir, P.Kommo_o, P.Leavanny, P.Vikavolt, P.Basculegion],
     ],
     unlocked: {
-      hints: [/*{
-        completed: simpleRequirePotwArr([P.Grookey, P.Scorbunny, P.Sobble]),
+      hints: [{
+        completed: simpleRequirePotwArr([P.Sprigatito, P.Fuecoco, P.Quaxly]),
         msg: 'Are you familiar with the starter Pokémon of Paldea?'
       }, {
-        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SWSH),
+        completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
         msg: 'Become an expert on the Pokémon of Paldea.'
-      }*/{
-        completed: (r) => r.id === 'fleker' || r.id === 'veXJXuNwZ7RsUXV6tQqWjboQOy03',
-        msg: 'In testing.'
+      }, {
+        completed: (r) => r.hiddenItemsFound.includes(GLIMMERINGCHARM),
+        msg: 'Gain the ability to explore Area Zero.'
       }]
     }
   }),
