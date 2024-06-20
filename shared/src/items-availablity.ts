@@ -2984,6 +2984,7 @@ export const DirectMap: Partial<Record<ItemId, DirectUsage>> = {
       if (!user.items.gimmighoulcoin) {
         user.items.gimmighoulcoin = 0
       }
+      user.items.gimmighoulbill!--
       user.items.gimmighoulcoin! += 100
       return {items: user.items}
     }

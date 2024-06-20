@@ -472,7 +472,10 @@ async function useItemDirect(data: F.UseItem.Directly, userId: string): Promise<
       })
       return {badge}
     } else {
-      return null
+      t.update<Users.Doc>(ref, {
+        items,
+      })
+      return {} // Empty object that can be destructured
     }
   })
   // Mirror the same API as above.
@@ -488,7 +491,7 @@ async function useItemDirect(data: F.UseItem.Directly, userId: string): Promise<
       raidId,
     }
   } else {
-    const def = new Badge(P.Gimmighoul)
+    const def = Badge.fromLegacy(P.Gimmighoul)
     return {
       target: def.toString(),
       transform: def.toLegacyString(),
