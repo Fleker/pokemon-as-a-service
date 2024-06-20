@@ -252,7 +252,7 @@ type IterativeCallback = (user: Users.Doc, ref: SalamanderRef) => void
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function forEveryUser(callback: IterativeCallback | any[], altCallback?: IterativeCallback) {
   const rdb = db._raw
-  const LIMIT = 150
+  const LIMIT = 450
   let lastDoc: FirebaseFirestore.QueryDocumentSnapshot<FirebaseFirestore.DocumentData>
   // eslint-disable-next-line no-constant-condition
   while (true) {
