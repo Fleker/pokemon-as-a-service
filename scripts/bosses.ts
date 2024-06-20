@@ -51,6 +51,7 @@ const dates = [
   'Mar 24',
   'Apr 24',
   'May 24',
+  'Jun 24',
 ]
 
 export const bosses = [
@@ -4101,6 +4102,11 @@ export const bosses = [
     Potw(P.Raikou, {var:1}),
     Potw(P.Suicune, {var:1}),
     Potw(P.Pichu, {var:4,form:'spiky'}),
+    Potw(P.Spinda, {var:4,form:'h'}),
+    Potw(P.Gourgeist, {var:1,form:'super'}),
+    Potw(P.Pikachu, {var:4,form:'pop_star'}),
+    Potw(P.Vivillon, {var:2,form:'elegant'}),
+    Potw(P.Florges, {var:4,form:'red'}),
     Potw(P.Kingambit, {var:1}),
     Potw(P.Gholdengo, {var:3}),
     Potw(P.Frosmoth, {var:4}),
@@ -4178,6 +4184,7 @@ export const bosses = [
     Potw(P.Gigalith, {var:3}),
     Potw(P.Tinkaton, {var:1}),
     Potw(P.Wormadam, {var:3,form:'trash'}),
+    Potw(P.Wormadam, {var:3}),
     Potw(P.Appletun, {var:4}),
     Potw(P.Flapple, {var:4}),
     Potw(P.Kilowattrel, {var:1}),
