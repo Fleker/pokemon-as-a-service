@@ -139,6 +139,14 @@ export const questOrder = [
   L.MIRAIDON,
   L.WALKINGWAKE,
   L.IRONLEAVES,
+  L.BLOODMOON,
+  L.OGERPON,
+  L.OKIDOGI,
+  L.MUNKIDORI,
+  L.FEZANDIPITI,
+  L.OGERPONWATER,
+  L.OGERPONFIRE,
+  L.OGERPONROCK,
 ]
 
 export const pokedexOrder = [

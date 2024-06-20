@@ -149,6 +149,7 @@ export const CALYREX = 'KINGWITHBIGHEAD'
 export const PLAPONY = 'PECULIARPONYTA'
 export const ENAMORUS = 'HERALDOFSPRING'
 export const LEGENDSPLATE = 'LEGENDSARCEUSPLATE'
+export const GOGGLES = 'PROJECT_BINOCULARS'
 
 // Gen 9 IDs
 export const WOCHIEN = 'RUINSOFSOUTHPROVINCE'
@@ -165,6 +166,10 @@ export const KORAIDON = 'WINGEDKING'
 export const MIRAIDON = 'IRONSERPENT'
 export const WALKINGWAKE = 'PARADOXSUICUNE'
 export const IRONLEAVES = 'PARADOXVIRIZION'
+export const OGERPONWATER = 'WELLSPRING'
+export const OGERPONFIRE = 'HEARTHFLAME'
+export const OGERPONROCK = 'CORNERSTONE'
+export const BLOODMOON = 'BLOODMOON'
 
 const oneDayAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 1).getTime()
 const oneWeekAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).getTime()
@@ -2443,26 +2448,61 @@ export const PokeballVivillon: LegendaryQuest = {
     completed: (r) => calculateNetWorth(r as unknown as Users.Doc) >= 666,
     msg: 'Have over 666 in wealth.'
   }, {
-    completed: requirePotw([
-      [P.Vivillon, {form: 'archipelago'}],
-      [P.Vivillon, {form: 'continental'}],
-      [P.Vivillon, {form: 'elegant'}],
-      [P.Vivillon, {form: 'garden'}],
-      [P.Vivillon, {form: 'highplains'}],
-      [P.Vivillon, {form: 'icysnow'}],
-      [P.Vivillon, {form: 'jungle'}],
-      [P.Vivillon, {form: 'marine'}],
-      [P.Vivillon, {form: 'meadow'}],
-      [P.Vivillon, {form: 'modern'}],
-      [P.Vivillon, {form: 'monsoon'}],
-      [P.Vivillon, {form: 'ocean'}],
-      [P.Vivillon, {form: 'polar'}],
-      [P.Vivillon, {form: 'river'}],
-      [P.Vivillon, {form: 'sandstorm'}],
-      [P.Vivillon, {form: 'savanna'}],
-      [P.Vivillon, {form: 'sun'}],
-      [P.Vivillon, {form: 'tundra'}],
-    ]),
+    completed: complexRequirePotw(P.Vivillon, {form: 'archipelago'}),
+    msg: 'Catch Vivillon in its Archipelago pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'continental'}),
+    msg: 'Catch Vivillon in its Continental pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'elegant'}),
+    msg: 'Catch Vivillon in its Elegant pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'garden'}),
+    msg: 'Catch Vivillon in its Garden pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'highplains'}),
+    msg: 'Catch Vivillon in its High Plains pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'icysnow'}),
+    msg: 'Catch Vivillon in its Icy Snow pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'jungle'}),
+    msg: 'Catch Vivillon in its Jungle pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'marine'}),
+    msg: 'Catch Vivillon in its Marine pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'meadow'}),
+    msg: 'Catch Vivillon in its Meadow pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'monsoon'}),
+    msg: 'Catch Vivillon in its Monsoon pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'modern'}),
+    msg: 'Catch Vivillon in its Modern pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'ocean'}),
+    msg: 'Catch Vivillon in its Ocean pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'polar'}),
+    msg: 'Catch Vivillon in its Polar pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'river'}),
+    msg: 'Catch Vivillon in its River pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'sandstorm'}),
+    msg: 'Catch Vivillon in its Sandstorm pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'savanna'}),
+    msg: 'Catch Vivillon in its Savanna pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'sun'}),
+    msg: 'Catch Vivillon in its Sun pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'tundra'}),
+    msg: 'Catch Vivillon in its Tundra pattern'
+  }, {
+    completed: complexRequirePotw(P.Vivillon, {form: 'fancy'}),
     msg: 'Catch Vivillon in its many forms.'
   }]
 }
@@ -3896,3 +3936,153 @@ export const IronLeaves: LegendaryQuest = {
     msg: 'This illusive Pokémon is said to be surrounded by crystals of mindful purple.'
   }]
 }
+
+export const BloodmoonUrsaluna: LegendaryQuest = {
+  hints: [{
+    completed: simpleRequirePotw(P.Poltchageist), 
+    msg: 'Have you caught this Pokémon amidst the bamboo forest?',
+  }, {
+    completed: complexRequirePotw(P.Growlithe, {form: 'hisuian'}),
+    msg: 'Perrin greets you with her partner, saying she is seeking out the "Bloodmoon Beast"',
+  }, {
+    completed: requireItem('legendplate'),
+    msg: 'Perrin talks about an ancient land called Hisui. Is there an item in your bag from that period?'
+  }, {
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+    msg: 'Perrin wants your help, but only once you prove your skills. Can she trust you to catch this Pokémon?'
+  }, {
+    completed: (r) => r.hiddenItemsFound.includes(GOGGLES),
+    msg: 'Before you confront the beast, you must find it. Do you have some sort of goggles to help you see better?'
+  }, {
+    completed: simpleRequirePotw(P.Ursaluna), 
+    msg: 'You spot it! It looks like a Pokémon you already have, but this beast has taken on a new form.',
+  }]
+}
+
+export const Ogerpon: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+    msg: 'Have you become an expert on the Pokémon of Paldea? You will need to do that before your field trip.'
+  }, {
+    completed: simpleRequirePotwArr([P.Koraidon, P.Miraidon]),
+    msg: 'Before you travel to another region, have you explored every place in Paldea? Including Area Zero?',
+  }, {
+    completed: requireItem('teragrass', 50),
+    msg: 'The lands of Kitakami are grassy. You even spot the same tera crystals from Paldea.',
+  }, {
+    completed: requireItem('terawater', 25),
+    msg: 'You visit the crystal pool of Kitakami. You even spot the same tera crystals from Paldea.',
+  }, {
+    completed: requireItem('terafire', 25),
+    msg: 'You visit the scorching drylands of Kitakami. You even spot the same tera crystals from Paldea.',
+  }, {
+    completed: requireItem('terarock', 25),
+    msg: 'You visit the rocky mountain of Kitakami. You even spot the same tera crystals from Paldea.',
+  }]
+}
+
+export const OgerponWellspring: LegendaryQuest = {
+  hints: [{
+    completed: simpleRequirePotw(P.Ogerpon),
+    msg: 'You hear about a Pokémon that is known for wearing masks.',
+  }, {
+    completed: requireItem('terawater', 100),
+    msg: 'You hear about a mask that is as deep blue as the tera crystals of the crystal pool.'
+  }, {
+    completed: simpleRequirePotw(P.Okidogi),
+    msg: 'You spot the mask! But it appears to be guarded by a large canine.'
+  }]
+}
+
+export const OgerponHearthflame: LegendaryQuest = {
+  hints: [{
+    completed: simpleRequirePotw(P.Ogerpon),
+    msg: 'You hear about a Pokémon that is known for wearing masks.',
+  }, {
+    completed: requireItem('terafire', 100),
+    msg: 'You hear about a mask that is as bright red as the apples in the hot sun.'
+  }, {
+    completed: simpleRequirePotw(P.Munkidori),
+    msg: 'You spot the mask! But it appears to be guarded by a big-brained ape.'
+  }]
+}
+
+export const OgerponCornerstone: LegendaryQuest = {
+  hints: [{
+    completed: simpleRequirePotw(P.Ogerpon),
+    msg: 'You hear about a Pokémon that is known for wearing masks.',
+  }, {
+    completed: requireItem('terarock', 100),
+    msg: 'You hear about a mask that is as pale gray as the mountainous stone.'
+  }, {
+    completed: simpleRequirePotw(P.Fezandipiti),
+    msg: 'You spot the mask! But it appears to be guarded by a giant bird.'
+  }]
+}
+
+export const Okidogi: LegendaryQuest = {
+  hints: [{
+    completed: simpleRequirePotw(P.Ogerpon),
+    msg: 'You hear about a Pokémon that is known for wearing masks.',
+  }, {
+    completed: requireItem(['mochihealth', 'mochiswift', 'mochiresist']),
+    msg: 'While discussing masks, you feel hungry. Is there a local snack you can eat?'
+  }, {
+    completed: requireItem('terafighting', 50),
+    msg: 'You spot crystals that seem to draw out a fighting vibe.'
+  }, {
+    completed: complexRequirePotw(P.Ursaluna, {form: 'blood_moon'}),
+    msg: 'You spot a Pokémon in the timeless woods that is bearish.'
+  }, {
+    completed: requireItem('mochimuscle'),
+    msg: 'You feel a craving for a mochi that can help you bulk up.'
+  }, {
+    completed: (r) => r.battleStadiumRecord[1] > 900,
+    msg: 'Are you skilled enough in battle to take on your next opponent?'
+  }]
+}
+
+export const Munkidori: LegendaryQuest = {
+  hints: [{
+    completed: simpleRequirePotw(P.Ogerpon),
+    msg: 'You hear about a Pokémon that is known for wearing masks.',
+  }, {
+    completed: requireItem(['mochihealth', 'mochiswift', 'mochiresist']),
+    msg: 'While discussing masks, you feel hungry. Is there a local snack you can eat?'
+  }, {
+    completed: requireItem('terapsychic', 50),
+    msg: 'You spot crystals that seem to evoke a mindful vibe.'
+  }, {
+    completed: simpleRequirePotw(P.Sinistcha),
+    msg: 'You spot a Pokémon amidst the bamboo woods which smells like tea.'
+  }, {
+    completed: requireItem('mochigenius'),
+    msg: 'You feel a craving for a mochi that can help you get more smarter.'
+  }, {
+    completed: (r) => r.berryGrown > 900,
+    msg: 'Are you skilled enough to grow berries to lure in your next opponent?'
+  }]
+}
+
+export const Fezandipiti: LegendaryQuest = {
+  hints: [{
+    completed: simpleRequirePotw(P.Ogerpon),
+    msg: 'You hear about a Pokémon that is known for wearing masks.',
+  }, {
+    completed: requireItem(['mochihealth', 'mochiswift', 'mochiresist']),
+    msg: 'While discussing masks, you feel hungry. Is there a local snack you can eat?'
+  }, {
+    completed: requireItem('terafighting', 50),
+    msg: 'You spot crystals that seem to draw out a fighting vibe.'
+  }, {
+    completed: simpleRequirePotw(P.Dipplin),
+    msg: 'You spot a Pokémon in the apple fields that looks very sticky.'
+  }, {
+    completed: requireItem('mochiclever'),
+    msg: 'You feel a craving for a mochi that can help boost your wisdom.'
+  }, {
+    completed: (r) => r.itemsCrafted > 900,
+    msg: 'Your next opponent is crafty. Are you skilled enough to out-craft them?'
+  }]
+}
+
