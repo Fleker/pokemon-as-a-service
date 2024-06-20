@@ -627,10 +627,10 @@ export const battle_stadium_leaderboard_cron = functions.runWith(battleStadiumLe
       .map(entry => entry[0])
 
     console.log('Top Pkmn', topPokemonIds)
-    const topPokemon = []
+    const topPokemon: string[] = []
 
     for (let i = 0; i < topPokemonIds.length; i++) {
-      const species = new TeamsBadge(topPokemonIds[i]).toLabel()
+      const species = new TeamsBadge(topPokemonIds[i]).toLabel()!
       topPokemon[i] = species
     }
 
@@ -663,18 +663,20 @@ export const battle_stadium_leaderboard_cron = functions.runWith(battleStadiumLe
           ITEMS[STADIUM_REWARDS.tm].label,
           ITEMS[STADIUM_REWARDS.tr].label,
         ]
-        sendNotification(user, {
-          category: 'BATTLE_LEADERBOARD',
-          title: `You're in this week's battle leaderboard!`,
-          body: `Thanks for participating. You win ${labels[0]} and ${labels[1]}.`,
-          link: '',
-          icon,
-        })
-        await ref.update<Users.Doc>({
-          [`items.${STADIUM_REWARDS.tm}`]: FieldValue.increment(1),
-          [`items.${STADIUM_REWARDS.tr}`]: FieldValue.increment(1),
-          notifications: user.notifications,
-        })
+        try {
+          sendNotification(user, {
+            category: 'BATTLE_LEADERBOARD',
+            title: `You're in this week's battle leaderboard!`,
+            body: `Thanks for participating. You win ${labels[0]} and ${labels[1]}.`,
+            link: '',
+            icon,
+          })
+          await ref.update<Users.Doc>({
+            [`items.${STADIUM_REWARDS.tm}`]: FieldValue.increment(1),
+            [`items.${STADIUM_REWARDS.tr}`]: FieldValue.increment(1),
+            notifications: user.notifications,
+          })
+        } catch (e) { console.error(e) }
         res(1)
       }))
     })

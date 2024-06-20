@@ -444,7 +444,10 @@
     <strong>Vote for what bosses you want to see next</strong>
     <br>
   <pokemon-datalist filter="evolved" #voter></pokemon-datalist>
-  <button mat-button raised (click)="raidVote()" [disabled]="exec.raidVote">Cast Vote</button>
+  <button mat-button raised (click)="raidVote()" [disabled]="exec.raidVote">
+    <mat-icon>how_to_vote</mat-icon>
+    Cast Vote
+  </button>
   <button mat-button secondary raised (click)="closeBosses()">
     Close
   </button>

@@ -205,9 +205,11 @@ h3 {
 }
 
 h3.version {
+  font-family: monospace;
+  font-size: 10pt;
   position: fixed;
   bottom: 12px;
-  width: 120px;
+  width: 200px;
   left: auto;
   right: auto;
 }
