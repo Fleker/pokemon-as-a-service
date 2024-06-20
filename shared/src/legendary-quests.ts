@@ -410,6 +410,24 @@ export function registerShinyRegion(region: Region): (req: Requirements) => numb
   }
 }
 
+export function registerShinyAll(mode: 'id' | 'form' | 'varform', pokemon: TPokemon): number {
+  const badgeMap = new Map()
+  if (!pokemon) return 0
+  for (const [key] of myPokemon(pokemon)) {
+    const badge = new Badge(key)
+    if (badge.personality.shiny) {
+      if (mode === 'id') {
+        badgeMap.set(badge.id, true)
+      } else if (mode === 'form') {
+        badgeMap.set(`${badge.id}-${badge.personality.form}`, true)
+      } else if (mode === 'varform') {
+        badgeMap.set(`${badge.id}-${badge.personality.form}-${badge.personality.variant}`, true)
+      }
+    }
+  }
+  return [...badgeMap.values()].filter(n => n === true).length
+}
+
 export const Squirtbottle: LegendaryQuest = {
   hints: [{
     completed: simpleRequirePotw(P.Squirtle),

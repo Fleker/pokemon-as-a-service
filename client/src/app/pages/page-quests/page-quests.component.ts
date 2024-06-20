@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, ElementRef, ViewChild } from '@angular/core';
 import * as Q from '../../../../../shared/src/quests'
+import * as L from '../../../../../shared/src/legendary-quests'
 import {questOrder, pokedexOrder} from '../../../../../shared/src/missions'
 import * as Pkmn from '../../../../../shared/src/pokemon'
 import { FirebaseService } from 'src/app/service/firebase.service';
@@ -11,6 +12,7 @@ import { ObjectEntries } from '../../../../../shared/src/object-entries';
 import { ACTIVE_RESEARCH, ResearchQuest } from '../../../../../shared/src/research';
 import { F, Users } from '../../../../../shared/src/server-types';
 import getQuestArgs from 'src/app/to-requirements';
+import { datastore } from '../../../../../shared/src/pokemon';
 
 interface DowsingBadge {
   src: string
@@ -31,6 +33,12 @@ interface Missions {
   }
   nextCatch?: {
     q: Q.PokedexQuest
+    count: number
+    progress: number
+  }
+  shiny?: {
+    count: number
+    total: number
     progress: number
   }
   research?: {
@@ -169,8 +177,54 @@ export class PageQuestsComponent implements OnInit, OnDestroy {
       if (nextCatchId) {
         const ncq = this.catchQuests.find(q => q.docId === nextCatchId)
         this.missions.nextCatch = {
-          progress: this.user.pokedex[ncq.region],
+          count: this.user.pokedex[ncq.region],
+          progress: this.user.pokedex[ncq.region] / ncq.count * 100,
           q: ncq,
+        }
+      } else {
+        const {shinyIds, shinyForms, shinyVars} = (() => {
+          let shinyIds = 0
+          let shinyForms = 0
+          let shinyVars = 0
+          for (const [key, value] of Object.entries(datastore)) {
+            const split = key.split('-')
+            if (split.length === 2) {
+              shinyIds++
+            }
+            if (value.syncableForms) {
+              shinyForms += value.syncableForms.length
+            }
+            if (value.novelMoves) {
+              shinyVars += value.novelMoves.length
+            }
+          }
+          return {shinyIds, shinyForms, shinyVars}
+        })()
+        const rShinyIds = L.registerShinyAll('id', this.user.pokemon)
+        if (rShinyIds < shinyIds) {
+          this.missions.shiny = {
+            count: rShinyIds,
+            total: shinyIds,
+            progress: rShinyIds/shinyIds*100
+          }
+        } else {
+          const rShinyForms = L.registerShinyAll('form', this.user.pokemon)
+          if (rShinyForms < shinyForms) {
+            this.missions.shiny = {
+              count: rShinyForms,
+              total: shinyForms,
+              progress: rShinyForms/shinyForms*100
+            }
+          } else {
+            const rShinyVars = L.registerShinyAll('varform', this.user.pokemon)
+            if (rShinyVars < shinyVars) {
+              this.missions.shiny = {
+                count: rShinyVars,
+                total: shinyVars,
+                progress: rShinyVars/shinyForms*100
+              }
+            } 
+          }
         }
       }
 
@@ -179,7 +233,7 @@ export class PageQuestsComponent implements OnInit, OnDestroy {
         this.missions.research = {
           r: ACTIVE_RESEARCH[myResearch[0][0]],
           step: myResearch[0][1],
-          progress: myResearch[0][1] / ACTIVE_RESEARCH[myResearch[0][0]].steps,
+          progress: myResearch[0][1] / ACTIVE_RESEARCH[myResearch[0][0]].steps * 100,
         }
       }
     }, 500)

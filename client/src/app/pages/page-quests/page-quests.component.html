@@ -20,9 +20,18 @@
     {{missions?.nextCatch?.q?.title}}
     <br>
     <small>
-      {{missions?.nextCatch?.progress}}/{{missions?.nextCatch?.q?.count}}
+      {{missions?.nextCatch?.count}}/{{missions?.nextCatch?.q?.count}}
     </small>
     <mat-progress-bar mode="determinate" value="{{missions?.nextCatch?.progress}}"></mat-progress-bar>
+  </div>
+  <div *ngIf="missions?.shiny" class="mission">
+    <img src="/images/sprites/quests/potw-item-shinycharm.png" />
+    Shiny Charm
+    <br>
+    <small>
+      {{missions?.shiny?.count}}/{{missions?.shiny?.total}}
+    </small>
+    <mat-progress-bar mode="determinate" value="{{missions?.shiny?.progress}}"></mat-progress-bar>
   </div>
   <div *ngIf="missions?.research" class="mission">
     <img src="{{missions?.research?.r?.icon}}" />
