@@ -6,7 +6,7 @@ import * as P from './gen/type-pokemon'
 // and the whole thing is just a string.
 import { get } from "./pokemon"
 import asLiterals from "./as-literals"
-import { CATCH_CHARM_GSC, CATCH_CHARM_SM, CATCH_CHARM_SWSH, Requirements } from './legendary-quests'
+import { CATCH_CHARM_GSC, CATCH_CHARM_SM, CATCH_CHARM_SV, CATCH_CHARM_SWSH, Requirements } from './legendary-quests'
 import { Nature } from './badge3'
 import { GALAR_INGREDIENTS, SWEETS, MINTS } from './prizes'
 
@@ -1320,22 +1320,22 @@ const ITEMS_OTHER = {
   syrupyapple: {
     label: 'Syrupy Apple', category: 'items',
     description: 'An apple oozing in caramel. Be careful when picking up! A certain Pokémon is eager to eat it.',
-    buy: 0, sell: 3,
+    buy: 0, sell: 3, functional: true,
   },
   teacupunremarkable: {
     label: 'Unremarkable Teacup', category: 'items',
     description: 'A rudimentary teacup mass produced and sold around the world. Tea, or a certain Pokémon, can go inside.',
-    buy: 0, sell: 4,
+    buy: 0, sell: 4, functional: true,
   },
   teacupmasterpiece: {
     label: 'Masterpiece Teacup', category: 'items',
     description: 'A well-crafted artisnal teacup which is one-of-a-kind. Tea, or a certain Pokémon, can go inside.',
-    buy: 0, sell: 17,
+    buy: 0, sell: 17, functional: true,
   },
   metalalloy: {
     label: 'Metal Alloy', category: 'items',
     description: 'A piece of fused metal with all kinds of elements baked in. A certain Pokémon will appreciate it.',
-    buy: 0, sell: 0,
+    buy: 0, sell: 0, functional: true,
   },
 }
 
@@ -3464,7 +3464,7 @@ const ITEMS_KEY = {
   berserkgene: {
     label: 'Berserk Gene', category: 'key',
     description: 'An item raid bosses may hold which draws out a great deal of power. Held by a trainer, it is useless.',
-    buy: 0, sell: 0, battle: true,
+    buy: 0, sell: 1, battle: true,
   },
   // For integration with the page-encounter page
   'catchingcharm-rby': {
@@ -5427,6 +5427,264 @@ export const BAZAAR = {
         rate: 16,
       }] as BazaarItems
     })()
+  }),
+  kofu: assert<Bazaar>({
+    name: 'Kofu Lounge', icon: 'set_meal',
+    isOpen: (_, __, r) => {
+      // if (r.items['glimmeringcharm'] > 0) {
+      //   return BAZAAR_OPEN
+      // }
+      return BAZAAR_CLOSED
+    },
+    currency: 'pokeball',
+    items: [{
+      name: 'svscheese',
+      rate: 14,
+    }, {
+      name: 'svstofu',
+      rate: 14,
+    }, {
+      name: 'svsherbsausage',
+      rate: 14,
+    }, {
+      name: 'svsegg',
+      rate: 14,
+    }, {
+      name: 'svspickle',
+      rate: 14,
+    }, {
+      name: 'svsnoodle',
+      rate: 14,
+    }, {
+      name: 'svsnouveau',
+      rate: 14,
+    }, {
+      name: 'svspotatosalad',
+      rate: 14,
+    }, {
+      name: 'svssmoky',
+      rate: 14,
+    }, {
+      name: 'svssushi',
+      rate: 14,
+    }, {
+      name: 'svshamburger',
+      rate: 14,
+    }, {
+      name: 'svshefty',
+      rate: 14,
+    }, {
+      name: 'svsvegetable',
+      rate: 14,
+    }, {
+      name: 'svsklawf',
+      rate: 14,
+    }, {
+      name: 'svsdecadent',
+      rate: 14,
+    }, {
+      name: 'svsavocado',
+      rate: 14,
+    }, {
+      name: 'svsjambon',
+      rate: 14,
+    }, {
+      name: 'svsblt',
+      rate: 14,
+    }]
+  }),
+  deli: assert<Bazaar>({
+    name: 'Deli Cioso', icon: 'soup_kitchen',
+    isOpen: (_, __, r) => {
+      // if (r.items['glimmeringcharm'] > 0) {
+      //   return BAZAAR_OPEN
+      // }
+      return BAZAAR_CLOSED
+    },
+    currency: 'pokeball',
+    items: [{
+      name: 'svibaguette',
+      rate: 2,
+    }, {
+      name: 'svcmayonnaise',
+      rate: 1,
+    }, {
+      name: 'svcketchup',
+      rate: 1,
+    }, {
+      name: 'svcmustard',
+      rate: 1,
+    }, {
+      name: 'svcbutter',
+      rate: 1,
+    }, {
+      name: 'svcpeanutbutter',
+      rate: 1,
+    }, {
+      name: 'svcchilisauce',
+      rate: 1,
+    }, {
+      name: 'svcsalt',
+      rate: 1,
+    }, {
+      name: 'svcpepper',
+      rate: 1,
+    }, {
+      name: 'svcyogurt',
+      rate: 1,
+    }, {
+      name: 'svcwhippedcream',
+      rate: 1,
+    }, {
+      name: 'svccreamcheese',
+      rate: 1,
+    }, {
+      name: 'svcjam',
+      rate: 1,
+    }, {
+      name: 'svcmarmalade',
+      rate: 1,
+    }, {
+      name: 'svcoliveoil',
+      rate: 1,
+    }, {
+      name: 'svcvinegar',
+      rate: 1,
+    }, {
+      name: 'svilettuce',
+      rate: 1,
+    }, {
+      name: 'svitomato',
+      rate: 1,
+    }, {
+      name: 'svicherrytomato',
+      rate: 1,
+    }, {
+      name: 'svicucumber',
+      rate: 1,
+    }, {
+      name: 'svipickle',
+      rate: 1,
+    }, {
+      name: 'svionion',
+      rate: 1,
+    }, {
+      name: 'svionionred',
+      rate: 1,
+    }, {
+      name: 'svibellpeppergreen',
+      rate: 1,
+    }, {
+      name: 'svibellpepperred',
+      rate: 1,
+    }, {
+      name: 'svibellpepperyellow',
+      rate: 1,
+    }, {
+      name: 'sviavocado',
+      rate: 1,
+    }, {
+      name: 'svibacon',
+      rate: 1,
+    }, {
+      name: 'sviham',
+      rate: 1,
+    }, {
+      name: 'sviprosciutto',
+      rate: 1,
+    }, {
+      name: 'svichorizo',
+      rate: 1,
+    }, {
+      name: 'svisausage',
+      rate: 1,
+    }, {
+      name: 'svihamburger',
+      rate: 1,
+    }, {
+      name: 'sviklawfstick',
+      rate: 1,
+    }, {
+      name: 'svismokedfillet',
+      rate: 1,
+    }, {
+      name: 'svifriedfillet',
+      rate: 1,
+    }, {
+      name: 'sviegg',
+      rate: 1,
+    }, {
+      name: 'svitortilla',
+      rate: 1,
+    }, {
+      name: 'svitofu',
+      rate: 1,
+    }, {
+      name: 'svirice',
+      rate: 1,
+    }, {
+      name: 'svinoodles',
+      rate: 1,
+    }, {
+      name: 'svipotatosalad',
+      rate: 1,
+    }, {
+      name: 'svicheese',
+      rate: 1,
+    }, {
+      name: 'svibanana',
+      rate: 1,
+    }, {
+      name: 'sviapple',
+      rate: 1,
+    }, {
+      name: 'svikiwi',
+      rate: 1,
+    }, {
+      name: 'svipineapple',
+      rate: 1,
+    }, {
+      name: 'svistrawberry',
+      rate: 1,
+    }, {
+      name: 'svijalapeno',
+      rate: 1,
+    }, {
+      name: 'svchorseradish',
+      rate: 1,
+    }, {
+      name: 'svccurrypowder',
+      rate: 1,
+    }, {
+      name: 'svcwasabi',
+      rate: 1,
+    }, {
+      name: 'sviwatercress',
+      rate: 1,
+    }, {
+      name: 'svibasil',
+      rate: 1,
+    }]
+  }),
+  kitakami: assert<Bazaar>({
+    name: 'Abandoned Apple Stall', icon: 'food_bank',
+    isOpen: (_, __, r) => {
+      if (!r.hiddenItemsFound.includes(CATCH_CHARM_SV)) {
+        return BAZAAR_CLOSED
+      }
+      return BAZAAR_OPEN
+    },
+    currency: 'pokeball',
+    items: [{
+      name: 'syrupyapple',
+      rate: 5,
+    }, {
+      name: 'tartapple',
+      rate: 3,
+    }, {
+      name: 'sweetapple',
+      rate: 3,
+    }]
   }),
 }
 
