@@ -8,11 +8,12 @@ export const MAIL_BADGES = {
   'potw-300': 'Skitty',
   'potw-301': 'Delcatty',
   'potw-302': 'Sableye',
+  'potw-303': 'Mawile',
 }
 
 export const STADIUM_REWARDS: {tm: ItemId, tr: ItemId} = {
-  tm: 'tm-Trailblaze',
-  tr: 'tr-Trick Room',
+  tm: 'tm-Volt Switch',
+  tr: 'tr-Tailwind',
 }
 
 export const adminIds = [
