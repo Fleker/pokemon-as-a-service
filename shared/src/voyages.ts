@@ -5,7 +5,7 @@ import { CATCH_CHARM_SM, CATCH_CHARM_SV, CATCH_CHARM_SWSH, LegendaryQuest, requi
 import { WeatherType } from "./locations-list";
 import { get } from "./pokemon";
 import { BadgeId, PokemonForm, PokemonId, Type } from "./pokemon/types";
-import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, BOTTLECAPS, SWEETS, GALAR_INGREDIENTS, TERA_SHARDS, TYPE_XY_ITEMS } from "./prizes";
+import { APRICORNS, RAIDS_1, RAIDS_2, SEEDS, NECTARS, MINTS, MOCHI, BOTTLECAPS, SWEETS, GALAR_INGREDIENTS, TERA_SHARDS, TYPE_XY_ITEMS } from "./prizes";
 import { ItemId } from "./items-list";
 import * as P from './gen/type-pokemon'
 import { Users } from './server-types'
@@ -57,6 +57,7 @@ export enum Leg {
   PLAZAJAUNE = 65,
   PLAZACENTR = 66,
 }
+
 export const LegLabels: Record<Leg, string> = {
   [Leg.NOTHING]: '',
   [Leg.ITEM]: 'Find Items',
@@ -101,10 +102,12 @@ export enum State {
   IN_RAID = 2,
   COMPLETE = 3,
 }
+
 export interface Prize {
   items: ItemId[]
   caught: PokemonId[]
 }
+
 export class MapPoint {
   leg: Leg
   next: MapPoint[]
@@ -140,37 +143,6 @@ const stdMap: Map = {
   [Leg.RARE_ITEM]: [
     new MapPoint(Leg.ITEM, []),
     new MapPoint(Leg.POKEMON, []),
-  ],
-}
-
-const coralBeachMap: Map = {
-  [Leg.FISHING]: [
-    new MapPoint(Leg.SAND, [
-      new MapPoint(Leg.KITE, []),
-      new MapPoint(Leg.METALCHECK, []),
-    ]),
-    new MapPoint(Leg.KITE, [
-      new MapPoint(Leg.SAND, []),
-      new MapPoint(Leg.METALCHECK, []),
-    ]),
-    new MapPoint(Leg.METALCHECK, [
-      new MapPoint(Leg.KITE, []),
-      new MapPoint(Leg.SAND, []),
-    ]),
-  ],
-  [Leg.DIVE]: [
-    new MapPoint(Leg.SAND, [
-      new MapPoint(Leg.KITE, []),
-      new MapPoint(Leg.METALCHECK, []),
-    ]),
-    new MapPoint(Leg.KITE, [
-      new MapPoint(Leg.SAND, []),
-      new MapPoint(Leg.METALCHECK, []),
-    ]),
-    new MapPoint(Leg.METALCHECK, [
-      new MapPoint(Leg.KITE, []),
-      new MapPoint(Leg.SAND, []),
-    ]),
   ],
 }
 
@@ -375,6 +347,37 @@ const sleepCruiseMap: Map = {
   ],
 }
 
+const coralBeachMap: Map = {
+  [Leg.FISHING]: [
+    new MapPoint(Leg.SAND, [
+      new MapPoint(Leg.KITE, []),
+      new MapPoint(Leg.METALCHECK, []),
+    ]),
+    new MapPoint(Leg.KITE, [
+      new MapPoint(Leg.SAND, []),
+      new MapPoint(Leg.METALCHECK, []),
+    ]),
+    new MapPoint(Leg.METALCHECK, [
+      new MapPoint(Leg.KITE, []),
+      new MapPoint(Leg.SAND, []),
+    ]),
+  ],
+  [Leg.DIVE]: [
+    new MapPoint(Leg.SAND, [
+      new MapPoint(Leg.KITE, []),
+      new MapPoint(Leg.METALCHECK, []),
+    ]),
+    new MapPoint(Leg.KITE, [
+      new MapPoint(Leg.SAND, []),
+      new MapPoint(Leg.METALCHECK, []),
+    ]),
+    new MapPoint(Leg.METALCHECK, [
+      new MapPoint(Leg.KITE, []),
+      new MapPoint(Leg.SAND, []),
+    ]),
+  ],
+}
+
 const lumioseMap: Map = {
   [Leg.PLAZAVERT]: [
     new MapPoint(Leg.PLAZACENTR, [
@@ -457,13 +460,19 @@ export interface Doc {
   /** Whether it has already been marked as public. */
   isPublic?: boolean
 }
+
 /** 4 buckets of items & Pokémon */
 type VoyageItems = [ItemId[], ItemId[], ItemId[], ItemId[]]
+
 type VoyagePkmn = [BadgeId[], BadgeId[], BadgeId[], BadgeId[]]
+
 type VoyageWeatherPkmn = Record<WeatherType, BadgeId[]>
+
 /** For scores of 1/2, and 3 */
 type VoyageRaidBosses = [BadgeId[], BadgeId[]]
+
 type Stat = 'hp' | 'attack' | 'defense' | 'spAttack' | 'spDefense' | 'speed'
+
 export interface Voyage {
   label: string
   description: string
@@ -483,12 +492,14 @@ export interface Voyage {
   /** A sprawled out map of what steps a voyage host is able to select. */
   map: Map
 }
+
 export const getMaxVoyages = (user: Users.Doc) => {
   if (user.items['voyagecharm'] && user.items['voyagecharm'] > 0) {
     return 6
   }
   return 3
 }
+
 export function getScore(voyageId: VoyageId, party: PokemonId[]) {
   let score = 0
   const voyage = Voyages[voyageId]
@@ -515,16 +526,19 @@ export function getScore(voyageId: VoyageId, party: PokemonId[]) {
   }
   return score
 }
+
 export function getBucket(voyageDb: Voyage, voyageScore: number) {
   if (voyageScore < voyageDb.buckets[1]) return 0
   if (voyageScore < voyageDb.buckets[2]) return 1
   if (voyageScore < voyageDb.buckets[3]) return 2
   return 3 // Max
 }
+
 export const LegendaryBossConditions: Partial<Record<BadgeId, WeatherType>> = {
   [P.Thundurus]: 'Thunderstorm',
   [P.Landorus]: 'Sandstorm',
 }
+
 export const Voyages = {
   VAST_OCEAN: assert<Voyage>({
     label: 'Vast Ocean',
@@ -1553,10 +1567,10 @@ export const Voyages = {
     unlocked: {
       hints: [{
         completed: simpleRequirePotwArr([P.Sprigatito, P.Fuecoco, P.Quaxly]),
-         msg: 'Are you familiar with the starter Pokémon of Paldea?'
-       }, {
+        msg: 'Are you familiar with the starter Pokémon of Paldea?'
+      }, {
         completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
-         msg: 'Become an expert on the Pokémon of Paldea.'
+        msg: 'Become an expert on the Pokémon of Paldea.'
       }, {
         completed: (r) => r.hiddenItemsFound.includes(GLIMMERINGCHARM),
         msg: 'Gain the ability to explore Area Zero.'
@@ -1568,10 +1582,12 @@ export const Voyages = {
     description: 'You find yourself amidst farmland sprawling in every direction.',
     typePrimary: 'Grass', typeSecondary: ['Flying', 'Ground'], scoreStat: 'attack',
     buckets: [0, 190, 385, 576], map: kitakamiMap,
-    [...TERA_SHARDS, 'expcandyxs', 'expcandys', 'tartapple', 'sweetapple', 'energyroot'],
-    [...TERA_SHARDS, 'expcandyxs', 'expcandys', 'expcandym', 'tartapple', 'sweetapple', 'teacupunremarkable', 'syrupyapple'],
-    [...TERA_SHARDS, 'expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'tartapple', 'sweetapple', 'rarebone', 'teacupunremarkable', 'syrupyapple', 'leaderscrest'],
-    [...TERA_SHARDS, 'expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'rarebone', 'teacupmasterpiece', 'syrupyapple', 'leaderscrest'],
+    items: [
+      [...TERA_SHARDS, ...MOCHI, 'expcandyxs', 'expcandys', 'tartapple', 'sweetapple', 'energyroot'],
+      [...TERA_SHARDS, ...MOCHI, 'expcandyxs', 'expcandys', 'expcandym', 'tartapple', 'sweetapple', 'teacupunremarkable', 'syrupyapple'],
+      [...TERA_SHARDS, ...MOCHI, 'expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'tartapple', 'sweetapple', 'rarebone', 'teacupunremarkable', 'syrupyapple', 'leaderscrest'],
+      [...TERA_SHARDS, ...MOCHI, 'expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'rarebone', 'teacupmasterpiece', 'syrupyapple', 'leaderscrest'],
+    ],
     rareitems: [['teacupmasterpiece'],['teacupmasterpiece'],['teacupmasterpiece'],['teacupmasterpiece']],
     pokemon: [[], [], [], []],
     weatherPokemon: {
@@ -1618,7 +1634,7 @@ export const Voyages = {
       ['expcandyxs', 'expcandys', ...TERA_SHARDS, ...SWEETS],
       ['expcandyxs', 'expcandys', 'expcandym', ...TERA_SHARDS, ...SWEETS],
       ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', ...TERA_SHARDS, ...SWEETS, 'electirizer', 'magmarizer', 'protector', 'metalalloy'],
-      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'electirizer', 'magmarizer', 'protector', 'metalalloy', 'blackaugurite', ...TERA_SHARDS, ...SWEETS, 'terastellar'],      
+      ['expcandyxs', 'expcandys', 'expcandym', 'expcandyl', 'expcandyxl', 'electirizer', 'magmarizer', 'protector', 'metalalloy', 'blackaugurite', ...TERA_SHARDS, ...SWEETS, 'terastellar'],
     ],
     rareitems: [['terastellar'],['terastellar'],['terastellar'],['terastellar']],
     pokemon: [[], [], [], []],
@@ -1734,7 +1750,6 @@ export const Voyages = {
       buckets: [0, 271, 550, 822], map: coralBeachMap,
       items: [[], [], [], []],
       rareitems: [['prismscale'], ['prismscale'], ['prismscale'], ['prismscale']],
-      // TODO Update the binoculars
       pokemon: [[], [], [], []],
       weatherPokemon: {
         Cloudy: [P.Tentacool],
@@ -1887,4 +1902,5 @@ export const Voyages = {
    * | Rock     | 1 | 2 | (4) | 
    */
 }
+
 export type VoyageId = keyof typeof Voyages

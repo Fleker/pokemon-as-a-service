@@ -2780,6 +2780,10 @@ const ITEMS_TMS = {
     buy: 0, sell: 15,
     functional: true,
   }),
+  [TX('tm', 'Flip Turn')]: genTm(120, 'Flip Turn', {
+    buy: 0, sell: 15,
+    functional: true,
+  }),
 }
 
 const ITEMS_TRS = {
@@ -4265,7 +4269,7 @@ const ITEMS_TERA = {
   terafairy: teraShard('Fairy'),
   terastellar: {
     battle: true,
-    category: 'terashard', buy: 0, sell: 0,
+    category: 'terashard', buy: 0, sell: 9, functional: true,
     label: `Stellar Tera Shard`,
     description: `A jewel shard with a vivd rainbow coloration. When held by a Pokémon, they will terastalize into a Stellar-type.`,
   }

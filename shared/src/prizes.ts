@@ -171,6 +171,7 @@ export const TMS_PLA: ItemId[] = [
 export const TMS_SV: ItemId[] = [
   'tm-Pounce', 'tm-Trailblaze', 'tm-Volt Switch', 'tm-Chilling Water',
   'tm-Hyper Drill', 'tm-Rage Fist', 'tm-Twin Beam', 'tm-Ice Spinner',
+  'tm-Flip Turn',
 ]
 
 export const TRS_RB: ItemId[] = [
@@ -377,9 +378,13 @@ export const SV_ITEMS: ItemId[] = [
   'fairyfeather',
 ]
 
-export const SV_DLC_ITEMS: ItemId[] = [
+export const MOCHI: ItemId[] = [
   'mochimuscle', 'mochiresist', 'mochigenius', 'mochiclever', 'mochiswift',
-  'mochihealth', 'mochifreshstart', 'fairyfeather', 'syrupyapple',
+  'mochihealth', 'mochifreshstart',
+]
+
+export const SV_DLC_ITEMS: ItemId[] = [
+  ...MOCHI, 'fairyfeather', 'syrupyapple',
   'teacupunremarkable', 'teacupmasterpiece', 'metalalloy',
 ]
 

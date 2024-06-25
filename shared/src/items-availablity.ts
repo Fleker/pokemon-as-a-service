@@ -1235,6 +1235,7 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
       B2.Potw(P.Cramorant, {form: 'gulping'}),
       B2.Potw(P.Calyrex, {form: 'ice_rider'}),
       B2.Potw(P.Calyrex, {form: 'shadow_rider'}),
+      B2.Potw(P.Palafin, {form: 'hero'}),
     ],
     pokemon: {
       [B2.Potw(P.Castform, {form: 'sunny'})]: {
@@ -1335,6 +1336,10 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
       },
       [B2.Potw(P.Calyrex, {form: 'shadow_rider'})]: {
         badge: B2.Potw(P.Calyrex),
+        changeForm: true,
+      },
+      [B2.Potw(P.Palafin, {form: 'hero'})]: {
+        badge: B2.Potw(P.Palafin, {form: 'zero'}),
         changeForm: true,
       },
     },
@@ -2242,6 +2247,17 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: () => true,
     consumes: () => true,
   },
+  'tm-Flip Turn': {
+    filter: [B2.Potw(P.Palafin, {form: 'zero'})],
+    pokemon: {
+      [B2.Potw(P.Palafin, {form: 'zero'})]: {
+        badge: B2.Potw(P.Palafin, {form: 'hero'}),
+        changeForm: true,
+      }
+    },
+    usable: () => true,
+    consumes: () => false,
+  },
   'auspiciousarmor': {
     filter: [P.Charcadet],
     pokemon: {
@@ -2324,6 +2340,26 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     },
     usable: () => true,
     consumes: () => true,
+  },
+  // Cycles
+  'terastellar': {
+    filter: [P.Terapagos, B2.Potw(P.Terapagos, {form: 'terastal'}), B2.Potw(P.Terapagos, {form: 'stellar'})],
+    pokemon: {
+      [P.Terapagos]: {
+        badge: B2.Potw(P.Terapagos, {form: 'terastal'}),
+        changeForm: true,
+      },
+      [B2.Potw(P.Terapagos, {form: 'terastal'})]: {
+        badge: B2.Potw(P.Terapagos, {form: 'stellar'}),
+        changeForm: true,
+      },
+      [B2.Potw(P.Terapagos, {form: 'stellar'})]: {
+        badge: B2.Potw(P.Terapagos, {form: undefined}),
+        changeForm: true,
+      }
+    },
+    usable: () => true,
+    consumes: () => false,
   },
   expcandyxs: {
     // 4/(x * .75) <= 1/2, x ~ 12
