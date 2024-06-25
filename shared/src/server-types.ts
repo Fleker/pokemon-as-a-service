@@ -541,6 +541,8 @@ export namespace F {
         /** day-care.ts -> EggDoc */
         hatch: number
         species: string
+        /* This will not be precise, as only when it's hatched will it run Badge.create */
+        badgeId: PokemonId
       }
       evolution?: any
       evolved?: boolean
@@ -665,7 +667,8 @@ export namespace F {
     }
 
     export interface Res {
-      species: BadgeId
+      species: string /* Pokemon's species name */
+      badge: PokemonId
     }
   }
 

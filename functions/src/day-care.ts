@@ -474,6 +474,7 @@ export const daycare = functions.https.onCall(async (data: F.Daycare.Req, contex
       badge.personality.shiny = true
     }
     egg.species = badge.toLegacyString()
+    egg.badgeId = badge.toString()
 
     if (!eggs || !Array.isArray(eggs)) {
       eggs = [egg]
