@@ -148,10 +148,6 @@
           <span class="label">Admin</span>
         </span>
       </a>
-      <a routerLink="/chat/" routerLinkActive="activebutton">
-        <mat-icon svgIcon="menu-pokegear"></mat-icon>
-        <span class="label">PokéGear</span>
-      </a>
       <a routerLink="/multiplayer/battlesim/" routerLinkActive="activebutton" *ngIf="engagement.isNextUi">
         <!-- <img class="icon" src="/images/sprites/icons/menu-battle.svg" /> -->
         <span class="label"><mat-icon>science</mat-icon>Battle Simulator</span>
@@ -224,4 +220,6 @@
   <dialog #itemdialog>
     <dialog-items #ditem></dialog-items>
   </dialog>
+
+  <pokegear-companion></pokegear-companion>
 </mat-drawer-container>

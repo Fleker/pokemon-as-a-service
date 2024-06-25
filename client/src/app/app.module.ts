@@ -114,6 +114,8 @@ import { VoyageHeaderComponent } from './ui/voyage-header/voyage-header.componen
 import { VoyagesMeterComponent } from './ui/voyages-meter/voyages-meter.component';
 import { TeraTypeBoxComponent } from './ui/tera-type-box/tera-type-box.component';
 import { PokeballSpinnerComponent } from './ui/pokeball-spinner/pokeball-spinner.component';
+import { TextIndicatorComponent } from './ui/text-indicator/text-indicator.component';
+import { PokegearCompanionComponent } from './ui/pokegear-companion/pokegear-companion.component';
 
 @NgModule({
   declarations: [
@@ -197,6 +199,8 @@ import { PokeballSpinnerComponent } from './ui/pokeball-spinner/pokeball-spinner
     PageWondertradeComponent,
     TeraTypeBoxComponent,
     PokeballSpinnerComponent,
+    TextIndicatorComponent,
+    PokegearCompanionComponent,
   ],
   imports: [
     BrowserModule,

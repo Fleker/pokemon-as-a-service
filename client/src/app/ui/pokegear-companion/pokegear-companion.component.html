@@ -1,0 +1,51 @@
+<div class="text-ctr" [class.isClosed]="!isOpen">
+  <button mat-icon-button *ngIf="isConversation" (click)="isConversation = false">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <div class="title" *ngIf="!isConversation">Contact List</div>
+  <div class="title" *ngIf="isConversation">{{selectedChat}}</div>
+  <button mat-icon-button (click)="isOpen = !isOpen" class="btn-close">
+    <mat-icon>minimize</mat-icon>
+  </button>
+  <div *ngIf="!isConversation" [class.condensed]="isConversation">
+    <ul>
+      <li *ngFor="let c of contacts" class="contact" (click)="openChat(c)">
+        <img src="{{c.pic}}" />
+        <span *ngIf="!isConversation">{{c.label}}</span>
+        <span class="badge">{{this.chats[c.label]?.length}}</span>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="isConversation">
+    <div class="chat-ctr">
+      <div *ngIf="isEmpty" class="empty-state">
+        {{description}}
+        <!-- TODO: suggestion chips -->
+      </div>
+      <div *ngFor="let c of this.chats[selectedChat]" class="msg {{c.who}}">
+        <img [src]="msgPic(c.who)" />
+        <markdown ngPreserveWhitespaces [data]="c.msg" [class]="c.who">
+        </markdown>
+        <button mat-icon-button (click)="report(c)" *ngIf="c.who === 'chat'">
+          <mat-icon>thumb_down</mat-icon>
+        </button>
+      </div>
+      <div class="msg chat" *ngIf="exec.sendPrompt">
+        <text-indicator></text-indicator>
+      </div>
+    </div>
+    <div>
+      <input class="prompt" [(ngModel)]="prompt" />
+      <button mat-icon-button (click)="sendPrompt()" [disabled]="exec.sendPrompt">
+        <mat-icon>send</mat-icon>
+      </button>
+    </div>
+    <small>
+      This is an experimental chatbot using Gemini Flash. Responses may not be canonical or trustworthy. Chats get cleared when this page reloads.
+    </small>
+  </div>
+</div>
+
+<button mat-fab *ngIf="!isOpen" (click)="isOpen = !isOpen" class="launcher" title="Open PokéGear">
+  <mat-icon svgIcon="menu-pokegear"></mat-icon>
+</button>

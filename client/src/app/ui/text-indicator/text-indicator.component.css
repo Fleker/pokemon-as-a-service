@@ -1,0 +1,30 @@
+:host {
+  height: 20px;
+  display: block;
+}
+
+mat-icon {
+  animation: jump 900ms infinite linear;
+  height: 20px;
+  width: 12px;
+}
+
+.d1 {
+  animation-delay: 300ms;
+}
+
+.d2 {
+  animation-delay: 600ms;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}

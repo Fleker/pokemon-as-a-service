@@ -1,0 +1,151 @@
+button.launcher, div.text-ctr {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+}
+
+button.launcher {
+  height: 48px;
+  width: 48px;
+  border-radius: 100%;
+  background-color: var(--button-bg);
+  border: solid 1px var(--button-bg-secondary);
+  cursor: pointer;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  transition: all 0.1s;
+  z-index: 1;
+}
+
+button.launcher mat-icon {
+  height: 30px;
+  width: 30px;
+  padding-left: 2px;
+}
+
+button.launcher:hover {
+  background-color: var(--type-fire);
+  border-color: var(--type-water);
+  box-shadow: 0px 3px 7px 0px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+}
+
+.btn-close {
+  float: right;
+}
+
+div.text-ctr {
+  background: var(--card-background-color);
+  border: solid 4px var(--primary-text-color);
+  border-radius: 4px;
+  width: 25em;
+  height: 37em;
+  transition: all 0.1s;
+}
+
+div.text-ctr.isClosed {
+  height: 0em;
+  opacity: 0;
+}
+
+div.title {
+  display: inline-block;
+}
+
+div.empty-state {
+  opacity: 0.8;
+  text-align: center;
+  margin-top: 100px;
+  width: calc(100% - 60px);
+}
+
+li.contact {
+  list-style: none;
+  border-left: solid 1px rgba(0, 0, 0, 0);
+  border-top: solid 1px rgba(0, 0, 0, 0);
+  border-bottom: solid 1px var(--primary-text-color);
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+  padding-left: 4px;
+  padding-bottom: 4px;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+li.contact img {
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  vertical-align: sub;
+  margin-right: 8px;
+  background-color: var(--type-water);
+}
+
+li.contact .badge {
+  float: right;
+  margin-right: 14px;
+  background: var(--type-water);
+  border-radius: 100%;
+  font-weight: bold;
+  padding-left: 4px;
+  padding-right: 5px;
+  border: solid 1px #999;
+  margin-top: 2px;
+}
+
+li.contact:hover {
+  border-color: var(--type-water);
+  /* background-color: var(--hexagon-text-color); */
+  /* color: #999; */
+}
+
+li.contact:active, li.contact:focus {
+  border-color: var(--hexagon-bg-color);
+}
+
+ul {
+  padding-top: 16px;
+  overflow-y: auto;
+  width: calc(100% - 39px);
+}
+
+.chat-ctr {
+  height: calc(37em - 150px);
+  padding-top: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  width: calc(100% - 56px);
+}
+
+.msg {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  border: solid 1px var(--type-water);
+  white-space: break-spaces;
+  width: calc(100% - 70px);
+}
+
+.msg.me {
+  background-color: var(--hexagon-bg-color);
+  align-self: end;
+}
+
+.msg.chat {
+  background-color: var(--app-background-color);
+  align-self: start;
+}
+
+.msg img {
+  width: 24px;
+  height: 24px;
+  vertical-align: top;
+  background-color: var(--type-water);
+  border-radius: 100%;
+}
