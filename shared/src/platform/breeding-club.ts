@@ -19,24 +19,27 @@ export const babyProduced: BadgeId[] = [
  * For labeling purposes, the parents who may be bred together.
  * Note that this only is for labels, and has no pragmatic effect.
  *
- * potw-100-hisuian Voltorb (3)
- * potw-765 Oranguru (2)
- * potw-228 Houndour (1)
- * potw-399 Bidoof (1)
- * potw-321 Wailord (1)
- * potw-708 Phantump (1)
- * ---
- * 9 votes in total
+Slowpoke¹, Slowpoke², Slowpoke³  (Send: Slowpoke³, Slowpoke¹, Slowbro³, Slowbro², Slowpoke², Slowking², Slowking¹, Slowking³, Slowbro¹) (2)
+Nidoran♂¹, Nidoran♀¹, Nidoran♂², Nidoran♀², Nidoran♂³, Nidoran♀³, Nidoran♂⁴, Nidoran♀⁴  (Send: Nidorino⁴, Nidoran♂², Nidorino², Nidoran♂⁴, Nidoran♂¹, Nidoran♂³, Nidorino³, Nidorino¹) (2)
+439 (1)
+potw-453 Croagunk (1)
+Nickit¹, Nickit²  (Send: Nickit¹, Thievul¹, Thievul², Nickit²) (1)
+Pichu, Pichu¹, Cleffa, Cleffa¹, Cleffa²  (Send: Clefairy², Clefable², Clefairy, Raichu¹, Raichu Alolan¹, Clefairy¹, Pikachu¹, Raichu, Clefable, Clefable¹, Raichu Alolan, Pikachu) (1)
+Bounsweet¹, Bounsweet², Bounsweet³, Bounsweet⁴, Gossifleur³, Gossifleur⁴  (Send: Steenee², Steenee¹, Bounsweet¹, Bounsweet², Eldegoss³, Steenee⁴, Bounsweet³, Steenee³, Gossifleur³, Bounsweet⁴) (1)
+Tauros¹, Tauros², Tauros⁴, Snubbull³, Snubbull²  (Send: Tauros², Tauros¹, Granbull³, Tauros³, Tauros⁴) (1)
+---
+Rotom¹, Rotom², Rotom³, Rotom⁴  (Send: Rotom Heat¹, Rotom⁴, Rotom Heat², Rotom², Rotom Mow², Rotom Mow⁴, Rotom Mow³, Rotom Wash⁴, Rotom¹, Rotom Frost⁴, Rotom Fan², Rotom Wash², Rotom Heat⁴, Rotom Wash¹, Rotom Frost³, Rotom Fan³, Rotom Frost¹, Rotom Heat³, Rotom Frost², Rotom Mow¹, Rotom Fan¹, Rotom Fan⁴, Rotom Wash³, Rotom³) (1)
  */
 export const parents: BadgeId[] = [
-  Potw(P.Voltorb, {var: 1, form: 'hisuian'}),
-  Potw(P.Voltorb, {var: 2, form: 'hisuian'}),
-  Potw(P.Voltorb, {var: 3, form: 'hisuian'}),
-  Potw(P.Voltorb, {var: 4, form: 'hisuian'}),
-  Potw(P.Electrode, {var: 1, form: 'hisuian'}),
-  Potw(P.Electrode, {var: 2, form: 'hisuian'}),
-  Potw(P.Electrode, {var: 3, form: 'hisuian'}),
-  Potw(P.Electrode, {var: 4, form: 'hisuian'}),
+  Potw(P.Slowpoke, {var: 1}),
+  Potw(P.Slowpoke, {var: 2}),
+  Potw(P.Slowpoke, {var: 3}),
+  Potw(P.Slowbro, {var: 1}),
+  Potw(P.Slowbro, {var: 2}),
+  Potw(P.Slowbro, {var: 3}),
+  Potw(P.Slowking, {var: 1}),
+  Potw(P.Slowking, {var: 2}),
+  Potw(P.Slowking, {var: 3}),
 ]
 
 export const history: BadgeId[] = [
@@ -475,4 +478,12 @@ export const history: BadgeId[] = [
   Potw(P.Farigiraf, {var: 2}),
   Potw(P.Farigiraf, {var: 3}),
   Potw(P.Farigiraf, {var: 4}),
+  Potw(P.Voltorb, {var: 1, form: 'hisuian'}),
+  Potw(P.Voltorb, {var: 2, form: 'hisuian'}),
+  Potw(P.Voltorb, {var: 3, form: 'hisuian'}),
+  Potw(P.Voltorb, {var: 4, form: 'hisuian'}),
+  Potw(P.Electrode, {var: 1, form: 'hisuian'}),
+  Potw(P.Electrode, {var: 2, form: 'hisuian'}),
+  Potw(P.Electrode, {var: 3, form: 'hisuian'}),
+  Potw(P.Electrode, {var: 4, form: 'hisuian'}),
 ]

@@ -1,7 +1,7 @@
 import { get } from '../shared/src/pokemon'
 const admin = require('firebase-admin');
 
-// swarm | raid
+// swarm | raid | 'daycare'
 function getDocId() {
   const docId = (() => {
     if (process.argv[2] === 'reset' || process.argv[2] === undefined) {
@@ -37,14 +37,22 @@ async function main() {
   const topEight = [...vmap].slice(0, 8).map(k => k[0])
   topEight.forEach(p => {
     const pkmn = get(p)!
-    console.log(p, pkmn.species, `(${vmap.get(p)})`)
+    if (pkmn) { 
+      console.log(p, pkmn.species, `(${vmap.get(p)})`)
+    } else {
+      console.log(p, `(${vmap.get(p)})`)
+    }
   })
 
   console.log('---')
   const rest = [...vmap].slice(8).map(k => k[0])
   rest.forEach(p => {
     const pkmn = get(p)!
-    console.log(p, pkmn.species, `(${vmap.get(p)})`)
+    if (pkmn) { 
+      console.log(p, pkmn.species, `(${vmap.get(p)})`)
+    } else {
+      console.log(p, `(${vmap.get(p)})`)
+    }
   })
 
   console.log(`${Object.keys(users).length} votes in total`)
