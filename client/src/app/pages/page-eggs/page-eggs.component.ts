@@ -158,12 +158,12 @@ export class PageEggsComponent implements OnInit, OnDestroy {
     try {
       // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled
       const responses = await Promise.allSettled(eggs.map(e => this.firebase.exec<F.Hatch.Req, F.Hatch.Res>('hatch', {key: e.species})))
-      const species: BadgeId[] = responses
+      const species: PokemonId[] = responses
         .filter(r => r.status === 'fulfilled')
-        .map((r: PromiseFulfilledResult<HttpsCallableResult<F.Hatch.Res>>) => r.value.data.species)
+        .map((r: PromiseFulfilledResult<HttpsCallableResult<F.Hatch.Res>>) => r.value.data.badge)
       species.forEach(s => console.log(s))
-      this.hatchSpecies = species.map(s => Badge.fromLegacy(s).toString())
-      this.hatchLabel = species.map(s => Badge.fromLegacy(s).toLabel()).join(', ')
+      this.hatchSpecies = species.map(s => new Badge(s).toString())
+      this.hatchLabel = species.map(s => new Badge(s).toLabel()).join(', ')
       console.log(this.hatchSpecies, this.hatchLabel)
       this.hatchStatus = 'after'
       await this.firebase.refreshUser()

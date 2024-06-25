@@ -667,7 +667,7 @@ export namespace F {
     }
 
     export interface Res {
-      species: string /* Pokemon's species name */
+      species: BadgeId
       badge: PokemonId
     }
   }

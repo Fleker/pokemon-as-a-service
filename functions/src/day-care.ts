@@ -77,6 +77,8 @@ export function updateEggBadge(mother: BadgeId, child: BadgeId, badge: Badge): v
 interface EggDoc {
   hatch: number
   species: string
+  /* This will not be precise, as only when it's hatched will it run Badge.create */
+  badgeId: PokemonId
 }
 
 interface DayCareDoc {
