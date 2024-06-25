@@ -4041,7 +4041,7 @@ export const Okidogi: LegendaryQuest = {
     completed: requireItem('mochimuscle'),
     msg: 'You feel a craving for a mochi that can help you bulk up.'
   }, {
-    completed: (r) => r.battleStadiumRecord[1] > 900,
+    completed: (r) => r.battleStadiumRecord[1] > 450,
     msg: 'Are you skilled enough in battle to take on your next opponent?'
   }]
 }
@@ -4063,7 +4063,7 @@ export const Munkidori: LegendaryQuest = {
     completed: requireItem('mochigenius'),
     msg: 'You feel a craving for a mochi that can help you get more smarter.'
   }, {
-    completed: (r) => r.berryGrown > 900,
+    completed: (r) => r.berryGrown > 450,
     msg: 'Are you skilled enough to grow berries to lure in your next opponent?'
   }]
 }
@@ -4085,7 +4085,7 @@ export const Fezandipiti: LegendaryQuest = {
     completed: requireItem('mochiclever'),
     msg: 'You feel a craving for a mochi that can help boost your wisdom.'
   }, {
-    completed: (r) => r.itemsCrafted > 900,
+    completed: (r) => r.itemsCrafted > 450,
     msg: 'Your next opponent is crafty. Are you skilled enough to out-craft them?'
   }]
 }
@@ -4224,4 +4224,90 @@ export const IronBoulder: LegendaryQuest = {
     completed: (r) => r.raidRecord[1] >= 500,
     msg: 'Prove yourself in battles against overwhelming forces.'
   }]
+}
+
+export const Terapagos: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+    msg: 'Have you become an expert on the Pokémon of Paldea? You will need to do that before your field trip.'
+  }, {
+    completed: requireItem('terastellar', 50),
+    msg: 'Have you collected these tera shards? They look stellar!'
+  }, {
+    completed: simpleRequirePotwArr([
+      P.Walking_Wake, P.Gouging_Fire, P.Raging_Bolt,
+      P.Iron_Leaves, P.Iron_Boulder, P.Iron_Crown,
+    ]),
+    msg: 'Have you read about the strange beasts that resemble contemporary Legendary Pokémon?'
+  }, {
+    completed: simpleRequirePotwArr([
+      P.Hydrapple, P.Archaludon,
+    ]),
+    msg: 'Have you visited the Blueberry Academy? Several research discoveries have been made there.'
+  }, {
+    completed: simpleRequirePotwArr([
+      P.Venusaur, P.Charizard, P.Blastoise,
+      P.Meganium, P.Typhlosion, P.Feraligatr,
+      P.Sceptile, P.Blaziken, P.Swampert,
+      P.Torterra, P.Infernape, P.Empoleon,
+      P.Serperior, P.Emboar, P.Samurott,
+      P.Chesnaught, P.Delphox, P.Greninja,
+      P.Decidueye, P.Incineroar, P.Primarina,
+      P.Rillaboom, P.Cinderace, P.Inteleon,
+      P.Meowscarada, P.Skeledirge, P.Quaquaval,
+    ]),
+    msg: 'In the Blueberry Academy, there are rare Pokémon that appear from different regions. What will they evolve into?'
+  }, {
+    completed: requireItem([
+      'terabug', 'teranormal', 'terafighting', 'teraflying', 'terafire',
+      'terapoison', 'terafairy', 'teraghost', 'terapsychic', 'teradark',
+      'terasteel', 'teradragon', 'terawater', 'teragrass', 'teraice',
+      'teraelectric', 'teraground', 'terarock',
+    ]),
+    msg: 'Across Paldea there are crystal shards resembling various types. Have you found all of them?'
+  }, {
+    completed: (r) => r.raidRecord[1] >= 1024,
+    msg: 'Prove yourself in battles against intimidating opponents.'
+  }]
+}
+
+export const Pecharunt: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.raidRecord[1] > 1024,
+    msg: 'Are you an expert in raids? Try doing enough to demonstrate your excellence.'
+  }, {
+    completed: requireItem('teraghost', 50),
+    msg: 'Have you collected these crystal shards of the Ghost-type?'
+  }, {
+    completed: requireItem('terapoison', 50),
+    msg: 'Have you collected these crystal shards of the Poison-type?'
+  }, {
+    completed: simpleRequirePotw(P.Ogerpon),
+    msg: 'Have you encountered the Ogre of Kitakami?'
+  }, {
+    completed: simpleRequirePotwArr([
+      P.Okidogi, P.Munkidori, P.Fezandipiti
+    ]),
+    msg: 'Before you can find the master of mochi, you must find its retainers'
+  }, {
+    completed: requireItem(['maskwellspring', 'maskcornerstone', 'maskhearthflame']),
+    msg: 'The Ogre is said to wear masks when in battle.'
+  }, {
+    completed: complexRequirePotw(P.Sinistcha, {form: 'masterpiece'}),
+    msg: 'Have you encountered this Pokémon? It has taken on a masterpiece form!'
+  }, {
+    completed: requireItem([
+      'mochimuscle', 'mochiresist', 'mochigenius', 'mochiclever', 'mochiswift', 'mochihealth'
+    ]),
+    msg: 'Have you eaten this mochi? Go on, try some.'
+  }, {
+    completed: requireItem('pecha'),
+    msg: 'MOCHI MOCHI MOCHI'
+  }, {
+    completed: requireItem('pecha', 100),
+    msg: 'M̸̘̃Ō̷̦C̵̞̾H̶͙̎I̵͖͑ ̶͚͊M̶͚̊O̵̫͋C̶̠͌H̶͈̐I̸̯͛ ̷̡̀M̵̜̾Ö̷̼́C̶͎͘H̶̭͠I̷̺͘'
+  }, {
+    completed: requireItem('pecha', 500),
+    msg: 'M̶̧̝̻̫̪͈̜̬͑̊̽̾̿̚Ó̶͚̹̳͎̺̙̜̜̆C̷̡̛̹̗̩͓̜̔̊͑̍̾̾̉̓H̵̯̑̐̈́͆̄̿͋̾I̶̝̦̠͉̝̰͎͖̻͑̐̓̇ ̶͉̪̭̬̘̩̠͐͗̍̓̇̇̿̍̚M̸̥͔̼͍̺̳͖͓͌̍͋O̸̙̹͖͂̈́̄̈́̀̌̕C̷͚̱͓̈͗͊͆̑H̷̭̊̿Í̷̧͔̙̻̟̻͔͎̿͊́̀̚͝ ̵̡̝̖͍̋̇̽̋̈̃́̉͘M̵̖̹͉̩̣͛͂̿͌̃̂̈́͌̕Ò̷̙̯͊̈͊͗Ç̸̧̺̓̈́͌H̸͙̔̂̀́̽͌̔Ḭ̴̬̥̄̊̐̍͠'
+  }],
 }

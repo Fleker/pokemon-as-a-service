@@ -1472,6 +1472,33 @@ export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   hint: ['Rumors suggest your adventures in Area Zero have not yet ended, and a new beast has appeared.'],
   encounter: Potw(P.Iron_Crown),
   recyclable: true,
+}, {
+  docId: L.IRONCROWN,
+  quest: L.IronCrown,
+  badge: 'potw-1023',
+  title: 'The Paradox Beast of Mind and Metal',
+  gate: CATCH_CHARM_SV,
+  hint: ['Rumors suggest your adventures in Area Zero have not yet ended, and a new beast has appeared.'],
+  encounter: Potw(P.Iron_Crown),
+  recyclable: true,
+}, {
+  docId: L.TERAPAGOS,
+  quest: L.Terapagos,
+  badge: 'potw-1024',
+  title: 'The Secret of Terastallization',
+  gate: CATCH_CHARM_SV,
+  hint: ['There is a hidden cave that takes you deep into Area Zero.'],
+  encounter: Potw(P.Terapagos),
+  recyclable: true,
+}, {
+  docId: L.PECHARUNT,
+  quest: L.Pecharunt,
+  badge: 'potw-1025',
+  title: 'An Epilogue in Kitakami',
+  gate: CATCH_CHARM_SV,
+  hint: ['You are called back to Kitakami for some reason.'],
+  encounter: Potw(P.Pecharunt),
+  recyclable: true,
 }]
 
 export const CATCH_QUESTS: PokedexQuest[] = [{
@@ -1563,13 +1590,13 @@ export const GLOBAL_QUEST_DATE: () => boolean = (() => {
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
     // docId: 'available',
-    docId: 'unavailable',
-  dbKey: 'lousyThree',
-  badge: 'lousy-three',
-  boss: Potw(P.Okidogi, {shiny: false, var: 1}),
-  title: 'Mightiest Lousy Three Raids',
-   count: 1_000_000,
-  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day where you battle in raids against the Lousy Three. Normal shiny rates apply.']
+  docId: 'unavailable',
+  dbKey: 'ogerpon1',
+  badge: 'potw-1017-shiny',
+  boss: Potw(P.Ogerpon, {shiny: true, var: 1}),
+  title: 'Mightiest Shiny Ogerpon',
+  count: 1_000_000,
+  hint: ['A global pot of 1,000,000 Poké Balls will unlock a day where you battle in raids against a shiny Ogerpon.']
  }]
 
 export const POKEDEX_ACHIEVEMENTS: Medal[] = [{

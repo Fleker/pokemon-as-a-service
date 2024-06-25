@@ -151,6 +151,8 @@ export const questOrder = [
   L.IRONBOULDER,
   L.RAGINGBOLT,
   L.IRONCROWN,
+  L.TERAPAGOS,
+  L.PECHARUNT,
 ]
 
 export const pokedexOrder = [
