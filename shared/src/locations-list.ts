@@ -1563,7 +1563,7 @@ export const Globe = {
   'US-DFW': assert<Location>({
     label:"Midlothian", region:"North America", terrain:"Rural", flag: '🇺🇸', id: 120,
     hemiLat: 'North', hemiLong: 'West', timezone: 'America/Chicago', vivillon: 'polar',
-    latitude: 37.72, longitude: -77.12,
+    latitude: 32.48, longitude: -96.99,
     fact: "Those aren't southern stars, they are servers.",
     weatherSpring:{Rain:0.05,Thunderstorm:0.1,'Heat Wave':0.05,Cloudy:0.1, Windy: 0.05},
     weatherSummer:{'Heat Wave':0.1,Thunderstorm:0.1,Cloudy:0.1, Windy: 0.075},
