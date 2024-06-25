@@ -335,13 +335,20 @@ export const voyage_select = functions.https.onCall(async (data: F.VoyageSelect.
             const hostRef = db.collection('users').doc(voyage.host)
             const hostDoc = await hostRef.get<Users.Doc>()
             const host = hostDoc.data()
+            const icon = (() => {
+              const hostedPkmn = new Badge(voyage.players[voyage.host].species)
+              if (hostedPkmn.id === I.Finizen) {
+                hostedPkmn.id = I.Palafin
+              }
+              return hostedPkmn
+            })()
             try {
               sendNotification(host, {
                 title: `Your voyage is ready to start`,
                 category: 'PLAYER_EVENT',
                 body: 'Every player in the voyage has been marked as ready',
                 link: `/multiplayer/voyages?${voyageId}`,
-                icon: pkmn(new Badge(voyage.players[voyage.host].species).toSprite()),
+                icon: pkmn(icon).toSprite(),
               })
             } catch (e) {
               console.error(`Could not send ready notification to ${host.ldap}`)
