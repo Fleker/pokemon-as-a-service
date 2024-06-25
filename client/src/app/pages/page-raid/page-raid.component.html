@@ -195,6 +195,17 @@
   </mart-section>
 </collapsible-card>
 
+<collapsible-card *ngIf="!raid">
+  <span title>Next Raids</span>
+  <strong>Vote for what bosses you want to see next</strong>
+  <br>
+  <pokemon-datalist filter="evolved" #voter></pokemon-datalist>
+  <button mat-button raised (click)="raidVote()" [disabled]="exec.raidVote">
+    <mat-icon>how_to_vote</mat-icon>
+    Cast Vote
+  </button>
+</collapsible-card>
+
 <mat-card *ngIf="raid && raid?.state === 0">
   <div class="raid-header-ctr">
     <table class="raid-header typebg {{types[0]}}">
@@ -441,16 +452,9 @@
     </span> -->
     <br>
     <br>
-    <strong>Vote for what bosses you want to see next</strong>
-    <br>
-  <pokemon-datalist filter="evolved" #voter></pokemon-datalist>
-  <button mat-button raised (click)="raidVote()" [disabled]="exec.raidVote">
-    <mat-icon>how_to_vote</mat-icon>
-    Cast Vote
-  </button>
-  <button mat-button secondary raised (click)="closeBosses()">
-    Close
-  </button>
+    <button mat-button secondary raised (click)="closeBosses()">
+      Close
+    </button>
 </dialog>
 
 <dialog #dprizes>
