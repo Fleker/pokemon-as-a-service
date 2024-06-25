@@ -66,7 +66,7 @@ export class PokemonDatalistComponent implements OnInit {
         return allEntries.filter(x => x[1].rarity === undefined && x[1].levelTo === undefined && x[1].evolveTo === undefined)
       }
       if (this.filter === 'simple') {
-        return allEntries.filter(x => x[0].length === 8) // potw-XXX
+        return allEntries.filter(x => x[0].split('-').length === 2) // potw-XXX
       }
       return allEntries
     })()
