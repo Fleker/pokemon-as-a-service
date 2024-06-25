@@ -6,51 +6,46 @@ import * as P from '../gen/type-pokemon'
 
 /**
  * ```@markdown
-potw-885 Dreepy (2)
-potw-077 Ponyta (2)
-potw-935 Charcadet (1)
-potw-194-paldean Wooper (1)
-potw-019-alolan Rattata (1)
-potw-213 Shuckle (1)
-potw-767 Wimpod (1)
-potw-023 Ekans (1)
+potw-025 Pikachu (3)
+potw-010 Caterpie (1)
+potw-001 Bulbasaur (1)
+potw-869 Alcremie (1)
+potw-025-sinnohian Pikachu (1)
+potw-025-alolan Pikachu (1)
+potw-349 Feebas (1)
+potw-039 Jigglypuff (1)
 ---
-potw-531 Audino (1)
-potw-867 Runerigus (1)
-potw-855 Polteageist (1)
-potw-024 Arbok (1)
-potw-117 Seadra (1)
-potw-116 Horsea (1)
-potw-058 Growlithe (1)
-potw-206 Dunsparce (1)
-potw-418 Buizel (1)
-potw-179 Mareep (1)
-potw-129-apricot_stripes Magikarp (1)
-potw-327 Spinda (1)
-potw-447 Riolu (1)
-potw-404 Luxio (1)
-potw-236 Tyrogue (1)
-potw-351-sunny Castform (1)
-potw-060 Poliwag (1)
-potw-132 Ditto (1)
-potw-302 Sableye (1)
-potw-004 Charmander (1)
-potw-440 Happiny (1)
+potw-280 Ralts (1)
 potw-363 Spheal (1)
-potw-032 Nidoran♂ (1)
-potw-240 Magby (1)
-34 votes in total
+potw-302 Sableye (1)
+potw-996 Frigibax (1)
+potw-013 Weedle (1)
+potw-263-galarian Zigzagoon (1)
+potw-025-galarian Pikachu (1)
+potw-674 Pancham (1)
+potw-116 Horsea (1)
+potw-661 Fletchling (1)
+potw-552 Krokorok (1)
+potw-214 Heracross (1)
+potw-190 Aipom (1)
+potw-446 Munchlax (1)
+potw-255 Torchic (1)
+potw-304 Aron (1)
+potw-309 Electrike (1)
+potw-749 Mudbray (1)
+potw-054 Psyduck (1)
+29 votes in total
  * ```
  */
 export const Swarms: Record<RegionType, BadgeId> = {
-  'Africa / Middle East': Potw(P.Yamask, {form:'galarian'}),
-  'Asia': P.Spinda,
-  'Australia / New Zealand': P.Sinistea,
-  'Mediterranean': P.Horsea,
-  'North America': P.Sableye,
-  "North Europe": P.Growlithe,
-  "Pacific Islands": P.Mareep,
-  "South America": P.Dunsparce,
+  'Africa / Middle East': P.Feebas,
+  'Asia': Potw(P.Pikachu, {form: 'sinnohian'}),
+  'Australia / New Zealand': P.Jigglypuff,
+  'Mediterranean': P.Milcery,
+  'North America': P.Bulbasaur,
+  "North Europe": P.Caterpie,
+  "Pacific Islands": Potw(P.Pikachu, {form: 'alolan'}),
+  "South America": P.Pichu,
 }
 
 /**
@@ -66,14 +61,14 @@ export const Swarms: Record<RegionType, BadgeId> = {
  * minutes before and after half-past a particular hour.
  */
 export const MassiveOutbreaks: Record<WeatherType, BadgeId> = {
-  Cloudy: P.Riolu,
-  'Diamond Dust': P.Happiny,
-  Snow: P.Happiny,
-  Fog: P.Poliwag,
-  'Heat Wave': P.Magby,
-  Rain: P.Buizel,
-  Sandstorm: P.NidoranM,
-  Thunderstorm: P.Spheal,
-  Windy: P.Tyrogue,
+  Cloudy: P.Sableye,
+  'Diamond Dust': P.Frigibax,
+  Snow: P.Frigibax,
+  Fog: P.Ralts,
+  'Heat Wave': P.Torchic,
+  Rain: P.Psyduck,
+  Sandstorm: P.Sandile,
+  Thunderstorm: P.Electrike,
+  Windy: P.Fletchling,
   Sunny: P.Ditto // No-op
 }
