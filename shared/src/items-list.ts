@@ -3095,7 +3095,7 @@ const ITEMS_TRS = {
   }),
   // Gen 9 moves
   [TX('tr', 'Dragon Cheer')]: genTr(101, 'Dragon Cheer',{
-    buy: 0, sell: 7,
+    buy: 0, sell: 7, functional: true,
   }),
 }
 
@@ -5431,9 +5431,12 @@ export const BAZAAR = {
   kofu: assert<Bazaar>({
     name: 'Kofu Lounge', icon: 'set_meal',
     isOpen: (_, __, r) => {
-      // if (r.items['glimmeringcharm'] > 0) {
-      //   return BAZAAR_OPEN
-      // }
+      if (!r.items['glimmeringcharm']) {
+        return BAZAAR_CLOSED
+      }
+      if (r.items['glimmeringcharm'] > 0) {
+        return BAZAAR_OPEN
+      }
       return BAZAAR_CLOSED
     },
     currency: 'pokeball',
@@ -5496,9 +5499,12 @@ export const BAZAAR = {
   deli: assert<Bazaar>({
     name: 'Deli Cioso', icon: 'soup_kitchen',
     isOpen: (_, __, r) => {
-      // if (r.items['glimmeringcharm'] > 0) {
-      //   return BAZAAR_OPEN
-      // }
+      if (!r.items['glimmeringcharm']) {
+        return BAZAAR_CLOSED
+      }
+      if (r.items['glimmeringcharm'] > 0) {
+        return BAZAAR_OPEN
+      }
       return BAZAAR_CLOSED
     },
     currency: 'pokeball',
