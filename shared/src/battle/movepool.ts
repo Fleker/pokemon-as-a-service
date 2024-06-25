@@ -4471,7 +4471,7 @@ export const Movepool: Movepool = {
     flavor: 'The user slams a massive hammer down. Afterwards, its wrists will be sore and cannot use the same move again.',
     aoe: 'Single Opponent',
     onAfterMove: (inp) => APPLY_TEMP_STATUS(inp.caster, {...ConditionMap.HammerTime},
-      `${inp.caster} needs to put some ice on its wrists.`)
+      `${inp.caster.species} needs to put some ice on its wrists.`)
   },
   'Glacial Lance': {
     name: 'Glacial Lance', type: 'Ice',
