@@ -864,10 +864,21 @@ export const Globe = {
     hemiLat: 'South', hemiLong: 'East', timezone: 'Asia/Kolkata', vivillon: 'monsoon',
     latitude: 12.97, longitude: 77.69,
     fact: "This place is known as Silicon Valley. No, the other one.",
-    weatherSpring:{Rain:0.1,Cloudy:0.075,Fog:0.075},
-    weatherSummer:{Cloudy:0.075,Rain:0.05,Fog:0.075, 'Heat Wave': 0.025, 'Thunderstorm': 0.1},
+    weatherSpring:{Rain:0.1,Cloudy:0.075,Fog:0.075,'Heat Wave':0.05},
+    weatherSummer:{Cloudy:0.075,Rain:0.05,Fog:0.075, 'Heat Wave': 0.1, 'Thunderstorm': 0.1},
     weatherAutumn:{Cloudy:0.075,Rain:0.1,Fog:0.075,'Heat Wave':0.05, 'Thunderstorm': 0.1},
     weatherWinter:{'Heat Wave':0.15,Rain:0.05,Cloudy:0.075,Fog:0.075}
+  }),
+  'IN-GUR': assert<Location>({
+    // probably the closest to the Himalayas in the game
+    label:"Gurgaon", region:"Asia", terrain:"Urban", flag: '🇮🇳', id: 161,
+    hemiLat: 'South', hemiLong: 'East', timezone: 'Asia/Kolkata', vivillon: 'monsoon',
+    latitude: 28.46, longitude: 77.03,
+    fact: "Come here if you want to visit the Cyber City.",
+    weatherSpring:{Rain:0.075,Cloudy:0.1,Fog:0.125,Snow:0.025,Thunderstorm:0.025,'Heat Wave':0.025},
+    weatherSummer:{Cloudy:0.1,Rain:0.05,Fog:0.125,'Thunderstorm': 0.1,'Heat Wave':0.15},
+    weatherAutumn:{Cloudy:0.1,Rain:0.075,Fog:0.125,'Heat Wave':0.05,'Thunderstorm':0.05},
+    weatherWinter:{Rain:0.1,Cloudy:0.1,Fog:0.125,Snow:0.05,'Diamond Dust':0.005},
   }),
   'IN-HYD': assert<Location>({
     label:"Hyderabad", region:"Asia", terrain:"Urban", flag: '🇮🇳', id: 54,
@@ -875,7 +886,7 @@ export const Globe = {
     latitude: 16.77, longitude: 78.42,
     fact: "If this city's lake had a 'u', it would be very sweet.",
     weatherSpring:{Rain:0.125,Cloudy:0.075,Fog:0.075},
-    weatherSummer:{Cloudy:0.075,Rain:0.05,Fog:0.075, 'Thunderstorm': 0.1, 'Heat Wave':0.1},
+    weatherSummer:{Cloudy:0.075,Rain:0.05,Fog:0.075, 'Thunderstorm': 0.1, 'Heat Wave':0.15},
     weatherAutumn:{Cloudy:0.075,Rain:0.05,Fog:0.075,'Heat Wave':0.025, 'Thunderstorm': 0.05},
     weatherWinter:{Rain:0.1,Cloudy:0.075,Fog:0.075}
   }),
