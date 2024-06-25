@@ -16,7 +16,7 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
   ngAfterViewInit() {
     let frame = 0
     this.flicker = setInterval(() => {
-      this.drawConstellationTyranitar(++frame)
+      this.drawConstellationTurtonator(++frame)
       this.dotUserStars(this.uid)
     }, 140)
   }
@@ -79,6 +79,83 @@ export class ConstellationComponent implements AfterViewInit, OnDestroy {
         col++
       }
     }
+  }
+
+  drawConstellationTurtonator(frame: number) {
+    if (!this.canvas) return
+    const ctx = this.canvas!.nativeElement.getContext('2d')
+    if (ctx === null) return
+
+    ctx.clearRect(0, 0, 480, 480)
+    ctx.strokeStyle = '#ffffff'
+    ctx.fillStyle = '#ffffff'
+    ctx.beginPath()
+    
+    ctx.moveTo(379, 19)
+    ctx.lineTo(331, 28)
+    ctx.lineTo(304, 21)
+    ctx.lineTo(305, 31)
+    ctx.lineTo(263, 36)
+    ctx.lineTo(310, 58)
+    ctx.lineTo(305, 73)
+    ctx.lineTo(271, 119)
+    ctx.lineTo(242, 49)
+    ctx.lineTo(178, 78)
+    ctx.lineTo(125, 50)
+    ctx.lineTo(94, 118)
+    ctx.lineTo(45, 160)
+    ctx.lineTo(62, 220)
+    ctx.lineTo(44, 297)
+    ctx.lineTo(100, 315)
+    ctx.lineTo(130, 377)
+    ctx.lineTo(106, 370)
+    ctx.lineTo(109, 394)
+    ctx.lineTo(60, 404)
+    ctx.lineTo(60, 464)
+    ctx.lineTo(140, 461)
+    ctx.lineTo(136, 419)
+    ctx.lineTo(169, 418)
+    ctx.lineTo(171, 390)
+    ctx.lineTo(215, 388)
+    ctx.lineTo(187, 358)
+    ctx.lineTo(240, 395)
+    ctx.lineTo(265, 313)
+    ctx.lineTo(318, 289)
+    ctx.lineTo(300, 218)
+    ctx.lineTo(331, 146)
+    ctx.lineTo(367, 115)
+    ctx.lineTo(383, 137)
+    ctx.lineTo(417, 101)
+    ctx.lineTo(448, 100)
+    ctx.lineTo(439, 78)
+    ctx.lineTo(461, 74)
+    ctx.lineTo(431, 54)
+    ctx.lineTo(428, 41)
+    ctx.lineTo(411, 40)
+    ctx.lineTo(379, 19)
+
+    ctx.moveTo(318, 289)
+    ctx.lineTo(323, 336)
+    ctx.lineTo(341, 368)
+    ctx.lineTo(330, 381)
+    ctx.lineTo(330, 403)
+    ctx.lineTo(292, 392)
+    ctx.lineTo(261, 403)
+    ctx.lineTo(252, 385)
+
+    ctx.stroke()
+    ctx.closePath()
+
+    this.star(ctx, 185, 54, 1, frame)
+    this.star(ctx, 49, 69, 3, frame)
+    this.star(ctx, 27, 162, 5, frame)
+    this.star(ctx, 4, 294, 7, frame)
+    this.star(ctx, 95, 351, 9, frame)
+    this.star(ctx, 174, 376, 2, frame)
+    this.star(ctx, 257, 288, 4, frame)
+    this.star(ctx, 268, 134, 6, frame)
+    // this.star(ctx, 348, 86, 8, frame)
+    // this.star(ctx, 396, 95, 1, frame)
   }
 
   drawConstellationTyranitar(frame: number) {

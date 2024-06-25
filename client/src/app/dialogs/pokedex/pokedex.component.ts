@@ -267,7 +267,6 @@ export class PokedexDialog implements OnInit, OnDestroy {
     // We don't know here whether the item will be actually useable, but we can use the filters
     this.actionMenu.useItem = []
     for (const [key, value] of Object.entries(ItemAvailability)) {
-      console.debug(key, value, this.pokemon.key, value.filter.includes(this.pokemon.key as any))
       if (value.filter.includes(this.pokemon.key as any)) {
         this.actionMenu.useItem.push({
           item: key,

@@ -44,10 +44,8 @@ export class KeyboardService {
     })
     document.addEventListener('keyup', (e: KeyboardEvent) => {
       const {code} = e
-      console.debug('keyvent', e.code, e.shiftKey, e.ctrlKey, e)
       if (e.target['className'].includes('omnisearchinput')) {
         if (e.code === 'ArrowDown') {
-          console.log(document.querySelector('#omnisearchres li'))
           document.querySelector('#omnisearchres li')['focus']()
         }
         // FIXME: This is the wrong list
@@ -313,7 +311,7 @@ export class KeyboardService {
         try {
           const badge = new Badge(key)
           allSearchOptions.push({
-            label: `${badge.toLabel()} x${value}`,
+            label: `${badge.toLabel()} ×${value}`,
             url: '/pokemon/collection',
             keywords: [badge.toLabel().toLowerCase(), 'pokemon', badge.toString()],
             sprite: pkmn(badge.toSprite()),
@@ -327,9 +325,9 @@ export class KeyboardService {
         try {
           const itemDb = ITEMS[key]
           allSearchOptions.push({
-            label: `${itemDb.label} x${value}`,
+            label: `${itemDb.label} ×${value}`,
             url: '/items/bag',
-            keywords: [itemDb.label.toLowerCase().split(' '), itemDb.label.toLowerCase(), itemDb.category, 'item', 'inventory', key],
+            keywords: [...itemDb.label.toLowerCase().split(' '), itemDb.label.toLowerCase(), itemDb.category, 'item', 'inventory', key],
             sprite: item(key as ItemId),
             sublabel: key,
           })

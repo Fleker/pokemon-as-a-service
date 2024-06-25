@@ -72,7 +72,7 @@ export const MassiveOutbreaks: Record<WeatherType, BadgeId> = {
   Fog: P.Poliwag,
   'Heat Wave': P.Magby,
   Rain: P.Buizel,
-  Sandstorm: P.Nidoran_M,
+  Sandstorm: P.NidoranM,
   Thunderstorm: P.Spheal,
   Windy: P.Tyrogue,
   Sunny: P.Ditto // No-op

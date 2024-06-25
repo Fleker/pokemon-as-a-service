@@ -1,7 +1,7 @@
 <div #splash class="container">
   <div id="bar"></div>
   <div class="sky">
-    <h1>Pokémon of the Week</h1>
+    <h1 class="rainbow">Pokémon of the Week</h1>
     <button mat-button id='btn-login' raised (click)="login()" *ngIf="needLogin">
       <mat-icon>login</mat-icon>
       Login to Start
@@ -9,31 +9,31 @@
     <app-constellation uid="{{uid}}"></app-constellation>
     <br>
     <!-- <img class="sihouette" src='/images/sprites/pokemon/potw-898.png' /> -->
-    <img class="animate dragon legend1" src='/images/sprites/pokemon/potw-1007.png' />
-    <img class="animate dragon legend2" src='/images/sprites/pokemon/potw-1008.png' />
+    <img class="animate fire legend1" src='/images/sprites/pokemon/potw-1020.png' />
+    <img class="animate electric legend2" src='/images/sprites/pokemon/potw-1021.png' />
   </div>
   <div class="ground">
-    <img class="ambient steel" src='/images/sprites/pokemon/potw-981.png'>
-    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-984.png'>
-    <img class="ambient steel d2" src='/images/sprites/pokemon/potw-990.png'>
-    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-984.png'>
-    <img class="ambient steel" src='/images/sprites/pokemon/potw-979.png'>
+    <img class="ambient steel" src='/images/sprites/pokemon/potw-1012.png'>
+    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-1013.png'>
+    <img class="ambient steel d2" src='/images/sprites/pokemon/potw-1017.png'>
+    <img class="ambient ice d1" src='/images/sprites/pokemon/potw-1013.png'>
+    <img class="ambient steel" src='/images/sprites/pokemon/potw-1012.png'>
     <br>
-    <img class="animate-shake d2" src="/images/sprites/pokemon/potw-931-green_plumage.png" />
-    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-931-white_plumage.png" />
-    <img class="animate-shake d2" src="/images/sprites/pokemon/potw-931-blue_plumage.png" />
-    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-931-yellow_plumage.png" />
-    <!-- <img class="animate-shake" src="/images/sprites/pokemon/potw-9-curly.png" /> -->
+    <img class="animate-shake d2" src="/images/sprites/pokemon/potw-1011.png" />
+    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-1014.png" />
+    <img class="animate-shake d2" src="/images/sprites/pokemon/potw-1015.png" />
+    <img class="animate-shake d1" src="/images/sprites/pokemon/potw-1016.png" />
+    <img class="animate-shake d2" src="/images/sprites/pokemon/potw-1011.png" />
     <br>
-    <img class='small' src='/images/sprites/items/potw-item-boosterenergy.png'>
-    <img class='small' src='/images/sprites/items/potw-item-boosterenergy.png'>
-    <img class='small' src='/images/sprites/items/potw-item-boosterenergy.png'>
+    <img class='small' src='/images/sprites/items/potw-item-maskwellspring.png'>
+    <img class='small' src='/images/sprites/items/potw-item-maskhearthflame.png'>
+    <img class='small' src='/images/sprites/items/potw-item-maskcornerstone.png'>
   </div>
   <br>
 
   <br>
   <div #droppings class="droppings"></div>
-  <h3 class="version">{{appVersion}} {{appPubDate}}</h3>
+  <h3 class="version">{{appVersion}} ({{appPubDate}})</h3>
   <h3 class="tip">
     <em>Did you know?</em>
     <br>
