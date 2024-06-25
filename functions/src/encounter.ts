@@ -598,6 +598,7 @@ const ENCOUNTERS_UNCOMMON = (user, now: Date, location: Location, format: Encoun
   list.push(...addIf(P.Abra, {count: 1}, p))
   list.push(...addIf(P.Abra, {count: 20, event: 'MEWTWO_BIRTHDAY'}, p))
   list.push(...addIf(P.Machop, {count: 1}, p))
+  list.push(...addIf(P.Geodude, {count: 1, terrain: 'Mountain'}, p))
   list.push(...addIf(P.Ponyta, {count: 1, terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Doduo, {count: 1, terrain: 'Grasslands'}, p))
   list.push(...addIf(P.Muk, {count: 1}, p))
