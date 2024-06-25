@@ -214,7 +214,7 @@ exports.throw = functions.https.onCall(async (data: F.Throw.Req, context): Promi
   
       if (availablePokemon.length === 0) {
         throw new functions.https.HttpsError('out-of-range',
-          'Cannot find any Pokémon. Looks like you have caught them all.');
+          'Cannot find any Pokémon with the current settings. Try another location, or allow duplicate captures.');
       }
     
       let selectedPokemon: BadgeId = availablePokemon[Math.floor(Math.random() * availablePokemon.length)];
