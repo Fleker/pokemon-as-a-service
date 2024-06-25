@@ -1444,6 +1444,16 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
     usable: () => true,
     consumes: () => false,
   },
+  'tr-Dragon Cheer': {
+    filter: [P.Dipplin],
+    pokemon: {
+      [P.Dipplin]: {
+        badge: B2.Potw(P.Hydrapple),
+      }
+    },
+    usable: () => true,
+    consumes: () => true,
+  },
   adamantorb: {
     filter: [
       B2.Potw(P.Dialga),
@@ -2312,7 +2322,7 @@ export const ItemAvailability: {[key in ItemId]?: Availability} = {
         badge: P.Archaludon,
       }
     },
-    usable: () => false, // TODO
+    usable: () => true,
     consumes: () => true,
   },
   expcandyxs: {
