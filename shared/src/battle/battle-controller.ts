@@ -54,7 +54,7 @@ export function getCasterTurnMove(caster: Pokemon, casters: Pokemon[], targets: 
       const dynamicTarget = options.targetingLogic(caster, turnCount, validTargets)
       if (dynamicTarget === undefined) {
         // This should not happen.
-        console.warn(`Dynamic target for boss ${caster.species} undefined`)
+        console.warn(`Dynamic target for boss ${caster.title} undefined`)
         return validTargets[0]
       }
       return dynamicTarget
@@ -63,7 +63,7 @@ export function getCasterTurnMove(caster: Pokemon, casters: Pokemon[], targets: 
       const dynamicTarget = caster.targetingLogic(caster, turnCount, validTargets)
       if (dynamicTarget === undefined) {
         // This should not happen.
-        console.warn(`Dynamic target for caster ${caster.species} undefined`)
+        console.warn(`Dynamic target for caster ${caster.title} undefined`)
         return validTargets[0]
       }
       return dynamicTarget
@@ -232,19 +232,19 @@ export function switchOutPokemon(field: Field, prefix: Prefix, pkmn: Pokemon, pa
     speed: 0,
   }
   if (pkmn.fainted) {
-    log.add(`You did well, ${pkmn.species}. You deserve a long rest.`)
+    log.add(`You did well, ${pkmn.title}. You deserve a long rest.`)
   } else {
-    log.add(`Thanks, ${pkmn.species}.`)
+    log.add(`Thanks, ${pkmn.title}.`)
   }
   const next = eligiblePartners[0]
   APPLY_TEMP_STATUS(next, {...ConditionMap['OnField']})
   const p = Math.random()
   if (p < 0.33) {
-    log.add(`Let's go, ${next.species}!`)
+    log.add(`Let's go, ${next.title}!`)
   } else if (p < 0.67) {
-    log.add(`I choose you, ${next.species}!`)
+    log.add(`I choose you, ${next.title}!`)
   } else {
-    log.add(`I'm counting on you ${next.species}!`)
+    log.add(`I'm counting on you ${next.title}!`)
   }
   log.push(next.heldItem?.onEnterBattle?.(next))
   log.push(applyEntryHazards(field, prefix, next, party))
@@ -261,7 +261,7 @@ function applyEntryHazards(field: Field, prefix: Prefix, pkmn: Pokemon, party: P
   // get affected and thus we do not need to calculate separate damage ratios.
   if (side.spikes && pkmn.type1 !== 'Flying' && pkmn.type2 !== 'Flying') {
     const spikesRatio = [0, 0.125, 0.167, 0.25]
-    log.add(`A trap of sharp spikes dug into the ${pkmn.species}'s feet.`)
+    log.add(`A trap of sharp spikes dug into the ${pkmn.title}'s feet.`)
     log.push(logDamage(pkmn, pkmn.totalHp * spikesRatio[side.spikes], true))
   }
   if (side.stickyWeb && pkmn.type1 !== 'Flying' && pkmn.type2 !== 'Flying') {
@@ -274,9 +274,9 @@ function applyEntryHazards(field: Field, prefix: Prefix, pkmn: Pokemon, party: P
       log.add(`The toxic spikes were safely brushed aside.`)
     } else if (pkmn.type1 !== 'Flying' && pkmn.type2 !== 'Flying') {
       if (side.toxicSpikes === 1) {
-        log.push(APPLY_STATUS(pkmn, 'Poison', `${pkmn.species} was poisoned`))
+        log.push(APPLY_STATUS(pkmn, 'Poison', `${pkmn.title} was poisoned`))
       } else {
-        log.push(APPLY_STATUS(pkmn, 'Poison', `${pkmn.species} was badly poisoned`))
+        log.push(APPLY_STATUS(pkmn, 'Poison', `${pkmn.title} was badly poisoned`))
         log.push(APPLY_TEMP_STATUS(pkmn, {...ConditionMap['PoisonBad']}))
       }
     }
@@ -438,7 +438,7 @@ export function attack(params: AttackParams): Log {
   // Confusion perhaps?
   if (target.currentHp <= 0) {
     target.fainted = true
-    log.add(`${target.species} fainted!`)
+    log.add(`${target.title} fainted!`)
   }
 
   // Will this fail once and not for others? I don't think so?
@@ -450,7 +450,7 @@ export function attack(params: AttackParams): Log {
   removeCondition(caster, 'PreviousMoveFailed')
 
   // Create move
-  log.add(`${prefix} ${caster.species} used ${move.name}`)
+  log.add(`${prefix} ${caster.title} used ${move.name}`)
 
   const statusLog = new Log()
   const tempStatusLog = new Log();
@@ -559,7 +559,7 @@ export function attack(params: AttackParams): Log {
       // log.add(`[D] ${netAccuracy} < ${hitRoll}`)
       if (netAccuracy < hitRoll) {
         if (many) {
-          log.add(`The attack missed on ${target.species}!`)
+          log.add(`The attack missed on ${target.title}!`)
           if (move.onMiss) {
             log.push(move.onMiss(moveInput))
           }
@@ -579,7 +579,7 @@ export function attack(params: AttackParams): Log {
       } // Miss. Exit now.
       const multLog = typeMultiplier(target, move.type) as TypeMultiplier
       if (many) {
-        log.add(`The attack struck ${target.species}`)
+        log.add(`The attack struck ${target.title}`)
       }
       log.push(multLog)
       const {mult} = multLog
@@ -612,7 +612,7 @@ export function attack(params: AttackParams): Log {
           }
         }
         if (many) {
-          log.add(`A critical hit on ${target.species}!`)
+          log.add(`A critical hit on ${target.title}!`)
         } else {
           log.add('A critical hit!')
         }
@@ -708,7 +708,7 @@ export function attack(params: AttackParams): Log {
       }
       if (target.currentHp <= 0) {
         target.fainted = true
-        log.add(`${target.species} fainted!`)
+        log.add(`${target.title} fainted!`)
       }
       if (getCondition(caster, 'SwitchOut')) {
         // If 'SwitchOut' condition then replace player
@@ -864,7 +864,7 @@ export function turn(p: TurnParameters): TurnLog {
         targets: opponents.filter(c => getCondition(c, 'OnField')),
         targetParty: opponents,
       }
-      log.debug(`${action.move.name} -> ${action.target.species}`)
+      log.debug(`${action.move.name} -> ${action.target.title}`)
       log.push(attack(attackParams))
       if (endOfGame(opponents)) {
         log.matchEnd = 'player'
@@ -881,7 +881,7 @@ export function turn(p: TurnParameters): TurnLog {
         targets: players.filter(c => getCondition(c, 'OnField')),
         targetParty: opponents,
       }
-      log.debug(`${action.move.name} -> ${action.target.species}`)
+      log.debug(`${action.move.name} -> ${action.target.title}`)
       log.push(attack(attackParams))
       if (endOfGame(players)) {
         log.matchEnd = 'opponent'
@@ -1259,6 +1259,7 @@ export function buildMatchup(players: Badge[], heldItems: ItemId[],
     const data = {...Pkmn.get(badge.toLegacyString())} as PokemonDoc
     const pkmn: Pokemon = {...data,
       badge: badge,
+      title: badge.toBattleTitle(),
       fainted: false,
       totalHp: (data.hp || 50) * 4,
       currentHp: (data.hp || 50) * 4,
@@ -1306,6 +1307,7 @@ export function buildMatchup(players: Badge[], heldItems: ItemId[],
     const data = {...Pkmn.get(badge.toLegacyString())} as PokemonDoc
     const pkmn: Pokemon = {...data,
       badge: badge,
+      title: badge.toBattleTitle(),
       fainted: false,
       totalHp: (data.hp || 50) * 4,
       currentHp: (data.hp || 50) * 4,

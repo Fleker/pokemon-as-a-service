@@ -722,6 +722,7 @@ export async function matchup(players: Badge[], heldItems: ItemId[], opponent: B
     const data = {...Pkmn.get(badge.toLegacyString())} as PokemonDoc
     const pkmn: Pokemon = {...data,
       badge: badge,
+      title: badge.toBattleTitle(),
       fainted: false,
       totalHp: (data.hp || 50) * 4,
       currentHp: (data.hp || 50) * 4,
@@ -754,6 +755,7 @@ export async function matchup(players: Badge[], heldItems: ItemId[], opponent: B
   const opponentPokemon: Pokemon = {
     ...Pkmn.get(opponent)!,
     badge: Badge.fromLegacy(opponent),
+    title: badge.toBattleTitle(),
     fainted: false,
     totalHp: (data.hp || 50) * 4,
     currentHp: (data.hp || 50) * 4,

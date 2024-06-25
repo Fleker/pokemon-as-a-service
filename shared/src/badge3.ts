@@ -564,6 +564,26 @@ export class Badge {
     return res
   }
 
+  /**
+   * Returns the Pokémon's title as it would appear in battle. Its 'title'
+   * is its species name and whatever mark might be attached to it.
+   * ie. 'Charmander the Sociable'.
+   * This is similar to `toLabel` but omits some details.
+   */
+  toBattleTitle() {
+    const dbRes = Pkmn.get(`potw-${this.id}`)
+    if (!dbRes) {
+      return undefined
+    }
+    let res = dbRes.species
+    if (this.ribbons?.length) {
+      if (RibbonMarksTable[this.ribbons[0]].title) {
+        res += ` ${RibbonMarksTable[this.ribbons[0]].title}`
+      }
+    }
+    return res
+  }
+
   toString(): PokemonId {
     const id64 = toBase64(this.id.toString(16).toUpperCase())
     const personality64 = fromPersonality(this.personality, this.id)

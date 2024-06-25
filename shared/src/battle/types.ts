@@ -11,6 +11,7 @@ import { Badge } from "../badge3"
 
 export interface Pokemon extends PokemonDoc {
   badge: Badge
+  title: string
   ability?: Ability
   heldItem?: Item
   heldItemKey?: ItemId
