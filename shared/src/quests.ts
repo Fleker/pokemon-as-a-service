@@ -1436,6 +1436,42 @@ export const LEGENDARY_ITEM_QUESTS: Quest[] = [{
   hint: ['The ogre was once attacked by a Pokémon that came from Fairy tales.'],
   encounter: Potw(P.Fezandipiti),
   recyclable: true,
+}, {
+  docId: L.GOUGINGFIRE,
+  quest: L.GougingFire,
+  badge: 'potw-1020',
+  title: 'The Paradox Beast of Fire and Heat',
+  gate: CATCH_CHARM_SV,
+  hint: ['Rumors suggest your adventures in Area Zero have not yet ended, and a new beast has appeared.'],
+  encounter: Potw(P.Gouging_Fire),
+  recyclable: true,
+}, {
+  docId: L.RAGINGBOLT,
+  quest: L.RagingBolt,
+  badge: 'potw-1021',
+  title: 'The Paradox Beast of Thunder and Lightning',
+  gate: CATCH_CHARM_SV,
+  hint: ['Rumors suggest your adventures in Area Zero have not yet ended, and a new beast has appeared.'],
+  encounter: Potw(P.Raging_Bolt),
+  recyclable: true,
+}, {
+  docId: L.IRONBOULDER,
+  quest: L.IronBoulder,
+  badge: 'potw-1022',
+  title: 'The Paradox Beast of Mind and Stone',
+  gate: CATCH_CHARM_SV,
+  hint: ['Rumors suggest your adventures in Area Zero have not yet ended, and a new beast has appeared.'],
+  encounter: Potw(P.Iron_Boulder),
+  recyclable: true,
+}, {
+  docId: L.IRONCROWN,
+  quest: L.IronCrown,
+  badge: 'potw-1023',
+  title: 'The Paradox Beast of Mind and Metal',
+  gate: CATCH_CHARM_SV,
+  hint: ['Rumors suggest your adventures in Area Zero have not yet ended, and a new beast has appeared.'],
+  encounter: Potw(P.Iron_Crown),
+  recyclable: true,
 }]
 
 export const CATCH_QUESTS: PokedexQuest[] = [{
@@ -1522,12 +1558,12 @@ export const POKEDEX_QUESTS: Quest[] = [...CATCH_QUESTS, {
 export const GLOBAL_QUEST_DATE: () => boolean = (() => {
   const legendaryDate = new Date()
   return legendaryDate.getUTCMonth() === 4 && // May (4)
-    legendaryDate.getUTCDate() <= 22 // May 22nd
+    legendaryDate.getUTCDate() <= 31 // May 31st
 })
 
 export const GLOBAL_QUESTS: GlobalQuest[] = [{
-    docId: 'available',
-    // docId: 'unavailable',
+    // docId: 'available',
+    docId: 'unavailable',
   dbKey: 'lousyThree',
   badge: 'lousy-three',
   boss: Potw(P.Okidogi, {shiny: false, var: 1}),

@@ -147,6 +147,10 @@ export const questOrder = [
   L.OGERPONWATER,
   L.OGERPONFIRE,
   L.OGERPONROCK,
+  L.GOUGINGFIRE,
+  L.IRONBOULDER,
+  L.RAGINGBOLT,
+  L.IRONCROWN,
 ]
 
 export const pokedexOrder = [

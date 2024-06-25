@@ -170,6 +170,10 @@ export const OGERPONWATER = 'WELLSPRING'
 export const OGERPONFIRE = 'HEARTHFLAME'
 export const OGERPONROCK = 'CORNERSTONE'
 export const BLOODMOON = 'BLOODMOON'
+export const RAGINGBOLT = 'PARADOXRAIKOU'
+export const GOUGINGFIRE = 'PARADOXENTEI'
+export const IRONCROWN = 'PARADOXCOBALION'
+export const IRONBOULDER = 'PARADOXTERRAKION'
 
 const oneDayAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 1).getTime()
 const oneWeekAgo = new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).getTime()
@@ -4086,3 +4090,138 @@ export const Fezandipiti: LegendaryQuest = {
   }]
 }
 
+export const RagingBolt: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+    msg: 'Have you become an expert on the Pokémon of Paldea? You will need to do that before your field trip.'
+  }, {
+    completed: requireItem('teraelectric', 50),
+    msg: 'Have you collected these tera shards? They seem to be associated with the Electric-type.',
+  }, {
+    completed: requireItem('terastellar', 10)
+    msg: 'Have you collected these tera shards? They do not seem to be associated with any known type.'
+  }, {
+    completed: requireItem('scarletbook'),
+    msg: 'An old book depicts a tall beast.',
+  }, {
+    completed: complexRequirePotw(P.Ursaluna, {form:'blood_moon'}),
+    msg: 'Have you caught the Blood Moon beast of Kitakami?'
+  }, {
+    completed: simpleRequirePotw(P.Walking_Wake),
+    msg: 'Have you captured this Pokémon? If you squint hard enough, it looks like Suicune.'
+  }, {
+    completed: simpleRequirePotw(P.Electivire),
+    msg: 'Have you captured this Pokémon? Its two tails conduct a great deal of voltage.'
+  }, {
+    completed: simpleRequirePotw(P.Hydrapple),
+    msg: 'Have you captured this Pokémon? Its many head live in a small sweet-smelling space.'
+  }, {
+    completed: (r) => r.pokemonBadges.filter(b => b[0].personality.teraType === 'Electric').length >= 100,
+    msg: 'Did you know that many Pokémon can terastallize into the Electric-type?',
+  }, {
+    completed: (r) => r.battleStadiumRecord[1] >= 500,
+    msg: 'Prove yourself in battles against your peers.'
+  }]
+}
+
+export const GougingFire: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+    msg: 'Have you become an expert on the Pokémon of Paldea? You will need to do that before your field trip.'
+  }, {
+    completed: requireItem('terafire', 50),
+    msg: 'Have you collected these tera shards? They seem to be associated with the Fire-type.',
+  }, {
+    completed: requireItem('terastellar', 10)
+    msg: 'Have you collected these tera shards? They do not seem to be associated with any known type.'
+  }, {
+    completed: requireItem('scarletbook'),
+    msg: 'An old book depicts a brazen monster.',
+  }, {
+    completed: complexRequirePotw(P.Ursaluna, {form:'blood_moon'}),
+    msg: 'Have you caught the Blood Moon beast of Kitakami?'
+  }, {
+    completed: simpleRequirePotw(P.Walking_Wake),
+    msg: 'Have you captured this Pokémon? If you squint hard enough, it looks like Suicune.'
+  }, {
+    completed: simpleRequirePotw(P.Magmortar),
+    msg: 'Have you captured this Pokémon? Fireballs launch out of its arms.'
+  }, {
+    completed: simpleRequirePotw(P.Hydrapple),
+    msg: 'Have you captured this Pokémon? Its many head live in a small sweet-smelling space.'
+  }, {
+    completed: (r) => r.pokemonBadges.filter(b => b[0].personality.teraType === 'Fire').length >= 100,
+    msg: 'Did you know that many Pokémon can terastallize into the Fire-type?',
+  }, {
+    completed: (r) => r.battleStadiumRecord[1] >= 500,
+    msg: 'Prove yourself in battles against your peers.'
+  }]
+}
+
+export const IronCrown: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+    msg: 'Have you become an expert on the Pokémon of Paldea? You will need to do that before your field trip.'
+  }, {
+    completed: requireItem('terasteel', 50),
+    msg: 'Have you collected these tera shards? They seem to be associated with the Steel-type.',
+  }, {
+    completed: requireItem('terastellar', 10)
+    msg: 'Have you collected these tera shards? They do not seem to be associated with any known type.'
+  }, {
+    completed: requireItem('violetbook'),
+    msg: 'A neofuturist book depicts a crowned creature.',
+  }, {
+    completed: complexRequirePotw(P.Sinistcha, {form:'masterpiece'}),
+    msg: 'Have you caught the tea master of Kitakami?'
+  }, {
+    completed: simpleRequirePotw(P.Iron_Leaves),
+    msg: 'Have you captured this Pokémon? If you squint hard enough, it looks like Virizion.'
+  }, {
+    completed: simpleRequirePotw(P.Bastiodon),
+    msg: 'Have you captured this Pokémon? Its head is shaped like a giant wall.'
+  }, {
+    completed: simpleRequirePotw(P.Archaludon),
+    msg: 'Have you captured this Pokémon? It gathers static electricity to fire into a devastating Electro Shot.'
+  }, {
+    completed: (r) => r.pokemonBadges.filter(b => b[0].personality.teraType === 'Steel').length >= 100,
+    msg: 'Did you know that many Pokémon can terastallize into the Steel-type?',
+  }, {
+    completed: (r) => r.raidRecord[1] >= 500,
+    msg: 'Prove yourself in battles against overwhelming forces.'
+  }]
+}
+
+export const IronBoulder: LegendaryQuest = {
+  hints: [{
+    completed: (r) => r.hiddenItemsFound.includes(CATCH_CHARM_SV),
+    msg: 'Have you become an expert on the Pokémon of Paldea? You will need to do that before your field trip.'
+  }, {
+    completed: requireItem('terarock', 50),
+    msg: 'Have you collected these tera shards? They seem to be associated with the Rock-type.',
+  }, {
+    completed: requireItem('terastellar', 10)
+    msg: 'Have you collected these tera shards? They do not seem to be associated with any known type.'
+  }, {
+    completed: requireItem('violetbook'),
+    msg: 'A neofuturist book depicts a sturdy mount.',
+  }, {
+    completed: complexRequirePotw(P.Sinistcha, {form:'masterpiece'}),
+    msg: 'Have you caught the tea master of Kitakami?'
+  }, {
+    completed: simpleRequirePotw(P.Iron_Leaves),
+    msg: 'Have you captured this Pokémon? If you squint hard enough, it looks like Virizion.'
+  }, {
+    completed: simpleRequirePotw(P.Rampardos),
+    msg: 'Have you captured this Pokémon? Its head is rock solid.'
+  }, {
+    completed: simpleRequirePotw(P.Archaludon),
+    msg: 'Have you captured this Pokémon? It gathers static electricity to fire into a devastating Electro Shot.'
+  }, {
+    completed: (r) => r.pokemonBadges.filter(b => b[0].personality.teraType === 'Rock').length >= 100,
+    msg: 'Did you know that many Pokémon can terastallize into the Rock-type?',
+  }, {
+    completed: (r) => r.raidRecord[1] >= 500,
+    msg: 'Prove yourself in battles against overwhelming forces.'
+  }]
+}
