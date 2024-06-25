@@ -1332,7 +1332,7 @@ const Glaiven = assert<Status>({
     return new Log()
   },
   onTurnEnd: (target, status) => {
-    if (status.turnsActive > 1) {
+    if (status.turnsActive >= 1) {
       removeCondition(target, 'Glaiven')
     }
     return new Log()
@@ -1350,7 +1350,7 @@ const HammerTime = assert<Status>({
     return new Log()
   },
   onTurnEnd: (target, status) => {
-    if (status.turnsActive > 1) {
+    if (status.turnsActive >= 1) {
       removeCondition(target, 'HammerTime')
     }
     return new Log()
@@ -1368,7 +1368,7 @@ const BloodMooning = assert<Status>({
     return new Log()
   },
   onTurnEnd: (target, status) => {
-    if (status.turnsActive > 1) {
+    if (status.turnsActive >= 1) {
       removeCondition(target, 'BloodMooning')
     }
     return new Log()
